@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { IBM_Plex_Sans } from 'next/font/google';
 import './globals.css';
+import { ThemeProvider } from '@/providers/nexttheme-provider';
 
 const ibmPlexSans = IBM_Plex_Sans({
     subsets: ['latin'],
@@ -18,8 +19,17 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
-            <body className={ibmPlexSans.className}>{children}</body>
+        <html lang="en" suppressHydrationWarning>
+            <body className={ibmPlexSans.className}>
+                <ThemeProvider
+                    attribute="class"
+                    defaultTheme="system"
+                    enableSystem
+                    disableTransitionOnChange
+                >
+                    {children}
+                </ThemeProvider>
+            </body>
         </html>
     );
 }
