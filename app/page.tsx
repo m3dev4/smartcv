@@ -1,5 +1,7 @@
 'use client';
 
+import ContributeSection from '@/components/landing/contributeSection';
+import Footer from '@/components/landing/footer';
 import Header from '@/components/landing/header';
 import Hero from '@/components/landing/hero';
 import LearnMore from '@/components/landing/learnMore';
@@ -14,6 +16,8 @@ const LandingPage = () => {
                 <Hero />
                 <LearnMore />
                 <Testimonial />
+                <ContributeSection />
+                <Footer />
             </div>
         </main>
     );
