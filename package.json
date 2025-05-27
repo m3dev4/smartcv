@@ -2,6 +2,15 @@
   "name": "smartcv",
   "version": "0.1.0",
   "private": true,
+  "description": "SmartCV is a modern and responsive CV generator built with Next.js and Tailwind CSS.",
+  "author": "m3dev4",
+  "license": "MIT",
+  "homepage": "https://smartcv.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/m3dev4/smartcv",
+    "directory": "/"
+  },
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
