@@ -32,8 +32,12 @@ export default function middleware(request: NextRequest) {
 // Configuration pour les routes où le middleware s'applique
 export const config = {
   matcher: [
-    // Appliquer le middleware sur les routes protégées et publiques
-    ...protectedRoutes.map(route => route + '/:path*'),
-    ...publicRoutes.map(route => route + '/:path*'),
-  ],
+    // Routes protégées
+    '/dashboard/:path*',
+    
+    // Routes publiques
+    '/sign-in/:path*',
+    '/sign-up/:path*',
+    '/verify-email/:path*'
+  ]
 };
