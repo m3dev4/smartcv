@@ -1,9 +1,21 @@
-import React from 'react'
+"use client"
+import { signOut } from '@/utils/auth';
+import { useRouter } from 'next/navigation';
+import React from 'react';
 
 const DashboardPage = () => {
-  return (
-    <div>DashboardPage</div>
-  )
-}
+  const router = useRouter();
 
-export default DashboardPage
+  const handleLogout = () => {
+    signOut();
+    router.push('/');
+  };
+  return (
+    <div>
+      <h1>Dashboard</h1>
+      <button onClick={handleLogout}>Logout</button>
+    </div>
+  );
+};
+
+export default DashboardPage;
