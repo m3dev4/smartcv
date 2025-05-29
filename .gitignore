@@ -39,6 +39,8 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-/lib/generated/prisma
+# Gardez les fichiers Prisma pour Vercel
+# /lib/generated/prisma
 
-/lib/generated/prisma
+# Gardez les fichiers Prisma pour Vercel
+# /lib/generated/prisma
