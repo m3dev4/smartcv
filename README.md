@@ -32,8 +32,11 @@ Avec une interface utilisateur intuitive et des fonctionnalités avancées, Smar
 ## 🚀 Technologies utilisées
 
 - **Frontend** : Next.js, React, TypeScript, Tailwind CSS
-- **State Management** : React Context API / Redux
-- **Styling** : CSS Modules, Tailwind CSS
+- **Backend** : Next.js API Routes, Prisma ORM
+- **Database** : PostgreSQL
+- **Authentication** : Système personnalisé avec Better Auth, Nodemailer
+- **State Management** : React Context API
+- **Styling** : Tailwind CSS avec configuration Prettier
 - **Déploiement** : Vercel
 - **Autres** : React Hook Form, Framer Motion pour les animations
 
@@ -46,13 +49,21 @@ cd smartcv
 
 # Installer les dépendances
 npm install
-# ou
-yarn install
+
+# Configurer les variables d'environnement
+# Créez un fichier .env.local à la racine du projet avec les variables suivantes :
+DATABASE_URL="votre_url_de_connexion_postgresql"
+EMAIL_HOST="smtp.gmail.com" # ou votre serveur SMTP
+EMAIL_PORT=587
+EMAIL_USERNAME="votre_email@exemple.com"
+EMAIL_PASSWORD="votre_mot_de_passe"
+NEXT_PUBLIC_BASE_URL="http://localhost:3000"
+
+# Exécuter les migrations Prisma
+npx prisma migrate dev
 
 # Lancer le serveur de développement
 npm run dev
-# ou
-yarn dev
 ```
 
 Accédez à [http://localhost:3000](http://localhost:3000) pour voir l'application en action.
@@ -61,20 +72,36 @@ Accédez à [http://localhost:3000](http://localhost:3000) pour voir l'applicati
 
 ```
 smartcv/
-├── app/                # App Router de Next.js
-├── components/         # Composants React réutilisables
-│   ├── cv/            # Composants spécifiques aux CV
-│   ├── landing/       # Composants de la page d'accueil
-│   └── ui/            # Composants d'interface utilisateur génériques
-├── lib/               # Utilitaires et fonctions partagées
-├── public/            # Fichiers statiques
-├── styles/            # Styles globaux et variables
-└── types/             # Définitions de types TypeScript
+├── app/                   # App Router de Next.js
+│   ├── (auth)/           # Routes d'authentification (sign-up, sign-in, verify-email)
+│   └── dashboard/        # Interface utilisateur après connexion
+├── components/            # Composants React réutilisables
+│   ├── cv/               # Composants spécifiques aux CV
+│   ├── landing/          # Composants de la page d'accueil
+│   └── ui/               # Composants d'interface utilisateur génériques
+├── hooks/                 # Custom React hooks incluant les hooks d'authentification
+├── lib/                   # Utilitaires et fonctions partagées
+│   └── prisma.ts         # Client Prisma pour la connexion à la base de données
+├── middleware.ts         # Middleware Next.js pour protéger les routes
+├── public/               # Fichiers statiques
+├── utils/                # Fonctions utilitaires
+│   └── auth.ts           # Fonctions d'authentification (signUp, signIn, etc.)
+├── prisma/               # Configuration Prisma et migrations
+│   └── schema.prisma     # Schéma de base de données
+└── types/                # Définitions de types TypeScript
 ```
 
 ## 📖 Guide d'utilisation
 
-1. **Inscription/Connexion** : Créez un compte ou connectez-vous
+### Système d'authentification
+
+1. **Inscription** : Créez un compte avec votre email et mot de passe
+2. **Vérification d'email** : Vérifiez votre adresse email via le lien envoyé à votre boîte de réception
+3. **Connexion** : Connectez-vous avec vos identifiants après vérification de l'email
+
+### Utilisation de l'application
+
+1. **Tableau de bord** : Accédez à votre espace personnel après connexion
 2. **Création de CV** : Choisissez un modèle et personnalisez-le
 3. **Édition** : Ajoutez vos informations personnelles, expériences et compétences
 4. **Personnalisation** : Modifiez les couleurs, polices et la mise en page
@@ -86,6 +113,10 @@ smartcv/
 - [ ] Analyse sémantique des offres d'emploi pour optimiser les CV
 - [ ] Mode collaboration pour les retours d'experts RH
 - [ ] Application mobile native
+- [ ] Authentification sociale (Google, GitHub, etc.)
+- [ ] Système de récupération de mot de passe
+- [ ] Gestion avancée du profil utilisateur
+- [ ] Tableau de bord administrateur pour la gestion des utilisateurs
 
 ## 🤝 Contribuer
 

@@ -1,9 +1,8 @@
 'use client';
 
 import { Label } from '@/components/ui/label';
-import { cn } from '@/lib/utils';
-import { signUp } from '@/utils/auth';
-import { ValidateForm } from '@/validations/authValidation';
+import { signIn } from '@/utils/auth';
+import { ValidateFormLogin } from '@/validations/authValidation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -15,11 +14,8 @@ import { Loader } from 'lucide-react';
 const RegisterPage = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
     email: '',
     password: '',
-    confirmPassword: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [serverMessage, setServerMessage] = useState<{
@@ -44,7 +40,7 @@ const RegisterPage = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const validationErrors = ValidateForm(formData);
+    const validationErrors = ValidateFormLogin(formData);
 
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
@@ -55,9 +51,7 @@ const RegisterPage = () => {
     setServerMessage(null);
 
     try {
-      const result = await signUp({
-        firstName: formData.firstName,
-        lastName: formData.lastName,
+      const result = await signIn({
         email: formData.email,
         password: formData.password,
       });
@@ -65,7 +59,7 @@ const RegisterPage = () => {
       if (result.success) {
         setServerMessage({ type: 'success', message: result.message });
         setTimeout(() => {
-          router.push('/sign-in');
+          router.push('/dashboard');
         }, 3000);
       } else {
         setServerMessage({ type: 'error', message: result.message });
@@ -81,12 +75,12 @@ const RegisterPage = () => {
   };
 
   return (
-    <div className="flex items-start flex-col lg:flex-row">
+    <div className="flex flex-col lg:flex-row">
       {/* Image illustrative - Cachée sur mobile */}
       <div className="hidden lg:flex lg:w-1/2 xl:w-3/5">
         <Image
-          src="/images/cv-auth.jpg"
-          width={630}
+          src="/images/login-cv.jpg"
+          width={640}
           height={620}
           alt="image illustrative"
           className="w-full h-full object-cover"
@@ -99,16 +93,16 @@ const RegisterPage = () => {
           {/* En-tête */}
           <div className="text-center">
             <h2 className="text-2xl lg:text-3xl font-extrabold text-gray-900">
-              Nous sommes ravis de vous voir !
+              Nous sommes ravis de vous revoir !
             </h2>
-            <p className="text-lg font-medium text-gray-700 mt-2">Créez votre compte</p>
+            <p className="text-lg font-medium text-gray-700 mt-2">Connectez-vous à votre compte</p>
             <p className="mt-4 text-sm text-gray-600">
               Ou{' '}
               <Link
-                href="/sign-in"
+                href="/sign-up"
                 className="text-indigo-500 font-medium hover:text-indigo-600 transition-colors"
               >
-                Connectez-vous à votre compte existant
+                Creez un compte
               </Link>
             </p>
           </div>
@@ -168,49 +162,7 @@ const RegisterPage = () => {
           {/* Formulaire */}
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Prénom et Nom */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <Label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1">
-                  Prénom
-                </Label>
-                <Input
-                  id="firstName"
-                  name="firstName"
-                  type="text"
-                  value={formData.firstName}
-                  onChange={handleChange}
-                  className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 ${
-                    errors.firstName
-                      ? 'border-red-300 focus:ring-red-500 focus:border-red-500'
-                      : 'border-gray-300'
-                  }`}
-                  placeholder="Votre prénom"
-                />
-                {errors.firstName && (
-                  <p className="text-red-500 text-sm mt-1">{errors.firstName}</p>
-                )}
-              </div>
-
-              <div>
-                <Label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-1">
-                  Nom
-                </Label>
-                <Input
-                  id="lastName"
-                  name="lastName"
-                  type="text"
-                  value={formData.lastName}
-                  onChange={handleChange}
-                  className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 ${
-                    errors.lastName
-                      ? 'border-red-300 focus:ring-red-500 focus:border-red-500'
-                      : 'border-gray-300'
-                  }`}
-                  placeholder="Votre nom"
-                />
-                {errors.lastName && <p className="text-red-500 text-sm mt-1">{errors.lastName}</p>}
-              </div>
-            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4"></div>
 
             {/* Email */}
             <div>
@@ -254,39 +206,13 @@ const RegisterPage = () => {
               {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password}</p>}
             </div>
 
-            {/* Confirmation mot de passe */}
-            <div>
-              <Label
-                htmlFor="confirmPassword"
-                className="block text-sm font-medium text-gray-700 mb-1"
-              >
-                Confirmer le mot de passe
-              </Label>
-              <Input
-                id="confirmPassword"
-                name="confirmPassword"
-                type="password"
-                value={formData.confirmPassword}
-                onChange={handleChange}
-                className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 ${
-                  errors.confirmPassword
-                    ? 'border-red-300 focus:ring-red-500 focus:border-red-500'
-                    : 'border-gray-300'
-                }`}
-                placeholder="••••••••"
-              />
-              {errors.confirmPassword && (
-                <p className="text-red-500 text-sm mt-1">{errors.confirmPassword}</p>
-              )}
-            </div>
-
             {/* Bouton de soumission */}
             <Button
               type="submit"
               disabled={isSubmitting}
               className="w-full flex justify-center items-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
-              {isSubmitting ? <Loader className="animate-spin h-5 w-5" /> : "S'inscrire"}
+              {isSubmitting ? <Loader className="animate-spin h-5 w-5" /> : 'Se connecter'}
             </Button>
           </form>
         </div>
