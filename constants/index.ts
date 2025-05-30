@@ -182,3 +182,4 @@ export const tesimonials = [
     text: "Finalement ! J'utilise SmartCV pour concevoir mon CV professionnel et je suis impressionné par la qualidade et la personnalisation. Je recommande vivement SmartCV !",
   },
 ];
+

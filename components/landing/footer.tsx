@@ -33,7 +33,7 @@ const Footer = () => {
             </p>
             <p className="text-xs text-muted-foreground">
               Un projet passioné de{' '}
-              <Link href="#" className="underline leading-relaxed">
+              <Link href="https://github.com/m3dev4" className="underline leading-relaxed">
                 Mouhamed Lo
               </Link>
             </p>

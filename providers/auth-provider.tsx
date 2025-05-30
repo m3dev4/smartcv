@@ -1,3 +1,4 @@
+"use client"
 import { User } from '@/types/user.types';
 import { getCurrentUser } from '@/utils/auth';
 import { AuthContext } from '@/context/auth-context';

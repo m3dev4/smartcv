@@ -1,3 +1,4 @@
+"use client";
 import { AuthContext } from '@/context/auth-context';
 import { useContext, useEffect } from 'react';
 
@@ -18,7 +19,7 @@ export const useRequireAuth = (redirectTo = '/login') => {
 };
 
 // Hooke pour vérifier si l'utilisateur est un admin
-export const useAdminAuth = (redirectTo = '/dashboard') => {
+export const useAdminAuth = (redirectTo = '/dashboard/resumes') => {
   const { user, isLoading } = useAuth();
 
   useEffect(() => {

@@ -59,7 +59,7 @@ const RegisterPage = () => {
       if (result.success) {
         setServerMessage({ type: 'success', message: result.message });
         setTimeout(() => {
-          router.push('/dashboard');
+          router.push('/dashboard/resumes');
         }, 3000);
       } else {
         setServerMessage({ type: 'error', message: result.message });

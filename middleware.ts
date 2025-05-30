@@ -23,7 +23,7 @@ export default function middleware(request: NextRequest) {
 
   // Si l'utilisateur est authentifié mais tente d'accéder à une route d'authentification
   if (publicRoutes.some(route => pathname.startsWith(route)) && isAuthenticated) {
-    return NextResponse.redirect(new URL('/dashboard', request.url));
+    return NextResponse.redirect(new URL('/dashboard/resumes', request.url));
   }
 
   return NextResponse.next();
