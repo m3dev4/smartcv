@@ -15,12 +15,12 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-//Model Utiisateur
+//Model Utilisateur
 model User {
   id                   String    @id @default(cuid())
   email                String    @unique
   emailVerified        Boolean   @default(false)
-  emailVerifiyToken    String?   @unique
+  emailVerifyToken     String?   @unique
   emailVerifyExpires   DateTime?
   passwordHash         String
   passwordResetToken   String?   @unique
@@ -32,6 +32,7 @@ model User {
   updatedAt            DateTime  @updatedAt
 
   sessions Session[]
+  resume   Resume[]
   role     Role      @default(USER)
 }
 
@@ -49,4 +50,209 @@ model Session {
 enum Role {
   USER
   ADMIN
+}
+
+model Resume {
+  id         String   @id @default(cuid())
+  title      String
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  isPublic   Boolean  @default(false)
+  publicUrl  String?  @unique
+  templateId String
+  template   Template @relation(fields: [templateId], references: [id])
+  themeId    String
+  theme      Theme    @relation(fields: [themeId], references: [id])
+  fontId     String?
+  font       Font?    @relation(fields: [fontId], references: [id])
+
+  //Relations avec les sections
+  personalInfo   PersonalInfo[]
+  sections       Section[]
+  educations     Education[]
+  experiences    Experience[]
+  skills         Skill[]
+  languages      Language[]
+  certifications Certification[]
+  projects       Project[]
+  achievements   Achievement[]
+  customSections CustomSection[]
+}
+
+model PersonalInfo {
+  id          String  @id @default(cuid())
+  resumeId    String  @unique
+  resume      Resume  @relation(fields: [resumeId], references: [id], onDelete: Cascade)
+  firstName   String?
+  lastName    String?
+  title       String?
+  email       String?
+  phone       String?
+  website     String?
+  location    String?
+  photoUrl    String?
+  description String? @db.Text
+}
+
+model Section {
+  id        String      @id @default(cuid())
+  resumeId  String
+  resume    Resume      @relation(fields: [resumeId], references: [id], onDelete: Cascade)
+  type      SectionType
+  title     String
+  isVisible Boolean
+  order     Int
+
+  @@unique([resumeId, type])
+}
+
+enum SectionType {
+  PERSONAL_INFO
+  EXPERIENCE
+  EDUCATION
+  SKILLS
+  LANGUAGES
+  CERTIFICATIONS
+  PROJECTS
+  ACHIEVEMENTS
+  CUSTOM
+}
+
+model Education {
+  id           String    @id @default(cuid())
+  resumeId     String
+  resume       Resume    @relation(fields: [resumeId], references: [id], onDelete: Cascade)
+  institution  String
+  degree       String
+  fieldOfStudy String?
+  startDate    DateTime
+  endDate      DateTime?
+  description  String?   @db.Text
+  location     String?
+  order        Int       @default(0)
+}
+
+model Experience {
+  id          String    @id @default(cuid())
+  resumeId    String
+  resume      Resume    @relation(fields: [resumeId], references: [id], onDelete: Cascade)
+  company     String
+  position    String
+  startDate   DateTime
+  endDate     DateTime?
+  current     Boolean   @default(false)
+  description String?   @db.Text
+  location    String?
+  order       Int       @default(0)
+}
+
+model Skill {
+  id       String  @id @default(cuid())
+  resumeId String
+  resume   Resume  @relation(fields: [resumeId], references: [id], onDelete: Cascade)
+  name     String
+  level    Int     @default(0)
+  category String?
+  order    Int     @default(0)
+}
+
+model Language {
+  id       String        @id @default(cuid())
+  resumeId String
+  resume   Resume        @relation(fields: [resumeId], references: [id], onDelete: Cascade)
+  name     String
+  level    LanguageLevel
+  order    Int           @default(0)
+}
+
+enum LanguageLevel {
+  BEGINNER
+  INTERMEDIATE
+  ADVANCED
+  FLUENT
+  NATIVE
+}
+
+model Certification {
+  id            String    @id @default(cuid())
+  resumeId      String
+  resume        Resume    @relation(fields: [resumeId], references: [id], onDelete: Cascade)
+  name          String
+  issuer        String
+  issueDate     DateTime?
+  expiryDate    DateTime?
+  credentialId  String?
+  credentialUrl String?
+  order         Int       @default(0)
+}
+
+model Project {
+  id          String    @id @default(cuid())
+  resumeId    String
+  resume      Resume    @relation(fields: [resumeId], references: [id], onDelete: Cascade)
+  title       String
+  description String?   @db.Text
+  url         String?
+  startDate   DateTime?
+  endDate     DateTime?
+  order       Int       @default(0)
+}
+
+model Achievement {
+  id          String    @id @default(cuid())
+  resumeId    String
+  resume      Resume    @relation(fields: [resumeId], references: [id], onDelete: Cascade)
+  title       String
+  description String?   @db.Text
+  date        DateTime?
+  order       Int       @default(0)
+}
+
+model CustomSection {
+  id       String @id @default(cuid())
+  resumeId String
+  resume   Resume @relation(fields: [resumeId], references: [id], onDelete: Cascade)
+  title    String
+  content  String @db.Text
+  order    Int    @default(0)
+}
+
+model Template {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  description String?
+  thumbnail   String?
+  isDefault   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  resumes     Resume[]
+}
+
+model Theme {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  primary     String
+  secondary   String
+  accent      String
+  background  String
+  text        String
+  description String?
+  thumbnail   String?
+  isDefault   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  resumes     Resume[]
+}
+
+model Font {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  category  String
+  url       String?
+  isDefault Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  resumes   Resume[]
 }

@@ -89,7 +89,7 @@ export async function signUp({ email, password, firstName, lastName }: SignUpPar
         email,
         passwordHash: hashedPassword,
         profileImage: '',
-        emailVerifiyToken: emailVerificationToken,
+        emailVerifyToken: emailVerificationToken,
         emailVerifyExpires: tomorrow,
         role: 'USER',
       },
@@ -176,7 +176,7 @@ export async function signIn({ email, password }: SignInParams) {
 export async function VerifyUser(token: string) {
   try {
     const user = await prisma.user.findUnique({
-      where: { emailVerifiyToken: token },
+      where: { emailVerifyToken: token },
     });
     if (!user) {
       return { success: false, message: 'Token de vérification invalide' };
@@ -192,7 +192,7 @@ export async function VerifyUser(token: string) {
       where: { id: user.id },
       data: {
         emailVerified: true,
-        emailVerifiyToken: null,
+        emailVerifyToken: null,
         emailVerifyExpires: null,
       },
     });

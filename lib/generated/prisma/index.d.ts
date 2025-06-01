@@ -23,6 +23,76 @@ export type User = $Result.DefaultSelection<Prisma.$UserPayload>
  * 
  */
 export type Session = $Result.DefaultSelection<Prisma.$SessionPayload>
+/**
+ * Model Resume
+ * 
+ */
+export type Resume = $Result.DefaultSelection<Prisma.$ResumePayload>
+/**
+ * Model PersonalInfo
+ * 
+ */
+export type PersonalInfo = $Result.DefaultSelection<Prisma.$PersonalInfoPayload>
+/**
+ * Model Section
+ * 
+ */
+export type Section = $Result.DefaultSelection<Prisma.$SectionPayload>
+/**
+ * Model Education
+ * 
+ */
+export type Education = $Result.DefaultSelection<Prisma.$EducationPayload>
+/**
+ * Model Experience
+ * 
+ */
+export type Experience = $Result.DefaultSelection<Prisma.$ExperiencePayload>
+/**
+ * Model Skill
+ * 
+ */
+export type Skill = $Result.DefaultSelection<Prisma.$SkillPayload>
+/**
+ * Model Language
+ * 
+ */
+export type Language = $Result.DefaultSelection<Prisma.$LanguagePayload>
+/**
+ * Model Certification
+ * 
+ */
+export type Certification = $Result.DefaultSelection<Prisma.$CertificationPayload>
+/**
+ * Model Project
+ * 
+ */
+export type Project = $Result.DefaultSelection<Prisma.$ProjectPayload>
+/**
+ * Model Achievement
+ * 
+ */
+export type Achievement = $Result.DefaultSelection<Prisma.$AchievementPayload>
+/**
+ * Model CustomSection
+ * 
+ */
+export type CustomSection = $Result.DefaultSelection<Prisma.$CustomSectionPayload>
+/**
+ * Model Template
+ * 
+ */
+export type Template = $Result.DefaultSelection<Prisma.$TemplatePayload>
+/**
+ * Model Theme
+ * 
+ */
+export type Theme = $Result.DefaultSelection<Prisma.$ThemePayload>
+/**
+ * Model Font
+ * 
+ */
+export type Font = $Result.DefaultSelection<Prisma.$FontPayload>
 
 /**
  * Enums
@@ -35,11 +105,45 @@ export namespace $Enums {
 
 export type Role = (typeof Role)[keyof typeof Role]
 
+
+export const SectionType: {
+  PERSONAL_INFO: 'PERSONAL_INFO',
+  EXPERIENCE: 'EXPERIENCE',
+  EDUCATION: 'EDUCATION',
+  SKILLS: 'SKILLS',
+  LANGUAGES: 'LANGUAGES',
+  CERTIFICATIONS: 'CERTIFICATIONS',
+  PROJECTS: 'PROJECTS',
+  ACHIEVEMENTS: 'ACHIEVEMENTS',
+  CUSTOM: 'CUSTOM'
+};
+
+export type SectionType = (typeof SectionType)[keyof typeof SectionType]
+
+
+export const LanguageLevel: {
+  BEGINNER: 'BEGINNER',
+  INTERMEDIATE: 'INTERMEDIATE',
+  ADVANCED: 'ADVANCED',
+  FLUENT: 'FLUENT',
+  NATIVE: 'NATIVE'
+};
+
+export type LanguageLevel = (typeof LanguageLevel)[keyof typeof LanguageLevel]
+
 }
 
 export type Role = $Enums.Role
 
 export const Role: typeof $Enums.Role
+
+export type SectionType = $Enums.SectionType
+
+export const SectionType: typeof $Enums.SectionType
+
+export type LanguageLevel = $Enums.LanguageLevel
+
+export const LanguageLevel: typeof $Enums.LanguageLevel
 
 /**
  * ##  Prisma Client ʲˢ
@@ -185,6 +289,146 @@ export class PrismaClient<
     * ```
     */
   get session(): Prisma.SessionDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.resume`: Exposes CRUD operations for the **Resume** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Resumes
+    * const resumes = await prisma.resume.findMany()
+    * ```
+    */
+  get resume(): Prisma.ResumeDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.personalInfo`: Exposes CRUD operations for the **PersonalInfo** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more PersonalInfos
+    * const personalInfos = await prisma.personalInfo.findMany()
+    * ```
+    */
+  get personalInfo(): Prisma.PersonalInfoDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.section`: Exposes CRUD operations for the **Section** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Sections
+    * const sections = await prisma.section.findMany()
+    * ```
+    */
+  get section(): Prisma.SectionDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.education`: Exposes CRUD operations for the **Education** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Educations
+    * const educations = await prisma.education.findMany()
+    * ```
+    */
+  get education(): Prisma.EducationDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.experience`: Exposes CRUD operations for the **Experience** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Experiences
+    * const experiences = await prisma.experience.findMany()
+    * ```
+    */
+  get experience(): Prisma.ExperienceDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.skill`: Exposes CRUD operations for the **Skill** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Skills
+    * const skills = await prisma.skill.findMany()
+    * ```
+    */
+  get skill(): Prisma.SkillDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.language`: Exposes CRUD operations for the **Language** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Languages
+    * const languages = await prisma.language.findMany()
+    * ```
+    */
+  get language(): Prisma.LanguageDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.certification`: Exposes CRUD operations for the **Certification** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Certifications
+    * const certifications = await prisma.certification.findMany()
+    * ```
+    */
+  get certification(): Prisma.CertificationDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.project`: Exposes CRUD operations for the **Project** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Projects
+    * const projects = await prisma.project.findMany()
+    * ```
+    */
+  get project(): Prisma.ProjectDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.achievement`: Exposes CRUD operations for the **Achievement** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Achievements
+    * const achievements = await prisma.achievement.findMany()
+    * ```
+    */
+  get achievement(): Prisma.AchievementDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.customSection`: Exposes CRUD operations for the **CustomSection** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more CustomSections
+    * const customSections = await prisma.customSection.findMany()
+    * ```
+    */
+  get customSection(): Prisma.CustomSectionDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.template`: Exposes CRUD operations for the **Template** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Templates
+    * const templates = await prisma.template.findMany()
+    * ```
+    */
+  get template(): Prisma.TemplateDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.theme`: Exposes CRUD operations for the **Theme** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Themes
+    * const themes = await prisma.theme.findMany()
+    * ```
+    */
+  get theme(): Prisma.ThemeDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.font`: Exposes CRUD operations for the **Font** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Fonts
+    * const fonts = await prisma.font.findMany()
+    * ```
+    */
+  get font(): Prisma.FontDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -626,7 +870,21 @@ export namespace Prisma {
 
   export const ModelName: {
     User: 'User',
-    Session: 'Session'
+    Session: 'Session',
+    Resume: 'Resume',
+    PersonalInfo: 'PersonalInfo',
+    Section: 'Section',
+    Education: 'Education',
+    Experience: 'Experience',
+    Skill: 'Skill',
+    Language: 'Language',
+    Certification: 'Certification',
+    Project: 'Project',
+    Achievement: 'Achievement',
+    CustomSection: 'CustomSection',
+    Template: 'Template',
+    Theme: 'Theme',
+    Font: 'Font'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -645,7 +903,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "session"
+      modelProps: "user" | "session" | "resume" | "personalInfo" | "section" | "education" | "experience" | "skill" | "language" | "certification" | "project" | "achievement" | "customSection" | "template" | "theme" | "font"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -797,6 +1055,1042 @@ export namespace Prisma {
           }
         }
       }
+      Resume: {
+        payload: Prisma.$ResumePayload<ExtArgs>
+        fields: Prisma.ResumeFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ResumeFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ResumePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ResumeFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ResumePayload>
+          }
+          findFirst: {
+            args: Prisma.ResumeFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ResumePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ResumeFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ResumePayload>
+          }
+          findMany: {
+            args: Prisma.ResumeFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ResumePayload>[]
+          }
+          create: {
+            args: Prisma.ResumeCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ResumePayload>
+          }
+          createMany: {
+            args: Prisma.ResumeCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ResumeCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ResumePayload>[]
+          }
+          delete: {
+            args: Prisma.ResumeDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ResumePayload>
+          }
+          update: {
+            args: Prisma.ResumeUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ResumePayload>
+          }
+          deleteMany: {
+            args: Prisma.ResumeDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ResumeUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ResumeUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ResumePayload>[]
+          }
+          upsert: {
+            args: Prisma.ResumeUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ResumePayload>
+          }
+          aggregate: {
+            args: Prisma.ResumeAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateResume>
+          }
+          groupBy: {
+            args: Prisma.ResumeGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ResumeGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ResumeCountArgs<ExtArgs>
+            result: $Utils.Optional<ResumeCountAggregateOutputType> | number
+          }
+        }
+      }
+      PersonalInfo: {
+        payload: Prisma.$PersonalInfoPayload<ExtArgs>
+        fields: Prisma.PersonalInfoFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.PersonalInfoFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PersonalInfoPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.PersonalInfoFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PersonalInfoPayload>
+          }
+          findFirst: {
+            args: Prisma.PersonalInfoFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PersonalInfoPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.PersonalInfoFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PersonalInfoPayload>
+          }
+          findMany: {
+            args: Prisma.PersonalInfoFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PersonalInfoPayload>[]
+          }
+          create: {
+            args: Prisma.PersonalInfoCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PersonalInfoPayload>
+          }
+          createMany: {
+            args: Prisma.PersonalInfoCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.PersonalInfoCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PersonalInfoPayload>[]
+          }
+          delete: {
+            args: Prisma.PersonalInfoDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PersonalInfoPayload>
+          }
+          update: {
+            args: Prisma.PersonalInfoUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PersonalInfoPayload>
+          }
+          deleteMany: {
+            args: Prisma.PersonalInfoDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.PersonalInfoUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.PersonalInfoUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PersonalInfoPayload>[]
+          }
+          upsert: {
+            args: Prisma.PersonalInfoUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PersonalInfoPayload>
+          }
+          aggregate: {
+            args: Prisma.PersonalInfoAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePersonalInfo>
+          }
+          groupBy: {
+            args: Prisma.PersonalInfoGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PersonalInfoGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.PersonalInfoCountArgs<ExtArgs>
+            result: $Utils.Optional<PersonalInfoCountAggregateOutputType> | number
+          }
+        }
+      }
+      Section: {
+        payload: Prisma.$SectionPayload<ExtArgs>
+        fields: Prisma.SectionFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.SectionFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SectionPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.SectionFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SectionPayload>
+          }
+          findFirst: {
+            args: Prisma.SectionFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SectionPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.SectionFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SectionPayload>
+          }
+          findMany: {
+            args: Prisma.SectionFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SectionPayload>[]
+          }
+          create: {
+            args: Prisma.SectionCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SectionPayload>
+          }
+          createMany: {
+            args: Prisma.SectionCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.SectionCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SectionPayload>[]
+          }
+          delete: {
+            args: Prisma.SectionDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SectionPayload>
+          }
+          update: {
+            args: Prisma.SectionUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SectionPayload>
+          }
+          deleteMany: {
+            args: Prisma.SectionDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.SectionUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.SectionUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SectionPayload>[]
+          }
+          upsert: {
+            args: Prisma.SectionUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SectionPayload>
+          }
+          aggregate: {
+            args: Prisma.SectionAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSection>
+          }
+          groupBy: {
+            args: Prisma.SectionGroupByArgs<ExtArgs>
+            result: $Utils.Optional<SectionGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.SectionCountArgs<ExtArgs>
+            result: $Utils.Optional<SectionCountAggregateOutputType> | number
+          }
+        }
+      }
+      Education: {
+        payload: Prisma.$EducationPayload<ExtArgs>
+        fields: Prisma.EducationFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.EducationFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EducationPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.EducationFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EducationPayload>
+          }
+          findFirst: {
+            args: Prisma.EducationFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EducationPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.EducationFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EducationPayload>
+          }
+          findMany: {
+            args: Prisma.EducationFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EducationPayload>[]
+          }
+          create: {
+            args: Prisma.EducationCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EducationPayload>
+          }
+          createMany: {
+            args: Prisma.EducationCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.EducationCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EducationPayload>[]
+          }
+          delete: {
+            args: Prisma.EducationDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EducationPayload>
+          }
+          update: {
+            args: Prisma.EducationUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EducationPayload>
+          }
+          deleteMany: {
+            args: Prisma.EducationDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.EducationUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.EducationUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EducationPayload>[]
+          }
+          upsert: {
+            args: Prisma.EducationUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EducationPayload>
+          }
+          aggregate: {
+            args: Prisma.EducationAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateEducation>
+          }
+          groupBy: {
+            args: Prisma.EducationGroupByArgs<ExtArgs>
+            result: $Utils.Optional<EducationGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.EducationCountArgs<ExtArgs>
+            result: $Utils.Optional<EducationCountAggregateOutputType> | number
+          }
+        }
+      }
+      Experience: {
+        payload: Prisma.$ExperiencePayload<ExtArgs>
+        fields: Prisma.ExperienceFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ExperienceFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ExperiencePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ExperienceFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ExperiencePayload>
+          }
+          findFirst: {
+            args: Prisma.ExperienceFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ExperiencePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ExperienceFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ExperiencePayload>
+          }
+          findMany: {
+            args: Prisma.ExperienceFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ExperiencePayload>[]
+          }
+          create: {
+            args: Prisma.ExperienceCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ExperiencePayload>
+          }
+          createMany: {
+            args: Prisma.ExperienceCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ExperienceCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ExperiencePayload>[]
+          }
+          delete: {
+            args: Prisma.ExperienceDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ExperiencePayload>
+          }
+          update: {
+            args: Prisma.ExperienceUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ExperiencePayload>
+          }
+          deleteMany: {
+            args: Prisma.ExperienceDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ExperienceUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ExperienceUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ExperiencePayload>[]
+          }
+          upsert: {
+            args: Prisma.ExperienceUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ExperiencePayload>
+          }
+          aggregate: {
+            args: Prisma.ExperienceAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateExperience>
+          }
+          groupBy: {
+            args: Prisma.ExperienceGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ExperienceGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ExperienceCountArgs<ExtArgs>
+            result: $Utils.Optional<ExperienceCountAggregateOutputType> | number
+          }
+        }
+      }
+      Skill: {
+        payload: Prisma.$SkillPayload<ExtArgs>
+        fields: Prisma.SkillFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.SkillFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SkillPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.SkillFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SkillPayload>
+          }
+          findFirst: {
+            args: Prisma.SkillFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SkillPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.SkillFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SkillPayload>
+          }
+          findMany: {
+            args: Prisma.SkillFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SkillPayload>[]
+          }
+          create: {
+            args: Prisma.SkillCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SkillPayload>
+          }
+          createMany: {
+            args: Prisma.SkillCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.SkillCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SkillPayload>[]
+          }
+          delete: {
+            args: Prisma.SkillDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SkillPayload>
+          }
+          update: {
+            args: Prisma.SkillUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SkillPayload>
+          }
+          deleteMany: {
+            args: Prisma.SkillDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.SkillUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.SkillUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SkillPayload>[]
+          }
+          upsert: {
+            args: Prisma.SkillUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SkillPayload>
+          }
+          aggregate: {
+            args: Prisma.SkillAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSkill>
+          }
+          groupBy: {
+            args: Prisma.SkillGroupByArgs<ExtArgs>
+            result: $Utils.Optional<SkillGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.SkillCountArgs<ExtArgs>
+            result: $Utils.Optional<SkillCountAggregateOutputType> | number
+          }
+        }
+      }
+      Language: {
+        payload: Prisma.$LanguagePayload<ExtArgs>
+        fields: Prisma.LanguageFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.LanguageFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LanguagePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.LanguageFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LanguagePayload>
+          }
+          findFirst: {
+            args: Prisma.LanguageFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LanguagePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.LanguageFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LanguagePayload>
+          }
+          findMany: {
+            args: Prisma.LanguageFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LanguagePayload>[]
+          }
+          create: {
+            args: Prisma.LanguageCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LanguagePayload>
+          }
+          createMany: {
+            args: Prisma.LanguageCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.LanguageCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LanguagePayload>[]
+          }
+          delete: {
+            args: Prisma.LanguageDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LanguagePayload>
+          }
+          update: {
+            args: Prisma.LanguageUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LanguagePayload>
+          }
+          deleteMany: {
+            args: Prisma.LanguageDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.LanguageUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.LanguageUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LanguagePayload>[]
+          }
+          upsert: {
+            args: Prisma.LanguageUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LanguagePayload>
+          }
+          aggregate: {
+            args: Prisma.LanguageAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateLanguage>
+          }
+          groupBy: {
+            args: Prisma.LanguageGroupByArgs<ExtArgs>
+            result: $Utils.Optional<LanguageGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.LanguageCountArgs<ExtArgs>
+            result: $Utils.Optional<LanguageCountAggregateOutputType> | number
+          }
+        }
+      }
+      Certification: {
+        payload: Prisma.$CertificationPayload<ExtArgs>
+        fields: Prisma.CertificationFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.CertificationFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CertificationPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.CertificationFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CertificationPayload>
+          }
+          findFirst: {
+            args: Prisma.CertificationFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CertificationPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.CertificationFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CertificationPayload>
+          }
+          findMany: {
+            args: Prisma.CertificationFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CertificationPayload>[]
+          }
+          create: {
+            args: Prisma.CertificationCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CertificationPayload>
+          }
+          createMany: {
+            args: Prisma.CertificationCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.CertificationCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CertificationPayload>[]
+          }
+          delete: {
+            args: Prisma.CertificationDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CertificationPayload>
+          }
+          update: {
+            args: Prisma.CertificationUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CertificationPayload>
+          }
+          deleteMany: {
+            args: Prisma.CertificationDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.CertificationUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.CertificationUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CertificationPayload>[]
+          }
+          upsert: {
+            args: Prisma.CertificationUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CertificationPayload>
+          }
+          aggregate: {
+            args: Prisma.CertificationAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCertification>
+          }
+          groupBy: {
+            args: Prisma.CertificationGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CertificationGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.CertificationCountArgs<ExtArgs>
+            result: $Utils.Optional<CertificationCountAggregateOutputType> | number
+          }
+        }
+      }
+      Project: {
+        payload: Prisma.$ProjectPayload<ExtArgs>
+        fields: Prisma.ProjectFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ProjectFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ProjectFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectPayload>
+          }
+          findFirst: {
+            args: Prisma.ProjectFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ProjectFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectPayload>
+          }
+          findMany: {
+            args: Prisma.ProjectFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectPayload>[]
+          }
+          create: {
+            args: Prisma.ProjectCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectPayload>
+          }
+          createMany: {
+            args: Prisma.ProjectCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ProjectCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectPayload>[]
+          }
+          delete: {
+            args: Prisma.ProjectDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectPayload>
+          }
+          update: {
+            args: Prisma.ProjectUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectPayload>
+          }
+          deleteMany: {
+            args: Prisma.ProjectDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ProjectUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ProjectUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectPayload>[]
+          }
+          upsert: {
+            args: Prisma.ProjectUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectPayload>
+          }
+          aggregate: {
+            args: Prisma.ProjectAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateProject>
+          }
+          groupBy: {
+            args: Prisma.ProjectGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ProjectGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ProjectCountArgs<ExtArgs>
+            result: $Utils.Optional<ProjectCountAggregateOutputType> | number
+          }
+        }
+      }
+      Achievement: {
+        payload: Prisma.$AchievementPayload<ExtArgs>
+        fields: Prisma.AchievementFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.AchievementFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AchievementPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.AchievementFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AchievementPayload>
+          }
+          findFirst: {
+            args: Prisma.AchievementFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AchievementPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.AchievementFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AchievementPayload>
+          }
+          findMany: {
+            args: Prisma.AchievementFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AchievementPayload>[]
+          }
+          create: {
+            args: Prisma.AchievementCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AchievementPayload>
+          }
+          createMany: {
+            args: Prisma.AchievementCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.AchievementCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AchievementPayload>[]
+          }
+          delete: {
+            args: Prisma.AchievementDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AchievementPayload>
+          }
+          update: {
+            args: Prisma.AchievementUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AchievementPayload>
+          }
+          deleteMany: {
+            args: Prisma.AchievementDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.AchievementUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.AchievementUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AchievementPayload>[]
+          }
+          upsert: {
+            args: Prisma.AchievementUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AchievementPayload>
+          }
+          aggregate: {
+            args: Prisma.AchievementAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateAchievement>
+          }
+          groupBy: {
+            args: Prisma.AchievementGroupByArgs<ExtArgs>
+            result: $Utils.Optional<AchievementGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.AchievementCountArgs<ExtArgs>
+            result: $Utils.Optional<AchievementCountAggregateOutputType> | number
+          }
+        }
+      }
+      CustomSection: {
+        payload: Prisma.$CustomSectionPayload<ExtArgs>
+        fields: Prisma.CustomSectionFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.CustomSectionFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomSectionPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.CustomSectionFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomSectionPayload>
+          }
+          findFirst: {
+            args: Prisma.CustomSectionFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomSectionPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.CustomSectionFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomSectionPayload>
+          }
+          findMany: {
+            args: Prisma.CustomSectionFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomSectionPayload>[]
+          }
+          create: {
+            args: Prisma.CustomSectionCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomSectionPayload>
+          }
+          createMany: {
+            args: Prisma.CustomSectionCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.CustomSectionCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomSectionPayload>[]
+          }
+          delete: {
+            args: Prisma.CustomSectionDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomSectionPayload>
+          }
+          update: {
+            args: Prisma.CustomSectionUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomSectionPayload>
+          }
+          deleteMany: {
+            args: Prisma.CustomSectionDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.CustomSectionUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.CustomSectionUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomSectionPayload>[]
+          }
+          upsert: {
+            args: Prisma.CustomSectionUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomSectionPayload>
+          }
+          aggregate: {
+            args: Prisma.CustomSectionAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCustomSection>
+          }
+          groupBy: {
+            args: Prisma.CustomSectionGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CustomSectionGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.CustomSectionCountArgs<ExtArgs>
+            result: $Utils.Optional<CustomSectionCountAggregateOutputType> | number
+          }
+        }
+      }
+      Template: {
+        payload: Prisma.$TemplatePayload<ExtArgs>
+        fields: Prisma.TemplateFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.TemplateFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TemplatePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.TemplateFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TemplatePayload>
+          }
+          findFirst: {
+            args: Prisma.TemplateFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TemplatePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.TemplateFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TemplatePayload>
+          }
+          findMany: {
+            args: Prisma.TemplateFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TemplatePayload>[]
+          }
+          create: {
+            args: Prisma.TemplateCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TemplatePayload>
+          }
+          createMany: {
+            args: Prisma.TemplateCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.TemplateCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TemplatePayload>[]
+          }
+          delete: {
+            args: Prisma.TemplateDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TemplatePayload>
+          }
+          update: {
+            args: Prisma.TemplateUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TemplatePayload>
+          }
+          deleteMany: {
+            args: Prisma.TemplateDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.TemplateUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.TemplateUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TemplatePayload>[]
+          }
+          upsert: {
+            args: Prisma.TemplateUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TemplatePayload>
+          }
+          aggregate: {
+            args: Prisma.TemplateAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTemplate>
+          }
+          groupBy: {
+            args: Prisma.TemplateGroupByArgs<ExtArgs>
+            result: $Utils.Optional<TemplateGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.TemplateCountArgs<ExtArgs>
+            result: $Utils.Optional<TemplateCountAggregateOutputType> | number
+          }
+        }
+      }
+      Theme: {
+        payload: Prisma.$ThemePayload<ExtArgs>
+        fields: Prisma.ThemeFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ThemeFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ThemePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ThemeFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ThemePayload>
+          }
+          findFirst: {
+            args: Prisma.ThemeFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ThemePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ThemeFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ThemePayload>
+          }
+          findMany: {
+            args: Prisma.ThemeFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ThemePayload>[]
+          }
+          create: {
+            args: Prisma.ThemeCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ThemePayload>
+          }
+          createMany: {
+            args: Prisma.ThemeCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ThemeCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ThemePayload>[]
+          }
+          delete: {
+            args: Prisma.ThemeDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ThemePayload>
+          }
+          update: {
+            args: Prisma.ThemeUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ThemePayload>
+          }
+          deleteMany: {
+            args: Prisma.ThemeDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ThemeUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ThemeUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ThemePayload>[]
+          }
+          upsert: {
+            args: Prisma.ThemeUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ThemePayload>
+          }
+          aggregate: {
+            args: Prisma.ThemeAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTheme>
+          }
+          groupBy: {
+            args: Prisma.ThemeGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ThemeGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ThemeCountArgs<ExtArgs>
+            result: $Utils.Optional<ThemeCountAggregateOutputType> | number
+          }
+        }
+      }
+      Font: {
+        payload: Prisma.$FontPayload<ExtArgs>
+        fields: Prisma.FontFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.FontFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FontPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.FontFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FontPayload>
+          }
+          findFirst: {
+            args: Prisma.FontFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FontPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.FontFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FontPayload>
+          }
+          findMany: {
+            args: Prisma.FontFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FontPayload>[]
+          }
+          create: {
+            args: Prisma.FontCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FontPayload>
+          }
+          createMany: {
+            args: Prisma.FontCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.FontCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FontPayload>[]
+          }
+          delete: {
+            args: Prisma.FontDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FontPayload>
+          }
+          update: {
+            args: Prisma.FontUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FontPayload>
+          }
+          deleteMany: {
+            args: Prisma.FontDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.FontUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.FontUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FontPayload>[]
+          }
+          upsert: {
+            args: Prisma.FontUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FontPayload>
+          }
+          aggregate: {
+            args: Prisma.FontAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateFont>
+          }
+          groupBy: {
+            args: Prisma.FontGroupByArgs<ExtArgs>
+            result: $Utils.Optional<FontGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.FontCountArgs<ExtArgs>
+            result: $Utils.Optional<FontCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -883,6 +2177,20 @@ export namespace Prisma {
   export type GlobalOmitConfig = {
     user?: UserOmit
     session?: SessionOmit
+    resume?: ResumeOmit
+    personalInfo?: PersonalInfoOmit
+    section?: SectionOmit
+    education?: EducationOmit
+    experience?: ExperienceOmit
+    skill?: SkillOmit
+    language?: LanguageOmit
+    certification?: CertificationOmit
+    project?: ProjectOmit
+    achievement?: AchievementOmit
+    customSection?: CustomSectionOmit
+    template?: TemplateOmit
+    theme?: ThemeOmit
+    font?: FontOmit
   }
 
   /* Types for Logging */
@@ -978,10 +2286,12 @@ export namespace Prisma {
 
   export type UserCountOutputType = {
     sessions: number
+    resume: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     sessions?: boolean | UserCountOutputTypeCountSessionsArgs
+    resume?: boolean | UserCountOutputTypeCountResumeArgs
   }
 
   // Custom InputTypes
@@ -1000,6 +2310,218 @@ export namespace Prisma {
    */
   export type UserCountOutputTypeCountSessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: SessionWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountResumeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ResumeWhereInput
+  }
+
+
+  /**
+   * Count Type ResumeCountOutputType
+   */
+
+  export type ResumeCountOutputType = {
+    personalInfo: number
+    sections: number
+    educations: number
+    experiences: number
+    skills: number
+    languages: number
+    certifications: number
+    projects: number
+    achievements: number
+    customSections: number
+  }
+
+  export type ResumeCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    personalInfo?: boolean | ResumeCountOutputTypeCountPersonalInfoArgs
+    sections?: boolean | ResumeCountOutputTypeCountSectionsArgs
+    educations?: boolean | ResumeCountOutputTypeCountEducationsArgs
+    experiences?: boolean | ResumeCountOutputTypeCountExperiencesArgs
+    skills?: boolean | ResumeCountOutputTypeCountSkillsArgs
+    languages?: boolean | ResumeCountOutputTypeCountLanguagesArgs
+    certifications?: boolean | ResumeCountOutputTypeCountCertificationsArgs
+    projects?: boolean | ResumeCountOutputTypeCountProjectsArgs
+    achievements?: boolean | ResumeCountOutputTypeCountAchievementsArgs
+    customSections?: boolean | ResumeCountOutputTypeCountCustomSectionsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * ResumeCountOutputType without action
+   */
+  export type ResumeCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ResumeCountOutputType
+     */
+    select?: ResumeCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * ResumeCountOutputType without action
+   */
+  export type ResumeCountOutputTypeCountPersonalInfoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PersonalInfoWhereInput
+  }
+
+  /**
+   * ResumeCountOutputType without action
+   */
+  export type ResumeCountOutputTypeCountSectionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SectionWhereInput
+  }
+
+  /**
+   * ResumeCountOutputType without action
+   */
+  export type ResumeCountOutputTypeCountEducationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: EducationWhereInput
+  }
+
+  /**
+   * ResumeCountOutputType without action
+   */
+  export type ResumeCountOutputTypeCountExperiencesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ExperienceWhereInput
+  }
+
+  /**
+   * ResumeCountOutputType without action
+   */
+  export type ResumeCountOutputTypeCountSkillsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SkillWhereInput
+  }
+
+  /**
+   * ResumeCountOutputType without action
+   */
+  export type ResumeCountOutputTypeCountLanguagesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LanguageWhereInput
+  }
+
+  /**
+   * ResumeCountOutputType without action
+   */
+  export type ResumeCountOutputTypeCountCertificationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CertificationWhereInput
+  }
+
+  /**
+   * ResumeCountOutputType without action
+   */
+  export type ResumeCountOutputTypeCountProjectsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProjectWhereInput
+  }
+
+  /**
+   * ResumeCountOutputType without action
+   */
+  export type ResumeCountOutputTypeCountAchievementsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AchievementWhereInput
+  }
+
+  /**
+   * ResumeCountOutputType without action
+   */
+  export type ResumeCountOutputTypeCountCustomSectionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CustomSectionWhereInput
+  }
+
+
+  /**
+   * Count Type TemplateCountOutputType
+   */
+
+  export type TemplateCountOutputType = {
+    resumes: number
+  }
+
+  export type TemplateCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resumes?: boolean | TemplateCountOutputTypeCountResumesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * TemplateCountOutputType without action
+   */
+  export type TemplateCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TemplateCountOutputType
+     */
+    select?: TemplateCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * TemplateCountOutputType without action
+   */
+  export type TemplateCountOutputTypeCountResumesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ResumeWhereInput
+  }
+
+
+  /**
+   * Count Type ThemeCountOutputType
+   */
+
+  export type ThemeCountOutputType = {
+    resumes: number
+  }
+
+  export type ThemeCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resumes?: boolean | ThemeCountOutputTypeCountResumesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * ThemeCountOutputType without action
+   */
+  export type ThemeCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ThemeCountOutputType
+     */
+    select?: ThemeCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * ThemeCountOutputType without action
+   */
+  export type ThemeCountOutputTypeCountResumesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ResumeWhereInput
+  }
+
+
+  /**
+   * Count Type FontCountOutputType
+   */
+
+  export type FontCountOutputType = {
+    resumes: number
+  }
+
+  export type FontCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resumes?: boolean | FontCountOutputTypeCountResumesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * FontCountOutputType without action
+   */
+  export type FontCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FontCountOutputType
+     */
+    select?: FontCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * FontCountOutputType without action
+   */
+  export type FontCountOutputTypeCountResumesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ResumeWhereInput
   }
 
 
@@ -1021,7 +2543,7 @@ export namespace Prisma {
     id: string | null
     email: string | null
     emailVerified: boolean | null
-    emailVerifiyToken: string | null
+    emailVerifyToken: string | null
     emailVerifyExpires: Date | null
     passwordHash: string | null
     passwordResetToken: string | null
@@ -1038,7 +2560,7 @@ export namespace Prisma {
     id: string | null
     email: string | null
     emailVerified: boolean | null
-    emailVerifiyToken: string | null
+    emailVerifyToken: string | null
     emailVerifyExpires: Date | null
     passwordHash: string | null
     passwordResetToken: string | null
@@ -1055,7 +2577,7 @@ export namespace Prisma {
     id: number
     email: number
     emailVerified: number
-    emailVerifiyToken: number
+    emailVerifyToken: number
     emailVerifyExpires: number
     passwordHash: number
     passwordResetToken: number
@@ -1074,7 +2596,7 @@ export namespace Prisma {
     id?: true
     email?: true
     emailVerified?: true
-    emailVerifiyToken?: true
+    emailVerifyToken?: true
     emailVerifyExpires?: true
     passwordHash?: true
     passwordResetToken?: true
@@ -1091,7 +2613,7 @@ export namespace Prisma {
     id?: true
     email?: true
     emailVerified?: true
-    emailVerifiyToken?: true
+    emailVerifyToken?: true
     emailVerifyExpires?: true
     passwordHash?: true
     passwordResetToken?: true
@@ -1108,7 +2630,7 @@ export namespace Prisma {
     id?: true
     email?: true
     emailVerified?: true
-    emailVerifiyToken?: true
+    emailVerifyToken?: true
     emailVerifyExpires?: true
     passwordHash?: true
     passwordResetToken?: true
@@ -1198,7 +2720,7 @@ export namespace Prisma {
     id: string
     email: string
     emailVerified: boolean
-    emailVerifiyToken: string | null
+    emailVerifyToken: string | null
     emailVerifyExpires: Date | null
     passwordHash: string
     passwordResetToken: string | null
@@ -1232,7 +2754,7 @@ export namespace Prisma {
     id?: boolean
     email?: boolean
     emailVerified?: boolean
-    emailVerifiyToken?: boolean
+    emailVerifyToken?: boolean
     emailVerifyExpires?: boolean
     passwordHash?: boolean
     passwordResetToken?: boolean
@@ -1244,6 +2766,7 @@ export namespace Prisma {
     updatedAt?: boolean
     role?: boolean
     sessions?: boolean | User$sessionsArgs<ExtArgs>
+    resume?: boolean | User$resumeArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -1251,7 +2774,7 @@ export namespace Prisma {
     id?: boolean
     email?: boolean
     emailVerified?: boolean
-    emailVerifiyToken?: boolean
+    emailVerifyToken?: boolean
     emailVerifyExpires?: boolean
     passwordHash?: boolean
     passwordResetToken?: boolean
@@ -1268,7 +2791,7 @@ export namespace Prisma {
     id?: boolean
     email?: boolean
     emailVerified?: boolean
-    emailVerifiyToken?: boolean
+    emailVerifyToken?: boolean
     emailVerifyExpires?: boolean
     passwordHash?: boolean
     passwordResetToken?: boolean
@@ -1285,7 +2808,7 @@ export namespace Prisma {
     id?: boolean
     email?: boolean
     emailVerified?: boolean
-    emailVerifiyToken?: boolean
+    emailVerifyToken?: boolean
     emailVerifyExpires?: boolean
     passwordHash?: boolean
     passwordResetToken?: boolean
@@ -1298,9 +2821,10 @@ export namespace Prisma {
     role?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "emailVerified" | "emailVerifiyToken" | "emailVerifyExpires" | "passwordHash" | "passwordResetToken" | "passwordResetExpires" | "firstName" | "lastName" | "profileImage" | "createdAt" | "updatedAt" | "role", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "emailVerified" | "emailVerifyToken" | "emailVerifyExpires" | "passwordHash" | "passwordResetToken" | "passwordResetExpires" | "firstName" | "lastName" | "profileImage" | "createdAt" | "updatedAt" | "role", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     sessions?: boolean | User$sessionsArgs<ExtArgs>
+    resume?: boolean | User$resumeArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -1310,12 +2834,13 @@ export namespace Prisma {
     name: "User"
     objects: {
       sessions: Prisma.$SessionPayload<ExtArgs>[]
+      resume: Prisma.$ResumePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       email: string
       emailVerified: boolean
-      emailVerifiyToken: string | null
+      emailVerifyToken: string | null
       emailVerifyExpires: Date | null
       passwordHash: string
       passwordResetToken: string | null
@@ -1721,6 +3246,7 @@ export namespace Prisma {
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     sessions<T extends User$sessionsArgs<ExtArgs> = {}>(args?: Subset<T, User$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    resume<T extends User$resumeArgs<ExtArgs> = {}>(args?: Subset<T, User$resumeArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ResumePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1753,7 +3279,7 @@ export namespace Prisma {
     readonly id: FieldRef<"User", 'String'>
     readonly email: FieldRef<"User", 'String'>
     readonly emailVerified: FieldRef<"User", 'Boolean'>
-    readonly emailVerifiyToken: FieldRef<"User", 'String'>
+    readonly emailVerifyToken: FieldRef<"User", 'String'>
     readonly emailVerifyExpires: FieldRef<"User", 'DateTime'>
     readonly passwordHash: FieldRef<"User", 'String'>
     readonly passwordResetToken: FieldRef<"User", 'String'>
@@ -2173,6 +3699,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: SessionScalarFieldEnum | SessionScalarFieldEnum[]
+  }
+
+  /**
+   * User.resume
+   */
+  export type User$resumeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Resume
+     */
+    select?: ResumeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Resume
+     */
+    omit?: ResumeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ResumeInclude<ExtArgs> | null
+    where?: ResumeWhereInput
+    orderBy?: ResumeOrderByWithRelationInput | ResumeOrderByWithRelationInput[]
+    cursor?: ResumeWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ResumeScalarFieldEnum | ResumeScalarFieldEnum[]
   }
 
   /**
@@ -3279,6 +4829,16035 @@ export namespace Prisma {
 
 
   /**
+   * Model Resume
+   */
+
+  export type AggregateResume = {
+    _count: ResumeCountAggregateOutputType | null
+    _min: ResumeMinAggregateOutputType | null
+    _max: ResumeMaxAggregateOutputType | null
+  }
+
+  export type ResumeMinAggregateOutputType = {
+    id: string | null
+    title: string | null
+    userId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    isPublic: boolean | null
+    publicUrl: string | null
+    templateId: string | null
+    themeId: string | null
+    fontId: string | null
+  }
+
+  export type ResumeMaxAggregateOutputType = {
+    id: string | null
+    title: string | null
+    userId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    isPublic: boolean | null
+    publicUrl: string | null
+    templateId: string | null
+    themeId: string | null
+    fontId: string | null
+  }
+
+  export type ResumeCountAggregateOutputType = {
+    id: number
+    title: number
+    userId: number
+    createdAt: number
+    updatedAt: number
+    isPublic: number
+    publicUrl: number
+    templateId: number
+    themeId: number
+    fontId: number
+    _all: number
+  }
+
+
+  export type ResumeMinAggregateInputType = {
+    id?: true
+    title?: true
+    userId?: true
+    createdAt?: true
+    updatedAt?: true
+    isPublic?: true
+    publicUrl?: true
+    templateId?: true
+    themeId?: true
+    fontId?: true
+  }
+
+  export type ResumeMaxAggregateInputType = {
+    id?: true
+    title?: true
+    userId?: true
+    createdAt?: true
+    updatedAt?: true
+    isPublic?: true
+    publicUrl?: true
+    templateId?: true
+    themeId?: true
+    fontId?: true
+  }
+
+  export type ResumeCountAggregateInputType = {
+    id?: true
+    title?: true
+    userId?: true
+    createdAt?: true
+    updatedAt?: true
+    isPublic?: true
+    publicUrl?: true
+    templateId?: true
+    themeId?: true
+    fontId?: true
+    _all?: true
+  }
+
+  export type ResumeAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Resume to aggregate.
+     */
+    where?: ResumeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Resumes to fetch.
+     */
+    orderBy?: ResumeOrderByWithRelationInput | ResumeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ResumeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Resumes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Resumes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Resumes
+    **/
+    _count?: true | ResumeCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ResumeMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ResumeMaxAggregateInputType
+  }
+
+  export type GetResumeAggregateType<T extends ResumeAggregateArgs> = {
+        [P in keyof T & keyof AggregateResume]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateResume[P]>
+      : GetScalarType<T[P], AggregateResume[P]>
+  }
+
+
+
+
+  export type ResumeGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ResumeWhereInput
+    orderBy?: ResumeOrderByWithAggregationInput | ResumeOrderByWithAggregationInput[]
+    by: ResumeScalarFieldEnum[] | ResumeScalarFieldEnum
+    having?: ResumeScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ResumeCountAggregateInputType | true
+    _min?: ResumeMinAggregateInputType
+    _max?: ResumeMaxAggregateInputType
+  }
+
+  export type ResumeGroupByOutputType = {
+    id: string
+    title: string
+    userId: string
+    createdAt: Date
+    updatedAt: Date
+    isPublic: boolean
+    publicUrl: string | null
+    templateId: string
+    themeId: string
+    fontId: string | null
+    _count: ResumeCountAggregateOutputType | null
+    _min: ResumeMinAggregateOutputType | null
+    _max: ResumeMaxAggregateOutputType | null
+  }
+
+  type GetResumeGroupByPayload<T extends ResumeGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ResumeGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ResumeGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ResumeGroupByOutputType[P]>
+            : GetScalarType<T[P], ResumeGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ResumeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    userId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    isPublic?: boolean
+    publicUrl?: boolean
+    templateId?: boolean
+    themeId?: boolean
+    fontId?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    template?: boolean | TemplateDefaultArgs<ExtArgs>
+    theme?: boolean | ThemeDefaultArgs<ExtArgs>
+    font?: boolean | Resume$fontArgs<ExtArgs>
+    personalInfo?: boolean | Resume$personalInfoArgs<ExtArgs>
+    sections?: boolean | Resume$sectionsArgs<ExtArgs>
+    educations?: boolean | Resume$educationsArgs<ExtArgs>
+    experiences?: boolean | Resume$experiencesArgs<ExtArgs>
+    skills?: boolean | Resume$skillsArgs<ExtArgs>
+    languages?: boolean | Resume$languagesArgs<ExtArgs>
+    certifications?: boolean | Resume$certificationsArgs<ExtArgs>
+    projects?: boolean | Resume$projectsArgs<ExtArgs>
+    achievements?: boolean | Resume$achievementsArgs<ExtArgs>
+    customSections?: boolean | Resume$customSectionsArgs<ExtArgs>
+    _count?: boolean | ResumeCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["resume"]>
+
+  export type ResumeSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    userId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    isPublic?: boolean
+    publicUrl?: boolean
+    templateId?: boolean
+    themeId?: boolean
+    fontId?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    template?: boolean | TemplateDefaultArgs<ExtArgs>
+    theme?: boolean | ThemeDefaultArgs<ExtArgs>
+    font?: boolean | Resume$fontArgs<ExtArgs>
+  }, ExtArgs["result"]["resume"]>
+
+  export type ResumeSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    userId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    isPublic?: boolean
+    publicUrl?: boolean
+    templateId?: boolean
+    themeId?: boolean
+    fontId?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    template?: boolean | TemplateDefaultArgs<ExtArgs>
+    theme?: boolean | ThemeDefaultArgs<ExtArgs>
+    font?: boolean | Resume$fontArgs<ExtArgs>
+  }, ExtArgs["result"]["resume"]>
+
+  export type ResumeSelectScalar = {
+    id?: boolean
+    title?: boolean
+    userId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    isPublic?: boolean
+    publicUrl?: boolean
+    templateId?: boolean
+    themeId?: boolean
+    fontId?: boolean
+  }
+
+  export type ResumeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "userId" | "createdAt" | "updatedAt" | "isPublic" | "publicUrl" | "templateId" | "themeId" | "fontId", ExtArgs["result"]["resume"]>
+  export type ResumeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    template?: boolean | TemplateDefaultArgs<ExtArgs>
+    theme?: boolean | ThemeDefaultArgs<ExtArgs>
+    font?: boolean | Resume$fontArgs<ExtArgs>
+    personalInfo?: boolean | Resume$personalInfoArgs<ExtArgs>
+    sections?: boolean | Resume$sectionsArgs<ExtArgs>
+    educations?: boolean | Resume$educationsArgs<ExtArgs>
+    experiences?: boolean | Resume$experiencesArgs<ExtArgs>
+    skills?: boolean | Resume$skillsArgs<ExtArgs>
+    languages?: boolean | Resume$languagesArgs<ExtArgs>
+    certifications?: boolean | Resume$certificationsArgs<ExtArgs>
+    projects?: boolean | Resume$projectsArgs<ExtArgs>
+    achievements?: boolean | Resume$achievementsArgs<ExtArgs>
+    customSections?: boolean | Resume$customSectionsArgs<ExtArgs>
+    _count?: boolean | ResumeCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type ResumeIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    template?: boolean | TemplateDefaultArgs<ExtArgs>
+    theme?: boolean | ThemeDefaultArgs<ExtArgs>
+    font?: boolean | Resume$fontArgs<ExtArgs>
+  }
+  export type ResumeIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    template?: boolean | TemplateDefaultArgs<ExtArgs>
+    theme?: boolean | ThemeDefaultArgs<ExtArgs>
+    font?: boolean | Resume$fontArgs<ExtArgs>
+  }
+
+  export type $ResumePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Resume"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+      template: Prisma.$TemplatePayload<ExtArgs>
+      theme: Prisma.$ThemePayload<ExtArgs>
+      font: Prisma.$FontPayload<ExtArgs> | null
+      personalInfo: Prisma.$PersonalInfoPayload<ExtArgs>[]
+      sections: Prisma.$SectionPayload<ExtArgs>[]
+      educations: Prisma.$EducationPayload<ExtArgs>[]
+      experiences: Prisma.$ExperiencePayload<ExtArgs>[]
+      skills: Prisma.$SkillPayload<ExtArgs>[]
+      languages: Prisma.$LanguagePayload<ExtArgs>[]
+      certifications: Prisma.$CertificationPayload<ExtArgs>[]
+      projects: Prisma.$ProjectPayload<ExtArgs>[]
+      achievements: Prisma.$AchievementPayload<ExtArgs>[]
+      customSections: Prisma.$CustomSectionPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      title: string
+      userId: string
+      createdAt: Date
+      updatedAt: Date
+      isPublic: boolean
+      publicUrl: string | null
+      templateId: string
+      themeId: string
+      fontId: string | null
+    }, ExtArgs["result"]["resume"]>
+    composites: {}
+  }
+
+  type ResumeGetPayload<S extends boolean | null | undefined | ResumeDefaultArgs> = $Result.GetResult<Prisma.$ResumePayload, S>
+
+  type ResumeCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ResumeFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ResumeCountAggregateInputType | true
+    }
+
+  export interface ResumeDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Resume'], meta: { name: 'Resume' } }
+    /**
+     * Find zero or one Resume that matches the filter.
+     * @param {ResumeFindUniqueArgs} args - Arguments to find a Resume
+     * @example
+     * // Get one Resume
+     * const resume = await prisma.resume.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ResumeFindUniqueArgs>(args: SelectSubset<T, ResumeFindUniqueArgs<ExtArgs>>): Prisma__ResumeClient<$Result.GetResult<Prisma.$ResumePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Resume that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ResumeFindUniqueOrThrowArgs} args - Arguments to find a Resume
+     * @example
+     * // Get one Resume
+     * const resume = await prisma.resume.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ResumeFindUniqueOrThrowArgs>(args: SelectSubset<T, ResumeFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ResumeClient<$Result.GetResult<Prisma.$ResumePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Resume that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ResumeFindFirstArgs} args - Arguments to find a Resume
+     * @example
+     * // Get one Resume
+     * const resume = await prisma.resume.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ResumeFindFirstArgs>(args?: SelectSubset<T, ResumeFindFirstArgs<ExtArgs>>): Prisma__ResumeClient<$Result.GetResult<Prisma.$ResumePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Resume that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ResumeFindFirstOrThrowArgs} args - Arguments to find a Resume
+     * @example
+     * // Get one Resume
+     * const resume = await prisma.resume.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ResumeFindFirstOrThrowArgs>(args?: SelectSubset<T, ResumeFindFirstOrThrowArgs<ExtArgs>>): Prisma__ResumeClient<$Result.GetResult<Prisma.$ResumePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Resumes that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ResumeFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Resumes
+     * const resumes = await prisma.resume.findMany()
+     * 
+     * // Get first 10 Resumes
+     * const resumes = await prisma.resume.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const resumeWithIdOnly = await prisma.resume.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ResumeFindManyArgs>(args?: SelectSubset<T, ResumeFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ResumePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Resume.
+     * @param {ResumeCreateArgs} args - Arguments to create a Resume.
+     * @example
+     * // Create one Resume
+     * const Resume = await prisma.resume.create({
+     *   data: {
+     *     // ... data to create a Resume
+     *   }
+     * })
+     * 
+     */
+    create<T extends ResumeCreateArgs>(args: SelectSubset<T, ResumeCreateArgs<ExtArgs>>): Prisma__ResumeClient<$Result.GetResult<Prisma.$ResumePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Resumes.
+     * @param {ResumeCreateManyArgs} args - Arguments to create many Resumes.
+     * @example
+     * // Create many Resumes
+     * const resume = await prisma.resume.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ResumeCreateManyArgs>(args?: SelectSubset<T, ResumeCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Resumes and returns the data saved in the database.
+     * @param {ResumeCreateManyAndReturnArgs} args - Arguments to create many Resumes.
+     * @example
+     * // Create many Resumes
+     * const resume = await prisma.resume.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Resumes and only return the `id`
+     * const resumeWithIdOnly = await prisma.resume.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ResumeCreateManyAndReturnArgs>(args?: SelectSubset<T, ResumeCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ResumePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Resume.
+     * @param {ResumeDeleteArgs} args - Arguments to delete one Resume.
+     * @example
+     * // Delete one Resume
+     * const Resume = await prisma.resume.delete({
+     *   where: {
+     *     // ... filter to delete one Resume
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ResumeDeleteArgs>(args: SelectSubset<T, ResumeDeleteArgs<ExtArgs>>): Prisma__ResumeClient<$Result.GetResult<Prisma.$ResumePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Resume.
+     * @param {ResumeUpdateArgs} args - Arguments to update one Resume.
+     * @example
+     * // Update one Resume
+     * const resume = await prisma.resume.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ResumeUpdateArgs>(args: SelectSubset<T, ResumeUpdateArgs<ExtArgs>>): Prisma__ResumeClient<$Result.GetResult<Prisma.$ResumePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Resumes.
+     * @param {ResumeDeleteManyArgs} args - Arguments to filter Resumes to delete.
+     * @example
+     * // Delete a few Resumes
+     * const { count } = await prisma.resume.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ResumeDeleteManyArgs>(args?: SelectSubset<T, ResumeDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Resumes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ResumeUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Resumes
+     * const resume = await prisma.resume.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ResumeUpdateManyArgs>(args: SelectSubset<T, ResumeUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Resumes and returns the data updated in the database.
+     * @param {ResumeUpdateManyAndReturnArgs} args - Arguments to update many Resumes.
+     * @example
+     * // Update many Resumes
+     * const resume = await prisma.resume.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Resumes and only return the `id`
+     * const resumeWithIdOnly = await prisma.resume.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ResumeUpdateManyAndReturnArgs>(args: SelectSubset<T, ResumeUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ResumePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Resume.
+     * @param {ResumeUpsertArgs} args - Arguments to update or create a Resume.
+     * @example
+     * // Update or create a Resume
+     * const resume = await prisma.resume.upsert({
+     *   create: {
+     *     // ... data to create a Resume
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Resume we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ResumeUpsertArgs>(args: SelectSubset<T, ResumeUpsertArgs<ExtArgs>>): Prisma__ResumeClient<$Result.GetResult<Prisma.$ResumePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Resumes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ResumeCountArgs} args - Arguments to filter Resumes to count.
+     * @example
+     * // Count the number of Resumes
+     * const count = await prisma.resume.count({
+     *   where: {
+     *     // ... the filter for the Resumes we want to count
+     *   }
+     * })
+    **/
+    count<T extends ResumeCountArgs>(
+      args?: Subset<T, ResumeCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ResumeCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Resume.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ResumeAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ResumeAggregateArgs>(args: Subset<T, ResumeAggregateArgs>): Prisma.PrismaPromise<GetResumeAggregateType<T>>
+
+    /**
+     * Group by Resume.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ResumeGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ResumeGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ResumeGroupByArgs['orderBy'] }
+        : { orderBy?: ResumeGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ResumeGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetResumeGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Resume model
+   */
+  readonly fields: ResumeFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Resume.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ResumeClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    template<T extends TemplateDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TemplateDefaultArgs<ExtArgs>>): Prisma__TemplateClient<$Result.GetResult<Prisma.$TemplatePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    theme<T extends ThemeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ThemeDefaultArgs<ExtArgs>>): Prisma__ThemeClient<$Result.GetResult<Prisma.$ThemePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    font<T extends Resume$fontArgs<ExtArgs> = {}>(args?: Subset<T, Resume$fontArgs<ExtArgs>>): Prisma__FontClient<$Result.GetResult<Prisma.$FontPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    personalInfo<T extends Resume$personalInfoArgs<ExtArgs> = {}>(args?: Subset<T, Resume$personalInfoArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PersonalInfoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    sections<T extends Resume$sectionsArgs<ExtArgs> = {}>(args?: Subset<T, Resume$sectionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SectionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    educations<T extends Resume$educationsArgs<ExtArgs> = {}>(args?: Subset<T, Resume$educationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EducationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    experiences<T extends Resume$experiencesArgs<ExtArgs> = {}>(args?: Subset<T, Resume$experiencesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ExperiencePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    skills<T extends Resume$skillsArgs<ExtArgs> = {}>(args?: Subset<T, Resume$skillsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SkillPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    languages<T extends Resume$languagesArgs<ExtArgs> = {}>(args?: Subset<T, Resume$languagesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LanguagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    certifications<T extends Resume$certificationsArgs<ExtArgs> = {}>(args?: Subset<T, Resume$certificationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CertificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    projects<T extends Resume$projectsArgs<ExtArgs> = {}>(args?: Subset<T, Resume$projectsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    achievements<T extends Resume$achievementsArgs<ExtArgs> = {}>(args?: Subset<T, Resume$achievementsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AchievementPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    customSections<T extends Resume$customSectionsArgs<ExtArgs> = {}>(args?: Subset<T, Resume$customSectionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomSectionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Resume model
+   */
+  interface ResumeFieldRefs {
+    readonly id: FieldRef<"Resume", 'String'>
+    readonly title: FieldRef<"Resume", 'String'>
+    readonly userId: FieldRef<"Resume", 'String'>
+    readonly createdAt: FieldRef<"Resume", 'DateTime'>
+    readonly updatedAt: FieldRef<"Resume", 'DateTime'>
+    readonly isPublic: FieldRef<"Resume", 'Boolean'>
+    readonly publicUrl: FieldRef<"Resume", 'String'>
+    readonly templateId: FieldRef<"Resume", 'String'>
+    readonly themeId: FieldRef<"Resume", 'String'>
+    readonly fontId: FieldRef<"Resume", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Resume findUnique
+   */
+  export type ResumeFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Resume
+     */
+    select?: ResumeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Resume
+     */
+    omit?: ResumeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ResumeInclude<ExtArgs> | null
+    /**
+     * Filter, which Resume to fetch.
+     */
+    where: ResumeWhereUniqueInput
+  }
+
+  /**
+   * Resume findUniqueOrThrow
+   */
+  export type ResumeFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Resume
+     */
+    select?: ResumeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Resume
+     */
+    omit?: ResumeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ResumeInclude<ExtArgs> | null
+    /**
+     * Filter, which Resume to fetch.
+     */
+    where: ResumeWhereUniqueInput
+  }
+
+  /**
+   * Resume findFirst
+   */
+  export type ResumeFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Resume
+     */
+    select?: ResumeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Resume
+     */
+    omit?: ResumeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ResumeInclude<ExtArgs> | null
+    /**
+     * Filter, which Resume to fetch.
+     */
+    where?: ResumeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Resumes to fetch.
+     */
+    orderBy?: ResumeOrderByWithRelationInput | ResumeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Resumes.
+     */
+    cursor?: ResumeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Resumes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Resumes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Resumes.
+     */
+    distinct?: ResumeScalarFieldEnum | ResumeScalarFieldEnum[]
+  }
+
+  /**
+   * Resume findFirstOrThrow
+   */
+  export type ResumeFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Resume
+     */
+    select?: ResumeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Resume
+     */
+    omit?: ResumeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ResumeInclude<ExtArgs> | null
+    /**
+     * Filter, which Resume to fetch.
+     */
+    where?: ResumeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Resumes to fetch.
+     */
+    orderBy?: ResumeOrderByWithRelationInput | ResumeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Resumes.
+     */
+    cursor?: ResumeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Resumes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Resumes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Resumes.
+     */
+    distinct?: ResumeScalarFieldEnum | ResumeScalarFieldEnum[]
+  }
+
+  /**
+   * Resume findMany
+   */
+  export type ResumeFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Resume
+     */
+    select?: ResumeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Resume
+     */
+    omit?: ResumeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ResumeInclude<ExtArgs> | null
+    /**
+     * Filter, which Resumes to fetch.
+     */
+    where?: ResumeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Resumes to fetch.
+     */
+    orderBy?: ResumeOrderByWithRelationInput | ResumeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Resumes.
+     */
+    cursor?: ResumeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Resumes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Resumes.
+     */
+    skip?: number
+    distinct?: ResumeScalarFieldEnum | ResumeScalarFieldEnum[]
+  }
+
+  /**
+   * Resume create
+   */
+  export type ResumeCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Resume
+     */
+    select?: ResumeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Resume
+     */
+    omit?: ResumeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ResumeInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Resume.
+     */
+    data: XOR<ResumeCreateInput, ResumeUncheckedCreateInput>
+  }
+
+  /**
+   * Resume createMany
+   */
+  export type ResumeCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Resumes.
+     */
+    data: ResumeCreateManyInput | ResumeCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Resume createManyAndReturn
+   */
+  export type ResumeCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Resume
+     */
+    select?: ResumeSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Resume
+     */
+    omit?: ResumeOmit<ExtArgs> | null
+    /**
+     * The data used to create many Resumes.
+     */
+    data: ResumeCreateManyInput | ResumeCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ResumeIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Resume update
+   */
+  export type ResumeUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Resume
+     */
+    select?: ResumeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Resume
+     */
+    omit?: ResumeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ResumeInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Resume.
+     */
+    data: XOR<ResumeUpdateInput, ResumeUncheckedUpdateInput>
+    /**
+     * Choose, which Resume to update.
+     */
+    where: ResumeWhereUniqueInput
+  }
+
+  /**
+   * Resume updateMany
+   */
+  export type ResumeUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Resumes.
+     */
+    data: XOR<ResumeUpdateManyMutationInput, ResumeUncheckedUpdateManyInput>
+    /**
+     * Filter which Resumes to update
+     */
+    where?: ResumeWhereInput
+    /**
+     * Limit how many Resumes to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Resume updateManyAndReturn
+   */
+  export type ResumeUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Resume
+     */
+    select?: ResumeSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Resume
+     */
+    omit?: ResumeOmit<ExtArgs> | null
+    /**
+     * The data used to update Resumes.
+     */
+    data: XOR<ResumeUpdateManyMutationInput, ResumeUncheckedUpdateManyInput>
+    /**
+     * Filter which Resumes to update
+     */
+    where?: ResumeWhereInput
+    /**
+     * Limit how many Resumes to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ResumeIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Resume upsert
+   */
+  export type ResumeUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Resume
+     */
+    select?: ResumeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Resume
+     */
+    omit?: ResumeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ResumeInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Resume to update in case it exists.
+     */
+    where: ResumeWhereUniqueInput
+    /**
+     * In case the Resume found by the `where` argument doesn't exist, create a new Resume with this data.
+     */
+    create: XOR<ResumeCreateInput, ResumeUncheckedCreateInput>
+    /**
+     * In case the Resume was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ResumeUpdateInput, ResumeUncheckedUpdateInput>
+  }
+
+  /**
+   * Resume delete
+   */
+  export type ResumeDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Resume
+     */
+    select?: ResumeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Resume
+     */
+    omit?: ResumeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ResumeInclude<ExtArgs> | null
+    /**
+     * Filter which Resume to delete.
+     */
+    where: ResumeWhereUniqueInput
+  }
+
+  /**
+   * Resume deleteMany
+   */
+  export type ResumeDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Resumes to delete
+     */
+    where?: ResumeWhereInput
+    /**
+     * Limit how many Resumes to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Resume.font
+   */
+  export type Resume$fontArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Font
+     */
+    select?: FontSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Font
+     */
+    omit?: FontOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FontInclude<ExtArgs> | null
+    where?: FontWhereInput
+  }
+
+  /**
+   * Resume.personalInfo
+   */
+  export type Resume$personalInfoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PersonalInfo
+     */
+    select?: PersonalInfoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PersonalInfo
+     */
+    omit?: PersonalInfoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PersonalInfoInclude<ExtArgs> | null
+    where?: PersonalInfoWhereInput
+    orderBy?: PersonalInfoOrderByWithRelationInput | PersonalInfoOrderByWithRelationInput[]
+    cursor?: PersonalInfoWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PersonalInfoScalarFieldEnum | PersonalInfoScalarFieldEnum[]
+  }
+
+  /**
+   * Resume.sections
+   */
+  export type Resume$sectionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Section
+     */
+    select?: SectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Section
+     */
+    omit?: SectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SectionInclude<ExtArgs> | null
+    where?: SectionWhereInput
+    orderBy?: SectionOrderByWithRelationInput | SectionOrderByWithRelationInput[]
+    cursor?: SectionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: SectionScalarFieldEnum | SectionScalarFieldEnum[]
+  }
+
+  /**
+   * Resume.educations
+   */
+  export type Resume$educationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Education
+     */
+    select?: EducationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Education
+     */
+    omit?: EducationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EducationInclude<ExtArgs> | null
+    where?: EducationWhereInput
+    orderBy?: EducationOrderByWithRelationInput | EducationOrderByWithRelationInput[]
+    cursor?: EducationWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: EducationScalarFieldEnum | EducationScalarFieldEnum[]
+  }
+
+  /**
+   * Resume.experiences
+   */
+  export type Resume$experiencesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Experience
+     */
+    select?: ExperienceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Experience
+     */
+    omit?: ExperienceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ExperienceInclude<ExtArgs> | null
+    where?: ExperienceWhereInput
+    orderBy?: ExperienceOrderByWithRelationInput | ExperienceOrderByWithRelationInput[]
+    cursor?: ExperienceWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ExperienceScalarFieldEnum | ExperienceScalarFieldEnum[]
+  }
+
+  /**
+   * Resume.skills
+   */
+  export type Resume$skillsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Skill
+     */
+    select?: SkillSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Skill
+     */
+    omit?: SkillOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SkillInclude<ExtArgs> | null
+    where?: SkillWhereInput
+    orderBy?: SkillOrderByWithRelationInput | SkillOrderByWithRelationInput[]
+    cursor?: SkillWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: SkillScalarFieldEnum | SkillScalarFieldEnum[]
+  }
+
+  /**
+   * Resume.languages
+   */
+  export type Resume$languagesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Language
+     */
+    select?: LanguageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Language
+     */
+    omit?: LanguageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LanguageInclude<ExtArgs> | null
+    where?: LanguageWhereInput
+    orderBy?: LanguageOrderByWithRelationInput | LanguageOrderByWithRelationInput[]
+    cursor?: LanguageWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: LanguageScalarFieldEnum | LanguageScalarFieldEnum[]
+  }
+
+  /**
+   * Resume.certifications
+   */
+  export type Resume$certificationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Certification
+     */
+    select?: CertificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Certification
+     */
+    omit?: CertificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CertificationInclude<ExtArgs> | null
+    where?: CertificationWhereInput
+    orderBy?: CertificationOrderByWithRelationInput | CertificationOrderByWithRelationInput[]
+    cursor?: CertificationWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CertificationScalarFieldEnum | CertificationScalarFieldEnum[]
+  }
+
+  /**
+   * Resume.projects
+   */
+  export type Resume$projectsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+    where?: ProjectWhereInput
+    orderBy?: ProjectOrderByWithRelationInput | ProjectOrderByWithRelationInput[]
+    cursor?: ProjectWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ProjectScalarFieldEnum | ProjectScalarFieldEnum[]
+  }
+
+  /**
+   * Resume.achievements
+   */
+  export type Resume$achievementsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Achievement
+     */
+    select?: AchievementSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Achievement
+     */
+    omit?: AchievementOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AchievementInclude<ExtArgs> | null
+    where?: AchievementWhereInput
+    orderBy?: AchievementOrderByWithRelationInput | AchievementOrderByWithRelationInput[]
+    cursor?: AchievementWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: AchievementScalarFieldEnum | AchievementScalarFieldEnum[]
+  }
+
+  /**
+   * Resume.customSections
+   */
+  export type Resume$customSectionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomSection
+     */
+    select?: CustomSectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomSection
+     */
+    omit?: CustomSectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomSectionInclude<ExtArgs> | null
+    where?: CustomSectionWhereInput
+    orderBy?: CustomSectionOrderByWithRelationInput | CustomSectionOrderByWithRelationInput[]
+    cursor?: CustomSectionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CustomSectionScalarFieldEnum | CustomSectionScalarFieldEnum[]
+  }
+
+  /**
+   * Resume without action
+   */
+  export type ResumeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Resume
+     */
+    select?: ResumeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Resume
+     */
+    omit?: ResumeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ResumeInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model PersonalInfo
+   */
+
+  export type AggregatePersonalInfo = {
+    _count: PersonalInfoCountAggregateOutputType | null
+    _min: PersonalInfoMinAggregateOutputType | null
+    _max: PersonalInfoMaxAggregateOutputType | null
+  }
+
+  export type PersonalInfoMinAggregateOutputType = {
+    id: string | null
+    resumeId: string | null
+    firstName: string | null
+    lastName: string | null
+    title: string | null
+    email: string | null
+    phone: string | null
+    website: string | null
+    location: string | null
+    photoUrl: string | null
+    description: string | null
+  }
+
+  export type PersonalInfoMaxAggregateOutputType = {
+    id: string | null
+    resumeId: string | null
+    firstName: string | null
+    lastName: string | null
+    title: string | null
+    email: string | null
+    phone: string | null
+    website: string | null
+    location: string | null
+    photoUrl: string | null
+    description: string | null
+  }
+
+  export type PersonalInfoCountAggregateOutputType = {
+    id: number
+    resumeId: number
+    firstName: number
+    lastName: number
+    title: number
+    email: number
+    phone: number
+    website: number
+    location: number
+    photoUrl: number
+    description: number
+    _all: number
+  }
+
+
+  export type PersonalInfoMinAggregateInputType = {
+    id?: true
+    resumeId?: true
+    firstName?: true
+    lastName?: true
+    title?: true
+    email?: true
+    phone?: true
+    website?: true
+    location?: true
+    photoUrl?: true
+    description?: true
+  }
+
+  export type PersonalInfoMaxAggregateInputType = {
+    id?: true
+    resumeId?: true
+    firstName?: true
+    lastName?: true
+    title?: true
+    email?: true
+    phone?: true
+    website?: true
+    location?: true
+    photoUrl?: true
+    description?: true
+  }
+
+  export type PersonalInfoCountAggregateInputType = {
+    id?: true
+    resumeId?: true
+    firstName?: true
+    lastName?: true
+    title?: true
+    email?: true
+    phone?: true
+    website?: true
+    location?: true
+    photoUrl?: true
+    description?: true
+    _all?: true
+  }
+
+  export type PersonalInfoAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PersonalInfo to aggregate.
+     */
+    where?: PersonalInfoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PersonalInfos to fetch.
+     */
+    orderBy?: PersonalInfoOrderByWithRelationInput | PersonalInfoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: PersonalInfoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PersonalInfos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PersonalInfos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned PersonalInfos
+    **/
+    _count?: true | PersonalInfoCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: PersonalInfoMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: PersonalInfoMaxAggregateInputType
+  }
+
+  export type GetPersonalInfoAggregateType<T extends PersonalInfoAggregateArgs> = {
+        [P in keyof T & keyof AggregatePersonalInfo]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePersonalInfo[P]>
+      : GetScalarType<T[P], AggregatePersonalInfo[P]>
+  }
+
+
+
+
+  export type PersonalInfoGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PersonalInfoWhereInput
+    orderBy?: PersonalInfoOrderByWithAggregationInput | PersonalInfoOrderByWithAggregationInput[]
+    by: PersonalInfoScalarFieldEnum[] | PersonalInfoScalarFieldEnum
+    having?: PersonalInfoScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: PersonalInfoCountAggregateInputType | true
+    _min?: PersonalInfoMinAggregateInputType
+    _max?: PersonalInfoMaxAggregateInputType
+  }
+
+  export type PersonalInfoGroupByOutputType = {
+    id: string
+    resumeId: string
+    firstName: string | null
+    lastName: string | null
+    title: string | null
+    email: string | null
+    phone: string | null
+    website: string | null
+    location: string | null
+    photoUrl: string | null
+    description: string | null
+    _count: PersonalInfoCountAggregateOutputType | null
+    _min: PersonalInfoMinAggregateOutputType | null
+    _max: PersonalInfoMaxAggregateOutputType | null
+  }
+
+  type GetPersonalInfoGroupByPayload<T extends PersonalInfoGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<PersonalInfoGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof PersonalInfoGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], PersonalInfoGroupByOutputType[P]>
+            : GetScalarType<T[P], PersonalInfoGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type PersonalInfoSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    firstName?: boolean
+    lastName?: boolean
+    title?: boolean
+    email?: boolean
+    phone?: boolean
+    website?: boolean
+    location?: boolean
+    photoUrl?: boolean
+    description?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["personalInfo"]>
+
+  export type PersonalInfoSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    firstName?: boolean
+    lastName?: boolean
+    title?: boolean
+    email?: boolean
+    phone?: boolean
+    website?: boolean
+    location?: boolean
+    photoUrl?: boolean
+    description?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["personalInfo"]>
+
+  export type PersonalInfoSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    firstName?: boolean
+    lastName?: boolean
+    title?: boolean
+    email?: boolean
+    phone?: boolean
+    website?: boolean
+    location?: boolean
+    photoUrl?: boolean
+    description?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["personalInfo"]>
+
+  export type PersonalInfoSelectScalar = {
+    id?: boolean
+    resumeId?: boolean
+    firstName?: boolean
+    lastName?: boolean
+    title?: boolean
+    email?: boolean
+    phone?: boolean
+    website?: boolean
+    location?: boolean
+    photoUrl?: boolean
+    description?: boolean
+  }
+
+  export type PersonalInfoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "resumeId" | "firstName" | "lastName" | "title" | "email" | "phone" | "website" | "location" | "photoUrl" | "description", ExtArgs["result"]["personalInfo"]>
+  export type PersonalInfoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }
+  export type PersonalInfoIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }
+  export type PersonalInfoIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }
+
+  export type $PersonalInfoPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "PersonalInfo"
+    objects: {
+      resume: Prisma.$ResumePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      resumeId: string
+      firstName: string | null
+      lastName: string | null
+      title: string | null
+      email: string | null
+      phone: string | null
+      website: string | null
+      location: string | null
+      photoUrl: string | null
+      description: string | null
+    }, ExtArgs["result"]["personalInfo"]>
+    composites: {}
+  }
+
+  type PersonalInfoGetPayload<S extends boolean | null | undefined | PersonalInfoDefaultArgs> = $Result.GetResult<Prisma.$PersonalInfoPayload, S>
+
+  type PersonalInfoCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<PersonalInfoFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: PersonalInfoCountAggregateInputType | true
+    }
+
+  export interface PersonalInfoDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['PersonalInfo'], meta: { name: 'PersonalInfo' } }
+    /**
+     * Find zero or one PersonalInfo that matches the filter.
+     * @param {PersonalInfoFindUniqueArgs} args - Arguments to find a PersonalInfo
+     * @example
+     * // Get one PersonalInfo
+     * const personalInfo = await prisma.personalInfo.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends PersonalInfoFindUniqueArgs>(args: SelectSubset<T, PersonalInfoFindUniqueArgs<ExtArgs>>): Prisma__PersonalInfoClient<$Result.GetResult<Prisma.$PersonalInfoPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one PersonalInfo that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {PersonalInfoFindUniqueOrThrowArgs} args - Arguments to find a PersonalInfo
+     * @example
+     * // Get one PersonalInfo
+     * const personalInfo = await prisma.personalInfo.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends PersonalInfoFindUniqueOrThrowArgs>(args: SelectSubset<T, PersonalInfoFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PersonalInfoClient<$Result.GetResult<Prisma.$PersonalInfoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first PersonalInfo that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PersonalInfoFindFirstArgs} args - Arguments to find a PersonalInfo
+     * @example
+     * // Get one PersonalInfo
+     * const personalInfo = await prisma.personalInfo.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends PersonalInfoFindFirstArgs>(args?: SelectSubset<T, PersonalInfoFindFirstArgs<ExtArgs>>): Prisma__PersonalInfoClient<$Result.GetResult<Prisma.$PersonalInfoPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first PersonalInfo that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PersonalInfoFindFirstOrThrowArgs} args - Arguments to find a PersonalInfo
+     * @example
+     * // Get one PersonalInfo
+     * const personalInfo = await prisma.personalInfo.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends PersonalInfoFindFirstOrThrowArgs>(args?: SelectSubset<T, PersonalInfoFindFirstOrThrowArgs<ExtArgs>>): Prisma__PersonalInfoClient<$Result.GetResult<Prisma.$PersonalInfoPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more PersonalInfos that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PersonalInfoFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all PersonalInfos
+     * const personalInfos = await prisma.personalInfo.findMany()
+     * 
+     * // Get first 10 PersonalInfos
+     * const personalInfos = await prisma.personalInfo.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const personalInfoWithIdOnly = await prisma.personalInfo.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends PersonalInfoFindManyArgs>(args?: SelectSubset<T, PersonalInfoFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PersonalInfoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a PersonalInfo.
+     * @param {PersonalInfoCreateArgs} args - Arguments to create a PersonalInfo.
+     * @example
+     * // Create one PersonalInfo
+     * const PersonalInfo = await prisma.personalInfo.create({
+     *   data: {
+     *     // ... data to create a PersonalInfo
+     *   }
+     * })
+     * 
+     */
+    create<T extends PersonalInfoCreateArgs>(args: SelectSubset<T, PersonalInfoCreateArgs<ExtArgs>>): Prisma__PersonalInfoClient<$Result.GetResult<Prisma.$PersonalInfoPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many PersonalInfos.
+     * @param {PersonalInfoCreateManyArgs} args - Arguments to create many PersonalInfos.
+     * @example
+     * // Create many PersonalInfos
+     * const personalInfo = await prisma.personalInfo.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends PersonalInfoCreateManyArgs>(args?: SelectSubset<T, PersonalInfoCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many PersonalInfos and returns the data saved in the database.
+     * @param {PersonalInfoCreateManyAndReturnArgs} args - Arguments to create many PersonalInfos.
+     * @example
+     * // Create many PersonalInfos
+     * const personalInfo = await prisma.personalInfo.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many PersonalInfos and only return the `id`
+     * const personalInfoWithIdOnly = await prisma.personalInfo.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends PersonalInfoCreateManyAndReturnArgs>(args?: SelectSubset<T, PersonalInfoCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PersonalInfoPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a PersonalInfo.
+     * @param {PersonalInfoDeleteArgs} args - Arguments to delete one PersonalInfo.
+     * @example
+     * // Delete one PersonalInfo
+     * const PersonalInfo = await prisma.personalInfo.delete({
+     *   where: {
+     *     // ... filter to delete one PersonalInfo
+     *   }
+     * })
+     * 
+     */
+    delete<T extends PersonalInfoDeleteArgs>(args: SelectSubset<T, PersonalInfoDeleteArgs<ExtArgs>>): Prisma__PersonalInfoClient<$Result.GetResult<Prisma.$PersonalInfoPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one PersonalInfo.
+     * @param {PersonalInfoUpdateArgs} args - Arguments to update one PersonalInfo.
+     * @example
+     * // Update one PersonalInfo
+     * const personalInfo = await prisma.personalInfo.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends PersonalInfoUpdateArgs>(args: SelectSubset<T, PersonalInfoUpdateArgs<ExtArgs>>): Prisma__PersonalInfoClient<$Result.GetResult<Prisma.$PersonalInfoPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more PersonalInfos.
+     * @param {PersonalInfoDeleteManyArgs} args - Arguments to filter PersonalInfos to delete.
+     * @example
+     * // Delete a few PersonalInfos
+     * const { count } = await prisma.personalInfo.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends PersonalInfoDeleteManyArgs>(args?: SelectSubset<T, PersonalInfoDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PersonalInfos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PersonalInfoUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many PersonalInfos
+     * const personalInfo = await prisma.personalInfo.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends PersonalInfoUpdateManyArgs>(args: SelectSubset<T, PersonalInfoUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PersonalInfos and returns the data updated in the database.
+     * @param {PersonalInfoUpdateManyAndReturnArgs} args - Arguments to update many PersonalInfos.
+     * @example
+     * // Update many PersonalInfos
+     * const personalInfo = await prisma.personalInfo.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more PersonalInfos and only return the `id`
+     * const personalInfoWithIdOnly = await prisma.personalInfo.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends PersonalInfoUpdateManyAndReturnArgs>(args: SelectSubset<T, PersonalInfoUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PersonalInfoPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one PersonalInfo.
+     * @param {PersonalInfoUpsertArgs} args - Arguments to update or create a PersonalInfo.
+     * @example
+     * // Update or create a PersonalInfo
+     * const personalInfo = await prisma.personalInfo.upsert({
+     *   create: {
+     *     // ... data to create a PersonalInfo
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the PersonalInfo we want to update
+     *   }
+     * })
+     */
+    upsert<T extends PersonalInfoUpsertArgs>(args: SelectSubset<T, PersonalInfoUpsertArgs<ExtArgs>>): Prisma__PersonalInfoClient<$Result.GetResult<Prisma.$PersonalInfoPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of PersonalInfos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PersonalInfoCountArgs} args - Arguments to filter PersonalInfos to count.
+     * @example
+     * // Count the number of PersonalInfos
+     * const count = await prisma.personalInfo.count({
+     *   where: {
+     *     // ... the filter for the PersonalInfos we want to count
+     *   }
+     * })
+    **/
+    count<T extends PersonalInfoCountArgs>(
+      args?: Subset<T, PersonalInfoCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], PersonalInfoCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a PersonalInfo.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PersonalInfoAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends PersonalInfoAggregateArgs>(args: Subset<T, PersonalInfoAggregateArgs>): Prisma.PrismaPromise<GetPersonalInfoAggregateType<T>>
+
+    /**
+     * Group by PersonalInfo.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PersonalInfoGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends PersonalInfoGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: PersonalInfoGroupByArgs['orderBy'] }
+        : { orderBy?: PersonalInfoGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, PersonalInfoGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPersonalInfoGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the PersonalInfo model
+   */
+  readonly fields: PersonalInfoFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for PersonalInfo.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__PersonalInfoClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    resume<T extends ResumeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ResumeDefaultArgs<ExtArgs>>): Prisma__ResumeClient<$Result.GetResult<Prisma.$ResumePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the PersonalInfo model
+   */
+  interface PersonalInfoFieldRefs {
+    readonly id: FieldRef<"PersonalInfo", 'String'>
+    readonly resumeId: FieldRef<"PersonalInfo", 'String'>
+    readonly firstName: FieldRef<"PersonalInfo", 'String'>
+    readonly lastName: FieldRef<"PersonalInfo", 'String'>
+    readonly title: FieldRef<"PersonalInfo", 'String'>
+    readonly email: FieldRef<"PersonalInfo", 'String'>
+    readonly phone: FieldRef<"PersonalInfo", 'String'>
+    readonly website: FieldRef<"PersonalInfo", 'String'>
+    readonly location: FieldRef<"PersonalInfo", 'String'>
+    readonly photoUrl: FieldRef<"PersonalInfo", 'String'>
+    readonly description: FieldRef<"PersonalInfo", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * PersonalInfo findUnique
+   */
+  export type PersonalInfoFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PersonalInfo
+     */
+    select?: PersonalInfoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PersonalInfo
+     */
+    omit?: PersonalInfoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PersonalInfoInclude<ExtArgs> | null
+    /**
+     * Filter, which PersonalInfo to fetch.
+     */
+    where: PersonalInfoWhereUniqueInput
+  }
+
+  /**
+   * PersonalInfo findUniqueOrThrow
+   */
+  export type PersonalInfoFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PersonalInfo
+     */
+    select?: PersonalInfoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PersonalInfo
+     */
+    omit?: PersonalInfoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PersonalInfoInclude<ExtArgs> | null
+    /**
+     * Filter, which PersonalInfo to fetch.
+     */
+    where: PersonalInfoWhereUniqueInput
+  }
+
+  /**
+   * PersonalInfo findFirst
+   */
+  export type PersonalInfoFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PersonalInfo
+     */
+    select?: PersonalInfoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PersonalInfo
+     */
+    omit?: PersonalInfoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PersonalInfoInclude<ExtArgs> | null
+    /**
+     * Filter, which PersonalInfo to fetch.
+     */
+    where?: PersonalInfoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PersonalInfos to fetch.
+     */
+    orderBy?: PersonalInfoOrderByWithRelationInput | PersonalInfoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PersonalInfos.
+     */
+    cursor?: PersonalInfoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PersonalInfos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PersonalInfos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PersonalInfos.
+     */
+    distinct?: PersonalInfoScalarFieldEnum | PersonalInfoScalarFieldEnum[]
+  }
+
+  /**
+   * PersonalInfo findFirstOrThrow
+   */
+  export type PersonalInfoFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PersonalInfo
+     */
+    select?: PersonalInfoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PersonalInfo
+     */
+    omit?: PersonalInfoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PersonalInfoInclude<ExtArgs> | null
+    /**
+     * Filter, which PersonalInfo to fetch.
+     */
+    where?: PersonalInfoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PersonalInfos to fetch.
+     */
+    orderBy?: PersonalInfoOrderByWithRelationInput | PersonalInfoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PersonalInfos.
+     */
+    cursor?: PersonalInfoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PersonalInfos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PersonalInfos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PersonalInfos.
+     */
+    distinct?: PersonalInfoScalarFieldEnum | PersonalInfoScalarFieldEnum[]
+  }
+
+  /**
+   * PersonalInfo findMany
+   */
+  export type PersonalInfoFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PersonalInfo
+     */
+    select?: PersonalInfoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PersonalInfo
+     */
+    omit?: PersonalInfoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PersonalInfoInclude<ExtArgs> | null
+    /**
+     * Filter, which PersonalInfos to fetch.
+     */
+    where?: PersonalInfoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PersonalInfos to fetch.
+     */
+    orderBy?: PersonalInfoOrderByWithRelationInput | PersonalInfoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing PersonalInfos.
+     */
+    cursor?: PersonalInfoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PersonalInfos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PersonalInfos.
+     */
+    skip?: number
+    distinct?: PersonalInfoScalarFieldEnum | PersonalInfoScalarFieldEnum[]
+  }
+
+  /**
+   * PersonalInfo create
+   */
+  export type PersonalInfoCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PersonalInfo
+     */
+    select?: PersonalInfoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PersonalInfo
+     */
+    omit?: PersonalInfoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PersonalInfoInclude<ExtArgs> | null
+    /**
+     * The data needed to create a PersonalInfo.
+     */
+    data: XOR<PersonalInfoCreateInput, PersonalInfoUncheckedCreateInput>
+  }
+
+  /**
+   * PersonalInfo createMany
+   */
+  export type PersonalInfoCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many PersonalInfos.
+     */
+    data: PersonalInfoCreateManyInput | PersonalInfoCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * PersonalInfo createManyAndReturn
+   */
+  export type PersonalInfoCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PersonalInfo
+     */
+    select?: PersonalInfoSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the PersonalInfo
+     */
+    omit?: PersonalInfoOmit<ExtArgs> | null
+    /**
+     * The data used to create many PersonalInfos.
+     */
+    data: PersonalInfoCreateManyInput | PersonalInfoCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PersonalInfoIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * PersonalInfo update
+   */
+  export type PersonalInfoUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PersonalInfo
+     */
+    select?: PersonalInfoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PersonalInfo
+     */
+    omit?: PersonalInfoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PersonalInfoInclude<ExtArgs> | null
+    /**
+     * The data needed to update a PersonalInfo.
+     */
+    data: XOR<PersonalInfoUpdateInput, PersonalInfoUncheckedUpdateInput>
+    /**
+     * Choose, which PersonalInfo to update.
+     */
+    where: PersonalInfoWhereUniqueInput
+  }
+
+  /**
+   * PersonalInfo updateMany
+   */
+  export type PersonalInfoUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update PersonalInfos.
+     */
+    data: XOR<PersonalInfoUpdateManyMutationInput, PersonalInfoUncheckedUpdateManyInput>
+    /**
+     * Filter which PersonalInfos to update
+     */
+    where?: PersonalInfoWhereInput
+    /**
+     * Limit how many PersonalInfos to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * PersonalInfo updateManyAndReturn
+   */
+  export type PersonalInfoUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PersonalInfo
+     */
+    select?: PersonalInfoSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the PersonalInfo
+     */
+    omit?: PersonalInfoOmit<ExtArgs> | null
+    /**
+     * The data used to update PersonalInfos.
+     */
+    data: XOR<PersonalInfoUpdateManyMutationInput, PersonalInfoUncheckedUpdateManyInput>
+    /**
+     * Filter which PersonalInfos to update
+     */
+    where?: PersonalInfoWhereInput
+    /**
+     * Limit how many PersonalInfos to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PersonalInfoIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * PersonalInfo upsert
+   */
+  export type PersonalInfoUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PersonalInfo
+     */
+    select?: PersonalInfoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PersonalInfo
+     */
+    omit?: PersonalInfoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PersonalInfoInclude<ExtArgs> | null
+    /**
+     * The filter to search for the PersonalInfo to update in case it exists.
+     */
+    where: PersonalInfoWhereUniqueInput
+    /**
+     * In case the PersonalInfo found by the `where` argument doesn't exist, create a new PersonalInfo with this data.
+     */
+    create: XOR<PersonalInfoCreateInput, PersonalInfoUncheckedCreateInput>
+    /**
+     * In case the PersonalInfo was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<PersonalInfoUpdateInput, PersonalInfoUncheckedUpdateInput>
+  }
+
+  /**
+   * PersonalInfo delete
+   */
+  export type PersonalInfoDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PersonalInfo
+     */
+    select?: PersonalInfoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PersonalInfo
+     */
+    omit?: PersonalInfoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PersonalInfoInclude<ExtArgs> | null
+    /**
+     * Filter which PersonalInfo to delete.
+     */
+    where: PersonalInfoWhereUniqueInput
+  }
+
+  /**
+   * PersonalInfo deleteMany
+   */
+  export type PersonalInfoDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PersonalInfos to delete
+     */
+    where?: PersonalInfoWhereInput
+    /**
+     * Limit how many PersonalInfos to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * PersonalInfo without action
+   */
+  export type PersonalInfoDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PersonalInfo
+     */
+    select?: PersonalInfoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PersonalInfo
+     */
+    omit?: PersonalInfoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PersonalInfoInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Section
+   */
+
+  export type AggregateSection = {
+    _count: SectionCountAggregateOutputType | null
+    _avg: SectionAvgAggregateOutputType | null
+    _sum: SectionSumAggregateOutputType | null
+    _min: SectionMinAggregateOutputType | null
+    _max: SectionMaxAggregateOutputType | null
+  }
+
+  export type SectionAvgAggregateOutputType = {
+    order: number | null
+  }
+
+  export type SectionSumAggregateOutputType = {
+    order: number | null
+  }
+
+  export type SectionMinAggregateOutputType = {
+    id: string | null
+    resumeId: string | null
+    type: $Enums.SectionType | null
+    title: string | null
+    isVisible: boolean | null
+    order: number | null
+  }
+
+  export type SectionMaxAggregateOutputType = {
+    id: string | null
+    resumeId: string | null
+    type: $Enums.SectionType | null
+    title: string | null
+    isVisible: boolean | null
+    order: number | null
+  }
+
+  export type SectionCountAggregateOutputType = {
+    id: number
+    resumeId: number
+    type: number
+    title: number
+    isVisible: number
+    order: number
+    _all: number
+  }
+
+
+  export type SectionAvgAggregateInputType = {
+    order?: true
+  }
+
+  export type SectionSumAggregateInputType = {
+    order?: true
+  }
+
+  export type SectionMinAggregateInputType = {
+    id?: true
+    resumeId?: true
+    type?: true
+    title?: true
+    isVisible?: true
+    order?: true
+  }
+
+  export type SectionMaxAggregateInputType = {
+    id?: true
+    resumeId?: true
+    type?: true
+    title?: true
+    isVisible?: true
+    order?: true
+  }
+
+  export type SectionCountAggregateInputType = {
+    id?: true
+    resumeId?: true
+    type?: true
+    title?: true
+    isVisible?: true
+    order?: true
+    _all?: true
+  }
+
+  export type SectionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Section to aggregate.
+     */
+    where?: SectionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Sections to fetch.
+     */
+    orderBy?: SectionOrderByWithRelationInput | SectionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: SectionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Sections from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Sections.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Sections
+    **/
+    _count?: true | SectionCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: SectionAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: SectionSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: SectionMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: SectionMaxAggregateInputType
+  }
+
+  export type GetSectionAggregateType<T extends SectionAggregateArgs> = {
+        [P in keyof T & keyof AggregateSection]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateSection[P]>
+      : GetScalarType<T[P], AggregateSection[P]>
+  }
+
+
+
+
+  export type SectionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SectionWhereInput
+    orderBy?: SectionOrderByWithAggregationInput | SectionOrderByWithAggregationInput[]
+    by: SectionScalarFieldEnum[] | SectionScalarFieldEnum
+    having?: SectionScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: SectionCountAggregateInputType | true
+    _avg?: SectionAvgAggregateInputType
+    _sum?: SectionSumAggregateInputType
+    _min?: SectionMinAggregateInputType
+    _max?: SectionMaxAggregateInputType
+  }
+
+  export type SectionGroupByOutputType = {
+    id: string
+    resumeId: string
+    type: $Enums.SectionType
+    title: string
+    isVisible: boolean
+    order: number
+    _count: SectionCountAggregateOutputType | null
+    _avg: SectionAvgAggregateOutputType | null
+    _sum: SectionSumAggregateOutputType | null
+    _min: SectionMinAggregateOutputType | null
+    _max: SectionMaxAggregateOutputType | null
+  }
+
+  type GetSectionGroupByPayload<T extends SectionGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<SectionGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof SectionGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], SectionGroupByOutputType[P]>
+            : GetScalarType<T[P], SectionGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type SectionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    type?: boolean
+    title?: boolean
+    isVisible?: boolean
+    order?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["section"]>
+
+  export type SectionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    type?: boolean
+    title?: boolean
+    isVisible?: boolean
+    order?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["section"]>
+
+  export type SectionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    type?: boolean
+    title?: boolean
+    isVisible?: boolean
+    order?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["section"]>
+
+  export type SectionSelectScalar = {
+    id?: boolean
+    resumeId?: boolean
+    type?: boolean
+    title?: boolean
+    isVisible?: boolean
+    order?: boolean
+  }
+
+  export type SectionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "resumeId" | "type" | "title" | "isVisible" | "order", ExtArgs["result"]["section"]>
+  export type SectionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }
+  export type SectionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }
+  export type SectionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }
+
+  export type $SectionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Section"
+    objects: {
+      resume: Prisma.$ResumePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      resumeId: string
+      type: $Enums.SectionType
+      title: string
+      isVisible: boolean
+      order: number
+    }, ExtArgs["result"]["section"]>
+    composites: {}
+  }
+
+  type SectionGetPayload<S extends boolean | null | undefined | SectionDefaultArgs> = $Result.GetResult<Prisma.$SectionPayload, S>
+
+  type SectionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<SectionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: SectionCountAggregateInputType | true
+    }
+
+  export interface SectionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Section'], meta: { name: 'Section' } }
+    /**
+     * Find zero or one Section that matches the filter.
+     * @param {SectionFindUniqueArgs} args - Arguments to find a Section
+     * @example
+     * // Get one Section
+     * const section = await prisma.section.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends SectionFindUniqueArgs>(args: SelectSubset<T, SectionFindUniqueArgs<ExtArgs>>): Prisma__SectionClient<$Result.GetResult<Prisma.$SectionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Section that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {SectionFindUniqueOrThrowArgs} args - Arguments to find a Section
+     * @example
+     * // Get one Section
+     * const section = await prisma.section.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends SectionFindUniqueOrThrowArgs>(args: SelectSubset<T, SectionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__SectionClient<$Result.GetResult<Prisma.$SectionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Section that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SectionFindFirstArgs} args - Arguments to find a Section
+     * @example
+     * // Get one Section
+     * const section = await prisma.section.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends SectionFindFirstArgs>(args?: SelectSubset<T, SectionFindFirstArgs<ExtArgs>>): Prisma__SectionClient<$Result.GetResult<Prisma.$SectionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Section that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SectionFindFirstOrThrowArgs} args - Arguments to find a Section
+     * @example
+     * // Get one Section
+     * const section = await prisma.section.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends SectionFindFirstOrThrowArgs>(args?: SelectSubset<T, SectionFindFirstOrThrowArgs<ExtArgs>>): Prisma__SectionClient<$Result.GetResult<Prisma.$SectionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Sections that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SectionFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Sections
+     * const sections = await prisma.section.findMany()
+     * 
+     * // Get first 10 Sections
+     * const sections = await prisma.section.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const sectionWithIdOnly = await prisma.section.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends SectionFindManyArgs>(args?: SelectSubset<T, SectionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SectionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Section.
+     * @param {SectionCreateArgs} args - Arguments to create a Section.
+     * @example
+     * // Create one Section
+     * const Section = await prisma.section.create({
+     *   data: {
+     *     // ... data to create a Section
+     *   }
+     * })
+     * 
+     */
+    create<T extends SectionCreateArgs>(args: SelectSubset<T, SectionCreateArgs<ExtArgs>>): Prisma__SectionClient<$Result.GetResult<Prisma.$SectionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Sections.
+     * @param {SectionCreateManyArgs} args - Arguments to create many Sections.
+     * @example
+     * // Create many Sections
+     * const section = await prisma.section.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends SectionCreateManyArgs>(args?: SelectSubset<T, SectionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Sections and returns the data saved in the database.
+     * @param {SectionCreateManyAndReturnArgs} args - Arguments to create many Sections.
+     * @example
+     * // Create many Sections
+     * const section = await prisma.section.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Sections and only return the `id`
+     * const sectionWithIdOnly = await prisma.section.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends SectionCreateManyAndReturnArgs>(args?: SelectSubset<T, SectionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SectionPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Section.
+     * @param {SectionDeleteArgs} args - Arguments to delete one Section.
+     * @example
+     * // Delete one Section
+     * const Section = await prisma.section.delete({
+     *   where: {
+     *     // ... filter to delete one Section
+     *   }
+     * })
+     * 
+     */
+    delete<T extends SectionDeleteArgs>(args: SelectSubset<T, SectionDeleteArgs<ExtArgs>>): Prisma__SectionClient<$Result.GetResult<Prisma.$SectionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Section.
+     * @param {SectionUpdateArgs} args - Arguments to update one Section.
+     * @example
+     * // Update one Section
+     * const section = await prisma.section.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends SectionUpdateArgs>(args: SelectSubset<T, SectionUpdateArgs<ExtArgs>>): Prisma__SectionClient<$Result.GetResult<Prisma.$SectionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Sections.
+     * @param {SectionDeleteManyArgs} args - Arguments to filter Sections to delete.
+     * @example
+     * // Delete a few Sections
+     * const { count } = await prisma.section.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends SectionDeleteManyArgs>(args?: SelectSubset<T, SectionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Sections.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SectionUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Sections
+     * const section = await prisma.section.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends SectionUpdateManyArgs>(args: SelectSubset<T, SectionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Sections and returns the data updated in the database.
+     * @param {SectionUpdateManyAndReturnArgs} args - Arguments to update many Sections.
+     * @example
+     * // Update many Sections
+     * const section = await prisma.section.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Sections and only return the `id`
+     * const sectionWithIdOnly = await prisma.section.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends SectionUpdateManyAndReturnArgs>(args: SelectSubset<T, SectionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SectionPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Section.
+     * @param {SectionUpsertArgs} args - Arguments to update or create a Section.
+     * @example
+     * // Update or create a Section
+     * const section = await prisma.section.upsert({
+     *   create: {
+     *     // ... data to create a Section
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Section we want to update
+     *   }
+     * })
+     */
+    upsert<T extends SectionUpsertArgs>(args: SelectSubset<T, SectionUpsertArgs<ExtArgs>>): Prisma__SectionClient<$Result.GetResult<Prisma.$SectionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Sections.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SectionCountArgs} args - Arguments to filter Sections to count.
+     * @example
+     * // Count the number of Sections
+     * const count = await prisma.section.count({
+     *   where: {
+     *     // ... the filter for the Sections we want to count
+     *   }
+     * })
+    **/
+    count<T extends SectionCountArgs>(
+      args?: Subset<T, SectionCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], SectionCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Section.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SectionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends SectionAggregateArgs>(args: Subset<T, SectionAggregateArgs>): Prisma.PrismaPromise<GetSectionAggregateType<T>>
+
+    /**
+     * Group by Section.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SectionGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends SectionGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: SectionGroupByArgs['orderBy'] }
+        : { orderBy?: SectionGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, SectionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSectionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Section model
+   */
+  readonly fields: SectionFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Section.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__SectionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    resume<T extends ResumeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ResumeDefaultArgs<ExtArgs>>): Prisma__ResumeClient<$Result.GetResult<Prisma.$ResumePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Section model
+   */
+  interface SectionFieldRefs {
+    readonly id: FieldRef<"Section", 'String'>
+    readonly resumeId: FieldRef<"Section", 'String'>
+    readonly type: FieldRef<"Section", 'SectionType'>
+    readonly title: FieldRef<"Section", 'String'>
+    readonly isVisible: FieldRef<"Section", 'Boolean'>
+    readonly order: FieldRef<"Section", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Section findUnique
+   */
+  export type SectionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Section
+     */
+    select?: SectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Section
+     */
+    omit?: SectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SectionInclude<ExtArgs> | null
+    /**
+     * Filter, which Section to fetch.
+     */
+    where: SectionWhereUniqueInput
+  }
+
+  /**
+   * Section findUniqueOrThrow
+   */
+  export type SectionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Section
+     */
+    select?: SectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Section
+     */
+    omit?: SectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SectionInclude<ExtArgs> | null
+    /**
+     * Filter, which Section to fetch.
+     */
+    where: SectionWhereUniqueInput
+  }
+
+  /**
+   * Section findFirst
+   */
+  export type SectionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Section
+     */
+    select?: SectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Section
+     */
+    omit?: SectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SectionInclude<ExtArgs> | null
+    /**
+     * Filter, which Section to fetch.
+     */
+    where?: SectionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Sections to fetch.
+     */
+    orderBy?: SectionOrderByWithRelationInput | SectionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Sections.
+     */
+    cursor?: SectionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Sections from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Sections.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Sections.
+     */
+    distinct?: SectionScalarFieldEnum | SectionScalarFieldEnum[]
+  }
+
+  /**
+   * Section findFirstOrThrow
+   */
+  export type SectionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Section
+     */
+    select?: SectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Section
+     */
+    omit?: SectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SectionInclude<ExtArgs> | null
+    /**
+     * Filter, which Section to fetch.
+     */
+    where?: SectionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Sections to fetch.
+     */
+    orderBy?: SectionOrderByWithRelationInput | SectionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Sections.
+     */
+    cursor?: SectionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Sections from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Sections.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Sections.
+     */
+    distinct?: SectionScalarFieldEnum | SectionScalarFieldEnum[]
+  }
+
+  /**
+   * Section findMany
+   */
+  export type SectionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Section
+     */
+    select?: SectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Section
+     */
+    omit?: SectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SectionInclude<ExtArgs> | null
+    /**
+     * Filter, which Sections to fetch.
+     */
+    where?: SectionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Sections to fetch.
+     */
+    orderBy?: SectionOrderByWithRelationInput | SectionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Sections.
+     */
+    cursor?: SectionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Sections from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Sections.
+     */
+    skip?: number
+    distinct?: SectionScalarFieldEnum | SectionScalarFieldEnum[]
+  }
+
+  /**
+   * Section create
+   */
+  export type SectionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Section
+     */
+    select?: SectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Section
+     */
+    omit?: SectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SectionInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Section.
+     */
+    data: XOR<SectionCreateInput, SectionUncheckedCreateInput>
+  }
+
+  /**
+   * Section createMany
+   */
+  export type SectionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Sections.
+     */
+    data: SectionCreateManyInput | SectionCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Section createManyAndReturn
+   */
+  export type SectionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Section
+     */
+    select?: SectionSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Section
+     */
+    omit?: SectionOmit<ExtArgs> | null
+    /**
+     * The data used to create many Sections.
+     */
+    data: SectionCreateManyInput | SectionCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SectionIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Section update
+   */
+  export type SectionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Section
+     */
+    select?: SectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Section
+     */
+    omit?: SectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SectionInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Section.
+     */
+    data: XOR<SectionUpdateInput, SectionUncheckedUpdateInput>
+    /**
+     * Choose, which Section to update.
+     */
+    where: SectionWhereUniqueInput
+  }
+
+  /**
+   * Section updateMany
+   */
+  export type SectionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Sections.
+     */
+    data: XOR<SectionUpdateManyMutationInput, SectionUncheckedUpdateManyInput>
+    /**
+     * Filter which Sections to update
+     */
+    where?: SectionWhereInput
+    /**
+     * Limit how many Sections to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Section updateManyAndReturn
+   */
+  export type SectionUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Section
+     */
+    select?: SectionSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Section
+     */
+    omit?: SectionOmit<ExtArgs> | null
+    /**
+     * The data used to update Sections.
+     */
+    data: XOR<SectionUpdateManyMutationInput, SectionUncheckedUpdateManyInput>
+    /**
+     * Filter which Sections to update
+     */
+    where?: SectionWhereInput
+    /**
+     * Limit how many Sections to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SectionIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Section upsert
+   */
+  export type SectionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Section
+     */
+    select?: SectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Section
+     */
+    omit?: SectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SectionInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Section to update in case it exists.
+     */
+    where: SectionWhereUniqueInput
+    /**
+     * In case the Section found by the `where` argument doesn't exist, create a new Section with this data.
+     */
+    create: XOR<SectionCreateInput, SectionUncheckedCreateInput>
+    /**
+     * In case the Section was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<SectionUpdateInput, SectionUncheckedUpdateInput>
+  }
+
+  /**
+   * Section delete
+   */
+  export type SectionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Section
+     */
+    select?: SectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Section
+     */
+    omit?: SectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SectionInclude<ExtArgs> | null
+    /**
+     * Filter which Section to delete.
+     */
+    where: SectionWhereUniqueInput
+  }
+
+  /**
+   * Section deleteMany
+   */
+  export type SectionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Sections to delete
+     */
+    where?: SectionWhereInput
+    /**
+     * Limit how many Sections to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Section without action
+   */
+  export type SectionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Section
+     */
+    select?: SectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Section
+     */
+    omit?: SectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SectionInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Education
+   */
+
+  export type AggregateEducation = {
+    _count: EducationCountAggregateOutputType | null
+    _avg: EducationAvgAggregateOutputType | null
+    _sum: EducationSumAggregateOutputType | null
+    _min: EducationMinAggregateOutputType | null
+    _max: EducationMaxAggregateOutputType | null
+  }
+
+  export type EducationAvgAggregateOutputType = {
+    order: number | null
+  }
+
+  export type EducationSumAggregateOutputType = {
+    order: number | null
+  }
+
+  export type EducationMinAggregateOutputType = {
+    id: string | null
+    resumeId: string | null
+    institution: string | null
+    degree: string | null
+    fieldOfStudy: string | null
+    startDate: Date | null
+    endDate: Date | null
+    description: string | null
+    location: string | null
+    order: number | null
+  }
+
+  export type EducationMaxAggregateOutputType = {
+    id: string | null
+    resumeId: string | null
+    institution: string | null
+    degree: string | null
+    fieldOfStudy: string | null
+    startDate: Date | null
+    endDate: Date | null
+    description: string | null
+    location: string | null
+    order: number | null
+  }
+
+  export type EducationCountAggregateOutputType = {
+    id: number
+    resumeId: number
+    institution: number
+    degree: number
+    fieldOfStudy: number
+    startDate: number
+    endDate: number
+    description: number
+    location: number
+    order: number
+    _all: number
+  }
+
+
+  export type EducationAvgAggregateInputType = {
+    order?: true
+  }
+
+  export type EducationSumAggregateInputType = {
+    order?: true
+  }
+
+  export type EducationMinAggregateInputType = {
+    id?: true
+    resumeId?: true
+    institution?: true
+    degree?: true
+    fieldOfStudy?: true
+    startDate?: true
+    endDate?: true
+    description?: true
+    location?: true
+    order?: true
+  }
+
+  export type EducationMaxAggregateInputType = {
+    id?: true
+    resumeId?: true
+    institution?: true
+    degree?: true
+    fieldOfStudy?: true
+    startDate?: true
+    endDate?: true
+    description?: true
+    location?: true
+    order?: true
+  }
+
+  export type EducationCountAggregateInputType = {
+    id?: true
+    resumeId?: true
+    institution?: true
+    degree?: true
+    fieldOfStudy?: true
+    startDate?: true
+    endDate?: true
+    description?: true
+    location?: true
+    order?: true
+    _all?: true
+  }
+
+  export type EducationAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Education to aggregate.
+     */
+    where?: EducationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Educations to fetch.
+     */
+    orderBy?: EducationOrderByWithRelationInput | EducationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: EducationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Educations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Educations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Educations
+    **/
+    _count?: true | EducationCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: EducationAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: EducationSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: EducationMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: EducationMaxAggregateInputType
+  }
+
+  export type GetEducationAggregateType<T extends EducationAggregateArgs> = {
+        [P in keyof T & keyof AggregateEducation]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateEducation[P]>
+      : GetScalarType<T[P], AggregateEducation[P]>
+  }
+
+
+
+
+  export type EducationGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: EducationWhereInput
+    orderBy?: EducationOrderByWithAggregationInput | EducationOrderByWithAggregationInput[]
+    by: EducationScalarFieldEnum[] | EducationScalarFieldEnum
+    having?: EducationScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: EducationCountAggregateInputType | true
+    _avg?: EducationAvgAggregateInputType
+    _sum?: EducationSumAggregateInputType
+    _min?: EducationMinAggregateInputType
+    _max?: EducationMaxAggregateInputType
+  }
+
+  export type EducationGroupByOutputType = {
+    id: string
+    resumeId: string
+    institution: string
+    degree: string
+    fieldOfStudy: string | null
+    startDate: Date
+    endDate: Date | null
+    description: string | null
+    location: string | null
+    order: number
+    _count: EducationCountAggregateOutputType | null
+    _avg: EducationAvgAggregateOutputType | null
+    _sum: EducationSumAggregateOutputType | null
+    _min: EducationMinAggregateOutputType | null
+    _max: EducationMaxAggregateOutputType | null
+  }
+
+  type GetEducationGroupByPayload<T extends EducationGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<EducationGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof EducationGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], EducationGroupByOutputType[P]>
+            : GetScalarType<T[P], EducationGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type EducationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    institution?: boolean
+    degree?: boolean
+    fieldOfStudy?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    description?: boolean
+    location?: boolean
+    order?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["education"]>
+
+  export type EducationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    institution?: boolean
+    degree?: boolean
+    fieldOfStudy?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    description?: boolean
+    location?: boolean
+    order?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["education"]>
+
+  export type EducationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    institution?: boolean
+    degree?: boolean
+    fieldOfStudy?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    description?: boolean
+    location?: boolean
+    order?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["education"]>
+
+  export type EducationSelectScalar = {
+    id?: boolean
+    resumeId?: boolean
+    institution?: boolean
+    degree?: boolean
+    fieldOfStudy?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    description?: boolean
+    location?: boolean
+    order?: boolean
+  }
+
+  export type EducationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "resumeId" | "institution" | "degree" | "fieldOfStudy" | "startDate" | "endDate" | "description" | "location" | "order", ExtArgs["result"]["education"]>
+  export type EducationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }
+  export type EducationIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }
+  export type EducationIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }
+
+  export type $EducationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Education"
+    objects: {
+      resume: Prisma.$ResumePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      resumeId: string
+      institution: string
+      degree: string
+      fieldOfStudy: string | null
+      startDate: Date
+      endDate: Date | null
+      description: string | null
+      location: string | null
+      order: number
+    }, ExtArgs["result"]["education"]>
+    composites: {}
+  }
+
+  type EducationGetPayload<S extends boolean | null | undefined | EducationDefaultArgs> = $Result.GetResult<Prisma.$EducationPayload, S>
+
+  type EducationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<EducationFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: EducationCountAggregateInputType | true
+    }
+
+  export interface EducationDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Education'], meta: { name: 'Education' } }
+    /**
+     * Find zero or one Education that matches the filter.
+     * @param {EducationFindUniqueArgs} args - Arguments to find a Education
+     * @example
+     * // Get one Education
+     * const education = await prisma.education.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends EducationFindUniqueArgs>(args: SelectSubset<T, EducationFindUniqueArgs<ExtArgs>>): Prisma__EducationClient<$Result.GetResult<Prisma.$EducationPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Education that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {EducationFindUniqueOrThrowArgs} args - Arguments to find a Education
+     * @example
+     * // Get one Education
+     * const education = await prisma.education.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends EducationFindUniqueOrThrowArgs>(args: SelectSubset<T, EducationFindUniqueOrThrowArgs<ExtArgs>>): Prisma__EducationClient<$Result.GetResult<Prisma.$EducationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Education that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EducationFindFirstArgs} args - Arguments to find a Education
+     * @example
+     * // Get one Education
+     * const education = await prisma.education.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends EducationFindFirstArgs>(args?: SelectSubset<T, EducationFindFirstArgs<ExtArgs>>): Prisma__EducationClient<$Result.GetResult<Prisma.$EducationPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Education that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EducationFindFirstOrThrowArgs} args - Arguments to find a Education
+     * @example
+     * // Get one Education
+     * const education = await prisma.education.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends EducationFindFirstOrThrowArgs>(args?: SelectSubset<T, EducationFindFirstOrThrowArgs<ExtArgs>>): Prisma__EducationClient<$Result.GetResult<Prisma.$EducationPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Educations that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EducationFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Educations
+     * const educations = await prisma.education.findMany()
+     * 
+     * // Get first 10 Educations
+     * const educations = await prisma.education.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const educationWithIdOnly = await prisma.education.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends EducationFindManyArgs>(args?: SelectSubset<T, EducationFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EducationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Education.
+     * @param {EducationCreateArgs} args - Arguments to create a Education.
+     * @example
+     * // Create one Education
+     * const Education = await prisma.education.create({
+     *   data: {
+     *     // ... data to create a Education
+     *   }
+     * })
+     * 
+     */
+    create<T extends EducationCreateArgs>(args: SelectSubset<T, EducationCreateArgs<ExtArgs>>): Prisma__EducationClient<$Result.GetResult<Prisma.$EducationPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Educations.
+     * @param {EducationCreateManyArgs} args - Arguments to create many Educations.
+     * @example
+     * // Create many Educations
+     * const education = await prisma.education.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends EducationCreateManyArgs>(args?: SelectSubset<T, EducationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Educations and returns the data saved in the database.
+     * @param {EducationCreateManyAndReturnArgs} args - Arguments to create many Educations.
+     * @example
+     * // Create many Educations
+     * const education = await prisma.education.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Educations and only return the `id`
+     * const educationWithIdOnly = await prisma.education.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends EducationCreateManyAndReturnArgs>(args?: SelectSubset<T, EducationCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EducationPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Education.
+     * @param {EducationDeleteArgs} args - Arguments to delete one Education.
+     * @example
+     * // Delete one Education
+     * const Education = await prisma.education.delete({
+     *   where: {
+     *     // ... filter to delete one Education
+     *   }
+     * })
+     * 
+     */
+    delete<T extends EducationDeleteArgs>(args: SelectSubset<T, EducationDeleteArgs<ExtArgs>>): Prisma__EducationClient<$Result.GetResult<Prisma.$EducationPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Education.
+     * @param {EducationUpdateArgs} args - Arguments to update one Education.
+     * @example
+     * // Update one Education
+     * const education = await prisma.education.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends EducationUpdateArgs>(args: SelectSubset<T, EducationUpdateArgs<ExtArgs>>): Prisma__EducationClient<$Result.GetResult<Prisma.$EducationPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Educations.
+     * @param {EducationDeleteManyArgs} args - Arguments to filter Educations to delete.
+     * @example
+     * // Delete a few Educations
+     * const { count } = await prisma.education.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends EducationDeleteManyArgs>(args?: SelectSubset<T, EducationDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Educations.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EducationUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Educations
+     * const education = await prisma.education.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends EducationUpdateManyArgs>(args: SelectSubset<T, EducationUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Educations and returns the data updated in the database.
+     * @param {EducationUpdateManyAndReturnArgs} args - Arguments to update many Educations.
+     * @example
+     * // Update many Educations
+     * const education = await prisma.education.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Educations and only return the `id`
+     * const educationWithIdOnly = await prisma.education.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends EducationUpdateManyAndReturnArgs>(args: SelectSubset<T, EducationUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EducationPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Education.
+     * @param {EducationUpsertArgs} args - Arguments to update or create a Education.
+     * @example
+     * // Update or create a Education
+     * const education = await prisma.education.upsert({
+     *   create: {
+     *     // ... data to create a Education
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Education we want to update
+     *   }
+     * })
+     */
+    upsert<T extends EducationUpsertArgs>(args: SelectSubset<T, EducationUpsertArgs<ExtArgs>>): Prisma__EducationClient<$Result.GetResult<Prisma.$EducationPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Educations.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EducationCountArgs} args - Arguments to filter Educations to count.
+     * @example
+     * // Count the number of Educations
+     * const count = await prisma.education.count({
+     *   where: {
+     *     // ... the filter for the Educations we want to count
+     *   }
+     * })
+    **/
+    count<T extends EducationCountArgs>(
+      args?: Subset<T, EducationCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], EducationCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Education.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EducationAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends EducationAggregateArgs>(args: Subset<T, EducationAggregateArgs>): Prisma.PrismaPromise<GetEducationAggregateType<T>>
+
+    /**
+     * Group by Education.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EducationGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends EducationGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: EducationGroupByArgs['orderBy'] }
+        : { orderBy?: EducationGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, EducationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetEducationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Education model
+   */
+  readonly fields: EducationFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Education.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__EducationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    resume<T extends ResumeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ResumeDefaultArgs<ExtArgs>>): Prisma__ResumeClient<$Result.GetResult<Prisma.$ResumePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Education model
+   */
+  interface EducationFieldRefs {
+    readonly id: FieldRef<"Education", 'String'>
+    readonly resumeId: FieldRef<"Education", 'String'>
+    readonly institution: FieldRef<"Education", 'String'>
+    readonly degree: FieldRef<"Education", 'String'>
+    readonly fieldOfStudy: FieldRef<"Education", 'String'>
+    readonly startDate: FieldRef<"Education", 'DateTime'>
+    readonly endDate: FieldRef<"Education", 'DateTime'>
+    readonly description: FieldRef<"Education", 'String'>
+    readonly location: FieldRef<"Education", 'String'>
+    readonly order: FieldRef<"Education", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Education findUnique
+   */
+  export type EducationFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Education
+     */
+    select?: EducationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Education
+     */
+    omit?: EducationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EducationInclude<ExtArgs> | null
+    /**
+     * Filter, which Education to fetch.
+     */
+    where: EducationWhereUniqueInput
+  }
+
+  /**
+   * Education findUniqueOrThrow
+   */
+  export type EducationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Education
+     */
+    select?: EducationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Education
+     */
+    omit?: EducationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EducationInclude<ExtArgs> | null
+    /**
+     * Filter, which Education to fetch.
+     */
+    where: EducationWhereUniqueInput
+  }
+
+  /**
+   * Education findFirst
+   */
+  export type EducationFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Education
+     */
+    select?: EducationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Education
+     */
+    omit?: EducationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EducationInclude<ExtArgs> | null
+    /**
+     * Filter, which Education to fetch.
+     */
+    where?: EducationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Educations to fetch.
+     */
+    orderBy?: EducationOrderByWithRelationInput | EducationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Educations.
+     */
+    cursor?: EducationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Educations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Educations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Educations.
+     */
+    distinct?: EducationScalarFieldEnum | EducationScalarFieldEnum[]
+  }
+
+  /**
+   * Education findFirstOrThrow
+   */
+  export type EducationFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Education
+     */
+    select?: EducationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Education
+     */
+    omit?: EducationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EducationInclude<ExtArgs> | null
+    /**
+     * Filter, which Education to fetch.
+     */
+    where?: EducationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Educations to fetch.
+     */
+    orderBy?: EducationOrderByWithRelationInput | EducationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Educations.
+     */
+    cursor?: EducationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Educations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Educations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Educations.
+     */
+    distinct?: EducationScalarFieldEnum | EducationScalarFieldEnum[]
+  }
+
+  /**
+   * Education findMany
+   */
+  export type EducationFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Education
+     */
+    select?: EducationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Education
+     */
+    omit?: EducationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EducationInclude<ExtArgs> | null
+    /**
+     * Filter, which Educations to fetch.
+     */
+    where?: EducationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Educations to fetch.
+     */
+    orderBy?: EducationOrderByWithRelationInput | EducationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Educations.
+     */
+    cursor?: EducationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Educations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Educations.
+     */
+    skip?: number
+    distinct?: EducationScalarFieldEnum | EducationScalarFieldEnum[]
+  }
+
+  /**
+   * Education create
+   */
+  export type EducationCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Education
+     */
+    select?: EducationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Education
+     */
+    omit?: EducationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EducationInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Education.
+     */
+    data: XOR<EducationCreateInput, EducationUncheckedCreateInput>
+  }
+
+  /**
+   * Education createMany
+   */
+  export type EducationCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Educations.
+     */
+    data: EducationCreateManyInput | EducationCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Education createManyAndReturn
+   */
+  export type EducationCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Education
+     */
+    select?: EducationSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Education
+     */
+    omit?: EducationOmit<ExtArgs> | null
+    /**
+     * The data used to create many Educations.
+     */
+    data: EducationCreateManyInput | EducationCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EducationIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Education update
+   */
+  export type EducationUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Education
+     */
+    select?: EducationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Education
+     */
+    omit?: EducationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EducationInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Education.
+     */
+    data: XOR<EducationUpdateInput, EducationUncheckedUpdateInput>
+    /**
+     * Choose, which Education to update.
+     */
+    where: EducationWhereUniqueInput
+  }
+
+  /**
+   * Education updateMany
+   */
+  export type EducationUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Educations.
+     */
+    data: XOR<EducationUpdateManyMutationInput, EducationUncheckedUpdateManyInput>
+    /**
+     * Filter which Educations to update
+     */
+    where?: EducationWhereInput
+    /**
+     * Limit how many Educations to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Education updateManyAndReturn
+   */
+  export type EducationUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Education
+     */
+    select?: EducationSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Education
+     */
+    omit?: EducationOmit<ExtArgs> | null
+    /**
+     * The data used to update Educations.
+     */
+    data: XOR<EducationUpdateManyMutationInput, EducationUncheckedUpdateManyInput>
+    /**
+     * Filter which Educations to update
+     */
+    where?: EducationWhereInput
+    /**
+     * Limit how many Educations to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EducationIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Education upsert
+   */
+  export type EducationUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Education
+     */
+    select?: EducationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Education
+     */
+    omit?: EducationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EducationInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Education to update in case it exists.
+     */
+    where: EducationWhereUniqueInput
+    /**
+     * In case the Education found by the `where` argument doesn't exist, create a new Education with this data.
+     */
+    create: XOR<EducationCreateInput, EducationUncheckedCreateInput>
+    /**
+     * In case the Education was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<EducationUpdateInput, EducationUncheckedUpdateInput>
+  }
+
+  /**
+   * Education delete
+   */
+  export type EducationDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Education
+     */
+    select?: EducationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Education
+     */
+    omit?: EducationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EducationInclude<ExtArgs> | null
+    /**
+     * Filter which Education to delete.
+     */
+    where: EducationWhereUniqueInput
+  }
+
+  /**
+   * Education deleteMany
+   */
+  export type EducationDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Educations to delete
+     */
+    where?: EducationWhereInput
+    /**
+     * Limit how many Educations to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Education without action
+   */
+  export type EducationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Education
+     */
+    select?: EducationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Education
+     */
+    omit?: EducationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EducationInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Experience
+   */
+
+  export type AggregateExperience = {
+    _count: ExperienceCountAggregateOutputType | null
+    _avg: ExperienceAvgAggregateOutputType | null
+    _sum: ExperienceSumAggregateOutputType | null
+    _min: ExperienceMinAggregateOutputType | null
+    _max: ExperienceMaxAggregateOutputType | null
+  }
+
+  export type ExperienceAvgAggregateOutputType = {
+    order: number | null
+  }
+
+  export type ExperienceSumAggregateOutputType = {
+    order: number | null
+  }
+
+  export type ExperienceMinAggregateOutputType = {
+    id: string | null
+    resumeId: string | null
+    company: string | null
+    position: string | null
+    startDate: Date | null
+    endDate: Date | null
+    current: boolean | null
+    description: string | null
+    location: string | null
+    order: number | null
+  }
+
+  export type ExperienceMaxAggregateOutputType = {
+    id: string | null
+    resumeId: string | null
+    company: string | null
+    position: string | null
+    startDate: Date | null
+    endDate: Date | null
+    current: boolean | null
+    description: string | null
+    location: string | null
+    order: number | null
+  }
+
+  export type ExperienceCountAggregateOutputType = {
+    id: number
+    resumeId: number
+    company: number
+    position: number
+    startDate: number
+    endDate: number
+    current: number
+    description: number
+    location: number
+    order: number
+    _all: number
+  }
+
+
+  export type ExperienceAvgAggregateInputType = {
+    order?: true
+  }
+
+  export type ExperienceSumAggregateInputType = {
+    order?: true
+  }
+
+  export type ExperienceMinAggregateInputType = {
+    id?: true
+    resumeId?: true
+    company?: true
+    position?: true
+    startDate?: true
+    endDate?: true
+    current?: true
+    description?: true
+    location?: true
+    order?: true
+  }
+
+  export type ExperienceMaxAggregateInputType = {
+    id?: true
+    resumeId?: true
+    company?: true
+    position?: true
+    startDate?: true
+    endDate?: true
+    current?: true
+    description?: true
+    location?: true
+    order?: true
+  }
+
+  export type ExperienceCountAggregateInputType = {
+    id?: true
+    resumeId?: true
+    company?: true
+    position?: true
+    startDate?: true
+    endDate?: true
+    current?: true
+    description?: true
+    location?: true
+    order?: true
+    _all?: true
+  }
+
+  export type ExperienceAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Experience to aggregate.
+     */
+    where?: ExperienceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Experiences to fetch.
+     */
+    orderBy?: ExperienceOrderByWithRelationInput | ExperienceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ExperienceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Experiences from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Experiences.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Experiences
+    **/
+    _count?: true | ExperienceCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ExperienceAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ExperienceSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ExperienceMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ExperienceMaxAggregateInputType
+  }
+
+  export type GetExperienceAggregateType<T extends ExperienceAggregateArgs> = {
+        [P in keyof T & keyof AggregateExperience]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateExperience[P]>
+      : GetScalarType<T[P], AggregateExperience[P]>
+  }
+
+
+
+
+  export type ExperienceGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ExperienceWhereInput
+    orderBy?: ExperienceOrderByWithAggregationInput | ExperienceOrderByWithAggregationInput[]
+    by: ExperienceScalarFieldEnum[] | ExperienceScalarFieldEnum
+    having?: ExperienceScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ExperienceCountAggregateInputType | true
+    _avg?: ExperienceAvgAggregateInputType
+    _sum?: ExperienceSumAggregateInputType
+    _min?: ExperienceMinAggregateInputType
+    _max?: ExperienceMaxAggregateInputType
+  }
+
+  export type ExperienceGroupByOutputType = {
+    id: string
+    resumeId: string
+    company: string
+    position: string
+    startDate: Date
+    endDate: Date | null
+    current: boolean
+    description: string | null
+    location: string | null
+    order: number
+    _count: ExperienceCountAggregateOutputType | null
+    _avg: ExperienceAvgAggregateOutputType | null
+    _sum: ExperienceSumAggregateOutputType | null
+    _min: ExperienceMinAggregateOutputType | null
+    _max: ExperienceMaxAggregateOutputType | null
+  }
+
+  type GetExperienceGroupByPayload<T extends ExperienceGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ExperienceGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ExperienceGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ExperienceGroupByOutputType[P]>
+            : GetScalarType<T[P], ExperienceGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ExperienceSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    company?: boolean
+    position?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    current?: boolean
+    description?: boolean
+    location?: boolean
+    order?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["experience"]>
+
+  export type ExperienceSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    company?: boolean
+    position?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    current?: boolean
+    description?: boolean
+    location?: boolean
+    order?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["experience"]>
+
+  export type ExperienceSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    company?: boolean
+    position?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    current?: boolean
+    description?: boolean
+    location?: boolean
+    order?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["experience"]>
+
+  export type ExperienceSelectScalar = {
+    id?: boolean
+    resumeId?: boolean
+    company?: boolean
+    position?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    current?: boolean
+    description?: boolean
+    location?: boolean
+    order?: boolean
+  }
+
+  export type ExperienceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "resumeId" | "company" | "position" | "startDate" | "endDate" | "current" | "description" | "location" | "order", ExtArgs["result"]["experience"]>
+  export type ExperienceInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }
+  export type ExperienceIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }
+  export type ExperienceIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }
+
+  export type $ExperiencePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Experience"
+    objects: {
+      resume: Prisma.$ResumePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      resumeId: string
+      company: string
+      position: string
+      startDate: Date
+      endDate: Date | null
+      current: boolean
+      description: string | null
+      location: string | null
+      order: number
+    }, ExtArgs["result"]["experience"]>
+    composites: {}
+  }
+
+  type ExperienceGetPayload<S extends boolean | null | undefined | ExperienceDefaultArgs> = $Result.GetResult<Prisma.$ExperiencePayload, S>
+
+  type ExperienceCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ExperienceFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ExperienceCountAggregateInputType | true
+    }
+
+  export interface ExperienceDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Experience'], meta: { name: 'Experience' } }
+    /**
+     * Find zero or one Experience that matches the filter.
+     * @param {ExperienceFindUniqueArgs} args - Arguments to find a Experience
+     * @example
+     * // Get one Experience
+     * const experience = await prisma.experience.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ExperienceFindUniqueArgs>(args: SelectSubset<T, ExperienceFindUniqueArgs<ExtArgs>>): Prisma__ExperienceClient<$Result.GetResult<Prisma.$ExperiencePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Experience that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ExperienceFindUniqueOrThrowArgs} args - Arguments to find a Experience
+     * @example
+     * // Get one Experience
+     * const experience = await prisma.experience.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ExperienceFindUniqueOrThrowArgs>(args: SelectSubset<T, ExperienceFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ExperienceClient<$Result.GetResult<Prisma.$ExperiencePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Experience that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ExperienceFindFirstArgs} args - Arguments to find a Experience
+     * @example
+     * // Get one Experience
+     * const experience = await prisma.experience.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ExperienceFindFirstArgs>(args?: SelectSubset<T, ExperienceFindFirstArgs<ExtArgs>>): Prisma__ExperienceClient<$Result.GetResult<Prisma.$ExperiencePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Experience that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ExperienceFindFirstOrThrowArgs} args - Arguments to find a Experience
+     * @example
+     * // Get one Experience
+     * const experience = await prisma.experience.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ExperienceFindFirstOrThrowArgs>(args?: SelectSubset<T, ExperienceFindFirstOrThrowArgs<ExtArgs>>): Prisma__ExperienceClient<$Result.GetResult<Prisma.$ExperiencePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Experiences that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ExperienceFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Experiences
+     * const experiences = await prisma.experience.findMany()
+     * 
+     * // Get first 10 Experiences
+     * const experiences = await prisma.experience.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const experienceWithIdOnly = await prisma.experience.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ExperienceFindManyArgs>(args?: SelectSubset<T, ExperienceFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ExperiencePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Experience.
+     * @param {ExperienceCreateArgs} args - Arguments to create a Experience.
+     * @example
+     * // Create one Experience
+     * const Experience = await prisma.experience.create({
+     *   data: {
+     *     // ... data to create a Experience
+     *   }
+     * })
+     * 
+     */
+    create<T extends ExperienceCreateArgs>(args: SelectSubset<T, ExperienceCreateArgs<ExtArgs>>): Prisma__ExperienceClient<$Result.GetResult<Prisma.$ExperiencePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Experiences.
+     * @param {ExperienceCreateManyArgs} args - Arguments to create many Experiences.
+     * @example
+     * // Create many Experiences
+     * const experience = await prisma.experience.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ExperienceCreateManyArgs>(args?: SelectSubset<T, ExperienceCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Experiences and returns the data saved in the database.
+     * @param {ExperienceCreateManyAndReturnArgs} args - Arguments to create many Experiences.
+     * @example
+     * // Create many Experiences
+     * const experience = await prisma.experience.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Experiences and only return the `id`
+     * const experienceWithIdOnly = await prisma.experience.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ExperienceCreateManyAndReturnArgs>(args?: SelectSubset<T, ExperienceCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ExperiencePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Experience.
+     * @param {ExperienceDeleteArgs} args - Arguments to delete one Experience.
+     * @example
+     * // Delete one Experience
+     * const Experience = await prisma.experience.delete({
+     *   where: {
+     *     // ... filter to delete one Experience
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ExperienceDeleteArgs>(args: SelectSubset<T, ExperienceDeleteArgs<ExtArgs>>): Prisma__ExperienceClient<$Result.GetResult<Prisma.$ExperiencePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Experience.
+     * @param {ExperienceUpdateArgs} args - Arguments to update one Experience.
+     * @example
+     * // Update one Experience
+     * const experience = await prisma.experience.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ExperienceUpdateArgs>(args: SelectSubset<T, ExperienceUpdateArgs<ExtArgs>>): Prisma__ExperienceClient<$Result.GetResult<Prisma.$ExperiencePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Experiences.
+     * @param {ExperienceDeleteManyArgs} args - Arguments to filter Experiences to delete.
+     * @example
+     * // Delete a few Experiences
+     * const { count } = await prisma.experience.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ExperienceDeleteManyArgs>(args?: SelectSubset<T, ExperienceDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Experiences.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ExperienceUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Experiences
+     * const experience = await prisma.experience.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ExperienceUpdateManyArgs>(args: SelectSubset<T, ExperienceUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Experiences and returns the data updated in the database.
+     * @param {ExperienceUpdateManyAndReturnArgs} args - Arguments to update many Experiences.
+     * @example
+     * // Update many Experiences
+     * const experience = await prisma.experience.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Experiences and only return the `id`
+     * const experienceWithIdOnly = await prisma.experience.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ExperienceUpdateManyAndReturnArgs>(args: SelectSubset<T, ExperienceUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ExperiencePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Experience.
+     * @param {ExperienceUpsertArgs} args - Arguments to update or create a Experience.
+     * @example
+     * // Update or create a Experience
+     * const experience = await prisma.experience.upsert({
+     *   create: {
+     *     // ... data to create a Experience
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Experience we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ExperienceUpsertArgs>(args: SelectSubset<T, ExperienceUpsertArgs<ExtArgs>>): Prisma__ExperienceClient<$Result.GetResult<Prisma.$ExperiencePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Experiences.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ExperienceCountArgs} args - Arguments to filter Experiences to count.
+     * @example
+     * // Count the number of Experiences
+     * const count = await prisma.experience.count({
+     *   where: {
+     *     // ... the filter for the Experiences we want to count
+     *   }
+     * })
+    **/
+    count<T extends ExperienceCountArgs>(
+      args?: Subset<T, ExperienceCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ExperienceCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Experience.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ExperienceAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ExperienceAggregateArgs>(args: Subset<T, ExperienceAggregateArgs>): Prisma.PrismaPromise<GetExperienceAggregateType<T>>
+
+    /**
+     * Group by Experience.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ExperienceGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ExperienceGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ExperienceGroupByArgs['orderBy'] }
+        : { orderBy?: ExperienceGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ExperienceGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetExperienceGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Experience model
+   */
+  readonly fields: ExperienceFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Experience.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ExperienceClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    resume<T extends ResumeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ResumeDefaultArgs<ExtArgs>>): Prisma__ResumeClient<$Result.GetResult<Prisma.$ResumePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Experience model
+   */
+  interface ExperienceFieldRefs {
+    readonly id: FieldRef<"Experience", 'String'>
+    readonly resumeId: FieldRef<"Experience", 'String'>
+    readonly company: FieldRef<"Experience", 'String'>
+    readonly position: FieldRef<"Experience", 'String'>
+    readonly startDate: FieldRef<"Experience", 'DateTime'>
+    readonly endDate: FieldRef<"Experience", 'DateTime'>
+    readonly current: FieldRef<"Experience", 'Boolean'>
+    readonly description: FieldRef<"Experience", 'String'>
+    readonly location: FieldRef<"Experience", 'String'>
+    readonly order: FieldRef<"Experience", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Experience findUnique
+   */
+  export type ExperienceFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Experience
+     */
+    select?: ExperienceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Experience
+     */
+    omit?: ExperienceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ExperienceInclude<ExtArgs> | null
+    /**
+     * Filter, which Experience to fetch.
+     */
+    where: ExperienceWhereUniqueInput
+  }
+
+  /**
+   * Experience findUniqueOrThrow
+   */
+  export type ExperienceFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Experience
+     */
+    select?: ExperienceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Experience
+     */
+    omit?: ExperienceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ExperienceInclude<ExtArgs> | null
+    /**
+     * Filter, which Experience to fetch.
+     */
+    where: ExperienceWhereUniqueInput
+  }
+
+  /**
+   * Experience findFirst
+   */
+  export type ExperienceFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Experience
+     */
+    select?: ExperienceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Experience
+     */
+    omit?: ExperienceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ExperienceInclude<ExtArgs> | null
+    /**
+     * Filter, which Experience to fetch.
+     */
+    where?: ExperienceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Experiences to fetch.
+     */
+    orderBy?: ExperienceOrderByWithRelationInput | ExperienceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Experiences.
+     */
+    cursor?: ExperienceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Experiences from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Experiences.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Experiences.
+     */
+    distinct?: ExperienceScalarFieldEnum | ExperienceScalarFieldEnum[]
+  }
+
+  /**
+   * Experience findFirstOrThrow
+   */
+  export type ExperienceFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Experience
+     */
+    select?: ExperienceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Experience
+     */
+    omit?: ExperienceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ExperienceInclude<ExtArgs> | null
+    /**
+     * Filter, which Experience to fetch.
+     */
+    where?: ExperienceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Experiences to fetch.
+     */
+    orderBy?: ExperienceOrderByWithRelationInput | ExperienceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Experiences.
+     */
+    cursor?: ExperienceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Experiences from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Experiences.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Experiences.
+     */
+    distinct?: ExperienceScalarFieldEnum | ExperienceScalarFieldEnum[]
+  }
+
+  /**
+   * Experience findMany
+   */
+  export type ExperienceFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Experience
+     */
+    select?: ExperienceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Experience
+     */
+    omit?: ExperienceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ExperienceInclude<ExtArgs> | null
+    /**
+     * Filter, which Experiences to fetch.
+     */
+    where?: ExperienceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Experiences to fetch.
+     */
+    orderBy?: ExperienceOrderByWithRelationInput | ExperienceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Experiences.
+     */
+    cursor?: ExperienceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Experiences from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Experiences.
+     */
+    skip?: number
+    distinct?: ExperienceScalarFieldEnum | ExperienceScalarFieldEnum[]
+  }
+
+  /**
+   * Experience create
+   */
+  export type ExperienceCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Experience
+     */
+    select?: ExperienceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Experience
+     */
+    omit?: ExperienceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ExperienceInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Experience.
+     */
+    data: XOR<ExperienceCreateInput, ExperienceUncheckedCreateInput>
+  }
+
+  /**
+   * Experience createMany
+   */
+  export type ExperienceCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Experiences.
+     */
+    data: ExperienceCreateManyInput | ExperienceCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Experience createManyAndReturn
+   */
+  export type ExperienceCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Experience
+     */
+    select?: ExperienceSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Experience
+     */
+    omit?: ExperienceOmit<ExtArgs> | null
+    /**
+     * The data used to create many Experiences.
+     */
+    data: ExperienceCreateManyInput | ExperienceCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ExperienceIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Experience update
+   */
+  export type ExperienceUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Experience
+     */
+    select?: ExperienceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Experience
+     */
+    omit?: ExperienceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ExperienceInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Experience.
+     */
+    data: XOR<ExperienceUpdateInput, ExperienceUncheckedUpdateInput>
+    /**
+     * Choose, which Experience to update.
+     */
+    where: ExperienceWhereUniqueInput
+  }
+
+  /**
+   * Experience updateMany
+   */
+  export type ExperienceUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Experiences.
+     */
+    data: XOR<ExperienceUpdateManyMutationInput, ExperienceUncheckedUpdateManyInput>
+    /**
+     * Filter which Experiences to update
+     */
+    where?: ExperienceWhereInput
+    /**
+     * Limit how many Experiences to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Experience updateManyAndReturn
+   */
+  export type ExperienceUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Experience
+     */
+    select?: ExperienceSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Experience
+     */
+    omit?: ExperienceOmit<ExtArgs> | null
+    /**
+     * The data used to update Experiences.
+     */
+    data: XOR<ExperienceUpdateManyMutationInput, ExperienceUncheckedUpdateManyInput>
+    /**
+     * Filter which Experiences to update
+     */
+    where?: ExperienceWhereInput
+    /**
+     * Limit how many Experiences to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ExperienceIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Experience upsert
+   */
+  export type ExperienceUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Experience
+     */
+    select?: ExperienceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Experience
+     */
+    omit?: ExperienceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ExperienceInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Experience to update in case it exists.
+     */
+    where: ExperienceWhereUniqueInput
+    /**
+     * In case the Experience found by the `where` argument doesn't exist, create a new Experience with this data.
+     */
+    create: XOR<ExperienceCreateInput, ExperienceUncheckedCreateInput>
+    /**
+     * In case the Experience was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ExperienceUpdateInput, ExperienceUncheckedUpdateInput>
+  }
+
+  /**
+   * Experience delete
+   */
+  export type ExperienceDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Experience
+     */
+    select?: ExperienceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Experience
+     */
+    omit?: ExperienceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ExperienceInclude<ExtArgs> | null
+    /**
+     * Filter which Experience to delete.
+     */
+    where: ExperienceWhereUniqueInput
+  }
+
+  /**
+   * Experience deleteMany
+   */
+  export type ExperienceDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Experiences to delete
+     */
+    where?: ExperienceWhereInput
+    /**
+     * Limit how many Experiences to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Experience without action
+   */
+  export type ExperienceDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Experience
+     */
+    select?: ExperienceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Experience
+     */
+    omit?: ExperienceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ExperienceInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Skill
+   */
+
+  export type AggregateSkill = {
+    _count: SkillCountAggregateOutputType | null
+    _avg: SkillAvgAggregateOutputType | null
+    _sum: SkillSumAggregateOutputType | null
+    _min: SkillMinAggregateOutputType | null
+    _max: SkillMaxAggregateOutputType | null
+  }
+
+  export type SkillAvgAggregateOutputType = {
+    level: number | null
+    order: number | null
+  }
+
+  export type SkillSumAggregateOutputType = {
+    level: number | null
+    order: number | null
+  }
+
+  export type SkillMinAggregateOutputType = {
+    id: string | null
+    resumeId: string | null
+    name: string | null
+    level: number | null
+    category: string | null
+    order: number | null
+  }
+
+  export type SkillMaxAggregateOutputType = {
+    id: string | null
+    resumeId: string | null
+    name: string | null
+    level: number | null
+    category: string | null
+    order: number | null
+  }
+
+  export type SkillCountAggregateOutputType = {
+    id: number
+    resumeId: number
+    name: number
+    level: number
+    category: number
+    order: number
+    _all: number
+  }
+
+
+  export type SkillAvgAggregateInputType = {
+    level?: true
+    order?: true
+  }
+
+  export type SkillSumAggregateInputType = {
+    level?: true
+    order?: true
+  }
+
+  export type SkillMinAggregateInputType = {
+    id?: true
+    resumeId?: true
+    name?: true
+    level?: true
+    category?: true
+    order?: true
+  }
+
+  export type SkillMaxAggregateInputType = {
+    id?: true
+    resumeId?: true
+    name?: true
+    level?: true
+    category?: true
+    order?: true
+  }
+
+  export type SkillCountAggregateInputType = {
+    id?: true
+    resumeId?: true
+    name?: true
+    level?: true
+    category?: true
+    order?: true
+    _all?: true
+  }
+
+  export type SkillAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Skill to aggregate.
+     */
+    where?: SkillWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Skills to fetch.
+     */
+    orderBy?: SkillOrderByWithRelationInput | SkillOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: SkillWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Skills from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Skills.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Skills
+    **/
+    _count?: true | SkillCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: SkillAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: SkillSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: SkillMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: SkillMaxAggregateInputType
+  }
+
+  export type GetSkillAggregateType<T extends SkillAggregateArgs> = {
+        [P in keyof T & keyof AggregateSkill]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateSkill[P]>
+      : GetScalarType<T[P], AggregateSkill[P]>
+  }
+
+
+
+
+  export type SkillGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SkillWhereInput
+    orderBy?: SkillOrderByWithAggregationInput | SkillOrderByWithAggregationInput[]
+    by: SkillScalarFieldEnum[] | SkillScalarFieldEnum
+    having?: SkillScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: SkillCountAggregateInputType | true
+    _avg?: SkillAvgAggregateInputType
+    _sum?: SkillSumAggregateInputType
+    _min?: SkillMinAggregateInputType
+    _max?: SkillMaxAggregateInputType
+  }
+
+  export type SkillGroupByOutputType = {
+    id: string
+    resumeId: string
+    name: string
+    level: number
+    category: string | null
+    order: number
+    _count: SkillCountAggregateOutputType | null
+    _avg: SkillAvgAggregateOutputType | null
+    _sum: SkillSumAggregateOutputType | null
+    _min: SkillMinAggregateOutputType | null
+    _max: SkillMaxAggregateOutputType | null
+  }
+
+  type GetSkillGroupByPayload<T extends SkillGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<SkillGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof SkillGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], SkillGroupByOutputType[P]>
+            : GetScalarType<T[P], SkillGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type SkillSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    name?: boolean
+    level?: boolean
+    category?: boolean
+    order?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["skill"]>
+
+  export type SkillSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    name?: boolean
+    level?: boolean
+    category?: boolean
+    order?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["skill"]>
+
+  export type SkillSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    name?: boolean
+    level?: boolean
+    category?: boolean
+    order?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["skill"]>
+
+  export type SkillSelectScalar = {
+    id?: boolean
+    resumeId?: boolean
+    name?: boolean
+    level?: boolean
+    category?: boolean
+    order?: boolean
+  }
+
+  export type SkillOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "resumeId" | "name" | "level" | "category" | "order", ExtArgs["result"]["skill"]>
+  export type SkillInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }
+  export type SkillIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }
+  export type SkillIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }
+
+  export type $SkillPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Skill"
+    objects: {
+      resume: Prisma.$ResumePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      resumeId: string
+      name: string
+      level: number
+      category: string | null
+      order: number
+    }, ExtArgs["result"]["skill"]>
+    composites: {}
+  }
+
+  type SkillGetPayload<S extends boolean | null | undefined | SkillDefaultArgs> = $Result.GetResult<Prisma.$SkillPayload, S>
+
+  type SkillCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<SkillFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: SkillCountAggregateInputType | true
+    }
+
+  export interface SkillDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Skill'], meta: { name: 'Skill' } }
+    /**
+     * Find zero or one Skill that matches the filter.
+     * @param {SkillFindUniqueArgs} args - Arguments to find a Skill
+     * @example
+     * // Get one Skill
+     * const skill = await prisma.skill.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends SkillFindUniqueArgs>(args: SelectSubset<T, SkillFindUniqueArgs<ExtArgs>>): Prisma__SkillClient<$Result.GetResult<Prisma.$SkillPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Skill that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {SkillFindUniqueOrThrowArgs} args - Arguments to find a Skill
+     * @example
+     * // Get one Skill
+     * const skill = await prisma.skill.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends SkillFindUniqueOrThrowArgs>(args: SelectSubset<T, SkillFindUniqueOrThrowArgs<ExtArgs>>): Prisma__SkillClient<$Result.GetResult<Prisma.$SkillPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Skill that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SkillFindFirstArgs} args - Arguments to find a Skill
+     * @example
+     * // Get one Skill
+     * const skill = await prisma.skill.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends SkillFindFirstArgs>(args?: SelectSubset<T, SkillFindFirstArgs<ExtArgs>>): Prisma__SkillClient<$Result.GetResult<Prisma.$SkillPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Skill that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SkillFindFirstOrThrowArgs} args - Arguments to find a Skill
+     * @example
+     * // Get one Skill
+     * const skill = await prisma.skill.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends SkillFindFirstOrThrowArgs>(args?: SelectSubset<T, SkillFindFirstOrThrowArgs<ExtArgs>>): Prisma__SkillClient<$Result.GetResult<Prisma.$SkillPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Skills that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SkillFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Skills
+     * const skills = await prisma.skill.findMany()
+     * 
+     * // Get first 10 Skills
+     * const skills = await prisma.skill.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const skillWithIdOnly = await prisma.skill.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends SkillFindManyArgs>(args?: SelectSubset<T, SkillFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SkillPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Skill.
+     * @param {SkillCreateArgs} args - Arguments to create a Skill.
+     * @example
+     * // Create one Skill
+     * const Skill = await prisma.skill.create({
+     *   data: {
+     *     // ... data to create a Skill
+     *   }
+     * })
+     * 
+     */
+    create<T extends SkillCreateArgs>(args: SelectSubset<T, SkillCreateArgs<ExtArgs>>): Prisma__SkillClient<$Result.GetResult<Prisma.$SkillPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Skills.
+     * @param {SkillCreateManyArgs} args - Arguments to create many Skills.
+     * @example
+     * // Create many Skills
+     * const skill = await prisma.skill.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends SkillCreateManyArgs>(args?: SelectSubset<T, SkillCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Skills and returns the data saved in the database.
+     * @param {SkillCreateManyAndReturnArgs} args - Arguments to create many Skills.
+     * @example
+     * // Create many Skills
+     * const skill = await prisma.skill.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Skills and only return the `id`
+     * const skillWithIdOnly = await prisma.skill.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends SkillCreateManyAndReturnArgs>(args?: SelectSubset<T, SkillCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SkillPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Skill.
+     * @param {SkillDeleteArgs} args - Arguments to delete one Skill.
+     * @example
+     * // Delete one Skill
+     * const Skill = await prisma.skill.delete({
+     *   where: {
+     *     // ... filter to delete one Skill
+     *   }
+     * })
+     * 
+     */
+    delete<T extends SkillDeleteArgs>(args: SelectSubset<T, SkillDeleteArgs<ExtArgs>>): Prisma__SkillClient<$Result.GetResult<Prisma.$SkillPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Skill.
+     * @param {SkillUpdateArgs} args - Arguments to update one Skill.
+     * @example
+     * // Update one Skill
+     * const skill = await prisma.skill.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends SkillUpdateArgs>(args: SelectSubset<T, SkillUpdateArgs<ExtArgs>>): Prisma__SkillClient<$Result.GetResult<Prisma.$SkillPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Skills.
+     * @param {SkillDeleteManyArgs} args - Arguments to filter Skills to delete.
+     * @example
+     * // Delete a few Skills
+     * const { count } = await prisma.skill.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends SkillDeleteManyArgs>(args?: SelectSubset<T, SkillDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Skills.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SkillUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Skills
+     * const skill = await prisma.skill.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends SkillUpdateManyArgs>(args: SelectSubset<T, SkillUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Skills and returns the data updated in the database.
+     * @param {SkillUpdateManyAndReturnArgs} args - Arguments to update many Skills.
+     * @example
+     * // Update many Skills
+     * const skill = await prisma.skill.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Skills and only return the `id`
+     * const skillWithIdOnly = await prisma.skill.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends SkillUpdateManyAndReturnArgs>(args: SelectSubset<T, SkillUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SkillPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Skill.
+     * @param {SkillUpsertArgs} args - Arguments to update or create a Skill.
+     * @example
+     * // Update or create a Skill
+     * const skill = await prisma.skill.upsert({
+     *   create: {
+     *     // ... data to create a Skill
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Skill we want to update
+     *   }
+     * })
+     */
+    upsert<T extends SkillUpsertArgs>(args: SelectSubset<T, SkillUpsertArgs<ExtArgs>>): Prisma__SkillClient<$Result.GetResult<Prisma.$SkillPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Skills.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SkillCountArgs} args - Arguments to filter Skills to count.
+     * @example
+     * // Count the number of Skills
+     * const count = await prisma.skill.count({
+     *   where: {
+     *     // ... the filter for the Skills we want to count
+     *   }
+     * })
+    **/
+    count<T extends SkillCountArgs>(
+      args?: Subset<T, SkillCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], SkillCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Skill.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SkillAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends SkillAggregateArgs>(args: Subset<T, SkillAggregateArgs>): Prisma.PrismaPromise<GetSkillAggregateType<T>>
+
+    /**
+     * Group by Skill.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SkillGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends SkillGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: SkillGroupByArgs['orderBy'] }
+        : { orderBy?: SkillGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, SkillGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSkillGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Skill model
+   */
+  readonly fields: SkillFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Skill.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__SkillClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    resume<T extends ResumeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ResumeDefaultArgs<ExtArgs>>): Prisma__ResumeClient<$Result.GetResult<Prisma.$ResumePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Skill model
+   */
+  interface SkillFieldRefs {
+    readonly id: FieldRef<"Skill", 'String'>
+    readonly resumeId: FieldRef<"Skill", 'String'>
+    readonly name: FieldRef<"Skill", 'String'>
+    readonly level: FieldRef<"Skill", 'Int'>
+    readonly category: FieldRef<"Skill", 'String'>
+    readonly order: FieldRef<"Skill", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Skill findUnique
+   */
+  export type SkillFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Skill
+     */
+    select?: SkillSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Skill
+     */
+    omit?: SkillOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SkillInclude<ExtArgs> | null
+    /**
+     * Filter, which Skill to fetch.
+     */
+    where: SkillWhereUniqueInput
+  }
+
+  /**
+   * Skill findUniqueOrThrow
+   */
+  export type SkillFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Skill
+     */
+    select?: SkillSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Skill
+     */
+    omit?: SkillOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SkillInclude<ExtArgs> | null
+    /**
+     * Filter, which Skill to fetch.
+     */
+    where: SkillWhereUniqueInput
+  }
+
+  /**
+   * Skill findFirst
+   */
+  export type SkillFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Skill
+     */
+    select?: SkillSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Skill
+     */
+    omit?: SkillOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SkillInclude<ExtArgs> | null
+    /**
+     * Filter, which Skill to fetch.
+     */
+    where?: SkillWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Skills to fetch.
+     */
+    orderBy?: SkillOrderByWithRelationInput | SkillOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Skills.
+     */
+    cursor?: SkillWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Skills from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Skills.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Skills.
+     */
+    distinct?: SkillScalarFieldEnum | SkillScalarFieldEnum[]
+  }
+
+  /**
+   * Skill findFirstOrThrow
+   */
+  export type SkillFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Skill
+     */
+    select?: SkillSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Skill
+     */
+    omit?: SkillOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SkillInclude<ExtArgs> | null
+    /**
+     * Filter, which Skill to fetch.
+     */
+    where?: SkillWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Skills to fetch.
+     */
+    orderBy?: SkillOrderByWithRelationInput | SkillOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Skills.
+     */
+    cursor?: SkillWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Skills from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Skills.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Skills.
+     */
+    distinct?: SkillScalarFieldEnum | SkillScalarFieldEnum[]
+  }
+
+  /**
+   * Skill findMany
+   */
+  export type SkillFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Skill
+     */
+    select?: SkillSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Skill
+     */
+    omit?: SkillOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SkillInclude<ExtArgs> | null
+    /**
+     * Filter, which Skills to fetch.
+     */
+    where?: SkillWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Skills to fetch.
+     */
+    orderBy?: SkillOrderByWithRelationInput | SkillOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Skills.
+     */
+    cursor?: SkillWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Skills from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Skills.
+     */
+    skip?: number
+    distinct?: SkillScalarFieldEnum | SkillScalarFieldEnum[]
+  }
+
+  /**
+   * Skill create
+   */
+  export type SkillCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Skill
+     */
+    select?: SkillSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Skill
+     */
+    omit?: SkillOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SkillInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Skill.
+     */
+    data: XOR<SkillCreateInput, SkillUncheckedCreateInput>
+  }
+
+  /**
+   * Skill createMany
+   */
+  export type SkillCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Skills.
+     */
+    data: SkillCreateManyInput | SkillCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Skill createManyAndReturn
+   */
+  export type SkillCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Skill
+     */
+    select?: SkillSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Skill
+     */
+    omit?: SkillOmit<ExtArgs> | null
+    /**
+     * The data used to create many Skills.
+     */
+    data: SkillCreateManyInput | SkillCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SkillIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Skill update
+   */
+  export type SkillUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Skill
+     */
+    select?: SkillSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Skill
+     */
+    omit?: SkillOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SkillInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Skill.
+     */
+    data: XOR<SkillUpdateInput, SkillUncheckedUpdateInput>
+    /**
+     * Choose, which Skill to update.
+     */
+    where: SkillWhereUniqueInput
+  }
+
+  /**
+   * Skill updateMany
+   */
+  export type SkillUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Skills.
+     */
+    data: XOR<SkillUpdateManyMutationInput, SkillUncheckedUpdateManyInput>
+    /**
+     * Filter which Skills to update
+     */
+    where?: SkillWhereInput
+    /**
+     * Limit how many Skills to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Skill updateManyAndReturn
+   */
+  export type SkillUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Skill
+     */
+    select?: SkillSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Skill
+     */
+    omit?: SkillOmit<ExtArgs> | null
+    /**
+     * The data used to update Skills.
+     */
+    data: XOR<SkillUpdateManyMutationInput, SkillUncheckedUpdateManyInput>
+    /**
+     * Filter which Skills to update
+     */
+    where?: SkillWhereInput
+    /**
+     * Limit how many Skills to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SkillIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Skill upsert
+   */
+  export type SkillUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Skill
+     */
+    select?: SkillSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Skill
+     */
+    omit?: SkillOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SkillInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Skill to update in case it exists.
+     */
+    where: SkillWhereUniqueInput
+    /**
+     * In case the Skill found by the `where` argument doesn't exist, create a new Skill with this data.
+     */
+    create: XOR<SkillCreateInput, SkillUncheckedCreateInput>
+    /**
+     * In case the Skill was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<SkillUpdateInput, SkillUncheckedUpdateInput>
+  }
+
+  /**
+   * Skill delete
+   */
+  export type SkillDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Skill
+     */
+    select?: SkillSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Skill
+     */
+    omit?: SkillOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SkillInclude<ExtArgs> | null
+    /**
+     * Filter which Skill to delete.
+     */
+    where: SkillWhereUniqueInput
+  }
+
+  /**
+   * Skill deleteMany
+   */
+  export type SkillDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Skills to delete
+     */
+    where?: SkillWhereInput
+    /**
+     * Limit how many Skills to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Skill without action
+   */
+  export type SkillDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Skill
+     */
+    select?: SkillSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Skill
+     */
+    omit?: SkillOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SkillInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Language
+   */
+
+  export type AggregateLanguage = {
+    _count: LanguageCountAggregateOutputType | null
+    _avg: LanguageAvgAggregateOutputType | null
+    _sum: LanguageSumAggregateOutputType | null
+    _min: LanguageMinAggregateOutputType | null
+    _max: LanguageMaxAggregateOutputType | null
+  }
+
+  export type LanguageAvgAggregateOutputType = {
+    order: number | null
+  }
+
+  export type LanguageSumAggregateOutputType = {
+    order: number | null
+  }
+
+  export type LanguageMinAggregateOutputType = {
+    id: string | null
+    resumeId: string | null
+    name: string | null
+    level: $Enums.LanguageLevel | null
+    order: number | null
+  }
+
+  export type LanguageMaxAggregateOutputType = {
+    id: string | null
+    resumeId: string | null
+    name: string | null
+    level: $Enums.LanguageLevel | null
+    order: number | null
+  }
+
+  export type LanguageCountAggregateOutputType = {
+    id: number
+    resumeId: number
+    name: number
+    level: number
+    order: number
+    _all: number
+  }
+
+
+  export type LanguageAvgAggregateInputType = {
+    order?: true
+  }
+
+  export type LanguageSumAggregateInputType = {
+    order?: true
+  }
+
+  export type LanguageMinAggregateInputType = {
+    id?: true
+    resumeId?: true
+    name?: true
+    level?: true
+    order?: true
+  }
+
+  export type LanguageMaxAggregateInputType = {
+    id?: true
+    resumeId?: true
+    name?: true
+    level?: true
+    order?: true
+  }
+
+  export type LanguageCountAggregateInputType = {
+    id?: true
+    resumeId?: true
+    name?: true
+    level?: true
+    order?: true
+    _all?: true
+  }
+
+  export type LanguageAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Language to aggregate.
+     */
+    where?: LanguageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Languages to fetch.
+     */
+    orderBy?: LanguageOrderByWithRelationInput | LanguageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: LanguageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Languages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Languages.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Languages
+    **/
+    _count?: true | LanguageCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: LanguageAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: LanguageSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: LanguageMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: LanguageMaxAggregateInputType
+  }
+
+  export type GetLanguageAggregateType<T extends LanguageAggregateArgs> = {
+        [P in keyof T & keyof AggregateLanguage]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateLanguage[P]>
+      : GetScalarType<T[P], AggregateLanguage[P]>
+  }
+
+
+
+
+  export type LanguageGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LanguageWhereInput
+    orderBy?: LanguageOrderByWithAggregationInput | LanguageOrderByWithAggregationInput[]
+    by: LanguageScalarFieldEnum[] | LanguageScalarFieldEnum
+    having?: LanguageScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: LanguageCountAggregateInputType | true
+    _avg?: LanguageAvgAggregateInputType
+    _sum?: LanguageSumAggregateInputType
+    _min?: LanguageMinAggregateInputType
+    _max?: LanguageMaxAggregateInputType
+  }
+
+  export type LanguageGroupByOutputType = {
+    id: string
+    resumeId: string
+    name: string
+    level: $Enums.LanguageLevel
+    order: number
+    _count: LanguageCountAggregateOutputType | null
+    _avg: LanguageAvgAggregateOutputType | null
+    _sum: LanguageSumAggregateOutputType | null
+    _min: LanguageMinAggregateOutputType | null
+    _max: LanguageMaxAggregateOutputType | null
+  }
+
+  type GetLanguageGroupByPayload<T extends LanguageGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<LanguageGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof LanguageGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], LanguageGroupByOutputType[P]>
+            : GetScalarType<T[P], LanguageGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type LanguageSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    name?: boolean
+    level?: boolean
+    order?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["language"]>
+
+  export type LanguageSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    name?: boolean
+    level?: boolean
+    order?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["language"]>
+
+  export type LanguageSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    name?: boolean
+    level?: boolean
+    order?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["language"]>
+
+  export type LanguageSelectScalar = {
+    id?: boolean
+    resumeId?: boolean
+    name?: boolean
+    level?: boolean
+    order?: boolean
+  }
+
+  export type LanguageOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "resumeId" | "name" | "level" | "order", ExtArgs["result"]["language"]>
+  export type LanguageInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }
+  export type LanguageIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }
+  export type LanguageIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }
+
+  export type $LanguagePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Language"
+    objects: {
+      resume: Prisma.$ResumePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      resumeId: string
+      name: string
+      level: $Enums.LanguageLevel
+      order: number
+    }, ExtArgs["result"]["language"]>
+    composites: {}
+  }
+
+  type LanguageGetPayload<S extends boolean | null | undefined | LanguageDefaultArgs> = $Result.GetResult<Prisma.$LanguagePayload, S>
+
+  type LanguageCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<LanguageFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: LanguageCountAggregateInputType | true
+    }
+
+  export interface LanguageDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Language'], meta: { name: 'Language' } }
+    /**
+     * Find zero or one Language that matches the filter.
+     * @param {LanguageFindUniqueArgs} args - Arguments to find a Language
+     * @example
+     * // Get one Language
+     * const language = await prisma.language.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends LanguageFindUniqueArgs>(args: SelectSubset<T, LanguageFindUniqueArgs<ExtArgs>>): Prisma__LanguageClient<$Result.GetResult<Prisma.$LanguagePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Language that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {LanguageFindUniqueOrThrowArgs} args - Arguments to find a Language
+     * @example
+     * // Get one Language
+     * const language = await prisma.language.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends LanguageFindUniqueOrThrowArgs>(args: SelectSubset<T, LanguageFindUniqueOrThrowArgs<ExtArgs>>): Prisma__LanguageClient<$Result.GetResult<Prisma.$LanguagePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Language that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LanguageFindFirstArgs} args - Arguments to find a Language
+     * @example
+     * // Get one Language
+     * const language = await prisma.language.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends LanguageFindFirstArgs>(args?: SelectSubset<T, LanguageFindFirstArgs<ExtArgs>>): Prisma__LanguageClient<$Result.GetResult<Prisma.$LanguagePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Language that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LanguageFindFirstOrThrowArgs} args - Arguments to find a Language
+     * @example
+     * // Get one Language
+     * const language = await prisma.language.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends LanguageFindFirstOrThrowArgs>(args?: SelectSubset<T, LanguageFindFirstOrThrowArgs<ExtArgs>>): Prisma__LanguageClient<$Result.GetResult<Prisma.$LanguagePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Languages that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LanguageFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Languages
+     * const languages = await prisma.language.findMany()
+     * 
+     * // Get first 10 Languages
+     * const languages = await prisma.language.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const languageWithIdOnly = await prisma.language.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends LanguageFindManyArgs>(args?: SelectSubset<T, LanguageFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LanguagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Language.
+     * @param {LanguageCreateArgs} args - Arguments to create a Language.
+     * @example
+     * // Create one Language
+     * const Language = await prisma.language.create({
+     *   data: {
+     *     // ... data to create a Language
+     *   }
+     * })
+     * 
+     */
+    create<T extends LanguageCreateArgs>(args: SelectSubset<T, LanguageCreateArgs<ExtArgs>>): Prisma__LanguageClient<$Result.GetResult<Prisma.$LanguagePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Languages.
+     * @param {LanguageCreateManyArgs} args - Arguments to create many Languages.
+     * @example
+     * // Create many Languages
+     * const language = await prisma.language.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends LanguageCreateManyArgs>(args?: SelectSubset<T, LanguageCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Languages and returns the data saved in the database.
+     * @param {LanguageCreateManyAndReturnArgs} args - Arguments to create many Languages.
+     * @example
+     * // Create many Languages
+     * const language = await prisma.language.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Languages and only return the `id`
+     * const languageWithIdOnly = await prisma.language.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends LanguageCreateManyAndReturnArgs>(args?: SelectSubset<T, LanguageCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LanguagePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Language.
+     * @param {LanguageDeleteArgs} args - Arguments to delete one Language.
+     * @example
+     * // Delete one Language
+     * const Language = await prisma.language.delete({
+     *   where: {
+     *     // ... filter to delete one Language
+     *   }
+     * })
+     * 
+     */
+    delete<T extends LanguageDeleteArgs>(args: SelectSubset<T, LanguageDeleteArgs<ExtArgs>>): Prisma__LanguageClient<$Result.GetResult<Prisma.$LanguagePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Language.
+     * @param {LanguageUpdateArgs} args - Arguments to update one Language.
+     * @example
+     * // Update one Language
+     * const language = await prisma.language.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends LanguageUpdateArgs>(args: SelectSubset<T, LanguageUpdateArgs<ExtArgs>>): Prisma__LanguageClient<$Result.GetResult<Prisma.$LanguagePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Languages.
+     * @param {LanguageDeleteManyArgs} args - Arguments to filter Languages to delete.
+     * @example
+     * // Delete a few Languages
+     * const { count } = await prisma.language.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends LanguageDeleteManyArgs>(args?: SelectSubset<T, LanguageDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Languages.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LanguageUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Languages
+     * const language = await prisma.language.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends LanguageUpdateManyArgs>(args: SelectSubset<T, LanguageUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Languages and returns the data updated in the database.
+     * @param {LanguageUpdateManyAndReturnArgs} args - Arguments to update many Languages.
+     * @example
+     * // Update many Languages
+     * const language = await prisma.language.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Languages and only return the `id`
+     * const languageWithIdOnly = await prisma.language.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends LanguageUpdateManyAndReturnArgs>(args: SelectSubset<T, LanguageUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LanguagePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Language.
+     * @param {LanguageUpsertArgs} args - Arguments to update or create a Language.
+     * @example
+     * // Update or create a Language
+     * const language = await prisma.language.upsert({
+     *   create: {
+     *     // ... data to create a Language
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Language we want to update
+     *   }
+     * })
+     */
+    upsert<T extends LanguageUpsertArgs>(args: SelectSubset<T, LanguageUpsertArgs<ExtArgs>>): Prisma__LanguageClient<$Result.GetResult<Prisma.$LanguagePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Languages.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LanguageCountArgs} args - Arguments to filter Languages to count.
+     * @example
+     * // Count the number of Languages
+     * const count = await prisma.language.count({
+     *   where: {
+     *     // ... the filter for the Languages we want to count
+     *   }
+     * })
+    **/
+    count<T extends LanguageCountArgs>(
+      args?: Subset<T, LanguageCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], LanguageCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Language.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LanguageAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends LanguageAggregateArgs>(args: Subset<T, LanguageAggregateArgs>): Prisma.PrismaPromise<GetLanguageAggregateType<T>>
+
+    /**
+     * Group by Language.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LanguageGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends LanguageGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: LanguageGroupByArgs['orderBy'] }
+        : { orderBy?: LanguageGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, LanguageGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLanguageGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Language model
+   */
+  readonly fields: LanguageFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Language.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__LanguageClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    resume<T extends ResumeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ResumeDefaultArgs<ExtArgs>>): Prisma__ResumeClient<$Result.GetResult<Prisma.$ResumePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Language model
+   */
+  interface LanguageFieldRefs {
+    readonly id: FieldRef<"Language", 'String'>
+    readonly resumeId: FieldRef<"Language", 'String'>
+    readonly name: FieldRef<"Language", 'String'>
+    readonly level: FieldRef<"Language", 'LanguageLevel'>
+    readonly order: FieldRef<"Language", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Language findUnique
+   */
+  export type LanguageFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Language
+     */
+    select?: LanguageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Language
+     */
+    omit?: LanguageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LanguageInclude<ExtArgs> | null
+    /**
+     * Filter, which Language to fetch.
+     */
+    where: LanguageWhereUniqueInput
+  }
+
+  /**
+   * Language findUniqueOrThrow
+   */
+  export type LanguageFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Language
+     */
+    select?: LanguageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Language
+     */
+    omit?: LanguageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LanguageInclude<ExtArgs> | null
+    /**
+     * Filter, which Language to fetch.
+     */
+    where: LanguageWhereUniqueInput
+  }
+
+  /**
+   * Language findFirst
+   */
+  export type LanguageFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Language
+     */
+    select?: LanguageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Language
+     */
+    omit?: LanguageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LanguageInclude<ExtArgs> | null
+    /**
+     * Filter, which Language to fetch.
+     */
+    where?: LanguageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Languages to fetch.
+     */
+    orderBy?: LanguageOrderByWithRelationInput | LanguageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Languages.
+     */
+    cursor?: LanguageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Languages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Languages.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Languages.
+     */
+    distinct?: LanguageScalarFieldEnum | LanguageScalarFieldEnum[]
+  }
+
+  /**
+   * Language findFirstOrThrow
+   */
+  export type LanguageFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Language
+     */
+    select?: LanguageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Language
+     */
+    omit?: LanguageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LanguageInclude<ExtArgs> | null
+    /**
+     * Filter, which Language to fetch.
+     */
+    where?: LanguageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Languages to fetch.
+     */
+    orderBy?: LanguageOrderByWithRelationInput | LanguageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Languages.
+     */
+    cursor?: LanguageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Languages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Languages.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Languages.
+     */
+    distinct?: LanguageScalarFieldEnum | LanguageScalarFieldEnum[]
+  }
+
+  /**
+   * Language findMany
+   */
+  export type LanguageFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Language
+     */
+    select?: LanguageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Language
+     */
+    omit?: LanguageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LanguageInclude<ExtArgs> | null
+    /**
+     * Filter, which Languages to fetch.
+     */
+    where?: LanguageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Languages to fetch.
+     */
+    orderBy?: LanguageOrderByWithRelationInput | LanguageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Languages.
+     */
+    cursor?: LanguageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Languages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Languages.
+     */
+    skip?: number
+    distinct?: LanguageScalarFieldEnum | LanguageScalarFieldEnum[]
+  }
+
+  /**
+   * Language create
+   */
+  export type LanguageCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Language
+     */
+    select?: LanguageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Language
+     */
+    omit?: LanguageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LanguageInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Language.
+     */
+    data: XOR<LanguageCreateInput, LanguageUncheckedCreateInput>
+  }
+
+  /**
+   * Language createMany
+   */
+  export type LanguageCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Languages.
+     */
+    data: LanguageCreateManyInput | LanguageCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Language createManyAndReturn
+   */
+  export type LanguageCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Language
+     */
+    select?: LanguageSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Language
+     */
+    omit?: LanguageOmit<ExtArgs> | null
+    /**
+     * The data used to create many Languages.
+     */
+    data: LanguageCreateManyInput | LanguageCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LanguageIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Language update
+   */
+  export type LanguageUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Language
+     */
+    select?: LanguageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Language
+     */
+    omit?: LanguageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LanguageInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Language.
+     */
+    data: XOR<LanguageUpdateInput, LanguageUncheckedUpdateInput>
+    /**
+     * Choose, which Language to update.
+     */
+    where: LanguageWhereUniqueInput
+  }
+
+  /**
+   * Language updateMany
+   */
+  export type LanguageUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Languages.
+     */
+    data: XOR<LanguageUpdateManyMutationInput, LanguageUncheckedUpdateManyInput>
+    /**
+     * Filter which Languages to update
+     */
+    where?: LanguageWhereInput
+    /**
+     * Limit how many Languages to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Language updateManyAndReturn
+   */
+  export type LanguageUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Language
+     */
+    select?: LanguageSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Language
+     */
+    omit?: LanguageOmit<ExtArgs> | null
+    /**
+     * The data used to update Languages.
+     */
+    data: XOR<LanguageUpdateManyMutationInput, LanguageUncheckedUpdateManyInput>
+    /**
+     * Filter which Languages to update
+     */
+    where?: LanguageWhereInput
+    /**
+     * Limit how many Languages to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LanguageIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Language upsert
+   */
+  export type LanguageUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Language
+     */
+    select?: LanguageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Language
+     */
+    omit?: LanguageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LanguageInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Language to update in case it exists.
+     */
+    where: LanguageWhereUniqueInput
+    /**
+     * In case the Language found by the `where` argument doesn't exist, create a new Language with this data.
+     */
+    create: XOR<LanguageCreateInput, LanguageUncheckedCreateInput>
+    /**
+     * In case the Language was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<LanguageUpdateInput, LanguageUncheckedUpdateInput>
+  }
+
+  /**
+   * Language delete
+   */
+  export type LanguageDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Language
+     */
+    select?: LanguageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Language
+     */
+    omit?: LanguageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LanguageInclude<ExtArgs> | null
+    /**
+     * Filter which Language to delete.
+     */
+    where: LanguageWhereUniqueInput
+  }
+
+  /**
+   * Language deleteMany
+   */
+  export type LanguageDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Languages to delete
+     */
+    where?: LanguageWhereInput
+    /**
+     * Limit how many Languages to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Language without action
+   */
+  export type LanguageDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Language
+     */
+    select?: LanguageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Language
+     */
+    omit?: LanguageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LanguageInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Certification
+   */
+
+  export type AggregateCertification = {
+    _count: CertificationCountAggregateOutputType | null
+    _avg: CertificationAvgAggregateOutputType | null
+    _sum: CertificationSumAggregateOutputType | null
+    _min: CertificationMinAggregateOutputType | null
+    _max: CertificationMaxAggregateOutputType | null
+  }
+
+  export type CertificationAvgAggregateOutputType = {
+    order: number | null
+  }
+
+  export type CertificationSumAggregateOutputType = {
+    order: number | null
+  }
+
+  export type CertificationMinAggregateOutputType = {
+    id: string | null
+    resumeId: string | null
+    name: string | null
+    issuer: string | null
+    issueDate: Date | null
+    expiryDate: Date | null
+    credentialId: string | null
+    credentialUrl: string | null
+    order: number | null
+  }
+
+  export type CertificationMaxAggregateOutputType = {
+    id: string | null
+    resumeId: string | null
+    name: string | null
+    issuer: string | null
+    issueDate: Date | null
+    expiryDate: Date | null
+    credentialId: string | null
+    credentialUrl: string | null
+    order: number | null
+  }
+
+  export type CertificationCountAggregateOutputType = {
+    id: number
+    resumeId: number
+    name: number
+    issuer: number
+    issueDate: number
+    expiryDate: number
+    credentialId: number
+    credentialUrl: number
+    order: number
+    _all: number
+  }
+
+
+  export type CertificationAvgAggregateInputType = {
+    order?: true
+  }
+
+  export type CertificationSumAggregateInputType = {
+    order?: true
+  }
+
+  export type CertificationMinAggregateInputType = {
+    id?: true
+    resumeId?: true
+    name?: true
+    issuer?: true
+    issueDate?: true
+    expiryDate?: true
+    credentialId?: true
+    credentialUrl?: true
+    order?: true
+  }
+
+  export type CertificationMaxAggregateInputType = {
+    id?: true
+    resumeId?: true
+    name?: true
+    issuer?: true
+    issueDate?: true
+    expiryDate?: true
+    credentialId?: true
+    credentialUrl?: true
+    order?: true
+  }
+
+  export type CertificationCountAggregateInputType = {
+    id?: true
+    resumeId?: true
+    name?: true
+    issuer?: true
+    issueDate?: true
+    expiryDate?: true
+    credentialId?: true
+    credentialUrl?: true
+    order?: true
+    _all?: true
+  }
+
+  export type CertificationAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Certification to aggregate.
+     */
+    where?: CertificationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Certifications to fetch.
+     */
+    orderBy?: CertificationOrderByWithRelationInput | CertificationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: CertificationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Certifications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Certifications.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Certifications
+    **/
+    _count?: true | CertificationCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: CertificationAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: CertificationSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: CertificationMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: CertificationMaxAggregateInputType
+  }
+
+  export type GetCertificationAggregateType<T extends CertificationAggregateArgs> = {
+        [P in keyof T & keyof AggregateCertification]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCertification[P]>
+      : GetScalarType<T[P], AggregateCertification[P]>
+  }
+
+
+
+
+  export type CertificationGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CertificationWhereInput
+    orderBy?: CertificationOrderByWithAggregationInput | CertificationOrderByWithAggregationInput[]
+    by: CertificationScalarFieldEnum[] | CertificationScalarFieldEnum
+    having?: CertificationScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: CertificationCountAggregateInputType | true
+    _avg?: CertificationAvgAggregateInputType
+    _sum?: CertificationSumAggregateInputType
+    _min?: CertificationMinAggregateInputType
+    _max?: CertificationMaxAggregateInputType
+  }
+
+  export type CertificationGroupByOutputType = {
+    id: string
+    resumeId: string
+    name: string
+    issuer: string
+    issueDate: Date | null
+    expiryDate: Date | null
+    credentialId: string | null
+    credentialUrl: string | null
+    order: number
+    _count: CertificationCountAggregateOutputType | null
+    _avg: CertificationAvgAggregateOutputType | null
+    _sum: CertificationSumAggregateOutputType | null
+    _min: CertificationMinAggregateOutputType | null
+    _max: CertificationMaxAggregateOutputType | null
+  }
+
+  type GetCertificationGroupByPayload<T extends CertificationGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<CertificationGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof CertificationGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], CertificationGroupByOutputType[P]>
+            : GetScalarType<T[P], CertificationGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type CertificationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    name?: boolean
+    issuer?: boolean
+    issueDate?: boolean
+    expiryDate?: boolean
+    credentialId?: boolean
+    credentialUrl?: boolean
+    order?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["certification"]>
+
+  export type CertificationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    name?: boolean
+    issuer?: boolean
+    issueDate?: boolean
+    expiryDate?: boolean
+    credentialId?: boolean
+    credentialUrl?: boolean
+    order?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["certification"]>
+
+  export type CertificationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    name?: boolean
+    issuer?: boolean
+    issueDate?: boolean
+    expiryDate?: boolean
+    credentialId?: boolean
+    credentialUrl?: boolean
+    order?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["certification"]>
+
+  export type CertificationSelectScalar = {
+    id?: boolean
+    resumeId?: boolean
+    name?: boolean
+    issuer?: boolean
+    issueDate?: boolean
+    expiryDate?: boolean
+    credentialId?: boolean
+    credentialUrl?: boolean
+    order?: boolean
+  }
+
+  export type CertificationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "resumeId" | "name" | "issuer" | "issueDate" | "expiryDate" | "credentialId" | "credentialUrl" | "order", ExtArgs["result"]["certification"]>
+  export type CertificationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }
+  export type CertificationIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }
+  export type CertificationIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }
+
+  export type $CertificationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Certification"
+    objects: {
+      resume: Prisma.$ResumePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      resumeId: string
+      name: string
+      issuer: string
+      issueDate: Date | null
+      expiryDate: Date | null
+      credentialId: string | null
+      credentialUrl: string | null
+      order: number
+    }, ExtArgs["result"]["certification"]>
+    composites: {}
+  }
+
+  type CertificationGetPayload<S extends boolean | null | undefined | CertificationDefaultArgs> = $Result.GetResult<Prisma.$CertificationPayload, S>
+
+  type CertificationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<CertificationFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: CertificationCountAggregateInputType | true
+    }
+
+  export interface CertificationDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Certification'], meta: { name: 'Certification' } }
+    /**
+     * Find zero or one Certification that matches the filter.
+     * @param {CertificationFindUniqueArgs} args - Arguments to find a Certification
+     * @example
+     * // Get one Certification
+     * const certification = await prisma.certification.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends CertificationFindUniqueArgs>(args: SelectSubset<T, CertificationFindUniqueArgs<ExtArgs>>): Prisma__CertificationClient<$Result.GetResult<Prisma.$CertificationPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Certification that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {CertificationFindUniqueOrThrowArgs} args - Arguments to find a Certification
+     * @example
+     * // Get one Certification
+     * const certification = await prisma.certification.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends CertificationFindUniqueOrThrowArgs>(args: SelectSubset<T, CertificationFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CertificationClient<$Result.GetResult<Prisma.$CertificationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Certification that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CertificationFindFirstArgs} args - Arguments to find a Certification
+     * @example
+     * // Get one Certification
+     * const certification = await prisma.certification.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends CertificationFindFirstArgs>(args?: SelectSubset<T, CertificationFindFirstArgs<ExtArgs>>): Prisma__CertificationClient<$Result.GetResult<Prisma.$CertificationPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Certification that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CertificationFindFirstOrThrowArgs} args - Arguments to find a Certification
+     * @example
+     * // Get one Certification
+     * const certification = await prisma.certification.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends CertificationFindFirstOrThrowArgs>(args?: SelectSubset<T, CertificationFindFirstOrThrowArgs<ExtArgs>>): Prisma__CertificationClient<$Result.GetResult<Prisma.$CertificationPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Certifications that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CertificationFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Certifications
+     * const certifications = await prisma.certification.findMany()
+     * 
+     * // Get first 10 Certifications
+     * const certifications = await prisma.certification.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const certificationWithIdOnly = await prisma.certification.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends CertificationFindManyArgs>(args?: SelectSubset<T, CertificationFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CertificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Certification.
+     * @param {CertificationCreateArgs} args - Arguments to create a Certification.
+     * @example
+     * // Create one Certification
+     * const Certification = await prisma.certification.create({
+     *   data: {
+     *     // ... data to create a Certification
+     *   }
+     * })
+     * 
+     */
+    create<T extends CertificationCreateArgs>(args: SelectSubset<T, CertificationCreateArgs<ExtArgs>>): Prisma__CertificationClient<$Result.GetResult<Prisma.$CertificationPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Certifications.
+     * @param {CertificationCreateManyArgs} args - Arguments to create many Certifications.
+     * @example
+     * // Create many Certifications
+     * const certification = await prisma.certification.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends CertificationCreateManyArgs>(args?: SelectSubset<T, CertificationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Certifications and returns the data saved in the database.
+     * @param {CertificationCreateManyAndReturnArgs} args - Arguments to create many Certifications.
+     * @example
+     * // Create many Certifications
+     * const certification = await prisma.certification.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Certifications and only return the `id`
+     * const certificationWithIdOnly = await prisma.certification.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends CertificationCreateManyAndReturnArgs>(args?: SelectSubset<T, CertificationCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CertificationPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Certification.
+     * @param {CertificationDeleteArgs} args - Arguments to delete one Certification.
+     * @example
+     * // Delete one Certification
+     * const Certification = await prisma.certification.delete({
+     *   where: {
+     *     // ... filter to delete one Certification
+     *   }
+     * })
+     * 
+     */
+    delete<T extends CertificationDeleteArgs>(args: SelectSubset<T, CertificationDeleteArgs<ExtArgs>>): Prisma__CertificationClient<$Result.GetResult<Prisma.$CertificationPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Certification.
+     * @param {CertificationUpdateArgs} args - Arguments to update one Certification.
+     * @example
+     * // Update one Certification
+     * const certification = await prisma.certification.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends CertificationUpdateArgs>(args: SelectSubset<T, CertificationUpdateArgs<ExtArgs>>): Prisma__CertificationClient<$Result.GetResult<Prisma.$CertificationPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Certifications.
+     * @param {CertificationDeleteManyArgs} args - Arguments to filter Certifications to delete.
+     * @example
+     * // Delete a few Certifications
+     * const { count } = await prisma.certification.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends CertificationDeleteManyArgs>(args?: SelectSubset<T, CertificationDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Certifications.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CertificationUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Certifications
+     * const certification = await prisma.certification.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends CertificationUpdateManyArgs>(args: SelectSubset<T, CertificationUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Certifications and returns the data updated in the database.
+     * @param {CertificationUpdateManyAndReturnArgs} args - Arguments to update many Certifications.
+     * @example
+     * // Update many Certifications
+     * const certification = await prisma.certification.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Certifications and only return the `id`
+     * const certificationWithIdOnly = await prisma.certification.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends CertificationUpdateManyAndReturnArgs>(args: SelectSubset<T, CertificationUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CertificationPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Certification.
+     * @param {CertificationUpsertArgs} args - Arguments to update or create a Certification.
+     * @example
+     * // Update or create a Certification
+     * const certification = await prisma.certification.upsert({
+     *   create: {
+     *     // ... data to create a Certification
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Certification we want to update
+     *   }
+     * })
+     */
+    upsert<T extends CertificationUpsertArgs>(args: SelectSubset<T, CertificationUpsertArgs<ExtArgs>>): Prisma__CertificationClient<$Result.GetResult<Prisma.$CertificationPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Certifications.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CertificationCountArgs} args - Arguments to filter Certifications to count.
+     * @example
+     * // Count the number of Certifications
+     * const count = await prisma.certification.count({
+     *   where: {
+     *     // ... the filter for the Certifications we want to count
+     *   }
+     * })
+    **/
+    count<T extends CertificationCountArgs>(
+      args?: Subset<T, CertificationCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], CertificationCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Certification.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CertificationAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends CertificationAggregateArgs>(args: Subset<T, CertificationAggregateArgs>): Prisma.PrismaPromise<GetCertificationAggregateType<T>>
+
+    /**
+     * Group by Certification.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CertificationGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends CertificationGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: CertificationGroupByArgs['orderBy'] }
+        : { orderBy?: CertificationGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, CertificationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCertificationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Certification model
+   */
+  readonly fields: CertificationFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Certification.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__CertificationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    resume<T extends ResumeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ResumeDefaultArgs<ExtArgs>>): Prisma__ResumeClient<$Result.GetResult<Prisma.$ResumePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Certification model
+   */
+  interface CertificationFieldRefs {
+    readonly id: FieldRef<"Certification", 'String'>
+    readonly resumeId: FieldRef<"Certification", 'String'>
+    readonly name: FieldRef<"Certification", 'String'>
+    readonly issuer: FieldRef<"Certification", 'String'>
+    readonly issueDate: FieldRef<"Certification", 'DateTime'>
+    readonly expiryDate: FieldRef<"Certification", 'DateTime'>
+    readonly credentialId: FieldRef<"Certification", 'String'>
+    readonly credentialUrl: FieldRef<"Certification", 'String'>
+    readonly order: FieldRef<"Certification", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Certification findUnique
+   */
+  export type CertificationFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Certification
+     */
+    select?: CertificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Certification
+     */
+    omit?: CertificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CertificationInclude<ExtArgs> | null
+    /**
+     * Filter, which Certification to fetch.
+     */
+    where: CertificationWhereUniqueInput
+  }
+
+  /**
+   * Certification findUniqueOrThrow
+   */
+  export type CertificationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Certification
+     */
+    select?: CertificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Certification
+     */
+    omit?: CertificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CertificationInclude<ExtArgs> | null
+    /**
+     * Filter, which Certification to fetch.
+     */
+    where: CertificationWhereUniqueInput
+  }
+
+  /**
+   * Certification findFirst
+   */
+  export type CertificationFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Certification
+     */
+    select?: CertificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Certification
+     */
+    omit?: CertificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CertificationInclude<ExtArgs> | null
+    /**
+     * Filter, which Certification to fetch.
+     */
+    where?: CertificationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Certifications to fetch.
+     */
+    orderBy?: CertificationOrderByWithRelationInput | CertificationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Certifications.
+     */
+    cursor?: CertificationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Certifications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Certifications.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Certifications.
+     */
+    distinct?: CertificationScalarFieldEnum | CertificationScalarFieldEnum[]
+  }
+
+  /**
+   * Certification findFirstOrThrow
+   */
+  export type CertificationFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Certification
+     */
+    select?: CertificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Certification
+     */
+    omit?: CertificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CertificationInclude<ExtArgs> | null
+    /**
+     * Filter, which Certification to fetch.
+     */
+    where?: CertificationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Certifications to fetch.
+     */
+    orderBy?: CertificationOrderByWithRelationInput | CertificationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Certifications.
+     */
+    cursor?: CertificationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Certifications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Certifications.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Certifications.
+     */
+    distinct?: CertificationScalarFieldEnum | CertificationScalarFieldEnum[]
+  }
+
+  /**
+   * Certification findMany
+   */
+  export type CertificationFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Certification
+     */
+    select?: CertificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Certification
+     */
+    omit?: CertificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CertificationInclude<ExtArgs> | null
+    /**
+     * Filter, which Certifications to fetch.
+     */
+    where?: CertificationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Certifications to fetch.
+     */
+    orderBy?: CertificationOrderByWithRelationInput | CertificationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Certifications.
+     */
+    cursor?: CertificationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Certifications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Certifications.
+     */
+    skip?: number
+    distinct?: CertificationScalarFieldEnum | CertificationScalarFieldEnum[]
+  }
+
+  /**
+   * Certification create
+   */
+  export type CertificationCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Certification
+     */
+    select?: CertificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Certification
+     */
+    omit?: CertificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CertificationInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Certification.
+     */
+    data: XOR<CertificationCreateInput, CertificationUncheckedCreateInput>
+  }
+
+  /**
+   * Certification createMany
+   */
+  export type CertificationCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Certifications.
+     */
+    data: CertificationCreateManyInput | CertificationCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Certification createManyAndReturn
+   */
+  export type CertificationCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Certification
+     */
+    select?: CertificationSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Certification
+     */
+    omit?: CertificationOmit<ExtArgs> | null
+    /**
+     * The data used to create many Certifications.
+     */
+    data: CertificationCreateManyInput | CertificationCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CertificationIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Certification update
+   */
+  export type CertificationUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Certification
+     */
+    select?: CertificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Certification
+     */
+    omit?: CertificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CertificationInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Certification.
+     */
+    data: XOR<CertificationUpdateInput, CertificationUncheckedUpdateInput>
+    /**
+     * Choose, which Certification to update.
+     */
+    where: CertificationWhereUniqueInput
+  }
+
+  /**
+   * Certification updateMany
+   */
+  export type CertificationUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Certifications.
+     */
+    data: XOR<CertificationUpdateManyMutationInput, CertificationUncheckedUpdateManyInput>
+    /**
+     * Filter which Certifications to update
+     */
+    where?: CertificationWhereInput
+    /**
+     * Limit how many Certifications to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Certification updateManyAndReturn
+   */
+  export type CertificationUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Certification
+     */
+    select?: CertificationSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Certification
+     */
+    omit?: CertificationOmit<ExtArgs> | null
+    /**
+     * The data used to update Certifications.
+     */
+    data: XOR<CertificationUpdateManyMutationInput, CertificationUncheckedUpdateManyInput>
+    /**
+     * Filter which Certifications to update
+     */
+    where?: CertificationWhereInput
+    /**
+     * Limit how many Certifications to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CertificationIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Certification upsert
+   */
+  export type CertificationUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Certification
+     */
+    select?: CertificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Certification
+     */
+    omit?: CertificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CertificationInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Certification to update in case it exists.
+     */
+    where: CertificationWhereUniqueInput
+    /**
+     * In case the Certification found by the `where` argument doesn't exist, create a new Certification with this data.
+     */
+    create: XOR<CertificationCreateInput, CertificationUncheckedCreateInput>
+    /**
+     * In case the Certification was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<CertificationUpdateInput, CertificationUncheckedUpdateInput>
+  }
+
+  /**
+   * Certification delete
+   */
+  export type CertificationDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Certification
+     */
+    select?: CertificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Certification
+     */
+    omit?: CertificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CertificationInclude<ExtArgs> | null
+    /**
+     * Filter which Certification to delete.
+     */
+    where: CertificationWhereUniqueInput
+  }
+
+  /**
+   * Certification deleteMany
+   */
+  export type CertificationDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Certifications to delete
+     */
+    where?: CertificationWhereInput
+    /**
+     * Limit how many Certifications to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Certification without action
+   */
+  export type CertificationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Certification
+     */
+    select?: CertificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Certification
+     */
+    omit?: CertificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CertificationInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Project
+   */
+
+  export type AggregateProject = {
+    _count: ProjectCountAggregateOutputType | null
+    _avg: ProjectAvgAggregateOutputType | null
+    _sum: ProjectSumAggregateOutputType | null
+    _min: ProjectMinAggregateOutputType | null
+    _max: ProjectMaxAggregateOutputType | null
+  }
+
+  export type ProjectAvgAggregateOutputType = {
+    order: number | null
+  }
+
+  export type ProjectSumAggregateOutputType = {
+    order: number | null
+  }
+
+  export type ProjectMinAggregateOutputType = {
+    id: string | null
+    resumeId: string | null
+    title: string | null
+    description: string | null
+    url: string | null
+    startDate: Date | null
+    endDate: Date | null
+    order: number | null
+  }
+
+  export type ProjectMaxAggregateOutputType = {
+    id: string | null
+    resumeId: string | null
+    title: string | null
+    description: string | null
+    url: string | null
+    startDate: Date | null
+    endDate: Date | null
+    order: number | null
+  }
+
+  export type ProjectCountAggregateOutputType = {
+    id: number
+    resumeId: number
+    title: number
+    description: number
+    url: number
+    startDate: number
+    endDate: number
+    order: number
+    _all: number
+  }
+
+
+  export type ProjectAvgAggregateInputType = {
+    order?: true
+  }
+
+  export type ProjectSumAggregateInputType = {
+    order?: true
+  }
+
+  export type ProjectMinAggregateInputType = {
+    id?: true
+    resumeId?: true
+    title?: true
+    description?: true
+    url?: true
+    startDate?: true
+    endDate?: true
+    order?: true
+  }
+
+  export type ProjectMaxAggregateInputType = {
+    id?: true
+    resumeId?: true
+    title?: true
+    description?: true
+    url?: true
+    startDate?: true
+    endDate?: true
+    order?: true
+  }
+
+  export type ProjectCountAggregateInputType = {
+    id?: true
+    resumeId?: true
+    title?: true
+    description?: true
+    url?: true
+    startDate?: true
+    endDate?: true
+    order?: true
+    _all?: true
+  }
+
+  export type ProjectAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Project to aggregate.
+     */
+    where?: ProjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Projects to fetch.
+     */
+    orderBy?: ProjectOrderByWithRelationInput | ProjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ProjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Projects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Projects.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Projects
+    **/
+    _count?: true | ProjectCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ProjectAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ProjectSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ProjectMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ProjectMaxAggregateInputType
+  }
+
+  export type GetProjectAggregateType<T extends ProjectAggregateArgs> = {
+        [P in keyof T & keyof AggregateProject]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateProject[P]>
+      : GetScalarType<T[P], AggregateProject[P]>
+  }
+
+
+
+
+  export type ProjectGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProjectWhereInput
+    orderBy?: ProjectOrderByWithAggregationInput | ProjectOrderByWithAggregationInput[]
+    by: ProjectScalarFieldEnum[] | ProjectScalarFieldEnum
+    having?: ProjectScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ProjectCountAggregateInputType | true
+    _avg?: ProjectAvgAggregateInputType
+    _sum?: ProjectSumAggregateInputType
+    _min?: ProjectMinAggregateInputType
+    _max?: ProjectMaxAggregateInputType
+  }
+
+  export type ProjectGroupByOutputType = {
+    id: string
+    resumeId: string
+    title: string
+    description: string | null
+    url: string | null
+    startDate: Date | null
+    endDate: Date | null
+    order: number
+    _count: ProjectCountAggregateOutputType | null
+    _avg: ProjectAvgAggregateOutputType | null
+    _sum: ProjectSumAggregateOutputType | null
+    _min: ProjectMinAggregateOutputType | null
+    _max: ProjectMaxAggregateOutputType | null
+  }
+
+  type GetProjectGroupByPayload<T extends ProjectGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ProjectGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ProjectGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ProjectGroupByOutputType[P]>
+            : GetScalarType<T[P], ProjectGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ProjectSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    title?: boolean
+    description?: boolean
+    url?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    order?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["project"]>
+
+  export type ProjectSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    title?: boolean
+    description?: boolean
+    url?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    order?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["project"]>
+
+  export type ProjectSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    title?: boolean
+    description?: boolean
+    url?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    order?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["project"]>
+
+  export type ProjectSelectScalar = {
+    id?: boolean
+    resumeId?: boolean
+    title?: boolean
+    description?: boolean
+    url?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    order?: boolean
+  }
+
+  export type ProjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "resumeId" | "title" | "description" | "url" | "startDate" | "endDate" | "order", ExtArgs["result"]["project"]>
+  export type ProjectInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }
+  export type ProjectIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }
+  export type ProjectIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }
+
+  export type $ProjectPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Project"
+    objects: {
+      resume: Prisma.$ResumePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      resumeId: string
+      title: string
+      description: string | null
+      url: string | null
+      startDate: Date | null
+      endDate: Date | null
+      order: number
+    }, ExtArgs["result"]["project"]>
+    composites: {}
+  }
+
+  type ProjectGetPayload<S extends boolean | null | undefined | ProjectDefaultArgs> = $Result.GetResult<Prisma.$ProjectPayload, S>
+
+  type ProjectCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ProjectFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ProjectCountAggregateInputType | true
+    }
+
+  export interface ProjectDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Project'], meta: { name: 'Project' } }
+    /**
+     * Find zero or one Project that matches the filter.
+     * @param {ProjectFindUniqueArgs} args - Arguments to find a Project
+     * @example
+     * // Get one Project
+     * const project = await prisma.project.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ProjectFindUniqueArgs>(args: SelectSubset<T, ProjectFindUniqueArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Project that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ProjectFindUniqueOrThrowArgs} args - Arguments to find a Project
+     * @example
+     * // Get one Project
+     * const project = await prisma.project.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ProjectFindUniqueOrThrowArgs>(args: SelectSubset<T, ProjectFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Project that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectFindFirstArgs} args - Arguments to find a Project
+     * @example
+     * // Get one Project
+     * const project = await prisma.project.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ProjectFindFirstArgs>(args?: SelectSubset<T, ProjectFindFirstArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Project that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectFindFirstOrThrowArgs} args - Arguments to find a Project
+     * @example
+     * // Get one Project
+     * const project = await prisma.project.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ProjectFindFirstOrThrowArgs>(args?: SelectSubset<T, ProjectFindFirstOrThrowArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Projects that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Projects
+     * const projects = await prisma.project.findMany()
+     * 
+     * // Get first 10 Projects
+     * const projects = await prisma.project.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const projectWithIdOnly = await prisma.project.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ProjectFindManyArgs>(args?: SelectSubset<T, ProjectFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Project.
+     * @param {ProjectCreateArgs} args - Arguments to create a Project.
+     * @example
+     * // Create one Project
+     * const Project = await prisma.project.create({
+     *   data: {
+     *     // ... data to create a Project
+     *   }
+     * })
+     * 
+     */
+    create<T extends ProjectCreateArgs>(args: SelectSubset<T, ProjectCreateArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Projects.
+     * @param {ProjectCreateManyArgs} args - Arguments to create many Projects.
+     * @example
+     * // Create many Projects
+     * const project = await prisma.project.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ProjectCreateManyArgs>(args?: SelectSubset<T, ProjectCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Projects and returns the data saved in the database.
+     * @param {ProjectCreateManyAndReturnArgs} args - Arguments to create many Projects.
+     * @example
+     * // Create many Projects
+     * const project = await prisma.project.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Projects and only return the `id`
+     * const projectWithIdOnly = await prisma.project.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ProjectCreateManyAndReturnArgs>(args?: SelectSubset<T, ProjectCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Project.
+     * @param {ProjectDeleteArgs} args - Arguments to delete one Project.
+     * @example
+     * // Delete one Project
+     * const Project = await prisma.project.delete({
+     *   where: {
+     *     // ... filter to delete one Project
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ProjectDeleteArgs>(args: SelectSubset<T, ProjectDeleteArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Project.
+     * @param {ProjectUpdateArgs} args - Arguments to update one Project.
+     * @example
+     * // Update one Project
+     * const project = await prisma.project.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ProjectUpdateArgs>(args: SelectSubset<T, ProjectUpdateArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Projects.
+     * @param {ProjectDeleteManyArgs} args - Arguments to filter Projects to delete.
+     * @example
+     * // Delete a few Projects
+     * const { count } = await prisma.project.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ProjectDeleteManyArgs>(args?: SelectSubset<T, ProjectDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Projects.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Projects
+     * const project = await prisma.project.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ProjectUpdateManyArgs>(args: SelectSubset<T, ProjectUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Projects and returns the data updated in the database.
+     * @param {ProjectUpdateManyAndReturnArgs} args - Arguments to update many Projects.
+     * @example
+     * // Update many Projects
+     * const project = await prisma.project.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Projects and only return the `id`
+     * const projectWithIdOnly = await prisma.project.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ProjectUpdateManyAndReturnArgs>(args: SelectSubset<T, ProjectUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Project.
+     * @param {ProjectUpsertArgs} args - Arguments to update or create a Project.
+     * @example
+     * // Update or create a Project
+     * const project = await prisma.project.upsert({
+     *   create: {
+     *     // ... data to create a Project
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Project we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ProjectUpsertArgs>(args: SelectSubset<T, ProjectUpsertArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Projects.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectCountArgs} args - Arguments to filter Projects to count.
+     * @example
+     * // Count the number of Projects
+     * const count = await prisma.project.count({
+     *   where: {
+     *     // ... the filter for the Projects we want to count
+     *   }
+     * })
+    **/
+    count<T extends ProjectCountArgs>(
+      args?: Subset<T, ProjectCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ProjectCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Project.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ProjectAggregateArgs>(args: Subset<T, ProjectAggregateArgs>): Prisma.PrismaPromise<GetProjectAggregateType<T>>
+
+    /**
+     * Group by Project.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ProjectGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ProjectGroupByArgs['orderBy'] }
+        : { orderBy?: ProjectGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ProjectGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetProjectGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Project model
+   */
+  readonly fields: ProjectFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Project.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ProjectClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    resume<T extends ResumeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ResumeDefaultArgs<ExtArgs>>): Prisma__ResumeClient<$Result.GetResult<Prisma.$ResumePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Project model
+   */
+  interface ProjectFieldRefs {
+    readonly id: FieldRef<"Project", 'String'>
+    readonly resumeId: FieldRef<"Project", 'String'>
+    readonly title: FieldRef<"Project", 'String'>
+    readonly description: FieldRef<"Project", 'String'>
+    readonly url: FieldRef<"Project", 'String'>
+    readonly startDate: FieldRef<"Project", 'DateTime'>
+    readonly endDate: FieldRef<"Project", 'DateTime'>
+    readonly order: FieldRef<"Project", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Project findUnique
+   */
+  export type ProjectFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which Project to fetch.
+     */
+    where: ProjectWhereUniqueInput
+  }
+
+  /**
+   * Project findUniqueOrThrow
+   */
+  export type ProjectFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which Project to fetch.
+     */
+    where: ProjectWhereUniqueInput
+  }
+
+  /**
+   * Project findFirst
+   */
+  export type ProjectFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which Project to fetch.
+     */
+    where?: ProjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Projects to fetch.
+     */
+    orderBy?: ProjectOrderByWithRelationInput | ProjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Projects.
+     */
+    cursor?: ProjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Projects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Projects.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Projects.
+     */
+    distinct?: ProjectScalarFieldEnum | ProjectScalarFieldEnum[]
+  }
+
+  /**
+   * Project findFirstOrThrow
+   */
+  export type ProjectFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which Project to fetch.
+     */
+    where?: ProjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Projects to fetch.
+     */
+    orderBy?: ProjectOrderByWithRelationInput | ProjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Projects.
+     */
+    cursor?: ProjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Projects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Projects.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Projects.
+     */
+    distinct?: ProjectScalarFieldEnum | ProjectScalarFieldEnum[]
+  }
+
+  /**
+   * Project findMany
+   */
+  export type ProjectFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which Projects to fetch.
+     */
+    where?: ProjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Projects to fetch.
+     */
+    orderBy?: ProjectOrderByWithRelationInput | ProjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Projects.
+     */
+    cursor?: ProjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Projects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Projects.
+     */
+    skip?: number
+    distinct?: ProjectScalarFieldEnum | ProjectScalarFieldEnum[]
+  }
+
+  /**
+   * Project create
+   */
+  export type ProjectCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Project.
+     */
+    data: XOR<ProjectCreateInput, ProjectUncheckedCreateInput>
+  }
+
+  /**
+   * Project createMany
+   */
+  export type ProjectCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Projects.
+     */
+    data: ProjectCreateManyInput | ProjectCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Project createManyAndReturn
+   */
+  export type ProjectCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * The data used to create many Projects.
+     */
+    data: ProjectCreateManyInput | ProjectCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Project update
+   */
+  export type ProjectUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Project.
+     */
+    data: XOR<ProjectUpdateInput, ProjectUncheckedUpdateInput>
+    /**
+     * Choose, which Project to update.
+     */
+    where: ProjectWhereUniqueInput
+  }
+
+  /**
+   * Project updateMany
+   */
+  export type ProjectUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Projects.
+     */
+    data: XOR<ProjectUpdateManyMutationInput, ProjectUncheckedUpdateManyInput>
+    /**
+     * Filter which Projects to update
+     */
+    where?: ProjectWhereInput
+    /**
+     * Limit how many Projects to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Project updateManyAndReturn
+   */
+  export type ProjectUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * The data used to update Projects.
+     */
+    data: XOR<ProjectUpdateManyMutationInput, ProjectUncheckedUpdateManyInput>
+    /**
+     * Filter which Projects to update
+     */
+    where?: ProjectWhereInput
+    /**
+     * Limit how many Projects to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Project upsert
+   */
+  export type ProjectUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Project to update in case it exists.
+     */
+    where: ProjectWhereUniqueInput
+    /**
+     * In case the Project found by the `where` argument doesn't exist, create a new Project with this data.
+     */
+    create: XOR<ProjectCreateInput, ProjectUncheckedCreateInput>
+    /**
+     * In case the Project was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ProjectUpdateInput, ProjectUncheckedUpdateInput>
+  }
+
+  /**
+   * Project delete
+   */
+  export type ProjectDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+    /**
+     * Filter which Project to delete.
+     */
+    where: ProjectWhereUniqueInput
+  }
+
+  /**
+   * Project deleteMany
+   */
+  export type ProjectDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Projects to delete
+     */
+    where?: ProjectWhereInput
+    /**
+     * Limit how many Projects to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Project without action
+   */
+  export type ProjectDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Achievement
+   */
+
+  export type AggregateAchievement = {
+    _count: AchievementCountAggregateOutputType | null
+    _avg: AchievementAvgAggregateOutputType | null
+    _sum: AchievementSumAggregateOutputType | null
+    _min: AchievementMinAggregateOutputType | null
+    _max: AchievementMaxAggregateOutputType | null
+  }
+
+  export type AchievementAvgAggregateOutputType = {
+    order: number | null
+  }
+
+  export type AchievementSumAggregateOutputType = {
+    order: number | null
+  }
+
+  export type AchievementMinAggregateOutputType = {
+    id: string | null
+    resumeId: string | null
+    title: string | null
+    description: string | null
+    date: Date | null
+    order: number | null
+  }
+
+  export type AchievementMaxAggregateOutputType = {
+    id: string | null
+    resumeId: string | null
+    title: string | null
+    description: string | null
+    date: Date | null
+    order: number | null
+  }
+
+  export type AchievementCountAggregateOutputType = {
+    id: number
+    resumeId: number
+    title: number
+    description: number
+    date: number
+    order: number
+    _all: number
+  }
+
+
+  export type AchievementAvgAggregateInputType = {
+    order?: true
+  }
+
+  export type AchievementSumAggregateInputType = {
+    order?: true
+  }
+
+  export type AchievementMinAggregateInputType = {
+    id?: true
+    resumeId?: true
+    title?: true
+    description?: true
+    date?: true
+    order?: true
+  }
+
+  export type AchievementMaxAggregateInputType = {
+    id?: true
+    resumeId?: true
+    title?: true
+    description?: true
+    date?: true
+    order?: true
+  }
+
+  export type AchievementCountAggregateInputType = {
+    id?: true
+    resumeId?: true
+    title?: true
+    description?: true
+    date?: true
+    order?: true
+    _all?: true
+  }
+
+  export type AchievementAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Achievement to aggregate.
+     */
+    where?: AchievementWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Achievements to fetch.
+     */
+    orderBy?: AchievementOrderByWithRelationInput | AchievementOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: AchievementWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Achievements from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Achievements.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Achievements
+    **/
+    _count?: true | AchievementCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: AchievementAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: AchievementSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: AchievementMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: AchievementMaxAggregateInputType
+  }
+
+  export type GetAchievementAggregateType<T extends AchievementAggregateArgs> = {
+        [P in keyof T & keyof AggregateAchievement]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateAchievement[P]>
+      : GetScalarType<T[P], AggregateAchievement[P]>
+  }
+
+
+
+
+  export type AchievementGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AchievementWhereInput
+    orderBy?: AchievementOrderByWithAggregationInput | AchievementOrderByWithAggregationInput[]
+    by: AchievementScalarFieldEnum[] | AchievementScalarFieldEnum
+    having?: AchievementScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: AchievementCountAggregateInputType | true
+    _avg?: AchievementAvgAggregateInputType
+    _sum?: AchievementSumAggregateInputType
+    _min?: AchievementMinAggregateInputType
+    _max?: AchievementMaxAggregateInputType
+  }
+
+  export type AchievementGroupByOutputType = {
+    id: string
+    resumeId: string
+    title: string
+    description: string | null
+    date: Date | null
+    order: number
+    _count: AchievementCountAggregateOutputType | null
+    _avg: AchievementAvgAggregateOutputType | null
+    _sum: AchievementSumAggregateOutputType | null
+    _min: AchievementMinAggregateOutputType | null
+    _max: AchievementMaxAggregateOutputType | null
+  }
+
+  type GetAchievementGroupByPayload<T extends AchievementGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<AchievementGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof AchievementGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], AchievementGroupByOutputType[P]>
+            : GetScalarType<T[P], AchievementGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type AchievementSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    title?: boolean
+    description?: boolean
+    date?: boolean
+    order?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["achievement"]>
+
+  export type AchievementSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    title?: boolean
+    description?: boolean
+    date?: boolean
+    order?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["achievement"]>
+
+  export type AchievementSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    title?: boolean
+    description?: boolean
+    date?: boolean
+    order?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["achievement"]>
+
+  export type AchievementSelectScalar = {
+    id?: boolean
+    resumeId?: boolean
+    title?: boolean
+    description?: boolean
+    date?: boolean
+    order?: boolean
+  }
+
+  export type AchievementOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "resumeId" | "title" | "description" | "date" | "order", ExtArgs["result"]["achievement"]>
+  export type AchievementInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }
+  export type AchievementIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }
+  export type AchievementIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }
+
+  export type $AchievementPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Achievement"
+    objects: {
+      resume: Prisma.$ResumePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      resumeId: string
+      title: string
+      description: string | null
+      date: Date | null
+      order: number
+    }, ExtArgs["result"]["achievement"]>
+    composites: {}
+  }
+
+  type AchievementGetPayload<S extends boolean | null | undefined | AchievementDefaultArgs> = $Result.GetResult<Prisma.$AchievementPayload, S>
+
+  type AchievementCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<AchievementFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: AchievementCountAggregateInputType | true
+    }
+
+  export interface AchievementDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Achievement'], meta: { name: 'Achievement' } }
+    /**
+     * Find zero or one Achievement that matches the filter.
+     * @param {AchievementFindUniqueArgs} args - Arguments to find a Achievement
+     * @example
+     * // Get one Achievement
+     * const achievement = await prisma.achievement.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends AchievementFindUniqueArgs>(args: SelectSubset<T, AchievementFindUniqueArgs<ExtArgs>>): Prisma__AchievementClient<$Result.GetResult<Prisma.$AchievementPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Achievement that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {AchievementFindUniqueOrThrowArgs} args - Arguments to find a Achievement
+     * @example
+     * // Get one Achievement
+     * const achievement = await prisma.achievement.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends AchievementFindUniqueOrThrowArgs>(args: SelectSubset<T, AchievementFindUniqueOrThrowArgs<ExtArgs>>): Prisma__AchievementClient<$Result.GetResult<Prisma.$AchievementPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Achievement that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AchievementFindFirstArgs} args - Arguments to find a Achievement
+     * @example
+     * // Get one Achievement
+     * const achievement = await prisma.achievement.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends AchievementFindFirstArgs>(args?: SelectSubset<T, AchievementFindFirstArgs<ExtArgs>>): Prisma__AchievementClient<$Result.GetResult<Prisma.$AchievementPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Achievement that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AchievementFindFirstOrThrowArgs} args - Arguments to find a Achievement
+     * @example
+     * // Get one Achievement
+     * const achievement = await prisma.achievement.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends AchievementFindFirstOrThrowArgs>(args?: SelectSubset<T, AchievementFindFirstOrThrowArgs<ExtArgs>>): Prisma__AchievementClient<$Result.GetResult<Prisma.$AchievementPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Achievements that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AchievementFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Achievements
+     * const achievements = await prisma.achievement.findMany()
+     * 
+     * // Get first 10 Achievements
+     * const achievements = await prisma.achievement.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const achievementWithIdOnly = await prisma.achievement.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends AchievementFindManyArgs>(args?: SelectSubset<T, AchievementFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AchievementPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Achievement.
+     * @param {AchievementCreateArgs} args - Arguments to create a Achievement.
+     * @example
+     * // Create one Achievement
+     * const Achievement = await prisma.achievement.create({
+     *   data: {
+     *     // ... data to create a Achievement
+     *   }
+     * })
+     * 
+     */
+    create<T extends AchievementCreateArgs>(args: SelectSubset<T, AchievementCreateArgs<ExtArgs>>): Prisma__AchievementClient<$Result.GetResult<Prisma.$AchievementPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Achievements.
+     * @param {AchievementCreateManyArgs} args - Arguments to create many Achievements.
+     * @example
+     * // Create many Achievements
+     * const achievement = await prisma.achievement.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends AchievementCreateManyArgs>(args?: SelectSubset<T, AchievementCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Achievements and returns the data saved in the database.
+     * @param {AchievementCreateManyAndReturnArgs} args - Arguments to create many Achievements.
+     * @example
+     * // Create many Achievements
+     * const achievement = await prisma.achievement.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Achievements and only return the `id`
+     * const achievementWithIdOnly = await prisma.achievement.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends AchievementCreateManyAndReturnArgs>(args?: SelectSubset<T, AchievementCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AchievementPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Achievement.
+     * @param {AchievementDeleteArgs} args - Arguments to delete one Achievement.
+     * @example
+     * // Delete one Achievement
+     * const Achievement = await prisma.achievement.delete({
+     *   where: {
+     *     // ... filter to delete one Achievement
+     *   }
+     * })
+     * 
+     */
+    delete<T extends AchievementDeleteArgs>(args: SelectSubset<T, AchievementDeleteArgs<ExtArgs>>): Prisma__AchievementClient<$Result.GetResult<Prisma.$AchievementPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Achievement.
+     * @param {AchievementUpdateArgs} args - Arguments to update one Achievement.
+     * @example
+     * // Update one Achievement
+     * const achievement = await prisma.achievement.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends AchievementUpdateArgs>(args: SelectSubset<T, AchievementUpdateArgs<ExtArgs>>): Prisma__AchievementClient<$Result.GetResult<Prisma.$AchievementPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Achievements.
+     * @param {AchievementDeleteManyArgs} args - Arguments to filter Achievements to delete.
+     * @example
+     * // Delete a few Achievements
+     * const { count } = await prisma.achievement.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends AchievementDeleteManyArgs>(args?: SelectSubset<T, AchievementDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Achievements.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AchievementUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Achievements
+     * const achievement = await prisma.achievement.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends AchievementUpdateManyArgs>(args: SelectSubset<T, AchievementUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Achievements and returns the data updated in the database.
+     * @param {AchievementUpdateManyAndReturnArgs} args - Arguments to update many Achievements.
+     * @example
+     * // Update many Achievements
+     * const achievement = await prisma.achievement.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Achievements and only return the `id`
+     * const achievementWithIdOnly = await prisma.achievement.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends AchievementUpdateManyAndReturnArgs>(args: SelectSubset<T, AchievementUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AchievementPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Achievement.
+     * @param {AchievementUpsertArgs} args - Arguments to update or create a Achievement.
+     * @example
+     * // Update or create a Achievement
+     * const achievement = await prisma.achievement.upsert({
+     *   create: {
+     *     // ... data to create a Achievement
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Achievement we want to update
+     *   }
+     * })
+     */
+    upsert<T extends AchievementUpsertArgs>(args: SelectSubset<T, AchievementUpsertArgs<ExtArgs>>): Prisma__AchievementClient<$Result.GetResult<Prisma.$AchievementPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Achievements.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AchievementCountArgs} args - Arguments to filter Achievements to count.
+     * @example
+     * // Count the number of Achievements
+     * const count = await prisma.achievement.count({
+     *   where: {
+     *     // ... the filter for the Achievements we want to count
+     *   }
+     * })
+    **/
+    count<T extends AchievementCountArgs>(
+      args?: Subset<T, AchievementCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], AchievementCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Achievement.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AchievementAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends AchievementAggregateArgs>(args: Subset<T, AchievementAggregateArgs>): Prisma.PrismaPromise<GetAchievementAggregateType<T>>
+
+    /**
+     * Group by Achievement.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AchievementGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends AchievementGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: AchievementGroupByArgs['orderBy'] }
+        : { orderBy?: AchievementGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, AchievementGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAchievementGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Achievement model
+   */
+  readonly fields: AchievementFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Achievement.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__AchievementClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    resume<T extends ResumeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ResumeDefaultArgs<ExtArgs>>): Prisma__ResumeClient<$Result.GetResult<Prisma.$ResumePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Achievement model
+   */
+  interface AchievementFieldRefs {
+    readonly id: FieldRef<"Achievement", 'String'>
+    readonly resumeId: FieldRef<"Achievement", 'String'>
+    readonly title: FieldRef<"Achievement", 'String'>
+    readonly description: FieldRef<"Achievement", 'String'>
+    readonly date: FieldRef<"Achievement", 'DateTime'>
+    readonly order: FieldRef<"Achievement", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Achievement findUnique
+   */
+  export type AchievementFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Achievement
+     */
+    select?: AchievementSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Achievement
+     */
+    omit?: AchievementOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AchievementInclude<ExtArgs> | null
+    /**
+     * Filter, which Achievement to fetch.
+     */
+    where: AchievementWhereUniqueInput
+  }
+
+  /**
+   * Achievement findUniqueOrThrow
+   */
+  export type AchievementFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Achievement
+     */
+    select?: AchievementSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Achievement
+     */
+    omit?: AchievementOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AchievementInclude<ExtArgs> | null
+    /**
+     * Filter, which Achievement to fetch.
+     */
+    where: AchievementWhereUniqueInput
+  }
+
+  /**
+   * Achievement findFirst
+   */
+  export type AchievementFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Achievement
+     */
+    select?: AchievementSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Achievement
+     */
+    omit?: AchievementOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AchievementInclude<ExtArgs> | null
+    /**
+     * Filter, which Achievement to fetch.
+     */
+    where?: AchievementWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Achievements to fetch.
+     */
+    orderBy?: AchievementOrderByWithRelationInput | AchievementOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Achievements.
+     */
+    cursor?: AchievementWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Achievements from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Achievements.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Achievements.
+     */
+    distinct?: AchievementScalarFieldEnum | AchievementScalarFieldEnum[]
+  }
+
+  /**
+   * Achievement findFirstOrThrow
+   */
+  export type AchievementFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Achievement
+     */
+    select?: AchievementSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Achievement
+     */
+    omit?: AchievementOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AchievementInclude<ExtArgs> | null
+    /**
+     * Filter, which Achievement to fetch.
+     */
+    where?: AchievementWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Achievements to fetch.
+     */
+    orderBy?: AchievementOrderByWithRelationInput | AchievementOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Achievements.
+     */
+    cursor?: AchievementWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Achievements from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Achievements.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Achievements.
+     */
+    distinct?: AchievementScalarFieldEnum | AchievementScalarFieldEnum[]
+  }
+
+  /**
+   * Achievement findMany
+   */
+  export type AchievementFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Achievement
+     */
+    select?: AchievementSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Achievement
+     */
+    omit?: AchievementOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AchievementInclude<ExtArgs> | null
+    /**
+     * Filter, which Achievements to fetch.
+     */
+    where?: AchievementWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Achievements to fetch.
+     */
+    orderBy?: AchievementOrderByWithRelationInput | AchievementOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Achievements.
+     */
+    cursor?: AchievementWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Achievements from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Achievements.
+     */
+    skip?: number
+    distinct?: AchievementScalarFieldEnum | AchievementScalarFieldEnum[]
+  }
+
+  /**
+   * Achievement create
+   */
+  export type AchievementCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Achievement
+     */
+    select?: AchievementSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Achievement
+     */
+    omit?: AchievementOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AchievementInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Achievement.
+     */
+    data: XOR<AchievementCreateInput, AchievementUncheckedCreateInput>
+  }
+
+  /**
+   * Achievement createMany
+   */
+  export type AchievementCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Achievements.
+     */
+    data: AchievementCreateManyInput | AchievementCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Achievement createManyAndReturn
+   */
+  export type AchievementCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Achievement
+     */
+    select?: AchievementSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Achievement
+     */
+    omit?: AchievementOmit<ExtArgs> | null
+    /**
+     * The data used to create many Achievements.
+     */
+    data: AchievementCreateManyInput | AchievementCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AchievementIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Achievement update
+   */
+  export type AchievementUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Achievement
+     */
+    select?: AchievementSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Achievement
+     */
+    omit?: AchievementOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AchievementInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Achievement.
+     */
+    data: XOR<AchievementUpdateInput, AchievementUncheckedUpdateInput>
+    /**
+     * Choose, which Achievement to update.
+     */
+    where: AchievementWhereUniqueInput
+  }
+
+  /**
+   * Achievement updateMany
+   */
+  export type AchievementUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Achievements.
+     */
+    data: XOR<AchievementUpdateManyMutationInput, AchievementUncheckedUpdateManyInput>
+    /**
+     * Filter which Achievements to update
+     */
+    where?: AchievementWhereInput
+    /**
+     * Limit how many Achievements to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Achievement updateManyAndReturn
+   */
+  export type AchievementUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Achievement
+     */
+    select?: AchievementSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Achievement
+     */
+    omit?: AchievementOmit<ExtArgs> | null
+    /**
+     * The data used to update Achievements.
+     */
+    data: XOR<AchievementUpdateManyMutationInput, AchievementUncheckedUpdateManyInput>
+    /**
+     * Filter which Achievements to update
+     */
+    where?: AchievementWhereInput
+    /**
+     * Limit how many Achievements to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AchievementIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Achievement upsert
+   */
+  export type AchievementUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Achievement
+     */
+    select?: AchievementSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Achievement
+     */
+    omit?: AchievementOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AchievementInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Achievement to update in case it exists.
+     */
+    where: AchievementWhereUniqueInput
+    /**
+     * In case the Achievement found by the `where` argument doesn't exist, create a new Achievement with this data.
+     */
+    create: XOR<AchievementCreateInput, AchievementUncheckedCreateInput>
+    /**
+     * In case the Achievement was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<AchievementUpdateInput, AchievementUncheckedUpdateInput>
+  }
+
+  /**
+   * Achievement delete
+   */
+  export type AchievementDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Achievement
+     */
+    select?: AchievementSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Achievement
+     */
+    omit?: AchievementOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AchievementInclude<ExtArgs> | null
+    /**
+     * Filter which Achievement to delete.
+     */
+    where: AchievementWhereUniqueInput
+  }
+
+  /**
+   * Achievement deleteMany
+   */
+  export type AchievementDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Achievements to delete
+     */
+    where?: AchievementWhereInput
+    /**
+     * Limit how many Achievements to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Achievement without action
+   */
+  export type AchievementDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Achievement
+     */
+    select?: AchievementSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Achievement
+     */
+    omit?: AchievementOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AchievementInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model CustomSection
+   */
+
+  export type AggregateCustomSection = {
+    _count: CustomSectionCountAggregateOutputType | null
+    _avg: CustomSectionAvgAggregateOutputType | null
+    _sum: CustomSectionSumAggregateOutputType | null
+    _min: CustomSectionMinAggregateOutputType | null
+    _max: CustomSectionMaxAggregateOutputType | null
+  }
+
+  export type CustomSectionAvgAggregateOutputType = {
+    order: number | null
+  }
+
+  export type CustomSectionSumAggregateOutputType = {
+    order: number | null
+  }
+
+  export type CustomSectionMinAggregateOutputType = {
+    id: string | null
+    resumeId: string | null
+    title: string | null
+    content: string | null
+    order: number | null
+  }
+
+  export type CustomSectionMaxAggregateOutputType = {
+    id: string | null
+    resumeId: string | null
+    title: string | null
+    content: string | null
+    order: number | null
+  }
+
+  export type CustomSectionCountAggregateOutputType = {
+    id: number
+    resumeId: number
+    title: number
+    content: number
+    order: number
+    _all: number
+  }
+
+
+  export type CustomSectionAvgAggregateInputType = {
+    order?: true
+  }
+
+  export type CustomSectionSumAggregateInputType = {
+    order?: true
+  }
+
+  export type CustomSectionMinAggregateInputType = {
+    id?: true
+    resumeId?: true
+    title?: true
+    content?: true
+    order?: true
+  }
+
+  export type CustomSectionMaxAggregateInputType = {
+    id?: true
+    resumeId?: true
+    title?: true
+    content?: true
+    order?: true
+  }
+
+  export type CustomSectionCountAggregateInputType = {
+    id?: true
+    resumeId?: true
+    title?: true
+    content?: true
+    order?: true
+    _all?: true
+  }
+
+  export type CustomSectionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CustomSection to aggregate.
+     */
+    where?: CustomSectionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CustomSections to fetch.
+     */
+    orderBy?: CustomSectionOrderByWithRelationInput | CustomSectionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: CustomSectionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CustomSections from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CustomSections.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned CustomSections
+    **/
+    _count?: true | CustomSectionCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: CustomSectionAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: CustomSectionSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: CustomSectionMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: CustomSectionMaxAggregateInputType
+  }
+
+  export type GetCustomSectionAggregateType<T extends CustomSectionAggregateArgs> = {
+        [P in keyof T & keyof AggregateCustomSection]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCustomSection[P]>
+      : GetScalarType<T[P], AggregateCustomSection[P]>
+  }
+
+
+
+
+  export type CustomSectionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CustomSectionWhereInput
+    orderBy?: CustomSectionOrderByWithAggregationInput | CustomSectionOrderByWithAggregationInput[]
+    by: CustomSectionScalarFieldEnum[] | CustomSectionScalarFieldEnum
+    having?: CustomSectionScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: CustomSectionCountAggregateInputType | true
+    _avg?: CustomSectionAvgAggregateInputType
+    _sum?: CustomSectionSumAggregateInputType
+    _min?: CustomSectionMinAggregateInputType
+    _max?: CustomSectionMaxAggregateInputType
+  }
+
+  export type CustomSectionGroupByOutputType = {
+    id: string
+    resumeId: string
+    title: string
+    content: string
+    order: number
+    _count: CustomSectionCountAggregateOutputType | null
+    _avg: CustomSectionAvgAggregateOutputType | null
+    _sum: CustomSectionSumAggregateOutputType | null
+    _min: CustomSectionMinAggregateOutputType | null
+    _max: CustomSectionMaxAggregateOutputType | null
+  }
+
+  type GetCustomSectionGroupByPayload<T extends CustomSectionGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<CustomSectionGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof CustomSectionGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], CustomSectionGroupByOutputType[P]>
+            : GetScalarType<T[P], CustomSectionGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type CustomSectionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    title?: boolean
+    content?: boolean
+    order?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["customSection"]>
+
+  export type CustomSectionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    title?: boolean
+    content?: boolean
+    order?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["customSection"]>
+
+  export type CustomSectionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    title?: boolean
+    content?: boolean
+    order?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["customSection"]>
+
+  export type CustomSectionSelectScalar = {
+    id?: boolean
+    resumeId?: boolean
+    title?: boolean
+    content?: boolean
+    order?: boolean
+  }
+
+  export type CustomSectionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "resumeId" | "title" | "content" | "order", ExtArgs["result"]["customSection"]>
+  export type CustomSectionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }
+  export type CustomSectionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }
+  export type CustomSectionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }
+
+  export type $CustomSectionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "CustomSection"
+    objects: {
+      resume: Prisma.$ResumePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      resumeId: string
+      title: string
+      content: string
+      order: number
+    }, ExtArgs["result"]["customSection"]>
+    composites: {}
+  }
+
+  type CustomSectionGetPayload<S extends boolean | null | undefined | CustomSectionDefaultArgs> = $Result.GetResult<Prisma.$CustomSectionPayload, S>
+
+  type CustomSectionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<CustomSectionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: CustomSectionCountAggregateInputType | true
+    }
+
+  export interface CustomSectionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['CustomSection'], meta: { name: 'CustomSection' } }
+    /**
+     * Find zero or one CustomSection that matches the filter.
+     * @param {CustomSectionFindUniqueArgs} args - Arguments to find a CustomSection
+     * @example
+     * // Get one CustomSection
+     * const customSection = await prisma.customSection.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends CustomSectionFindUniqueArgs>(args: SelectSubset<T, CustomSectionFindUniqueArgs<ExtArgs>>): Prisma__CustomSectionClient<$Result.GetResult<Prisma.$CustomSectionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one CustomSection that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {CustomSectionFindUniqueOrThrowArgs} args - Arguments to find a CustomSection
+     * @example
+     * // Get one CustomSection
+     * const customSection = await prisma.customSection.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends CustomSectionFindUniqueOrThrowArgs>(args: SelectSubset<T, CustomSectionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CustomSectionClient<$Result.GetResult<Prisma.$CustomSectionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CustomSection that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomSectionFindFirstArgs} args - Arguments to find a CustomSection
+     * @example
+     * // Get one CustomSection
+     * const customSection = await prisma.customSection.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends CustomSectionFindFirstArgs>(args?: SelectSubset<T, CustomSectionFindFirstArgs<ExtArgs>>): Prisma__CustomSectionClient<$Result.GetResult<Prisma.$CustomSectionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CustomSection that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomSectionFindFirstOrThrowArgs} args - Arguments to find a CustomSection
+     * @example
+     * // Get one CustomSection
+     * const customSection = await prisma.customSection.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends CustomSectionFindFirstOrThrowArgs>(args?: SelectSubset<T, CustomSectionFindFirstOrThrowArgs<ExtArgs>>): Prisma__CustomSectionClient<$Result.GetResult<Prisma.$CustomSectionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more CustomSections that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomSectionFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all CustomSections
+     * const customSections = await prisma.customSection.findMany()
+     * 
+     * // Get first 10 CustomSections
+     * const customSections = await prisma.customSection.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const customSectionWithIdOnly = await prisma.customSection.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends CustomSectionFindManyArgs>(args?: SelectSubset<T, CustomSectionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomSectionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a CustomSection.
+     * @param {CustomSectionCreateArgs} args - Arguments to create a CustomSection.
+     * @example
+     * // Create one CustomSection
+     * const CustomSection = await prisma.customSection.create({
+     *   data: {
+     *     // ... data to create a CustomSection
+     *   }
+     * })
+     * 
+     */
+    create<T extends CustomSectionCreateArgs>(args: SelectSubset<T, CustomSectionCreateArgs<ExtArgs>>): Prisma__CustomSectionClient<$Result.GetResult<Prisma.$CustomSectionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many CustomSections.
+     * @param {CustomSectionCreateManyArgs} args - Arguments to create many CustomSections.
+     * @example
+     * // Create many CustomSections
+     * const customSection = await prisma.customSection.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends CustomSectionCreateManyArgs>(args?: SelectSubset<T, CustomSectionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many CustomSections and returns the data saved in the database.
+     * @param {CustomSectionCreateManyAndReturnArgs} args - Arguments to create many CustomSections.
+     * @example
+     * // Create many CustomSections
+     * const customSection = await prisma.customSection.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many CustomSections and only return the `id`
+     * const customSectionWithIdOnly = await prisma.customSection.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends CustomSectionCreateManyAndReturnArgs>(args?: SelectSubset<T, CustomSectionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomSectionPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a CustomSection.
+     * @param {CustomSectionDeleteArgs} args - Arguments to delete one CustomSection.
+     * @example
+     * // Delete one CustomSection
+     * const CustomSection = await prisma.customSection.delete({
+     *   where: {
+     *     // ... filter to delete one CustomSection
+     *   }
+     * })
+     * 
+     */
+    delete<T extends CustomSectionDeleteArgs>(args: SelectSubset<T, CustomSectionDeleteArgs<ExtArgs>>): Prisma__CustomSectionClient<$Result.GetResult<Prisma.$CustomSectionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one CustomSection.
+     * @param {CustomSectionUpdateArgs} args - Arguments to update one CustomSection.
+     * @example
+     * // Update one CustomSection
+     * const customSection = await prisma.customSection.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends CustomSectionUpdateArgs>(args: SelectSubset<T, CustomSectionUpdateArgs<ExtArgs>>): Prisma__CustomSectionClient<$Result.GetResult<Prisma.$CustomSectionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more CustomSections.
+     * @param {CustomSectionDeleteManyArgs} args - Arguments to filter CustomSections to delete.
+     * @example
+     * // Delete a few CustomSections
+     * const { count } = await prisma.customSection.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends CustomSectionDeleteManyArgs>(args?: SelectSubset<T, CustomSectionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CustomSections.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomSectionUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many CustomSections
+     * const customSection = await prisma.customSection.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends CustomSectionUpdateManyArgs>(args: SelectSubset<T, CustomSectionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CustomSections and returns the data updated in the database.
+     * @param {CustomSectionUpdateManyAndReturnArgs} args - Arguments to update many CustomSections.
+     * @example
+     * // Update many CustomSections
+     * const customSection = await prisma.customSection.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more CustomSections and only return the `id`
+     * const customSectionWithIdOnly = await prisma.customSection.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends CustomSectionUpdateManyAndReturnArgs>(args: SelectSubset<T, CustomSectionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomSectionPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one CustomSection.
+     * @param {CustomSectionUpsertArgs} args - Arguments to update or create a CustomSection.
+     * @example
+     * // Update or create a CustomSection
+     * const customSection = await prisma.customSection.upsert({
+     *   create: {
+     *     // ... data to create a CustomSection
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the CustomSection we want to update
+     *   }
+     * })
+     */
+    upsert<T extends CustomSectionUpsertArgs>(args: SelectSubset<T, CustomSectionUpsertArgs<ExtArgs>>): Prisma__CustomSectionClient<$Result.GetResult<Prisma.$CustomSectionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of CustomSections.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomSectionCountArgs} args - Arguments to filter CustomSections to count.
+     * @example
+     * // Count the number of CustomSections
+     * const count = await prisma.customSection.count({
+     *   where: {
+     *     // ... the filter for the CustomSections we want to count
+     *   }
+     * })
+    **/
+    count<T extends CustomSectionCountArgs>(
+      args?: Subset<T, CustomSectionCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], CustomSectionCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a CustomSection.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomSectionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends CustomSectionAggregateArgs>(args: Subset<T, CustomSectionAggregateArgs>): Prisma.PrismaPromise<GetCustomSectionAggregateType<T>>
+
+    /**
+     * Group by CustomSection.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomSectionGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends CustomSectionGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: CustomSectionGroupByArgs['orderBy'] }
+        : { orderBy?: CustomSectionGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, CustomSectionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCustomSectionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the CustomSection model
+   */
+  readonly fields: CustomSectionFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for CustomSection.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__CustomSectionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    resume<T extends ResumeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ResumeDefaultArgs<ExtArgs>>): Prisma__ResumeClient<$Result.GetResult<Prisma.$ResumePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the CustomSection model
+   */
+  interface CustomSectionFieldRefs {
+    readonly id: FieldRef<"CustomSection", 'String'>
+    readonly resumeId: FieldRef<"CustomSection", 'String'>
+    readonly title: FieldRef<"CustomSection", 'String'>
+    readonly content: FieldRef<"CustomSection", 'String'>
+    readonly order: FieldRef<"CustomSection", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * CustomSection findUnique
+   */
+  export type CustomSectionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomSection
+     */
+    select?: CustomSectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomSection
+     */
+    omit?: CustomSectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomSectionInclude<ExtArgs> | null
+    /**
+     * Filter, which CustomSection to fetch.
+     */
+    where: CustomSectionWhereUniqueInput
+  }
+
+  /**
+   * CustomSection findUniqueOrThrow
+   */
+  export type CustomSectionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomSection
+     */
+    select?: CustomSectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomSection
+     */
+    omit?: CustomSectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomSectionInclude<ExtArgs> | null
+    /**
+     * Filter, which CustomSection to fetch.
+     */
+    where: CustomSectionWhereUniqueInput
+  }
+
+  /**
+   * CustomSection findFirst
+   */
+  export type CustomSectionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomSection
+     */
+    select?: CustomSectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomSection
+     */
+    omit?: CustomSectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomSectionInclude<ExtArgs> | null
+    /**
+     * Filter, which CustomSection to fetch.
+     */
+    where?: CustomSectionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CustomSections to fetch.
+     */
+    orderBy?: CustomSectionOrderByWithRelationInput | CustomSectionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CustomSections.
+     */
+    cursor?: CustomSectionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CustomSections from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CustomSections.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CustomSections.
+     */
+    distinct?: CustomSectionScalarFieldEnum | CustomSectionScalarFieldEnum[]
+  }
+
+  /**
+   * CustomSection findFirstOrThrow
+   */
+  export type CustomSectionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomSection
+     */
+    select?: CustomSectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomSection
+     */
+    omit?: CustomSectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomSectionInclude<ExtArgs> | null
+    /**
+     * Filter, which CustomSection to fetch.
+     */
+    where?: CustomSectionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CustomSections to fetch.
+     */
+    orderBy?: CustomSectionOrderByWithRelationInput | CustomSectionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CustomSections.
+     */
+    cursor?: CustomSectionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CustomSections from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CustomSections.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CustomSections.
+     */
+    distinct?: CustomSectionScalarFieldEnum | CustomSectionScalarFieldEnum[]
+  }
+
+  /**
+   * CustomSection findMany
+   */
+  export type CustomSectionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomSection
+     */
+    select?: CustomSectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomSection
+     */
+    omit?: CustomSectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomSectionInclude<ExtArgs> | null
+    /**
+     * Filter, which CustomSections to fetch.
+     */
+    where?: CustomSectionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CustomSections to fetch.
+     */
+    orderBy?: CustomSectionOrderByWithRelationInput | CustomSectionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing CustomSections.
+     */
+    cursor?: CustomSectionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CustomSections from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CustomSections.
+     */
+    skip?: number
+    distinct?: CustomSectionScalarFieldEnum | CustomSectionScalarFieldEnum[]
+  }
+
+  /**
+   * CustomSection create
+   */
+  export type CustomSectionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomSection
+     */
+    select?: CustomSectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomSection
+     */
+    omit?: CustomSectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomSectionInclude<ExtArgs> | null
+    /**
+     * The data needed to create a CustomSection.
+     */
+    data: XOR<CustomSectionCreateInput, CustomSectionUncheckedCreateInput>
+  }
+
+  /**
+   * CustomSection createMany
+   */
+  export type CustomSectionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many CustomSections.
+     */
+    data: CustomSectionCreateManyInput | CustomSectionCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * CustomSection createManyAndReturn
+   */
+  export type CustomSectionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomSection
+     */
+    select?: CustomSectionSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomSection
+     */
+    omit?: CustomSectionOmit<ExtArgs> | null
+    /**
+     * The data used to create many CustomSections.
+     */
+    data: CustomSectionCreateManyInput | CustomSectionCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomSectionIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * CustomSection update
+   */
+  export type CustomSectionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomSection
+     */
+    select?: CustomSectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomSection
+     */
+    omit?: CustomSectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomSectionInclude<ExtArgs> | null
+    /**
+     * The data needed to update a CustomSection.
+     */
+    data: XOR<CustomSectionUpdateInput, CustomSectionUncheckedUpdateInput>
+    /**
+     * Choose, which CustomSection to update.
+     */
+    where: CustomSectionWhereUniqueInput
+  }
+
+  /**
+   * CustomSection updateMany
+   */
+  export type CustomSectionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update CustomSections.
+     */
+    data: XOR<CustomSectionUpdateManyMutationInput, CustomSectionUncheckedUpdateManyInput>
+    /**
+     * Filter which CustomSections to update
+     */
+    where?: CustomSectionWhereInput
+    /**
+     * Limit how many CustomSections to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * CustomSection updateManyAndReturn
+   */
+  export type CustomSectionUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomSection
+     */
+    select?: CustomSectionSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomSection
+     */
+    omit?: CustomSectionOmit<ExtArgs> | null
+    /**
+     * The data used to update CustomSections.
+     */
+    data: XOR<CustomSectionUpdateManyMutationInput, CustomSectionUncheckedUpdateManyInput>
+    /**
+     * Filter which CustomSections to update
+     */
+    where?: CustomSectionWhereInput
+    /**
+     * Limit how many CustomSections to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomSectionIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * CustomSection upsert
+   */
+  export type CustomSectionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomSection
+     */
+    select?: CustomSectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomSection
+     */
+    omit?: CustomSectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomSectionInclude<ExtArgs> | null
+    /**
+     * The filter to search for the CustomSection to update in case it exists.
+     */
+    where: CustomSectionWhereUniqueInput
+    /**
+     * In case the CustomSection found by the `where` argument doesn't exist, create a new CustomSection with this data.
+     */
+    create: XOR<CustomSectionCreateInput, CustomSectionUncheckedCreateInput>
+    /**
+     * In case the CustomSection was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<CustomSectionUpdateInput, CustomSectionUncheckedUpdateInput>
+  }
+
+  /**
+   * CustomSection delete
+   */
+  export type CustomSectionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomSection
+     */
+    select?: CustomSectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomSection
+     */
+    omit?: CustomSectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomSectionInclude<ExtArgs> | null
+    /**
+     * Filter which CustomSection to delete.
+     */
+    where: CustomSectionWhereUniqueInput
+  }
+
+  /**
+   * CustomSection deleteMany
+   */
+  export type CustomSectionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CustomSections to delete
+     */
+    where?: CustomSectionWhereInput
+    /**
+     * Limit how many CustomSections to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * CustomSection without action
+   */
+  export type CustomSectionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomSection
+     */
+    select?: CustomSectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomSection
+     */
+    omit?: CustomSectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomSectionInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Template
+   */
+
+  export type AggregateTemplate = {
+    _count: TemplateCountAggregateOutputType | null
+    _min: TemplateMinAggregateOutputType | null
+    _max: TemplateMaxAggregateOutputType | null
+  }
+
+  export type TemplateMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+    description: string | null
+    thumbnail: string | null
+    isDefault: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type TemplateMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+    description: string | null
+    thumbnail: string | null
+    isDefault: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type TemplateCountAggregateOutputType = {
+    id: number
+    name: number
+    description: number
+    thumbnail: number
+    isDefault: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type TemplateMinAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    thumbnail?: true
+    isDefault?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type TemplateMaxAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    thumbnail?: true
+    isDefault?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type TemplateCountAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    thumbnail?: true
+    isDefault?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type TemplateAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Template to aggregate.
+     */
+    where?: TemplateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Templates to fetch.
+     */
+    orderBy?: TemplateOrderByWithRelationInput | TemplateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: TemplateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Templates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Templates.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Templates
+    **/
+    _count?: true | TemplateCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: TemplateMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: TemplateMaxAggregateInputType
+  }
+
+  export type GetTemplateAggregateType<T extends TemplateAggregateArgs> = {
+        [P in keyof T & keyof AggregateTemplate]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateTemplate[P]>
+      : GetScalarType<T[P], AggregateTemplate[P]>
+  }
+
+
+
+
+  export type TemplateGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TemplateWhereInput
+    orderBy?: TemplateOrderByWithAggregationInput | TemplateOrderByWithAggregationInput[]
+    by: TemplateScalarFieldEnum[] | TemplateScalarFieldEnum
+    having?: TemplateScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: TemplateCountAggregateInputType | true
+    _min?: TemplateMinAggregateInputType
+    _max?: TemplateMaxAggregateInputType
+  }
+
+  export type TemplateGroupByOutputType = {
+    id: string
+    name: string
+    description: string | null
+    thumbnail: string | null
+    isDefault: boolean
+    createdAt: Date
+    updatedAt: Date
+    _count: TemplateCountAggregateOutputType | null
+    _min: TemplateMinAggregateOutputType | null
+    _max: TemplateMaxAggregateOutputType | null
+  }
+
+  type GetTemplateGroupByPayload<T extends TemplateGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<TemplateGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof TemplateGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], TemplateGroupByOutputType[P]>
+            : GetScalarType<T[P], TemplateGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type TemplateSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    thumbnail?: boolean
+    isDefault?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    resumes?: boolean | Template$resumesArgs<ExtArgs>
+    _count?: boolean | TemplateCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["template"]>
+
+  export type TemplateSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    thumbnail?: boolean
+    isDefault?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["template"]>
+
+  export type TemplateSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    thumbnail?: boolean
+    isDefault?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["template"]>
+
+  export type TemplateSelectScalar = {
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    thumbnail?: boolean
+    isDefault?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type TemplateOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "thumbnail" | "isDefault" | "createdAt" | "updatedAt", ExtArgs["result"]["template"]>
+  export type TemplateInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resumes?: boolean | Template$resumesArgs<ExtArgs>
+    _count?: boolean | TemplateCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type TemplateIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type TemplateIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $TemplatePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Template"
+    objects: {
+      resumes: Prisma.$ResumePayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string
+      description: string | null
+      thumbnail: string | null
+      isDefault: boolean
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["template"]>
+    composites: {}
+  }
+
+  type TemplateGetPayload<S extends boolean | null | undefined | TemplateDefaultArgs> = $Result.GetResult<Prisma.$TemplatePayload, S>
+
+  type TemplateCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<TemplateFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: TemplateCountAggregateInputType | true
+    }
+
+  export interface TemplateDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Template'], meta: { name: 'Template' } }
+    /**
+     * Find zero or one Template that matches the filter.
+     * @param {TemplateFindUniqueArgs} args - Arguments to find a Template
+     * @example
+     * // Get one Template
+     * const template = await prisma.template.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends TemplateFindUniqueArgs>(args: SelectSubset<T, TemplateFindUniqueArgs<ExtArgs>>): Prisma__TemplateClient<$Result.GetResult<Prisma.$TemplatePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Template that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {TemplateFindUniqueOrThrowArgs} args - Arguments to find a Template
+     * @example
+     * // Get one Template
+     * const template = await prisma.template.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends TemplateFindUniqueOrThrowArgs>(args: SelectSubset<T, TemplateFindUniqueOrThrowArgs<ExtArgs>>): Prisma__TemplateClient<$Result.GetResult<Prisma.$TemplatePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Template that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TemplateFindFirstArgs} args - Arguments to find a Template
+     * @example
+     * // Get one Template
+     * const template = await prisma.template.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends TemplateFindFirstArgs>(args?: SelectSubset<T, TemplateFindFirstArgs<ExtArgs>>): Prisma__TemplateClient<$Result.GetResult<Prisma.$TemplatePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Template that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TemplateFindFirstOrThrowArgs} args - Arguments to find a Template
+     * @example
+     * // Get one Template
+     * const template = await prisma.template.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends TemplateFindFirstOrThrowArgs>(args?: SelectSubset<T, TemplateFindFirstOrThrowArgs<ExtArgs>>): Prisma__TemplateClient<$Result.GetResult<Prisma.$TemplatePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Templates that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TemplateFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Templates
+     * const templates = await prisma.template.findMany()
+     * 
+     * // Get first 10 Templates
+     * const templates = await prisma.template.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const templateWithIdOnly = await prisma.template.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends TemplateFindManyArgs>(args?: SelectSubset<T, TemplateFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TemplatePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Template.
+     * @param {TemplateCreateArgs} args - Arguments to create a Template.
+     * @example
+     * // Create one Template
+     * const Template = await prisma.template.create({
+     *   data: {
+     *     // ... data to create a Template
+     *   }
+     * })
+     * 
+     */
+    create<T extends TemplateCreateArgs>(args: SelectSubset<T, TemplateCreateArgs<ExtArgs>>): Prisma__TemplateClient<$Result.GetResult<Prisma.$TemplatePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Templates.
+     * @param {TemplateCreateManyArgs} args - Arguments to create many Templates.
+     * @example
+     * // Create many Templates
+     * const template = await prisma.template.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends TemplateCreateManyArgs>(args?: SelectSubset<T, TemplateCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Templates and returns the data saved in the database.
+     * @param {TemplateCreateManyAndReturnArgs} args - Arguments to create many Templates.
+     * @example
+     * // Create many Templates
+     * const template = await prisma.template.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Templates and only return the `id`
+     * const templateWithIdOnly = await prisma.template.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends TemplateCreateManyAndReturnArgs>(args?: SelectSubset<T, TemplateCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TemplatePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Template.
+     * @param {TemplateDeleteArgs} args - Arguments to delete one Template.
+     * @example
+     * // Delete one Template
+     * const Template = await prisma.template.delete({
+     *   where: {
+     *     // ... filter to delete one Template
+     *   }
+     * })
+     * 
+     */
+    delete<T extends TemplateDeleteArgs>(args: SelectSubset<T, TemplateDeleteArgs<ExtArgs>>): Prisma__TemplateClient<$Result.GetResult<Prisma.$TemplatePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Template.
+     * @param {TemplateUpdateArgs} args - Arguments to update one Template.
+     * @example
+     * // Update one Template
+     * const template = await prisma.template.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends TemplateUpdateArgs>(args: SelectSubset<T, TemplateUpdateArgs<ExtArgs>>): Prisma__TemplateClient<$Result.GetResult<Prisma.$TemplatePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Templates.
+     * @param {TemplateDeleteManyArgs} args - Arguments to filter Templates to delete.
+     * @example
+     * // Delete a few Templates
+     * const { count } = await prisma.template.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends TemplateDeleteManyArgs>(args?: SelectSubset<T, TemplateDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Templates.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TemplateUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Templates
+     * const template = await prisma.template.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends TemplateUpdateManyArgs>(args: SelectSubset<T, TemplateUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Templates and returns the data updated in the database.
+     * @param {TemplateUpdateManyAndReturnArgs} args - Arguments to update many Templates.
+     * @example
+     * // Update many Templates
+     * const template = await prisma.template.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Templates and only return the `id`
+     * const templateWithIdOnly = await prisma.template.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends TemplateUpdateManyAndReturnArgs>(args: SelectSubset<T, TemplateUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TemplatePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Template.
+     * @param {TemplateUpsertArgs} args - Arguments to update or create a Template.
+     * @example
+     * // Update or create a Template
+     * const template = await prisma.template.upsert({
+     *   create: {
+     *     // ... data to create a Template
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Template we want to update
+     *   }
+     * })
+     */
+    upsert<T extends TemplateUpsertArgs>(args: SelectSubset<T, TemplateUpsertArgs<ExtArgs>>): Prisma__TemplateClient<$Result.GetResult<Prisma.$TemplatePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Templates.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TemplateCountArgs} args - Arguments to filter Templates to count.
+     * @example
+     * // Count the number of Templates
+     * const count = await prisma.template.count({
+     *   where: {
+     *     // ... the filter for the Templates we want to count
+     *   }
+     * })
+    **/
+    count<T extends TemplateCountArgs>(
+      args?: Subset<T, TemplateCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], TemplateCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Template.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TemplateAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends TemplateAggregateArgs>(args: Subset<T, TemplateAggregateArgs>): Prisma.PrismaPromise<GetTemplateAggregateType<T>>
+
+    /**
+     * Group by Template.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TemplateGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends TemplateGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: TemplateGroupByArgs['orderBy'] }
+        : { orderBy?: TemplateGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, TemplateGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTemplateGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Template model
+   */
+  readonly fields: TemplateFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Template.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__TemplateClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    resumes<T extends Template$resumesArgs<ExtArgs> = {}>(args?: Subset<T, Template$resumesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ResumePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Template model
+   */
+  interface TemplateFieldRefs {
+    readonly id: FieldRef<"Template", 'String'>
+    readonly name: FieldRef<"Template", 'String'>
+    readonly description: FieldRef<"Template", 'String'>
+    readonly thumbnail: FieldRef<"Template", 'String'>
+    readonly isDefault: FieldRef<"Template", 'Boolean'>
+    readonly createdAt: FieldRef<"Template", 'DateTime'>
+    readonly updatedAt: FieldRef<"Template", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Template findUnique
+   */
+  export type TemplateFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Template
+     */
+    select?: TemplateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Template
+     */
+    omit?: TemplateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TemplateInclude<ExtArgs> | null
+    /**
+     * Filter, which Template to fetch.
+     */
+    where: TemplateWhereUniqueInput
+  }
+
+  /**
+   * Template findUniqueOrThrow
+   */
+  export type TemplateFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Template
+     */
+    select?: TemplateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Template
+     */
+    omit?: TemplateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TemplateInclude<ExtArgs> | null
+    /**
+     * Filter, which Template to fetch.
+     */
+    where: TemplateWhereUniqueInput
+  }
+
+  /**
+   * Template findFirst
+   */
+  export type TemplateFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Template
+     */
+    select?: TemplateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Template
+     */
+    omit?: TemplateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TemplateInclude<ExtArgs> | null
+    /**
+     * Filter, which Template to fetch.
+     */
+    where?: TemplateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Templates to fetch.
+     */
+    orderBy?: TemplateOrderByWithRelationInput | TemplateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Templates.
+     */
+    cursor?: TemplateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Templates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Templates.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Templates.
+     */
+    distinct?: TemplateScalarFieldEnum | TemplateScalarFieldEnum[]
+  }
+
+  /**
+   * Template findFirstOrThrow
+   */
+  export type TemplateFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Template
+     */
+    select?: TemplateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Template
+     */
+    omit?: TemplateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TemplateInclude<ExtArgs> | null
+    /**
+     * Filter, which Template to fetch.
+     */
+    where?: TemplateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Templates to fetch.
+     */
+    orderBy?: TemplateOrderByWithRelationInput | TemplateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Templates.
+     */
+    cursor?: TemplateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Templates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Templates.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Templates.
+     */
+    distinct?: TemplateScalarFieldEnum | TemplateScalarFieldEnum[]
+  }
+
+  /**
+   * Template findMany
+   */
+  export type TemplateFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Template
+     */
+    select?: TemplateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Template
+     */
+    omit?: TemplateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TemplateInclude<ExtArgs> | null
+    /**
+     * Filter, which Templates to fetch.
+     */
+    where?: TemplateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Templates to fetch.
+     */
+    orderBy?: TemplateOrderByWithRelationInput | TemplateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Templates.
+     */
+    cursor?: TemplateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Templates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Templates.
+     */
+    skip?: number
+    distinct?: TemplateScalarFieldEnum | TemplateScalarFieldEnum[]
+  }
+
+  /**
+   * Template create
+   */
+  export type TemplateCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Template
+     */
+    select?: TemplateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Template
+     */
+    omit?: TemplateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TemplateInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Template.
+     */
+    data: XOR<TemplateCreateInput, TemplateUncheckedCreateInput>
+  }
+
+  /**
+   * Template createMany
+   */
+  export type TemplateCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Templates.
+     */
+    data: TemplateCreateManyInput | TemplateCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Template createManyAndReturn
+   */
+  export type TemplateCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Template
+     */
+    select?: TemplateSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Template
+     */
+    omit?: TemplateOmit<ExtArgs> | null
+    /**
+     * The data used to create many Templates.
+     */
+    data: TemplateCreateManyInput | TemplateCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Template update
+   */
+  export type TemplateUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Template
+     */
+    select?: TemplateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Template
+     */
+    omit?: TemplateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TemplateInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Template.
+     */
+    data: XOR<TemplateUpdateInput, TemplateUncheckedUpdateInput>
+    /**
+     * Choose, which Template to update.
+     */
+    where: TemplateWhereUniqueInput
+  }
+
+  /**
+   * Template updateMany
+   */
+  export type TemplateUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Templates.
+     */
+    data: XOR<TemplateUpdateManyMutationInput, TemplateUncheckedUpdateManyInput>
+    /**
+     * Filter which Templates to update
+     */
+    where?: TemplateWhereInput
+    /**
+     * Limit how many Templates to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Template updateManyAndReturn
+   */
+  export type TemplateUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Template
+     */
+    select?: TemplateSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Template
+     */
+    omit?: TemplateOmit<ExtArgs> | null
+    /**
+     * The data used to update Templates.
+     */
+    data: XOR<TemplateUpdateManyMutationInput, TemplateUncheckedUpdateManyInput>
+    /**
+     * Filter which Templates to update
+     */
+    where?: TemplateWhereInput
+    /**
+     * Limit how many Templates to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Template upsert
+   */
+  export type TemplateUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Template
+     */
+    select?: TemplateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Template
+     */
+    omit?: TemplateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TemplateInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Template to update in case it exists.
+     */
+    where: TemplateWhereUniqueInput
+    /**
+     * In case the Template found by the `where` argument doesn't exist, create a new Template with this data.
+     */
+    create: XOR<TemplateCreateInput, TemplateUncheckedCreateInput>
+    /**
+     * In case the Template was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<TemplateUpdateInput, TemplateUncheckedUpdateInput>
+  }
+
+  /**
+   * Template delete
+   */
+  export type TemplateDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Template
+     */
+    select?: TemplateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Template
+     */
+    omit?: TemplateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TemplateInclude<ExtArgs> | null
+    /**
+     * Filter which Template to delete.
+     */
+    where: TemplateWhereUniqueInput
+  }
+
+  /**
+   * Template deleteMany
+   */
+  export type TemplateDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Templates to delete
+     */
+    where?: TemplateWhereInput
+    /**
+     * Limit how many Templates to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Template.resumes
+   */
+  export type Template$resumesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Resume
+     */
+    select?: ResumeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Resume
+     */
+    omit?: ResumeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ResumeInclude<ExtArgs> | null
+    where?: ResumeWhereInput
+    orderBy?: ResumeOrderByWithRelationInput | ResumeOrderByWithRelationInput[]
+    cursor?: ResumeWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ResumeScalarFieldEnum | ResumeScalarFieldEnum[]
+  }
+
+  /**
+   * Template without action
+   */
+  export type TemplateDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Template
+     */
+    select?: TemplateSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Template
+     */
+    omit?: TemplateOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TemplateInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Theme
+   */
+
+  export type AggregateTheme = {
+    _count: ThemeCountAggregateOutputType | null
+    _min: ThemeMinAggregateOutputType | null
+    _max: ThemeMaxAggregateOutputType | null
+  }
+
+  export type ThemeMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+    primary: string | null
+    secondary: string | null
+    accent: string | null
+    background: string | null
+    text: string | null
+    description: string | null
+    thumbnail: string | null
+    isDefault: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ThemeMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+    primary: string | null
+    secondary: string | null
+    accent: string | null
+    background: string | null
+    text: string | null
+    description: string | null
+    thumbnail: string | null
+    isDefault: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ThemeCountAggregateOutputType = {
+    id: number
+    name: number
+    primary: number
+    secondary: number
+    accent: number
+    background: number
+    text: number
+    description: number
+    thumbnail: number
+    isDefault: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type ThemeMinAggregateInputType = {
+    id?: true
+    name?: true
+    primary?: true
+    secondary?: true
+    accent?: true
+    background?: true
+    text?: true
+    description?: true
+    thumbnail?: true
+    isDefault?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ThemeMaxAggregateInputType = {
+    id?: true
+    name?: true
+    primary?: true
+    secondary?: true
+    accent?: true
+    background?: true
+    text?: true
+    description?: true
+    thumbnail?: true
+    isDefault?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ThemeCountAggregateInputType = {
+    id?: true
+    name?: true
+    primary?: true
+    secondary?: true
+    accent?: true
+    background?: true
+    text?: true
+    description?: true
+    thumbnail?: true
+    isDefault?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type ThemeAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Theme to aggregate.
+     */
+    where?: ThemeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Themes to fetch.
+     */
+    orderBy?: ThemeOrderByWithRelationInput | ThemeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ThemeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Themes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Themes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Themes
+    **/
+    _count?: true | ThemeCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ThemeMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ThemeMaxAggregateInputType
+  }
+
+  export type GetThemeAggregateType<T extends ThemeAggregateArgs> = {
+        [P in keyof T & keyof AggregateTheme]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateTheme[P]>
+      : GetScalarType<T[P], AggregateTheme[P]>
+  }
+
+
+
+
+  export type ThemeGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ThemeWhereInput
+    orderBy?: ThemeOrderByWithAggregationInput | ThemeOrderByWithAggregationInput[]
+    by: ThemeScalarFieldEnum[] | ThemeScalarFieldEnum
+    having?: ThemeScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ThemeCountAggregateInputType | true
+    _min?: ThemeMinAggregateInputType
+    _max?: ThemeMaxAggregateInputType
+  }
+
+  export type ThemeGroupByOutputType = {
+    id: string
+    name: string
+    primary: string
+    secondary: string
+    accent: string
+    background: string
+    text: string
+    description: string | null
+    thumbnail: string | null
+    isDefault: boolean
+    createdAt: Date
+    updatedAt: Date
+    _count: ThemeCountAggregateOutputType | null
+    _min: ThemeMinAggregateOutputType | null
+    _max: ThemeMaxAggregateOutputType | null
+  }
+
+  type GetThemeGroupByPayload<T extends ThemeGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ThemeGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ThemeGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ThemeGroupByOutputType[P]>
+            : GetScalarType<T[P], ThemeGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ThemeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    primary?: boolean
+    secondary?: boolean
+    accent?: boolean
+    background?: boolean
+    text?: boolean
+    description?: boolean
+    thumbnail?: boolean
+    isDefault?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    resumes?: boolean | Theme$resumesArgs<ExtArgs>
+    _count?: boolean | ThemeCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["theme"]>
+
+  export type ThemeSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    primary?: boolean
+    secondary?: boolean
+    accent?: boolean
+    background?: boolean
+    text?: boolean
+    description?: boolean
+    thumbnail?: boolean
+    isDefault?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["theme"]>
+
+  export type ThemeSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    primary?: boolean
+    secondary?: boolean
+    accent?: boolean
+    background?: boolean
+    text?: boolean
+    description?: boolean
+    thumbnail?: boolean
+    isDefault?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["theme"]>
+
+  export type ThemeSelectScalar = {
+    id?: boolean
+    name?: boolean
+    primary?: boolean
+    secondary?: boolean
+    accent?: boolean
+    background?: boolean
+    text?: boolean
+    description?: boolean
+    thumbnail?: boolean
+    isDefault?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type ThemeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "primary" | "secondary" | "accent" | "background" | "text" | "description" | "thumbnail" | "isDefault" | "createdAt" | "updatedAt", ExtArgs["result"]["theme"]>
+  export type ThemeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resumes?: boolean | Theme$resumesArgs<ExtArgs>
+    _count?: boolean | ThemeCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type ThemeIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type ThemeIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $ThemePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Theme"
+    objects: {
+      resumes: Prisma.$ResumePayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string
+      primary: string
+      secondary: string
+      accent: string
+      background: string
+      text: string
+      description: string | null
+      thumbnail: string | null
+      isDefault: boolean
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["theme"]>
+    composites: {}
+  }
+
+  type ThemeGetPayload<S extends boolean | null | undefined | ThemeDefaultArgs> = $Result.GetResult<Prisma.$ThemePayload, S>
+
+  type ThemeCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ThemeFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ThemeCountAggregateInputType | true
+    }
+
+  export interface ThemeDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Theme'], meta: { name: 'Theme' } }
+    /**
+     * Find zero or one Theme that matches the filter.
+     * @param {ThemeFindUniqueArgs} args - Arguments to find a Theme
+     * @example
+     * // Get one Theme
+     * const theme = await prisma.theme.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ThemeFindUniqueArgs>(args: SelectSubset<T, ThemeFindUniqueArgs<ExtArgs>>): Prisma__ThemeClient<$Result.GetResult<Prisma.$ThemePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Theme that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ThemeFindUniqueOrThrowArgs} args - Arguments to find a Theme
+     * @example
+     * // Get one Theme
+     * const theme = await prisma.theme.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ThemeFindUniqueOrThrowArgs>(args: SelectSubset<T, ThemeFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ThemeClient<$Result.GetResult<Prisma.$ThemePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Theme that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ThemeFindFirstArgs} args - Arguments to find a Theme
+     * @example
+     * // Get one Theme
+     * const theme = await prisma.theme.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ThemeFindFirstArgs>(args?: SelectSubset<T, ThemeFindFirstArgs<ExtArgs>>): Prisma__ThemeClient<$Result.GetResult<Prisma.$ThemePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Theme that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ThemeFindFirstOrThrowArgs} args - Arguments to find a Theme
+     * @example
+     * // Get one Theme
+     * const theme = await prisma.theme.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ThemeFindFirstOrThrowArgs>(args?: SelectSubset<T, ThemeFindFirstOrThrowArgs<ExtArgs>>): Prisma__ThemeClient<$Result.GetResult<Prisma.$ThemePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Themes that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ThemeFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Themes
+     * const themes = await prisma.theme.findMany()
+     * 
+     * // Get first 10 Themes
+     * const themes = await prisma.theme.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const themeWithIdOnly = await prisma.theme.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ThemeFindManyArgs>(args?: SelectSubset<T, ThemeFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ThemePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Theme.
+     * @param {ThemeCreateArgs} args - Arguments to create a Theme.
+     * @example
+     * // Create one Theme
+     * const Theme = await prisma.theme.create({
+     *   data: {
+     *     // ... data to create a Theme
+     *   }
+     * })
+     * 
+     */
+    create<T extends ThemeCreateArgs>(args: SelectSubset<T, ThemeCreateArgs<ExtArgs>>): Prisma__ThemeClient<$Result.GetResult<Prisma.$ThemePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Themes.
+     * @param {ThemeCreateManyArgs} args - Arguments to create many Themes.
+     * @example
+     * // Create many Themes
+     * const theme = await prisma.theme.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ThemeCreateManyArgs>(args?: SelectSubset<T, ThemeCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Themes and returns the data saved in the database.
+     * @param {ThemeCreateManyAndReturnArgs} args - Arguments to create many Themes.
+     * @example
+     * // Create many Themes
+     * const theme = await prisma.theme.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Themes and only return the `id`
+     * const themeWithIdOnly = await prisma.theme.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ThemeCreateManyAndReturnArgs>(args?: SelectSubset<T, ThemeCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ThemePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Theme.
+     * @param {ThemeDeleteArgs} args - Arguments to delete one Theme.
+     * @example
+     * // Delete one Theme
+     * const Theme = await prisma.theme.delete({
+     *   where: {
+     *     // ... filter to delete one Theme
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ThemeDeleteArgs>(args: SelectSubset<T, ThemeDeleteArgs<ExtArgs>>): Prisma__ThemeClient<$Result.GetResult<Prisma.$ThemePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Theme.
+     * @param {ThemeUpdateArgs} args - Arguments to update one Theme.
+     * @example
+     * // Update one Theme
+     * const theme = await prisma.theme.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ThemeUpdateArgs>(args: SelectSubset<T, ThemeUpdateArgs<ExtArgs>>): Prisma__ThemeClient<$Result.GetResult<Prisma.$ThemePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Themes.
+     * @param {ThemeDeleteManyArgs} args - Arguments to filter Themes to delete.
+     * @example
+     * // Delete a few Themes
+     * const { count } = await prisma.theme.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ThemeDeleteManyArgs>(args?: SelectSubset<T, ThemeDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Themes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ThemeUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Themes
+     * const theme = await prisma.theme.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ThemeUpdateManyArgs>(args: SelectSubset<T, ThemeUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Themes and returns the data updated in the database.
+     * @param {ThemeUpdateManyAndReturnArgs} args - Arguments to update many Themes.
+     * @example
+     * // Update many Themes
+     * const theme = await prisma.theme.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Themes and only return the `id`
+     * const themeWithIdOnly = await prisma.theme.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ThemeUpdateManyAndReturnArgs>(args: SelectSubset<T, ThemeUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ThemePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Theme.
+     * @param {ThemeUpsertArgs} args - Arguments to update or create a Theme.
+     * @example
+     * // Update or create a Theme
+     * const theme = await prisma.theme.upsert({
+     *   create: {
+     *     // ... data to create a Theme
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Theme we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ThemeUpsertArgs>(args: SelectSubset<T, ThemeUpsertArgs<ExtArgs>>): Prisma__ThemeClient<$Result.GetResult<Prisma.$ThemePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Themes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ThemeCountArgs} args - Arguments to filter Themes to count.
+     * @example
+     * // Count the number of Themes
+     * const count = await prisma.theme.count({
+     *   where: {
+     *     // ... the filter for the Themes we want to count
+     *   }
+     * })
+    **/
+    count<T extends ThemeCountArgs>(
+      args?: Subset<T, ThemeCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ThemeCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Theme.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ThemeAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ThemeAggregateArgs>(args: Subset<T, ThemeAggregateArgs>): Prisma.PrismaPromise<GetThemeAggregateType<T>>
+
+    /**
+     * Group by Theme.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ThemeGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ThemeGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ThemeGroupByArgs['orderBy'] }
+        : { orderBy?: ThemeGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ThemeGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetThemeGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Theme model
+   */
+  readonly fields: ThemeFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Theme.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ThemeClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    resumes<T extends Theme$resumesArgs<ExtArgs> = {}>(args?: Subset<T, Theme$resumesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ResumePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Theme model
+   */
+  interface ThemeFieldRefs {
+    readonly id: FieldRef<"Theme", 'String'>
+    readonly name: FieldRef<"Theme", 'String'>
+    readonly primary: FieldRef<"Theme", 'String'>
+    readonly secondary: FieldRef<"Theme", 'String'>
+    readonly accent: FieldRef<"Theme", 'String'>
+    readonly background: FieldRef<"Theme", 'String'>
+    readonly text: FieldRef<"Theme", 'String'>
+    readonly description: FieldRef<"Theme", 'String'>
+    readonly thumbnail: FieldRef<"Theme", 'String'>
+    readonly isDefault: FieldRef<"Theme", 'Boolean'>
+    readonly createdAt: FieldRef<"Theme", 'DateTime'>
+    readonly updatedAt: FieldRef<"Theme", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Theme findUnique
+   */
+  export type ThemeFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Theme
+     */
+    select?: ThemeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Theme
+     */
+    omit?: ThemeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ThemeInclude<ExtArgs> | null
+    /**
+     * Filter, which Theme to fetch.
+     */
+    where: ThemeWhereUniqueInput
+  }
+
+  /**
+   * Theme findUniqueOrThrow
+   */
+  export type ThemeFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Theme
+     */
+    select?: ThemeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Theme
+     */
+    omit?: ThemeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ThemeInclude<ExtArgs> | null
+    /**
+     * Filter, which Theme to fetch.
+     */
+    where: ThemeWhereUniqueInput
+  }
+
+  /**
+   * Theme findFirst
+   */
+  export type ThemeFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Theme
+     */
+    select?: ThemeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Theme
+     */
+    omit?: ThemeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ThemeInclude<ExtArgs> | null
+    /**
+     * Filter, which Theme to fetch.
+     */
+    where?: ThemeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Themes to fetch.
+     */
+    orderBy?: ThemeOrderByWithRelationInput | ThemeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Themes.
+     */
+    cursor?: ThemeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Themes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Themes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Themes.
+     */
+    distinct?: ThemeScalarFieldEnum | ThemeScalarFieldEnum[]
+  }
+
+  /**
+   * Theme findFirstOrThrow
+   */
+  export type ThemeFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Theme
+     */
+    select?: ThemeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Theme
+     */
+    omit?: ThemeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ThemeInclude<ExtArgs> | null
+    /**
+     * Filter, which Theme to fetch.
+     */
+    where?: ThemeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Themes to fetch.
+     */
+    orderBy?: ThemeOrderByWithRelationInput | ThemeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Themes.
+     */
+    cursor?: ThemeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Themes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Themes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Themes.
+     */
+    distinct?: ThemeScalarFieldEnum | ThemeScalarFieldEnum[]
+  }
+
+  /**
+   * Theme findMany
+   */
+  export type ThemeFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Theme
+     */
+    select?: ThemeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Theme
+     */
+    omit?: ThemeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ThemeInclude<ExtArgs> | null
+    /**
+     * Filter, which Themes to fetch.
+     */
+    where?: ThemeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Themes to fetch.
+     */
+    orderBy?: ThemeOrderByWithRelationInput | ThemeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Themes.
+     */
+    cursor?: ThemeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Themes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Themes.
+     */
+    skip?: number
+    distinct?: ThemeScalarFieldEnum | ThemeScalarFieldEnum[]
+  }
+
+  /**
+   * Theme create
+   */
+  export type ThemeCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Theme
+     */
+    select?: ThemeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Theme
+     */
+    omit?: ThemeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ThemeInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Theme.
+     */
+    data: XOR<ThemeCreateInput, ThemeUncheckedCreateInput>
+  }
+
+  /**
+   * Theme createMany
+   */
+  export type ThemeCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Themes.
+     */
+    data: ThemeCreateManyInput | ThemeCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Theme createManyAndReturn
+   */
+  export type ThemeCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Theme
+     */
+    select?: ThemeSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Theme
+     */
+    omit?: ThemeOmit<ExtArgs> | null
+    /**
+     * The data used to create many Themes.
+     */
+    data: ThemeCreateManyInput | ThemeCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Theme update
+   */
+  export type ThemeUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Theme
+     */
+    select?: ThemeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Theme
+     */
+    omit?: ThemeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ThemeInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Theme.
+     */
+    data: XOR<ThemeUpdateInput, ThemeUncheckedUpdateInput>
+    /**
+     * Choose, which Theme to update.
+     */
+    where: ThemeWhereUniqueInput
+  }
+
+  /**
+   * Theme updateMany
+   */
+  export type ThemeUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Themes.
+     */
+    data: XOR<ThemeUpdateManyMutationInput, ThemeUncheckedUpdateManyInput>
+    /**
+     * Filter which Themes to update
+     */
+    where?: ThemeWhereInput
+    /**
+     * Limit how many Themes to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Theme updateManyAndReturn
+   */
+  export type ThemeUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Theme
+     */
+    select?: ThemeSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Theme
+     */
+    omit?: ThemeOmit<ExtArgs> | null
+    /**
+     * The data used to update Themes.
+     */
+    data: XOR<ThemeUpdateManyMutationInput, ThemeUncheckedUpdateManyInput>
+    /**
+     * Filter which Themes to update
+     */
+    where?: ThemeWhereInput
+    /**
+     * Limit how many Themes to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Theme upsert
+   */
+  export type ThemeUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Theme
+     */
+    select?: ThemeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Theme
+     */
+    omit?: ThemeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ThemeInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Theme to update in case it exists.
+     */
+    where: ThemeWhereUniqueInput
+    /**
+     * In case the Theme found by the `where` argument doesn't exist, create a new Theme with this data.
+     */
+    create: XOR<ThemeCreateInput, ThemeUncheckedCreateInput>
+    /**
+     * In case the Theme was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ThemeUpdateInput, ThemeUncheckedUpdateInput>
+  }
+
+  /**
+   * Theme delete
+   */
+  export type ThemeDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Theme
+     */
+    select?: ThemeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Theme
+     */
+    omit?: ThemeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ThemeInclude<ExtArgs> | null
+    /**
+     * Filter which Theme to delete.
+     */
+    where: ThemeWhereUniqueInput
+  }
+
+  /**
+   * Theme deleteMany
+   */
+  export type ThemeDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Themes to delete
+     */
+    where?: ThemeWhereInput
+    /**
+     * Limit how many Themes to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Theme.resumes
+   */
+  export type Theme$resumesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Resume
+     */
+    select?: ResumeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Resume
+     */
+    omit?: ResumeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ResumeInclude<ExtArgs> | null
+    where?: ResumeWhereInput
+    orderBy?: ResumeOrderByWithRelationInput | ResumeOrderByWithRelationInput[]
+    cursor?: ResumeWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ResumeScalarFieldEnum | ResumeScalarFieldEnum[]
+  }
+
+  /**
+   * Theme without action
+   */
+  export type ThemeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Theme
+     */
+    select?: ThemeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Theme
+     */
+    omit?: ThemeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ThemeInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Font
+   */
+
+  export type AggregateFont = {
+    _count: FontCountAggregateOutputType | null
+    _min: FontMinAggregateOutputType | null
+    _max: FontMaxAggregateOutputType | null
+  }
+
+  export type FontMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+    category: string | null
+    url: string | null
+    isDefault: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type FontMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+    category: string | null
+    url: string | null
+    isDefault: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type FontCountAggregateOutputType = {
+    id: number
+    name: number
+    category: number
+    url: number
+    isDefault: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type FontMinAggregateInputType = {
+    id?: true
+    name?: true
+    category?: true
+    url?: true
+    isDefault?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type FontMaxAggregateInputType = {
+    id?: true
+    name?: true
+    category?: true
+    url?: true
+    isDefault?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type FontCountAggregateInputType = {
+    id?: true
+    name?: true
+    category?: true
+    url?: true
+    isDefault?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type FontAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Font to aggregate.
+     */
+    where?: FontWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Fonts to fetch.
+     */
+    orderBy?: FontOrderByWithRelationInput | FontOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: FontWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Fonts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Fonts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Fonts
+    **/
+    _count?: true | FontCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: FontMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: FontMaxAggregateInputType
+  }
+
+  export type GetFontAggregateType<T extends FontAggregateArgs> = {
+        [P in keyof T & keyof AggregateFont]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateFont[P]>
+      : GetScalarType<T[P], AggregateFont[P]>
+  }
+
+
+
+
+  export type FontGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FontWhereInput
+    orderBy?: FontOrderByWithAggregationInput | FontOrderByWithAggregationInput[]
+    by: FontScalarFieldEnum[] | FontScalarFieldEnum
+    having?: FontScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: FontCountAggregateInputType | true
+    _min?: FontMinAggregateInputType
+    _max?: FontMaxAggregateInputType
+  }
+
+  export type FontGroupByOutputType = {
+    id: string
+    name: string
+    category: string
+    url: string | null
+    isDefault: boolean
+    createdAt: Date
+    updatedAt: Date
+    _count: FontCountAggregateOutputType | null
+    _min: FontMinAggregateOutputType | null
+    _max: FontMaxAggregateOutputType | null
+  }
+
+  type GetFontGroupByPayload<T extends FontGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<FontGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof FontGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], FontGroupByOutputType[P]>
+            : GetScalarType<T[P], FontGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type FontSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    category?: boolean
+    url?: boolean
+    isDefault?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    resumes?: boolean | Font$resumesArgs<ExtArgs>
+    _count?: boolean | FontCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["font"]>
+
+  export type FontSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    category?: boolean
+    url?: boolean
+    isDefault?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["font"]>
+
+  export type FontSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    category?: boolean
+    url?: boolean
+    isDefault?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["font"]>
+
+  export type FontSelectScalar = {
+    id?: boolean
+    name?: boolean
+    category?: boolean
+    url?: boolean
+    isDefault?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type FontOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "category" | "url" | "isDefault" | "createdAt" | "updatedAt", ExtArgs["result"]["font"]>
+  export type FontInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resumes?: boolean | Font$resumesArgs<ExtArgs>
+    _count?: boolean | FontCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type FontIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type FontIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $FontPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Font"
+    objects: {
+      resumes: Prisma.$ResumePayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string
+      category: string
+      url: string | null
+      isDefault: boolean
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["font"]>
+    composites: {}
+  }
+
+  type FontGetPayload<S extends boolean | null | undefined | FontDefaultArgs> = $Result.GetResult<Prisma.$FontPayload, S>
+
+  type FontCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<FontFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: FontCountAggregateInputType | true
+    }
+
+  export interface FontDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Font'], meta: { name: 'Font' } }
+    /**
+     * Find zero or one Font that matches the filter.
+     * @param {FontFindUniqueArgs} args - Arguments to find a Font
+     * @example
+     * // Get one Font
+     * const font = await prisma.font.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends FontFindUniqueArgs>(args: SelectSubset<T, FontFindUniqueArgs<ExtArgs>>): Prisma__FontClient<$Result.GetResult<Prisma.$FontPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Font that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {FontFindUniqueOrThrowArgs} args - Arguments to find a Font
+     * @example
+     * // Get one Font
+     * const font = await prisma.font.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends FontFindUniqueOrThrowArgs>(args: SelectSubset<T, FontFindUniqueOrThrowArgs<ExtArgs>>): Prisma__FontClient<$Result.GetResult<Prisma.$FontPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Font that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FontFindFirstArgs} args - Arguments to find a Font
+     * @example
+     * // Get one Font
+     * const font = await prisma.font.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends FontFindFirstArgs>(args?: SelectSubset<T, FontFindFirstArgs<ExtArgs>>): Prisma__FontClient<$Result.GetResult<Prisma.$FontPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Font that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FontFindFirstOrThrowArgs} args - Arguments to find a Font
+     * @example
+     * // Get one Font
+     * const font = await prisma.font.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends FontFindFirstOrThrowArgs>(args?: SelectSubset<T, FontFindFirstOrThrowArgs<ExtArgs>>): Prisma__FontClient<$Result.GetResult<Prisma.$FontPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Fonts that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FontFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Fonts
+     * const fonts = await prisma.font.findMany()
+     * 
+     * // Get first 10 Fonts
+     * const fonts = await prisma.font.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const fontWithIdOnly = await prisma.font.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends FontFindManyArgs>(args?: SelectSubset<T, FontFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FontPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Font.
+     * @param {FontCreateArgs} args - Arguments to create a Font.
+     * @example
+     * // Create one Font
+     * const Font = await prisma.font.create({
+     *   data: {
+     *     // ... data to create a Font
+     *   }
+     * })
+     * 
+     */
+    create<T extends FontCreateArgs>(args: SelectSubset<T, FontCreateArgs<ExtArgs>>): Prisma__FontClient<$Result.GetResult<Prisma.$FontPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Fonts.
+     * @param {FontCreateManyArgs} args - Arguments to create many Fonts.
+     * @example
+     * // Create many Fonts
+     * const font = await prisma.font.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends FontCreateManyArgs>(args?: SelectSubset<T, FontCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Fonts and returns the data saved in the database.
+     * @param {FontCreateManyAndReturnArgs} args - Arguments to create many Fonts.
+     * @example
+     * // Create many Fonts
+     * const font = await prisma.font.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Fonts and only return the `id`
+     * const fontWithIdOnly = await prisma.font.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends FontCreateManyAndReturnArgs>(args?: SelectSubset<T, FontCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FontPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Font.
+     * @param {FontDeleteArgs} args - Arguments to delete one Font.
+     * @example
+     * // Delete one Font
+     * const Font = await prisma.font.delete({
+     *   where: {
+     *     // ... filter to delete one Font
+     *   }
+     * })
+     * 
+     */
+    delete<T extends FontDeleteArgs>(args: SelectSubset<T, FontDeleteArgs<ExtArgs>>): Prisma__FontClient<$Result.GetResult<Prisma.$FontPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Font.
+     * @param {FontUpdateArgs} args - Arguments to update one Font.
+     * @example
+     * // Update one Font
+     * const font = await prisma.font.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends FontUpdateArgs>(args: SelectSubset<T, FontUpdateArgs<ExtArgs>>): Prisma__FontClient<$Result.GetResult<Prisma.$FontPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Fonts.
+     * @param {FontDeleteManyArgs} args - Arguments to filter Fonts to delete.
+     * @example
+     * // Delete a few Fonts
+     * const { count } = await prisma.font.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends FontDeleteManyArgs>(args?: SelectSubset<T, FontDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Fonts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FontUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Fonts
+     * const font = await prisma.font.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends FontUpdateManyArgs>(args: SelectSubset<T, FontUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Fonts and returns the data updated in the database.
+     * @param {FontUpdateManyAndReturnArgs} args - Arguments to update many Fonts.
+     * @example
+     * // Update many Fonts
+     * const font = await prisma.font.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Fonts and only return the `id`
+     * const fontWithIdOnly = await prisma.font.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends FontUpdateManyAndReturnArgs>(args: SelectSubset<T, FontUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FontPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Font.
+     * @param {FontUpsertArgs} args - Arguments to update or create a Font.
+     * @example
+     * // Update or create a Font
+     * const font = await prisma.font.upsert({
+     *   create: {
+     *     // ... data to create a Font
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Font we want to update
+     *   }
+     * })
+     */
+    upsert<T extends FontUpsertArgs>(args: SelectSubset<T, FontUpsertArgs<ExtArgs>>): Prisma__FontClient<$Result.GetResult<Prisma.$FontPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Fonts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FontCountArgs} args - Arguments to filter Fonts to count.
+     * @example
+     * // Count the number of Fonts
+     * const count = await prisma.font.count({
+     *   where: {
+     *     // ... the filter for the Fonts we want to count
+     *   }
+     * })
+    **/
+    count<T extends FontCountArgs>(
+      args?: Subset<T, FontCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], FontCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Font.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FontAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends FontAggregateArgs>(args: Subset<T, FontAggregateArgs>): Prisma.PrismaPromise<GetFontAggregateType<T>>
+
+    /**
+     * Group by Font.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FontGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends FontGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: FontGroupByArgs['orderBy'] }
+        : { orderBy?: FontGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, FontGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetFontGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Font model
+   */
+  readonly fields: FontFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Font.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__FontClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    resumes<T extends Font$resumesArgs<ExtArgs> = {}>(args?: Subset<T, Font$resumesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ResumePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Font model
+   */
+  interface FontFieldRefs {
+    readonly id: FieldRef<"Font", 'String'>
+    readonly name: FieldRef<"Font", 'String'>
+    readonly category: FieldRef<"Font", 'String'>
+    readonly url: FieldRef<"Font", 'String'>
+    readonly isDefault: FieldRef<"Font", 'Boolean'>
+    readonly createdAt: FieldRef<"Font", 'DateTime'>
+    readonly updatedAt: FieldRef<"Font", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Font findUnique
+   */
+  export type FontFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Font
+     */
+    select?: FontSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Font
+     */
+    omit?: FontOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FontInclude<ExtArgs> | null
+    /**
+     * Filter, which Font to fetch.
+     */
+    where: FontWhereUniqueInput
+  }
+
+  /**
+   * Font findUniqueOrThrow
+   */
+  export type FontFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Font
+     */
+    select?: FontSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Font
+     */
+    omit?: FontOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FontInclude<ExtArgs> | null
+    /**
+     * Filter, which Font to fetch.
+     */
+    where: FontWhereUniqueInput
+  }
+
+  /**
+   * Font findFirst
+   */
+  export type FontFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Font
+     */
+    select?: FontSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Font
+     */
+    omit?: FontOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FontInclude<ExtArgs> | null
+    /**
+     * Filter, which Font to fetch.
+     */
+    where?: FontWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Fonts to fetch.
+     */
+    orderBy?: FontOrderByWithRelationInput | FontOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Fonts.
+     */
+    cursor?: FontWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Fonts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Fonts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Fonts.
+     */
+    distinct?: FontScalarFieldEnum | FontScalarFieldEnum[]
+  }
+
+  /**
+   * Font findFirstOrThrow
+   */
+  export type FontFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Font
+     */
+    select?: FontSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Font
+     */
+    omit?: FontOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FontInclude<ExtArgs> | null
+    /**
+     * Filter, which Font to fetch.
+     */
+    where?: FontWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Fonts to fetch.
+     */
+    orderBy?: FontOrderByWithRelationInput | FontOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Fonts.
+     */
+    cursor?: FontWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Fonts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Fonts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Fonts.
+     */
+    distinct?: FontScalarFieldEnum | FontScalarFieldEnum[]
+  }
+
+  /**
+   * Font findMany
+   */
+  export type FontFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Font
+     */
+    select?: FontSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Font
+     */
+    omit?: FontOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FontInclude<ExtArgs> | null
+    /**
+     * Filter, which Fonts to fetch.
+     */
+    where?: FontWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Fonts to fetch.
+     */
+    orderBy?: FontOrderByWithRelationInput | FontOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Fonts.
+     */
+    cursor?: FontWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Fonts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Fonts.
+     */
+    skip?: number
+    distinct?: FontScalarFieldEnum | FontScalarFieldEnum[]
+  }
+
+  /**
+   * Font create
+   */
+  export type FontCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Font
+     */
+    select?: FontSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Font
+     */
+    omit?: FontOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FontInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Font.
+     */
+    data: XOR<FontCreateInput, FontUncheckedCreateInput>
+  }
+
+  /**
+   * Font createMany
+   */
+  export type FontCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Fonts.
+     */
+    data: FontCreateManyInput | FontCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Font createManyAndReturn
+   */
+  export type FontCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Font
+     */
+    select?: FontSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Font
+     */
+    omit?: FontOmit<ExtArgs> | null
+    /**
+     * The data used to create many Fonts.
+     */
+    data: FontCreateManyInput | FontCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Font update
+   */
+  export type FontUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Font
+     */
+    select?: FontSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Font
+     */
+    omit?: FontOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FontInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Font.
+     */
+    data: XOR<FontUpdateInput, FontUncheckedUpdateInput>
+    /**
+     * Choose, which Font to update.
+     */
+    where: FontWhereUniqueInput
+  }
+
+  /**
+   * Font updateMany
+   */
+  export type FontUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Fonts.
+     */
+    data: XOR<FontUpdateManyMutationInput, FontUncheckedUpdateManyInput>
+    /**
+     * Filter which Fonts to update
+     */
+    where?: FontWhereInput
+    /**
+     * Limit how many Fonts to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Font updateManyAndReturn
+   */
+  export type FontUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Font
+     */
+    select?: FontSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Font
+     */
+    omit?: FontOmit<ExtArgs> | null
+    /**
+     * The data used to update Fonts.
+     */
+    data: XOR<FontUpdateManyMutationInput, FontUncheckedUpdateManyInput>
+    /**
+     * Filter which Fonts to update
+     */
+    where?: FontWhereInput
+    /**
+     * Limit how many Fonts to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Font upsert
+   */
+  export type FontUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Font
+     */
+    select?: FontSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Font
+     */
+    omit?: FontOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FontInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Font to update in case it exists.
+     */
+    where: FontWhereUniqueInput
+    /**
+     * In case the Font found by the `where` argument doesn't exist, create a new Font with this data.
+     */
+    create: XOR<FontCreateInput, FontUncheckedCreateInput>
+    /**
+     * In case the Font was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<FontUpdateInput, FontUncheckedUpdateInput>
+  }
+
+  /**
+   * Font delete
+   */
+  export type FontDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Font
+     */
+    select?: FontSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Font
+     */
+    omit?: FontOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FontInclude<ExtArgs> | null
+    /**
+     * Filter which Font to delete.
+     */
+    where: FontWhereUniqueInput
+  }
+
+  /**
+   * Font deleteMany
+   */
+  export type FontDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Fonts to delete
+     */
+    where?: FontWhereInput
+    /**
+     * Limit how many Fonts to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Font.resumes
+   */
+  export type Font$resumesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Resume
+     */
+    select?: ResumeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Resume
+     */
+    omit?: ResumeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ResumeInclude<ExtArgs> | null
+    where?: ResumeWhereInput
+    orderBy?: ResumeOrderByWithRelationInput | ResumeOrderByWithRelationInput[]
+    cursor?: ResumeWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ResumeScalarFieldEnum | ResumeScalarFieldEnum[]
+  }
+
+  /**
+   * Font without action
+   */
+  export type FontDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Font
+     */
+    select?: FontSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Font
+     */
+    omit?: FontOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FontInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -3296,7 +20875,7 @@ export namespace Prisma {
     id: 'id',
     email: 'email',
     emailVerified: 'emailVerified',
-    emailVerifiyToken: 'emailVerifiyToken',
+    emailVerifyToken: 'emailVerifyToken',
     emailVerifyExpires: 'emailVerifyExpires',
     passwordHash: 'passwordHash',
     passwordResetToken: 'passwordResetToken',
@@ -3323,6 +20902,202 @@ export namespace Prisma {
   };
 
   export type SessionScalarFieldEnum = (typeof SessionScalarFieldEnum)[keyof typeof SessionScalarFieldEnum]
+
+
+  export const ResumeScalarFieldEnum: {
+    id: 'id',
+    title: 'title',
+    userId: 'userId',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
+    isPublic: 'isPublic',
+    publicUrl: 'publicUrl',
+    templateId: 'templateId',
+    themeId: 'themeId',
+    fontId: 'fontId'
+  };
+
+  export type ResumeScalarFieldEnum = (typeof ResumeScalarFieldEnum)[keyof typeof ResumeScalarFieldEnum]
+
+
+  export const PersonalInfoScalarFieldEnum: {
+    id: 'id',
+    resumeId: 'resumeId',
+    firstName: 'firstName',
+    lastName: 'lastName',
+    title: 'title',
+    email: 'email',
+    phone: 'phone',
+    website: 'website',
+    location: 'location',
+    photoUrl: 'photoUrl',
+    description: 'description'
+  };
+
+  export type PersonalInfoScalarFieldEnum = (typeof PersonalInfoScalarFieldEnum)[keyof typeof PersonalInfoScalarFieldEnum]
+
+
+  export const SectionScalarFieldEnum: {
+    id: 'id',
+    resumeId: 'resumeId',
+    type: 'type',
+    title: 'title',
+    isVisible: 'isVisible',
+    order: 'order'
+  };
+
+  export type SectionScalarFieldEnum = (typeof SectionScalarFieldEnum)[keyof typeof SectionScalarFieldEnum]
+
+
+  export const EducationScalarFieldEnum: {
+    id: 'id',
+    resumeId: 'resumeId',
+    institution: 'institution',
+    degree: 'degree',
+    fieldOfStudy: 'fieldOfStudy',
+    startDate: 'startDate',
+    endDate: 'endDate',
+    description: 'description',
+    location: 'location',
+    order: 'order'
+  };
+
+  export type EducationScalarFieldEnum = (typeof EducationScalarFieldEnum)[keyof typeof EducationScalarFieldEnum]
+
+
+  export const ExperienceScalarFieldEnum: {
+    id: 'id',
+    resumeId: 'resumeId',
+    company: 'company',
+    position: 'position',
+    startDate: 'startDate',
+    endDate: 'endDate',
+    current: 'current',
+    description: 'description',
+    location: 'location',
+    order: 'order'
+  };
+
+  export type ExperienceScalarFieldEnum = (typeof ExperienceScalarFieldEnum)[keyof typeof ExperienceScalarFieldEnum]
+
+
+  export const SkillScalarFieldEnum: {
+    id: 'id',
+    resumeId: 'resumeId',
+    name: 'name',
+    level: 'level',
+    category: 'category',
+    order: 'order'
+  };
+
+  export type SkillScalarFieldEnum = (typeof SkillScalarFieldEnum)[keyof typeof SkillScalarFieldEnum]
+
+
+  export const LanguageScalarFieldEnum: {
+    id: 'id',
+    resumeId: 'resumeId',
+    name: 'name',
+    level: 'level',
+    order: 'order'
+  };
+
+  export type LanguageScalarFieldEnum = (typeof LanguageScalarFieldEnum)[keyof typeof LanguageScalarFieldEnum]
+
+
+  export const CertificationScalarFieldEnum: {
+    id: 'id',
+    resumeId: 'resumeId',
+    name: 'name',
+    issuer: 'issuer',
+    issueDate: 'issueDate',
+    expiryDate: 'expiryDate',
+    credentialId: 'credentialId',
+    credentialUrl: 'credentialUrl',
+    order: 'order'
+  };
+
+  export type CertificationScalarFieldEnum = (typeof CertificationScalarFieldEnum)[keyof typeof CertificationScalarFieldEnum]
+
+
+  export const ProjectScalarFieldEnum: {
+    id: 'id',
+    resumeId: 'resumeId',
+    title: 'title',
+    description: 'description',
+    url: 'url',
+    startDate: 'startDate',
+    endDate: 'endDate',
+    order: 'order'
+  };
+
+  export type ProjectScalarFieldEnum = (typeof ProjectScalarFieldEnum)[keyof typeof ProjectScalarFieldEnum]
+
+
+  export const AchievementScalarFieldEnum: {
+    id: 'id',
+    resumeId: 'resumeId',
+    title: 'title',
+    description: 'description',
+    date: 'date',
+    order: 'order'
+  };
+
+  export type AchievementScalarFieldEnum = (typeof AchievementScalarFieldEnum)[keyof typeof AchievementScalarFieldEnum]
+
+
+  export const CustomSectionScalarFieldEnum: {
+    id: 'id',
+    resumeId: 'resumeId',
+    title: 'title',
+    content: 'content',
+    order: 'order'
+  };
+
+  export type CustomSectionScalarFieldEnum = (typeof CustomSectionScalarFieldEnum)[keyof typeof CustomSectionScalarFieldEnum]
+
+
+  export const TemplateScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    description: 'description',
+    thumbnail: 'thumbnail',
+    isDefault: 'isDefault',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type TemplateScalarFieldEnum = (typeof TemplateScalarFieldEnum)[keyof typeof TemplateScalarFieldEnum]
+
+
+  export const ThemeScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    primary: 'primary',
+    secondary: 'secondary',
+    accent: 'accent',
+    background: 'background',
+    text: 'text',
+    description: 'description',
+    thumbnail: 'thumbnail',
+    isDefault: 'isDefault',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type ThemeScalarFieldEnum = (typeof ThemeScalarFieldEnum)[keyof typeof ThemeScalarFieldEnum]
+
+
+  export const FontScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    category: 'category',
+    url: 'url',
+    isDefault: 'isDefault',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type FontScalarFieldEnum = (typeof FontScalarFieldEnum)[keyof typeof FontScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -3404,6 +21179,20 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'SectionType'
+   */
+  export type EnumSectionTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SectionType'>
+    
+
+
+  /**
+   * Reference to a field of type 'SectionType[]'
+   */
+  export type ListEnumSectionTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SectionType[]'>
+    
+
+
+  /**
    * Reference to a field of type 'Int'
    */
   export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
@@ -3414,6 +21203,34 @@ export namespace Prisma {
    * Reference to a field of type 'Int[]'
    */
   export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'LanguageLevel'
+   */
+  export type EnumLanguageLevelFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'LanguageLevel'>
+    
+
+
+  /**
+   * Reference to a field of type 'LanguageLevel[]'
+   */
+  export type ListEnumLanguageLevelFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'LanguageLevel[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Float'
+   */
+  export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
+    
+
+
+  /**
+   * Reference to a field of type 'Float[]'
+   */
+  export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
     
   /**
    * Deep Input Types
@@ -3427,7 +21244,7 @@ export namespace Prisma {
     id?: StringFilter<"User"> | string
     email?: StringFilter<"User"> | string
     emailVerified?: BoolFilter<"User"> | boolean
-    emailVerifiyToken?: StringNullableFilter<"User"> | string | null
+    emailVerifyToken?: StringNullableFilter<"User"> | string | null
     emailVerifyExpires?: DateTimeNullableFilter<"User"> | Date | string | null
     passwordHash?: StringFilter<"User"> | string
     passwordResetToken?: StringNullableFilter<"User"> | string | null
@@ -3439,13 +21256,14 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"User"> | Date | string
     role?: EnumRoleFilter<"User"> | $Enums.Role
     sessions?: SessionListRelationFilter
+    resume?: ResumeListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
     id?: SortOrder
     email?: SortOrder
     emailVerified?: SortOrder
-    emailVerifiyToken?: SortOrderInput | SortOrder
+    emailVerifyToken?: SortOrderInput | SortOrder
     emailVerifyExpires?: SortOrderInput | SortOrder
     passwordHash?: SortOrder
     passwordResetToken?: SortOrderInput | SortOrder
@@ -3457,12 +21275,13 @@ export namespace Prisma {
     updatedAt?: SortOrder
     role?: SortOrder
     sessions?: SessionOrderByRelationAggregateInput
+    resume?: ResumeOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
     id?: string
     email?: string
-    emailVerifiyToken?: string
+    emailVerifyToken?: string
     passwordResetToken?: string
     AND?: UserWhereInput | UserWhereInput[]
     OR?: UserWhereInput[]
@@ -3478,13 +21297,14 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"User"> | Date | string
     role?: EnumRoleFilter<"User"> | $Enums.Role
     sessions?: SessionListRelationFilter
-  }, "id" | "email" | "emailVerifiyToken" | "passwordResetToken">
+    resume?: ResumeListRelationFilter
+  }, "id" | "email" | "emailVerifyToken" | "passwordResetToken">
 
   export type UserOrderByWithAggregationInput = {
     id?: SortOrder
     email?: SortOrder
     emailVerified?: SortOrder
-    emailVerifiyToken?: SortOrderInput | SortOrder
+    emailVerifyToken?: SortOrderInput | SortOrder
     emailVerifyExpires?: SortOrderInput | SortOrder
     passwordHash?: SortOrder
     passwordResetToken?: SortOrderInput | SortOrder
@@ -3507,7 +21327,7 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"User"> | string
     email?: StringWithAggregatesFilter<"User"> | string
     emailVerified?: BoolWithAggregatesFilter<"User"> | boolean
-    emailVerifiyToken?: StringNullableWithAggregatesFilter<"User"> | string | null
+    emailVerifyToken?: StringNullableWithAggregatesFilter<"User"> | string | null
     emailVerifyExpires?: DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
     passwordHash?: StringWithAggregatesFilter<"User"> | string
     passwordResetToken?: StringNullableWithAggregatesFilter<"User"> | string | null
@@ -3585,11 +21405,1049 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"Session"> | Date | string
   }
 
+  export type ResumeWhereInput = {
+    AND?: ResumeWhereInput | ResumeWhereInput[]
+    OR?: ResumeWhereInput[]
+    NOT?: ResumeWhereInput | ResumeWhereInput[]
+    id?: StringFilter<"Resume"> | string
+    title?: StringFilter<"Resume"> | string
+    userId?: StringFilter<"Resume"> | string
+    createdAt?: DateTimeFilter<"Resume"> | Date | string
+    updatedAt?: DateTimeFilter<"Resume"> | Date | string
+    isPublic?: BoolFilter<"Resume"> | boolean
+    publicUrl?: StringNullableFilter<"Resume"> | string | null
+    templateId?: StringFilter<"Resume"> | string
+    themeId?: StringFilter<"Resume"> | string
+    fontId?: StringNullableFilter<"Resume"> | string | null
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    template?: XOR<TemplateScalarRelationFilter, TemplateWhereInput>
+    theme?: XOR<ThemeScalarRelationFilter, ThemeWhereInput>
+    font?: XOR<FontNullableScalarRelationFilter, FontWhereInput> | null
+    personalInfo?: PersonalInfoListRelationFilter
+    sections?: SectionListRelationFilter
+    educations?: EducationListRelationFilter
+    experiences?: ExperienceListRelationFilter
+    skills?: SkillListRelationFilter
+    languages?: LanguageListRelationFilter
+    certifications?: CertificationListRelationFilter
+    projects?: ProjectListRelationFilter
+    achievements?: AchievementListRelationFilter
+    customSections?: CustomSectionListRelationFilter
+  }
+
+  export type ResumeOrderByWithRelationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    userId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    isPublic?: SortOrder
+    publicUrl?: SortOrderInput | SortOrder
+    templateId?: SortOrder
+    themeId?: SortOrder
+    fontId?: SortOrderInput | SortOrder
+    user?: UserOrderByWithRelationInput
+    template?: TemplateOrderByWithRelationInput
+    theme?: ThemeOrderByWithRelationInput
+    font?: FontOrderByWithRelationInput
+    personalInfo?: PersonalInfoOrderByRelationAggregateInput
+    sections?: SectionOrderByRelationAggregateInput
+    educations?: EducationOrderByRelationAggregateInput
+    experiences?: ExperienceOrderByRelationAggregateInput
+    skills?: SkillOrderByRelationAggregateInput
+    languages?: LanguageOrderByRelationAggregateInput
+    certifications?: CertificationOrderByRelationAggregateInput
+    projects?: ProjectOrderByRelationAggregateInput
+    achievements?: AchievementOrderByRelationAggregateInput
+    customSections?: CustomSectionOrderByRelationAggregateInput
+  }
+
+  export type ResumeWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    publicUrl?: string
+    AND?: ResumeWhereInput | ResumeWhereInput[]
+    OR?: ResumeWhereInput[]
+    NOT?: ResumeWhereInput | ResumeWhereInput[]
+    title?: StringFilter<"Resume"> | string
+    userId?: StringFilter<"Resume"> | string
+    createdAt?: DateTimeFilter<"Resume"> | Date | string
+    updatedAt?: DateTimeFilter<"Resume"> | Date | string
+    isPublic?: BoolFilter<"Resume"> | boolean
+    templateId?: StringFilter<"Resume"> | string
+    themeId?: StringFilter<"Resume"> | string
+    fontId?: StringNullableFilter<"Resume"> | string | null
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    template?: XOR<TemplateScalarRelationFilter, TemplateWhereInput>
+    theme?: XOR<ThemeScalarRelationFilter, ThemeWhereInput>
+    font?: XOR<FontNullableScalarRelationFilter, FontWhereInput> | null
+    personalInfo?: PersonalInfoListRelationFilter
+    sections?: SectionListRelationFilter
+    educations?: EducationListRelationFilter
+    experiences?: ExperienceListRelationFilter
+    skills?: SkillListRelationFilter
+    languages?: LanguageListRelationFilter
+    certifications?: CertificationListRelationFilter
+    projects?: ProjectListRelationFilter
+    achievements?: AchievementListRelationFilter
+    customSections?: CustomSectionListRelationFilter
+  }, "id" | "publicUrl">
+
+  export type ResumeOrderByWithAggregationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    userId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    isPublic?: SortOrder
+    publicUrl?: SortOrderInput | SortOrder
+    templateId?: SortOrder
+    themeId?: SortOrder
+    fontId?: SortOrderInput | SortOrder
+    _count?: ResumeCountOrderByAggregateInput
+    _max?: ResumeMaxOrderByAggregateInput
+    _min?: ResumeMinOrderByAggregateInput
+  }
+
+  export type ResumeScalarWhereWithAggregatesInput = {
+    AND?: ResumeScalarWhereWithAggregatesInput | ResumeScalarWhereWithAggregatesInput[]
+    OR?: ResumeScalarWhereWithAggregatesInput[]
+    NOT?: ResumeScalarWhereWithAggregatesInput | ResumeScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Resume"> | string
+    title?: StringWithAggregatesFilter<"Resume"> | string
+    userId?: StringWithAggregatesFilter<"Resume"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"Resume"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Resume"> | Date | string
+    isPublic?: BoolWithAggregatesFilter<"Resume"> | boolean
+    publicUrl?: StringNullableWithAggregatesFilter<"Resume"> | string | null
+    templateId?: StringWithAggregatesFilter<"Resume"> | string
+    themeId?: StringWithAggregatesFilter<"Resume"> | string
+    fontId?: StringNullableWithAggregatesFilter<"Resume"> | string | null
+  }
+
+  export type PersonalInfoWhereInput = {
+    AND?: PersonalInfoWhereInput | PersonalInfoWhereInput[]
+    OR?: PersonalInfoWhereInput[]
+    NOT?: PersonalInfoWhereInput | PersonalInfoWhereInput[]
+    id?: StringFilter<"PersonalInfo"> | string
+    resumeId?: StringFilter<"PersonalInfo"> | string
+    firstName?: StringNullableFilter<"PersonalInfo"> | string | null
+    lastName?: StringNullableFilter<"PersonalInfo"> | string | null
+    title?: StringNullableFilter<"PersonalInfo"> | string | null
+    email?: StringNullableFilter<"PersonalInfo"> | string | null
+    phone?: StringNullableFilter<"PersonalInfo"> | string | null
+    website?: StringNullableFilter<"PersonalInfo"> | string | null
+    location?: StringNullableFilter<"PersonalInfo"> | string | null
+    photoUrl?: StringNullableFilter<"PersonalInfo"> | string | null
+    description?: StringNullableFilter<"PersonalInfo"> | string | null
+    resume?: XOR<ResumeScalarRelationFilter, ResumeWhereInput>
+  }
+
+  export type PersonalInfoOrderByWithRelationInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    firstName?: SortOrderInput | SortOrder
+    lastName?: SortOrderInput | SortOrder
+    title?: SortOrderInput | SortOrder
+    email?: SortOrderInput | SortOrder
+    phone?: SortOrderInput | SortOrder
+    website?: SortOrderInput | SortOrder
+    location?: SortOrderInput | SortOrder
+    photoUrl?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
+    resume?: ResumeOrderByWithRelationInput
+  }
+
+  export type PersonalInfoWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    resumeId?: string
+    AND?: PersonalInfoWhereInput | PersonalInfoWhereInput[]
+    OR?: PersonalInfoWhereInput[]
+    NOT?: PersonalInfoWhereInput | PersonalInfoWhereInput[]
+    firstName?: StringNullableFilter<"PersonalInfo"> | string | null
+    lastName?: StringNullableFilter<"PersonalInfo"> | string | null
+    title?: StringNullableFilter<"PersonalInfo"> | string | null
+    email?: StringNullableFilter<"PersonalInfo"> | string | null
+    phone?: StringNullableFilter<"PersonalInfo"> | string | null
+    website?: StringNullableFilter<"PersonalInfo"> | string | null
+    location?: StringNullableFilter<"PersonalInfo"> | string | null
+    photoUrl?: StringNullableFilter<"PersonalInfo"> | string | null
+    description?: StringNullableFilter<"PersonalInfo"> | string | null
+    resume?: XOR<ResumeScalarRelationFilter, ResumeWhereInput>
+  }, "id" | "resumeId">
+
+  export type PersonalInfoOrderByWithAggregationInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    firstName?: SortOrderInput | SortOrder
+    lastName?: SortOrderInput | SortOrder
+    title?: SortOrderInput | SortOrder
+    email?: SortOrderInput | SortOrder
+    phone?: SortOrderInput | SortOrder
+    website?: SortOrderInput | SortOrder
+    location?: SortOrderInput | SortOrder
+    photoUrl?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
+    _count?: PersonalInfoCountOrderByAggregateInput
+    _max?: PersonalInfoMaxOrderByAggregateInput
+    _min?: PersonalInfoMinOrderByAggregateInput
+  }
+
+  export type PersonalInfoScalarWhereWithAggregatesInput = {
+    AND?: PersonalInfoScalarWhereWithAggregatesInput | PersonalInfoScalarWhereWithAggregatesInput[]
+    OR?: PersonalInfoScalarWhereWithAggregatesInput[]
+    NOT?: PersonalInfoScalarWhereWithAggregatesInput | PersonalInfoScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"PersonalInfo"> | string
+    resumeId?: StringWithAggregatesFilter<"PersonalInfo"> | string
+    firstName?: StringNullableWithAggregatesFilter<"PersonalInfo"> | string | null
+    lastName?: StringNullableWithAggregatesFilter<"PersonalInfo"> | string | null
+    title?: StringNullableWithAggregatesFilter<"PersonalInfo"> | string | null
+    email?: StringNullableWithAggregatesFilter<"PersonalInfo"> | string | null
+    phone?: StringNullableWithAggregatesFilter<"PersonalInfo"> | string | null
+    website?: StringNullableWithAggregatesFilter<"PersonalInfo"> | string | null
+    location?: StringNullableWithAggregatesFilter<"PersonalInfo"> | string | null
+    photoUrl?: StringNullableWithAggregatesFilter<"PersonalInfo"> | string | null
+    description?: StringNullableWithAggregatesFilter<"PersonalInfo"> | string | null
+  }
+
+  export type SectionWhereInput = {
+    AND?: SectionWhereInput | SectionWhereInput[]
+    OR?: SectionWhereInput[]
+    NOT?: SectionWhereInput | SectionWhereInput[]
+    id?: StringFilter<"Section"> | string
+    resumeId?: StringFilter<"Section"> | string
+    type?: EnumSectionTypeFilter<"Section"> | $Enums.SectionType
+    title?: StringFilter<"Section"> | string
+    isVisible?: BoolFilter<"Section"> | boolean
+    order?: IntFilter<"Section"> | number
+    resume?: XOR<ResumeScalarRelationFilter, ResumeWhereInput>
+  }
+
+  export type SectionOrderByWithRelationInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    type?: SortOrder
+    title?: SortOrder
+    isVisible?: SortOrder
+    order?: SortOrder
+    resume?: ResumeOrderByWithRelationInput
+  }
+
+  export type SectionWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    resumeId_type?: SectionResumeIdTypeCompoundUniqueInput
+    AND?: SectionWhereInput | SectionWhereInput[]
+    OR?: SectionWhereInput[]
+    NOT?: SectionWhereInput | SectionWhereInput[]
+    resumeId?: StringFilter<"Section"> | string
+    type?: EnumSectionTypeFilter<"Section"> | $Enums.SectionType
+    title?: StringFilter<"Section"> | string
+    isVisible?: BoolFilter<"Section"> | boolean
+    order?: IntFilter<"Section"> | number
+    resume?: XOR<ResumeScalarRelationFilter, ResumeWhereInput>
+  }, "id" | "resumeId_type">
+
+  export type SectionOrderByWithAggregationInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    type?: SortOrder
+    title?: SortOrder
+    isVisible?: SortOrder
+    order?: SortOrder
+    _count?: SectionCountOrderByAggregateInput
+    _avg?: SectionAvgOrderByAggregateInput
+    _max?: SectionMaxOrderByAggregateInput
+    _min?: SectionMinOrderByAggregateInput
+    _sum?: SectionSumOrderByAggregateInput
+  }
+
+  export type SectionScalarWhereWithAggregatesInput = {
+    AND?: SectionScalarWhereWithAggregatesInput | SectionScalarWhereWithAggregatesInput[]
+    OR?: SectionScalarWhereWithAggregatesInput[]
+    NOT?: SectionScalarWhereWithAggregatesInput | SectionScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Section"> | string
+    resumeId?: StringWithAggregatesFilter<"Section"> | string
+    type?: EnumSectionTypeWithAggregatesFilter<"Section"> | $Enums.SectionType
+    title?: StringWithAggregatesFilter<"Section"> | string
+    isVisible?: BoolWithAggregatesFilter<"Section"> | boolean
+    order?: IntWithAggregatesFilter<"Section"> | number
+  }
+
+  export type EducationWhereInput = {
+    AND?: EducationWhereInput | EducationWhereInput[]
+    OR?: EducationWhereInput[]
+    NOT?: EducationWhereInput | EducationWhereInput[]
+    id?: StringFilter<"Education"> | string
+    resumeId?: StringFilter<"Education"> | string
+    institution?: StringFilter<"Education"> | string
+    degree?: StringFilter<"Education"> | string
+    fieldOfStudy?: StringNullableFilter<"Education"> | string | null
+    startDate?: DateTimeFilter<"Education"> | Date | string
+    endDate?: DateTimeNullableFilter<"Education"> | Date | string | null
+    description?: StringNullableFilter<"Education"> | string | null
+    location?: StringNullableFilter<"Education"> | string | null
+    order?: IntFilter<"Education"> | number
+    resume?: XOR<ResumeScalarRelationFilter, ResumeWhereInput>
+  }
+
+  export type EducationOrderByWithRelationInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    institution?: SortOrder
+    degree?: SortOrder
+    fieldOfStudy?: SortOrderInput | SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
+    location?: SortOrderInput | SortOrder
+    order?: SortOrder
+    resume?: ResumeOrderByWithRelationInput
+  }
+
+  export type EducationWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: EducationWhereInput | EducationWhereInput[]
+    OR?: EducationWhereInput[]
+    NOT?: EducationWhereInput | EducationWhereInput[]
+    resumeId?: StringFilter<"Education"> | string
+    institution?: StringFilter<"Education"> | string
+    degree?: StringFilter<"Education"> | string
+    fieldOfStudy?: StringNullableFilter<"Education"> | string | null
+    startDate?: DateTimeFilter<"Education"> | Date | string
+    endDate?: DateTimeNullableFilter<"Education"> | Date | string | null
+    description?: StringNullableFilter<"Education"> | string | null
+    location?: StringNullableFilter<"Education"> | string | null
+    order?: IntFilter<"Education"> | number
+    resume?: XOR<ResumeScalarRelationFilter, ResumeWhereInput>
+  }, "id">
+
+  export type EducationOrderByWithAggregationInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    institution?: SortOrder
+    degree?: SortOrder
+    fieldOfStudy?: SortOrderInput | SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
+    location?: SortOrderInput | SortOrder
+    order?: SortOrder
+    _count?: EducationCountOrderByAggregateInput
+    _avg?: EducationAvgOrderByAggregateInput
+    _max?: EducationMaxOrderByAggregateInput
+    _min?: EducationMinOrderByAggregateInput
+    _sum?: EducationSumOrderByAggregateInput
+  }
+
+  export type EducationScalarWhereWithAggregatesInput = {
+    AND?: EducationScalarWhereWithAggregatesInput | EducationScalarWhereWithAggregatesInput[]
+    OR?: EducationScalarWhereWithAggregatesInput[]
+    NOT?: EducationScalarWhereWithAggregatesInput | EducationScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Education"> | string
+    resumeId?: StringWithAggregatesFilter<"Education"> | string
+    institution?: StringWithAggregatesFilter<"Education"> | string
+    degree?: StringWithAggregatesFilter<"Education"> | string
+    fieldOfStudy?: StringNullableWithAggregatesFilter<"Education"> | string | null
+    startDate?: DateTimeWithAggregatesFilter<"Education"> | Date | string
+    endDate?: DateTimeNullableWithAggregatesFilter<"Education"> | Date | string | null
+    description?: StringNullableWithAggregatesFilter<"Education"> | string | null
+    location?: StringNullableWithAggregatesFilter<"Education"> | string | null
+    order?: IntWithAggregatesFilter<"Education"> | number
+  }
+
+  export type ExperienceWhereInput = {
+    AND?: ExperienceWhereInput | ExperienceWhereInput[]
+    OR?: ExperienceWhereInput[]
+    NOT?: ExperienceWhereInput | ExperienceWhereInput[]
+    id?: StringFilter<"Experience"> | string
+    resumeId?: StringFilter<"Experience"> | string
+    company?: StringFilter<"Experience"> | string
+    position?: StringFilter<"Experience"> | string
+    startDate?: DateTimeFilter<"Experience"> | Date | string
+    endDate?: DateTimeNullableFilter<"Experience"> | Date | string | null
+    current?: BoolFilter<"Experience"> | boolean
+    description?: StringNullableFilter<"Experience"> | string | null
+    location?: StringNullableFilter<"Experience"> | string | null
+    order?: IntFilter<"Experience"> | number
+    resume?: XOR<ResumeScalarRelationFilter, ResumeWhereInput>
+  }
+
+  export type ExperienceOrderByWithRelationInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    company?: SortOrder
+    position?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrderInput | SortOrder
+    current?: SortOrder
+    description?: SortOrderInput | SortOrder
+    location?: SortOrderInput | SortOrder
+    order?: SortOrder
+    resume?: ResumeOrderByWithRelationInput
+  }
+
+  export type ExperienceWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: ExperienceWhereInput | ExperienceWhereInput[]
+    OR?: ExperienceWhereInput[]
+    NOT?: ExperienceWhereInput | ExperienceWhereInput[]
+    resumeId?: StringFilter<"Experience"> | string
+    company?: StringFilter<"Experience"> | string
+    position?: StringFilter<"Experience"> | string
+    startDate?: DateTimeFilter<"Experience"> | Date | string
+    endDate?: DateTimeNullableFilter<"Experience"> | Date | string | null
+    current?: BoolFilter<"Experience"> | boolean
+    description?: StringNullableFilter<"Experience"> | string | null
+    location?: StringNullableFilter<"Experience"> | string | null
+    order?: IntFilter<"Experience"> | number
+    resume?: XOR<ResumeScalarRelationFilter, ResumeWhereInput>
+  }, "id">
+
+  export type ExperienceOrderByWithAggregationInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    company?: SortOrder
+    position?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrderInput | SortOrder
+    current?: SortOrder
+    description?: SortOrderInput | SortOrder
+    location?: SortOrderInput | SortOrder
+    order?: SortOrder
+    _count?: ExperienceCountOrderByAggregateInput
+    _avg?: ExperienceAvgOrderByAggregateInput
+    _max?: ExperienceMaxOrderByAggregateInput
+    _min?: ExperienceMinOrderByAggregateInput
+    _sum?: ExperienceSumOrderByAggregateInput
+  }
+
+  export type ExperienceScalarWhereWithAggregatesInput = {
+    AND?: ExperienceScalarWhereWithAggregatesInput | ExperienceScalarWhereWithAggregatesInput[]
+    OR?: ExperienceScalarWhereWithAggregatesInput[]
+    NOT?: ExperienceScalarWhereWithAggregatesInput | ExperienceScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Experience"> | string
+    resumeId?: StringWithAggregatesFilter<"Experience"> | string
+    company?: StringWithAggregatesFilter<"Experience"> | string
+    position?: StringWithAggregatesFilter<"Experience"> | string
+    startDate?: DateTimeWithAggregatesFilter<"Experience"> | Date | string
+    endDate?: DateTimeNullableWithAggregatesFilter<"Experience"> | Date | string | null
+    current?: BoolWithAggregatesFilter<"Experience"> | boolean
+    description?: StringNullableWithAggregatesFilter<"Experience"> | string | null
+    location?: StringNullableWithAggregatesFilter<"Experience"> | string | null
+    order?: IntWithAggregatesFilter<"Experience"> | number
+  }
+
+  export type SkillWhereInput = {
+    AND?: SkillWhereInput | SkillWhereInput[]
+    OR?: SkillWhereInput[]
+    NOT?: SkillWhereInput | SkillWhereInput[]
+    id?: StringFilter<"Skill"> | string
+    resumeId?: StringFilter<"Skill"> | string
+    name?: StringFilter<"Skill"> | string
+    level?: IntFilter<"Skill"> | number
+    category?: StringNullableFilter<"Skill"> | string | null
+    order?: IntFilter<"Skill"> | number
+    resume?: XOR<ResumeScalarRelationFilter, ResumeWhereInput>
+  }
+
+  export type SkillOrderByWithRelationInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    name?: SortOrder
+    level?: SortOrder
+    category?: SortOrderInput | SortOrder
+    order?: SortOrder
+    resume?: ResumeOrderByWithRelationInput
+  }
+
+  export type SkillWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: SkillWhereInput | SkillWhereInput[]
+    OR?: SkillWhereInput[]
+    NOT?: SkillWhereInput | SkillWhereInput[]
+    resumeId?: StringFilter<"Skill"> | string
+    name?: StringFilter<"Skill"> | string
+    level?: IntFilter<"Skill"> | number
+    category?: StringNullableFilter<"Skill"> | string | null
+    order?: IntFilter<"Skill"> | number
+    resume?: XOR<ResumeScalarRelationFilter, ResumeWhereInput>
+  }, "id">
+
+  export type SkillOrderByWithAggregationInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    name?: SortOrder
+    level?: SortOrder
+    category?: SortOrderInput | SortOrder
+    order?: SortOrder
+    _count?: SkillCountOrderByAggregateInput
+    _avg?: SkillAvgOrderByAggregateInput
+    _max?: SkillMaxOrderByAggregateInput
+    _min?: SkillMinOrderByAggregateInput
+    _sum?: SkillSumOrderByAggregateInput
+  }
+
+  export type SkillScalarWhereWithAggregatesInput = {
+    AND?: SkillScalarWhereWithAggregatesInput | SkillScalarWhereWithAggregatesInput[]
+    OR?: SkillScalarWhereWithAggregatesInput[]
+    NOT?: SkillScalarWhereWithAggregatesInput | SkillScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Skill"> | string
+    resumeId?: StringWithAggregatesFilter<"Skill"> | string
+    name?: StringWithAggregatesFilter<"Skill"> | string
+    level?: IntWithAggregatesFilter<"Skill"> | number
+    category?: StringNullableWithAggregatesFilter<"Skill"> | string | null
+    order?: IntWithAggregatesFilter<"Skill"> | number
+  }
+
+  export type LanguageWhereInput = {
+    AND?: LanguageWhereInput | LanguageWhereInput[]
+    OR?: LanguageWhereInput[]
+    NOT?: LanguageWhereInput | LanguageWhereInput[]
+    id?: StringFilter<"Language"> | string
+    resumeId?: StringFilter<"Language"> | string
+    name?: StringFilter<"Language"> | string
+    level?: EnumLanguageLevelFilter<"Language"> | $Enums.LanguageLevel
+    order?: IntFilter<"Language"> | number
+    resume?: XOR<ResumeScalarRelationFilter, ResumeWhereInput>
+  }
+
+  export type LanguageOrderByWithRelationInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    name?: SortOrder
+    level?: SortOrder
+    order?: SortOrder
+    resume?: ResumeOrderByWithRelationInput
+  }
+
+  export type LanguageWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: LanguageWhereInput | LanguageWhereInput[]
+    OR?: LanguageWhereInput[]
+    NOT?: LanguageWhereInput | LanguageWhereInput[]
+    resumeId?: StringFilter<"Language"> | string
+    name?: StringFilter<"Language"> | string
+    level?: EnumLanguageLevelFilter<"Language"> | $Enums.LanguageLevel
+    order?: IntFilter<"Language"> | number
+    resume?: XOR<ResumeScalarRelationFilter, ResumeWhereInput>
+  }, "id">
+
+  export type LanguageOrderByWithAggregationInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    name?: SortOrder
+    level?: SortOrder
+    order?: SortOrder
+    _count?: LanguageCountOrderByAggregateInput
+    _avg?: LanguageAvgOrderByAggregateInput
+    _max?: LanguageMaxOrderByAggregateInput
+    _min?: LanguageMinOrderByAggregateInput
+    _sum?: LanguageSumOrderByAggregateInput
+  }
+
+  export type LanguageScalarWhereWithAggregatesInput = {
+    AND?: LanguageScalarWhereWithAggregatesInput | LanguageScalarWhereWithAggregatesInput[]
+    OR?: LanguageScalarWhereWithAggregatesInput[]
+    NOT?: LanguageScalarWhereWithAggregatesInput | LanguageScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Language"> | string
+    resumeId?: StringWithAggregatesFilter<"Language"> | string
+    name?: StringWithAggregatesFilter<"Language"> | string
+    level?: EnumLanguageLevelWithAggregatesFilter<"Language"> | $Enums.LanguageLevel
+    order?: IntWithAggregatesFilter<"Language"> | number
+  }
+
+  export type CertificationWhereInput = {
+    AND?: CertificationWhereInput | CertificationWhereInput[]
+    OR?: CertificationWhereInput[]
+    NOT?: CertificationWhereInput | CertificationWhereInput[]
+    id?: StringFilter<"Certification"> | string
+    resumeId?: StringFilter<"Certification"> | string
+    name?: StringFilter<"Certification"> | string
+    issuer?: StringFilter<"Certification"> | string
+    issueDate?: DateTimeNullableFilter<"Certification"> | Date | string | null
+    expiryDate?: DateTimeNullableFilter<"Certification"> | Date | string | null
+    credentialId?: StringNullableFilter<"Certification"> | string | null
+    credentialUrl?: StringNullableFilter<"Certification"> | string | null
+    order?: IntFilter<"Certification"> | number
+    resume?: XOR<ResumeScalarRelationFilter, ResumeWhereInput>
+  }
+
+  export type CertificationOrderByWithRelationInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    name?: SortOrder
+    issuer?: SortOrder
+    issueDate?: SortOrderInput | SortOrder
+    expiryDate?: SortOrderInput | SortOrder
+    credentialId?: SortOrderInput | SortOrder
+    credentialUrl?: SortOrderInput | SortOrder
+    order?: SortOrder
+    resume?: ResumeOrderByWithRelationInput
+  }
+
+  export type CertificationWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: CertificationWhereInput | CertificationWhereInput[]
+    OR?: CertificationWhereInput[]
+    NOT?: CertificationWhereInput | CertificationWhereInput[]
+    resumeId?: StringFilter<"Certification"> | string
+    name?: StringFilter<"Certification"> | string
+    issuer?: StringFilter<"Certification"> | string
+    issueDate?: DateTimeNullableFilter<"Certification"> | Date | string | null
+    expiryDate?: DateTimeNullableFilter<"Certification"> | Date | string | null
+    credentialId?: StringNullableFilter<"Certification"> | string | null
+    credentialUrl?: StringNullableFilter<"Certification"> | string | null
+    order?: IntFilter<"Certification"> | number
+    resume?: XOR<ResumeScalarRelationFilter, ResumeWhereInput>
+  }, "id">
+
+  export type CertificationOrderByWithAggregationInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    name?: SortOrder
+    issuer?: SortOrder
+    issueDate?: SortOrderInput | SortOrder
+    expiryDate?: SortOrderInput | SortOrder
+    credentialId?: SortOrderInput | SortOrder
+    credentialUrl?: SortOrderInput | SortOrder
+    order?: SortOrder
+    _count?: CertificationCountOrderByAggregateInput
+    _avg?: CertificationAvgOrderByAggregateInput
+    _max?: CertificationMaxOrderByAggregateInput
+    _min?: CertificationMinOrderByAggregateInput
+    _sum?: CertificationSumOrderByAggregateInput
+  }
+
+  export type CertificationScalarWhereWithAggregatesInput = {
+    AND?: CertificationScalarWhereWithAggregatesInput | CertificationScalarWhereWithAggregatesInput[]
+    OR?: CertificationScalarWhereWithAggregatesInput[]
+    NOT?: CertificationScalarWhereWithAggregatesInput | CertificationScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Certification"> | string
+    resumeId?: StringWithAggregatesFilter<"Certification"> | string
+    name?: StringWithAggregatesFilter<"Certification"> | string
+    issuer?: StringWithAggregatesFilter<"Certification"> | string
+    issueDate?: DateTimeNullableWithAggregatesFilter<"Certification"> | Date | string | null
+    expiryDate?: DateTimeNullableWithAggregatesFilter<"Certification"> | Date | string | null
+    credentialId?: StringNullableWithAggregatesFilter<"Certification"> | string | null
+    credentialUrl?: StringNullableWithAggregatesFilter<"Certification"> | string | null
+    order?: IntWithAggregatesFilter<"Certification"> | number
+  }
+
+  export type ProjectWhereInput = {
+    AND?: ProjectWhereInput | ProjectWhereInput[]
+    OR?: ProjectWhereInput[]
+    NOT?: ProjectWhereInput | ProjectWhereInput[]
+    id?: StringFilter<"Project"> | string
+    resumeId?: StringFilter<"Project"> | string
+    title?: StringFilter<"Project"> | string
+    description?: StringNullableFilter<"Project"> | string | null
+    url?: StringNullableFilter<"Project"> | string | null
+    startDate?: DateTimeNullableFilter<"Project"> | Date | string | null
+    endDate?: DateTimeNullableFilter<"Project"> | Date | string | null
+    order?: IntFilter<"Project"> | number
+    resume?: XOR<ResumeScalarRelationFilter, ResumeWhereInput>
+  }
+
+  export type ProjectOrderByWithRelationInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    title?: SortOrder
+    description?: SortOrderInput | SortOrder
+    url?: SortOrderInput | SortOrder
+    startDate?: SortOrderInput | SortOrder
+    endDate?: SortOrderInput | SortOrder
+    order?: SortOrder
+    resume?: ResumeOrderByWithRelationInput
+  }
+
+  export type ProjectWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: ProjectWhereInput | ProjectWhereInput[]
+    OR?: ProjectWhereInput[]
+    NOT?: ProjectWhereInput | ProjectWhereInput[]
+    resumeId?: StringFilter<"Project"> | string
+    title?: StringFilter<"Project"> | string
+    description?: StringNullableFilter<"Project"> | string | null
+    url?: StringNullableFilter<"Project"> | string | null
+    startDate?: DateTimeNullableFilter<"Project"> | Date | string | null
+    endDate?: DateTimeNullableFilter<"Project"> | Date | string | null
+    order?: IntFilter<"Project"> | number
+    resume?: XOR<ResumeScalarRelationFilter, ResumeWhereInput>
+  }, "id">
+
+  export type ProjectOrderByWithAggregationInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    title?: SortOrder
+    description?: SortOrderInput | SortOrder
+    url?: SortOrderInput | SortOrder
+    startDate?: SortOrderInput | SortOrder
+    endDate?: SortOrderInput | SortOrder
+    order?: SortOrder
+    _count?: ProjectCountOrderByAggregateInput
+    _avg?: ProjectAvgOrderByAggregateInput
+    _max?: ProjectMaxOrderByAggregateInput
+    _min?: ProjectMinOrderByAggregateInput
+    _sum?: ProjectSumOrderByAggregateInput
+  }
+
+  export type ProjectScalarWhereWithAggregatesInput = {
+    AND?: ProjectScalarWhereWithAggregatesInput | ProjectScalarWhereWithAggregatesInput[]
+    OR?: ProjectScalarWhereWithAggregatesInput[]
+    NOT?: ProjectScalarWhereWithAggregatesInput | ProjectScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Project"> | string
+    resumeId?: StringWithAggregatesFilter<"Project"> | string
+    title?: StringWithAggregatesFilter<"Project"> | string
+    description?: StringNullableWithAggregatesFilter<"Project"> | string | null
+    url?: StringNullableWithAggregatesFilter<"Project"> | string | null
+    startDate?: DateTimeNullableWithAggregatesFilter<"Project"> | Date | string | null
+    endDate?: DateTimeNullableWithAggregatesFilter<"Project"> | Date | string | null
+    order?: IntWithAggregatesFilter<"Project"> | number
+  }
+
+  export type AchievementWhereInput = {
+    AND?: AchievementWhereInput | AchievementWhereInput[]
+    OR?: AchievementWhereInput[]
+    NOT?: AchievementWhereInput | AchievementWhereInput[]
+    id?: StringFilter<"Achievement"> | string
+    resumeId?: StringFilter<"Achievement"> | string
+    title?: StringFilter<"Achievement"> | string
+    description?: StringNullableFilter<"Achievement"> | string | null
+    date?: DateTimeNullableFilter<"Achievement"> | Date | string | null
+    order?: IntFilter<"Achievement"> | number
+    resume?: XOR<ResumeScalarRelationFilter, ResumeWhereInput>
+  }
+
+  export type AchievementOrderByWithRelationInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    title?: SortOrder
+    description?: SortOrderInput | SortOrder
+    date?: SortOrderInput | SortOrder
+    order?: SortOrder
+    resume?: ResumeOrderByWithRelationInput
+  }
+
+  export type AchievementWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: AchievementWhereInput | AchievementWhereInput[]
+    OR?: AchievementWhereInput[]
+    NOT?: AchievementWhereInput | AchievementWhereInput[]
+    resumeId?: StringFilter<"Achievement"> | string
+    title?: StringFilter<"Achievement"> | string
+    description?: StringNullableFilter<"Achievement"> | string | null
+    date?: DateTimeNullableFilter<"Achievement"> | Date | string | null
+    order?: IntFilter<"Achievement"> | number
+    resume?: XOR<ResumeScalarRelationFilter, ResumeWhereInput>
+  }, "id">
+
+  export type AchievementOrderByWithAggregationInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    title?: SortOrder
+    description?: SortOrderInput | SortOrder
+    date?: SortOrderInput | SortOrder
+    order?: SortOrder
+    _count?: AchievementCountOrderByAggregateInput
+    _avg?: AchievementAvgOrderByAggregateInput
+    _max?: AchievementMaxOrderByAggregateInput
+    _min?: AchievementMinOrderByAggregateInput
+    _sum?: AchievementSumOrderByAggregateInput
+  }
+
+  export type AchievementScalarWhereWithAggregatesInput = {
+    AND?: AchievementScalarWhereWithAggregatesInput | AchievementScalarWhereWithAggregatesInput[]
+    OR?: AchievementScalarWhereWithAggregatesInput[]
+    NOT?: AchievementScalarWhereWithAggregatesInput | AchievementScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Achievement"> | string
+    resumeId?: StringWithAggregatesFilter<"Achievement"> | string
+    title?: StringWithAggregatesFilter<"Achievement"> | string
+    description?: StringNullableWithAggregatesFilter<"Achievement"> | string | null
+    date?: DateTimeNullableWithAggregatesFilter<"Achievement"> | Date | string | null
+    order?: IntWithAggregatesFilter<"Achievement"> | number
+  }
+
+  export type CustomSectionWhereInput = {
+    AND?: CustomSectionWhereInput | CustomSectionWhereInput[]
+    OR?: CustomSectionWhereInput[]
+    NOT?: CustomSectionWhereInput | CustomSectionWhereInput[]
+    id?: StringFilter<"CustomSection"> | string
+    resumeId?: StringFilter<"CustomSection"> | string
+    title?: StringFilter<"CustomSection"> | string
+    content?: StringFilter<"CustomSection"> | string
+    order?: IntFilter<"CustomSection"> | number
+    resume?: XOR<ResumeScalarRelationFilter, ResumeWhereInput>
+  }
+
+  export type CustomSectionOrderByWithRelationInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    order?: SortOrder
+    resume?: ResumeOrderByWithRelationInput
+  }
+
+  export type CustomSectionWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: CustomSectionWhereInput | CustomSectionWhereInput[]
+    OR?: CustomSectionWhereInput[]
+    NOT?: CustomSectionWhereInput | CustomSectionWhereInput[]
+    resumeId?: StringFilter<"CustomSection"> | string
+    title?: StringFilter<"CustomSection"> | string
+    content?: StringFilter<"CustomSection"> | string
+    order?: IntFilter<"CustomSection"> | number
+    resume?: XOR<ResumeScalarRelationFilter, ResumeWhereInput>
+  }, "id">
+
+  export type CustomSectionOrderByWithAggregationInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    order?: SortOrder
+    _count?: CustomSectionCountOrderByAggregateInput
+    _avg?: CustomSectionAvgOrderByAggregateInput
+    _max?: CustomSectionMaxOrderByAggregateInput
+    _min?: CustomSectionMinOrderByAggregateInput
+    _sum?: CustomSectionSumOrderByAggregateInput
+  }
+
+  export type CustomSectionScalarWhereWithAggregatesInput = {
+    AND?: CustomSectionScalarWhereWithAggregatesInput | CustomSectionScalarWhereWithAggregatesInput[]
+    OR?: CustomSectionScalarWhereWithAggregatesInput[]
+    NOT?: CustomSectionScalarWhereWithAggregatesInput | CustomSectionScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"CustomSection"> | string
+    resumeId?: StringWithAggregatesFilter<"CustomSection"> | string
+    title?: StringWithAggregatesFilter<"CustomSection"> | string
+    content?: StringWithAggregatesFilter<"CustomSection"> | string
+    order?: IntWithAggregatesFilter<"CustomSection"> | number
+  }
+
+  export type TemplateWhereInput = {
+    AND?: TemplateWhereInput | TemplateWhereInput[]
+    OR?: TemplateWhereInput[]
+    NOT?: TemplateWhereInput | TemplateWhereInput[]
+    id?: StringFilter<"Template"> | string
+    name?: StringFilter<"Template"> | string
+    description?: StringNullableFilter<"Template"> | string | null
+    thumbnail?: StringNullableFilter<"Template"> | string | null
+    isDefault?: BoolFilter<"Template"> | boolean
+    createdAt?: DateTimeFilter<"Template"> | Date | string
+    updatedAt?: DateTimeFilter<"Template"> | Date | string
+    resumes?: ResumeListRelationFilter
+  }
+
+  export type TemplateOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrderInput | SortOrder
+    thumbnail?: SortOrderInput | SortOrder
+    isDefault?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    resumes?: ResumeOrderByRelationAggregateInput
+  }
+
+  export type TemplateWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    name?: string
+    AND?: TemplateWhereInput | TemplateWhereInput[]
+    OR?: TemplateWhereInput[]
+    NOT?: TemplateWhereInput | TemplateWhereInput[]
+    description?: StringNullableFilter<"Template"> | string | null
+    thumbnail?: StringNullableFilter<"Template"> | string | null
+    isDefault?: BoolFilter<"Template"> | boolean
+    createdAt?: DateTimeFilter<"Template"> | Date | string
+    updatedAt?: DateTimeFilter<"Template"> | Date | string
+    resumes?: ResumeListRelationFilter
+  }, "id" | "name">
+
+  export type TemplateOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrderInput | SortOrder
+    thumbnail?: SortOrderInput | SortOrder
+    isDefault?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: TemplateCountOrderByAggregateInput
+    _max?: TemplateMaxOrderByAggregateInput
+    _min?: TemplateMinOrderByAggregateInput
+  }
+
+  export type TemplateScalarWhereWithAggregatesInput = {
+    AND?: TemplateScalarWhereWithAggregatesInput | TemplateScalarWhereWithAggregatesInput[]
+    OR?: TemplateScalarWhereWithAggregatesInput[]
+    NOT?: TemplateScalarWhereWithAggregatesInput | TemplateScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Template"> | string
+    name?: StringWithAggregatesFilter<"Template"> | string
+    description?: StringNullableWithAggregatesFilter<"Template"> | string | null
+    thumbnail?: StringNullableWithAggregatesFilter<"Template"> | string | null
+    isDefault?: BoolWithAggregatesFilter<"Template"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"Template"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Template"> | Date | string
+  }
+
+  export type ThemeWhereInput = {
+    AND?: ThemeWhereInput | ThemeWhereInput[]
+    OR?: ThemeWhereInput[]
+    NOT?: ThemeWhereInput | ThemeWhereInput[]
+    id?: StringFilter<"Theme"> | string
+    name?: StringFilter<"Theme"> | string
+    primary?: StringFilter<"Theme"> | string
+    secondary?: StringFilter<"Theme"> | string
+    accent?: StringFilter<"Theme"> | string
+    background?: StringFilter<"Theme"> | string
+    text?: StringFilter<"Theme"> | string
+    description?: StringNullableFilter<"Theme"> | string | null
+    thumbnail?: StringNullableFilter<"Theme"> | string | null
+    isDefault?: BoolFilter<"Theme"> | boolean
+    createdAt?: DateTimeFilter<"Theme"> | Date | string
+    updatedAt?: DateTimeFilter<"Theme"> | Date | string
+    resumes?: ResumeListRelationFilter
+  }
+
+  export type ThemeOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    primary?: SortOrder
+    secondary?: SortOrder
+    accent?: SortOrder
+    background?: SortOrder
+    text?: SortOrder
+    description?: SortOrderInput | SortOrder
+    thumbnail?: SortOrderInput | SortOrder
+    isDefault?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    resumes?: ResumeOrderByRelationAggregateInput
+  }
+
+  export type ThemeWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    name?: string
+    AND?: ThemeWhereInput | ThemeWhereInput[]
+    OR?: ThemeWhereInput[]
+    NOT?: ThemeWhereInput | ThemeWhereInput[]
+    primary?: StringFilter<"Theme"> | string
+    secondary?: StringFilter<"Theme"> | string
+    accent?: StringFilter<"Theme"> | string
+    background?: StringFilter<"Theme"> | string
+    text?: StringFilter<"Theme"> | string
+    description?: StringNullableFilter<"Theme"> | string | null
+    thumbnail?: StringNullableFilter<"Theme"> | string | null
+    isDefault?: BoolFilter<"Theme"> | boolean
+    createdAt?: DateTimeFilter<"Theme"> | Date | string
+    updatedAt?: DateTimeFilter<"Theme"> | Date | string
+    resumes?: ResumeListRelationFilter
+  }, "id" | "name">
+
+  export type ThemeOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    primary?: SortOrder
+    secondary?: SortOrder
+    accent?: SortOrder
+    background?: SortOrder
+    text?: SortOrder
+    description?: SortOrderInput | SortOrder
+    thumbnail?: SortOrderInput | SortOrder
+    isDefault?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: ThemeCountOrderByAggregateInput
+    _max?: ThemeMaxOrderByAggregateInput
+    _min?: ThemeMinOrderByAggregateInput
+  }
+
+  export type ThemeScalarWhereWithAggregatesInput = {
+    AND?: ThemeScalarWhereWithAggregatesInput | ThemeScalarWhereWithAggregatesInput[]
+    OR?: ThemeScalarWhereWithAggregatesInput[]
+    NOT?: ThemeScalarWhereWithAggregatesInput | ThemeScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Theme"> | string
+    name?: StringWithAggregatesFilter<"Theme"> | string
+    primary?: StringWithAggregatesFilter<"Theme"> | string
+    secondary?: StringWithAggregatesFilter<"Theme"> | string
+    accent?: StringWithAggregatesFilter<"Theme"> | string
+    background?: StringWithAggregatesFilter<"Theme"> | string
+    text?: StringWithAggregatesFilter<"Theme"> | string
+    description?: StringNullableWithAggregatesFilter<"Theme"> | string | null
+    thumbnail?: StringNullableWithAggregatesFilter<"Theme"> | string | null
+    isDefault?: BoolWithAggregatesFilter<"Theme"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"Theme"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Theme"> | Date | string
+  }
+
+  export type FontWhereInput = {
+    AND?: FontWhereInput | FontWhereInput[]
+    OR?: FontWhereInput[]
+    NOT?: FontWhereInput | FontWhereInput[]
+    id?: StringFilter<"Font"> | string
+    name?: StringFilter<"Font"> | string
+    category?: StringFilter<"Font"> | string
+    url?: StringNullableFilter<"Font"> | string | null
+    isDefault?: BoolFilter<"Font"> | boolean
+    createdAt?: DateTimeFilter<"Font"> | Date | string
+    updatedAt?: DateTimeFilter<"Font"> | Date | string
+    resumes?: ResumeListRelationFilter
+  }
+
+  export type FontOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    category?: SortOrder
+    url?: SortOrderInput | SortOrder
+    isDefault?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    resumes?: ResumeOrderByRelationAggregateInput
+  }
+
+  export type FontWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    name?: string
+    AND?: FontWhereInput | FontWhereInput[]
+    OR?: FontWhereInput[]
+    NOT?: FontWhereInput | FontWhereInput[]
+    category?: StringFilter<"Font"> | string
+    url?: StringNullableFilter<"Font"> | string | null
+    isDefault?: BoolFilter<"Font"> | boolean
+    createdAt?: DateTimeFilter<"Font"> | Date | string
+    updatedAt?: DateTimeFilter<"Font"> | Date | string
+    resumes?: ResumeListRelationFilter
+  }, "id" | "name">
+
+  export type FontOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    category?: SortOrder
+    url?: SortOrderInput | SortOrder
+    isDefault?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: FontCountOrderByAggregateInput
+    _max?: FontMaxOrderByAggregateInput
+    _min?: FontMinOrderByAggregateInput
+  }
+
+  export type FontScalarWhereWithAggregatesInput = {
+    AND?: FontScalarWhereWithAggregatesInput | FontScalarWhereWithAggregatesInput[]
+    OR?: FontScalarWhereWithAggregatesInput[]
+    NOT?: FontScalarWhereWithAggregatesInput | FontScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Font"> | string
+    name?: StringWithAggregatesFilter<"Font"> | string
+    category?: StringWithAggregatesFilter<"Font"> | string
+    url?: StringNullableWithAggregatesFilter<"Font"> | string | null
+    isDefault?: BoolWithAggregatesFilter<"Font"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"Font"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Font"> | Date | string
+  }
+
   export type UserCreateInput = {
     id?: string
     email: string
     emailVerified?: boolean
-    emailVerifiyToken?: string | null
+    emailVerifyToken?: string | null
     emailVerifyExpires?: Date | string | null
     passwordHash: string
     passwordResetToken?: string | null
@@ -3601,13 +22459,14 @@ export namespace Prisma {
     updatedAt?: Date | string
     role?: $Enums.Role
     sessions?: SessionCreateNestedManyWithoutUserInput
+    resume?: ResumeCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
     id?: string
     email: string
     emailVerified?: boolean
-    emailVerifiyToken?: string | null
+    emailVerifyToken?: string | null
     emailVerifyExpires?: Date | string | null
     passwordHash: string
     passwordResetToken?: string | null
@@ -3619,13 +22478,14 @@ export namespace Prisma {
     updatedAt?: Date | string
     role?: $Enums.Role
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    resume?: ResumeUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
-    emailVerifiyToken?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerifyToken?: NullableStringFieldUpdateOperationsInput | string | null
     emailVerifyExpires?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     passwordHash?: StringFieldUpdateOperationsInput | string
     passwordResetToken?: NullableStringFieldUpdateOperationsInput | string | null
@@ -3637,13 +22497,14 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     sessions?: SessionUpdateManyWithoutUserNestedInput
+    resume?: ResumeUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
-    emailVerifiyToken?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerifyToken?: NullableStringFieldUpdateOperationsInput | string | null
     emailVerifyExpires?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     passwordHash?: StringFieldUpdateOperationsInput | string
     passwordResetToken?: NullableStringFieldUpdateOperationsInput | string | null
@@ -3655,13 +22516,14 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    resume?: ResumeUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
     id?: string
     email: string
     emailVerified?: boolean
-    emailVerifiyToken?: string | null
+    emailVerifyToken?: string | null
     emailVerifyExpires?: Date | string | null
     passwordHash: string
     passwordResetToken?: string | null
@@ -3678,7 +22540,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
-    emailVerifiyToken?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerifyToken?: NullableStringFieldUpdateOperationsInput | string | null
     emailVerifyExpires?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     passwordHash?: StringFieldUpdateOperationsInput | string
     passwordResetToken?: NullableStringFieldUpdateOperationsInput | string | null
@@ -3695,7 +22557,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
-    emailVerifiyToken?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerifyToken?: NullableStringFieldUpdateOperationsInput | string | null
     emailVerifyExpires?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     passwordHash?: StringFieldUpdateOperationsInput | string
     passwordResetToken?: NullableStringFieldUpdateOperationsInput | string | null
@@ -3777,6 +22639,1122 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type ResumeCreateInput = {
+    id?: string
+    title: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isPublic?: boolean
+    publicUrl?: string | null
+    user: UserCreateNestedOneWithoutResumeInput
+    template: TemplateCreateNestedOneWithoutResumesInput
+    theme: ThemeCreateNestedOneWithoutResumesInput
+    font?: FontCreateNestedOneWithoutResumesInput
+    personalInfo?: PersonalInfoCreateNestedManyWithoutResumeInput
+    sections?: SectionCreateNestedManyWithoutResumeInput
+    educations?: EducationCreateNestedManyWithoutResumeInput
+    experiences?: ExperienceCreateNestedManyWithoutResumeInput
+    skills?: SkillCreateNestedManyWithoutResumeInput
+    languages?: LanguageCreateNestedManyWithoutResumeInput
+    certifications?: CertificationCreateNestedManyWithoutResumeInput
+    projects?: ProjectCreateNestedManyWithoutResumeInput
+    achievements?: AchievementCreateNestedManyWithoutResumeInput
+    customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+  }
+
+  export type ResumeUncheckedCreateInput = {
+    id?: string
+    title: string
+    userId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isPublic?: boolean
+    publicUrl?: string | null
+    templateId: string
+    themeId: string
+    fontId?: string | null
+    personalInfo?: PersonalInfoUncheckedCreateNestedManyWithoutResumeInput
+    sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
+    educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
+    experiences?: ExperienceUncheckedCreateNestedManyWithoutResumeInput
+    skills?: SkillUncheckedCreateNestedManyWithoutResumeInput
+    languages?: LanguageUncheckedCreateNestedManyWithoutResumeInput
+    certifications?: CertificationUncheckedCreateNestedManyWithoutResumeInput
+    projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
+    achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
+    customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+  }
+
+  export type ResumeUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    user?: UserUpdateOneRequiredWithoutResumeNestedInput
+    template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
+    theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
+    font?: FontUpdateOneWithoutResumesNestedInput
+    personalInfo?: PersonalInfoUpdateManyWithoutResumeNestedInput
+    sections?: SectionUpdateManyWithoutResumeNestedInput
+    educations?: EducationUpdateManyWithoutResumeNestedInput
+    experiences?: ExperienceUpdateManyWithoutResumeNestedInput
+    skills?: SkillUpdateManyWithoutResumeNestedInput
+    languages?: LanguageUpdateManyWithoutResumeNestedInput
+    certifications?: CertificationUpdateManyWithoutResumeNestedInput
+    projects?: ProjectUpdateManyWithoutResumeNestedInput
+    achievements?: AchievementUpdateManyWithoutResumeNestedInput
+    customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+  }
+
+  export type ResumeUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    templateId?: StringFieldUpdateOperationsInput | string
+    themeId?: StringFieldUpdateOperationsInput | string
+    fontId?: NullableStringFieldUpdateOperationsInput | string | null
+    personalInfo?: PersonalInfoUncheckedUpdateManyWithoutResumeNestedInput
+    sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
+    educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
+    experiences?: ExperienceUncheckedUpdateManyWithoutResumeNestedInput
+    skills?: SkillUncheckedUpdateManyWithoutResumeNestedInput
+    languages?: LanguageUncheckedUpdateManyWithoutResumeNestedInput
+    certifications?: CertificationUncheckedUpdateManyWithoutResumeNestedInput
+    projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
+    achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
+    customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+  }
+
+  export type ResumeCreateManyInput = {
+    id?: string
+    title: string
+    userId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isPublic?: boolean
+    publicUrl?: string | null
+    templateId: string
+    themeId: string
+    fontId?: string | null
+  }
+
+  export type ResumeUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ResumeUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    templateId?: StringFieldUpdateOperationsInput | string
+    themeId?: StringFieldUpdateOperationsInput | string
+    fontId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type PersonalInfoCreateInput = {
+    id?: string
+    firstName?: string | null
+    lastName?: string | null
+    title?: string | null
+    email?: string | null
+    phone?: string | null
+    website?: string | null
+    location?: string | null
+    photoUrl?: string | null
+    description?: string | null
+    resume: ResumeCreateNestedOneWithoutPersonalInfoInput
+  }
+
+  export type PersonalInfoUncheckedCreateInput = {
+    id?: string
+    resumeId: string
+    firstName?: string | null
+    lastName?: string | null
+    title?: string | null
+    email?: string | null
+    phone?: string | null
+    website?: string | null
+    location?: string | null
+    photoUrl?: string | null
+    description?: string | null
+  }
+
+  export type PersonalInfoUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    website?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    resume?: ResumeUpdateOneRequiredWithoutPersonalInfoNestedInput
+  }
+
+  export type PersonalInfoUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    resumeId?: StringFieldUpdateOperationsInput | string
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    website?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type PersonalInfoCreateManyInput = {
+    id?: string
+    resumeId: string
+    firstName?: string | null
+    lastName?: string | null
+    title?: string | null
+    email?: string | null
+    phone?: string | null
+    website?: string | null
+    location?: string | null
+    photoUrl?: string | null
+    description?: string | null
+  }
+
+  export type PersonalInfoUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    website?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type PersonalInfoUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    resumeId?: StringFieldUpdateOperationsInput | string
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    website?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type SectionCreateInput = {
+    id?: string
+    type: $Enums.SectionType
+    title: string
+    isVisible: boolean
+    order: number
+    resume: ResumeCreateNestedOneWithoutSectionsInput
+  }
+
+  export type SectionUncheckedCreateInput = {
+    id?: string
+    resumeId: string
+    type: $Enums.SectionType
+    title: string
+    isVisible: boolean
+    order: number
+  }
+
+  export type SectionUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: EnumSectionTypeFieldUpdateOperationsInput | $Enums.SectionType
+    title?: StringFieldUpdateOperationsInput | string
+    isVisible?: BoolFieldUpdateOperationsInput | boolean
+    order?: IntFieldUpdateOperationsInput | number
+    resume?: ResumeUpdateOneRequiredWithoutSectionsNestedInput
+  }
+
+  export type SectionUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    resumeId?: StringFieldUpdateOperationsInput | string
+    type?: EnumSectionTypeFieldUpdateOperationsInput | $Enums.SectionType
+    title?: StringFieldUpdateOperationsInput | string
+    isVisible?: BoolFieldUpdateOperationsInput | boolean
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type SectionCreateManyInput = {
+    id?: string
+    resumeId: string
+    type: $Enums.SectionType
+    title: string
+    isVisible: boolean
+    order: number
+  }
+
+  export type SectionUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: EnumSectionTypeFieldUpdateOperationsInput | $Enums.SectionType
+    title?: StringFieldUpdateOperationsInput | string
+    isVisible?: BoolFieldUpdateOperationsInput | boolean
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type SectionUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    resumeId?: StringFieldUpdateOperationsInput | string
+    type?: EnumSectionTypeFieldUpdateOperationsInput | $Enums.SectionType
+    title?: StringFieldUpdateOperationsInput | string
+    isVisible?: BoolFieldUpdateOperationsInput | boolean
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type EducationCreateInput = {
+    id?: string
+    institution: string
+    degree: string
+    fieldOfStudy?: string | null
+    startDate: Date | string
+    endDate?: Date | string | null
+    description?: string | null
+    location?: string | null
+    order?: number
+    resume: ResumeCreateNestedOneWithoutEducationsInput
+  }
+
+  export type EducationUncheckedCreateInput = {
+    id?: string
+    resumeId: string
+    institution: string
+    degree: string
+    fieldOfStudy?: string | null
+    startDate: Date | string
+    endDate?: Date | string | null
+    description?: string | null
+    location?: string | null
+    order?: number
+  }
+
+  export type EducationUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    institution?: StringFieldUpdateOperationsInput | string
+    degree?: StringFieldUpdateOperationsInput | string
+    fieldOfStudy?: NullableStringFieldUpdateOperationsInput | string | null
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
+    resume?: ResumeUpdateOneRequiredWithoutEducationsNestedInput
+  }
+
+  export type EducationUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    resumeId?: StringFieldUpdateOperationsInput | string
+    institution?: StringFieldUpdateOperationsInput | string
+    degree?: StringFieldUpdateOperationsInput | string
+    fieldOfStudy?: NullableStringFieldUpdateOperationsInput | string | null
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type EducationCreateManyInput = {
+    id?: string
+    resumeId: string
+    institution: string
+    degree: string
+    fieldOfStudy?: string | null
+    startDate: Date | string
+    endDate?: Date | string | null
+    description?: string | null
+    location?: string | null
+    order?: number
+  }
+
+  export type EducationUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    institution?: StringFieldUpdateOperationsInput | string
+    degree?: StringFieldUpdateOperationsInput | string
+    fieldOfStudy?: NullableStringFieldUpdateOperationsInput | string | null
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type EducationUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    resumeId?: StringFieldUpdateOperationsInput | string
+    institution?: StringFieldUpdateOperationsInput | string
+    degree?: StringFieldUpdateOperationsInput | string
+    fieldOfStudy?: NullableStringFieldUpdateOperationsInput | string | null
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ExperienceCreateInput = {
+    id?: string
+    company: string
+    position: string
+    startDate: Date | string
+    endDate?: Date | string | null
+    current?: boolean
+    description?: string | null
+    location?: string | null
+    order?: number
+    resume: ResumeCreateNestedOneWithoutExperiencesInput
+  }
+
+  export type ExperienceUncheckedCreateInput = {
+    id?: string
+    resumeId: string
+    company: string
+    position: string
+    startDate: Date | string
+    endDate?: Date | string | null
+    current?: boolean
+    description?: string | null
+    location?: string | null
+    order?: number
+  }
+
+  export type ExperienceUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    company?: StringFieldUpdateOperationsInput | string
+    position?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    current?: BoolFieldUpdateOperationsInput | boolean
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
+    resume?: ResumeUpdateOneRequiredWithoutExperiencesNestedInput
+  }
+
+  export type ExperienceUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    resumeId?: StringFieldUpdateOperationsInput | string
+    company?: StringFieldUpdateOperationsInput | string
+    position?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    current?: BoolFieldUpdateOperationsInput | boolean
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ExperienceCreateManyInput = {
+    id?: string
+    resumeId: string
+    company: string
+    position: string
+    startDate: Date | string
+    endDate?: Date | string | null
+    current?: boolean
+    description?: string | null
+    location?: string | null
+    order?: number
+  }
+
+  export type ExperienceUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    company?: StringFieldUpdateOperationsInput | string
+    position?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    current?: BoolFieldUpdateOperationsInput | boolean
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ExperienceUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    resumeId?: StringFieldUpdateOperationsInput | string
+    company?: StringFieldUpdateOperationsInput | string
+    position?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    current?: BoolFieldUpdateOperationsInput | boolean
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type SkillCreateInput = {
+    id?: string
+    name: string
+    level?: number
+    category?: string | null
+    order?: number
+    resume: ResumeCreateNestedOneWithoutSkillsInput
+  }
+
+  export type SkillUncheckedCreateInput = {
+    id?: string
+    resumeId: string
+    name: string
+    level?: number
+    category?: string | null
+    order?: number
+  }
+
+  export type SkillUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    level?: IntFieldUpdateOperationsInput | number
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
+    resume?: ResumeUpdateOneRequiredWithoutSkillsNestedInput
+  }
+
+  export type SkillUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    resumeId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    level?: IntFieldUpdateOperationsInput | number
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type SkillCreateManyInput = {
+    id?: string
+    resumeId: string
+    name: string
+    level?: number
+    category?: string | null
+    order?: number
+  }
+
+  export type SkillUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    level?: IntFieldUpdateOperationsInput | number
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type SkillUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    resumeId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    level?: IntFieldUpdateOperationsInput | number
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type LanguageCreateInput = {
+    id?: string
+    name: string
+    level: $Enums.LanguageLevel
+    order?: number
+    resume: ResumeCreateNestedOneWithoutLanguagesInput
+  }
+
+  export type LanguageUncheckedCreateInput = {
+    id?: string
+    resumeId: string
+    name: string
+    level: $Enums.LanguageLevel
+    order?: number
+  }
+
+  export type LanguageUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    level?: EnumLanguageLevelFieldUpdateOperationsInput | $Enums.LanguageLevel
+    order?: IntFieldUpdateOperationsInput | number
+    resume?: ResumeUpdateOneRequiredWithoutLanguagesNestedInput
+  }
+
+  export type LanguageUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    resumeId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    level?: EnumLanguageLevelFieldUpdateOperationsInput | $Enums.LanguageLevel
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type LanguageCreateManyInput = {
+    id?: string
+    resumeId: string
+    name: string
+    level: $Enums.LanguageLevel
+    order?: number
+  }
+
+  export type LanguageUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    level?: EnumLanguageLevelFieldUpdateOperationsInput | $Enums.LanguageLevel
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type LanguageUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    resumeId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    level?: EnumLanguageLevelFieldUpdateOperationsInput | $Enums.LanguageLevel
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type CertificationCreateInput = {
+    id?: string
+    name: string
+    issuer: string
+    issueDate?: Date | string | null
+    expiryDate?: Date | string | null
+    credentialId?: string | null
+    credentialUrl?: string | null
+    order?: number
+    resume: ResumeCreateNestedOneWithoutCertificationsInput
+  }
+
+  export type CertificationUncheckedCreateInput = {
+    id?: string
+    resumeId: string
+    name: string
+    issuer: string
+    issueDate?: Date | string | null
+    expiryDate?: Date | string | null
+    credentialId?: string | null
+    credentialUrl?: string | null
+    order?: number
+  }
+
+  export type CertificationUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    issuer?: StringFieldUpdateOperationsInput | string
+    issueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    expiryDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    credentialId?: NullableStringFieldUpdateOperationsInput | string | null
+    credentialUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
+    resume?: ResumeUpdateOneRequiredWithoutCertificationsNestedInput
+  }
+
+  export type CertificationUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    resumeId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    issuer?: StringFieldUpdateOperationsInput | string
+    issueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    expiryDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    credentialId?: NullableStringFieldUpdateOperationsInput | string | null
+    credentialUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type CertificationCreateManyInput = {
+    id?: string
+    resumeId: string
+    name: string
+    issuer: string
+    issueDate?: Date | string | null
+    expiryDate?: Date | string | null
+    credentialId?: string | null
+    credentialUrl?: string | null
+    order?: number
+  }
+
+  export type CertificationUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    issuer?: StringFieldUpdateOperationsInput | string
+    issueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    expiryDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    credentialId?: NullableStringFieldUpdateOperationsInput | string | null
+    credentialUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type CertificationUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    resumeId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    issuer?: StringFieldUpdateOperationsInput | string
+    issueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    expiryDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    credentialId?: NullableStringFieldUpdateOperationsInput | string | null
+    credentialUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ProjectCreateInput = {
+    id?: string
+    title: string
+    description?: string | null
+    url?: string | null
+    startDate?: Date | string | null
+    endDate?: Date | string | null
+    order?: number
+    resume: ResumeCreateNestedOneWithoutProjectsInput
+  }
+
+  export type ProjectUncheckedCreateInput = {
+    id?: string
+    resumeId: string
+    title: string
+    description?: string | null
+    url?: string | null
+    startDate?: Date | string | null
+    endDate?: Date | string | null
+    order?: number
+  }
+
+  export type ProjectUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    url?: NullableStringFieldUpdateOperationsInput | string | null
+    startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    order?: IntFieldUpdateOperationsInput | number
+    resume?: ResumeUpdateOneRequiredWithoutProjectsNestedInput
+  }
+
+  export type ProjectUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    resumeId?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    url?: NullableStringFieldUpdateOperationsInput | string | null
+    startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ProjectCreateManyInput = {
+    id?: string
+    resumeId: string
+    title: string
+    description?: string | null
+    url?: string | null
+    startDate?: Date | string | null
+    endDate?: Date | string | null
+    order?: number
+  }
+
+  export type ProjectUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    url?: NullableStringFieldUpdateOperationsInput | string | null
+    startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ProjectUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    resumeId?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    url?: NullableStringFieldUpdateOperationsInput | string | null
+    startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type AchievementCreateInput = {
+    id?: string
+    title: string
+    description?: string | null
+    date?: Date | string | null
+    order?: number
+    resume: ResumeCreateNestedOneWithoutAchievementsInput
+  }
+
+  export type AchievementUncheckedCreateInput = {
+    id?: string
+    resumeId: string
+    title: string
+    description?: string | null
+    date?: Date | string | null
+    order?: number
+  }
+
+  export type AchievementUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    order?: IntFieldUpdateOperationsInput | number
+    resume?: ResumeUpdateOneRequiredWithoutAchievementsNestedInput
+  }
+
+  export type AchievementUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    resumeId?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type AchievementCreateManyInput = {
+    id?: string
+    resumeId: string
+    title: string
+    description?: string | null
+    date?: Date | string | null
+    order?: number
+  }
+
+  export type AchievementUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type AchievementUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    resumeId?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type CustomSectionCreateInput = {
+    id?: string
+    title: string
+    content: string
+    order?: number
+    resume: ResumeCreateNestedOneWithoutCustomSectionsInput
+  }
+
+  export type CustomSectionUncheckedCreateInput = {
+    id?: string
+    resumeId: string
+    title: string
+    content: string
+    order?: number
+  }
+
+  export type CustomSectionUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
+    resume?: ResumeUpdateOneRequiredWithoutCustomSectionsNestedInput
+  }
+
+  export type CustomSectionUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    resumeId?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type CustomSectionCreateManyInput = {
+    id?: string
+    resumeId: string
+    title: string
+    content: string
+    order?: number
+  }
+
+  export type CustomSectionUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type CustomSectionUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    resumeId?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type TemplateCreateInput = {
+    id?: string
+    name: string
+    description?: string | null
+    thumbnail?: string | null
+    isDefault?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    resumes?: ResumeCreateNestedManyWithoutTemplateInput
+  }
+
+  export type TemplateUncheckedCreateInput = {
+    id?: string
+    name: string
+    description?: string | null
+    thumbnail?: string | null
+    isDefault?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    resumes?: ResumeUncheckedCreateNestedManyWithoutTemplateInput
+  }
+
+  export type TemplateUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnail?: NullableStringFieldUpdateOperationsInput | string | null
+    isDefault?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    resumes?: ResumeUpdateManyWithoutTemplateNestedInput
+  }
+
+  export type TemplateUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnail?: NullableStringFieldUpdateOperationsInput | string | null
+    isDefault?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    resumes?: ResumeUncheckedUpdateManyWithoutTemplateNestedInput
+  }
+
+  export type TemplateCreateManyInput = {
+    id?: string
+    name: string
+    description?: string | null
+    thumbnail?: string | null
+    isDefault?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type TemplateUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnail?: NullableStringFieldUpdateOperationsInput | string | null
+    isDefault?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TemplateUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnail?: NullableStringFieldUpdateOperationsInput | string | null
+    isDefault?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ThemeCreateInput = {
+    id?: string
+    name: string
+    primary: string
+    secondary: string
+    accent: string
+    background: string
+    text: string
+    description?: string | null
+    thumbnail?: string | null
+    isDefault?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    resumes?: ResumeCreateNestedManyWithoutThemeInput
+  }
+
+  export type ThemeUncheckedCreateInput = {
+    id?: string
+    name: string
+    primary: string
+    secondary: string
+    accent: string
+    background: string
+    text: string
+    description?: string | null
+    thumbnail?: string | null
+    isDefault?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    resumes?: ResumeUncheckedCreateNestedManyWithoutThemeInput
+  }
+
+  export type ThemeUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    primary?: StringFieldUpdateOperationsInput | string
+    secondary?: StringFieldUpdateOperationsInput | string
+    accent?: StringFieldUpdateOperationsInput | string
+    background?: StringFieldUpdateOperationsInput | string
+    text?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnail?: NullableStringFieldUpdateOperationsInput | string | null
+    isDefault?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    resumes?: ResumeUpdateManyWithoutThemeNestedInput
+  }
+
+  export type ThemeUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    primary?: StringFieldUpdateOperationsInput | string
+    secondary?: StringFieldUpdateOperationsInput | string
+    accent?: StringFieldUpdateOperationsInput | string
+    background?: StringFieldUpdateOperationsInput | string
+    text?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnail?: NullableStringFieldUpdateOperationsInput | string | null
+    isDefault?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    resumes?: ResumeUncheckedUpdateManyWithoutThemeNestedInput
+  }
+
+  export type ThemeCreateManyInput = {
+    id?: string
+    name: string
+    primary: string
+    secondary: string
+    accent: string
+    background: string
+    text: string
+    description?: string | null
+    thumbnail?: string | null
+    isDefault?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ThemeUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    primary?: StringFieldUpdateOperationsInput | string
+    secondary?: StringFieldUpdateOperationsInput | string
+    accent?: StringFieldUpdateOperationsInput | string
+    background?: StringFieldUpdateOperationsInput | string
+    text?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnail?: NullableStringFieldUpdateOperationsInput | string | null
+    isDefault?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ThemeUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    primary?: StringFieldUpdateOperationsInput | string
+    secondary?: StringFieldUpdateOperationsInput | string
+    accent?: StringFieldUpdateOperationsInput | string
+    background?: StringFieldUpdateOperationsInput | string
+    text?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnail?: NullableStringFieldUpdateOperationsInput | string | null
+    isDefault?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FontCreateInput = {
+    id?: string
+    name: string
+    category: string
+    url?: string | null
+    isDefault?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    resumes?: ResumeCreateNestedManyWithoutFontInput
+  }
+
+  export type FontUncheckedCreateInput = {
+    id?: string
+    name: string
+    category: string
+    url?: string | null
+    isDefault?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    resumes?: ResumeUncheckedCreateNestedManyWithoutFontInput
+  }
+
+  export type FontUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    url?: NullableStringFieldUpdateOperationsInput | string | null
+    isDefault?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    resumes?: ResumeUpdateManyWithoutFontNestedInput
+  }
+
+  export type FontUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    url?: NullableStringFieldUpdateOperationsInput | string | null
+    isDefault?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    resumes?: ResumeUncheckedUpdateManyWithoutFontNestedInput
+  }
+
+  export type FontCreateManyInput = {
+    id?: string
+    name: string
+    category: string
+    url?: string | null
+    isDefault?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type FontUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    url?: NullableStringFieldUpdateOperationsInput | string | null
+    isDefault?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FontUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    url?: NullableStringFieldUpdateOperationsInput | string | null
+    isDefault?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -3847,6 +23825,12 @@ export namespace Prisma {
     none?: SessionWhereInput
   }
 
+  export type ResumeListRelationFilter = {
+    every?: ResumeWhereInput
+    some?: ResumeWhereInput
+    none?: ResumeWhereInput
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
@@ -3856,11 +23840,15 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
+  export type ResumeOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type UserCountOrderByAggregateInput = {
     id?: SortOrder
     email?: SortOrder
     emailVerified?: SortOrder
-    emailVerifiyToken?: SortOrder
+    emailVerifyToken?: SortOrder
     emailVerifyExpires?: SortOrder
     passwordHash?: SortOrder
     passwordResetToken?: SortOrder
@@ -3877,7 +23865,7 @@ export namespace Prisma {
     id?: SortOrder
     email?: SortOrder
     emailVerified?: SortOrder
-    emailVerifiyToken?: SortOrder
+    emailVerifyToken?: SortOrder
     emailVerifyExpires?: SortOrder
     passwordHash?: SortOrder
     passwordResetToken?: SortOrder
@@ -3894,7 +23882,7 @@ export namespace Prisma {
     id?: SortOrder
     email?: SortOrder
     emailVerified?: SortOrder
-    emailVerifiyToken?: SortOrder
+    emailVerifyToken?: SortOrder
     emailVerifyExpires?: SortOrder
     passwordHash?: SortOrder
     passwordResetToken?: SortOrder
@@ -4024,6 +24012,728 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
+  export type TemplateScalarRelationFilter = {
+    is?: TemplateWhereInput
+    isNot?: TemplateWhereInput
+  }
+
+  export type ThemeScalarRelationFilter = {
+    is?: ThemeWhereInput
+    isNot?: ThemeWhereInput
+  }
+
+  export type FontNullableScalarRelationFilter = {
+    is?: FontWhereInput | null
+    isNot?: FontWhereInput | null
+  }
+
+  export type PersonalInfoListRelationFilter = {
+    every?: PersonalInfoWhereInput
+    some?: PersonalInfoWhereInput
+    none?: PersonalInfoWhereInput
+  }
+
+  export type SectionListRelationFilter = {
+    every?: SectionWhereInput
+    some?: SectionWhereInput
+    none?: SectionWhereInput
+  }
+
+  export type EducationListRelationFilter = {
+    every?: EducationWhereInput
+    some?: EducationWhereInput
+    none?: EducationWhereInput
+  }
+
+  export type ExperienceListRelationFilter = {
+    every?: ExperienceWhereInput
+    some?: ExperienceWhereInput
+    none?: ExperienceWhereInput
+  }
+
+  export type SkillListRelationFilter = {
+    every?: SkillWhereInput
+    some?: SkillWhereInput
+    none?: SkillWhereInput
+  }
+
+  export type LanguageListRelationFilter = {
+    every?: LanguageWhereInput
+    some?: LanguageWhereInput
+    none?: LanguageWhereInput
+  }
+
+  export type CertificationListRelationFilter = {
+    every?: CertificationWhereInput
+    some?: CertificationWhereInput
+    none?: CertificationWhereInput
+  }
+
+  export type ProjectListRelationFilter = {
+    every?: ProjectWhereInput
+    some?: ProjectWhereInput
+    none?: ProjectWhereInput
+  }
+
+  export type AchievementListRelationFilter = {
+    every?: AchievementWhereInput
+    some?: AchievementWhereInput
+    none?: AchievementWhereInput
+  }
+
+  export type CustomSectionListRelationFilter = {
+    every?: CustomSectionWhereInput
+    some?: CustomSectionWhereInput
+    none?: CustomSectionWhereInput
+  }
+
+  export type PersonalInfoOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type SectionOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type EducationOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ExperienceOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type SkillOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type LanguageOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type CertificationOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ProjectOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type AchievementOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type CustomSectionOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ResumeCountOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    userId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    isPublic?: SortOrder
+    publicUrl?: SortOrder
+    templateId?: SortOrder
+    themeId?: SortOrder
+    fontId?: SortOrder
+  }
+
+  export type ResumeMaxOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    userId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    isPublic?: SortOrder
+    publicUrl?: SortOrder
+    templateId?: SortOrder
+    themeId?: SortOrder
+    fontId?: SortOrder
+  }
+
+  export type ResumeMinOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    userId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    isPublic?: SortOrder
+    publicUrl?: SortOrder
+    templateId?: SortOrder
+    themeId?: SortOrder
+    fontId?: SortOrder
+  }
+
+  export type ResumeScalarRelationFilter = {
+    is?: ResumeWhereInput
+    isNot?: ResumeWhereInput
+  }
+
+  export type PersonalInfoCountOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    firstName?: SortOrder
+    lastName?: SortOrder
+    title?: SortOrder
+    email?: SortOrder
+    phone?: SortOrder
+    website?: SortOrder
+    location?: SortOrder
+    photoUrl?: SortOrder
+    description?: SortOrder
+  }
+
+  export type PersonalInfoMaxOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    firstName?: SortOrder
+    lastName?: SortOrder
+    title?: SortOrder
+    email?: SortOrder
+    phone?: SortOrder
+    website?: SortOrder
+    location?: SortOrder
+    photoUrl?: SortOrder
+    description?: SortOrder
+  }
+
+  export type PersonalInfoMinOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    firstName?: SortOrder
+    lastName?: SortOrder
+    title?: SortOrder
+    email?: SortOrder
+    phone?: SortOrder
+    website?: SortOrder
+    location?: SortOrder
+    photoUrl?: SortOrder
+    description?: SortOrder
+  }
+
+  export type EnumSectionTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.SectionType | EnumSectionTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.SectionType[] | ListEnumSectionTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.SectionType[] | ListEnumSectionTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumSectionTypeFilter<$PrismaModel> | $Enums.SectionType
+  }
+
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type SectionResumeIdTypeCompoundUniqueInput = {
+    resumeId: string
+    type: $Enums.SectionType
+  }
+
+  export type SectionCountOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    type?: SortOrder
+    title?: SortOrder
+    isVisible?: SortOrder
+    order?: SortOrder
+  }
+
+  export type SectionAvgOrderByAggregateInput = {
+    order?: SortOrder
+  }
+
+  export type SectionMaxOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    type?: SortOrder
+    title?: SortOrder
+    isVisible?: SortOrder
+    order?: SortOrder
+  }
+
+  export type SectionMinOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    type?: SortOrder
+    title?: SortOrder
+    isVisible?: SortOrder
+    order?: SortOrder
+  }
+
+  export type SectionSumOrderByAggregateInput = {
+    order?: SortOrder
+  }
+
+  export type EnumSectionTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.SectionType | EnumSectionTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.SectionType[] | ListEnumSectionTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.SectionType[] | ListEnumSectionTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumSectionTypeWithAggregatesFilter<$PrismaModel> | $Enums.SectionType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumSectionTypeFilter<$PrismaModel>
+    _max?: NestedEnumSectionTypeFilter<$PrismaModel>
+  }
+
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type EducationCountOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    institution?: SortOrder
+    degree?: SortOrder
+    fieldOfStudy?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    description?: SortOrder
+    location?: SortOrder
+    order?: SortOrder
+  }
+
+  export type EducationAvgOrderByAggregateInput = {
+    order?: SortOrder
+  }
+
+  export type EducationMaxOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    institution?: SortOrder
+    degree?: SortOrder
+    fieldOfStudy?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    description?: SortOrder
+    location?: SortOrder
+    order?: SortOrder
+  }
+
+  export type EducationMinOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    institution?: SortOrder
+    degree?: SortOrder
+    fieldOfStudy?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    description?: SortOrder
+    location?: SortOrder
+    order?: SortOrder
+  }
+
+  export type EducationSumOrderByAggregateInput = {
+    order?: SortOrder
+  }
+
+  export type ExperienceCountOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    company?: SortOrder
+    position?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    current?: SortOrder
+    description?: SortOrder
+    location?: SortOrder
+    order?: SortOrder
+  }
+
+  export type ExperienceAvgOrderByAggregateInput = {
+    order?: SortOrder
+  }
+
+  export type ExperienceMaxOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    company?: SortOrder
+    position?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    current?: SortOrder
+    description?: SortOrder
+    location?: SortOrder
+    order?: SortOrder
+  }
+
+  export type ExperienceMinOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    company?: SortOrder
+    position?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    current?: SortOrder
+    description?: SortOrder
+    location?: SortOrder
+    order?: SortOrder
+  }
+
+  export type ExperienceSumOrderByAggregateInput = {
+    order?: SortOrder
+  }
+
+  export type SkillCountOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    name?: SortOrder
+    level?: SortOrder
+    category?: SortOrder
+    order?: SortOrder
+  }
+
+  export type SkillAvgOrderByAggregateInput = {
+    level?: SortOrder
+    order?: SortOrder
+  }
+
+  export type SkillMaxOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    name?: SortOrder
+    level?: SortOrder
+    category?: SortOrder
+    order?: SortOrder
+  }
+
+  export type SkillMinOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    name?: SortOrder
+    level?: SortOrder
+    category?: SortOrder
+    order?: SortOrder
+  }
+
+  export type SkillSumOrderByAggregateInput = {
+    level?: SortOrder
+    order?: SortOrder
+  }
+
+  export type EnumLanguageLevelFilter<$PrismaModel = never> = {
+    equals?: $Enums.LanguageLevel | EnumLanguageLevelFieldRefInput<$PrismaModel>
+    in?: $Enums.LanguageLevel[] | ListEnumLanguageLevelFieldRefInput<$PrismaModel>
+    notIn?: $Enums.LanguageLevel[] | ListEnumLanguageLevelFieldRefInput<$PrismaModel>
+    not?: NestedEnumLanguageLevelFilter<$PrismaModel> | $Enums.LanguageLevel
+  }
+
+  export type LanguageCountOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    name?: SortOrder
+    level?: SortOrder
+    order?: SortOrder
+  }
+
+  export type LanguageAvgOrderByAggregateInput = {
+    order?: SortOrder
+  }
+
+  export type LanguageMaxOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    name?: SortOrder
+    level?: SortOrder
+    order?: SortOrder
+  }
+
+  export type LanguageMinOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    name?: SortOrder
+    level?: SortOrder
+    order?: SortOrder
+  }
+
+  export type LanguageSumOrderByAggregateInput = {
+    order?: SortOrder
+  }
+
+  export type EnumLanguageLevelWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.LanguageLevel | EnumLanguageLevelFieldRefInput<$PrismaModel>
+    in?: $Enums.LanguageLevel[] | ListEnumLanguageLevelFieldRefInput<$PrismaModel>
+    notIn?: $Enums.LanguageLevel[] | ListEnumLanguageLevelFieldRefInput<$PrismaModel>
+    not?: NestedEnumLanguageLevelWithAggregatesFilter<$PrismaModel> | $Enums.LanguageLevel
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumLanguageLevelFilter<$PrismaModel>
+    _max?: NestedEnumLanguageLevelFilter<$PrismaModel>
+  }
+
+  export type CertificationCountOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    name?: SortOrder
+    issuer?: SortOrder
+    issueDate?: SortOrder
+    expiryDate?: SortOrder
+    credentialId?: SortOrder
+    credentialUrl?: SortOrder
+    order?: SortOrder
+  }
+
+  export type CertificationAvgOrderByAggregateInput = {
+    order?: SortOrder
+  }
+
+  export type CertificationMaxOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    name?: SortOrder
+    issuer?: SortOrder
+    issueDate?: SortOrder
+    expiryDate?: SortOrder
+    credentialId?: SortOrder
+    credentialUrl?: SortOrder
+    order?: SortOrder
+  }
+
+  export type CertificationMinOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    name?: SortOrder
+    issuer?: SortOrder
+    issueDate?: SortOrder
+    expiryDate?: SortOrder
+    credentialId?: SortOrder
+    credentialUrl?: SortOrder
+    order?: SortOrder
+  }
+
+  export type CertificationSumOrderByAggregateInput = {
+    order?: SortOrder
+  }
+
+  export type ProjectCountOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    url?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    order?: SortOrder
+  }
+
+  export type ProjectAvgOrderByAggregateInput = {
+    order?: SortOrder
+  }
+
+  export type ProjectMaxOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    url?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    order?: SortOrder
+  }
+
+  export type ProjectMinOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    url?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    order?: SortOrder
+  }
+
+  export type ProjectSumOrderByAggregateInput = {
+    order?: SortOrder
+  }
+
+  export type AchievementCountOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    date?: SortOrder
+    order?: SortOrder
+  }
+
+  export type AchievementAvgOrderByAggregateInput = {
+    order?: SortOrder
+  }
+
+  export type AchievementMaxOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    date?: SortOrder
+    order?: SortOrder
+  }
+
+  export type AchievementMinOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    date?: SortOrder
+    order?: SortOrder
+  }
+
+  export type AchievementSumOrderByAggregateInput = {
+    order?: SortOrder
+  }
+
+  export type CustomSectionCountOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    order?: SortOrder
+  }
+
+  export type CustomSectionAvgOrderByAggregateInput = {
+    order?: SortOrder
+  }
+
+  export type CustomSectionMaxOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    order?: SortOrder
+  }
+
+  export type CustomSectionMinOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    order?: SortOrder
+  }
+
+  export type CustomSectionSumOrderByAggregateInput = {
+    order?: SortOrder
+  }
+
+  export type TemplateCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    thumbnail?: SortOrder
+    isDefault?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type TemplateMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    thumbnail?: SortOrder
+    isDefault?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type TemplateMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    thumbnail?: SortOrder
+    isDefault?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ThemeCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    primary?: SortOrder
+    secondary?: SortOrder
+    accent?: SortOrder
+    background?: SortOrder
+    text?: SortOrder
+    description?: SortOrder
+    thumbnail?: SortOrder
+    isDefault?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ThemeMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    primary?: SortOrder
+    secondary?: SortOrder
+    accent?: SortOrder
+    background?: SortOrder
+    text?: SortOrder
+    description?: SortOrder
+    thumbnail?: SortOrder
+    isDefault?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ThemeMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    primary?: SortOrder
+    secondary?: SortOrder
+    accent?: SortOrder
+    background?: SortOrder
+    text?: SortOrder
+    description?: SortOrder
+    thumbnail?: SortOrder
+    isDefault?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type FontCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    category?: SortOrder
+    url?: SortOrder
+    isDefault?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type FontMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    category?: SortOrder
+    url?: SortOrder
+    isDefault?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type FontMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    category?: SortOrder
+    url?: SortOrder
+    isDefault?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
   export type SessionCreateNestedManyWithoutUserInput = {
     create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
     connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
@@ -4031,11 +24741,25 @@ export namespace Prisma {
     connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
   }
 
+  export type ResumeCreateNestedManyWithoutUserInput = {
+    create?: XOR<ResumeCreateWithoutUserInput, ResumeUncheckedCreateWithoutUserInput> | ResumeCreateWithoutUserInput[] | ResumeUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ResumeCreateOrConnectWithoutUserInput | ResumeCreateOrConnectWithoutUserInput[]
+    createMany?: ResumeCreateManyUserInputEnvelope
+    connect?: ResumeWhereUniqueInput | ResumeWhereUniqueInput[]
+  }
+
   export type SessionUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
     connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
     createMany?: SessionCreateManyUserInputEnvelope
     connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+  }
+
+  export type ResumeUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<ResumeCreateWithoutUserInput, ResumeUncheckedCreateWithoutUserInput> | ResumeCreateWithoutUserInput[] | ResumeUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ResumeCreateOrConnectWithoutUserInput | ResumeCreateOrConnectWithoutUserInput[]
+    createMany?: ResumeCreateManyUserInputEnvelope
+    connect?: ResumeWhereUniqueInput | ResumeWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -4076,6 +24800,20 @@ export namespace Prisma {
     deleteMany?: SessionScalarWhereInput | SessionScalarWhereInput[]
   }
 
+  export type ResumeUpdateManyWithoutUserNestedInput = {
+    create?: XOR<ResumeCreateWithoutUserInput, ResumeUncheckedCreateWithoutUserInput> | ResumeCreateWithoutUserInput[] | ResumeUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ResumeCreateOrConnectWithoutUserInput | ResumeCreateOrConnectWithoutUserInput[]
+    upsert?: ResumeUpsertWithWhereUniqueWithoutUserInput | ResumeUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: ResumeCreateManyUserInputEnvelope
+    set?: ResumeWhereUniqueInput | ResumeWhereUniqueInput[]
+    disconnect?: ResumeWhereUniqueInput | ResumeWhereUniqueInput[]
+    delete?: ResumeWhereUniqueInput | ResumeWhereUniqueInput[]
+    connect?: ResumeWhereUniqueInput | ResumeWhereUniqueInput[]
+    update?: ResumeUpdateWithWhereUniqueWithoutUserInput | ResumeUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: ResumeUpdateManyWithWhereWithoutUserInput | ResumeUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: ResumeScalarWhereInput | ResumeScalarWhereInput[]
+  }
+
   export type SessionUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
     connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
@@ -4090,6 +24828,20 @@ export namespace Prisma {
     deleteMany?: SessionScalarWhereInput | SessionScalarWhereInput[]
   }
 
+  export type ResumeUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<ResumeCreateWithoutUserInput, ResumeUncheckedCreateWithoutUserInput> | ResumeCreateWithoutUserInput[] | ResumeUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ResumeCreateOrConnectWithoutUserInput | ResumeCreateOrConnectWithoutUserInput[]
+    upsert?: ResumeUpsertWithWhereUniqueWithoutUserInput | ResumeUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: ResumeCreateManyUserInputEnvelope
+    set?: ResumeWhereUniqueInput | ResumeWhereUniqueInput[]
+    disconnect?: ResumeWhereUniqueInput | ResumeWhereUniqueInput[]
+    delete?: ResumeWhereUniqueInput | ResumeWhereUniqueInput[]
+    connect?: ResumeWhereUniqueInput | ResumeWhereUniqueInput[]
+    update?: ResumeUpdateWithWhereUniqueWithoutUserInput | ResumeUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: ResumeUpdateManyWithWhereWithoutUserInput | ResumeUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: ResumeScalarWhereInput | ResumeScalarWhereInput[]
+  }
+
   export type UserCreateNestedOneWithoutSessionsInput = {
     create?: XOR<UserCreateWithoutSessionsInput, UserUncheckedCreateWithoutSessionsInput>
     connectOrCreate?: UserCreateOrConnectWithoutSessionsInput
@@ -4102,6 +24854,766 @@ export namespace Prisma {
     upsert?: UserUpsertWithoutSessionsInput
     connect?: UserWhereUniqueInput
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutSessionsInput, UserUpdateWithoutSessionsInput>, UserUncheckedUpdateWithoutSessionsInput>
+  }
+
+  export type UserCreateNestedOneWithoutResumeInput = {
+    create?: XOR<UserCreateWithoutResumeInput, UserUncheckedCreateWithoutResumeInput>
+    connectOrCreate?: UserCreateOrConnectWithoutResumeInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type TemplateCreateNestedOneWithoutResumesInput = {
+    create?: XOR<TemplateCreateWithoutResumesInput, TemplateUncheckedCreateWithoutResumesInput>
+    connectOrCreate?: TemplateCreateOrConnectWithoutResumesInput
+    connect?: TemplateWhereUniqueInput
+  }
+
+  export type ThemeCreateNestedOneWithoutResumesInput = {
+    create?: XOR<ThemeCreateWithoutResumesInput, ThemeUncheckedCreateWithoutResumesInput>
+    connectOrCreate?: ThemeCreateOrConnectWithoutResumesInput
+    connect?: ThemeWhereUniqueInput
+  }
+
+  export type FontCreateNestedOneWithoutResumesInput = {
+    create?: XOR<FontCreateWithoutResumesInput, FontUncheckedCreateWithoutResumesInput>
+    connectOrCreate?: FontCreateOrConnectWithoutResumesInput
+    connect?: FontWhereUniqueInput
+  }
+
+  export type PersonalInfoCreateNestedManyWithoutResumeInput = {
+    create?: XOR<PersonalInfoCreateWithoutResumeInput, PersonalInfoUncheckedCreateWithoutResumeInput> | PersonalInfoCreateWithoutResumeInput[] | PersonalInfoUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: PersonalInfoCreateOrConnectWithoutResumeInput | PersonalInfoCreateOrConnectWithoutResumeInput[]
+    createMany?: PersonalInfoCreateManyResumeInputEnvelope
+    connect?: PersonalInfoWhereUniqueInput | PersonalInfoWhereUniqueInput[]
+  }
+
+  export type SectionCreateNestedManyWithoutResumeInput = {
+    create?: XOR<SectionCreateWithoutResumeInput, SectionUncheckedCreateWithoutResumeInput> | SectionCreateWithoutResumeInput[] | SectionUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: SectionCreateOrConnectWithoutResumeInput | SectionCreateOrConnectWithoutResumeInput[]
+    createMany?: SectionCreateManyResumeInputEnvelope
+    connect?: SectionWhereUniqueInput | SectionWhereUniqueInput[]
+  }
+
+  export type EducationCreateNestedManyWithoutResumeInput = {
+    create?: XOR<EducationCreateWithoutResumeInput, EducationUncheckedCreateWithoutResumeInput> | EducationCreateWithoutResumeInput[] | EducationUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: EducationCreateOrConnectWithoutResumeInput | EducationCreateOrConnectWithoutResumeInput[]
+    createMany?: EducationCreateManyResumeInputEnvelope
+    connect?: EducationWhereUniqueInput | EducationWhereUniqueInput[]
+  }
+
+  export type ExperienceCreateNestedManyWithoutResumeInput = {
+    create?: XOR<ExperienceCreateWithoutResumeInput, ExperienceUncheckedCreateWithoutResumeInput> | ExperienceCreateWithoutResumeInput[] | ExperienceUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: ExperienceCreateOrConnectWithoutResumeInput | ExperienceCreateOrConnectWithoutResumeInput[]
+    createMany?: ExperienceCreateManyResumeInputEnvelope
+    connect?: ExperienceWhereUniqueInput | ExperienceWhereUniqueInput[]
+  }
+
+  export type SkillCreateNestedManyWithoutResumeInput = {
+    create?: XOR<SkillCreateWithoutResumeInput, SkillUncheckedCreateWithoutResumeInput> | SkillCreateWithoutResumeInput[] | SkillUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: SkillCreateOrConnectWithoutResumeInput | SkillCreateOrConnectWithoutResumeInput[]
+    createMany?: SkillCreateManyResumeInputEnvelope
+    connect?: SkillWhereUniqueInput | SkillWhereUniqueInput[]
+  }
+
+  export type LanguageCreateNestedManyWithoutResumeInput = {
+    create?: XOR<LanguageCreateWithoutResumeInput, LanguageUncheckedCreateWithoutResumeInput> | LanguageCreateWithoutResumeInput[] | LanguageUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: LanguageCreateOrConnectWithoutResumeInput | LanguageCreateOrConnectWithoutResumeInput[]
+    createMany?: LanguageCreateManyResumeInputEnvelope
+    connect?: LanguageWhereUniqueInput | LanguageWhereUniqueInput[]
+  }
+
+  export type CertificationCreateNestedManyWithoutResumeInput = {
+    create?: XOR<CertificationCreateWithoutResumeInput, CertificationUncheckedCreateWithoutResumeInput> | CertificationCreateWithoutResumeInput[] | CertificationUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: CertificationCreateOrConnectWithoutResumeInput | CertificationCreateOrConnectWithoutResumeInput[]
+    createMany?: CertificationCreateManyResumeInputEnvelope
+    connect?: CertificationWhereUniqueInput | CertificationWhereUniqueInput[]
+  }
+
+  export type ProjectCreateNestedManyWithoutResumeInput = {
+    create?: XOR<ProjectCreateWithoutResumeInput, ProjectUncheckedCreateWithoutResumeInput> | ProjectCreateWithoutResumeInput[] | ProjectUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: ProjectCreateOrConnectWithoutResumeInput | ProjectCreateOrConnectWithoutResumeInput[]
+    createMany?: ProjectCreateManyResumeInputEnvelope
+    connect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+  }
+
+  export type AchievementCreateNestedManyWithoutResumeInput = {
+    create?: XOR<AchievementCreateWithoutResumeInput, AchievementUncheckedCreateWithoutResumeInput> | AchievementCreateWithoutResumeInput[] | AchievementUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: AchievementCreateOrConnectWithoutResumeInput | AchievementCreateOrConnectWithoutResumeInput[]
+    createMany?: AchievementCreateManyResumeInputEnvelope
+    connect?: AchievementWhereUniqueInput | AchievementWhereUniqueInput[]
+  }
+
+  export type CustomSectionCreateNestedManyWithoutResumeInput = {
+    create?: XOR<CustomSectionCreateWithoutResumeInput, CustomSectionUncheckedCreateWithoutResumeInput> | CustomSectionCreateWithoutResumeInput[] | CustomSectionUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: CustomSectionCreateOrConnectWithoutResumeInput | CustomSectionCreateOrConnectWithoutResumeInput[]
+    createMany?: CustomSectionCreateManyResumeInputEnvelope
+    connect?: CustomSectionWhereUniqueInput | CustomSectionWhereUniqueInput[]
+  }
+
+  export type PersonalInfoUncheckedCreateNestedManyWithoutResumeInput = {
+    create?: XOR<PersonalInfoCreateWithoutResumeInput, PersonalInfoUncheckedCreateWithoutResumeInput> | PersonalInfoCreateWithoutResumeInput[] | PersonalInfoUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: PersonalInfoCreateOrConnectWithoutResumeInput | PersonalInfoCreateOrConnectWithoutResumeInput[]
+    createMany?: PersonalInfoCreateManyResumeInputEnvelope
+    connect?: PersonalInfoWhereUniqueInput | PersonalInfoWhereUniqueInput[]
+  }
+
+  export type SectionUncheckedCreateNestedManyWithoutResumeInput = {
+    create?: XOR<SectionCreateWithoutResumeInput, SectionUncheckedCreateWithoutResumeInput> | SectionCreateWithoutResumeInput[] | SectionUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: SectionCreateOrConnectWithoutResumeInput | SectionCreateOrConnectWithoutResumeInput[]
+    createMany?: SectionCreateManyResumeInputEnvelope
+    connect?: SectionWhereUniqueInput | SectionWhereUniqueInput[]
+  }
+
+  export type EducationUncheckedCreateNestedManyWithoutResumeInput = {
+    create?: XOR<EducationCreateWithoutResumeInput, EducationUncheckedCreateWithoutResumeInput> | EducationCreateWithoutResumeInput[] | EducationUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: EducationCreateOrConnectWithoutResumeInput | EducationCreateOrConnectWithoutResumeInput[]
+    createMany?: EducationCreateManyResumeInputEnvelope
+    connect?: EducationWhereUniqueInput | EducationWhereUniqueInput[]
+  }
+
+  export type ExperienceUncheckedCreateNestedManyWithoutResumeInput = {
+    create?: XOR<ExperienceCreateWithoutResumeInput, ExperienceUncheckedCreateWithoutResumeInput> | ExperienceCreateWithoutResumeInput[] | ExperienceUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: ExperienceCreateOrConnectWithoutResumeInput | ExperienceCreateOrConnectWithoutResumeInput[]
+    createMany?: ExperienceCreateManyResumeInputEnvelope
+    connect?: ExperienceWhereUniqueInput | ExperienceWhereUniqueInput[]
+  }
+
+  export type SkillUncheckedCreateNestedManyWithoutResumeInput = {
+    create?: XOR<SkillCreateWithoutResumeInput, SkillUncheckedCreateWithoutResumeInput> | SkillCreateWithoutResumeInput[] | SkillUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: SkillCreateOrConnectWithoutResumeInput | SkillCreateOrConnectWithoutResumeInput[]
+    createMany?: SkillCreateManyResumeInputEnvelope
+    connect?: SkillWhereUniqueInput | SkillWhereUniqueInput[]
+  }
+
+  export type LanguageUncheckedCreateNestedManyWithoutResumeInput = {
+    create?: XOR<LanguageCreateWithoutResumeInput, LanguageUncheckedCreateWithoutResumeInput> | LanguageCreateWithoutResumeInput[] | LanguageUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: LanguageCreateOrConnectWithoutResumeInput | LanguageCreateOrConnectWithoutResumeInput[]
+    createMany?: LanguageCreateManyResumeInputEnvelope
+    connect?: LanguageWhereUniqueInput | LanguageWhereUniqueInput[]
+  }
+
+  export type CertificationUncheckedCreateNestedManyWithoutResumeInput = {
+    create?: XOR<CertificationCreateWithoutResumeInput, CertificationUncheckedCreateWithoutResumeInput> | CertificationCreateWithoutResumeInput[] | CertificationUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: CertificationCreateOrConnectWithoutResumeInput | CertificationCreateOrConnectWithoutResumeInput[]
+    createMany?: CertificationCreateManyResumeInputEnvelope
+    connect?: CertificationWhereUniqueInput | CertificationWhereUniqueInput[]
+  }
+
+  export type ProjectUncheckedCreateNestedManyWithoutResumeInput = {
+    create?: XOR<ProjectCreateWithoutResumeInput, ProjectUncheckedCreateWithoutResumeInput> | ProjectCreateWithoutResumeInput[] | ProjectUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: ProjectCreateOrConnectWithoutResumeInput | ProjectCreateOrConnectWithoutResumeInput[]
+    createMany?: ProjectCreateManyResumeInputEnvelope
+    connect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+  }
+
+  export type AchievementUncheckedCreateNestedManyWithoutResumeInput = {
+    create?: XOR<AchievementCreateWithoutResumeInput, AchievementUncheckedCreateWithoutResumeInput> | AchievementCreateWithoutResumeInput[] | AchievementUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: AchievementCreateOrConnectWithoutResumeInput | AchievementCreateOrConnectWithoutResumeInput[]
+    createMany?: AchievementCreateManyResumeInputEnvelope
+    connect?: AchievementWhereUniqueInput | AchievementWhereUniqueInput[]
+  }
+
+  export type CustomSectionUncheckedCreateNestedManyWithoutResumeInput = {
+    create?: XOR<CustomSectionCreateWithoutResumeInput, CustomSectionUncheckedCreateWithoutResumeInput> | CustomSectionCreateWithoutResumeInput[] | CustomSectionUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: CustomSectionCreateOrConnectWithoutResumeInput | CustomSectionCreateOrConnectWithoutResumeInput[]
+    createMany?: CustomSectionCreateManyResumeInputEnvelope
+    connect?: CustomSectionWhereUniqueInput | CustomSectionWhereUniqueInput[]
+  }
+
+  export type UserUpdateOneRequiredWithoutResumeNestedInput = {
+    create?: XOR<UserCreateWithoutResumeInput, UserUncheckedCreateWithoutResumeInput>
+    connectOrCreate?: UserCreateOrConnectWithoutResumeInput
+    upsert?: UserUpsertWithoutResumeInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutResumeInput, UserUpdateWithoutResumeInput>, UserUncheckedUpdateWithoutResumeInput>
+  }
+
+  export type TemplateUpdateOneRequiredWithoutResumesNestedInput = {
+    create?: XOR<TemplateCreateWithoutResumesInput, TemplateUncheckedCreateWithoutResumesInput>
+    connectOrCreate?: TemplateCreateOrConnectWithoutResumesInput
+    upsert?: TemplateUpsertWithoutResumesInput
+    connect?: TemplateWhereUniqueInput
+    update?: XOR<XOR<TemplateUpdateToOneWithWhereWithoutResumesInput, TemplateUpdateWithoutResumesInput>, TemplateUncheckedUpdateWithoutResumesInput>
+  }
+
+  export type ThemeUpdateOneRequiredWithoutResumesNestedInput = {
+    create?: XOR<ThemeCreateWithoutResumesInput, ThemeUncheckedCreateWithoutResumesInput>
+    connectOrCreate?: ThemeCreateOrConnectWithoutResumesInput
+    upsert?: ThemeUpsertWithoutResumesInput
+    connect?: ThemeWhereUniqueInput
+    update?: XOR<XOR<ThemeUpdateToOneWithWhereWithoutResumesInput, ThemeUpdateWithoutResumesInput>, ThemeUncheckedUpdateWithoutResumesInput>
+  }
+
+  export type FontUpdateOneWithoutResumesNestedInput = {
+    create?: XOR<FontCreateWithoutResumesInput, FontUncheckedCreateWithoutResumesInput>
+    connectOrCreate?: FontCreateOrConnectWithoutResumesInput
+    upsert?: FontUpsertWithoutResumesInput
+    disconnect?: FontWhereInput | boolean
+    delete?: FontWhereInput | boolean
+    connect?: FontWhereUniqueInput
+    update?: XOR<XOR<FontUpdateToOneWithWhereWithoutResumesInput, FontUpdateWithoutResumesInput>, FontUncheckedUpdateWithoutResumesInput>
+  }
+
+  export type PersonalInfoUpdateManyWithoutResumeNestedInput = {
+    create?: XOR<PersonalInfoCreateWithoutResumeInput, PersonalInfoUncheckedCreateWithoutResumeInput> | PersonalInfoCreateWithoutResumeInput[] | PersonalInfoUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: PersonalInfoCreateOrConnectWithoutResumeInput | PersonalInfoCreateOrConnectWithoutResumeInput[]
+    upsert?: PersonalInfoUpsertWithWhereUniqueWithoutResumeInput | PersonalInfoUpsertWithWhereUniqueWithoutResumeInput[]
+    createMany?: PersonalInfoCreateManyResumeInputEnvelope
+    set?: PersonalInfoWhereUniqueInput | PersonalInfoWhereUniqueInput[]
+    disconnect?: PersonalInfoWhereUniqueInput | PersonalInfoWhereUniqueInput[]
+    delete?: PersonalInfoWhereUniqueInput | PersonalInfoWhereUniqueInput[]
+    connect?: PersonalInfoWhereUniqueInput | PersonalInfoWhereUniqueInput[]
+    update?: PersonalInfoUpdateWithWhereUniqueWithoutResumeInput | PersonalInfoUpdateWithWhereUniqueWithoutResumeInput[]
+    updateMany?: PersonalInfoUpdateManyWithWhereWithoutResumeInput | PersonalInfoUpdateManyWithWhereWithoutResumeInput[]
+    deleteMany?: PersonalInfoScalarWhereInput | PersonalInfoScalarWhereInput[]
+  }
+
+  export type SectionUpdateManyWithoutResumeNestedInput = {
+    create?: XOR<SectionCreateWithoutResumeInput, SectionUncheckedCreateWithoutResumeInput> | SectionCreateWithoutResumeInput[] | SectionUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: SectionCreateOrConnectWithoutResumeInput | SectionCreateOrConnectWithoutResumeInput[]
+    upsert?: SectionUpsertWithWhereUniqueWithoutResumeInput | SectionUpsertWithWhereUniqueWithoutResumeInput[]
+    createMany?: SectionCreateManyResumeInputEnvelope
+    set?: SectionWhereUniqueInput | SectionWhereUniqueInput[]
+    disconnect?: SectionWhereUniqueInput | SectionWhereUniqueInput[]
+    delete?: SectionWhereUniqueInput | SectionWhereUniqueInput[]
+    connect?: SectionWhereUniqueInput | SectionWhereUniqueInput[]
+    update?: SectionUpdateWithWhereUniqueWithoutResumeInput | SectionUpdateWithWhereUniqueWithoutResumeInput[]
+    updateMany?: SectionUpdateManyWithWhereWithoutResumeInput | SectionUpdateManyWithWhereWithoutResumeInput[]
+    deleteMany?: SectionScalarWhereInput | SectionScalarWhereInput[]
+  }
+
+  export type EducationUpdateManyWithoutResumeNestedInput = {
+    create?: XOR<EducationCreateWithoutResumeInput, EducationUncheckedCreateWithoutResumeInput> | EducationCreateWithoutResumeInput[] | EducationUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: EducationCreateOrConnectWithoutResumeInput | EducationCreateOrConnectWithoutResumeInput[]
+    upsert?: EducationUpsertWithWhereUniqueWithoutResumeInput | EducationUpsertWithWhereUniqueWithoutResumeInput[]
+    createMany?: EducationCreateManyResumeInputEnvelope
+    set?: EducationWhereUniqueInput | EducationWhereUniqueInput[]
+    disconnect?: EducationWhereUniqueInput | EducationWhereUniqueInput[]
+    delete?: EducationWhereUniqueInput | EducationWhereUniqueInput[]
+    connect?: EducationWhereUniqueInput | EducationWhereUniqueInput[]
+    update?: EducationUpdateWithWhereUniqueWithoutResumeInput | EducationUpdateWithWhereUniqueWithoutResumeInput[]
+    updateMany?: EducationUpdateManyWithWhereWithoutResumeInput | EducationUpdateManyWithWhereWithoutResumeInput[]
+    deleteMany?: EducationScalarWhereInput | EducationScalarWhereInput[]
+  }
+
+  export type ExperienceUpdateManyWithoutResumeNestedInput = {
+    create?: XOR<ExperienceCreateWithoutResumeInput, ExperienceUncheckedCreateWithoutResumeInput> | ExperienceCreateWithoutResumeInput[] | ExperienceUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: ExperienceCreateOrConnectWithoutResumeInput | ExperienceCreateOrConnectWithoutResumeInput[]
+    upsert?: ExperienceUpsertWithWhereUniqueWithoutResumeInput | ExperienceUpsertWithWhereUniqueWithoutResumeInput[]
+    createMany?: ExperienceCreateManyResumeInputEnvelope
+    set?: ExperienceWhereUniqueInput | ExperienceWhereUniqueInput[]
+    disconnect?: ExperienceWhereUniqueInput | ExperienceWhereUniqueInput[]
+    delete?: ExperienceWhereUniqueInput | ExperienceWhereUniqueInput[]
+    connect?: ExperienceWhereUniqueInput | ExperienceWhereUniqueInput[]
+    update?: ExperienceUpdateWithWhereUniqueWithoutResumeInput | ExperienceUpdateWithWhereUniqueWithoutResumeInput[]
+    updateMany?: ExperienceUpdateManyWithWhereWithoutResumeInput | ExperienceUpdateManyWithWhereWithoutResumeInput[]
+    deleteMany?: ExperienceScalarWhereInput | ExperienceScalarWhereInput[]
+  }
+
+  export type SkillUpdateManyWithoutResumeNestedInput = {
+    create?: XOR<SkillCreateWithoutResumeInput, SkillUncheckedCreateWithoutResumeInput> | SkillCreateWithoutResumeInput[] | SkillUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: SkillCreateOrConnectWithoutResumeInput | SkillCreateOrConnectWithoutResumeInput[]
+    upsert?: SkillUpsertWithWhereUniqueWithoutResumeInput | SkillUpsertWithWhereUniqueWithoutResumeInput[]
+    createMany?: SkillCreateManyResumeInputEnvelope
+    set?: SkillWhereUniqueInput | SkillWhereUniqueInput[]
+    disconnect?: SkillWhereUniqueInput | SkillWhereUniqueInput[]
+    delete?: SkillWhereUniqueInput | SkillWhereUniqueInput[]
+    connect?: SkillWhereUniqueInput | SkillWhereUniqueInput[]
+    update?: SkillUpdateWithWhereUniqueWithoutResumeInput | SkillUpdateWithWhereUniqueWithoutResumeInput[]
+    updateMany?: SkillUpdateManyWithWhereWithoutResumeInput | SkillUpdateManyWithWhereWithoutResumeInput[]
+    deleteMany?: SkillScalarWhereInput | SkillScalarWhereInput[]
+  }
+
+  export type LanguageUpdateManyWithoutResumeNestedInput = {
+    create?: XOR<LanguageCreateWithoutResumeInput, LanguageUncheckedCreateWithoutResumeInput> | LanguageCreateWithoutResumeInput[] | LanguageUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: LanguageCreateOrConnectWithoutResumeInput | LanguageCreateOrConnectWithoutResumeInput[]
+    upsert?: LanguageUpsertWithWhereUniqueWithoutResumeInput | LanguageUpsertWithWhereUniqueWithoutResumeInput[]
+    createMany?: LanguageCreateManyResumeInputEnvelope
+    set?: LanguageWhereUniqueInput | LanguageWhereUniqueInput[]
+    disconnect?: LanguageWhereUniqueInput | LanguageWhereUniqueInput[]
+    delete?: LanguageWhereUniqueInput | LanguageWhereUniqueInput[]
+    connect?: LanguageWhereUniqueInput | LanguageWhereUniqueInput[]
+    update?: LanguageUpdateWithWhereUniqueWithoutResumeInput | LanguageUpdateWithWhereUniqueWithoutResumeInput[]
+    updateMany?: LanguageUpdateManyWithWhereWithoutResumeInput | LanguageUpdateManyWithWhereWithoutResumeInput[]
+    deleteMany?: LanguageScalarWhereInput | LanguageScalarWhereInput[]
+  }
+
+  export type CertificationUpdateManyWithoutResumeNestedInput = {
+    create?: XOR<CertificationCreateWithoutResumeInput, CertificationUncheckedCreateWithoutResumeInput> | CertificationCreateWithoutResumeInput[] | CertificationUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: CertificationCreateOrConnectWithoutResumeInput | CertificationCreateOrConnectWithoutResumeInput[]
+    upsert?: CertificationUpsertWithWhereUniqueWithoutResumeInput | CertificationUpsertWithWhereUniqueWithoutResumeInput[]
+    createMany?: CertificationCreateManyResumeInputEnvelope
+    set?: CertificationWhereUniqueInput | CertificationWhereUniqueInput[]
+    disconnect?: CertificationWhereUniqueInput | CertificationWhereUniqueInput[]
+    delete?: CertificationWhereUniqueInput | CertificationWhereUniqueInput[]
+    connect?: CertificationWhereUniqueInput | CertificationWhereUniqueInput[]
+    update?: CertificationUpdateWithWhereUniqueWithoutResumeInput | CertificationUpdateWithWhereUniqueWithoutResumeInput[]
+    updateMany?: CertificationUpdateManyWithWhereWithoutResumeInput | CertificationUpdateManyWithWhereWithoutResumeInput[]
+    deleteMany?: CertificationScalarWhereInput | CertificationScalarWhereInput[]
+  }
+
+  export type ProjectUpdateManyWithoutResumeNestedInput = {
+    create?: XOR<ProjectCreateWithoutResumeInput, ProjectUncheckedCreateWithoutResumeInput> | ProjectCreateWithoutResumeInput[] | ProjectUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: ProjectCreateOrConnectWithoutResumeInput | ProjectCreateOrConnectWithoutResumeInput[]
+    upsert?: ProjectUpsertWithWhereUniqueWithoutResumeInput | ProjectUpsertWithWhereUniqueWithoutResumeInput[]
+    createMany?: ProjectCreateManyResumeInputEnvelope
+    set?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    disconnect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    delete?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    connect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    update?: ProjectUpdateWithWhereUniqueWithoutResumeInput | ProjectUpdateWithWhereUniqueWithoutResumeInput[]
+    updateMany?: ProjectUpdateManyWithWhereWithoutResumeInput | ProjectUpdateManyWithWhereWithoutResumeInput[]
+    deleteMany?: ProjectScalarWhereInput | ProjectScalarWhereInput[]
+  }
+
+  export type AchievementUpdateManyWithoutResumeNestedInput = {
+    create?: XOR<AchievementCreateWithoutResumeInput, AchievementUncheckedCreateWithoutResumeInput> | AchievementCreateWithoutResumeInput[] | AchievementUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: AchievementCreateOrConnectWithoutResumeInput | AchievementCreateOrConnectWithoutResumeInput[]
+    upsert?: AchievementUpsertWithWhereUniqueWithoutResumeInput | AchievementUpsertWithWhereUniqueWithoutResumeInput[]
+    createMany?: AchievementCreateManyResumeInputEnvelope
+    set?: AchievementWhereUniqueInput | AchievementWhereUniqueInput[]
+    disconnect?: AchievementWhereUniqueInput | AchievementWhereUniqueInput[]
+    delete?: AchievementWhereUniqueInput | AchievementWhereUniqueInput[]
+    connect?: AchievementWhereUniqueInput | AchievementWhereUniqueInput[]
+    update?: AchievementUpdateWithWhereUniqueWithoutResumeInput | AchievementUpdateWithWhereUniqueWithoutResumeInput[]
+    updateMany?: AchievementUpdateManyWithWhereWithoutResumeInput | AchievementUpdateManyWithWhereWithoutResumeInput[]
+    deleteMany?: AchievementScalarWhereInput | AchievementScalarWhereInput[]
+  }
+
+  export type CustomSectionUpdateManyWithoutResumeNestedInput = {
+    create?: XOR<CustomSectionCreateWithoutResumeInput, CustomSectionUncheckedCreateWithoutResumeInput> | CustomSectionCreateWithoutResumeInput[] | CustomSectionUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: CustomSectionCreateOrConnectWithoutResumeInput | CustomSectionCreateOrConnectWithoutResumeInput[]
+    upsert?: CustomSectionUpsertWithWhereUniqueWithoutResumeInput | CustomSectionUpsertWithWhereUniqueWithoutResumeInput[]
+    createMany?: CustomSectionCreateManyResumeInputEnvelope
+    set?: CustomSectionWhereUniqueInput | CustomSectionWhereUniqueInput[]
+    disconnect?: CustomSectionWhereUniqueInput | CustomSectionWhereUniqueInput[]
+    delete?: CustomSectionWhereUniqueInput | CustomSectionWhereUniqueInput[]
+    connect?: CustomSectionWhereUniqueInput | CustomSectionWhereUniqueInput[]
+    update?: CustomSectionUpdateWithWhereUniqueWithoutResumeInput | CustomSectionUpdateWithWhereUniqueWithoutResumeInput[]
+    updateMany?: CustomSectionUpdateManyWithWhereWithoutResumeInput | CustomSectionUpdateManyWithWhereWithoutResumeInput[]
+    deleteMany?: CustomSectionScalarWhereInput | CustomSectionScalarWhereInput[]
+  }
+
+  export type PersonalInfoUncheckedUpdateManyWithoutResumeNestedInput = {
+    create?: XOR<PersonalInfoCreateWithoutResumeInput, PersonalInfoUncheckedCreateWithoutResumeInput> | PersonalInfoCreateWithoutResumeInput[] | PersonalInfoUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: PersonalInfoCreateOrConnectWithoutResumeInput | PersonalInfoCreateOrConnectWithoutResumeInput[]
+    upsert?: PersonalInfoUpsertWithWhereUniqueWithoutResumeInput | PersonalInfoUpsertWithWhereUniqueWithoutResumeInput[]
+    createMany?: PersonalInfoCreateManyResumeInputEnvelope
+    set?: PersonalInfoWhereUniqueInput | PersonalInfoWhereUniqueInput[]
+    disconnect?: PersonalInfoWhereUniqueInput | PersonalInfoWhereUniqueInput[]
+    delete?: PersonalInfoWhereUniqueInput | PersonalInfoWhereUniqueInput[]
+    connect?: PersonalInfoWhereUniqueInput | PersonalInfoWhereUniqueInput[]
+    update?: PersonalInfoUpdateWithWhereUniqueWithoutResumeInput | PersonalInfoUpdateWithWhereUniqueWithoutResumeInput[]
+    updateMany?: PersonalInfoUpdateManyWithWhereWithoutResumeInput | PersonalInfoUpdateManyWithWhereWithoutResumeInput[]
+    deleteMany?: PersonalInfoScalarWhereInput | PersonalInfoScalarWhereInput[]
+  }
+
+  export type SectionUncheckedUpdateManyWithoutResumeNestedInput = {
+    create?: XOR<SectionCreateWithoutResumeInput, SectionUncheckedCreateWithoutResumeInput> | SectionCreateWithoutResumeInput[] | SectionUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: SectionCreateOrConnectWithoutResumeInput | SectionCreateOrConnectWithoutResumeInput[]
+    upsert?: SectionUpsertWithWhereUniqueWithoutResumeInput | SectionUpsertWithWhereUniqueWithoutResumeInput[]
+    createMany?: SectionCreateManyResumeInputEnvelope
+    set?: SectionWhereUniqueInput | SectionWhereUniqueInput[]
+    disconnect?: SectionWhereUniqueInput | SectionWhereUniqueInput[]
+    delete?: SectionWhereUniqueInput | SectionWhereUniqueInput[]
+    connect?: SectionWhereUniqueInput | SectionWhereUniqueInput[]
+    update?: SectionUpdateWithWhereUniqueWithoutResumeInput | SectionUpdateWithWhereUniqueWithoutResumeInput[]
+    updateMany?: SectionUpdateManyWithWhereWithoutResumeInput | SectionUpdateManyWithWhereWithoutResumeInput[]
+    deleteMany?: SectionScalarWhereInput | SectionScalarWhereInput[]
+  }
+
+  export type EducationUncheckedUpdateManyWithoutResumeNestedInput = {
+    create?: XOR<EducationCreateWithoutResumeInput, EducationUncheckedCreateWithoutResumeInput> | EducationCreateWithoutResumeInput[] | EducationUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: EducationCreateOrConnectWithoutResumeInput | EducationCreateOrConnectWithoutResumeInput[]
+    upsert?: EducationUpsertWithWhereUniqueWithoutResumeInput | EducationUpsertWithWhereUniqueWithoutResumeInput[]
+    createMany?: EducationCreateManyResumeInputEnvelope
+    set?: EducationWhereUniqueInput | EducationWhereUniqueInput[]
+    disconnect?: EducationWhereUniqueInput | EducationWhereUniqueInput[]
+    delete?: EducationWhereUniqueInput | EducationWhereUniqueInput[]
+    connect?: EducationWhereUniqueInput | EducationWhereUniqueInput[]
+    update?: EducationUpdateWithWhereUniqueWithoutResumeInput | EducationUpdateWithWhereUniqueWithoutResumeInput[]
+    updateMany?: EducationUpdateManyWithWhereWithoutResumeInput | EducationUpdateManyWithWhereWithoutResumeInput[]
+    deleteMany?: EducationScalarWhereInput | EducationScalarWhereInput[]
+  }
+
+  export type ExperienceUncheckedUpdateManyWithoutResumeNestedInput = {
+    create?: XOR<ExperienceCreateWithoutResumeInput, ExperienceUncheckedCreateWithoutResumeInput> | ExperienceCreateWithoutResumeInput[] | ExperienceUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: ExperienceCreateOrConnectWithoutResumeInput | ExperienceCreateOrConnectWithoutResumeInput[]
+    upsert?: ExperienceUpsertWithWhereUniqueWithoutResumeInput | ExperienceUpsertWithWhereUniqueWithoutResumeInput[]
+    createMany?: ExperienceCreateManyResumeInputEnvelope
+    set?: ExperienceWhereUniqueInput | ExperienceWhereUniqueInput[]
+    disconnect?: ExperienceWhereUniqueInput | ExperienceWhereUniqueInput[]
+    delete?: ExperienceWhereUniqueInput | ExperienceWhereUniqueInput[]
+    connect?: ExperienceWhereUniqueInput | ExperienceWhereUniqueInput[]
+    update?: ExperienceUpdateWithWhereUniqueWithoutResumeInput | ExperienceUpdateWithWhereUniqueWithoutResumeInput[]
+    updateMany?: ExperienceUpdateManyWithWhereWithoutResumeInput | ExperienceUpdateManyWithWhereWithoutResumeInput[]
+    deleteMany?: ExperienceScalarWhereInput | ExperienceScalarWhereInput[]
+  }
+
+  export type SkillUncheckedUpdateManyWithoutResumeNestedInput = {
+    create?: XOR<SkillCreateWithoutResumeInput, SkillUncheckedCreateWithoutResumeInput> | SkillCreateWithoutResumeInput[] | SkillUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: SkillCreateOrConnectWithoutResumeInput | SkillCreateOrConnectWithoutResumeInput[]
+    upsert?: SkillUpsertWithWhereUniqueWithoutResumeInput | SkillUpsertWithWhereUniqueWithoutResumeInput[]
+    createMany?: SkillCreateManyResumeInputEnvelope
+    set?: SkillWhereUniqueInput | SkillWhereUniqueInput[]
+    disconnect?: SkillWhereUniqueInput | SkillWhereUniqueInput[]
+    delete?: SkillWhereUniqueInput | SkillWhereUniqueInput[]
+    connect?: SkillWhereUniqueInput | SkillWhereUniqueInput[]
+    update?: SkillUpdateWithWhereUniqueWithoutResumeInput | SkillUpdateWithWhereUniqueWithoutResumeInput[]
+    updateMany?: SkillUpdateManyWithWhereWithoutResumeInput | SkillUpdateManyWithWhereWithoutResumeInput[]
+    deleteMany?: SkillScalarWhereInput | SkillScalarWhereInput[]
+  }
+
+  export type LanguageUncheckedUpdateManyWithoutResumeNestedInput = {
+    create?: XOR<LanguageCreateWithoutResumeInput, LanguageUncheckedCreateWithoutResumeInput> | LanguageCreateWithoutResumeInput[] | LanguageUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: LanguageCreateOrConnectWithoutResumeInput | LanguageCreateOrConnectWithoutResumeInput[]
+    upsert?: LanguageUpsertWithWhereUniqueWithoutResumeInput | LanguageUpsertWithWhereUniqueWithoutResumeInput[]
+    createMany?: LanguageCreateManyResumeInputEnvelope
+    set?: LanguageWhereUniqueInput | LanguageWhereUniqueInput[]
+    disconnect?: LanguageWhereUniqueInput | LanguageWhereUniqueInput[]
+    delete?: LanguageWhereUniqueInput | LanguageWhereUniqueInput[]
+    connect?: LanguageWhereUniqueInput | LanguageWhereUniqueInput[]
+    update?: LanguageUpdateWithWhereUniqueWithoutResumeInput | LanguageUpdateWithWhereUniqueWithoutResumeInput[]
+    updateMany?: LanguageUpdateManyWithWhereWithoutResumeInput | LanguageUpdateManyWithWhereWithoutResumeInput[]
+    deleteMany?: LanguageScalarWhereInput | LanguageScalarWhereInput[]
+  }
+
+  export type CertificationUncheckedUpdateManyWithoutResumeNestedInput = {
+    create?: XOR<CertificationCreateWithoutResumeInput, CertificationUncheckedCreateWithoutResumeInput> | CertificationCreateWithoutResumeInput[] | CertificationUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: CertificationCreateOrConnectWithoutResumeInput | CertificationCreateOrConnectWithoutResumeInput[]
+    upsert?: CertificationUpsertWithWhereUniqueWithoutResumeInput | CertificationUpsertWithWhereUniqueWithoutResumeInput[]
+    createMany?: CertificationCreateManyResumeInputEnvelope
+    set?: CertificationWhereUniqueInput | CertificationWhereUniqueInput[]
+    disconnect?: CertificationWhereUniqueInput | CertificationWhereUniqueInput[]
+    delete?: CertificationWhereUniqueInput | CertificationWhereUniqueInput[]
+    connect?: CertificationWhereUniqueInput | CertificationWhereUniqueInput[]
+    update?: CertificationUpdateWithWhereUniqueWithoutResumeInput | CertificationUpdateWithWhereUniqueWithoutResumeInput[]
+    updateMany?: CertificationUpdateManyWithWhereWithoutResumeInput | CertificationUpdateManyWithWhereWithoutResumeInput[]
+    deleteMany?: CertificationScalarWhereInput | CertificationScalarWhereInput[]
+  }
+
+  export type ProjectUncheckedUpdateManyWithoutResumeNestedInput = {
+    create?: XOR<ProjectCreateWithoutResumeInput, ProjectUncheckedCreateWithoutResumeInput> | ProjectCreateWithoutResumeInput[] | ProjectUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: ProjectCreateOrConnectWithoutResumeInput | ProjectCreateOrConnectWithoutResumeInput[]
+    upsert?: ProjectUpsertWithWhereUniqueWithoutResumeInput | ProjectUpsertWithWhereUniqueWithoutResumeInput[]
+    createMany?: ProjectCreateManyResumeInputEnvelope
+    set?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    disconnect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    delete?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    connect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    update?: ProjectUpdateWithWhereUniqueWithoutResumeInput | ProjectUpdateWithWhereUniqueWithoutResumeInput[]
+    updateMany?: ProjectUpdateManyWithWhereWithoutResumeInput | ProjectUpdateManyWithWhereWithoutResumeInput[]
+    deleteMany?: ProjectScalarWhereInput | ProjectScalarWhereInput[]
+  }
+
+  export type AchievementUncheckedUpdateManyWithoutResumeNestedInput = {
+    create?: XOR<AchievementCreateWithoutResumeInput, AchievementUncheckedCreateWithoutResumeInput> | AchievementCreateWithoutResumeInput[] | AchievementUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: AchievementCreateOrConnectWithoutResumeInput | AchievementCreateOrConnectWithoutResumeInput[]
+    upsert?: AchievementUpsertWithWhereUniqueWithoutResumeInput | AchievementUpsertWithWhereUniqueWithoutResumeInput[]
+    createMany?: AchievementCreateManyResumeInputEnvelope
+    set?: AchievementWhereUniqueInput | AchievementWhereUniqueInput[]
+    disconnect?: AchievementWhereUniqueInput | AchievementWhereUniqueInput[]
+    delete?: AchievementWhereUniqueInput | AchievementWhereUniqueInput[]
+    connect?: AchievementWhereUniqueInput | AchievementWhereUniqueInput[]
+    update?: AchievementUpdateWithWhereUniqueWithoutResumeInput | AchievementUpdateWithWhereUniqueWithoutResumeInput[]
+    updateMany?: AchievementUpdateManyWithWhereWithoutResumeInput | AchievementUpdateManyWithWhereWithoutResumeInput[]
+    deleteMany?: AchievementScalarWhereInput | AchievementScalarWhereInput[]
+  }
+
+  export type CustomSectionUncheckedUpdateManyWithoutResumeNestedInput = {
+    create?: XOR<CustomSectionCreateWithoutResumeInput, CustomSectionUncheckedCreateWithoutResumeInput> | CustomSectionCreateWithoutResumeInput[] | CustomSectionUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: CustomSectionCreateOrConnectWithoutResumeInput | CustomSectionCreateOrConnectWithoutResumeInput[]
+    upsert?: CustomSectionUpsertWithWhereUniqueWithoutResumeInput | CustomSectionUpsertWithWhereUniqueWithoutResumeInput[]
+    createMany?: CustomSectionCreateManyResumeInputEnvelope
+    set?: CustomSectionWhereUniqueInput | CustomSectionWhereUniqueInput[]
+    disconnect?: CustomSectionWhereUniqueInput | CustomSectionWhereUniqueInput[]
+    delete?: CustomSectionWhereUniqueInput | CustomSectionWhereUniqueInput[]
+    connect?: CustomSectionWhereUniqueInput | CustomSectionWhereUniqueInput[]
+    update?: CustomSectionUpdateWithWhereUniqueWithoutResumeInput | CustomSectionUpdateWithWhereUniqueWithoutResumeInput[]
+    updateMany?: CustomSectionUpdateManyWithWhereWithoutResumeInput | CustomSectionUpdateManyWithWhereWithoutResumeInput[]
+    deleteMany?: CustomSectionScalarWhereInput | CustomSectionScalarWhereInput[]
+  }
+
+  export type ResumeCreateNestedOneWithoutPersonalInfoInput = {
+    create?: XOR<ResumeCreateWithoutPersonalInfoInput, ResumeUncheckedCreateWithoutPersonalInfoInput>
+    connectOrCreate?: ResumeCreateOrConnectWithoutPersonalInfoInput
+    connect?: ResumeWhereUniqueInput
+  }
+
+  export type ResumeUpdateOneRequiredWithoutPersonalInfoNestedInput = {
+    create?: XOR<ResumeCreateWithoutPersonalInfoInput, ResumeUncheckedCreateWithoutPersonalInfoInput>
+    connectOrCreate?: ResumeCreateOrConnectWithoutPersonalInfoInput
+    upsert?: ResumeUpsertWithoutPersonalInfoInput
+    connect?: ResumeWhereUniqueInput
+    update?: XOR<XOR<ResumeUpdateToOneWithWhereWithoutPersonalInfoInput, ResumeUpdateWithoutPersonalInfoInput>, ResumeUncheckedUpdateWithoutPersonalInfoInput>
+  }
+
+  export type ResumeCreateNestedOneWithoutSectionsInput = {
+    create?: XOR<ResumeCreateWithoutSectionsInput, ResumeUncheckedCreateWithoutSectionsInput>
+    connectOrCreate?: ResumeCreateOrConnectWithoutSectionsInput
+    connect?: ResumeWhereUniqueInput
+  }
+
+  export type EnumSectionTypeFieldUpdateOperationsInput = {
+    set?: $Enums.SectionType
+  }
+
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type ResumeUpdateOneRequiredWithoutSectionsNestedInput = {
+    create?: XOR<ResumeCreateWithoutSectionsInput, ResumeUncheckedCreateWithoutSectionsInput>
+    connectOrCreate?: ResumeCreateOrConnectWithoutSectionsInput
+    upsert?: ResumeUpsertWithoutSectionsInput
+    connect?: ResumeWhereUniqueInput
+    update?: XOR<XOR<ResumeUpdateToOneWithWhereWithoutSectionsInput, ResumeUpdateWithoutSectionsInput>, ResumeUncheckedUpdateWithoutSectionsInput>
+  }
+
+  export type ResumeCreateNestedOneWithoutEducationsInput = {
+    create?: XOR<ResumeCreateWithoutEducationsInput, ResumeUncheckedCreateWithoutEducationsInput>
+    connectOrCreate?: ResumeCreateOrConnectWithoutEducationsInput
+    connect?: ResumeWhereUniqueInput
+  }
+
+  export type ResumeUpdateOneRequiredWithoutEducationsNestedInput = {
+    create?: XOR<ResumeCreateWithoutEducationsInput, ResumeUncheckedCreateWithoutEducationsInput>
+    connectOrCreate?: ResumeCreateOrConnectWithoutEducationsInput
+    upsert?: ResumeUpsertWithoutEducationsInput
+    connect?: ResumeWhereUniqueInput
+    update?: XOR<XOR<ResumeUpdateToOneWithWhereWithoutEducationsInput, ResumeUpdateWithoutEducationsInput>, ResumeUncheckedUpdateWithoutEducationsInput>
+  }
+
+  export type ResumeCreateNestedOneWithoutExperiencesInput = {
+    create?: XOR<ResumeCreateWithoutExperiencesInput, ResumeUncheckedCreateWithoutExperiencesInput>
+    connectOrCreate?: ResumeCreateOrConnectWithoutExperiencesInput
+    connect?: ResumeWhereUniqueInput
+  }
+
+  export type ResumeUpdateOneRequiredWithoutExperiencesNestedInput = {
+    create?: XOR<ResumeCreateWithoutExperiencesInput, ResumeUncheckedCreateWithoutExperiencesInput>
+    connectOrCreate?: ResumeCreateOrConnectWithoutExperiencesInput
+    upsert?: ResumeUpsertWithoutExperiencesInput
+    connect?: ResumeWhereUniqueInput
+    update?: XOR<XOR<ResumeUpdateToOneWithWhereWithoutExperiencesInput, ResumeUpdateWithoutExperiencesInput>, ResumeUncheckedUpdateWithoutExperiencesInput>
+  }
+
+  export type ResumeCreateNestedOneWithoutSkillsInput = {
+    create?: XOR<ResumeCreateWithoutSkillsInput, ResumeUncheckedCreateWithoutSkillsInput>
+    connectOrCreate?: ResumeCreateOrConnectWithoutSkillsInput
+    connect?: ResumeWhereUniqueInput
+  }
+
+  export type ResumeUpdateOneRequiredWithoutSkillsNestedInput = {
+    create?: XOR<ResumeCreateWithoutSkillsInput, ResumeUncheckedCreateWithoutSkillsInput>
+    connectOrCreate?: ResumeCreateOrConnectWithoutSkillsInput
+    upsert?: ResumeUpsertWithoutSkillsInput
+    connect?: ResumeWhereUniqueInput
+    update?: XOR<XOR<ResumeUpdateToOneWithWhereWithoutSkillsInput, ResumeUpdateWithoutSkillsInput>, ResumeUncheckedUpdateWithoutSkillsInput>
+  }
+
+  export type ResumeCreateNestedOneWithoutLanguagesInput = {
+    create?: XOR<ResumeCreateWithoutLanguagesInput, ResumeUncheckedCreateWithoutLanguagesInput>
+    connectOrCreate?: ResumeCreateOrConnectWithoutLanguagesInput
+    connect?: ResumeWhereUniqueInput
+  }
+
+  export type EnumLanguageLevelFieldUpdateOperationsInput = {
+    set?: $Enums.LanguageLevel
+  }
+
+  export type ResumeUpdateOneRequiredWithoutLanguagesNestedInput = {
+    create?: XOR<ResumeCreateWithoutLanguagesInput, ResumeUncheckedCreateWithoutLanguagesInput>
+    connectOrCreate?: ResumeCreateOrConnectWithoutLanguagesInput
+    upsert?: ResumeUpsertWithoutLanguagesInput
+    connect?: ResumeWhereUniqueInput
+    update?: XOR<XOR<ResumeUpdateToOneWithWhereWithoutLanguagesInput, ResumeUpdateWithoutLanguagesInput>, ResumeUncheckedUpdateWithoutLanguagesInput>
+  }
+
+  export type ResumeCreateNestedOneWithoutCertificationsInput = {
+    create?: XOR<ResumeCreateWithoutCertificationsInput, ResumeUncheckedCreateWithoutCertificationsInput>
+    connectOrCreate?: ResumeCreateOrConnectWithoutCertificationsInput
+    connect?: ResumeWhereUniqueInput
+  }
+
+  export type ResumeUpdateOneRequiredWithoutCertificationsNestedInput = {
+    create?: XOR<ResumeCreateWithoutCertificationsInput, ResumeUncheckedCreateWithoutCertificationsInput>
+    connectOrCreate?: ResumeCreateOrConnectWithoutCertificationsInput
+    upsert?: ResumeUpsertWithoutCertificationsInput
+    connect?: ResumeWhereUniqueInput
+    update?: XOR<XOR<ResumeUpdateToOneWithWhereWithoutCertificationsInput, ResumeUpdateWithoutCertificationsInput>, ResumeUncheckedUpdateWithoutCertificationsInput>
+  }
+
+  export type ResumeCreateNestedOneWithoutProjectsInput = {
+    create?: XOR<ResumeCreateWithoutProjectsInput, ResumeUncheckedCreateWithoutProjectsInput>
+    connectOrCreate?: ResumeCreateOrConnectWithoutProjectsInput
+    connect?: ResumeWhereUniqueInput
+  }
+
+  export type ResumeUpdateOneRequiredWithoutProjectsNestedInput = {
+    create?: XOR<ResumeCreateWithoutProjectsInput, ResumeUncheckedCreateWithoutProjectsInput>
+    connectOrCreate?: ResumeCreateOrConnectWithoutProjectsInput
+    upsert?: ResumeUpsertWithoutProjectsInput
+    connect?: ResumeWhereUniqueInput
+    update?: XOR<XOR<ResumeUpdateToOneWithWhereWithoutProjectsInput, ResumeUpdateWithoutProjectsInput>, ResumeUncheckedUpdateWithoutProjectsInput>
+  }
+
+  export type ResumeCreateNestedOneWithoutAchievementsInput = {
+    create?: XOR<ResumeCreateWithoutAchievementsInput, ResumeUncheckedCreateWithoutAchievementsInput>
+    connectOrCreate?: ResumeCreateOrConnectWithoutAchievementsInput
+    connect?: ResumeWhereUniqueInput
+  }
+
+  export type ResumeUpdateOneRequiredWithoutAchievementsNestedInput = {
+    create?: XOR<ResumeCreateWithoutAchievementsInput, ResumeUncheckedCreateWithoutAchievementsInput>
+    connectOrCreate?: ResumeCreateOrConnectWithoutAchievementsInput
+    upsert?: ResumeUpsertWithoutAchievementsInput
+    connect?: ResumeWhereUniqueInput
+    update?: XOR<XOR<ResumeUpdateToOneWithWhereWithoutAchievementsInput, ResumeUpdateWithoutAchievementsInput>, ResumeUncheckedUpdateWithoutAchievementsInput>
+  }
+
+  export type ResumeCreateNestedOneWithoutCustomSectionsInput = {
+    create?: XOR<ResumeCreateWithoutCustomSectionsInput, ResumeUncheckedCreateWithoutCustomSectionsInput>
+    connectOrCreate?: ResumeCreateOrConnectWithoutCustomSectionsInput
+    connect?: ResumeWhereUniqueInput
+  }
+
+  export type ResumeUpdateOneRequiredWithoutCustomSectionsNestedInput = {
+    create?: XOR<ResumeCreateWithoutCustomSectionsInput, ResumeUncheckedCreateWithoutCustomSectionsInput>
+    connectOrCreate?: ResumeCreateOrConnectWithoutCustomSectionsInput
+    upsert?: ResumeUpsertWithoutCustomSectionsInput
+    connect?: ResumeWhereUniqueInput
+    update?: XOR<XOR<ResumeUpdateToOneWithWhereWithoutCustomSectionsInput, ResumeUpdateWithoutCustomSectionsInput>, ResumeUncheckedUpdateWithoutCustomSectionsInput>
+  }
+
+  export type ResumeCreateNestedManyWithoutTemplateInput = {
+    create?: XOR<ResumeCreateWithoutTemplateInput, ResumeUncheckedCreateWithoutTemplateInput> | ResumeCreateWithoutTemplateInput[] | ResumeUncheckedCreateWithoutTemplateInput[]
+    connectOrCreate?: ResumeCreateOrConnectWithoutTemplateInput | ResumeCreateOrConnectWithoutTemplateInput[]
+    createMany?: ResumeCreateManyTemplateInputEnvelope
+    connect?: ResumeWhereUniqueInput | ResumeWhereUniqueInput[]
+  }
+
+  export type ResumeUncheckedCreateNestedManyWithoutTemplateInput = {
+    create?: XOR<ResumeCreateWithoutTemplateInput, ResumeUncheckedCreateWithoutTemplateInput> | ResumeCreateWithoutTemplateInput[] | ResumeUncheckedCreateWithoutTemplateInput[]
+    connectOrCreate?: ResumeCreateOrConnectWithoutTemplateInput | ResumeCreateOrConnectWithoutTemplateInput[]
+    createMany?: ResumeCreateManyTemplateInputEnvelope
+    connect?: ResumeWhereUniqueInput | ResumeWhereUniqueInput[]
+  }
+
+  export type ResumeUpdateManyWithoutTemplateNestedInput = {
+    create?: XOR<ResumeCreateWithoutTemplateInput, ResumeUncheckedCreateWithoutTemplateInput> | ResumeCreateWithoutTemplateInput[] | ResumeUncheckedCreateWithoutTemplateInput[]
+    connectOrCreate?: ResumeCreateOrConnectWithoutTemplateInput | ResumeCreateOrConnectWithoutTemplateInput[]
+    upsert?: ResumeUpsertWithWhereUniqueWithoutTemplateInput | ResumeUpsertWithWhereUniqueWithoutTemplateInput[]
+    createMany?: ResumeCreateManyTemplateInputEnvelope
+    set?: ResumeWhereUniqueInput | ResumeWhereUniqueInput[]
+    disconnect?: ResumeWhereUniqueInput | ResumeWhereUniqueInput[]
+    delete?: ResumeWhereUniqueInput | ResumeWhereUniqueInput[]
+    connect?: ResumeWhereUniqueInput | ResumeWhereUniqueInput[]
+    update?: ResumeUpdateWithWhereUniqueWithoutTemplateInput | ResumeUpdateWithWhereUniqueWithoutTemplateInput[]
+    updateMany?: ResumeUpdateManyWithWhereWithoutTemplateInput | ResumeUpdateManyWithWhereWithoutTemplateInput[]
+    deleteMany?: ResumeScalarWhereInput | ResumeScalarWhereInput[]
+  }
+
+  export type ResumeUncheckedUpdateManyWithoutTemplateNestedInput = {
+    create?: XOR<ResumeCreateWithoutTemplateInput, ResumeUncheckedCreateWithoutTemplateInput> | ResumeCreateWithoutTemplateInput[] | ResumeUncheckedCreateWithoutTemplateInput[]
+    connectOrCreate?: ResumeCreateOrConnectWithoutTemplateInput | ResumeCreateOrConnectWithoutTemplateInput[]
+    upsert?: ResumeUpsertWithWhereUniqueWithoutTemplateInput | ResumeUpsertWithWhereUniqueWithoutTemplateInput[]
+    createMany?: ResumeCreateManyTemplateInputEnvelope
+    set?: ResumeWhereUniqueInput | ResumeWhereUniqueInput[]
+    disconnect?: ResumeWhereUniqueInput | ResumeWhereUniqueInput[]
+    delete?: ResumeWhereUniqueInput | ResumeWhereUniqueInput[]
+    connect?: ResumeWhereUniqueInput | ResumeWhereUniqueInput[]
+    update?: ResumeUpdateWithWhereUniqueWithoutTemplateInput | ResumeUpdateWithWhereUniqueWithoutTemplateInput[]
+    updateMany?: ResumeUpdateManyWithWhereWithoutTemplateInput | ResumeUpdateManyWithWhereWithoutTemplateInput[]
+    deleteMany?: ResumeScalarWhereInput | ResumeScalarWhereInput[]
+  }
+
+  export type ResumeCreateNestedManyWithoutThemeInput = {
+    create?: XOR<ResumeCreateWithoutThemeInput, ResumeUncheckedCreateWithoutThemeInput> | ResumeCreateWithoutThemeInput[] | ResumeUncheckedCreateWithoutThemeInput[]
+    connectOrCreate?: ResumeCreateOrConnectWithoutThemeInput | ResumeCreateOrConnectWithoutThemeInput[]
+    createMany?: ResumeCreateManyThemeInputEnvelope
+    connect?: ResumeWhereUniqueInput | ResumeWhereUniqueInput[]
+  }
+
+  export type ResumeUncheckedCreateNestedManyWithoutThemeInput = {
+    create?: XOR<ResumeCreateWithoutThemeInput, ResumeUncheckedCreateWithoutThemeInput> | ResumeCreateWithoutThemeInput[] | ResumeUncheckedCreateWithoutThemeInput[]
+    connectOrCreate?: ResumeCreateOrConnectWithoutThemeInput | ResumeCreateOrConnectWithoutThemeInput[]
+    createMany?: ResumeCreateManyThemeInputEnvelope
+    connect?: ResumeWhereUniqueInput | ResumeWhereUniqueInput[]
+  }
+
+  export type ResumeUpdateManyWithoutThemeNestedInput = {
+    create?: XOR<ResumeCreateWithoutThemeInput, ResumeUncheckedCreateWithoutThemeInput> | ResumeCreateWithoutThemeInput[] | ResumeUncheckedCreateWithoutThemeInput[]
+    connectOrCreate?: ResumeCreateOrConnectWithoutThemeInput | ResumeCreateOrConnectWithoutThemeInput[]
+    upsert?: ResumeUpsertWithWhereUniqueWithoutThemeInput | ResumeUpsertWithWhereUniqueWithoutThemeInput[]
+    createMany?: ResumeCreateManyThemeInputEnvelope
+    set?: ResumeWhereUniqueInput | ResumeWhereUniqueInput[]
+    disconnect?: ResumeWhereUniqueInput | ResumeWhereUniqueInput[]
+    delete?: ResumeWhereUniqueInput | ResumeWhereUniqueInput[]
+    connect?: ResumeWhereUniqueInput | ResumeWhereUniqueInput[]
+    update?: ResumeUpdateWithWhereUniqueWithoutThemeInput | ResumeUpdateWithWhereUniqueWithoutThemeInput[]
+    updateMany?: ResumeUpdateManyWithWhereWithoutThemeInput | ResumeUpdateManyWithWhereWithoutThemeInput[]
+    deleteMany?: ResumeScalarWhereInput | ResumeScalarWhereInput[]
+  }
+
+  export type ResumeUncheckedUpdateManyWithoutThemeNestedInput = {
+    create?: XOR<ResumeCreateWithoutThemeInput, ResumeUncheckedCreateWithoutThemeInput> | ResumeCreateWithoutThemeInput[] | ResumeUncheckedCreateWithoutThemeInput[]
+    connectOrCreate?: ResumeCreateOrConnectWithoutThemeInput | ResumeCreateOrConnectWithoutThemeInput[]
+    upsert?: ResumeUpsertWithWhereUniqueWithoutThemeInput | ResumeUpsertWithWhereUniqueWithoutThemeInput[]
+    createMany?: ResumeCreateManyThemeInputEnvelope
+    set?: ResumeWhereUniqueInput | ResumeWhereUniqueInput[]
+    disconnect?: ResumeWhereUniqueInput | ResumeWhereUniqueInput[]
+    delete?: ResumeWhereUniqueInput | ResumeWhereUniqueInput[]
+    connect?: ResumeWhereUniqueInput | ResumeWhereUniqueInput[]
+    update?: ResumeUpdateWithWhereUniqueWithoutThemeInput | ResumeUpdateWithWhereUniqueWithoutThemeInput[]
+    updateMany?: ResumeUpdateManyWithWhereWithoutThemeInput | ResumeUpdateManyWithWhereWithoutThemeInput[]
+    deleteMany?: ResumeScalarWhereInput | ResumeScalarWhereInput[]
+  }
+
+  export type ResumeCreateNestedManyWithoutFontInput = {
+    create?: XOR<ResumeCreateWithoutFontInput, ResumeUncheckedCreateWithoutFontInput> | ResumeCreateWithoutFontInput[] | ResumeUncheckedCreateWithoutFontInput[]
+    connectOrCreate?: ResumeCreateOrConnectWithoutFontInput | ResumeCreateOrConnectWithoutFontInput[]
+    createMany?: ResumeCreateManyFontInputEnvelope
+    connect?: ResumeWhereUniqueInput | ResumeWhereUniqueInput[]
+  }
+
+  export type ResumeUncheckedCreateNestedManyWithoutFontInput = {
+    create?: XOR<ResumeCreateWithoutFontInput, ResumeUncheckedCreateWithoutFontInput> | ResumeCreateWithoutFontInput[] | ResumeUncheckedCreateWithoutFontInput[]
+    connectOrCreate?: ResumeCreateOrConnectWithoutFontInput | ResumeCreateOrConnectWithoutFontInput[]
+    createMany?: ResumeCreateManyFontInputEnvelope
+    connect?: ResumeWhereUniqueInput | ResumeWhereUniqueInput[]
+  }
+
+  export type ResumeUpdateManyWithoutFontNestedInput = {
+    create?: XOR<ResumeCreateWithoutFontInput, ResumeUncheckedCreateWithoutFontInput> | ResumeCreateWithoutFontInput[] | ResumeUncheckedCreateWithoutFontInput[]
+    connectOrCreate?: ResumeCreateOrConnectWithoutFontInput | ResumeCreateOrConnectWithoutFontInput[]
+    upsert?: ResumeUpsertWithWhereUniqueWithoutFontInput | ResumeUpsertWithWhereUniqueWithoutFontInput[]
+    createMany?: ResumeCreateManyFontInputEnvelope
+    set?: ResumeWhereUniqueInput | ResumeWhereUniqueInput[]
+    disconnect?: ResumeWhereUniqueInput | ResumeWhereUniqueInput[]
+    delete?: ResumeWhereUniqueInput | ResumeWhereUniqueInput[]
+    connect?: ResumeWhereUniqueInput | ResumeWhereUniqueInput[]
+    update?: ResumeUpdateWithWhereUniqueWithoutFontInput | ResumeUpdateWithWhereUniqueWithoutFontInput[]
+    updateMany?: ResumeUpdateManyWithWhereWithoutFontInput | ResumeUpdateManyWithWhereWithoutFontInput[]
+    deleteMany?: ResumeScalarWhereInput | ResumeScalarWhereInput[]
+  }
+
+  export type ResumeUncheckedUpdateManyWithoutFontNestedInput = {
+    create?: XOR<ResumeCreateWithoutFontInput, ResumeUncheckedCreateWithoutFontInput> | ResumeCreateWithoutFontInput[] | ResumeUncheckedCreateWithoutFontInput[]
+    connectOrCreate?: ResumeCreateOrConnectWithoutFontInput | ResumeCreateOrConnectWithoutFontInput[]
+    upsert?: ResumeUpsertWithWhereUniqueWithoutFontInput | ResumeUpsertWithWhereUniqueWithoutFontInput[]
+    createMany?: ResumeCreateManyFontInputEnvelope
+    set?: ResumeWhereUniqueInput | ResumeWhereUniqueInput[]
+    disconnect?: ResumeWhereUniqueInput | ResumeWhereUniqueInput[]
+    delete?: ResumeWhereUniqueInput | ResumeWhereUniqueInput[]
+    connect?: ResumeWhereUniqueInput | ResumeWhereUniqueInput[]
+    update?: ResumeUpdateWithWhereUniqueWithoutFontInput | ResumeUpdateWithWhereUniqueWithoutFontInput[]
+    updateMany?: ResumeUpdateManyWithWhereWithoutFontInput | ResumeUpdateManyWithWhereWithoutFontInput[]
+    deleteMany?: ResumeScalarWhereInput | ResumeScalarWhereInput[]
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -4268,6 +25780,67 @@ export namespace Prisma {
     _max?: NestedEnumRoleFilter<$PrismaModel>
   }
 
+  export type NestedEnumSectionTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.SectionType | EnumSectionTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.SectionType[] | ListEnumSectionTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.SectionType[] | ListEnumSectionTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumSectionTypeFilter<$PrismaModel> | $Enums.SectionType
+  }
+
+  export type NestedEnumSectionTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.SectionType | EnumSectionTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.SectionType[] | ListEnumSectionTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.SectionType[] | ListEnumSectionTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumSectionTypeWithAggregatesFilter<$PrismaModel> | $Enums.SectionType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumSectionTypeFilter<$PrismaModel>
+    _max?: NestedEnumSectionTypeFilter<$PrismaModel>
+  }
+
+  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type NestedFloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
+  export type NestedEnumLanguageLevelFilter<$PrismaModel = never> = {
+    equals?: $Enums.LanguageLevel | EnumLanguageLevelFieldRefInput<$PrismaModel>
+    in?: $Enums.LanguageLevel[] | ListEnumLanguageLevelFieldRefInput<$PrismaModel>
+    notIn?: $Enums.LanguageLevel[] | ListEnumLanguageLevelFieldRefInput<$PrismaModel>
+    not?: NestedEnumLanguageLevelFilter<$PrismaModel> | $Enums.LanguageLevel
+  }
+
+  export type NestedEnumLanguageLevelWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.LanguageLevel | EnumLanguageLevelFieldRefInput<$PrismaModel>
+    in?: $Enums.LanguageLevel[] | ListEnumLanguageLevelFieldRefInput<$PrismaModel>
+    notIn?: $Enums.LanguageLevel[] | ListEnumLanguageLevelFieldRefInput<$PrismaModel>
+    not?: NestedEnumLanguageLevelWithAggregatesFilter<$PrismaModel> | $Enums.LanguageLevel
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumLanguageLevelFilter<$PrismaModel>
+    _max?: NestedEnumLanguageLevelFilter<$PrismaModel>
+  }
+
   export type SessionCreateWithoutUserInput = {
     id?: string
     token: string
@@ -4293,6 +25866,60 @@ export namespace Prisma {
 
   export type SessionCreateManyUserInputEnvelope = {
     data: SessionCreateManyUserInput | SessionCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ResumeCreateWithoutUserInput = {
+    id?: string
+    title: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isPublic?: boolean
+    publicUrl?: string | null
+    template: TemplateCreateNestedOneWithoutResumesInput
+    theme: ThemeCreateNestedOneWithoutResumesInput
+    font?: FontCreateNestedOneWithoutResumesInput
+    personalInfo?: PersonalInfoCreateNestedManyWithoutResumeInput
+    sections?: SectionCreateNestedManyWithoutResumeInput
+    educations?: EducationCreateNestedManyWithoutResumeInput
+    experiences?: ExperienceCreateNestedManyWithoutResumeInput
+    skills?: SkillCreateNestedManyWithoutResumeInput
+    languages?: LanguageCreateNestedManyWithoutResumeInput
+    certifications?: CertificationCreateNestedManyWithoutResumeInput
+    projects?: ProjectCreateNestedManyWithoutResumeInput
+    achievements?: AchievementCreateNestedManyWithoutResumeInput
+    customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+  }
+
+  export type ResumeUncheckedCreateWithoutUserInput = {
+    id?: string
+    title: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isPublic?: boolean
+    publicUrl?: string | null
+    templateId: string
+    themeId: string
+    fontId?: string | null
+    personalInfo?: PersonalInfoUncheckedCreateNestedManyWithoutResumeInput
+    sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
+    educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
+    experiences?: ExperienceUncheckedCreateNestedManyWithoutResumeInput
+    skills?: SkillUncheckedCreateNestedManyWithoutResumeInput
+    languages?: LanguageUncheckedCreateNestedManyWithoutResumeInput
+    certifications?: CertificationUncheckedCreateNestedManyWithoutResumeInput
+    projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
+    achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
+    customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+  }
+
+  export type ResumeCreateOrConnectWithoutUserInput = {
+    where: ResumeWhereUniqueInput
+    create: XOR<ResumeCreateWithoutUserInput, ResumeUncheckedCreateWithoutUserInput>
+  }
+
+  export type ResumeCreateManyUserInputEnvelope = {
+    data: ResumeCreateManyUserInput | ResumeCreateManyUserInput[]
     skipDuplicates?: boolean
   }
 
@@ -4325,11 +25952,43 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Session"> | Date | string
   }
 
+  export type ResumeUpsertWithWhereUniqueWithoutUserInput = {
+    where: ResumeWhereUniqueInput
+    update: XOR<ResumeUpdateWithoutUserInput, ResumeUncheckedUpdateWithoutUserInput>
+    create: XOR<ResumeCreateWithoutUserInput, ResumeUncheckedCreateWithoutUserInput>
+  }
+
+  export type ResumeUpdateWithWhereUniqueWithoutUserInput = {
+    where: ResumeWhereUniqueInput
+    data: XOR<ResumeUpdateWithoutUserInput, ResumeUncheckedUpdateWithoutUserInput>
+  }
+
+  export type ResumeUpdateManyWithWhereWithoutUserInput = {
+    where: ResumeScalarWhereInput
+    data: XOR<ResumeUpdateManyMutationInput, ResumeUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type ResumeScalarWhereInput = {
+    AND?: ResumeScalarWhereInput | ResumeScalarWhereInput[]
+    OR?: ResumeScalarWhereInput[]
+    NOT?: ResumeScalarWhereInput | ResumeScalarWhereInput[]
+    id?: StringFilter<"Resume"> | string
+    title?: StringFilter<"Resume"> | string
+    userId?: StringFilter<"Resume"> | string
+    createdAt?: DateTimeFilter<"Resume"> | Date | string
+    updatedAt?: DateTimeFilter<"Resume"> | Date | string
+    isPublic?: BoolFilter<"Resume"> | boolean
+    publicUrl?: StringNullableFilter<"Resume"> | string | null
+    templateId?: StringFilter<"Resume"> | string
+    themeId?: StringFilter<"Resume"> | string
+    fontId?: StringNullableFilter<"Resume"> | string | null
+  }
+
   export type UserCreateWithoutSessionsInput = {
     id?: string
     email: string
     emailVerified?: boolean
-    emailVerifiyToken?: string | null
+    emailVerifyToken?: string | null
     emailVerifyExpires?: Date | string | null
     passwordHash: string
     passwordResetToken?: string | null
@@ -4340,13 +25999,14 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     role?: $Enums.Role
+    resume?: ResumeCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutSessionsInput = {
     id?: string
     email: string
     emailVerified?: boolean
-    emailVerifiyToken?: string | null
+    emailVerifyToken?: string | null
     emailVerifyExpires?: Date | string | null
     passwordHash: string
     passwordResetToken?: string | null
@@ -4357,6 +26017,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     role?: $Enums.Role
+    resume?: ResumeUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutSessionsInput = {
@@ -4379,7 +26040,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
-    emailVerifiyToken?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerifyToken?: NullableStringFieldUpdateOperationsInput | string | null
     emailVerifyExpires?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     passwordHash?: StringFieldUpdateOperationsInput | string
     passwordResetToken?: NullableStringFieldUpdateOperationsInput | string | null
@@ -4390,13 +26051,14 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    resume?: ResumeUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutSessionsInput = {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
-    emailVerifiyToken?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerifyToken?: NullableStringFieldUpdateOperationsInput | string | null
     emailVerifyExpires?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     passwordHash?: StringFieldUpdateOperationsInput | string
     passwordResetToken?: NullableStringFieldUpdateOperationsInput | string | null
@@ -4407,6 +26069,2121 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    resume?: ResumeUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserCreateWithoutResumeInput = {
+    id?: string
+    email: string
+    emailVerified?: boolean
+    emailVerifyToken?: string | null
+    emailVerifyExpires?: Date | string | null
+    passwordHash: string
+    passwordResetToken?: string | null
+    passwordResetExpires?: Date | string | null
+    firstName: string
+    lastName: string
+    profileImage: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    role?: $Enums.Role
+    sessions?: SessionCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutResumeInput = {
+    id?: string
+    email: string
+    emailVerified?: boolean
+    emailVerifyToken?: string | null
+    emailVerifyExpires?: Date | string | null
+    passwordHash: string
+    passwordResetToken?: string | null
+    passwordResetExpires?: Date | string | null
+    firstName: string
+    lastName: string
+    profileImage: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    role?: $Enums.Role
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutResumeInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutResumeInput, UserUncheckedCreateWithoutResumeInput>
+  }
+
+  export type TemplateCreateWithoutResumesInput = {
+    id?: string
+    name: string
+    description?: string | null
+    thumbnail?: string | null
+    isDefault?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type TemplateUncheckedCreateWithoutResumesInput = {
+    id?: string
+    name: string
+    description?: string | null
+    thumbnail?: string | null
+    isDefault?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type TemplateCreateOrConnectWithoutResumesInput = {
+    where: TemplateWhereUniqueInput
+    create: XOR<TemplateCreateWithoutResumesInput, TemplateUncheckedCreateWithoutResumesInput>
+  }
+
+  export type ThemeCreateWithoutResumesInput = {
+    id?: string
+    name: string
+    primary: string
+    secondary: string
+    accent: string
+    background: string
+    text: string
+    description?: string | null
+    thumbnail?: string | null
+    isDefault?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ThemeUncheckedCreateWithoutResumesInput = {
+    id?: string
+    name: string
+    primary: string
+    secondary: string
+    accent: string
+    background: string
+    text: string
+    description?: string | null
+    thumbnail?: string | null
+    isDefault?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ThemeCreateOrConnectWithoutResumesInput = {
+    where: ThemeWhereUniqueInput
+    create: XOR<ThemeCreateWithoutResumesInput, ThemeUncheckedCreateWithoutResumesInput>
+  }
+
+  export type FontCreateWithoutResumesInput = {
+    id?: string
+    name: string
+    category: string
+    url?: string | null
+    isDefault?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type FontUncheckedCreateWithoutResumesInput = {
+    id?: string
+    name: string
+    category: string
+    url?: string | null
+    isDefault?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type FontCreateOrConnectWithoutResumesInput = {
+    where: FontWhereUniqueInput
+    create: XOR<FontCreateWithoutResumesInput, FontUncheckedCreateWithoutResumesInput>
+  }
+
+  export type PersonalInfoCreateWithoutResumeInput = {
+    id?: string
+    firstName?: string | null
+    lastName?: string | null
+    title?: string | null
+    email?: string | null
+    phone?: string | null
+    website?: string | null
+    location?: string | null
+    photoUrl?: string | null
+    description?: string | null
+  }
+
+  export type PersonalInfoUncheckedCreateWithoutResumeInput = {
+    id?: string
+    firstName?: string | null
+    lastName?: string | null
+    title?: string | null
+    email?: string | null
+    phone?: string | null
+    website?: string | null
+    location?: string | null
+    photoUrl?: string | null
+    description?: string | null
+  }
+
+  export type PersonalInfoCreateOrConnectWithoutResumeInput = {
+    where: PersonalInfoWhereUniqueInput
+    create: XOR<PersonalInfoCreateWithoutResumeInput, PersonalInfoUncheckedCreateWithoutResumeInput>
+  }
+
+  export type PersonalInfoCreateManyResumeInputEnvelope = {
+    data: PersonalInfoCreateManyResumeInput | PersonalInfoCreateManyResumeInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type SectionCreateWithoutResumeInput = {
+    id?: string
+    type: $Enums.SectionType
+    title: string
+    isVisible: boolean
+    order: number
+  }
+
+  export type SectionUncheckedCreateWithoutResumeInput = {
+    id?: string
+    type: $Enums.SectionType
+    title: string
+    isVisible: boolean
+    order: number
+  }
+
+  export type SectionCreateOrConnectWithoutResumeInput = {
+    where: SectionWhereUniqueInput
+    create: XOR<SectionCreateWithoutResumeInput, SectionUncheckedCreateWithoutResumeInput>
+  }
+
+  export type SectionCreateManyResumeInputEnvelope = {
+    data: SectionCreateManyResumeInput | SectionCreateManyResumeInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type EducationCreateWithoutResumeInput = {
+    id?: string
+    institution: string
+    degree: string
+    fieldOfStudy?: string | null
+    startDate: Date | string
+    endDate?: Date | string | null
+    description?: string | null
+    location?: string | null
+    order?: number
+  }
+
+  export type EducationUncheckedCreateWithoutResumeInput = {
+    id?: string
+    institution: string
+    degree: string
+    fieldOfStudy?: string | null
+    startDate: Date | string
+    endDate?: Date | string | null
+    description?: string | null
+    location?: string | null
+    order?: number
+  }
+
+  export type EducationCreateOrConnectWithoutResumeInput = {
+    where: EducationWhereUniqueInput
+    create: XOR<EducationCreateWithoutResumeInput, EducationUncheckedCreateWithoutResumeInput>
+  }
+
+  export type EducationCreateManyResumeInputEnvelope = {
+    data: EducationCreateManyResumeInput | EducationCreateManyResumeInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ExperienceCreateWithoutResumeInput = {
+    id?: string
+    company: string
+    position: string
+    startDate: Date | string
+    endDate?: Date | string | null
+    current?: boolean
+    description?: string | null
+    location?: string | null
+    order?: number
+  }
+
+  export type ExperienceUncheckedCreateWithoutResumeInput = {
+    id?: string
+    company: string
+    position: string
+    startDate: Date | string
+    endDate?: Date | string | null
+    current?: boolean
+    description?: string | null
+    location?: string | null
+    order?: number
+  }
+
+  export type ExperienceCreateOrConnectWithoutResumeInput = {
+    where: ExperienceWhereUniqueInput
+    create: XOR<ExperienceCreateWithoutResumeInput, ExperienceUncheckedCreateWithoutResumeInput>
+  }
+
+  export type ExperienceCreateManyResumeInputEnvelope = {
+    data: ExperienceCreateManyResumeInput | ExperienceCreateManyResumeInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type SkillCreateWithoutResumeInput = {
+    id?: string
+    name: string
+    level?: number
+    category?: string | null
+    order?: number
+  }
+
+  export type SkillUncheckedCreateWithoutResumeInput = {
+    id?: string
+    name: string
+    level?: number
+    category?: string | null
+    order?: number
+  }
+
+  export type SkillCreateOrConnectWithoutResumeInput = {
+    where: SkillWhereUniqueInput
+    create: XOR<SkillCreateWithoutResumeInput, SkillUncheckedCreateWithoutResumeInput>
+  }
+
+  export type SkillCreateManyResumeInputEnvelope = {
+    data: SkillCreateManyResumeInput | SkillCreateManyResumeInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type LanguageCreateWithoutResumeInput = {
+    id?: string
+    name: string
+    level: $Enums.LanguageLevel
+    order?: number
+  }
+
+  export type LanguageUncheckedCreateWithoutResumeInput = {
+    id?: string
+    name: string
+    level: $Enums.LanguageLevel
+    order?: number
+  }
+
+  export type LanguageCreateOrConnectWithoutResumeInput = {
+    where: LanguageWhereUniqueInput
+    create: XOR<LanguageCreateWithoutResumeInput, LanguageUncheckedCreateWithoutResumeInput>
+  }
+
+  export type LanguageCreateManyResumeInputEnvelope = {
+    data: LanguageCreateManyResumeInput | LanguageCreateManyResumeInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type CertificationCreateWithoutResumeInput = {
+    id?: string
+    name: string
+    issuer: string
+    issueDate?: Date | string | null
+    expiryDate?: Date | string | null
+    credentialId?: string | null
+    credentialUrl?: string | null
+    order?: number
+  }
+
+  export type CertificationUncheckedCreateWithoutResumeInput = {
+    id?: string
+    name: string
+    issuer: string
+    issueDate?: Date | string | null
+    expiryDate?: Date | string | null
+    credentialId?: string | null
+    credentialUrl?: string | null
+    order?: number
+  }
+
+  export type CertificationCreateOrConnectWithoutResumeInput = {
+    where: CertificationWhereUniqueInput
+    create: XOR<CertificationCreateWithoutResumeInput, CertificationUncheckedCreateWithoutResumeInput>
+  }
+
+  export type CertificationCreateManyResumeInputEnvelope = {
+    data: CertificationCreateManyResumeInput | CertificationCreateManyResumeInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ProjectCreateWithoutResumeInput = {
+    id?: string
+    title: string
+    description?: string | null
+    url?: string | null
+    startDate?: Date | string | null
+    endDate?: Date | string | null
+    order?: number
+  }
+
+  export type ProjectUncheckedCreateWithoutResumeInput = {
+    id?: string
+    title: string
+    description?: string | null
+    url?: string | null
+    startDate?: Date | string | null
+    endDate?: Date | string | null
+    order?: number
+  }
+
+  export type ProjectCreateOrConnectWithoutResumeInput = {
+    where: ProjectWhereUniqueInput
+    create: XOR<ProjectCreateWithoutResumeInput, ProjectUncheckedCreateWithoutResumeInput>
+  }
+
+  export type ProjectCreateManyResumeInputEnvelope = {
+    data: ProjectCreateManyResumeInput | ProjectCreateManyResumeInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type AchievementCreateWithoutResumeInput = {
+    id?: string
+    title: string
+    description?: string | null
+    date?: Date | string | null
+    order?: number
+  }
+
+  export type AchievementUncheckedCreateWithoutResumeInput = {
+    id?: string
+    title: string
+    description?: string | null
+    date?: Date | string | null
+    order?: number
+  }
+
+  export type AchievementCreateOrConnectWithoutResumeInput = {
+    where: AchievementWhereUniqueInput
+    create: XOR<AchievementCreateWithoutResumeInput, AchievementUncheckedCreateWithoutResumeInput>
+  }
+
+  export type AchievementCreateManyResumeInputEnvelope = {
+    data: AchievementCreateManyResumeInput | AchievementCreateManyResumeInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type CustomSectionCreateWithoutResumeInput = {
+    id?: string
+    title: string
+    content: string
+    order?: number
+  }
+
+  export type CustomSectionUncheckedCreateWithoutResumeInput = {
+    id?: string
+    title: string
+    content: string
+    order?: number
+  }
+
+  export type CustomSectionCreateOrConnectWithoutResumeInput = {
+    where: CustomSectionWhereUniqueInput
+    create: XOR<CustomSectionCreateWithoutResumeInput, CustomSectionUncheckedCreateWithoutResumeInput>
+  }
+
+  export type CustomSectionCreateManyResumeInputEnvelope = {
+    data: CustomSectionCreateManyResumeInput | CustomSectionCreateManyResumeInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type UserUpsertWithoutResumeInput = {
+    update: XOR<UserUpdateWithoutResumeInput, UserUncheckedUpdateWithoutResumeInput>
+    create: XOR<UserCreateWithoutResumeInput, UserUncheckedCreateWithoutResumeInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutResumeInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutResumeInput, UserUncheckedUpdateWithoutResumeInput>
+  }
+
+  export type UserUpdateWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    emailVerifyToken?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerifyExpires?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    passwordHash?: StringFieldUpdateOperationsInput | string
+    passwordResetToken?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordResetExpires?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    profileImage?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    emailVerifyToken?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerifyExpires?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    passwordHash?: StringFieldUpdateOperationsInput | string
+    passwordResetToken?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordResetExpires?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    profileImage?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type TemplateUpsertWithoutResumesInput = {
+    update: XOR<TemplateUpdateWithoutResumesInput, TemplateUncheckedUpdateWithoutResumesInput>
+    create: XOR<TemplateCreateWithoutResumesInput, TemplateUncheckedCreateWithoutResumesInput>
+    where?: TemplateWhereInput
+  }
+
+  export type TemplateUpdateToOneWithWhereWithoutResumesInput = {
+    where?: TemplateWhereInput
+    data: XOR<TemplateUpdateWithoutResumesInput, TemplateUncheckedUpdateWithoutResumesInput>
+  }
+
+  export type TemplateUpdateWithoutResumesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnail?: NullableStringFieldUpdateOperationsInput | string | null
+    isDefault?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TemplateUncheckedUpdateWithoutResumesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnail?: NullableStringFieldUpdateOperationsInput | string | null
+    isDefault?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ThemeUpsertWithoutResumesInput = {
+    update: XOR<ThemeUpdateWithoutResumesInput, ThemeUncheckedUpdateWithoutResumesInput>
+    create: XOR<ThemeCreateWithoutResumesInput, ThemeUncheckedCreateWithoutResumesInput>
+    where?: ThemeWhereInput
+  }
+
+  export type ThemeUpdateToOneWithWhereWithoutResumesInput = {
+    where?: ThemeWhereInput
+    data: XOR<ThemeUpdateWithoutResumesInput, ThemeUncheckedUpdateWithoutResumesInput>
+  }
+
+  export type ThemeUpdateWithoutResumesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    primary?: StringFieldUpdateOperationsInput | string
+    secondary?: StringFieldUpdateOperationsInput | string
+    accent?: StringFieldUpdateOperationsInput | string
+    background?: StringFieldUpdateOperationsInput | string
+    text?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnail?: NullableStringFieldUpdateOperationsInput | string | null
+    isDefault?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ThemeUncheckedUpdateWithoutResumesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    primary?: StringFieldUpdateOperationsInput | string
+    secondary?: StringFieldUpdateOperationsInput | string
+    accent?: StringFieldUpdateOperationsInput | string
+    background?: StringFieldUpdateOperationsInput | string
+    text?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnail?: NullableStringFieldUpdateOperationsInput | string | null
+    isDefault?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FontUpsertWithoutResumesInput = {
+    update: XOR<FontUpdateWithoutResumesInput, FontUncheckedUpdateWithoutResumesInput>
+    create: XOR<FontCreateWithoutResumesInput, FontUncheckedCreateWithoutResumesInput>
+    where?: FontWhereInput
+  }
+
+  export type FontUpdateToOneWithWhereWithoutResumesInput = {
+    where?: FontWhereInput
+    data: XOR<FontUpdateWithoutResumesInput, FontUncheckedUpdateWithoutResumesInput>
+  }
+
+  export type FontUpdateWithoutResumesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    url?: NullableStringFieldUpdateOperationsInput | string | null
+    isDefault?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FontUncheckedUpdateWithoutResumesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    url?: NullableStringFieldUpdateOperationsInput | string | null
+    isDefault?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PersonalInfoUpsertWithWhereUniqueWithoutResumeInput = {
+    where: PersonalInfoWhereUniqueInput
+    update: XOR<PersonalInfoUpdateWithoutResumeInput, PersonalInfoUncheckedUpdateWithoutResumeInput>
+    create: XOR<PersonalInfoCreateWithoutResumeInput, PersonalInfoUncheckedCreateWithoutResumeInput>
+  }
+
+  export type PersonalInfoUpdateWithWhereUniqueWithoutResumeInput = {
+    where: PersonalInfoWhereUniqueInput
+    data: XOR<PersonalInfoUpdateWithoutResumeInput, PersonalInfoUncheckedUpdateWithoutResumeInput>
+  }
+
+  export type PersonalInfoUpdateManyWithWhereWithoutResumeInput = {
+    where: PersonalInfoScalarWhereInput
+    data: XOR<PersonalInfoUpdateManyMutationInput, PersonalInfoUncheckedUpdateManyWithoutResumeInput>
+  }
+
+  export type PersonalInfoScalarWhereInput = {
+    AND?: PersonalInfoScalarWhereInput | PersonalInfoScalarWhereInput[]
+    OR?: PersonalInfoScalarWhereInput[]
+    NOT?: PersonalInfoScalarWhereInput | PersonalInfoScalarWhereInput[]
+    id?: StringFilter<"PersonalInfo"> | string
+    resumeId?: StringFilter<"PersonalInfo"> | string
+    firstName?: StringNullableFilter<"PersonalInfo"> | string | null
+    lastName?: StringNullableFilter<"PersonalInfo"> | string | null
+    title?: StringNullableFilter<"PersonalInfo"> | string | null
+    email?: StringNullableFilter<"PersonalInfo"> | string | null
+    phone?: StringNullableFilter<"PersonalInfo"> | string | null
+    website?: StringNullableFilter<"PersonalInfo"> | string | null
+    location?: StringNullableFilter<"PersonalInfo"> | string | null
+    photoUrl?: StringNullableFilter<"PersonalInfo"> | string | null
+    description?: StringNullableFilter<"PersonalInfo"> | string | null
+  }
+
+  export type SectionUpsertWithWhereUniqueWithoutResumeInput = {
+    where: SectionWhereUniqueInput
+    update: XOR<SectionUpdateWithoutResumeInput, SectionUncheckedUpdateWithoutResumeInput>
+    create: XOR<SectionCreateWithoutResumeInput, SectionUncheckedCreateWithoutResumeInput>
+  }
+
+  export type SectionUpdateWithWhereUniqueWithoutResumeInput = {
+    where: SectionWhereUniqueInput
+    data: XOR<SectionUpdateWithoutResumeInput, SectionUncheckedUpdateWithoutResumeInput>
+  }
+
+  export type SectionUpdateManyWithWhereWithoutResumeInput = {
+    where: SectionScalarWhereInput
+    data: XOR<SectionUpdateManyMutationInput, SectionUncheckedUpdateManyWithoutResumeInput>
+  }
+
+  export type SectionScalarWhereInput = {
+    AND?: SectionScalarWhereInput | SectionScalarWhereInput[]
+    OR?: SectionScalarWhereInput[]
+    NOT?: SectionScalarWhereInput | SectionScalarWhereInput[]
+    id?: StringFilter<"Section"> | string
+    resumeId?: StringFilter<"Section"> | string
+    type?: EnumSectionTypeFilter<"Section"> | $Enums.SectionType
+    title?: StringFilter<"Section"> | string
+    isVisible?: BoolFilter<"Section"> | boolean
+    order?: IntFilter<"Section"> | number
+  }
+
+  export type EducationUpsertWithWhereUniqueWithoutResumeInput = {
+    where: EducationWhereUniqueInput
+    update: XOR<EducationUpdateWithoutResumeInput, EducationUncheckedUpdateWithoutResumeInput>
+    create: XOR<EducationCreateWithoutResumeInput, EducationUncheckedCreateWithoutResumeInput>
+  }
+
+  export type EducationUpdateWithWhereUniqueWithoutResumeInput = {
+    where: EducationWhereUniqueInput
+    data: XOR<EducationUpdateWithoutResumeInput, EducationUncheckedUpdateWithoutResumeInput>
+  }
+
+  export type EducationUpdateManyWithWhereWithoutResumeInput = {
+    where: EducationScalarWhereInput
+    data: XOR<EducationUpdateManyMutationInput, EducationUncheckedUpdateManyWithoutResumeInput>
+  }
+
+  export type EducationScalarWhereInput = {
+    AND?: EducationScalarWhereInput | EducationScalarWhereInput[]
+    OR?: EducationScalarWhereInput[]
+    NOT?: EducationScalarWhereInput | EducationScalarWhereInput[]
+    id?: StringFilter<"Education"> | string
+    resumeId?: StringFilter<"Education"> | string
+    institution?: StringFilter<"Education"> | string
+    degree?: StringFilter<"Education"> | string
+    fieldOfStudy?: StringNullableFilter<"Education"> | string | null
+    startDate?: DateTimeFilter<"Education"> | Date | string
+    endDate?: DateTimeNullableFilter<"Education"> | Date | string | null
+    description?: StringNullableFilter<"Education"> | string | null
+    location?: StringNullableFilter<"Education"> | string | null
+    order?: IntFilter<"Education"> | number
+  }
+
+  export type ExperienceUpsertWithWhereUniqueWithoutResumeInput = {
+    where: ExperienceWhereUniqueInput
+    update: XOR<ExperienceUpdateWithoutResumeInput, ExperienceUncheckedUpdateWithoutResumeInput>
+    create: XOR<ExperienceCreateWithoutResumeInput, ExperienceUncheckedCreateWithoutResumeInput>
+  }
+
+  export type ExperienceUpdateWithWhereUniqueWithoutResumeInput = {
+    where: ExperienceWhereUniqueInput
+    data: XOR<ExperienceUpdateWithoutResumeInput, ExperienceUncheckedUpdateWithoutResumeInput>
+  }
+
+  export type ExperienceUpdateManyWithWhereWithoutResumeInput = {
+    where: ExperienceScalarWhereInput
+    data: XOR<ExperienceUpdateManyMutationInput, ExperienceUncheckedUpdateManyWithoutResumeInput>
+  }
+
+  export type ExperienceScalarWhereInput = {
+    AND?: ExperienceScalarWhereInput | ExperienceScalarWhereInput[]
+    OR?: ExperienceScalarWhereInput[]
+    NOT?: ExperienceScalarWhereInput | ExperienceScalarWhereInput[]
+    id?: StringFilter<"Experience"> | string
+    resumeId?: StringFilter<"Experience"> | string
+    company?: StringFilter<"Experience"> | string
+    position?: StringFilter<"Experience"> | string
+    startDate?: DateTimeFilter<"Experience"> | Date | string
+    endDate?: DateTimeNullableFilter<"Experience"> | Date | string | null
+    current?: BoolFilter<"Experience"> | boolean
+    description?: StringNullableFilter<"Experience"> | string | null
+    location?: StringNullableFilter<"Experience"> | string | null
+    order?: IntFilter<"Experience"> | number
+  }
+
+  export type SkillUpsertWithWhereUniqueWithoutResumeInput = {
+    where: SkillWhereUniqueInput
+    update: XOR<SkillUpdateWithoutResumeInput, SkillUncheckedUpdateWithoutResumeInput>
+    create: XOR<SkillCreateWithoutResumeInput, SkillUncheckedCreateWithoutResumeInput>
+  }
+
+  export type SkillUpdateWithWhereUniqueWithoutResumeInput = {
+    where: SkillWhereUniqueInput
+    data: XOR<SkillUpdateWithoutResumeInput, SkillUncheckedUpdateWithoutResumeInput>
+  }
+
+  export type SkillUpdateManyWithWhereWithoutResumeInput = {
+    where: SkillScalarWhereInput
+    data: XOR<SkillUpdateManyMutationInput, SkillUncheckedUpdateManyWithoutResumeInput>
+  }
+
+  export type SkillScalarWhereInput = {
+    AND?: SkillScalarWhereInput | SkillScalarWhereInput[]
+    OR?: SkillScalarWhereInput[]
+    NOT?: SkillScalarWhereInput | SkillScalarWhereInput[]
+    id?: StringFilter<"Skill"> | string
+    resumeId?: StringFilter<"Skill"> | string
+    name?: StringFilter<"Skill"> | string
+    level?: IntFilter<"Skill"> | number
+    category?: StringNullableFilter<"Skill"> | string | null
+    order?: IntFilter<"Skill"> | number
+  }
+
+  export type LanguageUpsertWithWhereUniqueWithoutResumeInput = {
+    where: LanguageWhereUniqueInput
+    update: XOR<LanguageUpdateWithoutResumeInput, LanguageUncheckedUpdateWithoutResumeInput>
+    create: XOR<LanguageCreateWithoutResumeInput, LanguageUncheckedCreateWithoutResumeInput>
+  }
+
+  export type LanguageUpdateWithWhereUniqueWithoutResumeInput = {
+    where: LanguageWhereUniqueInput
+    data: XOR<LanguageUpdateWithoutResumeInput, LanguageUncheckedUpdateWithoutResumeInput>
+  }
+
+  export type LanguageUpdateManyWithWhereWithoutResumeInput = {
+    where: LanguageScalarWhereInput
+    data: XOR<LanguageUpdateManyMutationInput, LanguageUncheckedUpdateManyWithoutResumeInput>
+  }
+
+  export type LanguageScalarWhereInput = {
+    AND?: LanguageScalarWhereInput | LanguageScalarWhereInput[]
+    OR?: LanguageScalarWhereInput[]
+    NOT?: LanguageScalarWhereInput | LanguageScalarWhereInput[]
+    id?: StringFilter<"Language"> | string
+    resumeId?: StringFilter<"Language"> | string
+    name?: StringFilter<"Language"> | string
+    level?: EnumLanguageLevelFilter<"Language"> | $Enums.LanguageLevel
+    order?: IntFilter<"Language"> | number
+  }
+
+  export type CertificationUpsertWithWhereUniqueWithoutResumeInput = {
+    where: CertificationWhereUniqueInput
+    update: XOR<CertificationUpdateWithoutResumeInput, CertificationUncheckedUpdateWithoutResumeInput>
+    create: XOR<CertificationCreateWithoutResumeInput, CertificationUncheckedCreateWithoutResumeInput>
+  }
+
+  export type CertificationUpdateWithWhereUniqueWithoutResumeInput = {
+    where: CertificationWhereUniqueInput
+    data: XOR<CertificationUpdateWithoutResumeInput, CertificationUncheckedUpdateWithoutResumeInput>
+  }
+
+  export type CertificationUpdateManyWithWhereWithoutResumeInput = {
+    where: CertificationScalarWhereInput
+    data: XOR<CertificationUpdateManyMutationInput, CertificationUncheckedUpdateManyWithoutResumeInput>
+  }
+
+  export type CertificationScalarWhereInput = {
+    AND?: CertificationScalarWhereInput | CertificationScalarWhereInput[]
+    OR?: CertificationScalarWhereInput[]
+    NOT?: CertificationScalarWhereInput | CertificationScalarWhereInput[]
+    id?: StringFilter<"Certification"> | string
+    resumeId?: StringFilter<"Certification"> | string
+    name?: StringFilter<"Certification"> | string
+    issuer?: StringFilter<"Certification"> | string
+    issueDate?: DateTimeNullableFilter<"Certification"> | Date | string | null
+    expiryDate?: DateTimeNullableFilter<"Certification"> | Date | string | null
+    credentialId?: StringNullableFilter<"Certification"> | string | null
+    credentialUrl?: StringNullableFilter<"Certification"> | string | null
+    order?: IntFilter<"Certification"> | number
+  }
+
+  export type ProjectUpsertWithWhereUniqueWithoutResumeInput = {
+    where: ProjectWhereUniqueInput
+    update: XOR<ProjectUpdateWithoutResumeInput, ProjectUncheckedUpdateWithoutResumeInput>
+    create: XOR<ProjectCreateWithoutResumeInput, ProjectUncheckedCreateWithoutResumeInput>
+  }
+
+  export type ProjectUpdateWithWhereUniqueWithoutResumeInput = {
+    where: ProjectWhereUniqueInput
+    data: XOR<ProjectUpdateWithoutResumeInput, ProjectUncheckedUpdateWithoutResumeInput>
+  }
+
+  export type ProjectUpdateManyWithWhereWithoutResumeInput = {
+    where: ProjectScalarWhereInput
+    data: XOR<ProjectUpdateManyMutationInput, ProjectUncheckedUpdateManyWithoutResumeInput>
+  }
+
+  export type ProjectScalarWhereInput = {
+    AND?: ProjectScalarWhereInput | ProjectScalarWhereInput[]
+    OR?: ProjectScalarWhereInput[]
+    NOT?: ProjectScalarWhereInput | ProjectScalarWhereInput[]
+    id?: StringFilter<"Project"> | string
+    resumeId?: StringFilter<"Project"> | string
+    title?: StringFilter<"Project"> | string
+    description?: StringNullableFilter<"Project"> | string | null
+    url?: StringNullableFilter<"Project"> | string | null
+    startDate?: DateTimeNullableFilter<"Project"> | Date | string | null
+    endDate?: DateTimeNullableFilter<"Project"> | Date | string | null
+    order?: IntFilter<"Project"> | number
+  }
+
+  export type AchievementUpsertWithWhereUniqueWithoutResumeInput = {
+    where: AchievementWhereUniqueInput
+    update: XOR<AchievementUpdateWithoutResumeInput, AchievementUncheckedUpdateWithoutResumeInput>
+    create: XOR<AchievementCreateWithoutResumeInput, AchievementUncheckedCreateWithoutResumeInput>
+  }
+
+  export type AchievementUpdateWithWhereUniqueWithoutResumeInput = {
+    where: AchievementWhereUniqueInput
+    data: XOR<AchievementUpdateWithoutResumeInput, AchievementUncheckedUpdateWithoutResumeInput>
+  }
+
+  export type AchievementUpdateManyWithWhereWithoutResumeInput = {
+    where: AchievementScalarWhereInput
+    data: XOR<AchievementUpdateManyMutationInput, AchievementUncheckedUpdateManyWithoutResumeInput>
+  }
+
+  export type AchievementScalarWhereInput = {
+    AND?: AchievementScalarWhereInput | AchievementScalarWhereInput[]
+    OR?: AchievementScalarWhereInput[]
+    NOT?: AchievementScalarWhereInput | AchievementScalarWhereInput[]
+    id?: StringFilter<"Achievement"> | string
+    resumeId?: StringFilter<"Achievement"> | string
+    title?: StringFilter<"Achievement"> | string
+    description?: StringNullableFilter<"Achievement"> | string | null
+    date?: DateTimeNullableFilter<"Achievement"> | Date | string | null
+    order?: IntFilter<"Achievement"> | number
+  }
+
+  export type CustomSectionUpsertWithWhereUniqueWithoutResumeInput = {
+    where: CustomSectionWhereUniqueInput
+    update: XOR<CustomSectionUpdateWithoutResumeInput, CustomSectionUncheckedUpdateWithoutResumeInput>
+    create: XOR<CustomSectionCreateWithoutResumeInput, CustomSectionUncheckedCreateWithoutResumeInput>
+  }
+
+  export type CustomSectionUpdateWithWhereUniqueWithoutResumeInput = {
+    where: CustomSectionWhereUniqueInput
+    data: XOR<CustomSectionUpdateWithoutResumeInput, CustomSectionUncheckedUpdateWithoutResumeInput>
+  }
+
+  export type CustomSectionUpdateManyWithWhereWithoutResumeInput = {
+    where: CustomSectionScalarWhereInput
+    data: XOR<CustomSectionUpdateManyMutationInput, CustomSectionUncheckedUpdateManyWithoutResumeInput>
+  }
+
+  export type CustomSectionScalarWhereInput = {
+    AND?: CustomSectionScalarWhereInput | CustomSectionScalarWhereInput[]
+    OR?: CustomSectionScalarWhereInput[]
+    NOT?: CustomSectionScalarWhereInput | CustomSectionScalarWhereInput[]
+    id?: StringFilter<"CustomSection"> | string
+    resumeId?: StringFilter<"CustomSection"> | string
+    title?: StringFilter<"CustomSection"> | string
+    content?: StringFilter<"CustomSection"> | string
+    order?: IntFilter<"CustomSection"> | number
+  }
+
+  export type ResumeCreateWithoutPersonalInfoInput = {
+    id?: string
+    title: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isPublic?: boolean
+    publicUrl?: string | null
+    user: UserCreateNestedOneWithoutResumeInput
+    template: TemplateCreateNestedOneWithoutResumesInput
+    theme: ThemeCreateNestedOneWithoutResumesInput
+    font?: FontCreateNestedOneWithoutResumesInput
+    sections?: SectionCreateNestedManyWithoutResumeInput
+    educations?: EducationCreateNestedManyWithoutResumeInput
+    experiences?: ExperienceCreateNestedManyWithoutResumeInput
+    skills?: SkillCreateNestedManyWithoutResumeInput
+    languages?: LanguageCreateNestedManyWithoutResumeInput
+    certifications?: CertificationCreateNestedManyWithoutResumeInput
+    projects?: ProjectCreateNestedManyWithoutResumeInput
+    achievements?: AchievementCreateNestedManyWithoutResumeInput
+    customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+  }
+
+  export type ResumeUncheckedCreateWithoutPersonalInfoInput = {
+    id?: string
+    title: string
+    userId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isPublic?: boolean
+    publicUrl?: string | null
+    templateId: string
+    themeId: string
+    fontId?: string | null
+    sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
+    educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
+    experiences?: ExperienceUncheckedCreateNestedManyWithoutResumeInput
+    skills?: SkillUncheckedCreateNestedManyWithoutResumeInput
+    languages?: LanguageUncheckedCreateNestedManyWithoutResumeInput
+    certifications?: CertificationUncheckedCreateNestedManyWithoutResumeInput
+    projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
+    achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
+    customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+  }
+
+  export type ResumeCreateOrConnectWithoutPersonalInfoInput = {
+    where: ResumeWhereUniqueInput
+    create: XOR<ResumeCreateWithoutPersonalInfoInput, ResumeUncheckedCreateWithoutPersonalInfoInput>
+  }
+
+  export type ResumeUpsertWithoutPersonalInfoInput = {
+    update: XOR<ResumeUpdateWithoutPersonalInfoInput, ResumeUncheckedUpdateWithoutPersonalInfoInput>
+    create: XOR<ResumeCreateWithoutPersonalInfoInput, ResumeUncheckedCreateWithoutPersonalInfoInput>
+    where?: ResumeWhereInput
+  }
+
+  export type ResumeUpdateToOneWithWhereWithoutPersonalInfoInput = {
+    where?: ResumeWhereInput
+    data: XOR<ResumeUpdateWithoutPersonalInfoInput, ResumeUncheckedUpdateWithoutPersonalInfoInput>
+  }
+
+  export type ResumeUpdateWithoutPersonalInfoInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    user?: UserUpdateOneRequiredWithoutResumeNestedInput
+    template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
+    theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
+    font?: FontUpdateOneWithoutResumesNestedInput
+    sections?: SectionUpdateManyWithoutResumeNestedInput
+    educations?: EducationUpdateManyWithoutResumeNestedInput
+    experiences?: ExperienceUpdateManyWithoutResumeNestedInput
+    skills?: SkillUpdateManyWithoutResumeNestedInput
+    languages?: LanguageUpdateManyWithoutResumeNestedInput
+    certifications?: CertificationUpdateManyWithoutResumeNestedInput
+    projects?: ProjectUpdateManyWithoutResumeNestedInput
+    achievements?: AchievementUpdateManyWithoutResumeNestedInput
+    customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+  }
+
+  export type ResumeUncheckedUpdateWithoutPersonalInfoInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    templateId?: StringFieldUpdateOperationsInput | string
+    themeId?: StringFieldUpdateOperationsInput | string
+    fontId?: NullableStringFieldUpdateOperationsInput | string | null
+    sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
+    educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
+    experiences?: ExperienceUncheckedUpdateManyWithoutResumeNestedInput
+    skills?: SkillUncheckedUpdateManyWithoutResumeNestedInput
+    languages?: LanguageUncheckedUpdateManyWithoutResumeNestedInput
+    certifications?: CertificationUncheckedUpdateManyWithoutResumeNestedInput
+    projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
+    achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
+    customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+  }
+
+  export type ResumeCreateWithoutSectionsInput = {
+    id?: string
+    title: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isPublic?: boolean
+    publicUrl?: string | null
+    user: UserCreateNestedOneWithoutResumeInput
+    template: TemplateCreateNestedOneWithoutResumesInput
+    theme: ThemeCreateNestedOneWithoutResumesInput
+    font?: FontCreateNestedOneWithoutResumesInput
+    personalInfo?: PersonalInfoCreateNestedManyWithoutResumeInput
+    educations?: EducationCreateNestedManyWithoutResumeInput
+    experiences?: ExperienceCreateNestedManyWithoutResumeInput
+    skills?: SkillCreateNestedManyWithoutResumeInput
+    languages?: LanguageCreateNestedManyWithoutResumeInput
+    certifications?: CertificationCreateNestedManyWithoutResumeInput
+    projects?: ProjectCreateNestedManyWithoutResumeInput
+    achievements?: AchievementCreateNestedManyWithoutResumeInput
+    customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+  }
+
+  export type ResumeUncheckedCreateWithoutSectionsInput = {
+    id?: string
+    title: string
+    userId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isPublic?: boolean
+    publicUrl?: string | null
+    templateId: string
+    themeId: string
+    fontId?: string | null
+    personalInfo?: PersonalInfoUncheckedCreateNestedManyWithoutResumeInput
+    educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
+    experiences?: ExperienceUncheckedCreateNestedManyWithoutResumeInput
+    skills?: SkillUncheckedCreateNestedManyWithoutResumeInput
+    languages?: LanguageUncheckedCreateNestedManyWithoutResumeInput
+    certifications?: CertificationUncheckedCreateNestedManyWithoutResumeInput
+    projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
+    achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
+    customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+  }
+
+  export type ResumeCreateOrConnectWithoutSectionsInput = {
+    where: ResumeWhereUniqueInput
+    create: XOR<ResumeCreateWithoutSectionsInput, ResumeUncheckedCreateWithoutSectionsInput>
+  }
+
+  export type ResumeUpsertWithoutSectionsInput = {
+    update: XOR<ResumeUpdateWithoutSectionsInput, ResumeUncheckedUpdateWithoutSectionsInput>
+    create: XOR<ResumeCreateWithoutSectionsInput, ResumeUncheckedCreateWithoutSectionsInput>
+    where?: ResumeWhereInput
+  }
+
+  export type ResumeUpdateToOneWithWhereWithoutSectionsInput = {
+    where?: ResumeWhereInput
+    data: XOR<ResumeUpdateWithoutSectionsInput, ResumeUncheckedUpdateWithoutSectionsInput>
+  }
+
+  export type ResumeUpdateWithoutSectionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    user?: UserUpdateOneRequiredWithoutResumeNestedInput
+    template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
+    theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
+    font?: FontUpdateOneWithoutResumesNestedInput
+    personalInfo?: PersonalInfoUpdateManyWithoutResumeNestedInput
+    educations?: EducationUpdateManyWithoutResumeNestedInput
+    experiences?: ExperienceUpdateManyWithoutResumeNestedInput
+    skills?: SkillUpdateManyWithoutResumeNestedInput
+    languages?: LanguageUpdateManyWithoutResumeNestedInput
+    certifications?: CertificationUpdateManyWithoutResumeNestedInput
+    projects?: ProjectUpdateManyWithoutResumeNestedInput
+    achievements?: AchievementUpdateManyWithoutResumeNestedInput
+    customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+  }
+
+  export type ResumeUncheckedUpdateWithoutSectionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    templateId?: StringFieldUpdateOperationsInput | string
+    themeId?: StringFieldUpdateOperationsInput | string
+    fontId?: NullableStringFieldUpdateOperationsInput | string | null
+    personalInfo?: PersonalInfoUncheckedUpdateManyWithoutResumeNestedInput
+    educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
+    experiences?: ExperienceUncheckedUpdateManyWithoutResumeNestedInput
+    skills?: SkillUncheckedUpdateManyWithoutResumeNestedInput
+    languages?: LanguageUncheckedUpdateManyWithoutResumeNestedInput
+    certifications?: CertificationUncheckedUpdateManyWithoutResumeNestedInput
+    projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
+    achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
+    customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+  }
+
+  export type ResumeCreateWithoutEducationsInput = {
+    id?: string
+    title: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isPublic?: boolean
+    publicUrl?: string | null
+    user: UserCreateNestedOneWithoutResumeInput
+    template: TemplateCreateNestedOneWithoutResumesInput
+    theme: ThemeCreateNestedOneWithoutResumesInput
+    font?: FontCreateNestedOneWithoutResumesInput
+    personalInfo?: PersonalInfoCreateNestedManyWithoutResumeInput
+    sections?: SectionCreateNestedManyWithoutResumeInput
+    experiences?: ExperienceCreateNestedManyWithoutResumeInput
+    skills?: SkillCreateNestedManyWithoutResumeInput
+    languages?: LanguageCreateNestedManyWithoutResumeInput
+    certifications?: CertificationCreateNestedManyWithoutResumeInput
+    projects?: ProjectCreateNestedManyWithoutResumeInput
+    achievements?: AchievementCreateNestedManyWithoutResumeInput
+    customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+  }
+
+  export type ResumeUncheckedCreateWithoutEducationsInput = {
+    id?: string
+    title: string
+    userId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isPublic?: boolean
+    publicUrl?: string | null
+    templateId: string
+    themeId: string
+    fontId?: string | null
+    personalInfo?: PersonalInfoUncheckedCreateNestedManyWithoutResumeInput
+    sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
+    experiences?: ExperienceUncheckedCreateNestedManyWithoutResumeInput
+    skills?: SkillUncheckedCreateNestedManyWithoutResumeInput
+    languages?: LanguageUncheckedCreateNestedManyWithoutResumeInput
+    certifications?: CertificationUncheckedCreateNestedManyWithoutResumeInput
+    projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
+    achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
+    customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+  }
+
+  export type ResumeCreateOrConnectWithoutEducationsInput = {
+    where: ResumeWhereUniqueInput
+    create: XOR<ResumeCreateWithoutEducationsInput, ResumeUncheckedCreateWithoutEducationsInput>
+  }
+
+  export type ResumeUpsertWithoutEducationsInput = {
+    update: XOR<ResumeUpdateWithoutEducationsInput, ResumeUncheckedUpdateWithoutEducationsInput>
+    create: XOR<ResumeCreateWithoutEducationsInput, ResumeUncheckedCreateWithoutEducationsInput>
+    where?: ResumeWhereInput
+  }
+
+  export type ResumeUpdateToOneWithWhereWithoutEducationsInput = {
+    where?: ResumeWhereInput
+    data: XOR<ResumeUpdateWithoutEducationsInput, ResumeUncheckedUpdateWithoutEducationsInput>
+  }
+
+  export type ResumeUpdateWithoutEducationsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    user?: UserUpdateOneRequiredWithoutResumeNestedInput
+    template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
+    theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
+    font?: FontUpdateOneWithoutResumesNestedInput
+    personalInfo?: PersonalInfoUpdateManyWithoutResumeNestedInput
+    sections?: SectionUpdateManyWithoutResumeNestedInput
+    experiences?: ExperienceUpdateManyWithoutResumeNestedInput
+    skills?: SkillUpdateManyWithoutResumeNestedInput
+    languages?: LanguageUpdateManyWithoutResumeNestedInput
+    certifications?: CertificationUpdateManyWithoutResumeNestedInput
+    projects?: ProjectUpdateManyWithoutResumeNestedInput
+    achievements?: AchievementUpdateManyWithoutResumeNestedInput
+    customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+  }
+
+  export type ResumeUncheckedUpdateWithoutEducationsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    templateId?: StringFieldUpdateOperationsInput | string
+    themeId?: StringFieldUpdateOperationsInput | string
+    fontId?: NullableStringFieldUpdateOperationsInput | string | null
+    personalInfo?: PersonalInfoUncheckedUpdateManyWithoutResumeNestedInput
+    sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
+    experiences?: ExperienceUncheckedUpdateManyWithoutResumeNestedInput
+    skills?: SkillUncheckedUpdateManyWithoutResumeNestedInput
+    languages?: LanguageUncheckedUpdateManyWithoutResumeNestedInput
+    certifications?: CertificationUncheckedUpdateManyWithoutResumeNestedInput
+    projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
+    achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
+    customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+  }
+
+  export type ResumeCreateWithoutExperiencesInput = {
+    id?: string
+    title: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isPublic?: boolean
+    publicUrl?: string | null
+    user: UserCreateNestedOneWithoutResumeInput
+    template: TemplateCreateNestedOneWithoutResumesInput
+    theme: ThemeCreateNestedOneWithoutResumesInput
+    font?: FontCreateNestedOneWithoutResumesInput
+    personalInfo?: PersonalInfoCreateNestedManyWithoutResumeInput
+    sections?: SectionCreateNestedManyWithoutResumeInput
+    educations?: EducationCreateNestedManyWithoutResumeInput
+    skills?: SkillCreateNestedManyWithoutResumeInput
+    languages?: LanguageCreateNestedManyWithoutResumeInput
+    certifications?: CertificationCreateNestedManyWithoutResumeInput
+    projects?: ProjectCreateNestedManyWithoutResumeInput
+    achievements?: AchievementCreateNestedManyWithoutResumeInput
+    customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+  }
+
+  export type ResumeUncheckedCreateWithoutExperiencesInput = {
+    id?: string
+    title: string
+    userId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isPublic?: boolean
+    publicUrl?: string | null
+    templateId: string
+    themeId: string
+    fontId?: string | null
+    personalInfo?: PersonalInfoUncheckedCreateNestedManyWithoutResumeInput
+    sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
+    educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
+    skills?: SkillUncheckedCreateNestedManyWithoutResumeInput
+    languages?: LanguageUncheckedCreateNestedManyWithoutResumeInput
+    certifications?: CertificationUncheckedCreateNestedManyWithoutResumeInput
+    projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
+    achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
+    customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+  }
+
+  export type ResumeCreateOrConnectWithoutExperiencesInput = {
+    where: ResumeWhereUniqueInput
+    create: XOR<ResumeCreateWithoutExperiencesInput, ResumeUncheckedCreateWithoutExperiencesInput>
+  }
+
+  export type ResumeUpsertWithoutExperiencesInput = {
+    update: XOR<ResumeUpdateWithoutExperiencesInput, ResumeUncheckedUpdateWithoutExperiencesInput>
+    create: XOR<ResumeCreateWithoutExperiencesInput, ResumeUncheckedCreateWithoutExperiencesInput>
+    where?: ResumeWhereInput
+  }
+
+  export type ResumeUpdateToOneWithWhereWithoutExperiencesInput = {
+    where?: ResumeWhereInput
+    data: XOR<ResumeUpdateWithoutExperiencesInput, ResumeUncheckedUpdateWithoutExperiencesInput>
+  }
+
+  export type ResumeUpdateWithoutExperiencesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    user?: UserUpdateOneRequiredWithoutResumeNestedInput
+    template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
+    theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
+    font?: FontUpdateOneWithoutResumesNestedInput
+    personalInfo?: PersonalInfoUpdateManyWithoutResumeNestedInput
+    sections?: SectionUpdateManyWithoutResumeNestedInput
+    educations?: EducationUpdateManyWithoutResumeNestedInput
+    skills?: SkillUpdateManyWithoutResumeNestedInput
+    languages?: LanguageUpdateManyWithoutResumeNestedInput
+    certifications?: CertificationUpdateManyWithoutResumeNestedInput
+    projects?: ProjectUpdateManyWithoutResumeNestedInput
+    achievements?: AchievementUpdateManyWithoutResumeNestedInput
+    customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+  }
+
+  export type ResumeUncheckedUpdateWithoutExperiencesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    templateId?: StringFieldUpdateOperationsInput | string
+    themeId?: StringFieldUpdateOperationsInput | string
+    fontId?: NullableStringFieldUpdateOperationsInput | string | null
+    personalInfo?: PersonalInfoUncheckedUpdateManyWithoutResumeNestedInput
+    sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
+    educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
+    skills?: SkillUncheckedUpdateManyWithoutResumeNestedInput
+    languages?: LanguageUncheckedUpdateManyWithoutResumeNestedInput
+    certifications?: CertificationUncheckedUpdateManyWithoutResumeNestedInput
+    projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
+    achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
+    customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+  }
+
+  export type ResumeCreateWithoutSkillsInput = {
+    id?: string
+    title: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isPublic?: boolean
+    publicUrl?: string | null
+    user: UserCreateNestedOneWithoutResumeInput
+    template: TemplateCreateNestedOneWithoutResumesInput
+    theme: ThemeCreateNestedOneWithoutResumesInput
+    font?: FontCreateNestedOneWithoutResumesInput
+    personalInfo?: PersonalInfoCreateNestedManyWithoutResumeInput
+    sections?: SectionCreateNestedManyWithoutResumeInput
+    educations?: EducationCreateNestedManyWithoutResumeInput
+    experiences?: ExperienceCreateNestedManyWithoutResumeInput
+    languages?: LanguageCreateNestedManyWithoutResumeInput
+    certifications?: CertificationCreateNestedManyWithoutResumeInput
+    projects?: ProjectCreateNestedManyWithoutResumeInput
+    achievements?: AchievementCreateNestedManyWithoutResumeInput
+    customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+  }
+
+  export type ResumeUncheckedCreateWithoutSkillsInput = {
+    id?: string
+    title: string
+    userId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isPublic?: boolean
+    publicUrl?: string | null
+    templateId: string
+    themeId: string
+    fontId?: string | null
+    personalInfo?: PersonalInfoUncheckedCreateNestedManyWithoutResumeInput
+    sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
+    educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
+    experiences?: ExperienceUncheckedCreateNestedManyWithoutResumeInput
+    languages?: LanguageUncheckedCreateNestedManyWithoutResumeInput
+    certifications?: CertificationUncheckedCreateNestedManyWithoutResumeInput
+    projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
+    achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
+    customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+  }
+
+  export type ResumeCreateOrConnectWithoutSkillsInput = {
+    where: ResumeWhereUniqueInput
+    create: XOR<ResumeCreateWithoutSkillsInput, ResumeUncheckedCreateWithoutSkillsInput>
+  }
+
+  export type ResumeUpsertWithoutSkillsInput = {
+    update: XOR<ResumeUpdateWithoutSkillsInput, ResumeUncheckedUpdateWithoutSkillsInput>
+    create: XOR<ResumeCreateWithoutSkillsInput, ResumeUncheckedCreateWithoutSkillsInput>
+    where?: ResumeWhereInput
+  }
+
+  export type ResumeUpdateToOneWithWhereWithoutSkillsInput = {
+    where?: ResumeWhereInput
+    data: XOR<ResumeUpdateWithoutSkillsInput, ResumeUncheckedUpdateWithoutSkillsInput>
+  }
+
+  export type ResumeUpdateWithoutSkillsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    user?: UserUpdateOneRequiredWithoutResumeNestedInput
+    template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
+    theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
+    font?: FontUpdateOneWithoutResumesNestedInput
+    personalInfo?: PersonalInfoUpdateManyWithoutResumeNestedInput
+    sections?: SectionUpdateManyWithoutResumeNestedInput
+    educations?: EducationUpdateManyWithoutResumeNestedInput
+    experiences?: ExperienceUpdateManyWithoutResumeNestedInput
+    languages?: LanguageUpdateManyWithoutResumeNestedInput
+    certifications?: CertificationUpdateManyWithoutResumeNestedInput
+    projects?: ProjectUpdateManyWithoutResumeNestedInput
+    achievements?: AchievementUpdateManyWithoutResumeNestedInput
+    customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+  }
+
+  export type ResumeUncheckedUpdateWithoutSkillsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    templateId?: StringFieldUpdateOperationsInput | string
+    themeId?: StringFieldUpdateOperationsInput | string
+    fontId?: NullableStringFieldUpdateOperationsInput | string | null
+    personalInfo?: PersonalInfoUncheckedUpdateManyWithoutResumeNestedInput
+    sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
+    educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
+    experiences?: ExperienceUncheckedUpdateManyWithoutResumeNestedInput
+    languages?: LanguageUncheckedUpdateManyWithoutResumeNestedInput
+    certifications?: CertificationUncheckedUpdateManyWithoutResumeNestedInput
+    projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
+    achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
+    customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+  }
+
+  export type ResumeCreateWithoutLanguagesInput = {
+    id?: string
+    title: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isPublic?: boolean
+    publicUrl?: string | null
+    user: UserCreateNestedOneWithoutResumeInput
+    template: TemplateCreateNestedOneWithoutResumesInput
+    theme: ThemeCreateNestedOneWithoutResumesInput
+    font?: FontCreateNestedOneWithoutResumesInput
+    personalInfo?: PersonalInfoCreateNestedManyWithoutResumeInput
+    sections?: SectionCreateNestedManyWithoutResumeInput
+    educations?: EducationCreateNestedManyWithoutResumeInput
+    experiences?: ExperienceCreateNestedManyWithoutResumeInput
+    skills?: SkillCreateNestedManyWithoutResumeInput
+    certifications?: CertificationCreateNestedManyWithoutResumeInput
+    projects?: ProjectCreateNestedManyWithoutResumeInput
+    achievements?: AchievementCreateNestedManyWithoutResumeInput
+    customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+  }
+
+  export type ResumeUncheckedCreateWithoutLanguagesInput = {
+    id?: string
+    title: string
+    userId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isPublic?: boolean
+    publicUrl?: string | null
+    templateId: string
+    themeId: string
+    fontId?: string | null
+    personalInfo?: PersonalInfoUncheckedCreateNestedManyWithoutResumeInput
+    sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
+    educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
+    experiences?: ExperienceUncheckedCreateNestedManyWithoutResumeInput
+    skills?: SkillUncheckedCreateNestedManyWithoutResumeInput
+    certifications?: CertificationUncheckedCreateNestedManyWithoutResumeInput
+    projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
+    achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
+    customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+  }
+
+  export type ResumeCreateOrConnectWithoutLanguagesInput = {
+    where: ResumeWhereUniqueInput
+    create: XOR<ResumeCreateWithoutLanguagesInput, ResumeUncheckedCreateWithoutLanguagesInput>
+  }
+
+  export type ResumeUpsertWithoutLanguagesInput = {
+    update: XOR<ResumeUpdateWithoutLanguagesInput, ResumeUncheckedUpdateWithoutLanguagesInput>
+    create: XOR<ResumeCreateWithoutLanguagesInput, ResumeUncheckedCreateWithoutLanguagesInput>
+    where?: ResumeWhereInput
+  }
+
+  export type ResumeUpdateToOneWithWhereWithoutLanguagesInput = {
+    where?: ResumeWhereInput
+    data: XOR<ResumeUpdateWithoutLanguagesInput, ResumeUncheckedUpdateWithoutLanguagesInput>
+  }
+
+  export type ResumeUpdateWithoutLanguagesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    user?: UserUpdateOneRequiredWithoutResumeNestedInput
+    template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
+    theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
+    font?: FontUpdateOneWithoutResumesNestedInput
+    personalInfo?: PersonalInfoUpdateManyWithoutResumeNestedInput
+    sections?: SectionUpdateManyWithoutResumeNestedInput
+    educations?: EducationUpdateManyWithoutResumeNestedInput
+    experiences?: ExperienceUpdateManyWithoutResumeNestedInput
+    skills?: SkillUpdateManyWithoutResumeNestedInput
+    certifications?: CertificationUpdateManyWithoutResumeNestedInput
+    projects?: ProjectUpdateManyWithoutResumeNestedInput
+    achievements?: AchievementUpdateManyWithoutResumeNestedInput
+    customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+  }
+
+  export type ResumeUncheckedUpdateWithoutLanguagesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    templateId?: StringFieldUpdateOperationsInput | string
+    themeId?: StringFieldUpdateOperationsInput | string
+    fontId?: NullableStringFieldUpdateOperationsInput | string | null
+    personalInfo?: PersonalInfoUncheckedUpdateManyWithoutResumeNestedInput
+    sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
+    educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
+    experiences?: ExperienceUncheckedUpdateManyWithoutResumeNestedInput
+    skills?: SkillUncheckedUpdateManyWithoutResumeNestedInput
+    certifications?: CertificationUncheckedUpdateManyWithoutResumeNestedInput
+    projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
+    achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
+    customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+  }
+
+  export type ResumeCreateWithoutCertificationsInput = {
+    id?: string
+    title: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isPublic?: boolean
+    publicUrl?: string | null
+    user: UserCreateNestedOneWithoutResumeInput
+    template: TemplateCreateNestedOneWithoutResumesInput
+    theme: ThemeCreateNestedOneWithoutResumesInput
+    font?: FontCreateNestedOneWithoutResumesInput
+    personalInfo?: PersonalInfoCreateNestedManyWithoutResumeInput
+    sections?: SectionCreateNestedManyWithoutResumeInput
+    educations?: EducationCreateNestedManyWithoutResumeInput
+    experiences?: ExperienceCreateNestedManyWithoutResumeInput
+    skills?: SkillCreateNestedManyWithoutResumeInput
+    languages?: LanguageCreateNestedManyWithoutResumeInput
+    projects?: ProjectCreateNestedManyWithoutResumeInput
+    achievements?: AchievementCreateNestedManyWithoutResumeInput
+    customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+  }
+
+  export type ResumeUncheckedCreateWithoutCertificationsInput = {
+    id?: string
+    title: string
+    userId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isPublic?: boolean
+    publicUrl?: string | null
+    templateId: string
+    themeId: string
+    fontId?: string | null
+    personalInfo?: PersonalInfoUncheckedCreateNestedManyWithoutResumeInput
+    sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
+    educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
+    experiences?: ExperienceUncheckedCreateNestedManyWithoutResumeInput
+    skills?: SkillUncheckedCreateNestedManyWithoutResumeInput
+    languages?: LanguageUncheckedCreateNestedManyWithoutResumeInput
+    projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
+    achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
+    customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+  }
+
+  export type ResumeCreateOrConnectWithoutCertificationsInput = {
+    where: ResumeWhereUniqueInput
+    create: XOR<ResumeCreateWithoutCertificationsInput, ResumeUncheckedCreateWithoutCertificationsInput>
+  }
+
+  export type ResumeUpsertWithoutCertificationsInput = {
+    update: XOR<ResumeUpdateWithoutCertificationsInput, ResumeUncheckedUpdateWithoutCertificationsInput>
+    create: XOR<ResumeCreateWithoutCertificationsInput, ResumeUncheckedCreateWithoutCertificationsInput>
+    where?: ResumeWhereInput
+  }
+
+  export type ResumeUpdateToOneWithWhereWithoutCertificationsInput = {
+    where?: ResumeWhereInput
+    data: XOR<ResumeUpdateWithoutCertificationsInput, ResumeUncheckedUpdateWithoutCertificationsInput>
+  }
+
+  export type ResumeUpdateWithoutCertificationsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    user?: UserUpdateOneRequiredWithoutResumeNestedInput
+    template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
+    theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
+    font?: FontUpdateOneWithoutResumesNestedInput
+    personalInfo?: PersonalInfoUpdateManyWithoutResumeNestedInput
+    sections?: SectionUpdateManyWithoutResumeNestedInput
+    educations?: EducationUpdateManyWithoutResumeNestedInput
+    experiences?: ExperienceUpdateManyWithoutResumeNestedInput
+    skills?: SkillUpdateManyWithoutResumeNestedInput
+    languages?: LanguageUpdateManyWithoutResumeNestedInput
+    projects?: ProjectUpdateManyWithoutResumeNestedInput
+    achievements?: AchievementUpdateManyWithoutResumeNestedInput
+    customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+  }
+
+  export type ResumeUncheckedUpdateWithoutCertificationsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    templateId?: StringFieldUpdateOperationsInput | string
+    themeId?: StringFieldUpdateOperationsInput | string
+    fontId?: NullableStringFieldUpdateOperationsInput | string | null
+    personalInfo?: PersonalInfoUncheckedUpdateManyWithoutResumeNestedInput
+    sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
+    educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
+    experiences?: ExperienceUncheckedUpdateManyWithoutResumeNestedInput
+    skills?: SkillUncheckedUpdateManyWithoutResumeNestedInput
+    languages?: LanguageUncheckedUpdateManyWithoutResumeNestedInput
+    projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
+    achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
+    customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+  }
+
+  export type ResumeCreateWithoutProjectsInput = {
+    id?: string
+    title: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isPublic?: boolean
+    publicUrl?: string | null
+    user: UserCreateNestedOneWithoutResumeInput
+    template: TemplateCreateNestedOneWithoutResumesInput
+    theme: ThemeCreateNestedOneWithoutResumesInput
+    font?: FontCreateNestedOneWithoutResumesInput
+    personalInfo?: PersonalInfoCreateNestedManyWithoutResumeInput
+    sections?: SectionCreateNestedManyWithoutResumeInput
+    educations?: EducationCreateNestedManyWithoutResumeInput
+    experiences?: ExperienceCreateNestedManyWithoutResumeInput
+    skills?: SkillCreateNestedManyWithoutResumeInput
+    languages?: LanguageCreateNestedManyWithoutResumeInput
+    certifications?: CertificationCreateNestedManyWithoutResumeInput
+    achievements?: AchievementCreateNestedManyWithoutResumeInput
+    customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+  }
+
+  export type ResumeUncheckedCreateWithoutProjectsInput = {
+    id?: string
+    title: string
+    userId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isPublic?: boolean
+    publicUrl?: string | null
+    templateId: string
+    themeId: string
+    fontId?: string | null
+    personalInfo?: PersonalInfoUncheckedCreateNestedManyWithoutResumeInput
+    sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
+    educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
+    experiences?: ExperienceUncheckedCreateNestedManyWithoutResumeInput
+    skills?: SkillUncheckedCreateNestedManyWithoutResumeInput
+    languages?: LanguageUncheckedCreateNestedManyWithoutResumeInput
+    certifications?: CertificationUncheckedCreateNestedManyWithoutResumeInput
+    achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
+    customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+  }
+
+  export type ResumeCreateOrConnectWithoutProjectsInput = {
+    where: ResumeWhereUniqueInput
+    create: XOR<ResumeCreateWithoutProjectsInput, ResumeUncheckedCreateWithoutProjectsInput>
+  }
+
+  export type ResumeUpsertWithoutProjectsInput = {
+    update: XOR<ResumeUpdateWithoutProjectsInput, ResumeUncheckedUpdateWithoutProjectsInput>
+    create: XOR<ResumeCreateWithoutProjectsInput, ResumeUncheckedCreateWithoutProjectsInput>
+    where?: ResumeWhereInput
+  }
+
+  export type ResumeUpdateToOneWithWhereWithoutProjectsInput = {
+    where?: ResumeWhereInput
+    data: XOR<ResumeUpdateWithoutProjectsInput, ResumeUncheckedUpdateWithoutProjectsInput>
+  }
+
+  export type ResumeUpdateWithoutProjectsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    user?: UserUpdateOneRequiredWithoutResumeNestedInput
+    template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
+    theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
+    font?: FontUpdateOneWithoutResumesNestedInput
+    personalInfo?: PersonalInfoUpdateManyWithoutResumeNestedInput
+    sections?: SectionUpdateManyWithoutResumeNestedInput
+    educations?: EducationUpdateManyWithoutResumeNestedInput
+    experiences?: ExperienceUpdateManyWithoutResumeNestedInput
+    skills?: SkillUpdateManyWithoutResumeNestedInput
+    languages?: LanguageUpdateManyWithoutResumeNestedInput
+    certifications?: CertificationUpdateManyWithoutResumeNestedInput
+    achievements?: AchievementUpdateManyWithoutResumeNestedInput
+    customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+  }
+
+  export type ResumeUncheckedUpdateWithoutProjectsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    templateId?: StringFieldUpdateOperationsInput | string
+    themeId?: StringFieldUpdateOperationsInput | string
+    fontId?: NullableStringFieldUpdateOperationsInput | string | null
+    personalInfo?: PersonalInfoUncheckedUpdateManyWithoutResumeNestedInput
+    sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
+    educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
+    experiences?: ExperienceUncheckedUpdateManyWithoutResumeNestedInput
+    skills?: SkillUncheckedUpdateManyWithoutResumeNestedInput
+    languages?: LanguageUncheckedUpdateManyWithoutResumeNestedInput
+    certifications?: CertificationUncheckedUpdateManyWithoutResumeNestedInput
+    achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
+    customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+  }
+
+  export type ResumeCreateWithoutAchievementsInput = {
+    id?: string
+    title: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isPublic?: boolean
+    publicUrl?: string | null
+    user: UserCreateNestedOneWithoutResumeInput
+    template: TemplateCreateNestedOneWithoutResumesInput
+    theme: ThemeCreateNestedOneWithoutResumesInput
+    font?: FontCreateNestedOneWithoutResumesInput
+    personalInfo?: PersonalInfoCreateNestedManyWithoutResumeInput
+    sections?: SectionCreateNestedManyWithoutResumeInput
+    educations?: EducationCreateNestedManyWithoutResumeInput
+    experiences?: ExperienceCreateNestedManyWithoutResumeInput
+    skills?: SkillCreateNestedManyWithoutResumeInput
+    languages?: LanguageCreateNestedManyWithoutResumeInput
+    certifications?: CertificationCreateNestedManyWithoutResumeInput
+    projects?: ProjectCreateNestedManyWithoutResumeInput
+    customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+  }
+
+  export type ResumeUncheckedCreateWithoutAchievementsInput = {
+    id?: string
+    title: string
+    userId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isPublic?: boolean
+    publicUrl?: string | null
+    templateId: string
+    themeId: string
+    fontId?: string | null
+    personalInfo?: PersonalInfoUncheckedCreateNestedManyWithoutResumeInput
+    sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
+    educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
+    experiences?: ExperienceUncheckedCreateNestedManyWithoutResumeInput
+    skills?: SkillUncheckedCreateNestedManyWithoutResumeInput
+    languages?: LanguageUncheckedCreateNestedManyWithoutResumeInput
+    certifications?: CertificationUncheckedCreateNestedManyWithoutResumeInput
+    projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
+    customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+  }
+
+  export type ResumeCreateOrConnectWithoutAchievementsInput = {
+    where: ResumeWhereUniqueInput
+    create: XOR<ResumeCreateWithoutAchievementsInput, ResumeUncheckedCreateWithoutAchievementsInput>
+  }
+
+  export type ResumeUpsertWithoutAchievementsInput = {
+    update: XOR<ResumeUpdateWithoutAchievementsInput, ResumeUncheckedUpdateWithoutAchievementsInput>
+    create: XOR<ResumeCreateWithoutAchievementsInput, ResumeUncheckedCreateWithoutAchievementsInput>
+    where?: ResumeWhereInput
+  }
+
+  export type ResumeUpdateToOneWithWhereWithoutAchievementsInput = {
+    where?: ResumeWhereInput
+    data: XOR<ResumeUpdateWithoutAchievementsInput, ResumeUncheckedUpdateWithoutAchievementsInput>
+  }
+
+  export type ResumeUpdateWithoutAchievementsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    user?: UserUpdateOneRequiredWithoutResumeNestedInput
+    template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
+    theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
+    font?: FontUpdateOneWithoutResumesNestedInput
+    personalInfo?: PersonalInfoUpdateManyWithoutResumeNestedInput
+    sections?: SectionUpdateManyWithoutResumeNestedInput
+    educations?: EducationUpdateManyWithoutResumeNestedInput
+    experiences?: ExperienceUpdateManyWithoutResumeNestedInput
+    skills?: SkillUpdateManyWithoutResumeNestedInput
+    languages?: LanguageUpdateManyWithoutResumeNestedInput
+    certifications?: CertificationUpdateManyWithoutResumeNestedInput
+    projects?: ProjectUpdateManyWithoutResumeNestedInput
+    customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+  }
+
+  export type ResumeUncheckedUpdateWithoutAchievementsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    templateId?: StringFieldUpdateOperationsInput | string
+    themeId?: StringFieldUpdateOperationsInput | string
+    fontId?: NullableStringFieldUpdateOperationsInput | string | null
+    personalInfo?: PersonalInfoUncheckedUpdateManyWithoutResumeNestedInput
+    sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
+    educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
+    experiences?: ExperienceUncheckedUpdateManyWithoutResumeNestedInput
+    skills?: SkillUncheckedUpdateManyWithoutResumeNestedInput
+    languages?: LanguageUncheckedUpdateManyWithoutResumeNestedInput
+    certifications?: CertificationUncheckedUpdateManyWithoutResumeNestedInput
+    projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
+    customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+  }
+
+  export type ResumeCreateWithoutCustomSectionsInput = {
+    id?: string
+    title: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isPublic?: boolean
+    publicUrl?: string | null
+    user: UserCreateNestedOneWithoutResumeInput
+    template: TemplateCreateNestedOneWithoutResumesInput
+    theme: ThemeCreateNestedOneWithoutResumesInput
+    font?: FontCreateNestedOneWithoutResumesInput
+    personalInfo?: PersonalInfoCreateNestedManyWithoutResumeInput
+    sections?: SectionCreateNestedManyWithoutResumeInput
+    educations?: EducationCreateNestedManyWithoutResumeInput
+    experiences?: ExperienceCreateNestedManyWithoutResumeInput
+    skills?: SkillCreateNestedManyWithoutResumeInput
+    languages?: LanguageCreateNestedManyWithoutResumeInput
+    certifications?: CertificationCreateNestedManyWithoutResumeInput
+    projects?: ProjectCreateNestedManyWithoutResumeInput
+    achievements?: AchievementCreateNestedManyWithoutResumeInput
+  }
+
+  export type ResumeUncheckedCreateWithoutCustomSectionsInput = {
+    id?: string
+    title: string
+    userId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isPublic?: boolean
+    publicUrl?: string | null
+    templateId: string
+    themeId: string
+    fontId?: string | null
+    personalInfo?: PersonalInfoUncheckedCreateNestedManyWithoutResumeInput
+    sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
+    educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
+    experiences?: ExperienceUncheckedCreateNestedManyWithoutResumeInput
+    skills?: SkillUncheckedCreateNestedManyWithoutResumeInput
+    languages?: LanguageUncheckedCreateNestedManyWithoutResumeInput
+    certifications?: CertificationUncheckedCreateNestedManyWithoutResumeInput
+    projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
+    achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
+  }
+
+  export type ResumeCreateOrConnectWithoutCustomSectionsInput = {
+    where: ResumeWhereUniqueInput
+    create: XOR<ResumeCreateWithoutCustomSectionsInput, ResumeUncheckedCreateWithoutCustomSectionsInput>
+  }
+
+  export type ResumeUpsertWithoutCustomSectionsInput = {
+    update: XOR<ResumeUpdateWithoutCustomSectionsInput, ResumeUncheckedUpdateWithoutCustomSectionsInput>
+    create: XOR<ResumeCreateWithoutCustomSectionsInput, ResumeUncheckedCreateWithoutCustomSectionsInput>
+    where?: ResumeWhereInput
+  }
+
+  export type ResumeUpdateToOneWithWhereWithoutCustomSectionsInput = {
+    where?: ResumeWhereInput
+    data: XOR<ResumeUpdateWithoutCustomSectionsInput, ResumeUncheckedUpdateWithoutCustomSectionsInput>
+  }
+
+  export type ResumeUpdateWithoutCustomSectionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    user?: UserUpdateOneRequiredWithoutResumeNestedInput
+    template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
+    theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
+    font?: FontUpdateOneWithoutResumesNestedInput
+    personalInfo?: PersonalInfoUpdateManyWithoutResumeNestedInput
+    sections?: SectionUpdateManyWithoutResumeNestedInput
+    educations?: EducationUpdateManyWithoutResumeNestedInput
+    experiences?: ExperienceUpdateManyWithoutResumeNestedInput
+    skills?: SkillUpdateManyWithoutResumeNestedInput
+    languages?: LanguageUpdateManyWithoutResumeNestedInput
+    certifications?: CertificationUpdateManyWithoutResumeNestedInput
+    projects?: ProjectUpdateManyWithoutResumeNestedInput
+    achievements?: AchievementUpdateManyWithoutResumeNestedInput
+  }
+
+  export type ResumeUncheckedUpdateWithoutCustomSectionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    templateId?: StringFieldUpdateOperationsInput | string
+    themeId?: StringFieldUpdateOperationsInput | string
+    fontId?: NullableStringFieldUpdateOperationsInput | string | null
+    personalInfo?: PersonalInfoUncheckedUpdateManyWithoutResumeNestedInput
+    sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
+    educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
+    experiences?: ExperienceUncheckedUpdateManyWithoutResumeNestedInput
+    skills?: SkillUncheckedUpdateManyWithoutResumeNestedInput
+    languages?: LanguageUncheckedUpdateManyWithoutResumeNestedInput
+    certifications?: CertificationUncheckedUpdateManyWithoutResumeNestedInput
+    projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
+    achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
+  }
+
+  export type ResumeCreateWithoutTemplateInput = {
+    id?: string
+    title: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isPublic?: boolean
+    publicUrl?: string | null
+    user: UserCreateNestedOneWithoutResumeInput
+    theme: ThemeCreateNestedOneWithoutResumesInput
+    font?: FontCreateNestedOneWithoutResumesInput
+    personalInfo?: PersonalInfoCreateNestedManyWithoutResumeInput
+    sections?: SectionCreateNestedManyWithoutResumeInput
+    educations?: EducationCreateNestedManyWithoutResumeInput
+    experiences?: ExperienceCreateNestedManyWithoutResumeInput
+    skills?: SkillCreateNestedManyWithoutResumeInput
+    languages?: LanguageCreateNestedManyWithoutResumeInput
+    certifications?: CertificationCreateNestedManyWithoutResumeInput
+    projects?: ProjectCreateNestedManyWithoutResumeInput
+    achievements?: AchievementCreateNestedManyWithoutResumeInput
+    customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+  }
+
+  export type ResumeUncheckedCreateWithoutTemplateInput = {
+    id?: string
+    title: string
+    userId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isPublic?: boolean
+    publicUrl?: string | null
+    themeId: string
+    fontId?: string | null
+    personalInfo?: PersonalInfoUncheckedCreateNestedManyWithoutResumeInput
+    sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
+    educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
+    experiences?: ExperienceUncheckedCreateNestedManyWithoutResumeInput
+    skills?: SkillUncheckedCreateNestedManyWithoutResumeInput
+    languages?: LanguageUncheckedCreateNestedManyWithoutResumeInput
+    certifications?: CertificationUncheckedCreateNestedManyWithoutResumeInput
+    projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
+    achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
+    customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+  }
+
+  export type ResumeCreateOrConnectWithoutTemplateInput = {
+    where: ResumeWhereUniqueInput
+    create: XOR<ResumeCreateWithoutTemplateInput, ResumeUncheckedCreateWithoutTemplateInput>
+  }
+
+  export type ResumeCreateManyTemplateInputEnvelope = {
+    data: ResumeCreateManyTemplateInput | ResumeCreateManyTemplateInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ResumeUpsertWithWhereUniqueWithoutTemplateInput = {
+    where: ResumeWhereUniqueInput
+    update: XOR<ResumeUpdateWithoutTemplateInput, ResumeUncheckedUpdateWithoutTemplateInput>
+    create: XOR<ResumeCreateWithoutTemplateInput, ResumeUncheckedCreateWithoutTemplateInput>
+  }
+
+  export type ResumeUpdateWithWhereUniqueWithoutTemplateInput = {
+    where: ResumeWhereUniqueInput
+    data: XOR<ResumeUpdateWithoutTemplateInput, ResumeUncheckedUpdateWithoutTemplateInput>
+  }
+
+  export type ResumeUpdateManyWithWhereWithoutTemplateInput = {
+    where: ResumeScalarWhereInput
+    data: XOR<ResumeUpdateManyMutationInput, ResumeUncheckedUpdateManyWithoutTemplateInput>
+  }
+
+  export type ResumeCreateWithoutThemeInput = {
+    id?: string
+    title: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isPublic?: boolean
+    publicUrl?: string | null
+    user: UserCreateNestedOneWithoutResumeInput
+    template: TemplateCreateNestedOneWithoutResumesInput
+    font?: FontCreateNestedOneWithoutResumesInput
+    personalInfo?: PersonalInfoCreateNestedManyWithoutResumeInput
+    sections?: SectionCreateNestedManyWithoutResumeInput
+    educations?: EducationCreateNestedManyWithoutResumeInput
+    experiences?: ExperienceCreateNestedManyWithoutResumeInput
+    skills?: SkillCreateNestedManyWithoutResumeInput
+    languages?: LanguageCreateNestedManyWithoutResumeInput
+    certifications?: CertificationCreateNestedManyWithoutResumeInput
+    projects?: ProjectCreateNestedManyWithoutResumeInput
+    achievements?: AchievementCreateNestedManyWithoutResumeInput
+    customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+  }
+
+  export type ResumeUncheckedCreateWithoutThemeInput = {
+    id?: string
+    title: string
+    userId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isPublic?: boolean
+    publicUrl?: string | null
+    templateId: string
+    fontId?: string | null
+    personalInfo?: PersonalInfoUncheckedCreateNestedManyWithoutResumeInput
+    sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
+    educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
+    experiences?: ExperienceUncheckedCreateNestedManyWithoutResumeInput
+    skills?: SkillUncheckedCreateNestedManyWithoutResumeInput
+    languages?: LanguageUncheckedCreateNestedManyWithoutResumeInput
+    certifications?: CertificationUncheckedCreateNestedManyWithoutResumeInput
+    projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
+    achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
+    customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+  }
+
+  export type ResumeCreateOrConnectWithoutThemeInput = {
+    where: ResumeWhereUniqueInput
+    create: XOR<ResumeCreateWithoutThemeInput, ResumeUncheckedCreateWithoutThemeInput>
+  }
+
+  export type ResumeCreateManyThemeInputEnvelope = {
+    data: ResumeCreateManyThemeInput | ResumeCreateManyThemeInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ResumeUpsertWithWhereUniqueWithoutThemeInput = {
+    where: ResumeWhereUniqueInput
+    update: XOR<ResumeUpdateWithoutThemeInput, ResumeUncheckedUpdateWithoutThemeInput>
+    create: XOR<ResumeCreateWithoutThemeInput, ResumeUncheckedCreateWithoutThemeInput>
+  }
+
+  export type ResumeUpdateWithWhereUniqueWithoutThemeInput = {
+    where: ResumeWhereUniqueInput
+    data: XOR<ResumeUpdateWithoutThemeInput, ResumeUncheckedUpdateWithoutThemeInput>
+  }
+
+  export type ResumeUpdateManyWithWhereWithoutThemeInput = {
+    where: ResumeScalarWhereInput
+    data: XOR<ResumeUpdateManyMutationInput, ResumeUncheckedUpdateManyWithoutThemeInput>
+  }
+
+  export type ResumeCreateWithoutFontInput = {
+    id?: string
+    title: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isPublic?: boolean
+    publicUrl?: string | null
+    user: UserCreateNestedOneWithoutResumeInput
+    template: TemplateCreateNestedOneWithoutResumesInput
+    theme: ThemeCreateNestedOneWithoutResumesInput
+    personalInfo?: PersonalInfoCreateNestedManyWithoutResumeInput
+    sections?: SectionCreateNestedManyWithoutResumeInput
+    educations?: EducationCreateNestedManyWithoutResumeInput
+    experiences?: ExperienceCreateNestedManyWithoutResumeInput
+    skills?: SkillCreateNestedManyWithoutResumeInput
+    languages?: LanguageCreateNestedManyWithoutResumeInput
+    certifications?: CertificationCreateNestedManyWithoutResumeInput
+    projects?: ProjectCreateNestedManyWithoutResumeInput
+    achievements?: AchievementCreateNestedManyWithoutResumeInput
+    customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+  }
+
+  export type ResumeUncheckedCreateWithoutFontInput = {
+    id?: string
+    title: string
+    userId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isPublic?: boolean
+    publicUrl?: string | null
+    templateId: string
+    themeId: string
+    personalInfo?: PersonalInfoUncheckedCreateNestedManyWithoutResumeInput
+    sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
+    educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
+    experiences?: ExperienceUncheckedCreateNestedManyWithoutResumeInput
+    skills?: SkillUncheckedCreateNestedManyWithoutResumeInput
+    languages?: LanguageUncheckedCreateNestedManyWithoutResumeInput
+    certifications?: CertificationUncheckedCreateNestedManyWithoutResumeInput
+    projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
+    achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
+    customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+  }
+
+  export type ResumeCreateOrConnectWithoutFontInput = {
+    where: ResumeWhereUniqueInput
+    create: XOR<ResumeCreateWithoutFontInput, ResumeUncheckedCreateWithoutFontInput>
+  }
+
+  export type ResumeCreateManyFontInputEnvelope = {
+    data: ResumeCreateManyFontInput | ResumeCreateManyFontInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ResumeUpsertWithWhereUniqueWithoutFontInput = {
+    where: ResumeWhereUniqueInput
+    update: XOR<ResumeUpdateWithoutFontInput, ResumeUncheckedUpdateWithoutFontInput>
+    create: XOR<ResumeCreateWithoutFontInput, ResumeUncheckedCreateWithoutFontInput>
+  }
+
+  export type ResumeUpdateWithWhereUniqueWithoutFontInput = {
+    where: ResumeWhereUniqueInput
+    data: XOR<ResumeUpdateWithoutFontInput, ResumeUncheckedUpdateWithoutFontInput>
+  }
+
+  export type ResumeUpdateManyWithWhereWithoutFontInput = {
+    where: ResumeScalarWhereInput
+    data: XOR<ResumeUpdateManyMutationInput, ResumeUncheckedUpdateManyWithoutFontInput>
   }
 
   export type SessionCreateManyUserInput = {
@@ -4416,6 +28193,18 @@ export namespace Prisma {
     expires: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string
+  }
+
+  export type ResumeCreateManyUserInput = {
+    id?: string
+    title: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isPublic?: boolean
+    publicUrl?: string | null
+    templateId: string
+    themeId: string
+    fontId?: string | null
   }
 
   export type SessionUpdateWithoutUserInput = {
@@ -4443,6 +28232,650 @@ export namespace Prisma {
     expires?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ResumeUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
+    theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
+    font?: FontUpdateOneWithoutResumesNestedInput
+    personalInfo?: PersonalInfoUpdateManyWithoutResumeNestedInput
+    sections?: SectionUpdateManyWithoutResumeNestedInput
+    educations?: EducationUpdateManyWithoutResumeNestedInput
+    experiences?: ExperienceUpdateManyWithoutResumeNestedInput
+    skills?: SkillUpdateManyWithoutResumeNestedInput
+    languages?: LanguageUpdateManyWithoutResumeNestedInput
+    certifications?: CertificationUpdateManyWithoutResumeNestedInput
+    projects?: ProjectUpdateManyWithoutResumeNestedInput
+    achievements?: AchievementUpdateManyWithoutResumeNestedInput
+    customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+  }
+
+  export type ResumeUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    templateId?: StringFieldUpdateOperationsInput | string
+    themeId?: StringFieldUpdateOperationsInput | string
+    fontId?: NullableStringFieldUpdateOperationsInput | string | null
+    personalInfo?: PersonalInfoUncheckedUpdateManyWithoutResumeNestedInput
+    sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
+    educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
+    experiences?: ExperienceUncheckedUpdateManyWithoutResumeNestedInput
+    skills?: SkillUncheckedUpdateManyWithoutResumeNestedInput
+    languages?: LanguageUncheckedUpdateManyWithoutResumeNestedInput
+    certifications?: CertificationUncheckedUpdateManyWithoutResumeNestedInput
+    projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
+    achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
+    customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+  }
+
+  export type ResumeUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    templateId?: StringFieldUpdateOperationsInput | string
+    themeId?: StringFieldUpdateOperationsInput | string
+    fontId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type PersonalInfoCreateManyResumeInput = {
+    id?: string
+    firstName?: string | null
+    lastName?: string | null
+    title?: string | null
+    email?: string | null
+    phone?: string | null
+    website?: string | null
+    location?: string | null
+    photoUrl?: string | null
+    description?: string | null
+  }
+
+  export type SectionCreateManyResumeInput = {
+    id?: string
+    type: $Enums.SectionType
+    title: string
+    isVisible: boolean
+    order: number
+  }
+
+  export type EducationCreateManyResumeInput = {
+    id?: string
+    institution: string
+    degree: string
+    fieldOfStudy?: string | null
+    startDate: Date | string
+    endDate?: Date | string | null
+    description?: string | null
+    location?: string | null
+    order?: number
+  }
+
+  export type ExperienceCreateManyResumeInput = {
+    id?: string
+    company: string
+    position: string
+    startDate: Date | string
+    endDate?: Date | string | null
+    current?: boolean
+    description?: string | null
+    location?: string | null
+    order?: number
+  }
+
+  export type SkillCreateManyResumeInput = {
+    id?: string
+    name: string
+    level?: number
+    category?: string | null
+    order?: number
+  }
+
+  export type LanguageCreateManyResumeInput = {
+    id?: string
+    name: string
+    level: $Enums.LanguageLevel
+    order?: number
+  }
+
+  export type CertificationCreateManyResumeInput = {
+    id?: string
+    name: string
+    issuer: string
+    issueDate?: Date | string | null
+    expiryDate?: Date | string | null
+    credentialId?: string | null
+    credentialUrl?: string | null
+    order?: number
+  }
+
+  export type ProjectCreateManyResumeInput = {
+    id?: string
+    title: string
+    description?: string | null
+    url?: string | null
+    startDate?: Date | string | null
+    endDate?: Date | string | null
+    order?: number
+  }
+
+  export type AchievementCreateManyResumeInput = {
+    id?: string
+    title: string
+    description?: string | null
+    date?: Date | string | null
+    order?: number
+  }
+
+  export type CustomSectionCreateManyResumeInput = {
+    id?: string
+    title: string
+    content: string
+    order?: number
+  }
+
+  export type PersonalInfoUpdateWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    website?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type PersonalInfoUncheckedUpdateWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    website?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type PersonalInfoUncheckedUpdateManyWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    website?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type SectionUpdateWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: EnumSectionTypeFieldUpdateOperationsInput | $Enums.SectionType
+    title?: StringFieldUpdateOperationsInput | string
+    isVisible?: BoolFieldUpdateOperationsInput | boolean
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type SectionUncheckedUpdateWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: EnumSectionTypeFieldUpdateOperationsInput | $Enums.SectionType
+    title?: StringFieldUpdateOperationsInput | string
+    isVisible?: BoolFieldUpdateOperationsInput | boolean
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type SectionUncheckedUpdateManyWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: EnumSectionTypeFieldUpdateOperationsInput | $Enums.SectionType
+    title?: StringFieldUpdateOperationsInput | string
+    isVisible?: BoolFieldUpdateOperationsInput | boolean
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type EducationUpdateWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    institution?: StringFieldUpdateOperationsInput | string
+    degree?: StringFieldUpdateOperationsInput | string
+    fieldOfStudy?: NullableStringFieldUpdateOperationsInput | string | null
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type EducationUncheckedUpdateWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    institution?: StringFieldUpdateOperationsInput | string
+    degree?: StringFieldUpdateOperationsInput | string
+    fieldOfStudy?: NullableStringFieldUpdateOperationsInput | string | null
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type EducationUncheckedUpdateManyWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    institution?: StringFieldUpdateOperationsInput | string
+    degree?: StringFieldUpdateOperationsInput | string
+    fieldOfStudy?: NullableStringFieldUpdateOperationsInput | string | null
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ExperienceUpdateWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    company?: StringFieldUpdateOperationsInput | string
+    position?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    current?: BoolFieldUpdateOperationsInput | boolean
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ExperienceUncheckedUpdateWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    company?: StringFieldUpdateOperationsInput | string
+    position?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    current?: BoolFieldUpdateOperationsInput | boolean
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ExperienceUncheckedUpdateManyWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    company?: StringFieldUpdateOperationsInput | string
+    position?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    current?: BoolFieldUpdateOperationsInput | boolean
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type SkillUpdateWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    level?: IntFieldUpdateOperationsInput | number
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type SkillUncheckedUpdateWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    level?: IntFieldUpdateOperationsInput | number
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type SkillUncheckedUpdateManyWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    level?: IntFieldUpdateOperationsInput | number
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type LanguageUpdateWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    level?: EnumLanguageLevelFieldUpdateOperationsInput | $Enums.LanguageLevel
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type LanguageUncheckedUpdateWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    level?: EnumLanguageLevelFieldUpdateOperationsInput | $Enums.LanguageLevel
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type LanguageUncheckedUpdateManyWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    level?: EnumLanguageLevelFieldUpdateOperationsInput | $Enums.LanguageLevel
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type CertificationUpdateWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    issuer?: StringFieldUpdateOperationsInput | string
+    issueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    expiryDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    credentialId?: NullableStringFieldUpdateOperationsInput | string | null
+    credentialUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type CertificationUncheckedUpdateWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    issuer?: StringFieldUpdateOperationsInput | string
+    issueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    expiryDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    credentialId?: NullableStringFieldUpdateOperationsInput | string | null
+    credentialUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type CertificationUncheckedUpdateManyWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    issuer?: StringFieldUpdateOperationsInput | string
+    issueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    expiryDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    credentialId?: NullableStringFieldUpdateOperationsInput | string | null
+    credentialUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ProjectUpdateWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    url?: NullableStringFieldUpdateOperationsInput | string | null
+    startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ProjectUncheckedUpdateWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    url?: NullableStringFieldUpdateOperationsInput | string | null
+    startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ProjectUncheckedUpdateManyWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    url?: NullableStringFieldUpdateOperationsInput | string | null
+    startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type AchievementUpdateWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type AchievementUncheckedUpdateWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type AchievementUncheckedUpdateManyWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type CustomSectionUpdateWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type CustomSectionUncheckedUpdateWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type CustomSectionUncheckedUpdateManyWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ResumeCreateManyTemplateInput = {
+    id?: string
+    title: string
+    userId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isPublic?: boolean
+    publicUrl?: string | null
+    themeId: string
+    fontId?: string | null
+  }
+
+  export type ResumeUpdateWithoutTemplateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    user?: UserUpdateOneRequiredWithoutResumeNestedInput
+    theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
+    font?: FontUpdateOneWithoutResumesNestedInput
+    personalInfo?: PersonalInfoUpdateManyWithoutResumeNestedInput
+    sections?: SectionUpdateManyWithoutResumeNestedInput
+    educations?: EducationUpdateManyWithoutResumeNestedInput
+    experiences?: ExperienceUpdateManyWithoutResumeNestedInput
+    skills?: SkillUpdateManyWithoutResumeNestedInput
+    languages?: LanguageUpdateManyWithoutResumeNestedInput
+    certifications?: CertificationUpdateManyWithoutResumeNestedInput
+    projects?: ProjectUpdateManyWithoutResumeNestedInput
+    achievements?: AchievementUpdateManyWithoutResumeNestedInput
+    customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+  }
+
+  export type ResumeUncheckedUpdateWithoutTemplateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    themeId?: StringFieldUpdateOperationsInput | string
+    fontId?: NullableStringFieldUpdateOperationsInput | string | null
+    personalInfo?: PersonalInfoUncheckedUpdateManyWithoutResumeNestedInput
+    sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
+    educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
+    experiences?: ExperienceUncheckedUpdateManyWithoutResumeNestedInput
+    skills?: SkillUncheckedUpdateManyWithoutResumeNestedInput
+    languages?: LanguageUncheckedUpdateManyWithoutResumeNestedInput
+    certifications?: CertificationUncheckedUpdateManyWithoutResumeNestedInput
+    projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
+    achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
+    customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+  }
+
+  export type ResumeUncheckedUpdateManyWithoutTemplateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    themeId?: StringFieldUpdateOperationsInput | string
+    fontId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ResumeCreateManyThemeInput = {
+    id?: string
+    title: string
+    userId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isPublic?: boolean
+    publicUrl?: string | null
+    templateId: string
+    fontId?: string | null
+  }
+
+  export type ResumeUpdateWithoutThemeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    user?: UserUpdateOneRequiredWithoutResumeNestedInput
+    template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
+    font?: FontUpdateOneWithoutResumesNestedInput
+    personalInfo?: PersonalInfoUpdateManyWithoutResumeNestedInput
+    sections?: SectionUpdateManyWithoutResumeNestedInput
+    educations?: EducationUpdateManyWithoutResumeNestedInput
+    experiences?: ExperienceUpdateManyWithoutResumeNestedInput
+    skills?: SkillUpdateManyWithoutResumeNestedInput
+    languages?: LanguageUpdateManyWithoutResumeNestedInput
+    certifications?: CertificationUpdateManyWithoutResumeNestedInput
+    projects?: ProjectUpdateManyWithoutResumeNestedInput
+    achievements?: AchievementUpdateManyWithoutResumeNestedInput
+    customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+  }
+
+  export type ResumeUncheckedUpdateWithoutThemeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    templateId?: StringFieldUpdateOperationsInput | string
+    fontId?: NullableStringFieldUpdateOperationsInput | string | null
+    personalInfo?: PersonalInfoUncheckedUpdateManyWithoutResumeNestedInput
+    sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
+    educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
+    experiences?: ExperienceUncheckedUpdateManyWithoutResumeNestedInput
+    skills?: SkillUncheckedUpdateManyWithoutResumeNestedInput
+    languages?: LanguageUncheckedUpdateManyWithoutResumeNestedInput
+    certifications?: CertificationUncheckedUpdateManyWithoutResumeNestedInput
+    projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
+    achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
+    customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+  }
+
+  export type ResumeUncheckedUpdateManyWithoutThemeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    templateId?: StringFieldUpdateOperationsInput | string
+    fontId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ResumeCreateManyFontInput = {
+    id?: string
+    title: string
+    userId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isPublic?: boolean
+    publicUrl?: string | null
+    templateId: string
+    themeId: string
+  }
+
+  export type ResumeUpdateWithoutFontInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    user?: UserUpdateOneRequiredWithoutResumeNestedInput
+    template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
+    theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
+    personalInfo?: PersonalInfoUpdateManyWithoutResumeNestedInput
+    sections?: SectionUpdateManyWithoutResumeNestedInput
+    educations?: EducationUpdateManyWithoutResumeNestedInput
+    experiences?: ExperienceUpdateManyWithoutResumeNestedInput
+    skills?: SkillUpdateManyWithoutResumeNestedInput
+    languages?: LanguageUpdateManyWithoutResumeNestedInput
+    certifications?: CertificationUpdateManyWithoutResumeNestedInput
+    projects?: ProjectUpdateManyWithoutResumeNestedInput
+    achievements?: AchievementUpdateManyWithoutResumeNestedInput
+    customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+  }
+
+  export type ResumeUncheckedUpdateWithoutFontInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    templateId?: StringFieldUpdateOperationsInput | string
+    themeId?: StringFieldUpdateOperationsInput | string
+    personalInfo?: PersonalInfoUncheckedUpdateManyWithoutResumeNestedInput
+    sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
+    educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
+    experiences?: ExperienceUncheckedUpdateManyWithoutResumeNestedInput
+    skills?: SkillUncheckedUpdateManyWithoutResumeNestedInput
+    languages?: LanguageUncheckedUpdateManyWithoutResumeNestedInput
+    certifications?: CertificationUncheckedUpdateManyWithoutResumeNestedInput
+    projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
+    achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
+    customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+  }
+
+  export type ResumeUncheckedUpdateManyWithoutFontInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    templateId?: StringFieldUpdateOperationsInput | string
+    themeId?: StringFieldUpdateOperationsInput | string
   }
 
 
