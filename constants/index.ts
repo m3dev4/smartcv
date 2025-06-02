@@ -183,3 +183,127 @@ export const tesimonials = [
   },
 ];
 
+
+
+///Resumes
+
+export const mockResume = {
+  id: '1',
+  title: 'Mon CV',
+  personalInfo: {
+    firstName: 'Jean',
+    lastName: 'Dupont',
+    photoUrl: 'https://img.freepik.com/photos-gratuite/belle-femme-afro-americaine-souriante-cheveux-nets-large-sourire-montre-dents-blanches-porte-t-shirt-lunettes-decontractes-se-tient-au-dessus-du-mur-se-rejouit-avoir-journee-conge-journaliste-femme-interieur_273609-15511.jpg?uid=R153625292&ga=GA1.1.1724044792.1741577356&semt=ais_hybrid&w=740',
+    title: 'Chef de projet',
+    email: 'jean.dupont@email.com',
+    phone: '+33 1 23 45 67 89',
+    location: 'Paris, France',
+    description:
+      "Je suis un chef de projet passionné. Je suis expert en gestion de projet et j'aime travailler en equipe pour atteindre les objectifs de mon entreprise.",
+  },
+  // Ajoutez d'autres sections selon votre type Resume
+  experiences: [
+    {
+      id: '1',
+      position: 'Chef de projet',
+      company: 'Entreprise A',
+      startDate: '2022-01-01',
+      endDate: '2023-01-01',
+      description: "Description de l'emploi 1",
+      order: 1,
+    },
+    {
+      id: '2',
+      position: 'Chef de projet',
+      company: 'Entreprise B',
+      startDate: '2022-01-01',
+      endDate: '2023-01-01',
+      description: "Description de l'emploi 2",
+      order: 2,
+    }
+  ],
+  educations: [
+    {
+      id: '1',
+      title: 'Diplome 1',
+      institution: 'Institut A',
+      degree: 'Diplome 1',
+      fieldOfStudy: 'Champ 1',
+      startDate: '2022-01-01',
+      endDate: '2023-01-01',
+      description: "Description de l'education 1",
+      location: 'Paris, France',
+    },
+    {
+      id: '2',
+      title: 'Diplome 2',
+      institution: 'Institut B',
+      degree: 'Diplome 2',
+      fieldOfStudy: 'Champ 2',
+      startDate: '2022-01-01',
+      endDate: '2023-01-01',
+      description: "Description de l'education 2",
+      location: 'Paris, France',
+    },
+  ],
+  skills: [
+    {
+      id: '1',
+      name: 'HTML',
+      level: 57,
+      order: 1,
+    },
+    {
+      id: '2',
+      name: 'CSS',
+      level: 60,
+      order: 2,
+    },
+    {
+      id: '3',
+      name: 'JavaScript',
+      level: 70,
+      order: 3,
+    },
+  ],
+  languages: [
+    {
+      id: '1',
+      name: 'Français',
+      level: 100,
+      order: 1,
+    },
+    {
+      id: '2',
+      name: 'Anglais',
+      level: 50,
+      order: 2,
+    },
+    {
+      id: '3',
+      name: 'Espagnol',
+      level: 30,
+      order: 3,
+    },
+  ],
+  certfications: [
+    {
+      id: 1,
+      name: 'Certification 1',
+      issuer: 'Issuer 1',
+      issueDate: '2022-01-01',
+      expiryDate: '2023-01-01',
+      credentialId: 'Credential ID 1',
+      credentialUrl: 'example.com/credential/1',
+      order: 1,
+    },
+  ],
+  achievements: [
+    {
+      id: 1,
+      title: 'Achievement 1',
+      description: 'Description of Achievement 1',
+      order: 1,
+    }
+  ],
+};

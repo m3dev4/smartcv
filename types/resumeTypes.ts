@@ -38,6 +38,13 @@ export interface ResumeTemplateProps {
       location?: string;
       order: number;
     }[];
+    skills?: {
+      id: string;
+      name: string;
+      level?: string;
+      category?: string;
+      order: number;
+    }[];
     languages?: {
       id: string;
       name: string;

@@ -7,3 +7,5 @@ export enum ResumeTemplateType {
   MINIMAL = 'minimal',
   HAVARD = 'havard',
 }
+
+
