@@ -94,7 +94,7 @@ export interface ResumeTemplateProps {
     };
     template?: {
       id: string;
-      nname: string;
+      name: string;
     };
     font?: {
       id: string;

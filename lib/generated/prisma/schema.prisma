@@ -69,7 +69,7 @@ model Resume {
   font       Font?    @relation(fields: [fontId], references: [id])
 
   //Relations avec les sections
-  personalInfo   PersonalInfo[]
+  personalInfo   PersonalInfo?
   sections       Section[]
   educations     Education[]
   experiences    Experience[]

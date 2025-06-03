@@ -12,7 +12,7 @@ const TemplatePage = () => {
         resume={mockResume as any}
         isEditable={true}
         onEditSection={() => {}}
-        className={''}
+        className=""
         children={undefined}
       />
     </div>
