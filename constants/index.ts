@@ -1,3 +1,6 @@
+import { ResumeTemplateType } from '@/enums/resumeEnum';
+import { Template } from '@/lib/generated/prisma';
+
 export const companys = [
   {
     id: 1,
@@ -183,8 +186,6 @@ export const tesimonials = [
   },
 ];
 
-
-
 ///Resumes
 
 export const mockResume = {
@@ -193,7 +194,8 @@ export const mockResume = {
   personalInfo: {
     firstName: 'Jean',
     lastName: 'Dupont',
-    photoUrl: 'https://img.freepik.com/photos-gratuite/belle-femme-afro-americaine-souriante-cheveux-nets-large-sourire-montre-dents-blanches-porte-t-shirt-lunettes-decontractes-se-tient-au-dessus-du-mur-se-rejouit-avoir-journee-conge-journaliste-femme-interieur_273609-15511.jpg?uid=R153625292&ga=GA1.1.1724044792.1741577356&semt=ais_hybrid&w=740',
+    photoUrl:
+      'https://img.freepik.com/photos-gratuite/belle-femme-afro-americaine-souriante-cheveux-nets-large-sourire-montre-dents-blanches-porte-t-shirt-lunettes-decontractes-se-tient-au-dessus-du-mur-se-rejouit-avoir-journee-conge-journaliste-femme-interieur_273609-15511.jpg?uid=R153625292&ga=GA1.1.1724044792.1741577356&semt=ais_hybrid&w=740',
     title: 'Chef de projet',
     email: 'jean.dupont@email.com',
     phone: '+33 1 23 45 67 89',
@@ -220,7 +222,7 @@ export const mockResume = {
       endDate: '2023-01-01',
       description: "Description de l'emploi 2",
       order: 2,
-    }
+    },
   ],
   educations: [
     {
@@ -304,6 +306,38 @@ export const mockResume = {
       title: 'Achievement 1',
       description: 'Description of Achievement 1',
       order: 1,
-    }
+    },
   ],
 };
+
+// Templates
+
+export const templates: Template[] = [
+  {
+    id: ResumeTemplateType.MODERN,
+    name: 'Modern',
+    description: 'Design épuré et contemporain',
+    thumbnail: '/resumes/modern.png',
+    isDefault: true,
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: ResumeTemplateType.CLASSIC,
+    name: 'Classique',
+    description: 'Design classique et traditionnel',
+    thumbnail: '/resumes/classic.png',
+    isDefault: false,
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: ResumeTemplateType.PERFORMANCE,
+    name: 'Performance',
+    description: 'Design performant et moderne',
+    thumbnail: '/resumes/performance.png',
+    isDefault: false,
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+];

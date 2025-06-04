@@ -7,14 +7,16 @@ import React from 'react';
 const TemplatePage = () => {
   return (
     <div className="min-h-screen flex items-center justify-center">
-      <ResumeTemplateWrapper
-        type={ResumeTemplateType.CLASSIC}
-        resume={mockResume as any}
-        isEditable={true}
-        onEditSection={() => {}}
-        className=""
-        children={undefined}
-      />
+      <div style={{ transform: 'scale(0.74)', transformOrigin: 'top' }}>
+        <ResumeTemplateWrapper
+          type={ResumeTemplateType.PERFORMANCE}
+          resume={mockResume as any}
+          isEditable={true}
+          onEditSection={() => {}}
+          className="shadow-xl mt-10"
+          children={undefined}
+        />
+      </div>
     </div>
   );
 };
