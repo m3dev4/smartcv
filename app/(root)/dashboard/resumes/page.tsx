@@ -152,7 +152,7 @@ const DashboardPage = () => {
               <div className="text-center space-y-4">
                 <div className="flex itemsc-center justify-center mx-auto w-16 h-16">
                   <FileText className="w-8 h-8" />
-                  <h3 className="text-xl font-semibold">Prépaparez votre template </h3>
+                  <h3 className="text-xl font-semibold">Préparez votre template </h3>
                   <p className="text-accent">
                     Nous configurons votre template{' '}
                     {templates.find(t => t.id === selectedTemplate)?.name}...
