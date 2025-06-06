@@ -2325,7 +2325,6 @@ export namespace Prisma {
    */
 
   export type ResumeCountOutputType = {
-    personalInfo: number
     sections: number
     educations: number
     experiences: number
@@ -2338,7 +2337,6 @@ export namespace Prisma {
   }
 
   export type ResumeCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    personalInfo?: boolean | ResumeCountOutputTypeCountPersonalInfoArgs
     sections?: boolean | ResumeCountOutputTypeCountSectionsArgs
     educations?: boolean | ResumeCountOutputTypeCountEducationsArgs
     experiences?: boolean | ResumeCountOutputTypeCountExperiencesArgs
@@ -2359,13 +2357,6 @@ export namespace Prisma {
      * Select specific fields to fetch from the ResumeCountOutputType
      */
     select?: ResumeCountOutputTypeSelect<ExtArgs> | null
-  }
-
-  /**
-   * ResumeCountOutputType without action
-   */
-  export type ResumeCountOutputTypeCountPersonalInfoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: PersonalInfoWhereInput
   }
 
   /**
@@ -5134,7 +5125,7 @@ export namespace Prisma {
       template: Prisma.$TemplatePayload<ExtArgs>
       theme: Prisma.$ThemePayload<ExtArgs>
       font: Prisma.$FontPayload<ExtArgs> | null
-      personalInfo: Prisma.$PersonalInfoPayload<ExtArgs>[]
+      personalInfo: Prisma.$PersonalInfoPayload<ExtArgs> | null
       sections: Prisma.$SectionPayload<ExtArgs>[]
       educations: Prisma.$EducationPayload<ExtArgs>[]
       experiences: Prisma.$ExperiencePayload<ExtArgs>[]
@@ -5554,7 +5545,7 @@ export namespace Prisma {
     template<T extends TemplateDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TemplateDefaultArgs<ExtArgs>>): Prisma__TemplateClient<$Result.GetResult<Prisma.$TemplatePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     theme<T extends ThemeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ThemeDefaultArgs<ExtArgs>>): Prisma__ThemeClient<$Result.GetResult<Prisma.$ThemePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     font<T extends Resume$fontArgs<ExtArgs> = {}>(args?: Subset<T, Resume$fontArgs<ExtArgs>>): Prisma__FontClient<$Result.GetResult<Prisma.$FontPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    personalInfo<T extends Resume$personalInfoArgs<ExtArgs> = {}>(args?: Subset<T, Resume$personalInfoArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PersonalInfoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    personalInfo<T extends Resume$personalInfoArgs<ExtArgs> = {}>(args?: Subset<T, Resume$personalInfoArgs<ExtArgs>>): Prisma__PersonalInfoClient<$Result.GetResult<Prisma.$PersonalInfoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     sections<T extends Resume$sectionsArgs<ExtArgs> = {}>(args?: Subset<T, Resume$sectionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SectionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     educations<T extends Resume$educationsArgs<ExtArgs> = {}>(args?: Subset<T, Resume$educationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EducationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     experiences<T extends Resume$experiencesArgs<ExtArgs> = {}>(args?: Subset<T, Resume$experiencesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ExperiencePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -6034,11 +6025,6 @@ export namespace Prisma {
      */
     include?: PersonalInfoInclude<ExtArgs> | null
     where?: PersonalInfoWhereInput
-    orderBy?: PersonalInfoOrderByWithRelationInput | PersonalInfoOrderByWithRelationInput[]
-    cursor?: PersonalInfoWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: PersonalInfoScalarFieldEnum | PersonalInfoScalarFieldEnum[]
   }
 
   /**
@@ -21423,7 +21409,7 @@ export namespace Prisma {
     template?: XOR<TemplateScalarRelationFilter, TemplateWhereInput>
     theme?: XOR<ThemeScalarRelationFilter, ThemeWhereInput>
     font?: XOR<FontNullableScalarRelationFilter, FontWhereInput> | null
-    personalInfo?: PersonalInfoListRelationFilter
+    personalInfo?: XOR<PersonalInfoNullableScalarRelationFilter, PersonalInfoWhereInput> | null
     sections?: SectionListRelationFilter
     educations?: EducationListRelationFilter
     experiences?: ExperienceListRelationFilter
@@ -21450,7 +21436,7 @@ export namespace Prisma {
     template?: TemplateOrderByWithRelationInput
     theme?: ThemeOrderByWithRelationInput
     font?: FontOrderByWithRelationInput
-    personalInfo?: PersonalInfoOrderByRelationAggregateInput
+    personalInfo?: PersonalInfoOrderByWithRelationInput
     sections?: SectionOrderByRelationAggregateInput
     educations?: EducationOrderByRelationAggregateInput
     experiences?: ExperienceOrderByRelationAggregateInput
@@ -21480,7 +21466,7 @@ export namespace Prisma {
     template?: XOR<TemplateScalarRelationFilter, TemplateWhereInput>
     theme?: XOR<ThemeScalarRelationFilter, ThemeWhereInput>
     font?: XOR<FontNullableScalarRelationFilter, FontWhereInput> | null
-    personalInfo?: PersonalInfoListRelationFilter
+    personalInfo?: XOR<PersonalInfoNullableScalarRelationFilter, PersonalInfoWhereInput> | null
     sections?: SectionListRelationFilter
     educations?: EducationListRelationFilter
     experiences?: ExperienceListRelationFilter
@@ -22650,7 +22636,7 @@ export namespace Prisma {
     template: TemplateCreateNestedOneWithoutResumesInput
     theme: ThemeCreateNestedOneWithoutResumesInput
     font?: FontCreateNestedOneWithoutResumesInput
-    personalInfo?: PersonalInfoCreateNestedManyWithoutResumeInput
+    personalInfo?: PersonalInfoCreateNestedOneWithoutResumeInput
     sections?: SectionCreateNestedManyWithoutResumeInput
     educations?: EducationCreateNestedManyWithoutResumeInput
     experiences?: ExperienceCreateNestedManyWithoutResumeInput
@@ -22673,7 +22659,7 @@ export namespace Prisma {
     templateId: string
     themeId: string
     fontId?: string | null
-    personalInfo?: PersonalInfoUncheckedCreateNestedManyWithoutResumeInput
+    personalInfo?: PersonalInfoUncheckedCreateNestedOneWithoutResumeInput
     sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
     educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
     experiences?: ExperienceUncheckedCreateNestedManyWithoutResumeInput
@@ -22696,7 +22682,7 @@ export namespace Prisma {
     template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
     theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
     font?: FontUpdateOneWithoutResumesNestedInput
-    personalInfo?: PersonalInfoUpdateManyWithoutResumeNestedInput
+    personalInfo?: PersonalInfoUpdateOneWithoutResumeNestedInput
     sections?: SectionUpdateManyWithoutResumeNestedInput
     educations?: EducationUpdateManyWithoutResumeNestedInput
     experiences?: ExperienceUpdateManyWithoutResumeNestedInput
@@ -22719,7 +22705,7 @@ export namespace Prisma {
     templateId?: StringFieldUpdateOperationsInput | string
     themeId?: StringFieldUpdateOperationsInput | string
     fontId?: NullableStringFieldUpdateOperationsInput | string | null
-    personalInfo?: PersonalInfoUncheckedUpdateManyWithoutResumeNestedInput
+    personalInfo?: PersonalInfoUncheckedUpdateOneWithoutResumeNestedInput
     sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
     educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
     experiences?: ExperienceUncheckedUpdateManyWithoutResumeNestedInput
@@ -24027,10 +24013,9 @@ export namespace Prisma {
     isNot?: FontWhereInput | null
   }
 
-  export type PersonalInfoListRelationFilter = {
-    every?: PersonalInfoWhereInput
-    some?: PersonalInfoWhereInput
-    none?: PersonalInfoWhereInput
+  export type PersonalInfoNullableScalarRelationFilter = {
+    is?: PersonalInfoWhereInput | null
+    isNot?: PersonalInfoWhereInput | null
   }
 
   export type SectionListRelationFilter = {
@@ -24085,10 +24070,6 @@ export namespace Prisma {
     every?: CustomSectionWhereInput
     some?: CustomSectionWhereInput
     none?: CustomSectionWhereInput
-  }
-
-  export type PersonalInfoOrderByRelationAggregateInput = {
-    _count?: SortOrder
   }
 
   export type SectionOrderByRelationAggregateInput = {
@@ -24880,11 +24861,10 @@ export namespace Prisma {
     connect?: FontWhereUniqueInput
   }
 
-  export type PersonalInfoCreateNestedManyWithoutResumeInput = {
-    create?: XOR<PersonalInfoCreateWithoutResumeInput, PersonalInfoUncheckedCreateWithoutResumeInput> | PersonalInfoCreateWithoutResumeInput[] | PersonalInfoUncheckedCreateWithoutResumeInput[]
-    connectOrCreate?: PersonalInfoCreateOrConnectWithoutResumeInput | PersonalInfoCreateOrConnectWithoutResumeInput[]
-    createMany?: PersonalInfoCreateManyResumeInputEnvelope
-    connect?: PersonalInfoWhereUniqueInput | PersonalInfoWhereUniqueInput[]
+  export type PersonalInfoCreateNestedOneWithoutResumeInput = {
+    create?: XOR<PersonalInfoCreateWithoutResumeInput, PersonalInfoUncheckedCreateWithoutResumeInput>
+    connectOrCreate?: PersonalInfoCreateOrConnectWithoutResumeInput
+    connect?: PersonalInfoWhereUniqueInput
   }
 
   export type SectionCreateNestedManyWithoutResumeInput = {
@@ -24950,11 +24930,10 @@ export namespace Prisma {
     connect?: CustomSectionWhereUniqueInput | CustomSectionWhereUniqueInput[]
   }
 
-  export type PersonalInfoUncheckedCreateNestedManyWithoutResumeInput = {
-    create?: XOR<PersonalInfoCreateWithoutResumeInput, PersonalInfoUncheckedCreateWithoutResumeInput> | PersonalInfoCreateWithoutResumeInput[] | PersonalInfoUncheckedCreateWithoutResumeInput[]
-    connectOrCreate?: PersonalInfoCreateOrConnectWithoutResumeInput | PersonalInfoCreateOrConnectWithoutResumeInput[]
-    createMany?: PersonalInfoCreateManyResumeInputEnvelope
-    connect?: PersonalInfoWhereUniqueInput | PersonalInfoWhereUniqueInput[]
+  export type PersonalInfoUncheckedCreateNestedOneWithoutResumeInput = {
+    create?: XOR<PersonalInfoCreateWithoutResumeInput, PersonalInfoUncheckedCreateWithoutResumeInput>
+    connectOrCreate?: PersonalInfoCreateOrConnectWithoutResumeInput
+    connect?: PersonalInfoWhereUniqueInput
   }
 
   export type SectionUncheckedCreateNestedManyWithoutResumeInput = {
@@ -25054,18 +25033,14 @@ export namespace Prisma {
     update?: XOR<XOR<FontUpdateToOneWithWhereWithoutResumesInput, FontUpdateWithoutResumesInput>, FontUncheckedUpdateWithoutResumesInput>
   }
 
-  export type PersonalInfoUpdateManyWithoutResumeNestedInput = {
-    create?: XOR<PersonalInfoCreateWithoutResumeInput, PersonalInfoUncheckedCreateWithoutResumeInput> | PersonalInfoCreateWithoutResumeInput[] | PersonalInfoUncheckedCreateWithoutResumeInput[]
-    connectOrCreate?: PersonalInfoCreateOrConnectWithoutResumeInput | PersonalInfoCreateOrConnectWithoutResumeInput[]
-    upsert?: PersonalInfoUpsertWithWhereUniqueWithoutResumeInput | PersonalInfoUpsertWithWhereUniqueWithoutResumeInput[]
-    createMany?: PersonalInfoCreateManyResumeInputEnvelope
-    set?: PersonalInfoWhereUniqueInput | PersonalInfoWhereUniqueInput[]
-    disconnect?: PersonalInfoWhereUniqueInput | PersonalInfoWhereUniqueInput[]
-    delete?: PersonalInfoWhereUniqueInput | PersonalInfoWhereUniqueInput[]
-    connect?: PersonalInfoWhereUniqueInput | PersonalInfoWhereUniqueInput[]
-    update?: PersonalInfoUpdateWithWhereUniqueWithoutResumeInput | PersonalInfoUpdateWithWhereUniqueWithoutResumeInput[]
-    updateMany?: PersonalInfoUpdateManyWithWhereWithoutResumeInput | PersonalInfoUpdateManyWithWhereWithoutResumeInput[]
-    deleteMany?: PersonalInfoScalarWhereInput | PersonalInfoScalarWhereInput[]
+  export type PersonalInfoUpdateOneWithoutResumeNestedInput = {
+    create?: XOR<PersonalInfoCreateWithoutResumeInput, PersonalInfoUncheckedCreateWithoutResumeInput>
+    connectOrCreate?: PersonalInfoCreateOrConnectWithoutResumeInput
+    upsert?: PersonalInfoUpsertWithoutResumeInput
+    disconnect?: PersonalInfoWhereInput | boolean
+    delete?: PersonalInfoWhereInput | boolean
+    connect?: PersonalInfoWhereUniqueInput
+    update?: XOR<XOR<PersonalInfoUpdateToOneWithWhereWithoutResumeInput, PersonalInfoUpdateWithoutResumeInput>, PersonalInfoUncheckedUpdateWithoutResumeInput>
   }
 
   export type SectionUpdateManyWithoutResumeNestedInput = {
@@ -25194,18 +25169,14 @@ export namespace Prisma {
     deleteMany?: CustomSectionScalarWhereInput | CustomSectionScalarWhereInput[]
   }
 
-  export type PersonalInfoUncheckedUpdateManyWithoutResumeNestedInput = {
-    create?: XOR<PersonalInfoCreateWithoutResumeInput, PersonalInfoUncheckedCreateWithoutResumeInput> | PersonalInfoCreateWithoutResumeInput[] | PersonalInfoUncheckedCreateWithoutResumeInput[]
-    connectOrCreate?: PersonalInfoCreateOrConnectWithoutResumeInput | PersonalInfoCreateOrConnectWithoutResumeInput[]
-    upsert?: PersonalInfoUpsertWithWhereUniqueWithoutResumeInput | PersonalInfoUpsertWithWhereUniqueWithoutResumeInput[]
-    createMany?: PersonalInfoCreateManyResumeInputEnvelope
-    set?: PersonalInfoWhereUniqueInput | PersonalInfoWhereUniqueInput[]
-    disconnect?: PersonalInfoWhereUniqueInput | PersonalInfoWhereUniqueInput[]
-    delete?: PersonalInfoWhereUniqueInput | PersonalInfoWhereUniqueInput[]
-    connect?: PersonalInfoWhereUniqueInput | PersonalInfoWhereUniqueInput[]
-    update?: PersonalInfoUpdateWithWhereUniqueWithoutResumeInput | PersonalInfoUpdateWithWhereUniqueWithoutResumeInput[]
-    updateMany?: PersonalInfoUpdateManyWithWhereWithoutResumeInput | PersonalInfoUpdateManyWithWhereWithoutResumeInput[]
-    deleteMany?: PersonalInfoScalarWhereInput | PersonalInfoScalarWhereInput[]
+  export type PersonalInfoUncheckedUpdateOneWithoutResumeNestedInput = {
+    create?: XOR<PersonalInfoCreateWithoutResumeInput, PersonalInfoUncheckedCreateWithoutResumeInput>
+    connectOrCreate?: PersonalInfoCreateOrConnectWithoutResumeInput
+    upsert?: PersonalInfoUpsertWithoutResumeInput
+    disconnect?: PersonalInfoWhereInput | boolean
+    delete?: PersonalInfoWhereInput | boolean
+    connect?: PersonalInfoWhereUniqueInput
+    update?: XOR<XOR<PersonalInfoUpdateToOneWithWhereWithoutResumeInput, PersonalInfoUpdateWithoutResumeInput>, PersonalInfoUncheckedUpdateWithoutResumeInput>
   }
 
   export type SectionUncheckedUpdateManyWithoutResumeNestedInput = {
@@ -25879,7 +25850,7 @@ export namespace Prisma {
     template: TemplateCreateNestedOneWithoutResumesInput
     theme: ThemeCreateNestedOneWithoutResumesInput
     font?: FontCreateNestedOneWithoutResumesInput
-    personalInfo?: PersonalInfoCreateNestedManyWithoutResumeInput
+    personalInfo?: PersonalInfoCreateNestedOneWithoutResumeInput
     sections?: SectionCreateNestedManyWithoutResumeInput
     educations?: EducationCreateNestedManyWithoutResumeInput
     experiences?: ExperienceCreateNestedManyWithoutResumeInput
@@ -25901,7 +25872,7 @@ export namespace Prisma {
     templateId: string
     themeId: string
     fontId?: string | null
-    personalInfo?: PersonalInfoUncheckedCreateNestedManyWithoutResumeInput
+    personalInfo?: PersonalInfoUncheckedCreateNestedOneWithoutResumeInput
     sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
     educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
     experiences?: ExperienceUncheckedCreateNestedManyWithoutResumeInput
@@ -26227,11 +26198,6 @@ export namespace Prisma {
   export type PersonalInfoCreateOrConnectWithoutResumeInput = {
     where: PersonalInfoWhereUniqueInput
     create: XOR<PersonalInfoCreateWithoutResumeInput, PersonalInfoUncheckedCreateWithoutResumeInput>
-  }
-
-  export type PersonalInfoCreateManyResumeInputEnvelope = {
-    data: PersonalInfoCreateManyResumeInput | PersonalInfoCreateManyResumeInput[]
-    skipDuplicates?: boolean
   }
 
   export type SectionCreateWithoutResumeInput = {
@@ -26640,37 +26606,41 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type PersonalInfoUpsertWithWhereUniqueWithoutResumeInput = {
-    where: PersonalInfoWhereUniqueInput
+  export type PersonalInfoUpsertWithoutResumeInput = {
     update: XOR<PersonalInfoUpdateWithoutResumeInput, PersonalInfoUncheckedUpdateWithoutResumeInput>
     create: XOR<PersonalInfoCreateWithoutResumeInput, PersonalInfoUncheckedCreateWithoutResumeInput>
+    where?: PersonalInfoWhereInput
   }
 
-  export type PersonalInfoUpdateWithWhereUniqueWithoutResumeInput = {
-    where: PersonalInfoWhereUniqueInput
+  export type PersonalInfoUpdateToOneWithWhereWithoutResumeInput = {
+    where?: PersonalInfoWhereInput
     data: XOR<PersonalInfoUpdateWithoutResumeInput, PersonalInfoUncheckedUpdateWithoutResumeInput>
   }
 
-  export type PersonalInfoUpdateManyWithWhereWithoutResumeInput = {
-    where: PersonalInfoScalarWhereInput
-    data: XOR<PersonalInfoUpdateManyMutationInput, PersonalInfoUncheckedUpdateManyWithoutResumeInput>
+  export type PersonalInfoUpdateWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    website?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type PersonalInfoScalarWhereInput = {
-    AND?: PersonalInfoScalarWhereInput | PersonalInfoScalarWhereInput[]
-    OR?: PersonalInfoScalarWhereInput[]
-    NOT?: PersonalInfoScalarWhereInput | PersonalInfoScalarWhereInput[]
-    id?: StringFilter<"PersonalInfo"> | string
-    resumeId?: StringFilter<"PersonalInfo"> | string
-    firstName?: StringNullableFilter<"PersonalInfo"> | string | null
-    lastName?: StringNullableFilter<"PersonalInfo"> | string | null
-    title?: StringNullableFilter<"PersonalInfo"> | string | null
-    email?: StringNullableFilter<"PersonalInfo"> | string | null
-    phone?: StringNullableFilter<"PersonalInfo"> | string | null
-    website?: StringNullableFilter<"PersonalInfo"> | string | null
-    location?: StringNullableFilter<"PersonalInfo"> | string | null
-    photoUrl?: StringNullableFilter<"PersonalInfo"> | string | null
-    description?: StringNullableFilter<"PersonalInfo"> | string | null
+  export type PersonalInfoUncheckedUpdateWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    website?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type SectionUpsertWithWhereUniqueWithoutResumeInput = {
@@ -27051,7 +27021,7 @@ export namespace Prisma {
     template: TemplateCreateNestedOneWithoutResumesInput
     theme: ThemeCreateNestedOneWithoutResumesInput
     font?: FontCreateNestedOneWithoutResumesInput
-    personalInfo?: PersonalInfoCreateNestedManyWithoutResumeInput
+    personalInfo?: PersonalInfoCreateNestedOneWithoutResumeInput
     educations?: EducationCreateNestedManyWithoutResumeInput
     experiences?: ExperienceCreateNestedManyWithoutResumeInput
     skills?: SkillCreateNestedManyWithoutResumeInput
@@ -27073,7 +27043,7 @@ export namespace Prisma {
     templateId: string
     themeId: string
     fontId?: string | null
-    personalInfo?: PersonalInfoUncheckedCreateNestedManyWithoutResumeInput
+    personalInfo?: PersonalInfoUncheckedCreateNestedOneWithoutResumeInput
     educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
     experiences?: ExperienceUncheckedCreateNestedManyWithoutResumeInput
     skills?: SkillUncheckedCreateNestedManyWithoutResumeInput
@@ -27111,7 +27081,7 @@ export namespace Prisma {
     template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
     theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
     font?: FontUpdateOneWithoutResumesNestedInput
-    personalInfo?: PersonalInfoUpdateManyWithoutResumeNestedInput
+    personalInfo?: PersonalInfoUpdateOneWithoutResumeNestedInput
     educations?: EducationUpdateManyWithoutResumeNestedInput
     experiences?: ExperienceUpdateManyWithoutResumeNestedInput
     skills?: SkillUpdateManyWithoutResumeNestedInput
@@ -27133,7 +27103,7 @@ export namespace Prisma {
     templateId?: StringFieldUpdateOperationsInput | string
     themeId?: StringFieldUpdateOperationsInput | string
     fontId?: NullableStringFieldUpdateOperationsInput | string | null
-    personalInfo?: PersonalInfoUncheckedUpdateManyWithoutResumeNestedInput
+    personalInfo?: PersonalInfoUncheckedUpdateOneWithoutResumeNestedInput
     educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
     experiences?: ExperienceUncheckedUpdateManyWithoutResumeNestedInput
     skills?: SkillUncheckedUpdateManyWithoutResumeNestedInput
@@ -27155,7 +27125,7 @@ export namespace Prisma {
     template: TemplateCreateNestedOneWithoutResumesInput
     theme: ThemeCreateNestedOneWithoutResumesInput
     font?: FontCreateNestedOneWithoutResumesInput
-    personalInfo?: PersonalInfoCreateNestedManyWithoutResumeInput
+    personalInfo?: PersonalInfoCreateNestedOneWithoutResumeInput
     sections?: SectionCreateNestedManyWithoutResumeInput
     experiences?: ExperienceCreateNestedManyWithoutResumeInput
     skills?: SkillCreateNestedManyWithoutResumeInput
@@ -27177,7 +27147,7 @@ export namespace Prisma {
     templateId: string
     themeId: string
     fontId?: string | null
-    personalInfo?: PersonalInfoUncheckedCreateNestedManyWithoutResumeInput
+    personalInfo?: PersonalInfoUncheckedCreateNestedOneWithoutResumeInput
     sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
     experiences?: ExperienceUncheckedCreateNestedManyWithoutResumeInput
     skills?: SkillUncheckedCreateNestedManyWithoutResumeInput
@@ -27215,7 +27185,7 @@ export namespace Prisma {
     template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
     theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
     font?: FontUpdateOneWithoutResumesNestedInput
-    personalInfo?: PersonalInfoUpdateManyWithoutResumeNestedInput
+    personalInfo?: PersonalInfoUpdateOneWithoutResumeNestedInput
     sections?: SectionUpdateManyWithoutResumeNestedInput
     experiences?: ExperienceUpdateManyWithoutResumeNestedInput
     skills?: SkillUpdateManyWithoutResumeNestedInput
@@ -27237,7 +27207,7 @@ export namespace Prisma {
     templateId?: StringFieldUpdateOperationsInput | string
     themeId?: StringFieldUpdateOperationsInput | string
     fontId?: NullableStringFieldUpdateOperationsInput | string | null
-    personalInfo?: PersonalInfoUncheckedUpdateManyWithoutResumeNestedInput
+    personalInfo?: PersonalInfoUncheckedUpdateOneWithoutResumeNestedInput
     sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
     experiences?: ExperienceUncheckedUpdateManyWithoutResumeNestedInput
     skills?: SkillUncheckedUpdateManyWithoutResumeNestedInput
@@ -27259,7 +27229,7 @@ export namespace Prisma {
     template: TemplateCreateNestedOneWithoutResumesInput
     theme: ThemeCreateNestedOneWithoutResumesInput
     font?: FontCreateNestedOneWithoutResumesInput
-    personalInfo?: PersonalInfoCreateNestedManyWithoutResumeInput
+    personalInfo?: PersonalInfoCreateNestedOneWithoutResumeInput
     sections?: SectionCreateNestedManyWithoutResumeInput
     educations?: EducationCreateNestedManyWithoutResumeInput
     skills?: SkillCreateNestedManyWithoutResumeInput
@@ -27281,7 +27251,7 @@ export namespace Prisma {
     templateId: string
     themeId: string
     fontId?: string | null
-    personalInfo?: PersonalInfoUncheckedCreateNestedManyWithoutResumeInput
+    personalInfo?: PersonalInfoUncheckedCreateNestedOneWithoutResumeInput
     sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
     educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
     skills?: SkillUncheckedCreateNestedManyWithoutResumeInput
@@ -27319,7 +27289,7 @@ export namespace Prisma {
     template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
     theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
     font?: FontUpdateOneWithoutResumesNestedInput
-    personalInfo?: PersonalInfoUpdateManyWithoutResumeNestedInput
+    personalInfo?: PersonalInfoUpdateOneWithoutResumeNestedInput
     sections?: SectionUpdateManyWithoutResumeNestedInput
     educations?: EducationUpdateManyWithoutResumeNestedInput
     skills?: SkillUpdateManyWithoutResumeNestedInput
@@ -27341,7 +27311,7 @@ export namespace Prisma {
     templateId?: StringFieldUpdateOperationsInput | string
     themeId?: StringFieldUpdateOperationsInput | string
     fontId?: NullableStringFieldUpdateOperationsInput | string | null
-    personalInfo?: PersonalInfoUncheckedUpdateManyWithoutResumeNestedInput
+    personalInfo?: PersonalInfoUncheckedUpdateOneWithoutResumeNestedInput
     sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
     educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
     skills?: SkillUncheckedUpdateManyWithoutResumeNestedInput
@@ -27363,7 +27333,7 @@ export namespace Prisma {
     template: TemplateCreateNestedOneWithoutResumesInput
     theme: ThemeCreateNestedOneWithoutResumesInput
     font?: FontCreateNestedOneWithoutResumesInput
-    personalInfo?: PersonalInfoCreateNestedManyWithoutResumeInput
+    personalInfo?: PersonalInfoCreateNestedOneWithoutResumeInput
     sections?: SectionCreateNestedManyWithoutResumeInput
     educations?: EducationCreateNestedManyWithoutResumeInput
     experiences?: ExperienceCreateNestedManyWithoutResumeInput
@@ -27385,7 +27355,7 @@ export namespace Prisma {
     templateId: string
     themeId: string
     fontId?: string | null
-    personalInfo?: PersonalInfoUncheckedCreateNestedManyWithoutResumeInput
+    personalInfo?: PersonalInfoUncheckedCreateNestedOneWithoutResumeInput
     sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
     educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
     experiences?: ExperienceUncheckedCreateNestedManyWithoutResumeInput
@@ -27423,7 +27393,7 @@ export namespace Prisma {
     template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
     theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
     font?: FontUpdateOneWithoutResumesNestedInput
-    personalInfo?: PersonalInfoUpdateManyWithoutResumeNestedInput
+    personalInfo?: PersonalInfoUpdateOneWithoutResumeNestedInput
     sections?: SectionUpdateManyWithoutResumeNestedInput
     educations?: EducationUpdateManyWithoutResumeNestedInput
     experiences?: ExperienceUpdateManyWithoutResumeNestedInput
@@ -27445,7 +27415,7 @@ export namespace Prisma {
     templateId?: StringFieldUpdateOperationsInput | string
     themeId?: StringFieldUpdateOperationsInput | string
     fontId?: NullableStringFieldUpdateOperationsInput | string | null
-    personalInfo?: PersonalInfoUncheckedUpdateManyWithoutResumeNestedInput
+    personalInfo?: PersonalInfoUncheckedUpdateOneWithoutResumeNestedInput
     sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
     educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
     experiences?: ExperienceUncheckedUpdateManyWithoutResumeNestedInput
@@ -27467,7 +27437,7 @@ export namespace Prisma {
     template: TemplateCreateNestedOneWithoutResumesInput
     theme: ThemeCreateNestedOneWithoutResumesInput
     font?: FontCreateNestedOneWithoutResumesInput
-    personalInfo?: PersonalInfoCreateNestedManyWithoutResumeInput
+    personalInfo?: PersonalInfoCreateNestedOneWithoutResumeInput
     sections?: SectionCreateNestedManyWithoutResumeInput
     educations?: EducationCreateNestedManyWithoutResumeInput
     experiences?: ExperienceCreateNestedManyWithoutResumeInput
@@ -27489,7 +27459,7 @@ export namespace Prisma {
     templateId: string
     themeId: string
     fontId?: string | null
-    personalInfo?: PersonalInfoUncheckedCreateNestedManyWithoutResumeInput
+    personalInfo?: PersonalInfoUncheckedCreateNestedOneWithoutResumeInput
     sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
     educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
     experiences?: ExperienceUncheckedCreateNestedManyWithoutResumeInput
@@ -27527,7 +27497,7 @@ export namespace Prisma {
     template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
     theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
     font?: FontUpdateOneWithoutResumesNestedInput
-    personalInfo?: PersonalInfoUpdateManyWithoutResumeNestedInput
+    personalInfo?: PersonalInfoUpdateOneWithoutResumeNestedInput
     sections?: SectionUpdateManyWithoutResumeNestedInput
     educations?: EducationUpdateManyWithoutResumeNestedInput
     experiences?: ExperienceUpdateManyWithoutResumeNestedInput
@@ -27549,7 +27519,7 @@ export namespace Prisma {
     templateId?: StringFieldUpdateOperationsInput | string
     themeId?: StringFieldUpdateOperationsInput | string
     fontId?: NullableStringFieldUpdateOperationsInput | string | null
-    personalInfo?: PersonalInfoUncheckedUpdateManyWithoutResumeNestedInput
+    personalInfo?: PersonalInfoUncheckedUpdateOneWithoutResumeNestedInput
     sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
     educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
     experiences?: ExperienceUncheckedUpdateManyWithoutResumeNestedInput
@@ -27571,7 +27541,7 @@ export namespace Prisma {
     template: TemplateCreateNestedOneWithoutResumesInput
     theme: ThemeCreateNestedOneWithoutResumesInput
     font?: FontCreateNestedOneWithoutResumesInput
-    personalInfo?: PersonalInfoCreateNestedManyWithoutResumeInput
+    personalInfo?: PersonalInfoCreateNestedOneWithoutResumeInput
     sections?: SectionCreateNestedManyWithoutResumeInput
     educations?: EducationCreateNestedManyWithoutResumeInput
     experiences?: ExperienceCreateNestedManyWithoutResumeInput
@@ -27593,7 +27563,7 @@ export namespace Prisma {
     templateId: string
     themeId: string
     fontId?: string | null
-    personalInfo?: PersonalInfoUncheckedCreateNestedManyWithoutResumeInput
+    personalInfo?: PersonalInfoUncheckedCreateNestedOneWithoutResumeInput
     sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
     educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
     experiences?: ExperienceUncheckedCreateNestedManyWithoutResumeInput
@@ -27631,7 +27601,7 @@ export namespace Prisma {
     template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
     theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
     font?: FontUpdateOneWithoutResumesNestedInput
-    personalInfo?: PersonalInfoUpdateManyWithoutResumeNestedInput
+    personalInfo?: PersonalInfoUpdateOneWithoutResumeNestedInput
     sections?: SectionUpdateManyWithoutResumeNestedInput
     educations?: EducationUpdateManyWithoutResumeNestedInput
     experiences?: ExperienceUpdateManyWithoutResumeNestedInput
@@ -27653,7 +27623,7 @@ export namespace Prisma {
     templateId?: StringFieldUpdateOperationsInput | string
     themeId?: StringFieldUpdateOperationsInput | string
     fontId?: NullableStringFieldUpdateOperationsInput | string | null
-    personalInfo?: PersonalInfoUncheckedUpdateManyWithoutResumeNestedInput
+    personalInfo?: PersonalInfoUncheckedUpdateOneWithoutResumeNestedInput
     sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
     educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
     experiences?: ExperienceUncheckedUpdateManyWithoutResumeNestedInput
@@ -27675,7 +27645,7 @@ export namespace Prisma {
     template: TemplateCreateNestedOneWithoutResumesInput
     theme: ThemeCreateNestedOneWithoutResumesInput
     font?: FontCreateNestedOneWithoutResumesInput
-    personalInfo?: PersonalInfoCreateNestedManyWithoutResumeInput
+    personalInfo?: PersonalInfoCreateNestedOneWithoutResumeInput
     sections?: SectionCreateNestedManyWithoutResumeInput
     educations?: EducationCreateNestedManyWithoutResumeInput
     experiences?: ExperienceCreateNestedManyWithoutResumeInput
@@ -27697,7 +27667,7 @@ export namespace Prisma {
     templateId: string
     themeId: string
     fontId?: string | null
-    personalInfo?: PersonalInfoUncheckedCreateNestedManyWithoutResumeInput
+    personalInfo?: PersonalInfoUncheckedCreateNestedOneWithoutResumeInput
     sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
     educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
     experiences?: ExperienceUncheckedCreateNestedManyWithoutResumeInput
@@ -27735,7 +27705,7 @@ export namespace Prisma {
     template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
     theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
     font?: FontUpdateOneWithoutResumesNestedInput
-    personalInfo?: PersonalInfoUpdateManyWithoutResumeNestedInput
+    personalInfo?: PersonalInfoUpdateOneWithoutResumeNestedInput
     sections?: SectionUpdateManyWithoutResumeNestedInput
     educations?: EducationUpdateManyWithoutResumeNestedInput
     experiences?: ExperienceUpdateManyWithoutResumeNestedInput
@@ -27757,7 +27727,7 @@ export namespace Prisma {
     templateId?: StringFieldUpdateOperationsInput | string
     themeId?: StringFieldUpdateOperationsInput | string
     fontId?: NullableStringFieldUpdateOperationsInput | string | null
-    personalInfo?: PersonalInfoUncheckedUpdateManyWithoutResumeNestedInput
+    personalInfo?: PersonalInfoUncheckedUpdateOneWithoutResumeNestedInput
     sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
     educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
     experiences?: ExperienceUncheckedUpdateManyWithoutResumeNestedInput
@@ -27779,7 +27749,7 @@ export namespace Prisma {
     template: TemplateCreateNestedOneWithoutResumesInput
     theme: ThemeCreateNestedOneWithoutResumesInput
     font?: FontCreateNestedOneWithoutResumesInput
-    personalInfo?: PersonalInfoCreateNestedManyWithoutResumeInput
+    personalInfo?: PersonalInfoCreateNestedOneWithoutResumeInput
     sections?: SectionCreateNestedManyWithoutResumeInput
     educations?: EducationCreateNestedManyWithoutResumeInput
     experiences?: ExperienceCreateNestedManyWithoutResumeInput
@@ -27801,7 +27771,7 @@ export namespace Prisma {
     templateId: string
     themeId: string
     fontId?: string | null
-    personalInfo?: PersonalInfoUncheckedCreateNestedManyWithoutResumeInput
+    personalInfo?: PersonalInfoUncheckedCreateNestedOneWithoutResumeInput
     sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
     educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
     experiences?: ExperienceUncheckedCreateNestedManyWithoutResumeInput
@@ -27839,7 +27809,7 @@ export namespace Prisma {
     template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
     theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
     font?: FontUpdateOneWithoutResumesNestedInput
-    personalInfo?: PersonalInfoUpdateManyWithoutResumeNestedInput
+    personalInfo?: PersonalInfoUpdateOneWithoutResumeNestedInput
     sections?: SectionUpdateManyWithoutResumeNestedInput
     educations?: EducationUpdateManyWithoutResumeNestedInput
     experiences?: ExperienceUpdateManyWithoutResumeNestedInput
@@ -27861,7 +27831,7 @@ export namespace Prisma {
     templateId?: StringFieldUpdateOperationsInput | string
     themeId?: StringFieldUpdateOperationsInput | string
     fontId?: NullableStringFieldUpdateOperationsInput | string | null
-    personalInfo?: PersonalInfoUncheckedUpdateManyWithoutResumeNestedInput
+    personalInfo?: PersonalInfoUncheckedUpdateOneWithoutResumeNestedInput
     sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
     educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
     experiences?: ExperienceUncheckedUpdateManyWithoutResumeNestedInput
@@ -27883,7 +27853,7 @@ export namespace Prisma {
     template: TemplateCreateNestedOneWithoutResumesInput
     theme: ThemeCreateNestedOneWithoutResumesInput
     font?: FontCreateNestedOneWithoutResumesInput
-    personalInfo?: PersonalInfoCreateNestedManyWithoutResumeInput
+    personalInfo?: PersonalInfoCreateNestedOneWithoutResumeInput
     sections?: SectionCreateNestedManyWithoutResumeInput
     educations?: EducationCreateNestedManyWithoutResumeInput
     experiences?: ExperienceCreateNestedManyWithoutResumeInput
@@ -27905,7 +27875,7 @@ export namespace Prisma {
     templateId: string
     themeId: string
     fontId?: string | null
-    personalInfo?: PersonalInfoUncheckedCreateNestedManyWithoutResumeInput
+    personalInfo?: PersonalInfoUncheckedCreateNestedOneWithoutResumeInput
     sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
     educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
     experiences?: ExperienceUncheckedCreateNestedManyWithoutResumeInput
@@ -27943,7 +27913,7 @@ export namespace Prisma {
     template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
     theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
     font?: FontUpdateOneWithoutResumesNestedInput
-    personalInfo?: PersonalInfoUpdateManyWithoutResumeNestedInput
+    personalInfo?: PersonalInfoUpdateOneWithoutResumeNestedInput
     sections?: SectionUpdateManyWithoutResumeNestedInput
     educations?: EducationUpdateManyWithoutResumeNestedInput
     experiences?: ExperienceUpdateManyWithoutResumeNestedInput
@@ -27965,7 +27935,7 @@ export namespace Prisma {
     templateId?: StringFieldUpdateOperationsInput | string
     themeId?: StringFieldUpdateOperationsInput | string
     fontId?: NullableStringFieldUpdateOperationsInput | string | null
-    personalInfo?: PersonalInfoUncheckedUpdateManyWithoutResumeNestedInput
+    personalInfo?: PersonalInfoUncheckedUpdateOneWithoutResumeNestedInput
     sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
     educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
     experiences?: ExperienceUncheckedUpdateManyWithoutResumeNestedInput
@@ -27986,7 +27956,7 @@ export namespace Prisma {
     user: UserCreateNestedOneWithoutResumeInput
     theme: ThemeCreateNestedOneWithoutResumesInput
     font?: FontCreateNestedOneWithoutResumesInput
-    personalInfo?: PersonalInfoCreateNestedManyWithoutResumeInput
+    personalInfo?: PersonalInfoCreateNestedOneWithoutResumeInput
     sections?: SectionCreateNestedManyWithoutResumeInput
     educations?: EducationCreateNestedManyWithoutResumeInput
     experiences?: ExperienceCreateNestedManyWithoutResumeInput
@@ -28008,7 +27978,7 @@ export namespace Prisma {
     publicUrl?: string | null
     themeId: string
     fontId?: string | null
-    personalInfo?: PersonalInfoUncheckedCreateNestedManyWithoutResumeInput
+    personalInfo?: PersonalInfoUncheckedCreateNestedOneWithoutResumeInput
     sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
     educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
     experiences?: ExperienceUncheckedCreateNestedManyWithoutResumeInput
@@ -28056,7 +28026,7 @@ export namespace Prisma {
     user: UserCreateNestedOneWithoutResumeInput
     template: TemplateCreateNestedOneWithoutResumesInput
     font?: FontCreateNestedOneWithoutResumesInput
-    personalInfo?: PersonalInfoCreateNestedManyWithoutResumeInput
+    personalInfo?: PersonalInfoCreateNestedOneWithoutResumeInput
     sections?: SectionCreateNestedManyWithoutResumeInput
     educations?: EducationCreateNestedManyWithoutResumeInput
     experiences?: ExperienceCreateNestedManyWithoutResumeInput
@@ -28078,7 +28048,7 @@ export namespace Prisma {
     publicUrl?: string | null
     templateId: string
     fontId?: string | null
-    personalInfo?: PersonalInfoUncheckedCreateNestedManyWithoutResumeInput
+    personalInfo?: PersonalInfoUncheckedCreateNestedOneWithoutResumeInput
     sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
     educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
     experiences?: ExperienceUncheckedCreateNestedManyWithoutResumeInput
@@ -28126,7 +28096,7 @@ export namespace Prisma {
     user: UserCreateNestedOneWithoutResumeInput
     template: TemplateCreateNestedOneWithoutResumesInput
     theme: ThemeCreateNestedOneWithoutResumesInput
-    personalInfo?: PersonalInfoCreateNestedManyWithoutResumeInput
+    personalInfo?: PersonalInfoCreateNestedOneWithoutResumeInput
     sections?: SectionCreateNestedManyWithoutResumeInput
     educations?: EducationCreateNestedManyWithoutResumeInput
     experiences?: ExperienceCreateNestedManyWithoutResumeInput
@@ -28148,7 +28118,7 @@ export namespace Prisma {
     publicUrl?: string | null
     templateId: string
     themeId: string
-    personalInfo?: PersonalInfoUncheckedCreateNestedManyWithoutResumeInput
+    personalInfo?: PersonalInfoUncheckedCreateNestedOneWithoutResumeInput
     sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
     educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
     experiences?: ExperienceUncheckedCreateNestedManyWithoutResumeInput
@@ -28244,7 +28214,7 @@ export namespace Prisma {
     template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
     theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
     font?: FontUpdateOneWithoutResumesNestedInput
-    personalInfo?: PersonalInfoUpdateManyWithoutResumeNestedInput
+    personalInfo?: PersonalInfoUpdateOneWithoutResumeNestedInput
     sections?: SectionUpdateManyWithoutResumeNestedInput
     educations?: EducationUpdateManyWithoutResumeNestedInput
     experiences?: ExperienceUpdateManyWithoutResumeNestedInput
@@ -28266,7 +28236,7 @@ export namespace Prisma {
     templateId?: StringFieldUpdateOperationsInput | string
     themeId?: StringFieldUpdateOperationsInput | string
     fontId?: NullableStringFieldUpdateOperationsInput | string | null
-    personalInfo?: PersonalInfoUncheckedUpdateManyWithoutResumeNestedInput
+    personalInfo?: PersonalInfoUncheckedUpdateOneWithoutResumeNestedInput
     sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
     educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
     experiences?: ExperienceUncheckedUpdateManyWithoutResumeNestedInput
@@ -28288,19 +28258,6 @@ export namespace Prisma {
     templateId?: StringFieldUpdateOperationsInput | string
     themeId?: StringFieldUpdateOperationsInput | string
     fontId?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type PersonalInfoCreateManyResumeInput = {
-    id?: string
-    firstName?: string | null
-    lastName?: string | null
-    title?: string | null
-    email?: string | null
-    phone?: string | null
-    website?: string | null
-    location?: string | null
-    photoUrl?: string | null
-    description?: string | null
   }
 
   export type SectionCreateManyResumeInput = {
@@ -28384,45 +28341,6 @@ export namespace Prisma {
     title: string
     content: string
     order?: number
-  }
-
-  export type PersonalInfoUpdateWithoutResumeInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    firstName?: NullableStringFieldUpdateOperationsInput | string | null
-    lastName?: NullableStringFieldUpdateOperationsInput | string | null
-    title?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    phone?: NullableStringFieldUpdateOperationsInput | string | null
-    website?: NullableStringFieldUpdateOperationsInput | string | null
-    location?: NullableStringFieldUpdateOperationsInput | string | null
-    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type PersonalInfoUncheckedUpdateWithoutResumeInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    firstName?: NullableStringFieldUpdateOperationsInput | string | null
-    lastName?: NullableStringFieldUpdateOperationsInput | string | null
-    title?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    phone?: NullableStringFieldUpdateOperationsInput | string | null
-    website?: NullableStringFieldUpdateOperationsInput | string | null
-    location?: NullableStringFieldUpdateOperationsInput | string | null
-    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type PersonalInfoUncheckedUpdateManyWithoutResumeInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    firstName?: NullableStringFieldUpdateOperationsInput | string | null
-    lastName?: NullableStringFieldUpdateOperationsInput | string | null
-    title?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    phone?: NullableStringFieldUpdateOperationsInput | string | null
-    website?: NullableStringFieldUpdateOperationsInput | string | null
-    location?: NullableStringFieldUpdateOperationsInput | string | null
-    photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    description?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type SectionUpdateWithoutResumeInput = {
@@ -28696,7 +28614,7 @@ export namespace Prisma {
     user?: UserUpdateOneRequiredWithoutResumeNestedInput
     theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
     font?: FontUpdateOneWithoutResumesNestedInput
-    personalInfo?: PersonalInfoUpdateManyWithoutResumeNestedInput
+    personalInfo?: PersonalInfoUpdateOneWithoutResumeNestedInput
     sections?: SectionUpdateManyWithoutResumeNestedInput
     educations?: EducationUpdateManyWithoutResumeNestedInput
     experiences?: ExperienceUpdateManyWithoutResumeNestedInput
@@ -28718,7 +28636,7 @@ export namespace Prisma {
     publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
     themeId?: StringFieldUpdateOperationsInput | string
     fontId?: NullableStringFieldUpdateOperationsInput | string | null
-    personalInfo?: PersonalInfoUncheckedUpdateManyWithoutResumeNestedInput
+    personalInfo?: PersonalInfoUncheckedUpdateOneWithoutResumeNestedInput
     sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
     educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
     experiences?: ExperienceUncheckedUpdateManyWithoutResumeNestedInput
@@ -28764,7 +28682,7 @@ export namespace Prisma {
     user?: UserUpdateOneRequiredWithoutResumeNestedInput
     template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
     font?: FontUpdateOneWithoutResumesNestedInput
-    personalInfo?: PersonalInfoUpdateManyWithoutResumeNestedInput
+    personalInfo?: PersonalInfoUpdateOneWithoutResumeNestedInput
     sections?: SectionUpdateManyWithoutResumeNestedInput
     educations?: EducationUpdateManyWithoutResumeNestedInput
     experiences?: ExperienceUpdateManyWithoutResumeNestedInput
@@ -28786,7 +28704,7 @@ export namespace Prisma {
     publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
     templateId?: StringFieldUpdateOperationsInput | string
     fontId?: NullableStringFieldUpdateOperationsInput | string | null
-    personalInfo?: PersonalInfoUncheckedUpdateManyWithoutResumeNestedInput
+    personalInfo?: PersonalInfoUncheckedUpdateOneWithoutResumeNestedInput
     sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
     educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
     experiences?: ExperienceUncheckedUpdateManyWithoutResumeNestedInput
@@ -28832,7 +28750,7 @@ export namespace Prisma {
     user?: UserUpdateOneRequiredWithoutResumeNestedInput
     template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
     theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
-    personalInfo?: PersonalInfoUpdateManyWithoutResumeNestedInput
+    personalInfo?: PersonalInfoUpdateOneWithoutResumeNestedInput
     sections?: SectionUpdateManyWithoutResumeNestedInput
     educations?: EducationUpdateManyWithoutResumeNestedInput
     experiences?: ExperienceUpdateManyWithoutResumeNestedInput
@@ -28854,7 +28772,7 @@ export namespace Prisma {
     publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
     templateId?: StringFieldUpdateOperationsInput | string
     themeId?: StringFieldUpdateOperationsInput | string
-    personalInfo?: PersonalInfoUncheckedUpdateManyWithoutResumeNestedInput
+    personalInfo?: PersonalInfoUncheckedUpdateOneWithoutResumeNestedInput
     sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
     educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
     experiences?: ExperienceUncheckedUpdateManyWithoutResumeNestedInput

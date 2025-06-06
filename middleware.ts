@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 // Route privée
-const protectedRoutes = ['/dashboard'];
+const protectedRoutes = ['/dashboard/resumes', '/settings', '/editor', '/editor/:path*'];
 
 // Route publique
 const publicRoutes = ['/sign-in', '/sign-up', '/verify-email'];

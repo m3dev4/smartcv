@@ -7,10 +7,13 @@ const nextConfig = {
     }
     return config;
   },
+  images: {
+    domains: ['img.freepik.com'],
+  },
   output: 'standalone',
   experimental: {
     // Important pour Prisma sur Vercel
-    serverComponentsExternalPackages: ['@prisma/client', 'prisma']
+    serverComponentsExternalPackages: ['@prisma/client', 'prisma'],
   },
 };
 
