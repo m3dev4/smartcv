@@ -31,7 +31,7 @@ const sections = [
   { id: 'education', label: 'Formation', icon: GraduationCap, color: 'bg-purple-500' },
   { id: 'skills', label: 'Compétences', icon: Award, color: 'bg-orange-500' },
   { id: 'languages', label: 'Langues', icon: Languages, color: 'bg-pink-500' },
-  { id: 'projects', label: 'Projets', icon: FolderOpen, color: 'bg-cyan-500' },
+  { id: 'certifications', label: 'Certifications', icon: Award, color: 'bg-cyan-500' },
   { id: 'achievements', label: 'Réalisations', icon: Trophy, color: 'bg-yellow-500' },
 ];
 
