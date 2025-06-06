@@ -191,6 +191,16 @@ export const tesimonials = [
 export const mockResume = {
   id: '1',
   title: 'Mon CV',
+  // Propriétés manquantes ajoutées
+  userId: 'mock-user-id',
+  createdAt: new Date('2024-01-01'),
+  updatedAt: new Date(),
+  isPublic: false,
+  publicUrl: null,
+  templateId: ResumeTemplateType.MODERN, // Utiliser l'enum au lieu d'une chaîne
+  themeId: 'default-theme',
+  fontId: null,
+
   personalInfo: {
     firstName: 'Jean',
     lastName: 'Dupont',
@@ -203,7 +213,6 @@ export const mockResume = {
     description:
       "Je suis un chef de projet passionné. Je suis expert en gestion de projet et j'aime travailler en equipe pour atteindre les objectifs de mon entreprise.",
   },
-  // Ajoutez d'autres sections selon votre type Resume
   experiences: [
     {
       id: '1',
@@ -211,7 +220,8 @@ export const mockResume = {
       company: 'Entreprise A',
       startDate: '2022-01-01',
       endDate: '2023-01-01',
-      description: "Description de l'emploi 1",
+      desctiption: "Description de l'emploi 1",
+      current: true,
       order: 1,
     },
     {
@@ -220,51 +230,52 @@ export const mockResume = {
       company: 'Entreprise B',
       startDate: '2022-01-01',
       endDate: '2023-01-01',
-      description: "Description de l'emploi 2",
+      desctiption: "Description de l'emploi 2",
+      current: false,
       order: 2,
     },
   ],
   educations: [
     {
       id: '1',
-      title: 'Diplome 1',
-      institution: 'Institut A',
+      institutions: 'Institut A',
       degree: 'Diplome 1',
       fieldOfStudy: 'Champ 1',
       startDate: '2022-01-01',
       endDate: '2023-01-01',
       description: "Description de l'education 1",
       location: 'Paris, France',
+      order: 1,
     },
     {
       id: '2',
-      title: 'Diplome 2',
-      institution: 'Institut B',
+      institutions: 'Institut B',
       degree: 'Diplome 2',
       fieldOfStudy: 'Champ 2',
       startDate: '2022-01-01',
       endDate: '2023-01-01',
       description: "Description de l'education 2",
       location: 'Paris, France',
+      order: 2,
     },
   ],
   skills: [
     {
       id: '1',
       name: 'HTML',
-      level: 57,
+      level: '57',
       order: 1,
     },
     {
       id: '2',
       name: 'CSS',
-      level: 60,
+      level: '60',
       order: 2,
     },
     {
       id: '3',
       name: 'JavaScript',
-      level: 70,
+      level: '70',
       order: 3,
     },
   ],
@@ -272,29 +283,29 @@ export const mockResume = {
     {
       id: '1',
       name: 'Français',
-      level: 100,
+      level: '100',
       order: 1,
     },
     {
       id: '2',
       name: 'Anglais',
-      level: 50,
+      level: '50',
       order: 2,
     },
     {
       id: '3',
       name: 'Espagnol',
-      level: 30,
+      level: '30',
       order: 3,
     },
   ],
   certfications: [
     {
-      id: 1,
+      id: '1',
       name: 'Certification 1',
       issuer: 'Issuer 1',
-      issueDate: '2022-01-01',
-      expiryDate: '2023-01-01',
+      issueDate: new Date('2022-01-01'),
+      expiryDate: new Date('2023-01-01'),
       credentialId: 'Credential ID 1',
       credentialUrl: 'example.com/credential/1',
       order: 1,
@@ -302,7 +313,7 @@ export const mockResume = {
   ],
   achievements: [
     {
-      id: 1,
+      id: '1',
       title: 'Achievement 1',
       description: 'Description of Achievement 1',
       order: 1,

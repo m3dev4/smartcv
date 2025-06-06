@@ -9,7 +9,7 @@ const TemplatePage = () => {
     <div className="min-h-screen flex items-center justify-center">
       <div style={{ transform: 'scale(0.74)', transformOrigin: 'top' }}>
         <ResumeTemplateWrapper
-          type={ResumeTemplateType.PERFORMANCE}
+          type={ResumeTemplateType.CLASSIC}
           resume={mockResume as any}
           isEditable={true}
           onEditSection={() => {}}

@@ -26,6 +26,9 @@ const DashboardPage = () => {
     setSelectedTemplate(templateType);
     setIsLoading(true);
 
+    //Générer un id unique pour le nouveau cv
+    const newResumeId = crypto.randomUUID().replace(/-/g, '');
+
     //Progress bar du chargement
     let progress = 0;
     const interval = setInterval(() => {
@@ -35,7 +38,7 @@ const DashboardPage = () => {
         clearInterval(interval);
         setTimeout(() => {
           //Redirect vers la page d'éditeur avec le template selectionné
-          router.push(`/editor/${templateType}`);
+          router.push(`/editor/${newResumeId}?template=${templateType}`);
 
           setIsTemplateModalOpen(false);
           setIsLoading(false);
@@ -102,7 +105,7 @@ const DashboardPage = () => {
               {templates.map(temp => (
                 <div
                   key={temp.id}
-                  onClick={() => handleTemplateSelect(temp.id)}
+                  onClick={() => handleTemplateSelect(temp.id as ResumeTemplateType)}
                   className={`relative group flex cursor-pointer rounded-xl border-2
                     transition-all duration-300 transform hover:scale-105
                     hover:shadow-xl w-full max-w-[300px] ${
