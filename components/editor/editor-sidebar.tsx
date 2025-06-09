@@ -23,6 +23,7 @@ interface EditorSidebarProps {
   onToggleCollapse: () => void;
   selectedSection: string | null;
   onSelectSection: (section: string) => void;
+  isMobileView?: boolean; // Added for mobile-specific behavior
 }
 
 const sections = [
@@ -46,24 +47,25 @@ const EditorSidebar: React.FC<EditorSidebarProps> = ({
   onSelectSection,
   selectedSection,
   onToggleCollapse,
+  isMobileView = false, // Default to false
 }) => {
   return (
     <div
       className={cn(
-        'border-r border-slate-200  dark:border-slate-700 fixed transition-all duration-300 flex flex-col',
-        collapsed ? 'w-16' : 'w-80'
+        'border-r border-slate-200 dark:border-slate-700 flex flex-col h-full w-full bg-white dark:bg-black/90' // Removed fixed, width, transition. Added h-full, w-full and bg
       )}
     >
       {/* Header */}
       <div className="p-4 border-b border-slate-200 dark:border-slate-700 flex items-center justify-between">
-        {!collapsed && <h2 className="font-semibold">Editeur CV</h2>}
-        <Button variant="ghost" onClick={onToggleCollapse}>
-          {collapsed ? <ChevronRight className="h-4 w-4" /> : <ChevronLeft className="h-4 w-4" />}
+        {!collapsed && <h2 className="font-semibold">{isMobileView ? 'Menu' : 'Editeur CV'}</h2>}
+        <Button variant="ghost" onClick={onToggleCollapse} aria-label={isMobileView ? 'Close menu' : (collapsed ? 'Expand sidebar' : 'Collapse sidebar') }>
+          {/* In mobile view, this button always closes. In desktop, it toggles collapse. */}
+          {isMobileView ? <ChevronLeft className="h-4 w-4" /> : (collapsed ? <ChevronRight className="h-4 w-4" /> : <ChevronLeft className="h-4 w-4" />)}
         </Button>
       </div>
 
       <ScrollArea className="flex-1">
-        <div className={cn("space-y-6", collapsed ? "p-2" : "p-4")}>
+        <div className={cn("space-y-2", collapsed ? "p-2" : "p-4")}>
           <div>
             {!collapsed && <h3>Sections</h3>}
             <div className="space-y-2">

@@ -61,7 +61,7 @@ export const RenderLanguagesEditor = () => {
   const languageLevels = ['Débutant', 'Élémentaire', 'Intermédiaire', 'Avancé', 'Courant', 'Natif'];
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4 text">
       {/* Header avec actions */}
       <div className="flex items-center justify-between border-b pb-3">
         <h4 className="font-medium">Langues ({languages.length})</h4>
@@ -111,7 +111,7 @@ export const RenderLanguagesEditor = () => {
                 <select
                   value={language.level || 'Intermédiaire'}
                   onChange={e => updateLanguage(index, 'level', e.target.value)}
-                  className="w-full border border-muted rounded px-2 py-1 bg-white"
+                  className="w-full border border-muted rounded px-2 py-1"
                 >
                   {languageLevels.map(level => (
                     <option key={level} value={level}>
@@ -122,7 +122,7 @@ export const RenderLanguagesEditor = () => {
               </div>
 
               {/* Indicateur visuel du niveau avec des points */}
-              <div className="flex items-center justify-between p-2 bg-gray-50 rounded">
+              <div className="flex items-center justify-between p-2 rounded">
                 <div className="flex items-center gap-2">
                   <span className="text-sm font-medium">{language.name || 'Langue'}</span>
                 </div>
@@ -139,7 +139,7 @@ export const RenderLanguagesEditor = () => {
               </div>
 
               {/* Description du niveau */}
-              <div className="text-xs text-muted-foreground bg-blue-50 p-2 rounded">
+              <div className="text-xs text-muted-foreground p-2 rounded">
                 {language.level === 'Débutant' && 'Notions de base, vocabulaire limité'}
                 {language.level === 'Élémentaire' &&
                   'Peut comprendre et utiliser des expressions familières'}
@@ -157,7 +157,7 @@ export const RenderLanguagesEditor = () => {
       {/* Message si aucune langue */}
       {languages.length === 0 && (
         <div className="text-center py-8">
-          <p className="text-sm text-gray-500 mb-4">Aucune langue ajoutée</p>
+          <p className="text-sm mb-4">Aucune langue ajoutée</p>
           <Button onClick={addLanguage} variant="outline">
             Ajouter votre première langue
           </Button>
@@ -165,7 +165,7 @@ export const RenderLanguagesEditor = () => {
       )}
 
       {/* Langues suggérées */}
-      <div className="mt-4 p-3 bg-green-50 rounded-lg">
+      <div className="mt-4 p-3 rounded-lg">
         <h5 className="text-sm font-medium text-green-900 mb-2">🌍 Langues populaires</h5>
         <div className="flex flex-wrap gap-2">
           {[

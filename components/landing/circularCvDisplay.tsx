@@ -1,139 +1,84 @@
-import React, { useEffect, useRef } from 'react';
-import Image from 'next/image';
+"use client"
 
-// Données d'exemple pour le CV principal
-const mainCV = {
-  name: 'John Doe',
-  title: 'Creative and Innovative Web Developer',
-  location: 'Pleasantville, CA 94588',
-  phone: '(555) 123-4567',
-  email: 'john.doe@gmail.com',
-  website: 'https://johndoe.me/',
-  linkedin: 'johndoe',
-  github: 'johndoe',
-  summary:
-    'Innovative Web Developer with 5 years of experience in building impactful and user-friendly websites and applications. Specializes in front-end technologies and passionate about modern web standards and cutting-edge development techniques. Proven track record of leading successful projects from concept to deployment.',
-  experience: [
-    {
-      company: 'Creative Solutions Inc.',
-      role: 'Senior Web Developer',
-      location: 'San Francisco, CA',
-      period: 'January 2019 to Present',
-      achievements: [
-        'Spearheaded the redesign of the main product website, resulting in a 40% increase in user engagement.',
-        'Developed and implemented a new responsive framework, improving cross-device compatibility.',
-        'Mentored a team of four junior developers, fostering a culture of technical excellence.',
-      ],
-      website: 'https://creativesolutions.inc/',
-    },
-    {
-      company: 'TechAdvancers',
-      role: 'Web Developer',
-      location: 'San Jose, CA',
-      period: 'June 2016 to December 2018',
-      achievements: [
-        'Collaborated in a team of 10 to develop high-quality web applications using React.js and Node.js.',
-        'Managed the integration of third-party services such as Stripe for payments and Twilio for SMS services.',
-        'Optimized application performance, achieving a 30% reduction in load times.',
-      ],
-      website: 'https://techadvancers.com/',
-    },
-  ],
-  education: {
-    institution: 'University of California',
-    degree: "Bachelor's in Computer Science",
-    period: 'August 2012 to May 2016',
-  },
-  projects: [
-    {
-      name: 'E-Commerce Platform',
-      role: 'Project Lead',
-      description:
-        'Led the development of a full-stack e-commerce platform, improving sales conversion by 25%.',
-    },
-    {
-      name: 'Interactive Dashboard',
-      role: 'Frontend Developer',
-      description:
-        'Created an interactive analytics dashboard for a SaaS application, enhancing data visualization for clients.',
-    },
-  ],
-  certifications: [
-    {
-      name: 'Full-Stack Web Development',
-      issuer: 'CodeAcademy',
-      year: '2020',
-    },
-    {
-      name: 'AWS Certified Developer',
-      issuer: 'Amazon Web Services',
-      year: '2019',
-    },
-  ],
-  skills: {
-    webTechnologies: ['HTML5', 'JavaScript', 'PHP', 'Python'],
-    frameworks: ['React.js', 'Angular', 'Vue.js', 'Laravel', 'Django'],
-    tools: ['Webpack', 'Git', 'Jenkins', 'Docker', 'JIRA'],
-  },
-};
+import type React from "react"
+import { useEffect, useRef, useCallback } from "react"
+import Image from "next/image"
+import { mainCV, miniCVs } from "@/constants"
 
-// Données pour les CV miniatures
-const miniCVs = Array(15)
-  .fill(null)
-  .map((_, index) => ({
-    id: index,
-    imageSrc: `/avatars/avatar-${(index % 5) + 1}.png`, // Vous devrez créer ces images
-  }));
+
 
 const CircularCvDisplay: React.FC = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null)
+  const animationRef = useRef<number>(0)
+  const startTimeRef = useRef<number>(0)
+  const centerRef = useRef<{ x: number; y: number; radius: number }>({ x: 0, y: 0, radius: 0 })
+
+  // Fonction pour calculer les dimensions du cercle
+  const updateDimensions = useCallback(() => {
+    const container = containerRef.current
+    if (!container) return
+
+    const containerRect = container.getBoundingClientRect()
+    const centerX = containerRect.width / 2
+    const centerY = containerRect.height / 2
+    const radius = Math.min(centerX, centerY) * 0.8
+
+    centerRef.current = { x: centerX, y: centerY, radius }
+  }, [])
+
+  // Fonction pour positionner les miniatures avec une rotation basée sur le temps
+  const positionMiniatures = useCallback((timestamp: number) => {
+    const container = containerRef.current
+    if (!container) return
+
+    if (!startTimeRef.current) {
+      startTimeRef.current = timestamp
+    }
+
+    const miniatures = container.querySelectorAll(".mini-cv")
+    const { x: centerX, y: centerY, radius } = centerRef.current
+
+    // Utiliser le temps écoulé pour une rotation stable
+    const elapsedTime = (timestamp - startTimeRef.current) / 1000 // en secondes
+    const rotationSpeed = 0.2 // radians par seconde (ajustez selon vos préférences)
+    const baseRotation = elapsedTime * rotationSpeed
+
+    miniatures.forEach((mini, index) => {
+      const angle = baseRotation + (index / miniatures.length) * Math.PI * 2
+      const x = centerX + radius * Math.cos(angle) - 40 // 40 = moitié de la taille (80px/2)
+      const y = centerY + radius * Math.sin(angle) - 40
+
+      // Utiliser transform3d pour de meilleures performances
+      ;(mini as HTMLElement).style.transform = `translate3d(${x}px, ${y}px, 0)`
+    })
+
+    animationRef.current = requestAnimationFrame(positionMiniatures)
+  }, [])
 
   useEffect(() => {
-    // Animation des miniatures CV
-    const container = containerRef.current;
-    if (!container) return;
-
-    const miniatures = container.querySelectorAll('.mini-cv');
-    const containerRect = container.getBoundingClientRect();
-    const centerX = containerRect.width / 2;
-    const centerY = containerRect.height / 2;
-    const radius = Math.min(centerX, centerY) * 0.85; // Augmenter le rayon pour plus d'espace
-
-    // Fonction pour positionner les miniatures
-    const positionMiniatures = (rotation: number) => {
-      miniatures.forEach((mini, index) => {
-        const angle = rotation + (index / miniatures.length) * Math.PI * 2;
-        const x = centerX + radius * Math.cos(angle) - 32; // 32 est la moitié de la taille des miniatures
-        const y = centerY + radius * Math.sin(angle) - 32;
-
-        (mini as HTMLElement).style.transform = `translate(${x}px, ${y}px)`;
-      });
-    };
-
-    // Position initiale
-    positionMiniatures(0);
-
-    // Animation de rotation
-    let animationFrame: number;
-    let rotation = 0;
-
-    const animate = () => {
-      rotation += 0.001; // Augmenter la vitesse de rotation
-      positionMiniatures(rotation);
-      animationFrame = requestAnimationFrame(animate);
-    };
+    updateDimensions()
 
     // Démarrer l'animation
-    animate();
+    animationRef.current = requestAnimationFrame(positionMiniatures)
 
-    // Nettoyer l'animation lorsque le composant est démonté
+    // Gérer le redimensionnement de la fenêtre
+    const handleResize = () => {
+      updateDimensions()
+    }
+
+    window.addEventListener("resize", handleResize)
+
+    // Nettoyer l'animation et les événements
     return () => {
-      cancelAnimationFrame(animationFrame);
-    };
-  }, []);
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current)
+      }
+      window.removeEventListener("resize", handleResize)
+    }
+  }, [positionMiniatures, updateDimensions])
 
   return (
-    <div className="py-16 px-4">
+    <div className="py-16 px-4 min-h-screen">
       <div ref={containerRef} className="relative w-full h-[700px] mx-auto overflow-hidden">
         {/* CV principal au centre */}
         <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 bg-white dark:bg-gray-800 rounded-lg shadow-xl p-4 w-[380px] max-h-[480px] overflow-auto scale-[0.7]">
@@ -141,7 +86,7 @@ const CircularCvDisplay: React.FC = () => {
           <div className="text-center mb-6">
             <div className="h-24 w-24 rounded-full bg-gray-100 overflow-hidden mb-4 mx-auto">
               <Image
-                src="/avatars/main-avatar.png"
+                src="/placeholder.svg?height=96&width=96"
                 alt={mainCV.name}
                 width={96}
                 height={96}
@@ -205,10 +150,7 @@ const CircularCvDisplay: React.FC = () => {
             </div>
 
             <div className="flex justify-center gap-3 mb-3">
-              <a
-                href={mainCV.website}
-                className="text-blue-500 hover:underline text-sm flex items-center gap-1"
-              >
+              <a href={mainCV.website} className="text-blue-500 hover:underline text-sm flex items-center gap-1">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="14"
@@ -301,10 +243,7 @@ const CircularCvDisplay: React.FC = () => {
                     </li>
                   ))}
                 </ul>
-                <a
-                  href={exp.website}
-                  className="text-blue-500 hover:underline text-xs flex items-center gap-1 mb-3"
-                >
+                <a href={exp.website} className="text-blue-500 hover:underline text-xs flex items-center gap-1 mb-3">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="12"
@@ -381,39 +320,62 @@ const CircularCvDisplay: React.FC = () => {
             <div className="grid grid-cols-3 gap-4">
               <div>
                 <h3 className="font-medium mb-1">Web Technologies</h3>
-                <p className="text-sm text-gray-600">{mainCV.skills.webTechnologies.join(', ')}</p>
+                <p className="text-sm text-gray-600">{mainCV.skills.webTechnologies.join(", ")}</p>
               </div>
               <div>
                 <h3 className="font-medium mb-1">Frameworks</h3>
-                <p className="text-sm text-gray-600">{mainCV.skills.frameworks.join(', ')}</p>
+                <p className="text-sm text-gray-600">{mainCV.skills.frameworks.join(", ")}</p>
               </div>
               <div>
                 <h3 className="font-medium mb-1">Outils</h3>
-                <p className="text-sm text-gray-600">{mainCV.skills.tools.join(', ')}</p>
+                <p className="text-sm text-gray-600">{mainCV.skills.tools.join(", ")}</p>
               </div>
             </div>
           </div>
         </div>
 
         {/* Miniatures de CV qui tournent autour */}
-        {miniCVs.map(miniCV => (
+        {miniCVs.map((miniCV) => (
           <div
             key={miniCV.id}
-            className="mini-cv absolute w-16 h-16 rounded-full bg-gray-200 overflow-hidden shadow-md transition-transform duration-1000 z-0"
-            style={{ transform: 'translate(0, 0)' }} // Position initiale, sera mise à jour par JavaScript
+            className={`mini-cv absolute w-20 h-20 rounded-full bg-gradient-to-br ${miniCV.color} overflow-hidden shadow-lg border-2 border-white z-0 will-change-transform hover:scale-110 transition-transform duration-200 cursor-pointer group`}
+            style={{ transform: "translate3d(0, 0, 0)" }}
           >
-            <Image
-              src={miniCV.imageSrc}
-              alt="Miniature CV"
-              width={56}
-              height={56}
-              className="object-cover"
-            />
+            {/* Contenu de la miniature CV */}
+            <div className="relative w-full h-full p-1 flex flex-col items-center justify-center text-center">
+              {/* Avatar */}
+              <div className="w-8 h-8 rounded-full overflow-hidden mb-1 border border-white/50">
+                <Image
+                  src={miniCV.avatar || "/placeholder.svg"}
+                  alt={miniCV.name}
+                  width={32}
+                  height={32}
+                  className="object-cover w-full h-full"
+                />
+              </div>
+
+              {/* Nom (tronqué) */}
+              <div className="text-[8px] font-semibold text-gray-700 leading-tight mb-0.5 truncate w-full px-0.5">
+                {miniCV.name.split(" ")[0]}
+              </div>
+
+              {/* Titre */}
+              <div className="text-[6px] text-gray-600 leading-tight truncate w-full px-0.5">{miniCV.title}</div>
+
+              {/* Tooltip au hover */}
+              <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-50">
+                <div className="font-semibold">{miniCV.name}</div>
+                <div className="text-[10px]">
+                  {miniCV.title} @ {miniCV.company}
+                </div>
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-black"></div>
+              </div>
+            </div>
           </div>
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CircularCvDisplay;
+export default CircularCvDisplay

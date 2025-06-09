@@ -41,6 +41,7 @@
     "better-auth": "^1.2.8",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "framer-motion": "^12.16.0",
     "lucide": "^0.511.0",
     "lucide-react": "^0.511.0",
     "motion": "^12.14.0",

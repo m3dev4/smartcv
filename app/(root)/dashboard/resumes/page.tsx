@@ -51,13 +51,13 @@ const DashboardPage = () => {
   };
 
   return (
-    <section className="flex items-center justify-center h-full w-full">
-      <div className="container relative overflow-hidden">
-        <h1 className="text-3xl font-bold">CV</h1>
+    <section className="flex flex-col items-center justify-start h-full w-full py-8 md:py-12">
+      <div className="container relative overflow-hidden px-4 sm:px-6 lg:px-8">
+        <h1 className="text-2xl sm:text-3xl font-bold text-center md:text-left">CV</h1>
         {/* import and export resume card */}
-        <div className="flex items-center justify-center gap-7 my-11 py-auto">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 my-8 md:my-12">
           <Card
-            className="w-64 h-80 bg-accent border-accent/100 hover:scale-110  transition-transform cursor-pointer group"
+            className="w-full max-w-xs sm:w-64 h-72 sm:h-80 bg-accent border-accent/100 hover:scale-105 transition-transform cursor-pointer group"
             onClick={handleCreateNewCv}
           >
             <CardContent className="flex items-center flex-col justify-center h-full p-6 relative">
@@ -75,7 +75,7 @@ const DashboardPage = () => {
             </CardContent>
           </Card>
 
-          <Card className="w-64 h-80 bg-accent border-accent/100 hover:scale-110  transition-transform cursor-pointer group">
+          <Card className="w-full max-w-xs sm:w-64 h-72 sm:h-80 bg-accent border-accent/100 hover:scale-105 transition-transform cursor-pointer group">
             <CardContent className="flex items-center flex-col justify-center h-full p-6 relative">
               <div className="flex items-center justify-center">
                 <Upload
@@ -94,37 +94,37 @@ const DashboardPage = () => {
       </div>
 
       <Dialog open={isTemplateModalOpen} onOpenChange={setIsTemplateModalOpen}>
-        <DialogContent className="max-w-6xl lg:max-w-7xl max-h-[90vh] w-full h-full overflow-auto rounded-xl p-8">
+        <DialogContent className="max-w-md md:max-w-2xl lg:max-w-4xl xl:max-w-6xl max-h-[90vh] w-[95vw] sm:w-full overflow-y-auto rounded-xl p-4 sm:p-6 md:p-8">
           <DialogHeader>
-            <DialogTitle className="text-2xl font-bold text-center mb-6">
+            <DialogTitle className="text-xl sm:text-2xl font-bold text-center mb-4 sm:mb-6">
               Choisissez un modèle de CV
             </DialogTitle>
           </DialogHeader>
           {!isLoading ? (
-            <div className="grid grid-cols-3 gap-8 place-items-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 place-items-center">
               {templates.map(temp => (
                 <div
                   key={temp.id}
                   onClick={() => handleTemplateSelect(temp.id as ResumeTemplateType)}
                   className={`relative group flex cursor-pointer rounded-xl border-2
                     transition-all duration-300 transform hover:scale-105
-                    hover:shadow-xl w-full max-w-[300px] ${
+                    hover:shadow-xl w-full max-w-xs sm:max-w-[280px] md:max-w-[300px] ${
                       selectedTemplate === temp.id ? 'border-primary' : 'border-transparent'
                     }`}
                 >
                   <div className="flex flex-col w-full ">
                     <div className={`  rouded-t-xl relative overflow-hidden`}>
-                      <div className=" flex items-center justify-center">
+                      <div className="flex items-center justify-center aspect-[3/4] overflow-hidden">
                         {temp.thumbnail ? (
                           <Image
                             src={temp.thumbnail}
                             alt={temp.name || 'Template thumbnail'}
                             width={500} // Adjusted width for better fit in h-48 container
                             height={600} // Adjusted height for better fit
-                            className="object-contain" // Ensure image scales within bounds
+                            className="object-cover w-full h-full" // Changed to object-cover for better fill
                           />
                         ) : (
-                          <div className="w-full h-full bg-gray-200 flex items-center justify-center text-gray-500">
+                          <div className="w-full h-full bg-gray-200 flex items-center justify-center text-gray-500 aspect-[3/4]">
                             No Preview
                           </div>
                         )}

@@ -1,7 +1,7 @@
 import { ResumeEnumLanguages } from '@/enums/resumeEnumLanguages';
 import { ResumeTemplateProps } from '@/types/resumeTypes';
 import { formatDate } from '@/utils/data-utils';
-import { fontClassMap } from '@/utils/fonts/fontMap';
+
 import React from 'react';
 
 /**
@@ -27,7 +27,7 @@ export const ClassicTemplate: React.FC<ResumeTemplateProps> = ({
     text: '#333333',
   };
   const fontName = resume.font?.name || 'Inter, sans-serif';
-  const fontClass = fontClassMap[fontName];
+
 
 
   const handleEditSection = (sectionType: string, sectionId?: string) => {
@@ -38,7 +38,7 @@ export const ClassicTemplate: React.FC<ResumeTemplateProps> = ({
 
   return (
     <div
-      className={`flex flex-col bg-white shadow-lg rounded-lg overflow-hidden max-w-4xl mx-auto ${fontClass}`}
+      className={`flex flex-col bg-white shadow-lg rounded-lg overflow-hidden max-w-4xl mx-auto `}
       style={{
         fontFamily: fontName,
         color: theme.text,

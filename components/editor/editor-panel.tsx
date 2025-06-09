@@ -16,14 +16,19 @@ import { RenderTypographyEditor } from '../render/renderTypography';
 interface EditorPropertiesPanelProps {
   selectedSection: string | null;
   onClose: () => void;
+  isMobileView?: boolean; // Added for mobile-specific behavior
 }
 
-export function EditorPropertiesPanel({ selectedSection, onClose }: EditorPropertiesPanelProps) {
+export function EditorPropertiesPanel({
+  selectedSection,
+  onClose,
+  isMobileView = false, // Default to false
+}: EditorPropertiesPanelProps) {
   const { resume } = useResume();
 
   if (!selectedSection || !resume) {
     return (
-      <div className="w-80 border-l border-gray-200 p-6">
+      <div className={`w-full p-6 ${!isMobileView ? 'lg:border-l border-gray-200' : ''}`}>
         <div className="flex items-center justify-between mb-4">
           <h3 className="font-semibold">Propriétés</h3>
           <Button variant="ghost" size="sm" onClick={onClose}>
@@ -83,7 +88,7 @@ export function EditorPropertiesPanel({ selectedSection, onClose }: EditorProper
   };
 
   return (
-    <div className="w-80 border-l border-gray-200 flex flex-col">
+    <div className={`w-full ${!isMobileView ? 'lg:border-l border-gray-200' : ''} flex flex-col h-full bg-white dark:bg-black/90`}>
       {/* Header */}
       <div className="p-4 border-b border-gray-200 flex items-center justify-between">
         <h3 className="font-semibold">{getSectionTitle()}</h3>
