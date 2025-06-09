@@ -1,11 +1,18 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const ContributeSection = () => {
   return (
     <section className="w-full h-full max-w-container mx-auto">
-      <div className="flex flex-col items-start justify-start m-auto p-2">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        className="flex flex-col items-start justify-start m-auto p-2"
+      >
         <h2 className="text-3xl font-bold">Soutenir SmartCv</h2>
         <p className="text-[14px] font-medium leading-relaxed mt-2 text-muted-foreground ">
           SmartCV est une application gratuite et open source que je développe avec engagement pour
@@ -35,7 +42,7 @@ const ContributeSection = () => {
             soutien ✨
           </p>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

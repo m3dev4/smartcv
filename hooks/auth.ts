@@ -14,7 +14,6 @@ export const useRequireAuth = (redirectTo = '/login') => {
       window.location.href = redirectTo;
     }
   }, [user, isLoading, redirectTo]);
-
   return { user, isLoading };
 };
 

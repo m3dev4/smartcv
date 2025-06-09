@@ -23,18 +23,18 @@ import React, { useEffect, useState } from 'react';
  * @return The main landing page component.
  */
 const LandingPage = () => {
-    return (
-        <main className="w-full h-full ">
-            <Header />
-            <div className="container relative mx-auto">
-                <Hero />
-                <LearnMore />
-                <Testimonial />
-                <ContributeSection />
-                <Footer />
-            </div>
-        </main>
-    );
+  return (
+    <main className="w-full h-full ">
+      <Header />
+      <div className="container relative mx-auto">
+        <Hero />
+        <LearnMore />
+        <Testimonial />
+        <ContributeSection />
+        <Footer />
+      </div>
+    </main>
+  );
 };
 
 export default LandingPage;

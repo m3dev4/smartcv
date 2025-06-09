@@ -86,11 +86,11 @@ export interface ResumeTemplateProps {
     theme?: {
       id: string;
       name: string;
-      primary: string;
-      secondary: string;
-      accent: string;
-      background: string;
-      text: string;
+      primary?: string;
+      secondary?: string;
+      accent?: string;
+      background?: string;
+      text?: string;
     };
     template?: {
       id: string;
@@ -98,8 +98,8 @@ export interface ResumeTemplateProps {
     };
     font?: {
       id: string;
-      name: string;
-      category: string;
+      name?: string;
+      category?: string;
       url?: string;
     };
   };
