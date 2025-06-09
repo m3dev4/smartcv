@@ -50,7 +50,7 @@ const EditorSidebar: React.FC<EditorSidebarProps> = ({
   return (
     <div
       className={cn(
-        'border-r border-slate-200 dark:border-slate-700 fixed transition-all duration-300 flex flex-col',
+        'border-r border-slate-200  dark:border-slate-700 fixed transition-all duration-300 flex flex-col',
         collapsed ? 'w-16' : 'w-80'
       )}
     >
@@ -63,7 +63,7 @@ const EditorSidebar: React.FC<EditorSidebarProps> = ({
       </div>
 
       <ScrollArea className="flex-1">
-        <div className="p-4 space-6">
+        <div className={cn("space-y-6", collapsed ? "p-2" : "p-4")}>
           <div>
             {!collapsed && <h3>Sections</h3>}
             <div className="space-y-2">
@@ -71,12 +71,21 @@ const EditorSidebar: React.FC<EditorSidebarProps> = ({
                 <Button
                   key={section.id}
                   variant={selectedSection === section.id ? 'secondary' : 'ghost'}
-                  className={cn('w-full justify-start h-10', collapsed ? 'px-2' : 'px-3')}
+                  className={cn('w-full h-10', collapsed ? 'justify-center' : 'justify-start px-3')}
                   onClick={() => onSelectSection(section.id)}
                 >
-                  <div className={cn('w-2 h-2 rounded-full mr-3', section.color)} />
-                  <section.icon className="h-4 w-4 mr-3" />
-                  {!collapsed && <span className="text-sm">{section.label}</span>}
+                  {collapsed ? (
+                    <div className="flex items-center">
+                      <div className={cn('w-2 h-2 rounded-full shrink-0', section.color)} />
+                      <section.icon className="h-4 w-4 ml-2 shrink-0" />
+                    </div>
+                  ) : (
+                    <>
+                      <div className={cn('w-2 h-2 rounded-full mr-3 shrink-0', section.color)} />
+                      <section.icon className="h-4 w-4 mr-3 shrink-0" />
+                      <span className="text-sm">{section.label}</span>
+                    </>
+                  )}
                 </Button>
               ))}
 
@@ -97,11 +106,17 @@ const EditorSidebar: React.FC<EditorSidebarProps> = ({
                 <Button
                   key={tool.id}
                   variant={selectedSection === tool.id ? 'secondary' : 'ghost'}
-                  className={cn('w-full justify-start h-10', collapsed ? 'px-2' : 'px-3')}
+                  className={cn('w-full h-10', collapsed ? 'justify-center' : 'justify-start px-3')}
                   onClick={() => onSelectSection(tool.id)}
                 >
-                  <tool.icon className="h-4 w-4 mr-3" />
-                  {!collapsed && <span className="text-sm">{tool.label}</span>}
+                  {collapsed ? (
+                    <tool.icon className="h-4 w-4 shrink-0" />
+                  ) : (
+                    <>
+                      <tool.icon className="h-4 w-4 mr-3 shrink-0" />
+                      <span className="text-sm">{tool.label}</span>
+                    </>
+                  )}
                 </Button>
               ))}
             </div>

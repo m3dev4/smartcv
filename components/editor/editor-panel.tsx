@@ -11,6 +11,7 @@ import { RenderLanguagesEditor } from '../render/renderLanguage';
 import { RenderCertificationsEditor } from '../render/renderCertification';
 import { X } from 'lucide-react';
 import { RenderThemeEditor } from '../render/renderTheme';
+import { RenderTypographyEditor } from '../render/renderTypography';
 
 interface EditorPropertiesPanelProps {
   selectedSection: string | null;
@@ -68,6 +69,8 @@ export function EditorPropertiesPanel({ selectedSection, onClose }: EditorProper
         return <RenderCertificationsEditor />;
       case 'theme':
         return <RenderThemeEditor />;
+        case 'font':
+        return <RenderTypographyEditor />;
       default:
         return (
           <div className="text-center py-8">

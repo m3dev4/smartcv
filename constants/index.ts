@@ -352,3 +352,28 @@ export const templates: Template[] = [
     updatedAt: new Date(),
   },
 ];
+
+
+
+export const fontFamilies = [
+  'Arial',
+  'Cambria',
+  'Garamond',
+  'IBM Plex Sans',
+  'IBM Plex Serif',
+  'Lato',
+  'Lora',
+  'Merriweather',
+  'Open Sans',
+  'Playfair Display',
+  'PT Sans',
+  'PT Serif',
+  'Roboto Condensed',
+  'Times New Roman',
+  'Roboto Slab',
+  'Roboto',
+  'Roboto Mono',
+  'Monserrat',
+  'Monserrat Subrayada',
+  'Monserrat Alternates'
+];
