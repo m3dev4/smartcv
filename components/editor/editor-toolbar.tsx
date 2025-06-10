@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button } from '../ui/button';
 import {
   Download,
@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { Separator } from '../ui/separator';
 import { Badge } from '../ui/badge';
+import { useResume } from '@/context/resume-context';
 
 interface EditorToolbarProps {
   onTogglePropertiesPanel: () => void;
@@ -26,21 +27,73 @@ const EditorToolbar: React.FC<EditorToolbarProps> = ({
   proprietiesPanelOpen,
   onToggleMobileSidebar, // Destructure the new prop
 }) => {
+  const {
+    undo,
+    redo,
+    canUndo,
+    canRedo,
+    zoomIn,
+    zoomOut,
+    zoomLevel,
+    isPreviewMode,
+    togglePreviewMode,
+  } = useResume();
+
+  /**
+   *  Cette hook gére les evenement clavier pour les boutons undo et redo
+   */
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.ctrlKey && e.key === 'z' && canUndo) {
+        e.preventDefault();
+        undo();
+      }
+
+      if (e.ctrlKey && e.key === 'y' && canRedo) {
+        e.preventDefault();
+        redo();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [undo, redo, canUndo, canRedo]);
+
   return (
     <div className="border-b border-slate-200 dark:border-slate-700 px-4 py-3">
       <div className="flex items-center justify-between">
         {/* left section */}
         <div className="flex items-center gap-2">
           {/* Mobile Sidebar Toggle Button - visible only on small screens */}
-          <Button variant="ghost" size="icon" className="lg:hidden" onClick={onToggleMobileSidebar} aria-label="Toggle sections sidebar">
+          <Button
+            variant="ghost"
+            size="icon"
+            className="lg:hidden"
+            onClick={onToggleMobileSidebar}
+            aria-label="Toggle sections sidebar"
+          >
             <MenuIcon className="h-5 w-5" />
           </Button>
           <Separator className="h-6 lg:hidden" orientation="vertical" />
           <div className="flex items-center gap-1">
-            <Button variant="ghost" size="sm" disabled>
+            <Button
+              variant="ghost"
+              size="sm"
+              disabled={!canUndo}
+              onClick={undo}
+              title="Annuler (Ctrl+Z)"
+              className="cursor-pointer"
+            >
               <Undo className="h-4 w-4" />
             </Button>
-            <Button variant="ghost" size="sm" disabled>
+            <Button
+              variant="ghost"
+              size="sm"
+              disabled={!canRedo}
+              onClick={redo}
+              title="Rétablir (Ctrl+Y)"
+              className="cursor-pointer"
+            >
               <Redo className="h-4 w-4" />
             </Button>
           </div>
@@ -48,15 +101,12 @@ const EditorToolbar: React.FC<EditorToolbarProps> = ({
           <Separator className="h-6" orientation="vertical" />
 
           <div className="flex items-center gap-1">
-            <Button variant="ghost" size="sm" disabled>
+            <Button variant="ghost" size="sm" disabled={zoomLevel <= 50} onClick={zoomOut}>
               <ZoomOut className="h-4 w-4" />
             </Button>
-            <span className="text-sm min-w[60px] text-center">100%</span>
-            <Button variant="ghost" size="sm" disabled>
+            <span className="text-sm min-w[60px] text-center">{zoomLevel}%</span>
+            <Button variant="ghost" size="sm" disabled={zoomLevel >= 200} onClick={zoomIn}>
               <ZoomIn className="h-4 w-4" />
-            </Button>
-            <Button variant="ghost" size="sm" disabled>
-              <Maximize className="h-4 w-4" />
             </Button>
           </div>
         </div>
@@ -70,9 +120,14 @@ const EditorToolbar: React.FC<EditorToolbarProps> = ({
 
         {/* right section */}
         <div className="flex items-center gap-2">
-          <Button variant="ghost" size="sm">
-            <Eye className="h-4 w-4 mr-2" />
-            Aperçu
+          <Button
+            variant={isPreviewMode ? 'secondary' : 'ghost'}
+            size="sm"
+            onClick={togglePreviewMode}
+            className='cursor-pointer'
+          >
+            <Eye className={`h-4 w-4 mr-2 ${isPreviewMode ? 'text-green-500' : ''}`} />
+            {isPreviewMode ? 'Quitter l\'aperçu' : 'Aperçu'}
           </Button>
 
           <Separator className="h-6" orientation="vertical" />
@@ -98,11 +153,15 @@ const EditorToolbar: React.FC<EditorToolbarProps> = ({
 
           <Separator className="h-6" orientation="vertical" />
 
-          <Button onClick={onTogglePropertiesPanel} variant="ghost" size="icon" className="p-2" aria-label="Toggle properties panel">
+          <Button
+            onClick={onTogglePropertiesPanel}
+            variant="ghost"
+            size="icon"
+            className="p-2"
+            aria-label="Toggle properties panel"
+          >
             <SidebarClose
-              className={`h-5 w-5 transition-transform ${
-                proprietiesPanelOpen ? '' : 'rotate-180'
-              }`}
+              className={`h-5 w-5 transition-transform ${proprietiesPanelOpen ? '' : 'rotate-180'}`}
             />
           </Button>
         </div>
