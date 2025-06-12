@@ -18,7 +18,7 @@ export interface ResumeTemplateProps {
     };
     educations?: {
       id: string;
-      institutions: string;
+      institution: string;
       degree: string;
       fieldOfStudy: string;
       startDate: string;
@@ -34,7 +34,7 @@ export interface ResumeTemplateProps {
       startDate: string;
       endDate?: string;
       current: boolean;
-      desctiption?: string;
+      description?: string;
       location?: string;
       order: number;
     }[];
@@ -51,7 +51,7 @@ export interface ResumeTemplateProps {
       level: string;
       order: number;
     }[];
-    certfications?: {
+    certifications?: {
       id: string;
       name: string;
       issuer: string;

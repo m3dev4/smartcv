@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from '../ui/button';
 import {
   Download,
   Eye,
+  Loader2,
   Maximize,
   Menu as MenuIcon, // Added MenuIcon for mobile sidebar toggle
   Redo,
@@ -16,6 +17,10 @@ import {
 import { Separator } from '../ui/separator';
 import { Badge } from '../ui/badge';
 import { useResume } from '@/context/resume-context';
+import { toast } from 'sonner';
+import { Toaster } from '../ui/sonner';
+import { formatDistanceToNow } from 'date-fns';
+import { fr } from 'date-fns/locale';
 
 interface EditorToolbarProps {
   onTogglePropertiesPanel: () => void;
@@ -37,7 +42,30 @@ const EditorToolbar: React.FC<EditorToolbarProps> = ({
     zoomLevel,
     isPreviewMode,
     togglePreviewMode,
+    saveResume,
+    isSaving,
+    lastSaved,
   } = useResume();
+
+  const [resumeIsSaving, setResumeIsSaving] = useState(false);
+
+  const handleSave = async () => {
+    setResumeIsSaving(true);
+    try {
+      await saveResume();
+      toast.success('Le CV a été sauvegardé avec succès');
+    } catch (error: any) {
+      console.error('Erreur lors de la sauvegarde du CV:', error);
+      // Afficher un message d'erreur plus spécifique si disponible
+      if (error.message && error.message.includes('CV introuvable')) {
+        toast.error('Impossible de sauvegarder : CV introuvable. Veuillez rafraîchir la page.');
+      } else {
+        toast.error('Une erreur est survenue lors de la sauvegarde du CV');
+      }
+    } finally {
+      setResumeIsSaving(false);
+    }
+  };
 
   /**
    *  Cette hook gére les evenement clavier pour les boutons undo et redo
@@ -61,6 +89,7 @@ const EditorToolbar: React.FC<EditorToolbarProps> = ({
 
   return (
     <div className="border-b border-slate-200 dark:border-slate-700 px-4 py-3">
+      <Toaster position="top-right" offset={20} />
       <div className="flex items-center justify-between">
         {/* left section */}
         <div className="flex items-center gap-2">
@@ -114,7 +143,21 @@ const EditorToolbar: React.FC<EditorToolbarProps> = ({
         {/* center section */}
         <div className="flex items-center gap-2">
           <Badge variant="secondary" className="text-xs">
-            Derniere sauvegarde: il y a 2 min
+            {lastSaved ? (
+              <>
+               <span>
+                Dernière sauvegarde: {formatDistanceToNow
+                 (lastSaved, { addSuffix: true, locale: fr })
+                }
+               </span>
+              </>
+            ): (
+              <>
+                <span>
+                  Aucune sauvegarde
+                </span>
+              </>
+            )}
           </Badge>
         </div>
 
@@ -124,10 +167,10 @@ const EditorToolbar: React.FC<EditorToolbarProps> = ({
             variant={isPreviewMode ? 'secondary' : 'ghost'}
             size="sm"
             onClick={togglePreviewMode}
-            className='cursor-pointer'
+            className="cursor-pointer"
           >
             <Eye className={`h-4 w-4 mr-2 ${isPreviewMode ? 'text-green-500' : ''}`} />
-            {isPreviewMode ? 'Quitter l\'aperçu' : 'Aperçu'}
+            {isPreviewMode ? "Quitter l'aperçu" : 'Aperçu'}
           </Button>
 
           <Separator className="h-6" orientation="vertical" />
@@ -146,9 +189,23 @@ const EditorToolbar: React.FC<EditorToolbarProps> = ({
 
           <Separator className="h-6" orientation="vertical" />
 
-          <Button variant="ghost" size="sm">
-            <Save className="h-4 w-4 mr-2" />
-            Sauvegarder
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={handleSave}
+            disabled={resumeIsSaving}
+            className="cursor-pointer"
+          >
+            {resumeIsSaving ? (
+              <>
+                <Loader2 className="h-4 w-4 animate-spin" />
+              </>
+            ) : (
+              <>
+                <Save className="h-4 w-4 mr-2" />
+                Enregistrer
+              </>
+            )}
           </Button>
 
           <Separator className="h-6" orientation="vertical" />

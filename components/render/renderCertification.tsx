@@ -9,7 +9,7 @@ export const RenderCertificationsEditor = () => {
   if (!resume) {
     return null;
   }
-  const certifications = resume.certfications || []; // Note: suivre la faute de frappe de l'interface
+  const certifications = resume.certifications || []; // Note: suivre la faute de frappe de l'interface
 
   // Fonction pour ajouter une certification
   const addCertification = () => {
@@ -25,7 +25,7 @@ export const RenderCertificationsEditor = () => {
     };
 
     updateResume({
-      certfications: [...certifications, newCertification],
+      certifications: [...certifications, newCertification],
     });
   };
 
@@ -33,7 +33,7 @@ export const RenderCertificationsEditor = () => {
   const removeCertification = (index: number) => {
     const updatedCertifications = certifications.filter((_, i) => i !== index);
     updateResume({
-      certfications: updatedCertifications,
+      certifications: updatedCertifications,
     });
   };
 
@@ -44,7 +44,7 @@ export const RenderCertificationsEditor = () => {
     );
 
     updateResume({
-      certfications: updatedCertifications,
+      certifications: updatedCertifications,
     });
   };
 
@@ -268,7 +268,7 @@ export const RenderCertificationsEditor = () => {
                   order: certifications.length,
                 };
                 updateResume({
-                  certfications: [...certifications, newCertification],
+                  certifications: [...certifications, newCertification],
                 });
               }}
             >

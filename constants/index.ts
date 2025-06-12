@@ -220,7 +220,7 @@ export const mockResume = {
       company: 'Entreprise A',
       startDate: '2022-01-01',
       endDate: '2023-01-01',
-      desctiption: "Description de l'emploi 1",
+      description: "Description de l'emploi 1",
       current: true,
       order: 1,
     },
@@ -230,7 +230,7 @@ export const mockResume = {
       company: 'Entreprise B',
       startDate: '2022-01-01',
       endDate: '2023-01-01',
-      desctiption: "Description de l'emploi 2",
+      description: "Description de l'emploi 2",
       current: false,
       order: 2,
     },
@@ -299,7 +299,7 @@ export const mockResume = {
       order: 3,
     },
   ],
-  certfications: [
+  certifications: [
     {
       id: '1',
       name: 'Certification 1',

@@ -1,11 +1,8 @@
 'use server';
-
-import { ResumeTemplateType } from '@/enums/resumeEnum';
 import prisma from '@/lib/prisma';
 import { getCurrentUser } from '@/utils/auth';
 import { createResumeValidation, updateResumeValidation } from '@/validations/resumeValidation';
 import { revalidatePath } from 'next/cache';
-import { z } from 'zod';
 
 /**
  * Crée un nouveau Cv pour l'utilisateur connecté
@@ -24,7 +21,60 @@ export async function createResume(formData: FormData) {
       themeId: formData.get('themeId') as string,
       fontId: formData.get('fontId') as string,
     };
+    console.log('Données de création de CV :', data);
+
     const validatedData = createResumeValidation.parse(data);
+    console.log('Données validées :', validatedData);
+
+    // Vérifier l'existence du template
+    const template = await prisma.template.findUnique({
+      where: { name: validatedData.templateId },
+    });
+    console.log('Template trouvé :', template);
+
+    if (!template) {
+      return {
+        success: false,
+        message: `Template ${validatedData.templateId} introuvable`,
+      };
+    }
+
+    // Vérifier ou créer un thème par défaut
+    let theme = await prisma.theme.findFirst({
+      where: { name: 'default' },
+    });
+
+    if (!theme) {
+      theme = await prisma.theme.create({
+        data: {
+          name: 'default',
+          description: 'Thème par défaut',
+          primary: '#3B82F6', // Bleu par défaut
+          secondary: '#10B981', // Vert par défaut
+          accent: '#F43F5E', // Rose par défaut
+          background: '#FFFFFF', // Blanc par défaut
+          text: '#1F2937', // Gris foncé par défaut
+          thumbnail: '/themes/default.png', // Chemin d'une miniature par défaut
+          isDefault: true,
+        },
+      });
+    }
+
+    // Vérifier ou créer une police par défaut
+    let font = await prisma.font.findFirst({
+      where: { name: 'default' },
+    });
+
+    if (!font) {
+      font = await prisma.font.create({
+        data: {
+          name: 'default',
+          category: 'SANS_SERIF', // Catégorie par défaut
+          url: 'https://fonts.google.com/specimen/Inter', // URL de la police
+          isDefault: true,
+        },
+      });
+    }
 
     // Recuperation de l'utilisateur par email
     const user = await prisma.user.findUnique({
@@ -40,9 +90,9 @@ export async function createResume(formData: FormData) {
     const resume = await prisma.resume.create({
       data: {
         title: validatedData.title,
-        templateId: validatedData.templateId,
-        themeId: validatedData.themeId || 'default-theme',
-        fontId: validatedData.fontId || null,
+        templateId: template.id, // Utiliser l'ID du template
+        themeId: theme.id, // Utiliser l'ID du thème par défaut
+        fontId: font.id, // Utiliser l'ID de la police par défaut
         userId: user.id,
 
         personalInfo: {
@@ -62,9 +112,11 @@ export async function createResume(formData: FormData) {
     revalidatePath('/resumes');
     return { success: true, resume };
   } catch (error) {
+    console.error('Erreur lors de la création du CV :', error);
     return {
       success: false,
       message: 'Une erreur est survenue lors de la création du CV',
+      error: error instanceof Error ? error.message : String(error),
     };
   }
 }
@@ -81,6 +133,7 @@ export async function updateResume(formData: FormData) {
       message: 'Utilisateur introuvable',
     };
   }
+
   try {
     const data = {
       id: formData.get('id') as string,
@@ -89,7 +142,10 @@ export async function updateResume(formData: FormData) {
       themeId: formData.get('themeId') as string,
       fontId: formData.get('fontId') as string,
     };
+    console.log('Données de mise à jour de CV :', data);
+
     const validatedData = updateResumeValidation.parse(data);
+    console.log('Données validées :', validatedData);
 
     const user = await prisma.user.findUnique({
       where: { email: session.email },
@@ -102,25 +158,432 @@ export async function updateResume(formData: FormData) {
       };
     }
 
-    const existingResume = await prisma.resume.findUnique({
-      where: { id: validatedData.id, userId: user.id },
+    // Vérifier l'existence du template
+    const template = await prisma.template.findUnique({
+      where: { name: validatedData.templateId },
     });
+    console.log('Template trouvé :', template);
 
-    if (!existingResume) {
+    if (!template) {
       return {
         success: false,
-        message: 'CV introuvable',
+        message: `Template ${validatedData.templateId} introuvable`,
       };
     }
 
-    const resume = await prisma.resume.update({
+    // Vérifier ou créer un thème par défaut
+    let theme = await prisma.theme.findFirst({
+      where: { name: 'default' },
+    });
+
+    if (!theme) {
+      theme = await prisma.theme.create({
+        data: {
+          name: 'default',
+          description: 'Thème par défaut',
+          primary: '#3B82F6', // Bleu par défaut
+          secondary: '#10B981', // Vert par défaut
+          accent: '#F43F5E', // Rose par défaut
+          background: '#FFFFFF', // Blanc par défaut
+          text: '#1F2937', // Gris foncé par défaut
+          thumbnail: '/themes/default.png', // Chemin d'une miniature par défaut
+          isDefault: true,
+        },
+      });
+    }
+
+    // Vérifier ou créer une police par défaut
+    let font = await prisma.font.findFirst({
+      where: { name: 'default' },
+    });
+
+    if (!font) {
+      font = await prisma.font.create({
+        data: {
+          name: 'default',
+          category: 'SANS_SERIF', // Catégorie par défaut
+          url: 'https://fonts.google.com/specimen/Inter', // URL de la police
+          isDefault: true,
+        },
+      });
+    }
+
+    const existingResume = await prisma.resume.findUnique({
       where: { id: validatedData.id },
-      data: {
-        ...(validatedData.title && { title: validatedData.title }),
-        ...(validatedData.templateId && { templateId: validatedData.templateId }),
-        ...(validatedData.themeId && { themeId: validatedData.themeId }),
-        ...(validatedData.fontId && { fontId: validatedData.fontId }),
+      include: {
+        personalInfo: true,
+        experiences: true,
+        educations: true,
+        skills: true,
+        languages: true,
+        certifications: true,
+        achievements: true,
+        projects: true,
+        customSections: true,
       },
+    });
+
+    // Vérifier que si le CV existe, il appartient bien à l'utilisateur actuel
+    if (existingResume && existingResume.userId !== user.id) {
+      return {
+        success: false,
+        message: 'Accès non autorisé à ce CV.',
+      };
+    }
+
+    // Extraire les données des sections du formulaire
+    const personalInfo = formData.get('personalInfo');
+    const experiences = formData.get('experiences');
+    const educations = formData.get('educations');
+    const skills = formData.get('skills');
+    const languages = formData.get('languages');
+    const certifications = formData.get('certifications');
+    const achievements = formData.get('achievements');
+    const projects = formData.get('projects');
+    const customSections = formData.get('customSections');
+
+    // Construire l'objet de données commun pour la création et la mise à jour
+    const resumeData: any = {
+      title: validatedData.title,
+      templateId: template.id,
+      themeId: theme.id,
+      fontId: font.id,
+    };
+
+    // Gestion des informations personnelles
+    if (personalInfo) {
+      const data = JSON.parse(personalInfo as string);
+      const { resumeId, ...cleanData } = data;
+      resumeData.personalInfo = existingResume ? { update: cleanData } : { create: cleanData };
+    }
+
+    // Sections à traiter
+    const sections: { [key: string]: FormDataEntryValue | null } = {
+      experiences,
+      educations,
+      skills,
+      languages,
+      certifications,
+      achievements,
+      projects,
+      customSections,
+    };
+
+    // Transformation des dates pour s'assurer du format ISO-8601
+    const transformDate = (dateString: string | undefined) => {
+      if (!dateString) return undefined;
+
+      // Gérer les formats spécifiques comme "janv. 2022"
+      const monthMap: { [key: string]: string } = {
+        'janv.': '01',
+        'fev.': '02',
+        mars: '03',
+        'avr.': '04',
+        mai: '05',
+        juin: '06',
+        'juil.': '07',
+        août: '08',
+        'sept.': '09',
+        'oct.': '10',
+        'nov.': '11',
+        'déc.': '12',
+      };
+
+      // Vérifier si c'est un format mois abrégé + année
+      const monthYearMatch = dateString.match(/^([a-zA-Z]{3,})\.?\s*(\d{4})$/);
+      if (monthYearMatch) {
+        const [, month, year] = monthYearMatch;
+        const mappedMonth = monthMap[month.toLowerCase()] || '01';
+        dateString = `${year}-${mappedMonth}-01`;
+      }
+
+      // Essayer de parser la date et la convertir en ISO-8601
+      const date = new Date(dateString);
+
+      // Vérifier si la date est valide
+      if (isNaN(date.getTime())) {
+        console.warn(`Date invalide : ${dateString}`);
+        return undefined;
+      }
+
+      return date.toISOString();
+    };
+
+    // Fonction pour valider et nettoyer le niveau
+    const validateLevel = (level: any): number => {
+      if (level === null || level === undefined || level === '') {
+        return 1; // Valeur par défaut
+      }
+
+      const numLevel = typeof level === 'string' ? Number.parseInt(level, 10) : Number(level);
+
+      if (isNaN(numLevel) || numLevel < 1 || numLevel > 5) {
+        console.warn(`Niveau invalide détecté: ${level}, utilisation de la valeur par défaut 1`);
+        return 1; // Valeur par défaut si le niveau est invalide
+      }
+
+      return numLevel;
+    };
+
+    // Sections à traiter avec des dates
+    const sectionsWithDates = [
+      'experiences',
+      'educations',
+      'certifications',
+      'achievements',
+      'projects',
+    ];
+
+    // Traitement dynamique des sections
+    for (const [sectionName, sectionData] of Object.entries(sections)) {
+      if (sectionData) {
+        try {
+          const parsedData = JSON.parse(sectionData as string) as any[];
+
+          console.log(`DEBUG - Traitement de la section ${sectionName}:`, parsedData);
+
+          // Si la section est vide et qu'il existe des données dans le CV existant,
+          // ne pas écraser les données existantes
+          if (
+            parsedData.length === 0 &&
+            existingResume &&
+            existingResume[sectionName as keyof typeof existingResume]
+          ) {
+            const existingData = existingResume[sectionName as keyof typeof existingResume];
+            if (Array.isArray(existingData) && existingData.length > 0) {
+              console.log(`Préservation des données existantes pour la section ${sectionName}`);
+              continue;
+            }
+          }
+
+          // Nettoyage et transformation des données
+          const cleanedData = parsedData.map((item, index) => {
+            const { resumeId, id, ...cleanItem } = item;
+
+            console.log(
+              `DEBUG - Traitement de l'élément ${index + 1} de ${sectionName}:`,
+              cleanItem
+            );
+
+            // Correction du champ institutions
+            if (sectionName === 'educations' && cleanItem.institutions) {
+              cleanItem.institution = cleanItem.institution || cleanItem.institutions;
+              delete cleanItem.institutions;
+            }
+
+            // Validation et conversion des niveaux pour skills et languages
+            if (sectionName === 'skills') {
+              if (cleanItem.hasOwnProperty('level')) {
+                const validatedLevel = validateLevel(cleanItem.level);
+                cleanItem.level = validatedLevel;
+                console.log(`DEBUG - Niveau validé pour ${sectionName}: ${cleanItem.level}`);
+              } else {
+                // Si le champ level n'existe pas, l'ajouter avec une valeur par défaut
+                cleanItem.level = 1;
+                console.log(
+                  `DEBUG - Niveau par défaut ajouté pour ${sectionName}: ${cleanItem.level}`
+                );
+              }
+            }
+
+            if (sectionName === 'languages') {
+              const cleanedData = parsedData.map(item => {
+                const { resumeId, id, ...cleanItem } = item;
+
+                // Mapping direct des niveaux numériques aux niveaux de langue
+                const languageLevelMap: Record<number, string> = {
+                  1: 'BEGINNER',
+                  2: 'INTERMEDIATE',
+                  3: 'ADVANCED',
+                  4: 'FLUENT',
+                  5: 'NATIVE',
+                };
+
+                // Conversion explicite du niveau
+                if (cleanItem.level !== undefined && cleanItem.level !== null) {
+                  const numLevel = Number(cleanItem.level);
+                  cleanItem.level = languageLevelMap[numLevel] || 'BEGINNER';
+                } else {
+                  cleanItem.level = 'BEGINNER';
+                }
+
+                return cleanItem;
+              });
+
+              // Modification pour CV existant
+              if (existingResume) {
+                resumeData[sectionName] = {
+                  // Supprimer les anciennes entrées et créer les nouvelles
+                  deleteMany: { resumeId: existingResume.id },
+                  create: cleanedData,
+                };
+              } else {
+                resumeData[sectionName] = {
+                  create: cleanedData,
+                };
+              }
+            }
+
+            // Transformation des dates pour les sections concernées
+            if (sectionsWithDates.includes(sectionName)) {
+              if (cleanItem.startDate) {
+                cleanItem.startDate = transformDate(cleanItem.startDate);
+              }
+              if (cleanItem.endDate) {
+                cleanItem.endDate = transformDate(cleanItem.endDate);
+              }
+              if (cleanItem.issueDate) {
+                cleanItem.issueDate = transformDate(cleanItem.issueDate);
+              }
+              if (cleanItem.expiryDate) {
+                cleanItem.expiryDate = transformDate(cleanItem.expiryDate);
+              }
+              if (cleanItem.date) {
+                cleanItem.date = transformDate(cleanItem.date);
+              }
+            }
+
+            return cleanItem;
+          });
+
+          // Filtrer les données invalides
+          let validData = cleanedData;
+          if (sectionName === 'educations') {
+            validData = cleanedData.filter(
+              item => item.institution && item.institution.trim() !== ''
+            );
+          } else if (sectionName === 'skills' || sectionName === 'languages') {
+            validData = cleanedData.filter(item => {
+              const hasName = item.name && item.name.trim() !== '';
+              const hasValidLevel =
+                item.level && typeof item.level === 'number' && item.level >= 1 && item.level <= 5;
+
+              if (!hasName) {
+                console.warn(`${sectionName} sans nom détecté:`, item);
+              }
+              if (!hasValidLevel) {
+                console.warn(`${sectionName} avec niveau invalide détecté:`, item);
+              }
+
+              return hasName && hasValidLevel;
+            });
+          }
+
+          console.log(`DEBUG - Données validées pour ${sectionName}:`, validData);
+
+          // Définir la stratégie de mise à jour pour cette section
+          if (existingResume && validData.length > 0) {
+            // Pour un CV existant, supprimer les anciennes données et créer les nouvelles
+            resumeData[sectionName] = {
+              deleteMany: {}, // Supprimer toutes les entrées existantes
+              create: validData, // Créer les nouvelles entrées
+            };
+          } else if (!existingResume && validData.length > 0) {
+            // Pour un nouveau CV, simplement créer les données
+            resumeData[sectionName] = {
+              create: validData,
+            };
+          }
+          // Si validData est vide, ne pas inclure la section dans resumeData
+          // pour éviter de supprimer les données existantes
+        } catch (error) {
+          console.error(`Erreur lors du traitement de la section ${sectionName}:`, error);
+        }
+      }
+    }
+
+    console.log('DEBUG - Données complètes à sauvegarder :', resumeData);
+
+    let savedResume;
+    if (existingResume) {
+      // Mettre à jour le CV existant
+      savedResume = await prisma.resume.update({
+        where: { id: validatedData.id },
+        data: resumeData,
+        include: {
+          template: true,
+          theme: true,
+          font: true,
+          personalInfo: true,
+          experiences: { orderBy: { order: 'asc' } },
+          educations: { orderBy: { order: 'asc' } },
+          skills: { orderBy: { order: 'asc' } },
+          languages: { orderBy: { order: 'asc' } },
+          achievements: { orderBy: { order: 'asc' } },
+          projects: { orderBy: { order: 'asc' } },
+          certifications: { orderBy: { order: 'asc' } },
+          customSections: { orderBy: { order: 'asc' } },
+        },
+      });
+    } else {
+      // Créer un nouveau CV
+      savedResume = await prisma.resume.create({
+        data: {
+          ...resumeData,
+          id: validatedData.id,
+          userId: user.id,
+        },
+        include: {
+          template: true,
+          theme: true,
+          font: true,
+          personalInfo: true,
+          experiences: { orderBy: { order: 'asc' } },
+          educations: { orderBy: { order: 'asc' } },
+          skills: { orderBy: { order: 'asc' } },
+          languages: { orderBy: { order: 'asc' } },
+          achievements: { orderBy: { order: 'asc' } },
+          projects: { orderBy: { order: 'asc' } },
+          certifications: { orderBy: { order: 'asc' } },
+          customSections: { orderBy: { order: 'asc' } },
+        },
+      });
+    }
+
+    console.log('CV sauvegardé :', savedResume);
+
+    revalidatePath('/dashboard/resumes');
+    revalidatePath(`/editor/${validatedData.id}`);
+    return {
+      success: true,
+      resume: savedResume,
+    };
+  } catch (error: any) {
+    console.error('Erreur détaillée dans updateResume:', error);
+    return {
+      success: false,
+      message: 'Une erreur est survenue lors de la mise à jour du CV',
+      error: error instanceof Error ? error.message : String(error),
+    };
+  }
+}
+
+/**
+ * Récupère un CV par son ID
+ */
+export async function getResumeById(id: string) {
+  const session = await getCurrentUser();
+
+  if (!session) {
+    return {
+      success: false,
+      message: 'Utilisateur introuvable',
+    };
+  }
+  try {
+    const user = await prisma.user.findUnique({
+      where: { email: session.email },
+    });
+
+    if (!user) {
+      return {
+        success: false,
+        message: 'Utilisateur introuvable',
+      };
+    }
+
+    const resume = await prisma.resume.findUnique({
+      where: { id, userId: user.id },
       include: {
         personalInfo: true,
         experiences: { orderBy: { order: 'asc' } },
@@ -129,10 +592,23 @@ export async function updateResume(formData: FormData) {
         languages: { orderBy: { order: 'asc' } },
         certifications: { orderBy: { order: 'asc' } },
         achievements: { orderBy: { order: 'asc' } },
+        projects: { orderBy: { order: 'asc' } },
+        customSections: { orderBy: { order: 'asc' } },
+        theme: true,
+        font: true,
+        template: true,
       },
     });
-    revalidatePath('/dashboard/resumes');
-    revalidatePath(`/editor/${validatedData.id}`);
+
+    if (!resume) {
+      return {
+        success: false,
+        message: 'CV introuvable',
+      };
+    }
+
+    console.log('Détails du CV récupéré:', resume);
+
     return {
       success: true,
       resume,
@@ -140,7 +616,7 @@ export async function updateResume(formData: FormData) {
   } catch (error) {
     return {
       success: false,
-      message: 'Une erreur est survenue lors de la mise à jour du CV',
+      message: 'Une erreur est survenue lors de la récupération du CV',
     };
   }
 }
