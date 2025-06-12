@@ -1,6 +1,7 @@
 'use server';
 import prisma from '@/lib/prisma';
 import { getCurrentUser } from '@/utils/auth';
+import { calculateResumeProgress } from '@/utils/resumeWithProgress';
 import { createResumeValidation, updateResumeValidation } from '@/validations/resumeValidation';
 import { revalidatePath } from 'next/cache';
 
@@ -677,7 +678,7 @@ export async function deleteResume(id: string) {
 /**
  * Recupere la liste des CV de l'utilisateur
  */
-export async function listResume() {
+export async function listResume(options?: { includePartial?: boolean }) {
   const session = await getCurrentUser();
 
   if (!session) {
@@ -698,6 +699,24 @@ export async function listResume() {
         error: 'Utilisateur introuvable',
       };
     }
+
+    const whereCondition: any = {
+      userId: user.id,
+    };
+
+    if (options?.includePartial) {
+      whereCondition.OR = [
+        { personalInfo: { none: {} } },
+        {
+          AND: [
+            { experiences: { none: {} } },
+            { educations: { none: {} } },
+            { skills: { none: {} } },
+          ],
+        },
+      ];
+    }
+
     const resumes = await prisma.resume.findMany({
       where: { userId: user.id },
       orderBy: { updatedAt: 'desc' },
@@ -705,17 +724,23 @@ export async function listResume() {
         personalInfo: true,
         theme: true,
         font: true,
-        experiences: true,
-        educations: true,
-        skills: true,
-        languages: true,
-        certifications: true,
-        achievements: true,
+        experiences: { take: 1 },
+        educations: { take: 1 },
+        skills: { take: 1 },
+        languages: { take: 1 },
+        certifications: { take: 1 },
+        achievements: { take: 1 },
       },
     });
+
+    const resumesWithProgress = resumes.map(resume => ({
+      ...resume,
+      progress: calculateResumeProgress(resume),
+    }));
+
     return {
       success: true,
-      resumes,
+      resumes: resumesWithProgress,
     };
   } catch (error) {
     return {
