@@ -21,7 +21,7 @@ export const PerformanceTemplate: React.FC<ResumeTemplateProps> = ({
     experiences,
     skills,
     languages,
-    certfications,
+    certifications,
     projects,
     achievements,
   } = resume;
@@ -196,9 +196,9 @@ export const PerformanceTemplate: React.FC<ResumeTemplateProps> = ({
                           </>
                         )}
                       </div>
-                      {experience.desctiption && (
+                      {experience.description && (
                         <ul className="text-sm text-gray-700 list-disc ml-4 space-y-1">
-                          {experience.desctiption
+                          {experience.description
                             .split('\n')
                             .map(
                               (line, index) => line.trim() && <li key={index}>{line.trim()}</li>
@@ -270,7 +270,7 @@ export const PerformanceTemplate: React.FC<ResumeTemplateProps> = ({
                         </div>
                       </div>
                       <div className="mb-1">
-                        <span className="text-sm font-medium">{education.institutions}</span>
+                        <span className="text-sm font-medium">{education.institution}</span>
                         {education.location && (
                           <>
                             <span className="mx-2 text-xs">•</span>
@@ -366,14 +366,14 @@ export const PerformanceTemplate: React.FC<ResumeTemplateProps> = ({
             </div>
           )}
 
-          {/* certfications */}
-          {certfications && certfications.length > 0 && (
-            <div className="mb-6" onClick={() => handleEditSection('certfications')}>
+          {/* certifications */}
+          {certifications && certifications.length > 0 && (
+            <div className="mb-6" onClick={() => handleEditSection('certifications')}>
               <h2 className="text-lg font-bold uppercase mb-4" style={{ color: theme.primary }}>
-                certfications
+                certifications
               </h2>
               <div className="space-y-3">
-                {certfications
+                {certifications
                   .sort((a, b) => a.order - b.order)
                   .map(cert => (
                     <div key={cert.id} className="mb-2">

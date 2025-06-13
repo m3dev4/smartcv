@@ -18,7 +18,7 @@ export const RenderEducationEditor = () => {
   const addEducation = () => {
     const newEducation = {
       id: `education-${Date.now()}`,
-      institutions: '',
+      institution: '',
       degree: '',
       fieldOfStudy: '',
       startDate: '',
@@ -27,6 +27,8 @@ export const RenderEducationEditor = () => {
       location: '',
       order: educations.length,
     };
+
+    console.log('Nouvelle éducation créée :', newEducation);
 
     updateResume({
       educations: [...educations, newEducation],
@@ -38,6 +40,9 @@ export const RenderEducationEditor = () => {
   const removeEducation = (index: number) => {
     if (educations.length > 1) {
       const updatedEducations = educations.filter((_, i) => i !== index);
+      
+      console.log('Éducations après suppression :', updatedEducations);
+
       updateResume({
         educations: updatedEducations,
       });
@@ -53,6 +58,9 @@ export const RenderEducationEditor = () => {
     const updatedEducations = educations.map((edu, i) =>
       i === index ? { ...edu, [field]: value } : edu
     );
+
+    console.log('Éducations mises à jour :', updatedEducations);
+    console.log(`Mise à jour du champ ${field} pour l'éducation ${index} :`, value);
 
     updateResume({
       educations: updatedEducations,
@@ -73,7 +81,7 @@ export const RenderEducationEditor = () => {
           >
             {educations.map((edu, index) => (
               <option key={index} value={index}>
-                {edu.institutions || `Formation ${index + 1}`}
+                {edu.institution || `Formation ${index + 1}`}
               </option>
             ))}
           </select>
@@ -103,10 +111,10 @@ export const RenderEducationEditor = () => {
             <Label className="mb-2">Institution</Label>
             <Input
               id="institution"
-              value={currentEducation.institutions || ''}
+              value={currentEducation.institution || ''}
               className="w-full border border-muted shadow-sm rounded px-2 py-1 rounded-lg"
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                updateEducation(selectedEducationIndex, 'institutions', e.target.value)
+                updateEducation(selectedEducationIndex, 'institution', e.target.value)
               }
             />
           </div>

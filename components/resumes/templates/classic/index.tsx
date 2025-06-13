@@ -17,7 +17,7 @@ export const ClassicTemplate: React.FC<ResumeTemplateProps> = ({
   isEditable = false,
   onEditSection,
 }) => {
-  const { personalInfo, educations, experiences, skills, languages, certfications, achievements } =
+  const { personalInfo, educations, experiences, skills, languages, certifications, achievements } =
     resume;
   const theme = resume.theme || {
     primary: '#EDF7ED',
@@ -272,9 +272,9 @@ export const ClassicTemplate: React.FC<ResumeTemplateProps> = ({
                             : ''}
                         </div>
                       </div>
-                      {experience.desctiption && (
+                      {experience.description && (
                         <p className="text-gray-600 mt-2 whitespace-pre-line">
-                          {experience.desctiption}
+                          {experience.description}
                         </p>
                       )}
                     </div>
@@ -305,7 +305,7 @@ export const ClassicTemplate: React.FC<ResumeTemplateProps> = ({
                           )}
                           <div className="flex items-center mt-1">
                             <span className="text-gray-700 font-medium">
-                              {education.institutions}
+                              {education.institution}
                             </span>
                             {education.location && (
                               <>
@@ -329,17 +329,17 @@ export const ClassicTemplate: React.FC<ResumeTemplateProps> = ({
             </div>
           )}
 
-          {/* certfications */}
-          {certfications && certfications.length > 0 && (
-            <div className="mb-6" onClick={() => handleEditSection('certfications')}>
+          {/* certifications */}
+          {certifications && certifications.length > 0 && (
+            <div className="mb-6" onClick={() => handleEditSection('certifications')}>
               <h2
                 className="text-xl font-bold uppercase mb-4 pb-2"
                 style={{ borderBottom: `2px solid ${theme.primary}` }}
               >
-                certfications
+                certifications
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {certfications
+                {certifications
                   .sort((a, b) => a.order - b.order)
                   .map(cert => (
                     <div

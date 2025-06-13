@@ -1,20 +1,37 @@
 'use client';
-import TemplateSelector from '@/components/templateSelector';
 import { Card, CardContent } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Progress } from '@/components/ui/progress';
 import { templates } from '@/constants';
-import { ResumeTemplateType } from '@/enums/resumeEnum';
-import { FileText, Import, Plus, Upload } from 'lucide-react';
+import type { ResumeTemplateType } from '@/enums/resumeEnum';
+import { Clock, FileText, Plus, Upload } from 'lucide-react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { listResume } from '@/app/api/actions';
+import { formatDistanceToNow } from 'date-fns';
+import { fr } from 'date-fns/locale';
+import ResumeDrawer from '@/components/resumeDrawer';
+
+interface Resume {
+  id: string;
+  title: string;
+  templateId: string;
+  updatedAt: string;
+  createdAt: string;
+  progress?: number;
+  // autres propriétés
+}
 
 const DashboardPage = () => {
   const [isTemplateModalOpen, setIsTemplateModalOpen] = useState(false);
   const [selectedTemplate, setSelectedTemplate] = useState<ResumeTemplateType | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [loadingProgress, setLoadingProgress] = useState(0);
+  const [resumes, setResumes] = useState<Resume[]>([]);
+  const [isLoadingResumes, setIsLoadingResumes] = useState(true);
+  const [partialResumes, setPartialResumes] = useState<Resume[]>([]);
+  const [openDrawerId, setOpenDrawerId] = useState<string | null>(null);
 
   const router = useRouter();
 
@@ -50,11 +67,60 @@ const DashboardPage = () => {
     }, 200);
   };
 
+  const handleEditResume = (resumeId: string) => {
+    router.push(`/editor/${resumeId}`);
+  };
+
+  useEffect(() => {
+    const fetchResumes = async () => {
+      try {
+        // Récupérer les CV complets
+        const fullResumesResponse = await listResume();
+        if (fullResumesResponse.success && fullResumesResponse.resumes) {
+          // Transformer les données pour correspondre au type Resume
+          const transformedResumes = fullResumesResponse.resumes.map(resume => ({
+            ...resume,
+            updatedAt:
+              resume.updatedAt instanceof Date ? resume.updatedAt.toISOString() : resume.updatedAt,
+            createdAt:
+              resume.createdAt instanceof Date ? resume.createdAt.toISOString() : resume.createdAt,
+          }));
+          setResumes(transformedResumes);
+        }
+
+        // Récupérer les CV partiels
+        const partialResumesResponse = await listResume({ includePartial: true });
+        if (partialResumesResponse.success && partialResumesResponse.resumes) {
+          const transformedPartialResumes = partialResumesResponse.resumes
+            .filter(resume => resume !== undefined)
+            .map(resume => ({
+              ...resume,
+              updatedAt:
+                resume.updatedAt instanceof Date
+                  ? resume.updatedAt.toISOString()
+                  : resume.updatedAt,
+              createdAt:
+                resume.createdAt instanceof Date
+                  ? resume.createdAt.toISOString()
+                  : resume.createdAt,
+            }));
+          setPartialResumes(transformedPartialResumes);
+        }
+      } catch (error) {
+        console.error('Erreur lors de la récupération des CV:', error);
+      } finally {
+        setIsLoadingResumes(false);
+      }
+    };
+
+    fetchResumes();
+  }, []);
+
   return (
     <section className="flex flex-col items-center justify-start h-full w-full py-8 md:py-12">
       <div className="container relative overflow-hidden px-4 sm:px-6 lg:px-8">
         <h1 className="text-2xl sm:text-3xl font-bold text-center md:text-left">CV</h1>
-        {/* import and export resume card */}
+        {/* Cartes pour créer/importer un CV */}
         <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 my-8 md:my-12">
           <Card
             className="w-full max-w-xs sm:w-64 h-72 sm:h-80 bg-accent border-accent/100 hover:scale-105 transition-transform cursor-pointer group"
@@ -117,7 +183,7 @@ const DashboardPage = () => {
                       <div className="flex items-center justify-center aspect-[3/4] overflow-hidden">
                         {temp.thumbnail ? (
                           <Image
-                            src={temp.thumbnail}
+                            src={temp.thumbnail || '/placeholder.svg'}
                             alt={temp.name || 'Template thumbnail'}
                             width={500} // Adjusted width for better fit in h-48 container
                             height={600} // Adjusted height for better fit
@@ -167,6 +233,74 @@ const DashboardPage = () => {
           )}
         </DialogContent>
       </Dialog>
+
+      {/* My CVs */}
+      {partialResumes.length > 0 && (
+        <div className="mt-8 container px-4 sm:px-6 lg:px-8">
+          <h2 className="text-xl font-semibold mb-4">Mes CVs</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {partialResumes.map(resume => {
+              const template = templates.find(t => t.id === resume.templateId);
+              const isOpen = openDrawerId === resume.id;
+
+              return (
+                <div key={resume.id}>
+                  <Card
+                    className="hover:shadow-md transition-shadow border-dashed border-2 border-gray-300 cursor-pointer group hover:scale-110 transition-transform"
+                    onClick={() => setOpenDrawerId(resume.id)}
+                  >
+                    <CardContent className="p-0">
+                      <div className="relative aspect-[3/4] overflow-hidden rounded-t-lg">
+                        <div className="w-full h-full flex items-center justify-center bg-gray-100">
+                          <FileText className="w-12 h-12 text-gray-400" />
+                        </div>
+                      </div>
+                      <div className="p-4">
+                        <div className="flex justify-between flex-col items-center mb-2">
+                          <h3 className="font-semibold truncate text-blue-600">
+                            {resume.title || 'CV sans titre'}
+                          </h3>
+                          <div className="flex items-center justify-center px-3 gap-3 text-xs">
+                            <Clock className="w-3 h-3" />
+                            <span>
+                              {formatDistanceToNow(new Date(resume.createdAt), {
+                                addSuffix: true,
+                                locale: fr,
+                              })}
+                            </span>
+                          </div>
+                        </div>
+                        <div className="mt-3">
+                          <Progress
+                            value={resume.progress || 0}
+                            className="h-2 w-full rounded-full"
+                          />
+                          <p className="text-xs mt-1 text-center">
+                            {resume.progress || 0} % complété
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <ResumeDrawer
+                    resume={resume}
+                    onEdit={handleEditResume}
+                    open={isOpen}
+                    setOpen={open => {
+                      if (open) {
+                        setOpenDrawerId(resume.id);
+                      } else {
+                        setOpenDrawerId(null);
+                      }
+                    }}
+                  />
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
     </section>
   );
 };

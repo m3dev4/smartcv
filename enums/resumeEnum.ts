@@ -8,4 +8,6 @@ export enum ResumeTemplateType {
   HAVARD = 'havard',
 }
 
+export default ResumeTemplateType;
+
 

@@ -24,7 +24,7 @@ export const RenderExperienceEditor = () => {
       startDate: '',
       endDate: '',
       current: false,
-      desctiption: '',
+      description: '',
       location: '',
       order: experiences.length,
     };
@@ -187,11 +187,11 @@ export const RenderExperienceEditor = () => {
             <Label className="mb-2">Description</Label>
             <Textarea
               id="description"
-              value={currentExperience.desctiption || ''}
+              value={currentExperience.description || ''}
               placeholder="Décrivez vos responsabilités et réalisations..."
               className="w-full border border-muted shadow-sm rounded px-2 py-1 rounded-lg min-h-[100px]"
               onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
-                updateExperience(selectedExperienceIndex, 'desctiption', e.target.value)
+                updateExperience(selectedExperienceIndex, 'description', e.target.value)
               }
             />
           </div>

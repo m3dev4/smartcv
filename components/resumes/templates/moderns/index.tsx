@@ -17,7 +17,7 @@ export const ModernTemplate: React.FC<ResumeTemplateProps> = ({
   isEditable = false,
   onEditSection,
 }) => {
-  const { personalInfo, educations, experiences, skills, languages, certfications, achievements } =
+  const { personalInfo, educations, experiences, skills, languages, certifications, achievements } =
     resume;
   const theme = resume.theme || {
     primary: '#4C4F50',
@@ -261,8 +261,8 @@ export const ModernTemplate: React.FC<ResumeTemplateProps> = ({
           )}
 
           {/* Certification */}
-          {certfications && certfications.length > 0 && (
-            <div className="mb-8" onClick={() => hanldeEditSection('certfications')}>
+          {certifications && certifications.length > 0 && (
+            <div className="mb-8" onClick={() => hanldeEditSection('certifications')}>
               <h2
                 className="text-lg font-bold uppercase mb-2 pb-1 border-b-2"
                 style={{ borderColor: theme.primary }}
@@ -270,7 +270,7 @@ export const ModernTemplate: React.FC<ResumeTemplateProps> = ({
                 Certifications
               </h2>
               <div className="space-y-3">
-                {certfications
+                {certifications
                   .sort((a, b) => a.order - b.order)
                   .map(cert => (
                     <div className="mb-2" key={cert.id}>
@@ -334,9 +334,9 @@ export const ModernTemplate: React.FC<ResumeTemplateProps> = ({
                           </>
                         )}
                       </div>
-                      {experience.desctiption && (
+                      {experience.description && (
                         <p className="text-sm text-gray-700 whitespace-pre-line">
-                          {experience.desctiption}
+                          {experience.description}
                         </p>
                       )}
                     </div>
@@ -367,7 +367,7 @@ export const ModernTemplate: React.FC<ResumeTemplateProps> = ({
                         </div>
                       </div>
                       <div className="flex items-center mb-2">
-                        <span className="mx-2 text-sm">{education.institutions}</span>
+                        <span className="mx-2 text-sm">{education.institution}</span>
                         {education.location && (
                           <>
                             <span className="mx-2 text-xs">•</span>

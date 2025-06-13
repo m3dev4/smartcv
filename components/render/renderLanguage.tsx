@@ -2,6 +2,7 @@ import { Input } from '@headlessui/react';
 import { Button } from '../ui/button';
 import { Label } from '../ui/label';
 import { useResume } from '@/context/resume-context';
+import { ResumeEnumLanguages } from '@/enums/resumeEnumLanguages';
 
 export const RenderLanguagesEditor = () => {
   const { resume, updateResume } = useResume();
@@ -47,18 +48,17 @@ export const RenderLanguagesEditor = () => {
   // Fonction pour obtenir le nombre de points selon le niveau
   const getLevelDots = (level: string) => {
     const levelMap = {
-      Débutant: 1,
-      Élémentaire: 2,
-      Intermédiaire: 3,
-      Avancé: 4,
-      Courant: 5,
-      Natif: 6,
+      BEGINNER: 1,
+      INTERMEDIATE: 2,
+      ADVANCED: 3,
+      FlUENT: 4,
+      NATIVE: 6,
     };
     return levelMap[level as keyof typeof levelMap] || 3;
   };
 
   // Niveaux de langue disponibles
-  const languageLevels = ['Débutant', 'Élémentaire', 'Intermédiaire', 'Avancé', 'Courant', 'Natif'];
+  const languageLevels = ResumeEnumLanguages
 
   return (
     <div className="flex flex-col gap-4 text">
@@ -140,14 +140,14 @@ export const RenderLanguagesEditor = () => {
 
               {/* Description du niveau */}
               <div className="text-xs text-muted-foreground p-2 rounded">
-                {language.level === 'Débutant' && 'Notions de base, vocabulaire limité'}
+                {language.level === 'BEGINNER' && 'Notions de base, vocabulaire limité'}
                 {language.level === 'Élémentaire' &&
                   'Peut comprendre et utiliser des expressions familières'}
-                {language.level === 'Intermédiaire' &&
+                {language.level === 'INTERMEDIATE' &&
                   'Peut communiquer dans la plupart des situations'}
-                {language.level === 'Avancé' && "Maîtrise solide, peut s'exprimer spontanément"}
-                {language.level === 'Courant' && 'Très bonne maîtrise, proche du niveau natif'}
-                {language.level === 'Natif' && 'Langue maternelle ou niveau équivalent'}
+                {language.level === 'ADVANCED' && "Maîtrise solide, peut s'exprimer spontanément"}
+                {language.level === 'FlUENT' && 'Très bonne maîtrise, proche du niveau natif'}
+                {language.level === 'NATIVE' && 'Langue maternelle ou niveau équivalent'}
               </div>
             </div>
           );
