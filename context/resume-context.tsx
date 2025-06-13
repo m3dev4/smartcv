@@ -6,6 +6,7 @@ import { createContext, useContext, useEffect, useState } from 'react';
 import { mockResume } from '@/constants';
 import { ResumeTemplateType } from '@/enums/resumeEnum';
 import { updateResume as updateResumeApi } from '@/app/api/actions/resume';
+import { ResumesTemplateWrapper } from '@/components/resumes/templates';
 
 // Définir la fonction getResumeById localement si elle n'est pas exportée correctement
 async function getResumeById(id: string) {
@@ -107,6 +108,16 @@ export function ResumeProvider({ children, resumeId, templateType }: ResumeProvi
       formData.append('title', resume.title || 'Mon CV');
       formData.append('templateId', resume.templateId || 'modern');
       formData.append('themeId', resume.theme?.id || '');
+      formData.append(
+        'theme',
+        JSON.stringify({
+          primary: resume.theme?.primary,
+          secondary: resume.theme?.secondary,
+          accent: resume.theme?.accent,
+          background: resume.theme?.background,
+          text: resume.theme?.text,
+        })
+      );
       formData.append('fontId', resume.font?.id || '');
 
       // Log détaillé de toutes les données avant envoi
@@ -162,6 +173,22 @@ export function ResumeProvider({ children, resumeId, templateType }: ResumeProvi
 
         if (dataToSave && Array.isArray(dataToSave) && dataToSave.length > 0) {
           console.log(`DEBUG - Sauvegarde de la section ${section}:`, dataToSave);
+
+          if (resume.skills && resume.skills.length > 0) {
+            const skillsToSave = resume.skills.map(skill => ({
+              ...skill,
+              level: skill.level || 1,
+            }));
+            formData.append('skills', JSON.stringify(skillsToSave));
+          }
+
+          if (resume.languages && resume.languages?.length > 0) {
+            const languagesToSave = resume.languages.map(language => ({
+              ...language,
+              level: language.level || 'BEGINNER',
+            }));
+            formData.append('languages', JSON.stringify(languagesToSave));
+          }
 
           // Traitement spécial pour les éducations
           if (section === 'educations') {

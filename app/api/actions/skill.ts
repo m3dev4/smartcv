@@ -114,7 +114,7 @@ export async function updateSkill(formData: FormData) {
     };
     const validatedData = skillSchema.parse(data);
 
-    if (validatedData.id) {
+    if (!validatedData.id) {
       return { success: false, error: "L'ID de la compétence est requis pour la mise à jour" };
     }
 
@@ -134,6 +134,7 @@ export async function updateSkill(formData: FormData) {
       return { success: false, error: "La compétence n'a pas été trouvée" };
     }
 
+    console.log('Données validées :', validatedData);
     const skill = await prisma.skill.update({
       where: { id: validatedData.id },
       data: {

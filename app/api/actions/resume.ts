@@ -3,6 +3,7 @@ import prisma from '@/lib/prisma';
 import { getCurrentUser } from '@/utils/auth';
 import { calculateResumeProgress } from '@/utils/resumeWithProgress';
 import { createResumeValidation, updateResumeValidation } from '@/validations/resumeValidation';
+import { clean } from 'better-auth/react';
 import { revalidatePath } from 'next/cache';
 
 /**
@@ -173,24 +174,78 @@ export async function updateResume(formData: FormData) {
     }
 
     // Vérifier ou créer un thème par défaut
-    let theme = await prisma.theme.findFirst({
-      where: { name: 'default' },
-    });
+    let theme;
+    if (formData.get('theme')) {
+      try {
+        const themeData = JSON.parse(formData.get('theme') as string);
+        console.log('Données de thème reçues :', themeData);
 
-    if (!theme) {
-      theme = await prisma.theme.create({
-        data: {
-          name: 'default',
-          description: 'Thème par défaut',
-          primary: '#3B82F6', // Bleu par défaut
-          secondary: '#10B981', // Vert par défaut
-          accent: '#F43F5E', // Rose par défaut
-          background: '#FFFFFF', // Blanc par défaut
-          text: '#1F2937', // Gris foncé par défaut
-          thumbnail: '/themes/default.png', // Chemin d'une miniature par défaut
-          isDefault: true,
-        },
+        theme = await prisma.theme.upsert({
+          where: {
+            id: themeData.id || 'non-existent-id',
+          },
+          update: {
+            primary: themeData.primary || '#3B82F6',
+            secondary: themeData.secondary || '#10B981',
+            accent: themeData.accent || '#F43F5E',
+            background: themeData.background || '#FFFFFF',
+            text: themeData.text || '#1F2937',
+            name: themeData.name || `Theme-${Date.now()}`,
+          },
+          create: {
+            primary: themeData.primary || '#3B82F6',
+            secondary: themeData.secondary || '#10B981',
+            accent: themeData.accent || '#F43F5E',
+            background: themeData.background || '#FFFFFF',
+            text: themeData.text || '#1F2937',
+            name: themeData.name || `Theme-${Date.now()}`,
+            isDefault: false,
+          },
+        });
+      } catch (error) {
+        console.error('Erreur lors du parsing des données de thème :', error);
+        // Fallback au thème par défaut
+        theme = await prisma.theme.findFirst({
+          where: { name: 'default' },
+        });
+
+        if (!theme) {
+          theme = await prisma.theme.create({
+            data: {
+              name: 'default',
+              description: 'Thème par défaut',
+              primary: '#3B82F6',
+              secondary: '#10B981',
+              accent: '#F43F5E',
+              background: '#FFFFFF',
+              text: '#1F2937',
+              thumbnail: '/themes/default.png',
+              isDefault: true,
+            },
+          });
+        }
+      }
+    } else {
+      // Fallback au thème par défaut si aucune donnée n'est fournie
+      theme = await prisma.theme.findFirst({
+        where: { name: 'default' },
       });
+
+      if (!theme) {
+        theme = await prisma.theme.create({
+          data: {
+            name: 'default',
+            description: 'Thème par défaut',
+            primary: '#3B82F6',
+            secondary: '#10B981',
+            accent: '#F43F5E',
+            background: '#FFFFFF',
+            text: '#1F2937',
+            thumbnail: '/themes/default.png',
+            isDefault: true,
+          },
+        });
+      }
     }
 
     // Vérifier ou créer une police par défaut
@@ -312,18 +367,18 @@ export async function updateResume(formData: FormData) {
 
     // Fonction pour valider et nettoyer le niveau
     const validateLevel = (level: any): number => {
-      if (level === null || level === undefined || level === '') {
-        return 1; // Valeur par défaut
+      if (typeof level === 'string') {
+        const numLevel = Number.parseInt(level, 10);
+        if (!isNaN(numLevel)) {
+          return Math.max(1, Math.min(100, numLevel)); // Limiter entre 1 et 100
+        }
       }
 
-      const numLevel = typeof level === 'string' ? Number.parseInt(level, 10) : Number(level);
-
-      if (isNaN(numLevel) || numLevel < 1 || numLevel > 5) {
-        console.warn(`Niveau invalide détecté: ${level}, utilisation de la valeur par défaut 1`);
-        return 1; // Valeur par défaut si le niveau est invalide
+      if (typeof level === 'number') {
+        return Math.max(1, Math.min(100, level)); // Limiter entre 1 et 100
       }
 
-      return numLevel;
+      return 1;
     };
 
     // Sections à traiter avec des dates
@@ -374,47 +429,74 @@ export async function updateResume(formData: FormData) {
 
             // Validation et conversion des niveaux pour skills et languages
             if (sectionName === 'skills') {
-              if (cleanItem.hasOwnProperty('level')) {
-                const validatedLevel = validateLevel(cleanItem.level);
-                cleanItem.level = validatedLevel;
-                console.log(`DEBUG - Niveau validé pour ${sectionName}: ${cleanItem.level}`);
+              const cleanedData = parsedData.map((item, index) => {
+                const { resumeId, id, ...cleanItem } = item;
+            
+                // Validation explicite du niveau
+                if (cleanItem.hasOwnProperty('level')) {
+                  const validatedLevel = validateLevel(cleanItem.level);
+                  cleanItem.level = validatedLevel;
+                  console.log(
+                    `DEBUG - Niveau de compétence validé: ${cleanItem.name} = ${cleanItem.level}`
+                  );
+                } else {
+                  cleanItem.level = 1;
+                }
+            
+                return cleanItem;
+              });
+            
+              // Ajouter les données nettoyées au resumeData
+              if (existingResume) {
+                resumeData[sectionName] = {
+                  deleteMany: { resumeId: existingResume.id },
+                  create: cleanedData,
+                };
               } else {
-                // Si le champ level n'existe pas, l'ajouter avec une valeur par défaut
-                cleanItem.level = 1;
-                console.log(
-                  `DEBUG - Niveau par défaut ajouté pour ${sectionName}: ${cleanItem.level}`
-                );
+                resumeData[sectionName] = {
+                  create: cleanedData,
+                };
               }
             }
 
             if (sectionName === 'languages') {
               const cleanedData = parsedData.map(item => {
                 const { resumeId, id, ...cleanItem } = item;
-
-                // Mapping direct des niveaux numériques aux niveaux de langue
-                const languageLevelMap: Record<number, string> = {
-                  1: 'BEGINNER',
-                  2: 'INTERMEDIATE',
-                  3: 'ADVANCED',
-                  4: 'FLUENT',
-                  5: 'NATIVE',
+            
+                // Mapping des niveaux avec une validation plus robuste
+                const languageLevelMap: Record<string, string> = {
+                  '1': 'BEGINNER',
+                  '2': 'INTERMEDIATE',
+                  '3': 'ADVANCED',
+                  '4': 'FLUENT',
+                  '5': 'NATIVE',
+                  'BEGINNER': 'BEGINNER',
+                  'INTERMEDIATE': 'INTERMEDIATE', 
+                  'ADVANCED': 'ADVANCED',
+                  'FLUENT': 'FLUENT',
+                  'NATIVE': 'NATIVE'
                 };
-
-                // Conversion explicite du niveau
+            
+                // Conversion et validation du niveau
                 if (cleanItem.level !== undefined && cleanItem.level !== null) {
-                  const numLevel = Number(cleanItem.level);
-                  cleanItem.level = languageLevelMap[numLevel] || 'BEGINNER';
+                  // Convertir en chaîne pour la comparaison
+                  const levelStr = String(cleanItem.level).toUpperCase();
+                  
+                  // Utiliser le mapping ou fallback sur BEGINNER
+                  cleanItem.level = languageLevelMap[levelStr] || 'BEGINNER';
                 } else {
                   cleanItem.level = 'BEGINNER';
                 }
-
+            
+                // Ajouter des logs de débogage
+                console.log(`Langue traitée: ${cleanItem.name}, Niveau: ${cleanItem.level}`);
+            
                 return cleanItem;
               });
-
+            
               // Modification pour CV existant
               if (existingResume) {
                 resumeData[sectionName] = {
-                  // Supprimer les anciennes entrées et créer les nouvelles
                   deleteMany: { resumeId: existingResume.id },
                   create: cleanedData,
                 };
