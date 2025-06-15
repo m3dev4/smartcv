@@ -1,6 +1,7 @@
 {
   "name": "smartcv",
   "version": "1.0.0",
+  "type": "module",
   "private": true,
   "description": "SmartCV is a modern and responsive CV generator built with Next.js and Tailwind CSS.",
   "author": "m3dev4",

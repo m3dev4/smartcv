@@ -1,12 +1,12 @@
 'use client';
 
-import type { ResumeTemplateProps } from '@/types/resumeTypes';
+import type { LinkedInApiResponse, ResumeTemplateProps } from '@/types/resumeTypes';
 import type React from 'react';
 import { createContext, useContext, useEffect, useState } from 'react';
 import { mockResume } from '@/constants';
 import { ResumeTemplateType } from '@/enums/resumeEnum';
 import { updateResume as updateResumeApi } from '@/app/api/actions/resume';
-import { ResumesTemplateWrapper } from '@/components/resumes/templates';
+import { createResumeFromLinkedIn } from '@/app/api/actions';
 
 // Définir la fonction getResumeById localement si elle n'est pas exportée correctement
 async function getResumeById(id: string) {
@@ -49,6 +49,10 @@ interface ResumeContextType {
   saveResume: () => Promise<void>;
   isSaving: boolean;
   lastSaved: Date | null;
+  createFromLinkedIn: (
+    username: string
+  ) => Promise<{ success: boolean; message: string; resume?: any }>;
+  isCreatingFromLinkedIn: boolean;
 }
 
 const ResumeContext = createContext<ResumeContextType | undefined>(undefined);
@@ -77,6 +81,196 @@ export function ResumeProvider({ children, resumeId, templateType }: ResumeProvi
   const [isSaving, setIsSaving] = useState(false);
   const [lastSaved, setLastSaved] = useState<Date | null>(null);
   const [originalResume, setOriginalResume] = useState<ResumeTemplateProps['resume'] | null>(null);
+  const [isCreatingFromLinkedIn, setIsCreatingFromLinkedIn] = useState(false);
+
+  const convertPrismaToResumeTemplate = (prismaResume: any): ResumeTemplateProps['resume'] => {
+    return {
+      ...prismaResume,
+      templateId: convertTemplateNameToType(prismaResume.template?.name || prismaResume.templateId),
+
+      // Conversion des informations personnelles
+      personalInfo: prismaResume.personalInfo
+        ? {
+            firstName: prismaResume.personalInfo.firstName,
+            lastName: prismaResume.personalInfo.lastName,
+            title: prismaResume.personalInfo.title,
+            email: prismaResume.personalInfo.email,
+            phone: prismaResume.personalInfo.phone,
+            website: prismaResume.personalInfo.website,
+            location: prismaResume.personalInfo.location,
+            description: prismaResume.personalInfo.description,
+            photoUrl: prismaResume.personalInfo.photoUrl,
+          }
+        : undefined,
+
+      // Conversion des expériences
+      experiences:
+        prismaResume.experiences?.map((exp: any, index: number) => ({
+          id: exp.id,
+          company: exp.company,
+          position: exp.position,
+          startDate: exp.startDate,
+          endDate: exp.endDate,
+          current: exp.current,
+          description: exp.description,
+          location: exp.location,
+          order: exp.order || index,
+        })) || [],
+
+      // Conversion des éducations
+      educations:
+        prismaResume.educations?.map((edu: any, index: number) => ({
+          id: edu.id,
+          institution: edu.institution,
+          degree: edu.degree,
+          fieldOfStudy: edu.fieldOfStudy,
+          startDate: edu.startDate,
+          endDate: edu.endDate,
+          description: edu.description,
+          location: edu.location,
+          order: edu.order || index,
+        })) || [],
+
+      // Conversion des compétences
+      skills:
+        prismaResume.skills?.map((skill: any, index: number) => ({
+          id: skill.id,
+          name: skill.name,
+          level: skill.level,
+          category: skill.category,
+          order: skill.order || index,
+        })) || [],
+
+      // Conversion des langues
+      languages:
+        prismaResume.languages?.map((lang: any, index: number) => ({
+          id: lang.id,
+          name: lang.name,
+          level: lang.level,
+          order: lang.order || index,
+        })) || [],
+
+      // Conversion des certifications
+      certifications:
+        prismaResume.certifications?.map((cert: any, index: number) => ({
+          id: cert.id,
+          name: cert.name,
+          issuer: cert.issuer,
+          issueDate: cert.issueDate,
+          expiryDate: cert.expiryDate,
+          credentialId: cert.credentialId,
+          credentialUrl: cert.credentialUrl,
+          order: cert.order || index,
+        })) || [],
+
+      // Conversion des projets
+      projects:
+        prismaResume.projects?.map((project: any, index: number) => ({
+          id: project.id,
+          title: project.title,
+          description: project.description,
+          url: project.url,
+          startDate: project.startDate,
+          endDate: project.endDate,
+          order: project.order || index,
+        })) || [],
+
+      // Conversion des réalisations
+      achievements:
+        prismaResume.achievements?.map((achievement: any, index: number) => ({
+          id: achievement.id,
+          title: achievement.title,
+          description: achievement.description,
+          date: achievement.date,
+          order: achievement.order || index,
+        })) || [],
+
+      // Conversion des sections personnalisées
+      customSections:
+        prismaResume.customSections?.map((section: any, index: number) => ({
+          id: section.id,
+          title: section.title,
+          content: section.content,
+          order: section.order || index,
+        })) || [],
+
+      // Conversion du thème
+      theme: prismaResume.theme
+        ? {
+            id: prismaResume.theme.id,
+            name: prismaResume.theme.name,
+            primary: prismaResume.theme.primary,
+            secondary: prismaResume.theme.secondary,
+            accent: prismaResume.theme.accent,
+            background: prismaResume.theme.background,
+            text: prismaResume.theme.text,
+          }
+        : undefined,
+
+      // Conversion du template
+      template: prismaResume.template
+        ? {
+            id: prismaResume.template.id,
+            name: prismaResume.template.name,
+          }
+        : undefined,
+
+      // Conversion de la police
+      font: prismaResume.font
+        ? {
+            id: prismaResume.font.id,
+            name: prismaResume.font.name,
+            category: prismaResume.font.category,
+            url: prismaResume.font.url,
+          }
+        : undefined,
+    };
+  };
+
+  const createFromLinkedIn = async (username: string) => {
+    setIsCreatingFromLinkedIn(true);
+
+    try {
+      console.log('🔄 Début de la création du CV depuis LinkedIn pour:', username);
+
+      // Appeler le server action
+      const result = await createResumeFromLinkedIn(username);
+
+      if (result.success && result.resume) {
+        console.log('✅ CV créé avec succès depuis LinkedIn!', result.resume);
+
+        // Convertir les données Prisma en format ResumeTemplateProps
+        const convertedResume = convertPrismaToResumeTemplate(result.resume);
+
+        // Mettre à jour le state
+        setResume(convertedResume);
+        setOriginalResume(convertedResume);
+        setHistory([convertedResume]);
+        setCurrentIndex(0);
+        setLastSaved(new Date());
+
+        return {
+          success: true,
+          resume: convertedResume,
+          message: result.message,
+        };
+      } else {
+        console.error('❌ Erreur lors de la création du CV:', result.message);
+        return {
+          success: false,
+          message: result.message || 'Erreur lors de la création du CV depuis LinkedIn',
+        };
+      }
+    } catch (error: any) {
+      console.error('❌ Erreur inattendue lors de la création du CV:', error);
+      return {
+        success: false,
+        message: error.message || 'Une erreur inattendue est survenue',
+      };
+    } finally {
+      setIsCreatingFromLinkedIn(false);
+    }
+  };
 
   const saveResume = async () => {
     // Vérifications préalables plus robustes
@@ -455,6 +649,8 @@ export function ResumeProvider({ children, resumeId, templateType }: ResumeProvi
         zoomLevel,
         isPreviewMode,
         togglePreviewMode,
+        createFromLinkedIn,
+        isCreatingFromLinkedIn,
         saveResume: async () => {
           try {
             await saveResume();

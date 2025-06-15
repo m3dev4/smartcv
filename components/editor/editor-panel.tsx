@@ -12,6 +12,7 @@ import { RenderCertificationsEditor } from '../render/renderCertification';
 import { X } from 'lucide-react';
 import { RenderThemeEditor } from '../render/renderTheme';
 import { RenderTypographyEditor } from '../render/renderTypography';
+import { LinkedInImport } from '../render/linkedin';
 
 interface EditorPropertiesPanelProps {
   selectedSection: string | null;
@@ -54,6 +55,7 @@ export function EditorPropertiesPanel({
       theme: 'Thème',
       template: 'Template',
       font: 'Police',
+      linkedin: 'Créer depuis LinkedIn',
     };
     return titles[selectedSection] || 'Propriétés';
   };
@@ -76,6 +78,8 @@ export function EditorPropertiesPanel({
         return <RenderThemeEditor />;
         case 'font':
         return <RenderTypographyEditor />;
+        case 'linkedin':
+        return <LinkedInImport />;
       default:
         return (
           <div className="text-center py-8">

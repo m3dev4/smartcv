@@ -2,8 +2,6 @@
  * Formate une date en format lisible (ex: Jun 2025)
  */
 
-import { format } from 'path';
-
 export const formatDate = (date: Date | string): string => {
   const d = typeof date === 'string' ? new Date(date) : date;
 

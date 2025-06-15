@@ -6,6 +6,15 @@ export enum ResumeTemplateType {
   MULTICOLUMN = 'multicolumn',
   MINIMAL = 'minimal',
   HAVARD = 'havard',
+  CONTEMPORAIN = 'contemporain',
+  MINT = 'mint',
+  COMPACT = 'compact',
+  CLEAN = 'clean',
+  STYLISH = 'stylish',
+  TIMELINE = 'styline',
+  MINIMALIST = 'minalist',
+  ELEGANT = 'elegant',
+  EXECUTIVE = 'executive',
 }
 
 export default ResumeTemplateType;

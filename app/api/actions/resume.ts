@@ -3,7 +3,6 @@ import prisma from '@/lib/prisma';
 import { getCurrentUser } from '@/utils/auth';
 import { calculateResumeProgress } from '@/utils/resumeWithProgress';
 import { createResumeValidation, updateResumeValidation } from '@/validations/resumeValidation';
-import { clean } from 'better-auth/react';
 import { revalidatePath } from 'next/cache';
 
 /**
@@ -431,7 +430,7 @@ export async function updateResume(formData: FormData) {
             if (sectionName === 'skills') {
               const cleanedData = parsedData.map((item, index) => {
                 const { resumeId, id, ...cleanItem } = item;
-            
+
                 // Validation explicite du niveau
                 if (cleanItem.hasOwnProperty('level')) {
                   const validatedLevel = validateLevel(cleanItem.level);
@@ -442,10 +441,10 @@ export async function updateResume(formData: FormData) {
                 } else {
                   cleanItem.level = 1;
                 }
-            
+
                 return cleanItem;
               });
-            
+
               // Ajouter les données nettoyées au resumeData
               if (existingResume) {
                 resumeData[sectionName] = {
@@ -462,7 +461,7 @@ export async function updateResume(formData: FormData) {
             if (sectionName === 'languages') {
               const cleanedData = parsedData.map(item => {
                 const { resumeId, id, ...cleanItem } = item;
-            
+
                 // Mapping des niveaux avec une validation plus robuste
                 const languageLevelMap: Record<string, string> = {
                   '1': 'BEGINNER',
@@ -470,30 +469,30 @@ export async function updateResume(formData: FormData) {
                   '3': 'ADVANCED',
                   '4': 'FLUENT',
                   '5': 'NATIVE',
-                  'BEGINNER': 'BEGINNER',
-                  'INTERMEDIATE': 'INTERMEDIATE', 
-                  'ADVANCED': 'ADVANCED',
-                  'FLUENT': 'FLUENT',
-                  'NATIVE': 'NATIVE'
+                  BEGINNER: 'BEGINNER',
+                  INTERMEDIATE: 'INTERMEDIATE',
+                  ADVANCED: 'ADVANCED',
+                  FLUENT: 'FLUENT',
+                  NATIVE: 'NATIVE',
                 };
-            
+
                 // Conversion et validation du niveau
                 if (cleanItem.level !== undefined && cleanItem.level !== null) {
                   // Convertir en chaîne pour la comparaison
                   const levelStr = String(cleanItem.level).toUpperCase();
-                  
+
                   // Utiliser le mapping ou fallback sur BEGINNER
                   cleanItem.level = languageLevelMap[levelStr] || 'BEGINNER';
                 } else {
                   cleanItem.level = 'BEGINNER';
                 }
-            
+
                 // Ajouter des logs de débogage
                 console.log(`Langue traitée: ${cleanItem.name}, Niveau: ${cleanItem.level}`);
-            
+
                 return cleanItem;
               });
-            
+
               // Modification pour CV existant
               if (existingResume) {
                 resumeData[sectionName] = {

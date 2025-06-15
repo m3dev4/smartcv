@@ -108,9 +108,51 @@ export interface ResumeTemplateProps {
   className?: string;
 }
 
+export interface LinkedInApiResponse {
+  success: boolean;
+  data: {
+    urn: string;
+    firstName: string;
+    lastName: string;
+    headline?: string;
+    summury?: string;
+    username: string;
+    profilePicture?: string;
+    country?: string;
+    city?: string;
+    experiences: Array<{
+      companyId?: string;
+      companyName: string;
+      title: string;
+      startDate: string;
+      endDate?: string;
+      description: string;
+      location?: string;
+    }>;
+    educations: Array<{
+      schoolName: string;
+      degree: string;
+      fieldOfStudy?: string;
+      startDate: string;
+      endDate?: string;
+    }>;
+    skills: Array<{
+      name: string;
+      endorsementsCount?: string;
+      passedAssement?: string;
+    }>;
+    certfications: Array<{
+      name: string;
+      isssuing_organization: string;
+    }>;
+  };
+  resume?: Partial<ResumeTemplateProps['resume']>;
+  onEditSection?: (sectionType: string, sectionId: string) => void;
+}
+
 // Interface pour le compsant template wrapper
 
 export interface ResumeWrapperTemplateProps extends ResumeTemplateProps {
-  type: ResumeTemplateType;
+  type: [ResumeTemplateType, LinkedInApiResponse];
   children: ReactNode;
 }
