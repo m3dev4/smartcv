@@ -8,7 +8,7 @@ const nextConfig = {
     return config;
   },
   images: {
-    domains: ['img.freepik.com'],
+    domains: ['img.freepik.com', 'media.licdn.com'],
   },
   output: 'standalone',
   experimental: {

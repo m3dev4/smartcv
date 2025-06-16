@@ -290,10 +290,11 @@ model LinkedInExperience {
   companyId   String?
   companyName String
   title       String
-  startDate   DateTime
-  endDate     DateTime?
-  description  String?
+  startDate   DateTime  @db.Timestamptz()
+  endDate     DateTime? @db.Timestamptz()
+  description String?
   location    String?
+  current     Boolean   @default(false)
 
   profile LinkedInProfile @relation(fields: [profileId], references: [id])
 }
@@ -304,8 +305,9 @@ model LinkedInEducation {
   schoolName   String
   degree       String?
   fieldOfStudy String?
-  startDate    DateTime
-  endDate      DateTime?
+  startDate    DateTime  @db.Timestamptz()
+  endDate      DateTime? @db.Timestamptz()
+  current      Boolean   @default(false)
 
   profile LinkedInProfile @relation(fields: [profileId], references: [id])
 }

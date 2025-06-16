@@ -153,6 +153,6 @@ export interface LinkedInApiResponse {
 // Interface pour le compsant template wrapper
 
 export interface ResumeWrapperTemplateProps extends ResumeTemplateProps {
-  type: [ResumeTemplateType, LinkedInApiResponse];
+  type: ResumeTemplateType;
   children: ReactNode;
 }

@@ -109,6 +109,9 @@ smartcv/
 
 ## 📝 Roadmap
 
+
+
+
 - [ ] Intégration avec LinkedIn pour l'importation de profils
 - [ ] Analyse sémantique des offres d'emploi pour optimiser les CV
 - [ ] Mode collaboration pour les retours d'experts RH

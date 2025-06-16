@@ -22696,6 +22696,7 @@ export namespace Prisma {
     endDate: Date | null
     description: string | null
     location: string | null
+    current: boolean | null
   }
 
   export type LinkedInExperienceMaxAggregateOutputType = {
@@ -22708,6 +22709,7 @@ export namespace Prisma {
     endDate: Date | null
     description: string | null
     location: string | null
+    current: boolean | null
   }
 
   export type LinkedInExperienceCountAggregateOutputType = {
@@ -22720,6 +22722,7 @@ export namespace Prisma {
     endDate: number
     description: number
     location: number
+    current: number
     _all: number
   }
 
@@ -22744,6 +22747,7 @@ export namespace Prisma {
     endDate?: true
     description?: true
     location?: true
+    current?: true
   }
 
   export type LinkedInExperienceMaxAggregateInputType = {
@@ -22756,6 +22760,7 @@ export namespace Prisma {
     endDate?: true
     description?: true
     location?: true
+    current?: true
   }
 
   export type LinkedInExperienceCountAggregateInputType = {
@@ -22768,6 +22773,7 @@ export namespace Prisma {
     endDate?: true
     description?: true
     location?: true
+    current?: true
     _all?: true
   }
 
@@ -22867,6 +22873,7 @@ export namespace Prisma {
     endDate: Date | null
     description: string | null
     location: string | null
+    current: boolean
     _count: LinkedInExperienceCountAggregateOutputType | null
     _avg: LinkedInExperienceAvgAggregateOutputType | null
     _sum: LinkedInExperienceSumAggregateOutputType | null
@@ -22898,6 +22905,7 @@ export namespace Prisma {
     endDate?: boolean
     description?: boolean
     location?: boolean
+    current?: boolean
     profile?: boolean | LinkedInProfileDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["linkedInExperience"]>
 
@@ -22911,6 +22919,7 @@ export namespace Prisma {
     endDate?: boolean
     description?: boolean
     location?: boolean
+    current?: boolean
     profile?: boolean | LinkedInProfileDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["linkedInExperience"]>
 
@@ -22924,6 +22933,7 @@ export namespace Prisma {
     endDate?: boolean
     description?: boolean
     location?: boolean
+    current?: boolean
     profile?: boolean | LinkedInProfileDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["linkedInExperience"]>
 
@@ -22937,9 +22947,10 @@ export namespace Prisma {
     endDate?: boolean
     description?: boolean
     location?: boolean
+    current?: boolean
   }
 
-  export type LinkedInExperienceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "profileId" | "companyId" | "companyName" | "title" | "startDate" | "endDate" | "description" | "location", ExtArgs["result"]["linkedInExperience"]>
+  export type LinkedInExperienceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "profileId" | "companyId" | "companyName" | "title" | "startDate" | "endDate" | "description" | "location" | "current", ExtArgs["result"]["linkedInExperience"]>
   export type LinkedInExperienceInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     profile?: boolean | LinkedInProfileDefaultArgs<ExtArgs>
   }
@@ -22965,6 +22976,7 @@ export namespace Prisma {
       endDate: Date | null
       description: string | null
       location: string | null
+      current: boolean
     }, ExtArgs["result"]["linkedInExperience"]>
     composites: {}
   }
@@ -23398,6 +23410,7 @@ export namespace Prisma {
     readonly endDate: FieldRef<"LinkedInExperience", 'DateTime'>
     readonly description: FieldRef<"LinkedInExperience", 'String'>
     readonly location: FieldRef<"LinkedInExperience", 'String'>
+    readonly current: FieldRef<"LinkedInExperience", 'Boolean'>
   }
     
 
@@ -23842,6 +23855,7 @@ export namespace Prisma {
     fieldOfStudy: string | null
     startDate: Date | null
     endDate: Date | null
+    current: boolean | null
   }
 
   export type LinkedInEducationMaxAggregateOutputType = {
@@ -23852,6 +23866,7 @@ export namespace Prisma {
     fieldOfStudy: string | null
     startDate: Date | null
     endDate: Date | null
+    current: boolean | null
   }
 
   export type LinkedInEducationCountAggregateOutputType = {
@@ -23862,6 +23877,7 @@ export namespace Prisma {
     fieldOfStudy: number
     startDate: number
     endDate: number
+    current: number
     _all: number
   }
 
@@ -23884,6 +23900,7 @@ export namespace Prisma {
     fieldOfStudy?: true
     startDate?: true
     endDate?: true
+    current?: true
   }
 
   export type LinkedInEducationMaxAggregateInputType = {
@@ -23894,6 +23911,7 @@ export namespace Prisma {
     fieldOfStudy?: true
     startDate?: true
     endDate?: true
+    current?: true
   }
 
   export type LinkedInEducationCountAggregateInputType = {
@@ -23904,6 +23922,7 @@ export namespace Prisma {
     fieldOfStudy?: true
     startDate?: true
     endDate?: true
+    current?: true
     _all?: true
   }
 
@@ -24001,6 +24020,7 @@ export namespace Prisma {
     fieldOfStudy: string | null
     startDate: Date
     endDate: Date | null
+    current: boolean
     _count: LinkedInEducationCountAggregateOutputType | null
     _avg: LinkedInEducationAvgAggregateOutputType | null
     _sum: LinkedInEducationSumAggregateOutputType | null
@@ -24030,6 +24050,7 @@ export namespace Prisma {
     fieldOfStudy?: boolean
     startDate?: boolean
     endDate?: boolean
+    current?: boolean
     profile?: boolean | LinkedInProfileDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["linkedInEducation"]>
 
@@ -24041,6 +24062,7 @@ export namespace Prisma {
     fieldOfStudy?: boolean
     startDate?: boolean
     endDate?: boolean
+    current?: boolean
     profile?: boolean | LinkedInProfileDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["linkedInEducation"]>
 
@@ -24052,6 +24074,7 @@ export namespace Prisma {
     fieldOfStudy?: boolean
     startDate?: boolean
     endDate?: boolean
+    current?: boolean
     profile?: boolean | LinkedInProfileDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["linkedInEducation"]>
 
@@ -24063,9 +24086,10 @@ export namespace Prisma {
     fieldOfStudy?: boolean
     startDate?: boolean
     endDate?: boolean
+    current?: boolean
   }
 
-  export type LinkedInEducationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "profileId" | "schoolName" | "degree" | "fieldOfStudy" | "startDate" | "endDate", ExtArgs["result"]["linkedInEducation"]>
+  export type LinkedInEducationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "profileId" | "schoolName" | "degree" | "fieldOfStudy" | "startDate" | "endDate" | "current", ExtArgs["result"]["linkedInEducation"]>
   export type LinkedInEducationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     profile?: boolean | LinkedInProfileDefaultArgs<ExtArgs>
   }
@@ -24089,6 +24113,7 @@ export namespace Prisma {
       fieldOfStudy: string | null
       startDate: Date
       endDate: Date | null
+      current: boolean
     }, ExtArgs["result"]["linkedInEducation"]>
     composites: {}
   }
@@ -24520,6 +24545,7 @@ export namespace Prisma {
     readonly fieldOfStudy: FieldRef<"LinkedInEducation", 'String'>
     readonly startDate: FieldRef<"LinkedInEducation", 'DateTime'>
     readonly endDate: FieldRef<"LinkedInEducation", 'DateTime'>
+    readonly current: FieldRef<"LinkedInEducation", 'Boolean'>
   }
     
 
@@ -27386,7 +27412,8 @@ export namespace Prisma {
     startDate: 'startDate',
     endDate: 'endDate',
     description: 'description',
-    location: 'location'
+    location: 'location',
+    current: 'current'
   };
 
   export type LinkedInExperienceScalarFieldEnum = (typeof LinkedInExperienceScalarFieldEnum)[keyof typeof LinkedInExperienceScalarFieldEnum]
@@ -27399,7 +27426,8 @@ export namespace Prisma {
     degree: 'degree',
     fieldOfStudy: 'fieldOfStudy',
     startDate: 'startDate',
-    endDate: 'endDate'
+    endDate: 'endDate',
+    current: 'current'
   };
 
   export type LinkedInEducationScalarFieldEnum = (typeof LinkedInEducationScalarFieldEnum)[keyof typeof LinkedInEducationScalarFieldEnum]
@@ -28884,6 +28912,7 @@ export namespace Prisma {
     endDate?: DateTimeNullableFilter<"LinkedInExperience"> | Date | string | null
     description?: StringNullableFilter<"LinkedInExperience"> | string | null
     location?: StringNullableFilter<"LinkedInExperience"> | string | null
+    current?: BoolFilter<"LinkedInExperience"> | boolean
     profile?: XOR<LinkedInProfileScalarRelationFilter, LinkedInProfileWhereInput>
   }
 
@@ -28897,6 +28926,7 @@ export namespace Prisma {
     endDate?: SortOrderInput | SortOrder
     description?: SortOrderInput | SortOrder
     location?: SortOrderInput | SortOrder
+    current?: SortOrder
     profile?: LinkedInProfileOrderByWithRelationInput
   }
 
@@ -28913,6 +28943,7 @@ export namespace Prisma {
     endDate?: DateTimeNullableFilter<"LinkedInExperience"> | Date | string | null
     description?: StringNullableFilter<"LinkedInExperience"> | string | null
     location?: StringNullableFilter<"LinkedInExperience"> | string | null
+    current?: BoolFilter<"LinkedInExperience"> | boolean
     profile?: XOR<LinkedInProfileScalarRelationFilter, LinkedInProfileWhereInput>
   }, "id">
 
@@ -28926,6 +28957,7 @@ export namespace Prisma {
     endDate?: SortOrderInput | SortOrder
     description?: SortOrderInput | SortOrder
     location?: SortOrderInput | SortOrder
+    current?: SortOrder
     _count?: LinkedInExperienceCountOrderByAggregateInput
     _avg?: LinkedInExperienceAvgOrderByAggregateInput
     _max?: LinkedInExperienceMaxOrderByAggregateInput
@@ -28946,6 +28978,7 @@ export namespace Prisma {
     endDate?: DateTimeNullableWithAggregatesFilter<"LinkedInExperience"> | Date | string | null
     description?: StringNullableWithAggregatesFilter<"LinkedInExperience"> | string | null
     location?: StringNullableWithAggregatesFilter<"LinkedInExperience"> | string | null
+    current?: BoolWithAggregatesFilter<"LinkedInExperience"> | boolean
   }
 
   export type LinkedInEducationWhereInput = {
@@ -28959,6 +28992,7 @@ export namespace Prisma {
     fieldOfStudy?: StringNullableFilter<"LinkedInEducation"> | string | null
     startDate?: DateTimeFilter<"LinkedInEducation"> | Date | string
     endDate?: DateTimeNullableFilter<"LinkedInEducation"> | Date | string | null
+    current?: BoolFilter<"LinkedInEducation"> | boolean
     profile?: XOR<LinkedInProfileScalarRelationFilter, LinkedInProfileWhereInput>
   }
 
@@ -28970,6 +29004,7 @@ export namespace Prisma {
     fieldOfStudy?: SortOrderInput | SortOrder
     startDate?: SortOrder
     endDate?: SortOrderInput | SortOrder
+    current?: SortOrder
     profile?: LinkedInProfileOrderByWithRelationInput
   }
 
@@ -28984,6 +29019,7 @@ export namespace Prisma {
     fieldOfStudy?: StringNullableFilter<"LinkedInEducation"> | string | null
     startDate?: DateTimeFilter<"LinkedInEducation"> | Date | string
     endDate?: DateTimeNullableFilter<"LinkedInEducation"> | Date | string | null
+    current?: BoolFilter<"LinkedInEducation"> | boolean
     profile?: XOR<LinkedInProfileScalarRelationFilter, LinkedInProfileWhereInput>
   }, "id">
 
@@ -28995,6 +29031,7 @@ export namespace Prisma {
     fieldOfStudy?: SortOrderInput | SortOrder
     startDate?: SortOrder
     endDate?: SortOrderInput | SortOrder
+    current?: SortOrder
     _count?: LinkedInEducationCountOrderByAggregateInput
     _avg?: LinkedInEducationAvgOrderByAggregateInput
     _max?: LinkedInEducationMaxOrderByAggregateInput
@@ -29013,6 +29050,7 @@ export namespace Prisma {
     fieldOfStudy?: StringNullableWithAggregatesFilter<"LinkedInEducation"> | string | null
     startDate?: DateTimeWithAggregatesFilter<"LinkedInEducation"> | Date | string
     endDate?: DateTimeNullableWithAggregatesFilter<"LinkedInEducation"> | Date | string | null
+    current?: BoolWithAggregatesFilter<"LinkedInEducation"> | boolean
   }
 
   export type LinkedInSkillWhereInput = {
@@ -30558,6 +30596,7 @@ export namespace Prisma {
     endDate?: Date | string | null
     description?: string | null
     location?: string | null
+    current?: boolean
     profile: LinkedInProfileCreateNestedOneWithoutExperiencesInput
   }
 
@@ -30571,6 +30610,7 @@ export namespace Prisma {
     endDate?: Date | string | null
     description?: string | null
     location?: string | null
+    current?: boolean
   }
 
   export type LinkedInExperienceUpdateInput = {
@@ -30581,6 +30621,7 @@ export namespace Prisma {
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
+    current?: BoolFieldUpdateOperationsInput | boolean
     profile?: LinkedInProfileUpdateOneRequiredWithoutExperiencesNestedInput
   }
 
@@ -30594,6 +30635,7 @@ export namespace Prisma {
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
+    current?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type LinkedInExperienceCreateManyInput = {
@@ -30606,6 +30648,7 @@ export namespace Prisma {
     endDate?: Date | string | null
     description?: string | null
     location?: string | null
+    current?: boolean
   }
 
   export type LinkedInExperienceUpdateManyMutationInput = {
@@ -30616,6 +30659,7 @@ export namespace Prisma {
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
+    current?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type LinkedInExperienceUncheckedUpdateManyInput = {
@@ -30628,6 +30672,7 @@ export namespace Prisma {
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
+    current?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type LinkedInEducationCreateInput = {
@@ -30636,6 +30681,7 @@ export namespace Prisma {
     fieldOfStudy?: string | null
     startDate: Date | string
     endDate?: Date | string | null
+    current?: boolean
     profile: LinkedInProfileCreateNestedOneWithoutEducationsInput
   }
 
@@ -30647,6 +30693,7 @@ export namespace Prisma {
     fieldOfStudy?: string | null
     startDate: Date | string
     endDate?: Date | string | null
+    current?: boolean
   }
 
   export type LinkedInEducationUpdateInput = {
@@ -30655,6 +30702,7 @@ export namespace Prisma {
     fieldOfStudy?: NullableStringFieldUpdateOperationsInput | string | null
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    current?: BoolFieldUpdateOperationsInput | boolean
     profile?: LinkedInProfileUpdateOneRequiredWithoutEducationsNestedInput
   }
 
@@ -30666,6 +30714,7 @@ export namespace Prisma {
     fieldOfStudy?: NullableStringFieldUpdateOperationsInput | string | null
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    current?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type LinkedInEducationCreateManyInput = {
@@ -30676,6 +30725,7 @@ export namespace Prisma {
     fieldOfStudy?: string | null
     startDate: Date | string
     endDate?: Date | string | null
+    current?: boolean
   }
 
   export type LinkedInEducationUpdateManyMutationInput = {
@@ -30684,6 +30734,7 @@ export namespace Prisma {
     fieldOfStudy?: NullableStringFieldUpdateOperationsInput | string | null
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    current?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type LinkedInEducationUncheckedUpdateManyInput = {
@@ -30694,6 +30745,7 @@ export namespace Prisma {
     fieldOfStudy?: NullableStringFieldUpdateOperationsInput | string | null
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    current?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type LinkedInSkillCreateInput = {
@@ -31877,6 +31929,7 @@ export namespace Prisma {
     endDate?: SortOrder
     description?: SortOrder
     location?: SortOrder
+    current?: SortOrder
   }
 
   export type LinkedInExperienceAvgOrderByAggregateInput = {
@@ -31894,6 +31947,7 @@ export namespace Prisma {
     endDate?: SortOrder
     description?: SortOrder
     location?: SortOrder
+    current?: SortOrder
   }
 
   export type LinkedInExperienceMinOrderByAggregateInput = {
@@ -31906,6 +31960,7 @@ export namespace Prisma {
     endDate?: SortOrder
     description?: SortOrder
     location?: SortOrder
+    current?: SortOrder
   }
 
   export type LinkedInExperienceSumOrderByAggregateInput = {
@@ -31921,6 +31976,7 @@ export namespace Prisma {
     fieldOfStudy?: SortOrder
     startDate?: SortOrder
     endDate?: SortOrder
+    current?: SortOrder
   }
 
   export type LinkedInEducationAvgOrderByAggregateInput = {
@@ -31936,6 +31992,7 @@ export namespace Prisma {
     fieldOfStudy?: SortOrder
     startDate?: SortOrder
     endDate?: SortOrder
+    current?: SortOrder
   }
 
   export type LinkedInEducationMinOrderByAggregateInput = {
@@ -31946,6 +32003,7 @@ export namespace Prisma {
     fieldOfStudy?: SortOrder
     startDate?: SortOrder
     endDate?: SortOrder
+    current?: SortOrder
   }
 
   export type LinkedInEducationSumOrderByAggregateInput = {
@@ -35920,6 +35978,7 @@ export namespace Prisma {
     endDate?: Date | string | null
     description?: string | null
     location?: string | null
+    current?: boolean
   }
 
   export type LinkedInExperienceUncheckedCreateWithoutProfileInput = {
@@ -35931,6 +35990,7 @@ export namespace Prisma {
     endDate?: Date | string | null
     description?: string | null
     location?: string | null
+    current?: boolean
   }
 
   export type LinkedInExperienceCreateOrConnectWithoutProfileInput = {
@@ -35949,6 +36009,7 @@ export namespace Prisma {
     fieldOfStudy?: string | null
     startDate: Date | string
     endDate?: Date | string | null
+    current?: boolean
   }
 
   export type LinkedInEducationUncheckedCreateWithoutProfileInput = {
@@ -35958,6 +36019,7 @@ export namespace Prisma {
     fieldOfStudy?: string | null
     startDate: Date | string
     endDate?: Date | string | null
+    current?: boolean
   }
 
   export type LinkedInEducationCreateOrConnectWithoutProfileInput = {
@@ -36100,6 +36162,7 @@ export namespace Prisma {
     endDate?: DateTimeNullableFilter<"LinkedInExperience"> | Date | string | null
     description?: StringNullableFilter<"LinkedInExperience"> | string | null
     location?: StringNullableFilter<"LinkedInExperience"> | string | null
+    current?: BoolFilter<"LinkedInExperience"> | boolean
   }
 
   export type LinkedInEducationUpsertWithWhereUniqueWithoutProfileInput = {
@@ -36129,6 +36192,7 @@ export namespace Prisma {
     fieldOfStudy?: StringNullableFilter<"LinkedInEducation"> | string | null
     startDate?: DateTimeFilter<"LinkedInEducation"> | Date | string
     endDate?: DateTimeNullableFilter<"LinkedInEducation"> | Date | string | null
+    current?: BoolFilter<"LinkedInEducation"> | boolean
   }
 
   export type LinkedInSkillUpsertWithWhereUniqueWithoutProfileInput = {
@@ -37169,6 +37233,7 @@ export namespace Prisma {
     endDate?: Date | string | null
     description?: string | null
     location?: string | null
+    current?: boolean
   }
 
   export type LinkedInEducationCreateManyProfileInput = {
@@ -37178,6 +37243,7 @@ export namespace Prisma {
     fieldOfStudy?: string | null
     startDate: Date | string
     endDate?: Date | string | null
+    current?: boolean
   }
 
   export type LinkedInSkillCreateManyProfileInput = {
@@ -37201,6 +37267,7 @@ export namespace Prisma {
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
+    current?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type LinkedInExperienceUncheckedUpdateWithoutProfileInput = {
@@ -37212,6 +37279,7 @@ export namespace Prisma {
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
+    current?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type LinkedInExperienceUncheckedUpdateManyWithoutProfileInput = {
@@ -37223,6 +37291,7 @@ export namespace Prisma {
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     location?: NullableStringFieldUpdateOperationsInput | string | null
+    current?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type LinkedInEducationUpdateWithoutProfileInput = {
@@ -37231,6 +37300,7 @@ export namespace Prisma {
     fieldOfStudy?: NullableStringFieldUpdateOperationsInput | string | null
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    current?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type LinkedInEducationUncheckedUpdateWithoutProfileInput = {
@@ -37240,6 +37310,7 @@ export namespace Prisma {
     fieldOfStudy?: NullableStringFieldUpdateOperationsInput | string | null
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    current?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type LinkedInEducationUncheckedUpdateManyWithoutProfileInput = {
@@ -37249,6 +37320,7 @@ export namespace Prisma {
     fieldOfStudy?: NullableStringFieldUpdateOperationsInput | string | null
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    current?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type LinkedInSkillUpdateWithoutProfileInput = {

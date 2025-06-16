@@ -3,7 +3,7 @@
 import { PrismaClient } from '@/lib/generated/prisma';
 import { LinkedInApiResponse } from '@/types/resumeTypes';
 import { getCurrentUser } from '@/utils/auth';
-import { formatDate } from '@/utils/data-utils';
+import { linkedInDateToDate, linkedInDateToDateWithFallback } from '@/utils/iso-date-utils';
 import { revalidatePath } from 'next/cache';
 
 const prisma = new PrismaClient();
@@ -31,11 +31,14 @@ async function fetchLinkedInProfile(username: string): Promise<LinkedInApiRespon
     },
   });
 
-  if (!response.ok) {
-    throw new Error(`Erreur API LinkedIn ${response.status} ${response.statusText}`);
-  }
-  
-  const data = await response.json();
+ if (!response.ok) {
+      const errorText = await response.text();
+      console.error('Réponse d\'erreur:', errorText);
+      throw new Error(`Erreur API LinkedIn ${response.status} ${response.statusText}: ${errorText}`);
+    }
+    
+    const data = await response.json();
+    console.log('Données reçues:', JSON.stringify(data, null, 2));
   
   // Vérifier et formater les données selon l'interface LinkedInApiResponse
   return {
@@ -160,17 +163,26 @@ export async function createResumeFromLinkedIn(username: string) {
       });
     }
 
+    // Rechercher d'abord un template par défaut, puis chercher 'modern' si le défaut n'existe pas
     let template = await prisma.template.findUnique({
       where: { name: 'default' },
     });
 
+    // Si le template par défaut n'existe pas, chercher le template 'modern'
     if (!template) {
-      template = await prisma.template.create({
-        data: {
-          name: 'modern',
-          description: 'Template moderne',
-        },
+      template = await prisma.template.findUnique({
+        where: { name: 'modern' },
       });
+      
+      // Si aucun des deux n'existe, créer le template 'modern'
+      if (!template) {
+        template = await prisma.template.create({
+          data: {
+            name: 'modern',
+            description: 'Template moderne',
+          },
+        });
+      }
     }
 
     // 4_ Créer le CV
@@ -201,30 +213,32 @@ export async function createResumeFromLinkedIn(username: string) {
         },
         experiences: profileData.experiences?.length
           ? {
-              create: profileData.experiences.map((exp, index) => ({
-                company: exp.companyName,
-                position: exp.title,
-                startDate: formatDate(exp.startDate),
-                endDate: exp.endDate ? formatDate(exp.endDate) : null,
-                current: !exp.endDate,
-                description: exp.description,
-                location: exp.location,
-                order: index,
-              })),
+              create: profileData.experiences.map((exp, index) => {
+                return {
+                  company: exp.companyName,
+                  position: exp.title,
+                  startDate: linkedInDateToDateWithFallback(exp.startDate),
+                  endDate: linkedInDateToDate(exp.endDate),
+                  description: exp.description,
+                  location: exp.location,
+                  order: index,
+                };
+              }),
             }
           : undefined,
 
         educations: profileData.educations?.length
           ? {
-              create: profileData.educations.map((edu, index) => ({
-                institution: edu.schoolName,
-                degree: edu.degree,
-                fieldOfStudy: edu.fieldOfStudy || null,
-                startDate: edu.startDate ? formatDate(edu.startDate) : '',
-                endDate: edu.endDate ? formatDate(edu.endDate) : '',
-                current: !edu.endDate,
-                order: index,
-              })),
+              create: profileData.educations.map((edu, index) => {
+                return {
+                  institution: edu.schoolName,
+                  degree: edu.degree,
+                  fieldOfStudy: edu.fieldOfStudy || null,
+                  startDate: linkedInDateToDateWithFallback(edu.startDate),
+                  endDate: linkedInDateToDate(edu.endDate),
+                  order: index,
+                };
+              }),
             }
           : undefined,
 
@@ -261,27 +275,32 @@ export async function createResumeFromLinkedIn(username: string) {
             // Relations avec données LinkedIn
             experiences: profileData.experiences?.length
               ? {
-                  create: profileData.experiences.map(exp => ({
-                    companyName: exp.companyName,
-                    title: exp.title,
-                    startDate: formatDate(exp.startDate),
-                    endDate: exp.endDate ? formatDate(exp.endDate) : '',
-                    current: !exp.endDate,
-                    description: exp.description,
-                    location: exp.location,
-                  })),
+                  create: profileData.experiences.map(exp => {
+                    return {
+                      companyName: exp.companyName,
+                      title: exp.title,
+                      startDate: linkedInDateToDateWithFallback(exp.startDate),
+                      endDate: linkedInDateToDate(exp.endDate),
+                      description: exp.description,
+                      location: exp.location,
+                      current: !exp.endDate
+                    };
+                  }),
                 }
               : undefined,
 
             educations: profileData.educations?.length
               ? {
-                  create: profileData.educations.map(edu => ({
-                    schoolName: edu.schoolName,
-                    degree: edu.degree,
-                    fieldOfStudy: edu.fieldOfStudy,
-                    startDate: formatDate(edu.startDate),
-                    endDate: edu.endDate ? formatDate(edu.endDate) : '',
-                  })),
+                  create: profileData.educations.map(edu => {
+                    return {
+                      schoolName: edu.schoolName,
+                      degree: edu.degree,
+                      fieldOfStudy: edu.fieldOfStudy,
+                      startDate: linkedInDateToDateWithFallback(edu.startDate),
+                      endDate: linkedInDateToDate(edu.endDate),
+                      current: !edu.endDate
+                    };
+                  }),
                 }
               : undefined,
 
@@ -346,4 +365,3 @@ export async function createResumeFromLinkedIn(username: string) {
     };
   }
 }
-

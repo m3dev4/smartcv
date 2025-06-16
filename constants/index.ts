@@ -373,7 +373,7 @@ export const templates: Template[] = [
     id: ResumeTemplateType.CONTEMPORAIN,
     name: 'Contemporain',
     description: 'Design contemporain et élégant',
-    thumbnail: '/resumes/performance.png',
+    thumbnail: '/resumes/contemporain.png',
     isDefault: false,
     createdAt: new Date(),
     updatedAt: new Date(),
