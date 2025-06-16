@@ -49,7 +49,7 @@ export const ClassicTemplate: React.FC<ResumeTemplateProps> = ({
         {/* Sidebar gauche */}
         <div
           className="w-full md:w-2/6 p-6 text-white"
-          style={{ backgroundColor: theme.secondary }}
+          style={{ backgroundColor: theme.secondary, color: theme.accent }}
         >
           {/* Informations de contact */}
           <div className="mb-8" onClick={() => handleEditSection('personalInfo')}>

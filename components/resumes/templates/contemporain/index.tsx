@@ -160,6 +160,7 @@ export const ContemporaryTemplate: React.FC<ResumeTemplateProps> = ({
           style={{
             backgroundColor: theme.secondary,
             borderColor: theme.primary,
+            color: theme.accent,
           }}
           onClick={() => handleEditSection('summary')}
         >

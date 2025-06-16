@@ -50,17 +50,18 @@ export const CompactModernTemplate: React.FC<ResumeTemplateProps> = ({
         borderColor: theme.primary,
         fontFamily: resume.font?.name || 'Inter, sans-serif',
         backgroundColor: theme.background,
+        color: theme.accent,
       }}
     >
       {/* En-tête avec nom et photo */}
       <header
         className="p-6 relative"
-        style={{ backgroundColor: theme.secondary }}
+        style={{ backgroundColor: theme.secondary, color: theme.accent }}
         onClick={() => handleEditSection('personalInfo')}
       >
         <div className="flex justify-between items-start">
           <div className="flex-1">
-            <h1 className="text-3xl font-bold mb-2" style={{ color: theme.text }}>
+            <h1 className="text-3xl font-bold mb-2" style={{ color: theme.accent }}>
               {personalInfo?.firstName} {personalInfo?.lastName}
             </h1>
             {personalInfo?.title && (

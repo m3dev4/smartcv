@@ -46,6 +46,7 @@ export const ModernTemplate: React.FC<ResumeTemplateProps> = ({
         className="flex flex-col sm:flex-row p-6 gap-6"
         style={{
           backgroundColor: theme.secondary,
+          color: theme.accent,
         }}
       >
         {/* Photo de profil */}
@@ -180,7 +181,8 @@ export const ModernTemplate: React.FC<ResumeTemplateProps> = ({
 
       <div className="flex flex-col md:flex-row  p-0">
         {/* column Gauche */}
-        <div className="w-full md:w-1/3 p-6" style={{ backgroundColor: theme.secondary }}>
+        <div className="w-full md:w-1/3 p-6" style={{ backgroundColor: theme.secondary, color: theme.accent }}>
+
           {personalInfo?.description && (
             <div className="mb-8" onClick={() => hanldeEditSection('summury')}>
               <h3
