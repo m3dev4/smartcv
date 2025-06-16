@@ -13,6 +13,9 @@ import { X } from 'lucide-react';
 import { RenderThemeEditor } from '../render/renderTheme';
 import { RenderTypographyEditor } from '../render/renderTypography';
 import { LinkedInImport } from '../render/linkedin';
+import RenderTemplate from '../render/renderTemplate';
+
+
 
 interface EditorPropertiesPanelProps {
   selectedSection: string | null;
@@ -74,6 +77,8 @@ export function EditorPropertiesPanel({
         return <RenderLanguagesEditor />;
       case 'certifications':
         return <RenderCertificationsEditor />;
+      case 'template':
+        return <RenderTemplate />;
       case 'theme':
         return <RenderThemeEditor />;
         case 'font':
