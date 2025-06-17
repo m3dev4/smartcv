@@ -1,9 +1,29 @@
 "use client"
 
-import { fontFamilies } from "@/constants"
 import { useResume } from "@/context/resume-context"
 import { Type, Palette, Settings } from "lucide-react"
 import { useState } from "react"
+import { getFontClass } from "@/utils/fonts/google-fonts"
+
+// Liste des polices disponibles
+const availableFonts = [
+  'Arial',
+  'Times New Roman',
+  'IBM Plex Sans',
+  'IBM Plex Serif',
+  'Lato',
+  'Lora',
+  'Merriweather',
+  'Open Sans',
+  'Playfair Display',
+  'PT Sans',
+  'PT Serif',
+  'Roboto',
+  'Roboto Condensed',
+  'Roboto Slab',
+  'Roboto Mono',
+  'Montserrat'
+]
 
 // Interface pour les paramètres de police
 export interface FontSettings {
@@ -28,10 +48,10 @@ export const RenderTypographyEditor = () => {
     updateResume({
       ...resume,
       font: {
-        id: currentFont.id || "default-font-id", // S'assurer que l'id est toujours présent
+        id: currentFont.id || "default-font-id",
         name: name,
-        category: currentFont.category,
-        url: currentFont.url,
+        category: name.includes('Serif') ? 'SERIF' : 'SANS_SERIF',
+        url: `https://fonts.google.com/specimen/${name.replace(/\s+/g, '+')}`,
       },
     })
   }
@@ -107,7 +127,7 @@ export const RenderTypographyEditor = () => {
           <div className="space-y-4">
             <div className="text-sm text-gray-600 mb-4">Choisissez la famille de police pour votre CV</div>
             <div className="grid grid-cols-2 gap-3 w-full">
-              {fontFamilies.map((font) => (
+              {availableFonts.map((font) => (
                 <button
                   key={font}
                   onClick={() => handleFontNameChange(font)}
@@ -120,7 +140,7 @@ export const RenderTypographyEditor = () => {
                         : "border-gray-200  text-gray-700 hover:border-gray-300 hover:shadow-md"
                     }
                   `}
-                  style={{ fontFamily: font }}
+                  style={{ fontFamily: getFontClass(font) }}
                 >
                   <div className="flex flex-col items-center space-y-2">
                     <span className="font-semibold">{font}</span>

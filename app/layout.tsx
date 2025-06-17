@@ -1,13 +1,8 @@
 import type { Metadata } from 'next';
-import { IBM_Plex_Sans } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/providers/nexttheme-provider';
 import { AuthProvider } from '@/providers/auth-provider';
-
-const ibmPlexSans = IBM_Plex_Sans({
-  subsets: ['latin'],
-  weight: ['100', '200', '300', '400', '500', '600', '700'],
-});
+import { allGoogleFonts, fontVariables } from '@/utils/fonts/google-fonts';
 
 export const metadata: Metadata = {
   title: 'Smart CV',
@@ -29,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={ibmPlexSans.className}>
+      <body className={`${fontVariables}`}>
         <ThemeProvider attribute="class" defaultTheme="system" disableTransitionOnChange>
           <AuthProvider>{children}</AuthProvider>
         </ThemeProvider>

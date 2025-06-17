@@ -7,6 +7,7 @@ import { mockResume } from '@/constants';
 import { ResumeTemplateType } from '@/enums/resumeEnum';
 import { updateResume as updateResumeApi } from '@/app/api/actions/resume';
 import { createResumeFromLinkedIn } from '@/app/api/actions';
+import { getDefaultThemeForTemplate } from '@/utils/template-themes';
 
 // Définir la fonction getResumeById localement si elle n'est pas exportée correctement
 async function getResumeById(id: string) {
@@ -84,9 +85,15 @@ export function ResumeProvider({ children, resumeId, templateType }: ResumeProvi
   const [isCreatingFromLinkedIn, setIsCreatingFromLinkedIn] = useState(false);
 
   const convertPrismaToResumeTemplate = (prismaResume: any): ResumeTemplateProps['resume'] => {
+    const templateName = prismaResume.template?.name || prismaResume.templateId || 'modern';
+    const templateId = convertTemplateNameToType(templateName);
+    
+    // Obtenir le thème par défaut pour ce template
+    const defaultTheme = getDefaultThemeForTemplate(templateName);
+    
     return {
       ...prismaResume,
-      templateId: convertTemplateNameToType(prismaResume.template?.name || prismaResume.templateId),
+      templateId,
 
       // Conversion des informations personnelles
       personalInfo: prismaResume.personalInfo
@@ -194,7 +201,7 @@ export function ResumeProvider({ children, resumeId, templateType }: ResumeProvi
           order: section.order || index,
         })) || [],
 
-      // Conversion du thème
+      // Conversion du thème - utiliser le thème de la DB ou le thème par défaut du template
       theme: prismaResume.theme
         ? {
             id: prismaResume.theme.id,
@@ -205,7 +212,15 @@ export function ResumeProvider({ children, resumeId, templateType }: ResumeProvi
             background: prismaResume.theme.background,
             text: prismaResume.theme.text,
           }
-        : undefined,
+        : {
+            id: 'default',
+            name: defaultTheme.name,
+            primary: defaultTheme.primary,
+            secondary: defaultTheme.secondary,
+            accent: defaultTheme.accent,
+            background: defaultTheme.background,
+            text: defaultTheme.text,
+          },
 
       // Conversion du template
       template: prismaResume.template
@@ -606,8 +621,24 @@ export function ResumeProvider({ children, resumeId, templateType }: ResumeProvi
 
   const updateResume = (updates: Partial<ResumeTemplateProps['resume']>) => {
     setResume(prev => {
-      const newResume = prev ? { ...prev, ...updates } : null;
+      if (!prev) return null;
 
+      // Si le template change ET que ce n'est pas une modification manuelle du thème, 
+      // mettre à jour le thème correspondant
+      let newUpdates = { ...updates };
+      if (updates.templateId && !updates.theme) {
+        const templateTheme = getDefaultThemeForTemplate(updates.templateId);
+        newUpdates = {
+          ...newUpdates,
+          theme: {
+            ...prev.theme,
+            ...templateTheme,
+            id: prev.theme?.id || 'default',
+          }
+        };
+      }
+
+      const newResume = { ...prev, ...newUpdates };
       const newHistory = history.slice(0, currentIndex + 1);
       newHistory.push(newResume);
       setHistory(newHistory);

@@ -1,7 +1,36 @@
 import { ResumeEnumLanguages } from '@/enums/resumeEnumLanguages';
 import { ResumeTemplateProps } from '@/types/resumeTypes';
 import { formatDate } from '@/utils/data-utils';
+import { SimpleEditableText } from '@/components/editor/simple-editable-text';
 import Image from 'next/image';
+
+// Fonction utilitaire pour obtenir la classe CSS de la police
+const getFontFamily = (fontName?: string): string => {
+  if (!fontName) return 'var(--font-ibm-plex-sans)';
+  
+  const fontMap: Record<string, string> = {
+    'Arial': 'Arial, sans-serif',
+    'Times New Roman': '"Times New Roman", serif',
+    'Cambria': 'Cambria, serif',
+    'Garamond': 'Garamond, serif',
+    'Lato': 'var(--font-lato)',
+    'IBM Plex Sans': 'var(--font-ibm-plex-sans)',
+    'IBM Plex Serif': 'var(--font-ibm-plex-serif)',
+    'Lora': 'var(--font-lora)',
+    'Merriweather': 'var(--font-merriweather)',
+    'Open Sans': 'var(--font-open-sans)',
+    'Playfair Display': 'var(--font-playfair-display)',
+    'PT Sans': 'var(--font-pt-sans)',
+    'PT Serif': 'var(--font-pt-serif)',
+    'Roboto Condensed': 'var(--font-roboto-condensed)',
+    'Roboto Slab': 'var(--font-roboto-slab)',
+    'Roboto': 'var(--font-roboto)',
+    'Roboto Mono': 'var(--font-roboto-mono)',
+    'Montserrat': 'var(--font-montserrat)',
+  };
+
+  return fontMap[fontName] || 'Arial, sans-serif';
+};
 
 /**
  * Template Moderne de Cv
@@ -36,7 +65,7 @@ export const ModernTemplate: React.FC<ResumeTemplateProps> = ({
     <div
       className="flex flex-col bg-white shadow-lg rounded-lg overflow-hidden max-w-4xl mx-auto"
       style={{
-        fontFamily: resume.font?.name || 'Inter, sans-serif',
+        fontFamily: getFontFamily(resume.font?.name),
         color: theme.text,
         backgroundColor: theme.background,
       }}
@@ -191,7 +220,10 @@ export const ModernTemplate: React.FC<ResumeTemplateProps> = ({
               >
                 Résumé
               </h3>
-              <p className="text-sm leading-relaxed">{personalInfo.description}</p>
+              <SimpleEditableText
+                content={personalInfo.description}
+                className="text-sm leading-relaxed"
+              />
             </div>
           )}
 
@@ -337,9 +369,10 @@ export const ModernTemplate: React.FC<ResumeTemplateProps> = ({
                         )}
                       </div>
                       {experience.description && (
-                        <p className="text-sm text-gray-700 whitespace-pre-line">
-                          {experience.description}
-                        </p>
+                        <SimpleEditableText
+                          content={experience.description || ''}
+                          className="text-sm text-gray-700 whitespace-pre-line"
+                        />
                       )}
                     </div>
                   ))}
@@ -381,7 +414,10 @@ export const ModernTemplate: React.FC<ResumeTemplateProps> = ({
                         <p className="text-sm font-medium">{education.fieldOfStudy}</p>
                       )}
                       {education.description && (
-                        <p className="text-sm text-gray-700">{education.description}</p>
+                        <SimpleEditableText
+                          content={education.description}
+                          className="text-sm text-gray-700"
+                        />
                       )}
                     </div>
                   ))}
@@ -423,7 +459,10 @@ export const ModernTemplate: React.FC<ResumeTemplateProps> = ({
                       <div>
                         <h3 className="text-sm font-medium">{achievements.title}</h3>
                         {achievements.description && (
-                          <p className="text-sm text-gray-700">{achievements.description}</p>
+                          <SimpleEditableText
+                            content={achievements.description}
+                            className="text-sm text-gray-700"
+                          />
                         )}
 
                         {achievements.date && (
