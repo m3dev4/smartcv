@@ -3,6 +3,20 @@ import { Drawer, DrawerContent, DrawerDescription, DrawerHeader, DrawerTitle } f
 import { Button } from './ui/button';
 import { Copy, Download, FileEdit, Trash } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import { deleteResume } from '@/app/api/actions';
+import { toast, Toaster } from 'sonner';
+import { useState } from 'react';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from './ui/alert-dialog';
 
 interface Resume {
   id: string;
@@ -24,7 +38,22 @@ const ResumeDrawer = ({
   open: boolean;
   setOpen: (open: boolean) => void;
 }) => {
-  const handleDelete = (id: string) => {};
+  const router = useRouter();
+  const handleDelete = async (id: string) => {
+    try {
+      const result = await deleteResume(id);
+      if (result?.success) {
+        setOpen(false);
+        toast.success('CV supprimé avec succès');
+        router.refresh();
+      } else {
+        toast.error(result?.message);
+      }
+    } catch (error) {
+      console.error('Une erreur est survenue lors de la suppression du CV');
+      toast.error('Une erreur est survenue lors de la suppression du CV');
+    }
+  };
   const handleDuplicate = (id: string) => {};
   const handleDownload = (id: string) => {};
 
@@ -35,6 +64,7 @@ const ResumeDrawer = ({
 
   return (
     <Drawer open={open} onOpenChange={setOpen}>
+      <Toaster position="top-center" richColors />
       <DrawerContent>
         <div className="mx-auto w-full max-w-sm">
           <DrawerHeader className="flex flex-col items-center gap-2">
@@ -63,14 +93,31 @@ const ResumeDrawer = ({
               <Copy className="h-8 w-8" />
               <span>Dupliquer</span>
             </Button>
-            <Button
-              className="flex flex-col items-center justify-center h-40 gap-2 group hover:scale-110 transition-transform"
-              onClick={() => handleDelete(resume.id)}
-              variant="destructive"
-            >
-              <Trash className="h-8 w-8" />
-              <span>Supprimer</span>
-            </Button>
+            <AlertDialog>
+              <AlertDialogTrigger asChild>
+                <Button
+                  className="flex flex-col items-center justify-center h-40 gap-2 group hover:scale-110 transition-transform"
+                  variant="destructive"
+                >
+                  <Trash className="h-8 w-8" />
+                  Supprimer
+                </Button>
+              </AlertDialogTrigger>
+              <AlertDialogContent>
+                <AlertDialogHeader>
+                  <AlertDialogTitle>Êtes-vous sûr de vouloir supprimer ce CV ?</AlertDialogTitle>
+                  <AlertDialogDescription>
+                    Cette action est irréversible et supprimera définitivement ce CV.
+                  </AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter>
+                  <AlertDialogCancel>Annuler</AlertDialogCancel>
+                  <AlertDialogAction onClick={() => handleDelete(resume.id)}>
+                    Supprimer
+                  </AlertDialogAction>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
           </div>
         </div>
       </DrawerContent>

@@ -3,27 +3,9 @@
 import { useResume } from "@/context/resume-context"
 import { Type, Palette, Settings } from "lucide-react"
 import { useState } from "react"
-import { getFontClass } from "@/utils/fonts/google-fonts"
+import { getFontClass, fontSizes, lineHeights, getTypographyStyles } from "@/utils/fonts/google-fonts"
 
-// Liste des polices disponibles
-const availableFonts = [
-  'Arial',
-  'Times New Roman',
-  'IBM Plex Sans',
-  'IBM Plex Serif',
-  'Lato',
-  'Lora',
-  'Merriweather',
-  'Open Sans',
-  'Playfair Display',
-  'PT Sans',
-  'PT Serif',
-  'Roboto',
-  'Roboto Condensed',
-  'Roboto Slab',
-  'Roboto Mono',
-  'Montserrat'
-]
+import { availableFonts } from '@/utils/fonts/google-fonts';
 
 // Interface pour les paramètres de police
 export interface FontSettings {
@@ -45,6 +27,8 @@ export const RenderTypographyEditor = () => {
   const currentFontName = currentFont.name || "Arial"
 
   const handleFontNameChange = (name: string) => {
+    if (!resume) return
+    
     updateResume({
       ...resume,
       font: {
@@ -52,6 +36,36 @@ export const RenderTypographyEditor = () => {
         name: name,
         category: name.includes('Serif') ? 'SERIF' : 'SANS_SERIF',
         url: `https://fonts.google.com/specimen/${name.replace(/\s+/g, '+')}`,
+        size: resume.font?.size || 16,
+        lineHeight: resume.font?.lineHeight || 1.5,
+      },
+    })
+  }
+
+  const handleFontSizeChange = (size: number) => {
+    if (!resume) return
+    
+    updateResume({
+      ...resume,
+      font: {
+        ...resume.font,
+        id: resume.font?.id || "default-font-id",
+        name: resume.font?.name || "Arial",
+        size,
+      },
+    })
+  }
+
+  const handleLineHeightChange = (lineHeight: number) => {
+    if (!resume) return
+    
+    updateResume({
+      ...resume,
+      font: {
+        ...resume.font,
+        id: resume.font?.id || "default-font-id",
+        name: resume.font?.name || "Arial",
+        lineHeight,
       },
     })
   }
@@ -62,21 +76,6 @@ export const RenderTypographyEditor = () => {
     { id: "fonts", label: "Polices", icon: Type },
     { id: "sizes", label: "Tailles", icon: Settings },
     { id: "spacing", label: "Espacement", icon: Palette },
-  ]
-
-  const fontSizes = [
-    { label: "Très petit", value: 12 },
-    { label: "Petit", value: 14 },
-    { label: "Normal", value: 16 },
-    { label: "Grand", value: 18 },
-    { label: "Très grand", value: 20 },
-  ]
-
-  const lineHeights = [
-    { label: "Serré", value: 1.2 },
-    { label: "Normal", value: 1.5 },
-    { label: "Aéré", value: 1.8 },
-    { label: "Très aéré", value: 2.0 },
   ]
 
   return (
@@ -164,10 +163,18 @@ export const RenderTypographyEditor = () => {
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-3">Taille de police</label>
               <div className="grid grid-cols-1 gap-2">
-                {fontSizes.map((size) => (
+                {Object.entries(fontSizes).map(([key, size]) => (
                   <button
-                    key={size.value}
-                    className="flex items-center justify-between p-3 rounded-lg border border-gray-200 hover:border-blue-300 hover:bg-blue-50 transition-all duration-150"
+                    key={key}
+                    onClick={() => handleFontSizeChange(size.value)}
+                    className={`
+                      flex items-center justify-between p-3 rounded-lg border
+                      ${resume.font?.size === size.value 
+                        ? 'border-blue-500 bg-blue-50 text-blue-700' 
+                        : 'border-gray-200 hover:border-blue-300 hover:bg-blue-50'
+                      } 
+                      transition-all duration-150
+                    `}
                   >
                     <span className="text-gray-700">{size.label}</span>
                     <span className="text-sm text-gray-500">{size.value}px</span>
@@ -184,10 +191,18 @@ export const RenderTypographyEditor = () => {
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-3">Hauteur de ligne</label>
               <div className="grid grid-cols-1 gap-2">
-                {lineHeights.map((height) => (
+                {Object.entries(lineHeights).map(([key, height]) => (
                   <button
-                    key={height.value}
-                    className="flex items-center justify-between p-3 rounded-lg border border-gray-200 hover:border-blue-300 hover:bg-blue-50 transition-all duration-150"
+                    key={key}
+                    onClick={() => handleLineHeightChange(height.value)}
+                    className={`
+                      flex items-center justify-between p-3 rounded-lg border
+                      ${resume.font?.lineHeight === height.value 
+                        ? 'border-blue-500 bg-blue-50 text-blue-700' 
+                        : 'border-gray-200 hover:border-blue-300 hover:bg-blue-50'
+                      } 
+                      transition-all duration-150
+                    `}
                   >
                     <span className="text-gray-700">{height.label}</span>
                     <span className="text-sm text-gray-500">{height.value}</span>
@@ -230,7 +245,14 @@ export const RenderTypographyEditor = () => {
       {/* Aperçu */}
       <div className="bg-gray-50 p-6 border-t border-gray-200">
         <div className="text-sm text-gray-600 mb-3">Aperçu</div>
-        <div className="p-4 bg-white rounded-lg border border-gray-200" style={{ fontFamily: currentFontName }}>
+        <div 
+          className="p-4 bg-white rounded-lg border border-gray-200" 
+          style={getTypographyStyles(
+            currentFontName,
+            resume.font?.size,
+            resume.font?.lineHeight
+          )}
+        >
           <h3 className="font-bold text-lg text-gray-800 mb-2">John Doe</h3>
           <p className="text-gray-600 text-sm mb-3">Développeur Full Stack</p>
           <p className="text-gray-700 text-sm leading-relaxed">

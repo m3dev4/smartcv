@@ -740,9 +740,33 @@ export async function deleteResume(id: string) {
         message: 'CV introuvable',
       };
     }
-    await prisma.resume.delete({
-      where: { id },
+    await prisma.$transaction(async tx => {
+      const profile = await tx.linkedInProfile.findUnique({
+        where: { resumeId: id },
+        select: { id: true },
+      });
+      if (profile) {
+        await tx.linkedInExperience.deleteMany({
+          where: { profileId: profile.id },
+        });
+        await tx.linkedInEducation.deleteMany({
+          where: { profileId: profile.id },
+        });
+        await tx.linkedInSkill.deleteMany({
+          where: { profileId: profile.id },
+        });
+        await tx.linkedInCertification.deleteMany({
+          where: { profileId: profile.id },
+        });
+        // Supprimer ensuite le profil LinkedIn lui-même
+        await tx.linkedInProfile.delete({
+          where: { resumeId: id },
+        });
+      }
+
+      await tx.resume.delete({ where: { id } });
     });
+
     revalidatePath('/resumes');
     return {
       success: true,

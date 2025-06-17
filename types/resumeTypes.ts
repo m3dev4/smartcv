@@ -101,6 +101,9 @@ export interface ResumeTemplateProps {
       name?: string;
       category?: string;
       url?: string;
+      size?: number;
+      lineHeight?: number;
+      weight?: string;
     };
   };
   isEditable?: boolean;

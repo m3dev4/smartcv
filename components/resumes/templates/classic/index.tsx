@@ -1,7 +1,7 @@
 import { ResumeEnumLanguages } from '@/enums/resumeEnumLanguages';
 import { ResumeTemplateProps } from '@/types/resumeTypes';
 import { formatDate } from '@/utils/data-utils';
-
+import { getTypographyStyles } from '@/utils/fonts/google-fonts';
 import React from 'react';
 
 /**

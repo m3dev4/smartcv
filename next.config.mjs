@@ -10,6 +10,9 @@ const nextConfig = {
   images: {
     domains: ['img.freepik.com', 'media.licdn.com'],
   },
+  expireTime: {
+    turbopack: false 
+  } ,
   output: 'standalone',
   experimental: {
     // Important pour Prisma sur Vercel

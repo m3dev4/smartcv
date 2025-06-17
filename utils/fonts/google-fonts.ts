@@ -1,169 +1,84 @@
-import {
-  IBM_Plex_Sans,
-  Lato,
-  Lora,
-  Merriweather,
-  PT_Sans,
-  PT_Serif,
-  Roboto_Condensed,
-  Roboto_Slab,
-  Roboto,
-  Roboto_Mono,
-  Montserrat,
-  Open_Sans,
-  Playfair_Display,
-} from 'next/font/google';
-
-// Configuration des polices Google
-export const lato = Lato({ 
-  subsets: ['latin'], 
-  weight: ['400', '700'], 
-  variable: '--font-lato',
-  display: 'swap',
-});
-
-export const ibmPlexSans = IBM_Plex_Sans({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  variable: '--font-ibm-plex-sans',
-  display: 'swap',
-});
-
-export const ibmPlexSerif = IBM_Plex_Sans({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  variable: '--font-ibm-plex-serif',
-  display: 'swap',
-});
-
-export const lora = Lora({ 
-  subsets: ['latin'], 
-  weight: ['400', '700'], 
-  variable: '--font-lora',
-  display: 'swap',
-});
-
-export const merriweather = Merriweather({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  variable: '--font-merriweather',
-  display: 'swap',
-});
-
-export const openSans = Open_Sans({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  variable: '--font-open-sans',
-  display: 'swap',
-});
-
-export const playfairDisplay = Playfair_Display({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  variable: '--font-playfair-display',
-  display: 'swap',
-});
-
-export const ptSans = PT_Sans({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  variable: '--font-pt-sans',
-  display: 'swap',
-});
-
-export const ptSerif = PT_Serif({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  variable: '--font-pt-serif',
-  display: 'swap',
-});
-
-export const robotoCondensed = Roboto_Condensed({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  variable: '--font-roboto-condensed',
-  display: 'swap',
-});
-
-export const robotoSlab = Roboto_Slab({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  variable: '--font-roboto-slab',
-  display: 'swap',
-});
-
-export const roboto = Roboto({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  variable: '--font-roboto',
-  display: 'swap',
-});
-
-export const robotoMono = Roboto_Mono({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  variable: '--font-roboto-mono',
-  display: 'swap',
-});
-
-export const montserrat = Montserrat({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  variable: '--font-montserrat',
-  display: 'swap',
-});
-
-// Créer un objet qui combine toutes les polices avec leurs classes CSS
-export const allGoogleFonts = {
-  lato,
-  ibmPlexSans,
-  ibmPlexSerif,
-  lora,
-  merriweather,
-  openSans,
-  playfairDisplay,
-  ptSans,
-  ptSerif,
-  robotoCondensed,
-  robotoSlab,
-  roboto,
-  robotoMono,
-  montserrat,
+// Configuration des polices système et Google Fonts
+const systemFonts = {
+  'Arial': 'Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+  'Times New Roman': '"Times New Roman", Georgia, serif',
+  'Georgia': 'Georgia, "Times New Roman", serif',
+  'Verdana': 'Verdana, Arial, sans-serif',
+  'Helvetica': 'Helvetica, Arial, sans-serif',
+  'Tahoma': 'Tahoma, Geneva, sans-serif',
+  'Trebuchet MS': '"Trebuchet MS", Arial, sans-serif',
+  'Courier New': '"Courier New", monospace',
+  'Garamond': 'Garamond, serif',
+  'Palatino': 'Palatino, "Palatino Linotype", serif',
+  'Bookman': '"Bookman Old Style", serif',
+  'Comic Sans MS': '"Comic Sans MS", cursive',
+  'Impact': 'Impact, Charcoal, sans-serif',
+  'Lucida': '"Lucida Sans Unicode", "Lucida Grande", sans-serif',
 };
 
-// Variables CSS pour toutes les polices
-export const fontVariables = Object.values(allGoogleFonts)
-  .map((font) => font.variable)
-  .join(' ');
+// Configuration des Google Fonts
+const googleFonts = {
+  'IBM Plex Sans': 'var(--font-ibm-plex-sans), sans-serif',
+  'Inter': 'var(--font-inter), sans-serif',
+  'Roboto': 'var(--font-roboto), sans-serif',
+  'Open Sans': 'var(--font-open-sans), sans-serif',
+  'Lato': 'var(--font-lato), sans-serif',
+  'Montserrat': 'var(--font-montserrat), sans-serif',
+  'Poppins': 'var(--font-poppins), sans-serif',
+  'Source Sans 3': 'var(--font-source-sans), sans-serif',
+};
 
-// Mapping des noms de polices vers leurs classes CSS
-export const getFontClass = (fontName: string): string => {
-  const fontMap: Record<string, string> = {
-    // Polices système
-    'Arial': 'Arial, sans-serif',
-    'Times New Roman': '"Times New Roman", serif',
-    'Cambria': 'Cambria, serif',
-    'Garamond': 'Garamond, serif',
-    
-    // Polices Google
-    'Lato': 'var(--font-lato)',
-    'IBM Plex Sans': 'var(--font-ibm-plex-sans)',
-    'IBM Plex Serif': 'var(--font-ibm-plex-serif)',
-    'Lora': 'var(--font-lora)',
-    'Merriweather': 'var(--font-merriweather)',
-    'Open Sans': 'var(--font-open-sans)',
-    'Playfair Display': 'var(--font-playfair-display)',
-    'PT Sans': 'var(--font-pt-sans)',
-    'PT Serif': 'var(--font-pt-serif)',
-    'Roboto Condensed': 'var(--font-roboto-condensed)',
-    'Roboto Slab': 'var(--font-roboto-slab)',
-    'Roboto': 'var(--font-roboto)',
-    'Roboto Mono': 'var(--font-roboto-mono)',
-    'Montserrat': 'var(--font-montserrat)',
-    'Monserrat': 'var(--font-montserrat)', // Correction de la faute de frappe
-    'Monserrat Subrayada': 'var(--font-montserrat)', // Fallback
-    'Monserrat Alternates': 'var(--font-montserrat)', // Fallback
+// Combinaison des polices système et Google Fonts
+const allFonts = { ...systemFonts, ...googleFonts };
+
+// Configuration des tailles de police
+export const fontSizes = {
+  'très-petit': { value: 12, label: 'Très petit' },
+  'petit': { value: 14, label: 'Petit' },
+  'normal': { value: 16, label: 'Normal' },
+  'grand': { value: 18, label: 'Grand' },
+  'très-grand': { value: 20, label: 'Très grand' },
+} as const;
+
+// Configuration des hauteurs de ligne
+export const lineHeights = {
+  'serré': { value: 1.2, label: 'Serré' },
+  'normal': { value: 1.5, label: 'Normal' },
+  'aéré': { value: 1.8, label: 'Aéré' },
+  'très-aéré': { value: 2.0, label: 'Très aéré' },
+} as const;
+
+// Fonction pour obtenir la famille de police
+export const getFontClass = (fontName?: string): string => {
+  return allFonts[fontName as keyof typeof allFonts] || systemFonts['Arial'];
+};
+
+// Utilitaire pour obtenir les styles de typographie
+export const getTypographyStyles = (
+  fontName?: string,
+  fontSize?: number,
+  lineHeight?: number
+) => {
+  return {
+    fontFamily: getFontClass(fontName),
+    fontSize: fontSize ? `${fontSize}px` : '16px',
+    lineHeight: lineHeight || 1.5,
   };
-
-  return fontMap[fontName] || 'Arial, sans-serif';
 };
+
+// Métadonnées des polices pour l'interface utilisateur
+export const fontMetadata = [
+  ...Object.entries(systemFonts).map(([name]) => ({
+    name,
+    category: name.includes('serif') ? 'Serif' : 'Sans-serif',
+    type: 'system'
+  })),
+  ...Object.entries(googleFonts).map(([name]) => ({
+    name,
+    category: name.includes('serif') || name.includes('Serif') ? 'Serif' : 'Sans-serif',
+    type: 'google'
+  }))
+];
+
+// Liste des polices disponibles pour l'interface utilisateur
+export const availableFonts = Object.keys(allFonts);

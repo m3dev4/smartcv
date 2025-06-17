@@ -12,6 +12,7 @@ import { listResume } from '@/app/api/actions';
 import { formatDistanceToNow } from 'date-fns';
 import { fr } from 'date-fns/locale';
 import ResumeDrawer from '@/components/resumeDrawer';
+import ResumePreview from '@/components/render/resumePreview';
 
 interface Resume {
   id: string;
@@ -20,7 +21,12 @@ interface Resume {
   updatedAt: string;
   createdAt: string;
   progress?: number;
-  // autres propriétés
+  userId: string;
+  isPublic: boolean;
+  publicUrl: string | null;
+  themeId: string;
+  fontId: string | null;
+  // autres propriétés possibles
 }
 
 const DashboardPage = () => {
@@ -246,14 +252,16 @@ const DashboardPage = () => {
               return (
                 <div key={resume.id}>
                   <Card
-                    className="hover:shadow-md transition-shadow border-dashed border-2 border-gray-300 cursor-pointer group hover:scale-110 transition-transform"
+                    className="hover:shadow-md transition-shadow border outline-none border-2 border-gray-300 dark:border-gray-800 cursor-pointer group hover:scale-110 transition-transform"
                     onClick={() => setOpenDrawerId(resume.id)}
                   >
                     <CardContent className="p-0">
-                      <div className="relative aspect-[3/4] overflow-hidden rounded-t-lg">
-                        <div className="w-full h-full flex items-center justify-center bg-gray-100">
-                          <FileText className="w-12 h-12 text-gray-400" />
-                        </div>
+                      <div className="relative w-full -mt-6 h-full top-0 aspect-[3/4] overflow-hidden rounded-t-lg">
+                        <ResumePreview
+                          resume={resume}
+                          scale={0.55}
+                          className="w-full aspect-[3/4] object-cover h-full"
+                        />
                       </div>
                       <div className="p-4">
                         <div className="flex justify-between flex-col items-center mb-2">

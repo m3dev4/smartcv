@@ -4,33 +4,7 @@ import { formatDate } from '@/utils/data-utils';
 import { SimpleEditableText } from '@/components/editor/simple-editable-text';
 import Image from 'next/image';
 
-// Fonction utilitaire pour obtenir la classe CSS de la police
-const getFontFamily = (fontName?: string): string => {
-  if (!fontName) return 'var(--font-ibm-plex-sans)';
-  
-  const fontMap: Record<string, string> = {
-    'Arial': 'Arial, sans-serif',
-    'Times New Roman': '"Times New Roman", serif',
-    'Cambria': 'Cambria, serif',
-    'Garamond': 'Garamond, serif',
-    'Lato': 'var(--font-lato)',
-    'IBM Plex Sans': 'var(--font-ibm-plex-sans)',
-    'IBM Plex Serif': 'var(--font-ibm-plex-serif)',
-    'Lora': 'var(--font-lora)',
-    'Merriweather': 'var(--font-merriweather)',
-    'Open Sans': 'var(--font-open-sans)',
-    'Playfair Display': 'var(--font-playfair-display)',
-    'PT Sans': 'var(--font-pt-sans)',
-    'PT Serif': 'var(--font-pt-serif)',
-    'Roboto Condensed': 'var(--font-roboto-condensed)',
-    'Roboto Slab': 'var(--font-roboto-slab)',
-    'Roboto': 'var(--font-roboto)',
-    'Roboto Mono': 'var(--font-roboto-mono)',
-    'Montserrat': 'var(--font-montserrat)',
-  };
-
-  return fontMap[fontName] || 'Arial, sans-serif';
-};
+import { getTypographyStyles } from '@/utils/fonts/google-fonts';
 
 /**
  * Template Moderne de Cv
@@ -65,7 +39,11 @@ export const ModernTemplate: React.FC<ResumeTemplateProps> = ({
     <div
       className="flex flex-col bg-white shadow-lg rounded-lg overflow-hidden max-w-4xl mx-auto"
       style={{
-        fontFamily: getFontFamily(resume.font?.name),
+        ...getTypographyStyles(
+          resume.font?.name,
+          resume.font?.size,
+          resume.font?.lineHeight
+        ),
         color: theme.text,
         backgroundColor: theme.background,
       }}
