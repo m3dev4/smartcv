@@ -1,9 +1,9 @@
 'use client';
 import { Drawer, DrawerContent, DrawerDescription, DrawerHeader, DrawerTitle } from './ui/drawer';
 import { Button } from './ui/button';
-import { Copy, Download, FileEdit, Trash } from 'lucide-react';
+import { Copy, Download, FileEdit, Loader2, Pencil, Trash } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { deleteResume } from '@/app/api/actions';
+import { deleteResume, updateResume } from '@/app/api/actions';
 import { toast, Toaster } from 'sonner';
 import { useState } from 'react';
 import {
@@ -17,6 +17,9 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from './ui/alert-dialog';
+import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from './ui/dialog';
+import { Input } from '@headlessui/react';
+import { templates } from '@/constants';
 
 interface Resume {
   id: string;
@@ -39,6 +42,10 @@ const ResumeDrawer = ({
   setOpen: (open: boolean) => void;
 }) => {
   const router = useRouter();
+  const [renameOpen, setRenameOpen] = useState(false);
+  const [newTitle, setNewTitle] = useState(resume.title);
+  const [isLoading, setIsLoading] = useState(false);
+
   const handleDelete = async (id: string) => {
     try {
       const result = await deleteResume(id);
@@ -62,13 +69,73 @@ const ResumeDrawer = ({
     onEdit(resume.id);
   };
 
+  const handleNameChange = async () => {
+    setIsLoading(true);
+    try {
+      const fd = new FormData();
+      fd.append('title', newTitle);
+      fd.append('id', resume.id);
+      // Le backend attend le nom du template et non son identifiant (cuid)
+      const templateName = (resume as any).template?.name ||
+        templates.find(t => t.id === (resume as any).templateId)?.name ||
+        resume.templateId; // fallback si non trouvé
+
+      fd.append('templateId', templateName);
+      fd.append('themeId', (resume as any).themeId ?? '');
+      fd.append('fontId', (resume as any).fontId ?? '');
+
+      console.log('Renommage CV – Template sélectionné:', { id: resume.templateId, name: templateName });
+
+      const res = await updateResume(fd);
+      if (res?.success) {
+        toast.success('Nom mis à jour avec succès');
+        router.refresh();
+        setRenameOpen(false);
+      } else {
+        toast.error(res?.message || 'Une erreur est survenue lors de la mise à jour du nom du CV');
+      }
+      setIsLoading(false);
+    } catch (error) {
+      console.error('Une erreur est survenue lors de la mise à jour du nom du CV');
+      toast.error('Une erreur est survenue lors de la mise à jour du nom du CV');
+    }
+  };
+
   return (
     <Drawer open={open} onOpenChange={setOpen}>
       <Toaster position="top-center" richColors />
       <DrawerContent>
         <div className="mx-auto w-full max-w-sm">
           <DrawerHeader className="flex flex-col items-center gap-2">
-            <DrawerTitle className="text-lg">{resume.title}</DrawerTitle>
+            <DrawerTitle className="text-lg">
+              {resume.title}
+              <Button variant="ghost" onClick={() => setRenameOpen(true)}>
+                <Pencil className="h-4 w-4" />
+              </Button>
+
+              <Dialog open={renameOpen} onOpenChange={setRenameOpen}>
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle>Nouveau nom du CV</DialogTitle>
+                  </DialogHeader>
+                  <Input
+                    value={newTitle}
+                    onChange={e => setNewTitle(e.target.value)}
+                    placeholder="Nouveau nom du CV"
+                    className="w-full py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                  <DialogFooter>
+                    <Button onClick={handleNameChange}>
+                      {isLoading ? (
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      ) : (
+                        'Enregistrer'
+                      )}
+                    </Button>
+                  </DialogFooter>
+                </DialogContent>
+              </Dialog>
+            </DrawerTitle>
             <DrawerDescription>Sélectionnez une action pour ce CV</DrawerDescription>
           </DrawerHeader>
           <div className=" grid grid-cols-2 gap-4 p-4">

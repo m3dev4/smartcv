@@ -159,10 +159,17 @@ export async function updateResume(formData: FormData) {
       };
     }
 
-    // Vérifier l'existence du template
-    const template = await prisma.template.findUnique({
+    // Vérifier l'existence du template : d'abord par nom, puis par ID
+    let template = await prisma.template.findUnique({
       where: { name: validatedData.templateId },
     });
+
+    if (!template) {
+      template = await prisma.template.findUnique({
+        where: { id: validatedData.templateId },
+      });
+    }
+
     console.log('Template trouvé :', template);
 
     if (!template) {
