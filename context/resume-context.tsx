@@ -483,6 +483,27 @@ export function ResumeProvider({ children, resumeId, templateType }: ResumeProvi
       case 'performance':
         return ResumeTemplateType.PERFORMANCE;
       case 'modern':
+        return ResumeTemplateType.MODERN;
+      case 'clean':
+        return ResumeTemplateType.CLEAN
+      case 'multicolumn':
+        return ResumeTemplateType.MULTICOLUMN
+      case 'minimalist':
+          return ResumeTemplateType.MINIMALIST
+        case 'contemporain':
+          return ResumeTemplateType.CONTEMPORAIN
+        case 'compact':
+          return ResumeTemplateType.COMPACT
+        case 'mint':
+          return ResumeTemplateType.MINT
+        case 'timeline':
+          return ResumeTemplateType.TIMELINE
+        case 'stylish':
+          return ResumeTemplateType.STYLISH
+        case 'elegant':
+          return ResumeTemplateType.ELEGANT
+        case 'executive':
+          return ResumeTemplateType.EXECUTIVE
       default:
         return ResumeTemplateType.MODERN;
     }
