@@ -17,29 +17,31 @@ interface LinkedInImportProps {
 export function LinkedInImport({ onSuccess, onError }: LinkedInImportProps) {
   const { createFromLinkedIn, isCreatingFromLinkedIn } = useResume();
   const [username, setUsername] = useState('');
-  const [message, setMessage] = useState<{ type: 'success' | 'error'; content: string } | null>(null);
+  const [message, setMessage] = useState<{ type: 'success' | 'error'; content: string } | null>(
+    null
+  );
 
   const handleImport = async () => {
     if (!username.trim()) {
-      setMessage({ type: 'error', content: 'Veuillez entrer un nom d\'utilisateur LinkedIn' });
+      setMessage({ type: 'error', content: "Veuillez entrer un nom d'utilisateur LinkedIn" });
       return;
     }
 
     try {
       setMessage(null);
-      console.log('🚀 Début de l\'import LinkedIn avec le username:', username);
-      
+      console.log("🚀 Début de l'import LinkedIn avec le username:", username);
+
       const result = await createFromLinkedIn(username.trim());
-      
+
       if (result.success) {
-        setMessage({ 
-          type: 'success', 
-          content: result.message || 'CV créé avec succès depuis LinkedIn!' 
+        setMessage({
+          type: 'success',
+          content: result.message || 'CV créé avec succès depuis LinkedIn!',
         });
-        
+
         // Réinitialiser le formulaire
         setUsername('');
-        
+
         // Callback de succès
         if (onSuccess) {
           onSuccess(result.resume);
@@ -47,17 +49,17 @@ export function LinkedInImport({ onSuccess, onError }: LinkedInImportProps) {
       } else {
         const errorMessage = result.message || 'Erreur lors de la création du CV depuis LinkedIn';
         setMessage({ type: 'error', content: errorMessage });
-        
+
         // Callback d'erreur
         if (onError) {
           onError(errorMessage);
         }
       }
     } catch (error: any) {
-      console.error('❌ Erreur lors de l\'import LinkedIn:', error);
+      console.error("❌ Erreur lors de l'import LinkedIn:", error);
       const errorMessage = error.message || 'Une erreur inattendue est survenue';
       setMessage({ type: 'error', content: errorMessage });
-      
+
       if (onError) {
         onError(errorMessage);
       }
@@ -70,7 +72,7 @@ export function LinkedInImport({ onSuccess, onError }: LinkedInImportProps) {
       const match = input.match(/linkedin\.com\/in\/([^\/\?]+)/);
       return match ? match[1] : input;
     }
-    
+
     // Si c'est juste le username
     return input.replace(/^@/, ''); // Supprimer le @ s'il y en a un
   };
@@ -87,15 +89,13 @@ export function LinkedInImport({ onSuccess, onError }: LinkedInImportProps) {
         <LinkedinIcon className="h-5 w-5 text-blue-600" />
         <h3 className="text-lg font-semibold">Importer depuis LinkedIn</h3>
       </div>
-      
+
       <p className="text-sm text-muted-foreground">
         Créez votre CV automatiquement à partir de votre profil LinkedIn public.
       </p>
 
       <div className="space-y-2">
-        <Label htmlFor="linkedin-username">
-          Nom d'utilisateur LinkedIn ou URL du profil
-        </Label>
+        <Label htmlFor="linkedin-username">Nom d'utilisateur LinkedIn ou URL du profil</Label>
         <Input
           id="linkedin-username"
           type="text"
@@ -110,8 +110,7 @@ export function LinkedInImport({ onSuccess, onError }: LinkedInImportProps) {
         </p>
       </div>
 
-
-      <Button 
+      <Button
         onClick={handleImport}
         disabled={isCreatingFromLinkedIn || !username.trim()}
         className="w-full"
@@ -130,8 +129,14 @@ export function LinkedInImport({ onSuccess, onError }: LinkedInImportProps) {
       </Button>
 
       <div className="text-xs text-muted-foreground space-y-1">
-        <p><strong>Note:</strong> Votre profil LinkedIn doit être public pour que l'import fonctionne.</p>
-        <p>Les données importées incluent : informations personnelles, expériences, éducation, compétences et certifications.</p>
+        <p>
+          <strong>Note:</strong> Votre profil LinkedIn doit être public pour que l'import
+          fonctionne.
+        </p>
+        <p>
+          Les données importées incluent : informations personnelles, expériences, éducation,
+          compétences et certifications.
+        </p>
       </div>
     </div>
   );

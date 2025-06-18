@@ -5,7 +5,7 @@ import { formatDate } from '@/utils/data-utils';
 import type React from 'react';
 
 /**
- * Template Compact 
+ * Template Compact
  * - Design compact avec bordure colorée
  * - Layout en deux colonnes optimisé
  * - Fond subtil avec accents colorés

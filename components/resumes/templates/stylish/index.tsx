@@ -50,7 +50,6 @@ export const StylishTemplate: React.FC<ResumeTemplateProps> = ({
         fontFamily: resume.font?.name || 'Inter, sans-serif',
         color: theme.text,
         backgroundColor: theme.background,
-        
       }}
     >
       {/* En-tête avec informations personnelles et photo */}
@@ -69,7 +68,10 @@ export const StylishTemplate: React.FC<ResumeTemplateProps> = ({
             )}
 
             {/* Informations de contact */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-gray-600" style={{ color: theme.accent }}>
+            <div
+              className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-gray-600"
+              style={{ color: theme.accent }}
+            >
               {personalInfo?.phone && (
                 <div className="flex items-center">
                   <span className="font-medium mr-2">📞</span>

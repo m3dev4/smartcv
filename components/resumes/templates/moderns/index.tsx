@@ -29,7 +29,7 @@ export const ModernTemplate: React.FC<ResumeTemplateProps> = ({
     background: '#FFFFFF',
     text: '#333333',
   };
-  const hanldeEditSection = (sectionType: string, sectionId?: string)  => {
+  const hanldeEditSection = (sectionType: string, sectionId?: string) => {
     if (isEditable && onEditSection) {
       onEditSection(sectionType, sectionId || '');
     }
@@ -39,11 +39,7 @@ export const ModernTemplate: React.FC<ResumeTemplateProps> = ({
     <div
       className="flex flex-col bg-white shadow-lg rounded-lg overflow-hidden max-w-4xl mx-auto"
       style={{
-        ...getTypographyStyles(
-          resume.font?.name,
-          resume.font?.size,
-          resume.font?.lineHeight
-        ),
+        ...getTypographyStyles(resume.font?.name, resume.font?.size, resume.font?.lineHeight),
         color: theme.text,
         backgroundColor: theme.background,
       }}
@@ -188,8 +184,10 @@ export const ModernTemplate: React.FC<ResumeTemplateProps> = ({
 
       <div className="flex flex-col md:flex-row  p-0">
         {/* column Gauche */}
-        <div className="w-full md:w-1/3 p-6" style={{ backgroundColor: theme.secondary, color: theme.accent }}>
-
+        <div
+          className="w-full md:w-1/3 p-6"
+          style={{ backgroundColor: theme.secondary, color: theme.accent }}
+        >
           {personalInfo?.description && (
             <div className="mb-8" onClick={() => hanldeEditSection('summury')}>
               <h3

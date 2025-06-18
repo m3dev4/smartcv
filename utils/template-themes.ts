@@ -2,15 +2,18 @@ import { ResumeTemplateType } from '@/enums/resumeEnum';
 
 // Définition des thèmes par défaut pour chaque template
 export const getDefaultThemeForTemplate = (templateName: string) => {
-  const templateThemes: Record<string, {
-    name: string;
-    description: string;
-    primary: string;
-    secondary: string;
-    accent: string;
-    background: string;
-    text: string;
-  }> = {
+  const templateThemes: Record<
+    string,
+    {
+      name: string;
+      description: string;
+      primary: string;
+      secondary: string;
+      accent: string;
+      background: string;
+      text: string;
+    }
+  > = {
     modern: {
       name: 'modern-blue',
       description: 'Thème dark moderne',
@@ -127,7 +130,7 @@ export const getDefaultThemeForTemplate = (templateName: string) => {
 // Fonction pour créer ou récupérer un thème pour un template
 export const getOrCreateThemeForTemplate = async (prisma: any, templateName: string) => {
   const themeConfig = getDefaultThemeForTemplate(templateName);
-  
+
   // Chercher d'abord si le thème existe déjà
   let theme = await prisma.theme.findUnique({
     where: { name: themeConfig.name },

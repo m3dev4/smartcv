@@ -19,13 +19,11 @@ import { Check } from 'lucide-react';
 
 const RenderTemplate: React.FC = () => {
   const { resume, updateResume } = useResume();
-  
+
   if (!resume) {
     return (
       <div className="text-center py-8">
-        <p className="text-sm text-gray-500">
-          Chargement des templates...
-        </p>
+        <p className="text-sm text-gray-500">Chargement des templates...</p>
       </div>
     );
   }
@@ -33,17 +31,49 @@ const RenderTemplate: React.FC = () => {
   // Liste de tous les templates disponibles
   const templates = [
     { type: ResumeTemplateType.MODERN, name: 'Modern', description: 'Design moderne et épuré' },
-    { type: ResumeTemplateType.CLASSIC, name: 'Classic', description: 'Style classique et professionnel' },
-    { type: ResumeTemplateType.PERFORMANCE, name: 'Performance', description: 'Axé sur les performances' },
-    { type: ResumeTemplateType.CONTEMPORAIN, name: 'Contemporain', description: 'Design contemporain' },
+    {
+      type: ResumeTemplateType.CLASSIC,
+      name: 'Classic',
+      description: 'Style classique et professionnel',
+    },
+    {
+      type: ResumeTemplateType.PERFORMANCE,
+      name: 'Performance',
+      description: 'Axé sur les performances',
+    },
+    {
+      type: ResumeTemplateType.CONTEMPORAIN,
+      name: 'Contemporain',
+      description: 'Design contemporain',
+    },
     { type: ResumeTemplateType.MINT, name: 'Mint', description: 'Couleurs fraîches et modernes' },
-    { type: ResumeTemplateType.COMPACT, name: 'Compact', description: 'Format compact et efficace' },
+    {
+      type: ResumeTemplateType.COMPACT,
+      name: 'Compact',
+      description: 'Format compact et efficace',
+    },
     { type: ResumeTemplateType.CLEAN, name: 'Clean', description: 'Design propre et minimaliste' },
-    { type: ResumeTemplateType.STYLISH, name: 'Stylish', description: 'Style élégant et sophistiqué' },
-    { type: ResumeTemplateType.TIMELINE, name: 'Timeline', description: 'Présentation chronologique' },
-    { type: ResumeTemplateType.MINIMALIST, name: 'Minimalist', description: 'Approche minimaliste' },
+    {
+      type: ResumeTemplateType.STYLISH,
+      name: 'Stylish',
+      description: 'Style élégant et sophistiqué',
+    },
+    {
+      type: ResumeTemplateType.TIMELINE,
+      name: 'Timeline',
+      description: 'Présentation chronologique',
+    },
+    {
+      type: ResumeTemplateType.MINIMALIST,
+      name: 'Minimalist',
+      description: 'Approche minimaliste',
+    },
     { type: ResumeTemplateType.ELEGANT, name: 'Elegant', description: 'Design élégant et raffiné' },
-    { type: ResumeTemplateType.EXECUTIVE, name: 'Executive', description: 'Pour les postes de direction' },
+    {
+      type: ResumeTemplateType.EXECUTIVE,
+      name: 'Executive',
+      description: 'Pour les postes de direction',
+    },
   ];
 
   const renderTemplatePreview = (templateType: ResumeTemplateType) => {
@@ -86,7 +116,7 @@ const RenderTemplate: React.FC = () => {
 
   const handleTemplateSelect = (templateType: ResumeTemplateType) => {
     updateResume({
-      templateId: templateType
+      templateId: templateType,
     });
   };
 
@@ -102,7 +132,7 @@ const RenderTemplate: React.FC = () => {
       </div>
 
       <div className="grid grid-cols-2 gap-6 max-h-[calc(100vh-200px)] overflow-y-auto p-4">
-        {templates.map((template) => (
+        {templates.map(template => (
           <div
             key={template.type}
             className={`group relative border rounded-xl overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-xl ${
@@ -121,7 +151,7 @@ const RenderTemplate: React.FC = () => {
 
             {/* Overlay avec gradient au survol */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            
+
             {/* Informations du template qui apparaissent au survol */}
             <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
               <h4 className="font-medium text-lg mb-1">{template.name}</h4>

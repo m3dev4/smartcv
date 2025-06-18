@@ -8,8 +8,6 @@ import { revalidatePath } from 'next/cache';
 
 const prisma = new PrismaClient();
 
-
-
 /**
  * Appel à l'API LinkedIn via RapidApi
  * Declaration du fonction fetchLinkedInProfile qui serve à récupérer les informations d'un utilisateur LinkedIn
@@ -31,15 +29,15 @@ async function fetchLinkedInProfile(username: string): Promise<LinkedInApiRespon
     },
   });
 
- if (!response.ok) {
-      const errorText = await response.text();
-      console.error('Réponse d\'erreur:', errorText);
-      throw new Error(`Erreur API LinkedIn ${response.status} ${response.statusText}: ${errorText}`);
-    }
-    
-    const data = await response.json();
-    console.log('Données reçues:', JSON.stringify(data, null, 2));
-  
+  if (!response.ok) {
+    const errorText = await response.text();
+    console.error("Réponse d'erreur:", errorText);
+    throw new Error(`Erreur API LinkedIn ${response.status} ${response.statusText}: ${errorText}`);
+  }
+
+  const data = await response.json();
+  console.log('Données reçues:', JSON.stringify(data, null, 2));
+
   // Vérifier et formater les données selon l'interface LinkedInApiResponse
   return {
     success: true,
@@ -53,32 +51,36 @@ async function fetchLinkedInProfile(username: string): Promise<LinkedInApiRespon
       profilePicture: data.profilePicture || '',
       country: data.country || '',
       city: data.city || '',
-      experiences: data.experiences?.map((exp: any) => ({
-        companyId: exp.companyId,
-        companyName: exp.companyName || '',
-        title: exp.title || '',
-        startDate: exp.startDate || '',
-        endDate: exp.endDate || '',
-        description: exp.description || '',
-        location: exp.location || '',
-      })) || [],
-      educations: data.educations?.map((edu: any) => ({
-        schoolName: edu.schoolName || '',
-        degree: edu.degree || '',
-        fieldOfStudy: edu.fieldOfStudy || '',
-        startDate: edu.startDate || '',
-        endDate: edu.endDate || '',
-      })) || [],
-      skills: data.skills?.map((skill: any) => ({
-        name: skill.name || '',
-        endorsementsCount: skill.endorsementsCount || '',
-        passedAssement: skill.passedAssement || '',
-      })) || [],
-      certfications: data.certifications?.map((cert: any) => ({
-        name: cert.name || '',
-        isssuing_organization: cert.issuingOrganization || '',
-      })) || [],
-    }
+      experiences:
+        data.experiences?.map((exp: any) => ({
+          companyId: exp.companyId,
+          companyName: exp.companyName || '',
+          title: exp.title || '',
+          startDate: exp.startDate || '',
+          endDate: exp.endDate || '',
+          description: exp.description || '',
+          location: exp.location || '',
+        })) || [],
+      educations:
+        data.educations?.map((edu: any) => ({
+          schoolName: edu.schoolName || '',
+          degree: edu.degree || '',
+          fieldOfStudy: edu.fieldOfStudy || '',
+          startDate: edu.startDate || '',
+          endDate: edu.endDate || '',
+        })) || [],
+      skills:
+        data.skills?.map((skill: any) => ({
+          name: skill.name || '',
+          endorsementsCount: skill.endorsementsCount || '',
+          passedAssement: skill.passedAssement || '',
+        })) || [],
+      certfications:
+        data.certifications?.map((cert: any) => ({
+          name: cert.name || '',
+          isssuing_organization: cert.issuingOrganization || '',
+        })) || [],
+    },
   };
 }
 
@@ -127,7 +129,7 @@ export async function createResumeFromLinkedIn(username: string) {
       skills: profileData.skills?.length || 0,
       certifications: profileData.certfications?.length || 0,
     });
-    
+
     // 3_ Récuperer ou créér les entités (thémes, font, template)
     let theme = await prisma.theme.findUnique({
       where: { name: 'default' },
@@ -173,7 +175,7 @@ export async function createResumeFromLinkedIn(username: string) {
       template = await prisma.template.findUnique({
         where: { name: 'modern' },
       });
-      
+
       // Si aucun des deux n'existe, créer le template 'modern'
       if (!template) {
         template = await prisma.template.create({
@@ -283,7 +285,7 @@ export async function createResumeFromLinkedIn(username: string) {
                       endDate: linkedInDateToDate(exp.endDate),
                       description: exp.description,
                       location: exp.location,
-                      current: !exp.endDate
+                      current: !exp.endDate,
                     };
                   }),
                 }
@@ -298,7 +300,7 @@ export async function createResumeFromLinkedIn(username: string) {
                       fieldOfStudy: edu.fieldOfStudy,
                       startDate: linkedInDateToDateWithFallback(edu.startDate),
                       endDate: linkedInDateToDate(edu.endDate),
-                      current: !edu.endDate
+                      current: !edu.endDate,
                     };
                   }),
                 }

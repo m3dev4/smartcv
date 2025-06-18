@@ -671,3 +671,33 @@ export const miniCVs = [
     color: 'from-green-100 to-emerald-100',
   },
 ];
+
+// Configuration des polices système et Google Fonts
+export const systemFonts = {
+  Arial: 'Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+  'Times New Roman': '"Times New Roman", Georgia, serif',
+  Georgia: 'Georgia, "Times New Roman", serif',
+  Verdana: 'Verdana, Arial, sans-serif',
+  Helvetica: 'Helvetica, Arial, sans-serif',
+  Tahoma: 'Tahoma, Geneva, sans-serif',
+  'Trebuchet MS': '"Trebuchet MS", Arial, sans-serif',
+  'Courier New': '"Courier New", monospace',
+  Garamond: 'Garamond, serif',
+  Palatino: 'Palatino, "Palatino Linotype", serif',
+  Bookman: '"Bookman Old Style", serif',
+  'Comic Sans MS': '"Comic Sans MS", cursive',
+  Impact: 'Impact, Charcoal, sans-serif',
+  Lucida: '"Lucida Sans Unicode", "Lucida Grande", sans-serif',
+};
+
+// Configuration des Google Fonts
+export const googleFonts = {
+  'IBM Plex Sans': 'var(--font-ibm-plex-sans), sans-serif',
+  Inter: 'var(--font-inter), sans-serif',
+  Roboto: 'var(--font-roboto), sans-serif',
+  'Open Sans': 'var(--font-open-sans), sans-serif',
+  Lato: 'var(--font-lato), sans-serif',
+  Montserrat: 'var(--font-montserrat), sans-serif',
+  Poppins: 'var(--font-poppins), sans-serif',
+  'Source Sans 3': 'var(--font-source-sans), sans-serif',
+};

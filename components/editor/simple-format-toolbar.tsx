@@ -1,8 +1,8 @@
 'use client';
 
-import { Button } from "@/components/ui/button";
-import { Bold, Italic, Underline } from "lucide-react";
-import { useState, useEffect } from "react";
+import { Button } from '@/components/ui/button';
+import { Bold, Italic, Underline } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 interface SimpleFormatToolbarProps {
   onFormatChange: (format: {
@@ -39,13 +39,15 @@ export const SimpleFormatToolbar = ({ onFormatChange }: SimpleFormatToolbarProps
           const range = newSelection.getRangeAt(0);
           const span = document.createElement('span');
           range.surroundContents(span);
-          
+
           const computedStyle = window.getComputedStyle(span);
           setFontSize(parseInt(computedStyle.fontSize));
-          setIsBold(computedStyle.fontWeight === 'bold' || parseInt(computedStyle.fontWeight) >= 600);
+          setIsBold(
+            computedStyle.fontWeight === 'bold' || parseInt(computedStyle.fontWeight) >= 600
+          );
           setIsItalic(computedStyle.fontStyle === 'italic');
           setIsUnderline(computedStyle.textDecoration.includes('underline'));
-          
+
           // Restaurer la sélection
           range.extractContents();
           range.insertNode(span.firstChild!);
@@ -83,13 +85,15 @@ export const SimpleFormatToolbar = ({ onFormatChange }: SimpleFormatToolbarProps
   const hasSelection = selection && selection.toString().length > 0;
 
   return (
-    <div className={`
+    <div
+      className={`
       fixed bottom-4 left-1/2 -translate-x-1/2 
       w-80 bg-white border rounded-lg shadow-lg
       transition-opacity duration-200
       format-toolbar
       ${hasSelection ? 'opacity-100' : 'opacity-0 pointer-events-none'}
-    `}>
+    `}
+    >
       {/* Onglets */}
       <div className="flex border-b">
         <button
@@ -118,11 +122,11 @@ export const SimpleFormatToolbar = ({ onFormatChange }: SimpleFormatToolbarProps
         {activeTab === 'fonts' && (
           <div className="space-y-4">
             <div className="text-sm text-gray-600 mb-4">Espacement</div>
-            
+
             {/* Boutons de style */}
             <div className="flex items-center gap-2">
               <Button
-                variant={isBold ? "secondary" : "ghost"}
+                variant={isBold ? 'secondary' : 'ghost'}
                 size="icon"
                 className="h-8 w-8"
                 onClick={() => handleFormatChange({ isBold: !isBold })}
@@ -132,7 +136,7 @@ export const SimpleFormatToolbar = ({ onFormatChange }: SimpleFormatToolbarProps
               </Button>
 
               <Button
-                variant={isItalic ? "secondary" : "ghost"}
+                variant={isItalic ? 'secondary' : 'ghost'}
                 size="icon"
                 className="h-8 w-8"
                 onClick={() => handleFormatChange({ isItalic: !isItalic })}
@@ -142,7 +146,7 @@ export const SimpleFormatToolbar = ({ onFormatChange }: SimpleFormatToolbarProps
               </Button>
 
               <Button
-                variant={isUnderline ? "secondary" : "ghost"}
+                variant={isUnderline ? 'secondary' : 'ghost'}
                 size="icon"
                 className="h-8 w-8"
                 onClick={() => handleFormatChange({ isUnderline: !isUnderline })}
@@ -157,18 +161,19 @@ export const SimpleFormatToolbar = ({ onFormatChange }: SimpleFormatToolbarProps
         {activeTab === 'sizes' && (
           <div className="space-y-4">
             <div className="text-sm text-gray-600 mb-4">Taille de police</div>
-            
+
             <div className="space-y-2">
-              {FONT_SIZES.map((size) => (
+              {FONT_SIZES.map(size => (
                 <button
                   key={size.value}
                   onClick={() => handleFormatChange({ fontSize: size.value })}
                   className={`
                     w-full flex items-center justify-between px-3 py-2 rounded-md text-sm
                     transition-colors duration-200
-                    ${fontSize === size.value 
-                      ? 'bg-blue-50 text-blue-600 border border-blue-200'
-                      : 'text-gray-700 hover:bg-gray-100 border border-gray-200'
+                    ${
+                      fontSize === size.value
+                        ? 'bg-blue-50 text-blue-600 border border-blue-200'
+                        : 'text-gray-700 hover:bg-gray-100 border border-gray-200'
                     }
                   `}
                 >

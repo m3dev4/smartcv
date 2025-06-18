@@ -26,18 +26,18 @@ export const toSafeDate = (date: Date | string | undefined | null): Date | null 
  */
 export const linkedInDateToDate = (dateStr: string | undefined | null): Date | null => {
   if (!dateStr || dateStr.trim() === '') return null;
-  
+
   // Handle common LinkedIn date formats
   try {
     // Clean the date string
     const cleanDateStr = dateStr.trim();
-    
+
     // Try direct conversion first
     let date = new Date(cleanDateStr);
     if (!isNaN(date.getTime())) {
       return date;
     }
-    
+
     // Handle partial dates like "2023" or "2023-06"
     if (/^\d{4}$/.test(cleanDateStr)) {
       // Year only - assume January 1st
@@ -46,7 +46,7 @@ export const linkedInDateToDate = (dateStr: string | undefined | null): Date | n
       // Year-Month - assume 1st day of month
       date = new Date(`${cleanDateStr}-01`);
     }
-    
+
     return !isNaN(date.getTime()) ? date : null;
   } catch (error) {
     console.warn(`Failed to parse LinkedIn date: ${dateStr}`, error);
@@ -58,7 +58,10 @@ export const linkedInDateToDate = (dateStr: string | undefined | null): Date | n
  * Converts LinkedIn date format to a safe Date object with fallback.
  * Returns a default date if the input is invalid, to prevent errors.
  */
-export const linkedInDateToDateWithFallback = (dateStr: string | undefined | null, fallbackDate?: Date): Date => {
+export const linkedInDateToDateWithFallback = (
+  dateStr: string | undefined | null,
+  fallbackDate?: Date
+): Date => {
   const parsedDate = linkedInDateToDate(dateStr);
   return parsedDate || fallbackDate || new Date('2000-01-01');
 };

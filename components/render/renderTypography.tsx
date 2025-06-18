@@ -1,82 +1,87 @@
-"use client"
+'use client';
 
-import { useResume } from "@/context/resume-context"
-import { Type, Palette, Settings } from "lucide-react"
-import { useState } from "react"
-import { getFontClass, fontSizes, lineHeights, getTypographyStyles } from "@/utils/fonts/google-fonts"
+import { useResume } from '@/context/resume-context';
+import { Type, Palette, Settings } from 'lucide-react';
+import { useState } from 'react';
+import {
+  getFontClass,
+  fontSizes,
+  lineHeights,
+  getTypographyStyles,
+} from '@/utils/fonts/google-fonts';
 
 import { availableFonts } from '@/utils/fonts/google-fonts';
 
 // Interface pour les paramètres de police
 export interface FontSettings {
-  name?: string
-  subset?: string
-  variants?: string[]
-  size?: number
-  lineHeight?: number
-  hideIcons?: boolean
-  underlineLinks?: boolean
+  name?: string;
+  subset?: string;
+  variants?: string[];
+  size?: number;
+  lineHeight?: number;
+  hideIcons?: boolean;
+  underlineLinks?: boolean;
 }
 
 export const RenderTypographyEditor = () => {
-  const { resume, updateResume } = useResume()
-  const [activeTab, setActiveTab] = useState<"fonts" | "sizes" | "spacing">("fonts")
+  const { resume, updateResume } = useResume();
+  const [activeTab, setActiveTab] = useState<'fonts' | 'sizes' | 'spacing'>('fonts');
 
   // Valeurs par défaut avec id requis
-  const currentFont = resume?.font || { id: "default-font-id", name: "Arial" }
-  const currentFontName = currentFont.name || "Arial"
+  const currentFont = resume?.font || { id: 'default-font-id', name: 'Arial' };
+  const currentFontName = currentFont.name || 'Arial';
 
   const handleFontNameChange = (name: string) => {
-    if (!resume) return
-    
+    if (!resume) return;
+
     updateResume({
       ...resume,
       font: {
-        id: currentFont.id || "default-font-id",
+        id: currentFont.id || 'default-font-id',
         name: name,
         category: name.includes('Serif') ? 'SERIF' : 'SANS_SERIF',
         url: `https://fonts.google.com/specimen/${name.replace(/\s+/g, '+')}`,
         size: resume.font?.size || 16,
         lineHeight: resume.font?.lineHeight || 1.5,
       },
-    })
-  }
+    });
+  };
 
   const handleFontSizeChange = (size: number) => {
-    if (!resume) return
-    
+    if (!resume) return;
+
     updateResume({
       ...resume,
       font: {
         ...resume.font,
-        id: resume.font?.id || "default-font-id",
-        name: resume.font?.name || "Arial",
+        id: resume.font?.id || 'default-font-id',
+        name: resume.font?.name || 'Arial',
         size,
       },
-    })
-  }
+    });
+  };
 
   const handleLineHeightChange = (lineHeight: number) => {
-    if (!resume) return
-    
+    if (!resume) return;
+
     updateResume({
       ...resume,
       font: {
         ...resume.font,
-        id: resume.font?.id || "default-font-id",
-        name: resume.font?.name || "Arial",
+        id: resume.font?.id || 'default-font-id',
+        name: resume.font?.name || 'Arial',
         lineHeight,
       },
-    })
-  }
+    });
+  };
 
-  if (!resume) return null
+  if (!resume) return null;
 
   const tabs = [
-    { id: "fonts", label: "Polices", icon: Type },
-    { id: "sizes", label: "Tailles", icon: Settings },
-    { id: "spacing", label: "Espacement", icon: Palette },
-  ]
+    { id: 'fonts', label: 'Polices', icon: Type },
+    { id: 'sizes', label: 'Tailles', icon: Settings },
+    { id: 'spacing', label: 'Espacement', icon: Palette },
+  ];
 
   return (
     <div className=" rounded-xl shadow-lg overflow-hidden max-w-md mx-auto">
@@ -96,8 +101,8 @@ export const RenderTypographyEditor = () => {
       {/* Navigation par onglets */}
       <div className="bg-gray-50 px-6 pt-4">
         <div className="grid grid-cols-2 gap-2">
-          {tabs.map((tab) => {
-            const Icon = tab.icon
+          {tabs.map(tab => {
+            const Icon = tab.icon;
             return (
               <button
                 key={tab.id}
@@ -106,15 +111,15 @@ export const RenderTypographyEditor = () => {
                   flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200
                   ${
                     activeTab === tab.id
-                      ? " text-blue-600 shadow-sm border border-blue-200"
-                      : "text-gray-600 hover:text-gray-800 hover:bg-gray-100"
+                      ? ' text-blue-600 shadow-sm border border-blue-200'
+                      : 'text-gray-600 hover:text-gray-800 hover:bg-gray-100'
                   }
                 `}
               >
                 <Icon className="w-4 h-4" />
                 <span>{tab.label}</span>
               </button>
-            )
+            );
           })}
         </div>
       </div>
@@ -122,11 +127,13 @@ export const RenderTypographyEditor = () => {
       {/* Contenu */}
       <div className="p-6">
         {/* Onglet Polices */}
-        {activeTab === "fonts" && (
+        {activeTab === 'fonts' && (
           <div className="space-y-4">
-            <div className="text-sm text-gray-600 mb-4">Choisissez la famille de police pour votre CV</div>
+            <div className="text-sm text-gray-600 mb-4">
+              Choisissez la famille de police pour votre CV
+            </div>
             <div className="grid grid-cols-2 gap-3 w-full">
-              {availableFonts.map((font) => (
+              {availableFonts.map(font => (
                 <button
                   key={font}
                   onClick={() => handleFontNameChange(font)}
@@ -135,8 +142,8 @@ export const RenderTypographyEditor = () => {
                     border-2 hover:scale-[1.02] active:scale-[0.98]
                     ${
                       currentFontName === font
-                        ? "border-blue-500 bg-blue-50 text-blue-700 shadow-lg shadow-blue-100"
-                        : "border-gray-200  text-gray-700 hover:border-gray-300 hover:shadow-md"
+                        ? 'border-blue-500 bg-blue-50 text-blue-700 shadow-lg shadow-blue-100'
+                        : 'border-gray-200  text-gray-700 hover:border-gray-300 hover:shadow-md'
                     }
                   `}
                   style={{ fontFamily: getFontClass(font) }}
@@ -158,10 +165,12 @@ export const RenderTypographyEditor = () => {
         )}
 
         {/* Onglet Tailles */}
-        {activeTab === "sizes" && (
+        {activeTab === 'sizes' && (
           <div className="space-y-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-3">Taille de police</label>
+              <label className="block text-sm font-medium text-gray-700 mb-3">
+                Taille de police
+              </label>
               <div className="grid grid-cols-1 gap-2">
                 {Object.entries(fontSizes).map(([key, size]) => (
                   <button
@@ -169,9 +178,10 @@ export const RenderTypographyEditor = () => {
                     onClick={() => handleFontSizeChange(size.value)}
                     className={`
                       flex items-center justify-between p-3 rounded-lg border
-                      ${resume.font?.size === size.value 
-                        ? 'border-blue-500 bg-blue-50 text-blue-700' 
-                        : 'border-gray-200 hover:border-blue-300 hover:bg-blue-50'
+                      ${
+                        resume.font?.size === size.value
+                          ? 'border-blue-500 bg-blue-50 text-blue-700'
+                          : 'border-gray-200 hover:border-blue-300 hover:bg-blue-50'
                       } 
                       transition-all duration-150
                     `}
@@ -186,10 +196,12 @@ export const RenderTypographyEditor = () => {
         )}
 
         {/* Onglet Espacement */}
-        {activeTab === "spacing" && (
+        {activeTab === 'spacing' && (
           <div className="space-y-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-3">Hauteur de ligne</label>
+              <label className="block text-sm font-medium text-gray-700 mb-3">
+                Hauteur de ligne
+              </label>
               <div className="grid grid-cols-1 gap-2">
                 {Object.entries(lineHeights).map(([key, height]) => (
                   <button
@@ -197,9 +209,10 @@ export const RenderTypographyEditor = () => {
                     onClick={() => handleLineHeightChange(height.value)}
                     className={`
                       flex items-center justify-between p-3 rounded-lg border
-                      ${resume.font?.lineHeight === height.value 
-                        ? 'border-blue-500 bg-blue-50 text-blue-700' 
-                        : 'border-gray-200 hover:border-blue-300 hover:bg-blue-50'
+                      ${
+                        resume.font?.lineHeight === height.value
+                          ? 'border-blue-500 bg-blue-50 text-blue-700'
+                          : 'border-gray-200 hover:border-blue-300 hover:bg-blue-50'
                       } 
                       transition-all duration-150
                     `}
@@ -245,22 +258,18 @@ export const RenderTypographyEditor = () => {
       {/* Aperçu */}
       <div className="bg-gray-50 p-6 border-t border-gray-200">
         <div className="text-sm text-gray-600 mb-3">Aperçu</div>
-        <div 
-          className="p-4 bg-white rounded-lg border border-gray-200" 
-          style={getTypographyStyles(
-            currentFontName,
-            resume.font?.size,
-            resume.font?.lineHeight
-          )}
+        <div
+          className="p-4 bg-white rounded-lg border border-gray-200"
+          style={getTypographyStyles(currentFontName, resume.font?.size, resume.font?.lineHeight)}
         >
           <h3 className="font-bold text-lg text-gray-800 mb-2">John Doe</h3>
           <p className="text-gray-600 text-sm mb-3">Développeur Full Stack</p>
           <p className="text-gray-700 text-sm leading-relaxed">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua.
           </p>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};

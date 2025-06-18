@@ -75,8 +75,8 @@ const ResumeDrawer = ({
       const fd = new FormData();
       fd.append('title', newTitle);
       fd.append('id', resume.id);
-      // Le backend attend le nom du template et non son identifiant (cuid)
-      const templateName = (resume as any).template?.name ||
+      const templateName =
+        (resume as any).template?.name ||
         templates.find(t => t.id === (resume as any).templateId)?.name ||
         resume.templateId; // fallback si non trouvé
 
@@ -84,7 +84,10 @@ const ResumeDrawer = ({
       fd.append('themeId', (resume as any).themeId ?? '');
       fd.append('fontId', (resume as any).fontId ?? '');
 
-      console.log('Renommage CV – Template sélectionné:', { id: resume.templateId, name: templateName });
+      console.log('Renommage CV – Template sélectionné:', {
+        id: resume.templateId,
+        name: templateName,
+      });
 
       const res = await updateResume(fd);
       if (res?.success) {

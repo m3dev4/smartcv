@@ -10,7 +10,12 @@ interface SimpleEditableTextProps {
   onUpdate?: (content: string) => void;
 }
 
-export const SimpleEditableText = ({ content, className = '', style = {}, onUpdate }: SimpleEditableTextProps) => {
+export const SimpleEditableText = ({
+  content,
+  className = '',
+  style = {},
+  onUpdate,
+}: SimpleEditableTextProps) => {
   const contentRef = useRef<HTMLDivElement>(null);
   const [isEditing, setIsEditing] = useState(false);
 
@@ -37,7 +42,7 @@ export const SimpleEditableText = ({ content, className = '', style = {}, onUpda
         const range = selection.getRangeAt(0);
         const span = document.createElement('span');
         span.style.fontSize = `${format.fontSize}px`;
-        
+
         try {
           range.surroundContents(span);
         } catch {
