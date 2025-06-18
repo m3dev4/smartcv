@@ -21,17 +21,37 @@ interface ResumePreviewProps {
   scale?: number;
 }
 
+// Helper insensible à la casse pour savoir si la valeur appartient à ResumeTemplateType
+const isValidTemplateType = (value: any): value is ResumeTemplateType => {
+  if (!value) return false;
+  return Object.values(ResumeTemplateType).includes((String(value).toLowerCase()) as ResumeTemplateType);
+};
+
 const ResumePreview: React.FC<ResumePreviewProps> = ({ 
   resume, 
   className = '',
   scale = 0.18 
 }) => {
-  if (!resume || !resume.templateId) {
+  if (!resume) {
     return (
       <div className={`w-full h-full flex items-center justify-center bg-gray-100 ${className}`}>
         <FileText className="w-12 h-12 text-gray-400" />
       </div>
     );
+  }
+
+  // Determine the template type. Prioritise explicit enum value, otherwise use template.name, else fallback
+  let templateType: ResumeTemplateType | null = null;
+
+  if (isValidTemplateType(resume.templateId)) {
+    templateType = (resume.templateId as string).toLowerCase() as ResumeTemplateType;
+  } else if (resume.template?.name && isValidTemplateType(resume.template.name)) {
+    templateType = resume.template.name.toLowerCase() as ResumeTemplateType;
+  }
+
+  if (!templateType) {
+    // Unknown template – fallback
+    templateType = ResumeTemplateType.MODERN;
   }
 
   const renderTemplatePreview = (templateType: ResumeTemplateType) => {
@@ -85,7 +105,7 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({
           height: `${containerSize}%`
         }}
       >
-        {renderTemplatePreview(resume.templateId as ResumeTemplateType)}
+        {renderTemplatePreview(templateType)}
       </div>
     </div>
   );

@@ -818,8 +818,10 @@ export async function listResume(options?: { includePartial?: boolean }) {
 
     if (options?.includePartial) {
       whereCondition.OR = [
-        { personalInfo: { none: {} } },
+        // Pas de PersonalInfo (relation 1-1) => utiliser 'is: null'
+        { personalInfo: { is: null } },
         {
+          // Ou aucune expérience/éducation/compétence
           AND: [
             { experiences: { none: {} } },
             { educations: { none: {} } },
@@ -830,12 +832,13 @@ export async function listResume(options?: { includePartial?: boolean }) {
     }
 
     const resumes = await prisma.resume.findMany({
-      where: { userId: user.id },
+      where: whereCondition,
       orderBy: { updatedAt: 'desc' },
       include: {
-        personalInfo: true,
+        template: true, // <-- new line to include chosen template
         theme: true,
         font: true,
+        personalInfo: true,
         experiences: { take: 1 },
         educations: { take: 1 },
         skills: { take: 1 },
@@ -847,6 +850,14 @@ export async function listResume(options?: { includePartial?: boolean }) {
 
     const resumesWithProgress = resumes.map(resume => ({
       ...resume,
+      // flatten template dates to ISO strings to ensure serialisable across server actions
+      template: resume.template
+        ? {
+            ...resume.template,
+            createdAt: resume.template.createdAt.toISOString(),
+            updatedAt: resume.template.updatedAt.toISOString(),
+          }
+        : null,
       progress: calculateResumeProgress(resume),
     }));
 

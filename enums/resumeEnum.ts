@@ -11,12 +11,10 @@ export enum ResumeTemplateType {
   COMPACT = 'compact',
   CLEAN = 'clean',
   STYLISH = 'stylish',
-  TIMELINE = 'styline',
-  MINIMALIST = 'minalist',
+  TIMELINE = 'timeline',
+  MINIMALIST = 'minimalist',
   ELEGANT = 'elegant',
   EXECUTIVE = 'executive',
 }
 
 export default ResumeTemplateType;
-
-

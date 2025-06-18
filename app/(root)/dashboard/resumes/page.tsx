@@ -122,6 +122,9 @@ const DashboardPage = () => {
     fetchResumes();
   }, []);
 
+  // Compute list to display : privilégie partiels, sinon tous les CV
+  const displayedResumes = partialResumes.length > 0 ? partialResumes : resumes;
+
   return (
     <section className="flex flex-col items-center justify-start h-full w-full py-8 md:py-12">
       <div className="container relative overflow-hidden px-4 sm:px-6 lg:px-8">
@@ -241,12 +244,12 @@ const DashboardPage = () => {
       </Dialog>
 
       {/* My CVs */}
-      {partialResumes.length > 0 && (
+      {displayedResumes.length > 0 && (
         <div className="mt-8 container px-4 sm:px-6 lg:px-8">
           <h2 className="text-xl font-semibold mb-4">Mes CVs</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {partialResumes.map(resume => {
-              const template = templates.find(t => t.id === resume.templateId);
+            {displayedResumes.map(resume => {
+              const template = templates.find(t => t.id === (resume.templateId ?? resume.templateId));
               const isOpen = openDrawerId === resume.id;
 
               return (
