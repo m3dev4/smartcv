@@ -60,6 +60,26 @@ const sendVerificationEmail = async (email: string, token: string) => {
   });
 };
 
+const sendPasswordResetEmail = async (email: string, token: string) => {
+  const transporter = createTransporter();
+  const resetUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/reset-password?token=${token}`;
+
+  await transporter.sendMail({
+    from: process.env.EMAIL_USERNAME,
+    to: email,
+    subject: 'Reinitialisation de votre mot de passe',
+    html: `
+      <div>
+        <h1>Bienvenue sur SmartCV!</h1>
+        <p>Merci de vous avoir inscrit. Veuillez choisir un nouveau mot de passe en cliquant sur le lien ci-dessous :</p>
+        <a href="${resetUrl}">Reinitialiser mon mot de passe</a>
+        <p>Ce lien expirera dans 24 heures.</p>
+        <p>Si vous n'avez pas demandé cette réinitialisation, vous pouvez ignorer cet email.</p>
+      </div>
+    `,
+  });
+};
+
 // Inscription utilisateur
 export async function signUp({ email, password, firstName, lastName }: SignUpParams) {
   try {
@@ -256,3 +276,43 @@ export async function getCurrentUser() {
     return null;
   }
 }
+
+// Forgot password
+export async function forgotPassword(email: string) {
+  try {
+    const userExist = await prisma.user.findUnique({
+      where: { email },
+    });
+    if (!userExist) {
+      return {
+        success: false,
+        message: 'Utilisateur introuvable',
+      };
+    }
+    const token = uuidv4();
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+
+    await prisma.user.update({
+      where: { email },
+      data: {
+        passwordResetToken: token,
+        passwordResetExpires: tomorrow,
+      },
+    });
+
+    await sendPasswordResetEmail(email, token);
+    return {
+      success: true,
+      message: 'Email envoyé',
+    };
+  } catch (error) {
+    console.error("Erreur lors de l'envoi de l'email de réinitialisation de mot de passe:", error);
+    return {
+      success: false,
+      message:
+        "Une erreur est survenue lors de l'envoi de l'email de réinitialisation de mot de passe",
+    };
+  }
+}
+

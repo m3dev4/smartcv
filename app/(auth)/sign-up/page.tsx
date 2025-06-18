@@ -84,13 +84,9 @@ const RegisterPage = () => {
     <div className="flex items-start flex-col lg:flex-row">
       {/* Image illustrative - Cachée sur mobile */}
       <div className="hidden lg:flex lg:w-1/2 xl:w-3/5">
-        <Image
-          src="/images/cv-auth.jpg"
-          width={630}
-          height={620}
-          alt="image illustrative"
-          className="w-full h-full object-cover"
-        />
+         <video className="w-full h-screen object-cover" autoPlay loop muted playsInline>
+          <source src="/videos/smartcv.mp4" type="video/mp4" />
+        </video>
       </div>
 
       {/* Conteneur du formulaire */}

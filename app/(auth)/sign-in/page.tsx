@@ -78,13 +78,9 @@ const RegisterPage = () => {
     <div className="flex flex-col lg:flex-row">
       {/* Image illustrative - Cachée sur mobile */}
       <div className="hidden lg:flex lg:w-1/2 xl:w-3/5">
-        <Image
-          src="/images/login-cv.jpg"
-          width={640}
-          height={620}
-          alt="image illustrative"
-          className="w-full h-full object-cover"
-        />
+        <video className="w-full h-screen object-cover" autoPlay loop muted playsInline>
+          <source src="/videos/signInVideo.mp4" type="video/mp4" />
+        </video>
       </div>
 
       {/* Conteneur du formulaire */}
@@ -204,6 +200,17 @@ const RegisterPage = () => {
                 placeholder="••••••••"
               />
               {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password}</p>}
+            </div>
+
+            <div className="flex py-auto justify-end w-full ">
+              <div className="flex items-center gap-2 justify-end">
+                <p>Mot de passe oublié ?</p>
+                <Link href="/forgotPassword">
+                  <span className="text-blue-500 cursor-pointer hover:underline focus:underline">
+                    Cliquer ici
+                  </span>
+                </Link>
+              </div>
             </div>
 
             {/* Bouton de soumission */}
