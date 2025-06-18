@@ -87,10 +87,10 @@ export function ResumeProvider({ children, resumeId, templateType }: ResumeProvi
   const convertPrismaToResumeTemplate = (prismaResume: any): ResumeTemplateProps['resume'] => {
     const templateName = prismaResume.template?.name || prismaResume.templateId || 'modern';
     const templateId = convertTemplateNameToType(templateName);
-    
+
     // Obtenir le thème par défaut pour ce template
     const defaultTheme = getDefaultThemeForTemplate(templateName);
-    
+
     return {
       ...prismaResume,
       templateId,
@@ -485,25 +485,25 @@ export function ResumeProvider({ children, resumeId, templateType }: ResumeProvi
       case 'modern':
         return ResumeTemplateType.MODERN;
       case 'clean':
-        return ResumeTemplateType.CLEAN
+        return ResumeTemplateType.CLEAN;
       case 'multicolumn':
-        return ResumeTemplateType.MULTICOLUMN
+        return ResumeTemplateType.MULTICOLUMN;
       case 'minimalist':
-          return ResumeTemplateType.MINIMALIST
-        case 'contemporain':
-          return ResumeTemplateType.CONTEMPORAIN
-        case 'compact':
-          return ResumeTemplateType.COMPACT
-        case 'mint':
-          return ResumeTemplateType.MINT
-        case 'timeline':
-          return ResumeTemplateType.TIMELINE
-        case 'stylish':
-          return ResumeTemplateType.STYLISH
-        case 'elegant':
-          return ResumeTemplateType.ELEGANT
-        case 'executive':
-          return ResumeTemplateType.EXECUTIVE
+        return ResumeTemplateType.MINIMALIST;
+      case 'contemporain':
+        return ResumeTemplateType.CONTEMPORAIN;
+      case 'compact':
+        return ResumeTemplateType.COMPACT;
+      case 'mint':
+        return ResumeTemplateType.MINT;
+      case 'timeline':
+        return ResumeTemplateType.TIMELINE;
+      case 'stylish':
+        return ResumeTemplateType.STYLISH;
+      case 'elegant':
+        return ResumeTemplateType.ELEGANT;
+      case 'executive':
+        return ResumeTemplateType.EXECUTIVE;
       default:
         return ResumeTemplateType.MODERN;
     }
@@ -644,7 +644,7 @@ export function ResumeProvider({ children, resumeId, templateType }: ResumeProvi
     setResume(prev => {
       if (!prev) return null;
 
-      // Si le template change ET que ce n'est pas une modification manuelle du thème, 
+      // Si le template change ET que ce n'est pas une modification manuelle du thème,
       // mettre à jour le thème correspondant
       let newUpdates = { ...updates };
       if (updates.templateId && !updates.theme) {
@@ -655,7 +655,7 @@ export function ResumeProvider({ children, resumeId, templateType }: ResumeProvi
             ...prev.theme,
             ...templateTheme,
             id: prev.theme?.id || 'default',
-          }
+          },
         };
       }
 

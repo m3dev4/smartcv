@@ -1,5 +1,14 @@
 import type { Metadata } from 'next';
-import { IBM_Plex_Sans, Inter, Roboto, Open_Sans, Lato, Montserrat, Poppins, Source_Sans_3 } from 'next/font/google';
+import {
+  IBM_Plex_Sans,
+  Inter,
+  Roboto,
+  Open_Sans,
+  Lato,
+  Montserrat,
+  Poppins,
+  Source_Sans_3,
+} from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/providers/nexttheme-provider';
 import { AuthProvider } from '@/providers/auth-provider';
@@ -60,6 +69,24 @@ const sourceSans = Source_Sans_3({
 export const metadata: Metadata = {
   title: 'Smart CV',
   description: 'Un outil pour créer un CV professionnel',
+  alternates: { canonical: 'https://smart-cv-sn.netlify.app/' },
+  openGraph: {
+    title: 'Smart CV',
+    description: 'Un outil super puissant pour créér des CVs gratuitement',
+    url: 'https://smart-cv-sn.netlify.app/',
+    siteName: 'Smart CV',
+    locale: 'fr_FR',
+    type: 'website',
+    images: [
+      {
+        url: 'https://smart-cv-sn.netlify.app/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Smart CV',
+      },
+    ],
+  },
+  keywords: ['CV', 'CV gratuit', 'CV professionnel', 'CV en ligne', 'CV en PDF'],
   robots: {
     index: true,
     follow: true,
@@ -77,7 +104,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" suppressHydrationWarning>
-      <body className={`
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="index, follow" />
+        <meta name="googlebot" content="index, follow" />
+        <meta name="keywords" content="CV, CV gratuit, CV professionnel, CV en ligne, CV en PDF" />
+      </head>
+      <body
+        className={`
         ${ibmPlexSans.variable} 
         ${inter.variable} 
         ${roboto.variable} 
@@ -86,7 +120,8 @@ export default function RootLayout({
         ${montserrat.variable} 
         ${poppins.variable} 
         ${sourceSans.variable}
-      `}>
+      `}
+      >
         <ThemeProvider attribute="class" defaultTheme="system" disableTransitionOnChange>
           <AuthProvider>{children}</AuthProvider>
         </ThemeProvider>
