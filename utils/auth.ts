@@ -80,6 +80,21 @@ const sendPasswordResetEmail = async (email: string, token: string) => {
   });
 };
 
+const sendEmailAfterPasswordReset = async (email: string) => {
+  const transporter = createTransporter();
+
+  await transporter.sendMail({
+    from: process.env.EMAIL_USERNAME,
+    to: email,
+    subject: 'Votre mot de passe a été reinitialiser',
+    html: `
+      <div>
+        <h1>Votre mot de passe a été reinitialiser</h1
+      </div>
+    `,
+  });
+};
+
 // Inscription utilisateur
 export async function signUp({ email, password, firstName, lastName }: SignUpParams) {
   try {
@@ -316,3 +331,66 @@ export async function forgotPassword(email: string) {
   }
 }
 
+// Reset password
+export async function resetPassword(token: string, newPassword: string) {
+  try {
+    // Validation des paramètres
+    if (!token || !newPassword) {
+      return {
+        success: false,
+        message: 'Token et nouveau mot de passe requis',
+      };
+    }
+
+    // Validation de la force du mot de passe (optionnel)
+    if (newPassword.length < 8) {
+      return {
+        success: false,
+        message: 'Le mot de passe doit contenir au moins 8 caractères',
+      };
+    }
+
+    const user = await prisma.user.findUnique({
+      where: { passwordResetToken: token },
+    });
+
+    if (!user) {
+      return {
+        success: false,
+        message: 'Token de réinitialisation invalide',
+      };
+    }
+
+    // Vérification de l'expiration du token
+    if (user.passwordResetExpires && user.passwordResetExpires < new Date()) {
+      return {
+        success: false,
+        message: 'Token de réinitialisation expiré',
+      };
+    }
+
+    // Mise à jour du mot de passe et suppression du token
+    await prisma.user.update({
+      where: { id: user.id },
+      data: {
+        passwordHash: await hash(newPassword, 12), // 12 rounds pour plus de sécurité
+        passwordResetToken: null,
+        passwordResetExpires: null,
+      },
+    });
+
+    // Email de confirmation (optionnel)
+    await sendEmailAfterPasswordReset(user.email);
+
+    return {
+      success: true,
+      message: 'Votre mot de passe a été mis à jour avec succès',
+    };
+  } catch (error) {
+    console.error('Erreur lors de la réinitialisation du mot de passe:', error);
+    return {
+      success: false,
+      message: 'Une erreur est survenue lors de la réinitialisation du mot de passe',
+    };
+  }
+}
