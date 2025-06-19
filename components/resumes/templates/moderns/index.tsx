@@ -35,6 +35,8 @@ export const ModernTemplate: React.FC<ResumeTemplateProps> = ({
     }
   };
 
+ 
+
   return (
     <div
       className="flex flex-col bg-white shadow-lg rounded-lg overflow-hidden max-w-4xl mx-auto"

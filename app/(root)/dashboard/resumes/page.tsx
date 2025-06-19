@@ -189,14 +189,15 @@ const DashboardPage = () => {
                 >
                   <div className="flex flex-col w-full ">
                     <div className={`  rouded-t-xl relative overflow-hidden`}>
-                      <div className="flex items-center justify-center aspect-[3/4] overflow-hidden">
+                      <div className="flex items-center justify-center w-full  aspect-[3/4] overflow-hidden">
                         {temp.thumbnail ? (
                           <Image
                             src={temp.thumbnail || '/placeholder.svg'}
                             alt={temp.name || 'Template thumbnail'}
-                            width={500} // Adjusted width for better fit in h-48 container
-                            height={600} // Adjusted height for better fit
-                            className="object-cover w-full h-full" // Changed to object-cover for better fill
+                           quality={100}
+                           priority={true}
+                           fill={true}
+                            className="object-fill w-full h-full"
                           />
                         ) : (
                           <div className="w-full h-full bg-gray-200 flex items-center justify-center text-gray-500 aspect-[3/4]">

@@ -13,6 +13,9 @@ const nextConfig = {
   expireTime: {
     turbopack: false,
   },
+  api: {
+    bodyParser: false,
+  },
   output: 'standalone',
 
   experimental: {

@@ -359,60 +359,9 @@ export const CleanProfessionalTemplate: React.FC<ResumeTemplateProps> = ({
               </div>
             </section>
           )}
-
-          {/* Passions/Interests */}
-          <section>
-            <h2
-              className="text-lg font-bold mb-4 pb-2 border-b border-gray-300"
-              style={{ color: theme.text }}
-            >
-              PASSIONS
-            </h2>
-            <div className="space-y-2">
-              <div className="flex items-start">
-                <span className="mr-2 mt-2 w-1 h-1 bg-blue-500 rounded-full flex-shrink-0" />
-                <div>
-                  <h3 className="font-semibold text-sm">Emerging Software Innovation</h3>
-                  <p className="text-xs text-gray-700">
-                    Passionate about exploring cutting-edge technologies and methodologies that can
-                    transform software development.
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start">
-                <span className="mr-2 mt-2 w-1 h-1 bg-blue-500 rounded-full flex-shrink-0" />
-                <div>
-                  <h3 className="font-semibold text-sm">Mentorship and Development</h3>
-                  <p className="text-xs text-gray-700">
-                    Dedicated to empowering personal fitness with regular workouts at the local gym
-                    and community involvement.
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start">
-                <span className="mr-2 mt-2 w-1 h-1 bg-blue-500 rounded-full flex-shrink-0" />
-                <div>
-                  <h3 className="font-semibold text-sm">Community Relations</h3>
-                  <p className="text-xs text-gray-700">
-                    Actively participate in local community events and initiatives to foster
-                    positive relationships and contribute to local development.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
         </div>
       </div>
-
-      {/* Footer */}
-      <footer className="p-8 pt-4">
-        <div className="border-t border-gray-300 pt-4 text-center">
-          <p className="text-xs text-gray-500">
-            {personalInfo?.website || 'www.sophiafoster.com'} | Page 1 of 1 |{' '}
-            {new Date().getFullYear()}
-          </p>
-        </div>
-      </footer>
+      
     </div>
   );
 };

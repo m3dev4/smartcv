@@ -2,13 +2,13 @@ import { useResume } from '@/context/resume-context';
 import Underline from '@tiptap/extension-underline';
 import { EditorContent, useEditor } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Avatar, AvatarFallback } from '../ui/avatar';
 import { AvatarImage } from '@radix-ui/react-avatar';
 import { Label } from '../ui/label';
 import { Input } from '@headlessui/react';
 import { Button } from '../ui/button';
-import { Menu, Strikethrough, UnderlineIcon } from 'lucide-react';
+import { Menu, Strikethrough, UnderlineIcon, Upload } from 'lucide-react';
 
 export const RenderPersonalInfoEditor = () => {
   const { resume, updateResume } = useResume();
@@ -24,6 +24,7 @@ export const RenderPersonalInfoEditor = () => {
   const [imageUrl, setImageUrl] = useState('');
   const [selectedEducationIndex, setSelectedEducationIndex] = useState(0);
   const [selectedExperienceIndex, setSelectedExperienceIndex] = useState(0);
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
   const editor = useEditor({
     extensions: [StarterKit, Underline],
@@ -84,11 +85,55 @@ export const RenderPersonalInfoEditor = () => {
     return editor.isActive(type, option);
   };
 
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setSelectedFile(file);
+      uploadFile(file);
+    }
+  };
+
+  const uploadFile = async (file: File) => {
+    const formData = new FormData();
+    formData.append('myFile', file);
+
+    try {
+      const res = await fetch('/api/actions/multer/upload', {
+        method: 'POST',
+        body: formData,
+      });
+
+      // Vérifier si la réponse est OK
+      if (!res.ok) {
+        const errorText = await res.text();
+        throw new Error(errorText);
+      }
+
+      const result = await res.json();
+
+      if (result.fileName) {
+        updateResume({
+          personalInfo: {
+            ...resume.personalInfo,
+            photoUrl: `/uploads/${result.fileName}`,
+            email: resume.personalInfo?.email || '',
+          },
+        });
+      } else {
+        console.error('Erreur lors de l\'upload:', result.error);
+      }
+    } catch (error: any) {
+      console.error("Erreur lors de l'upload:", error.message);
+      // Optionnel : afficher un message à l'utilisateur
+      alert('Erreur lors de l\'upload du fichier');
+    }
+  };
+
   return (
     <div className="space-y-4 flex flex-col items-center justify-center h-full w-full">
       <div className="flex items-center gap-2">
         <Avatar className="w-20 h-20">
-          <AvatarImage src={resume.personalInfo?.photoUrl || ''} className="object-cover" />
+          <AvatarImage src={resume.personalInfo?.photoUrl || ''} className="object-cover w-full" />
           <AvatarFallback>{resume.personalInfo?.firstName?.charAt(0) || ''}</AvatarFallback>
         </Avatar>
         <div className="flex flex-col gap-2">
@@ -107,6 +152,21 @@ export const RenderPersonalInfoEditor = () => {
               })
             }
           />
+        </div>
+
+        <div className="relative">
+          <Input
+            type="file"
+            id="fileUpload"
+            accept="image/*"
+            className="hidden w-full"
+            onChange={handleFileChange}
+          />
+          <Label htmlFor="fileUpload">
+            <Button variant="outline" size="icon" className="cursor-pointer" asChild>
+              <Upload className="h-5 w-5" />
+            </Button>
+          </Label>
         </div>
       </div>
 
