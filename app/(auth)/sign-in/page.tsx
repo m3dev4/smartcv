@@ -88,15 +88,15 @@ const RegisterPage = () => {
         <div className="w-full max-w-md space-y-8">
           {/* En-tête */}
           <div className="text-center">
-            <h2 className="text-2xl lg:text-3xl font-extrabold text-gray-900">
+            <h2 className="text-2xl lg:text-3xl font-extrabold text-gray-900 dark:text-white">
               Nous sommes ravis de vous revoir !
             </h2>
-            <p className="text-lg font-medium text-gray-700 mt-2">Connectez-vous à votre compte</p>
-            <p className="mt-4 text-sm text-gray-600">
+            <p className="text-lg font-medium text-gray-700 mt-2 dark:text-gray-200">Connectez-vous à votre compte</p>
+            <p className="mt-4 text-sm text-gray-600 dark:text-gray-400">
               Ou{' '}
               <Link
                 href="/sign-up"
-                className="text-indigo-500 font-medium hover:text-indigo-600 transition-colors"
+                className="text-indigo-500 font-medium hover:text-indigo-600 transition-colors "
               >
                 Creez un compte
               </Link>
@@ -162,7 +162,7 @@ const RegisterPage = () => {
 
             {/* Email */}
             <div>
-              <Label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+              <Label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">
                 Email
               </Label>
               <Input
@@ -183,7 +183,7 @@ const RegisterPage = () => {
 
             {/* Mot de passe */}
             <div>
-              <Label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+              <Label htmlFor="password" className="block text-sm dark:text-gray-200 font-medium text-gray-700 mb-1">
                 Mot de passe
               </Label>
               <Input
@@ -217,7 +217,7 @@ const RegisterPage = () => {
             <Button
               type="submit"
               disabled={isSubmitting}
-              className="w-full flex justify-center items-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="w-full flex justify-center items-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium  bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
               {isSubmitting ? <Loader className="animate-spin h-5 w-5" /> : 'Se connecter'}
             </Button>
