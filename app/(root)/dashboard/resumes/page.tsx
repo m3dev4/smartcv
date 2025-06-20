@@ -13,6 +13,7 @@ import { formatDistanceToNow } from 'date-fns';
 import { fr } from 'date-fns/locale';
 import ResumeDrawer from '@/components/resumeDrawer';
 import ResumePreview from '@/components/render/resumePreview';
+import { toast, Toaster } from 'sonner';
 
 interface Resume {
   id: string;
@@ -127,6 +128,7 @@ const DashboardPage = () => {
 
   return (
     <section className="flex flex-col items-center justify-start h-full w-full py-8 md:py-12">
+     
       <div className="container relative overflow-hidden px-4 sm:px-6 lg:px-8">
         <h1 className="text-2xl sm:text-3xl font-bold text-center md:text-left">CV</h1>
         {/* Cartes pour créer/importer un CV */}
@@ -150,7 +152,10 @@ const DashboardPage = () => {
             </CardContent>
           </Card>
 
-          <Card className="w-full max-w-xs sm:w-64 h-72 sm:h-80 bg-accent border-accent/100 hover:scale-105 transition-transform cursor-pointer group">
+          <Card
+            className="w-full max-w-xs sm:w-64 h-72 sm:h-80 bg-accent border-accent/100 hover:scale-105 transition-transform cursor-pointer group"
+            onClick={() => toast.info('Fonctionnalité d\'import en cours de développement')}
+          >
             <CardContent className="flex items-center flex-col justify-center h-full p-6 relative">
               <div className="flex items-center justify-center">
                 <Upload

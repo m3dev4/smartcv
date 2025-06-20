@@ -5,6 +5,7 @@ import { Copy, Download, FileEdit, Loader2, Pencil, Trash } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { deleteResume, updateResume } from '@/app/api/actions';
 import { toast, Toaster } from 'sonner';
+import { downloadResume } from '@/utils/download-resume';
 import { useState } from 'react';
 import {
   AlertDialog,
@@ -61,8 +62,26 @@ const ResumeDrawer = ({
       toast.error('Une erreur est survenue lors de la suppression du CV');
     }
   };
-  const handleDuplicate = (id: string) => {};
-  const handleDownload = (id: string) => {};
+
+  const handleDuplicate = async (id: string) => {
+    try {
+      toast.loading('Duplication en cours...');
+      const res = await fetch(`/api/resumes/${id}/duplicate`, { method: 'POST' });
+      const data = await res.json();
+      toast.dismiss();
+      if (data.success) {
+        toast.success('CV dupliqué avec succès');
+        router.refresh();
+      } else {
+        toast.error(data.message || 'Erreur lors de la duplication');
+      }
+    } catch (error) {
+      toast.dismiss();
+      console.error(error);
+      toast.error('Erreur lors de la duplication');
+    }
+  };
+
 
   const handleEdit = () => {
     // Rediriger vers la page d'édition avec l'ID du CV
@@ -141,7 +160,7 @@ const ResumeDrawer = ({
             </DrawerTitle>
             <DrawerDescription>Sélectionnez une action pour ce CV</DrawerDescription>
           </DrawerHeader>
-          <div className=" grid grid-cols-2 gap-4 p-4">
+          <div className=" grid grid-cols-3 gap-4 p-4">
             <Button
               className="flex flex-col items-center justify-center h-40 gap-2 group hover:scale-110 transition-transform cursor-pointer"
               onClick={handleEdit}
@@ -149,15 +168,15 @@ const ResumeDrawer = ({
               <FileEdit className="h-8 w-8" />
               <span>Ouvrir</span>
             </Button>
-            <Button
+            {/* <Button
               className="flex flex-col items-center justify-center h-40 gap-2 group hover:scale-110 transition-transform"
-              onClick={() => handleDownload(resume.id)}
+              onClick={() => downloadResume(resume, 'pdf')}
             >
               <Download className="h-8 w-8" />
               <span>Télécharger</span>
-            </Button>
+            </Button> */}
             <Button
-              className="flex flex-col items-center justify-center h-40 gap-2 group hover:scale-110 transition-transform"
+              className="flex flex-col cursor-pointer items-center justify-center h-40 gap-2 group hover:scale-110 transition-transform"
               onClick={() => handleDuplicate(resume.id)}
             >
               <Copy className="h-8 w-8" />
@@ -166,7 +185,7 @@ const ResumeDrawer = ({
             <AlertDialog>
               <AlertDialogTrigger asChild>
                 <Button
-                  className="flex flex-col items-center justify-center h-40 gap-2 group hover:scale-110 transition-transform"
+                  className="flex flex-col cursor-pointer items-center justify-center h-40 gap-2 group hover:scale-110 transition-transform"
                   variant="destructive"
                 >
                   <Trash className="h-8 w-8" />
