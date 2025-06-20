@@ -10,10 +10,10 @@ import { Eye, EyeOff, Loader2, Lock, CheckCircle, XCircle, ArrowLeft } from 'luc
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import type React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { toast, Toaster } from 'sonner';
 
-const ResetPasswordPage = () => {
+const ResetPasswordForm = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -252,6 +252,22 @@ const ResetPasswordPage = () => {
         </div>
       </Card>
     </div>
+  );
+};
+
+const ResetPasswordPage = () => {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center p-4">
+        <Card className="w-full max-w-md shadow-xl border-0">
+          <CardContent className="flex items-center justify-center py-12">
+            <Loader2 className="h-8 w-8 animate-spin text-blue-600" />
+          </CardContent>
+        </Card>
+      </div>
+    }>
+      <ResetPasswordForm />
+    </Suspense>
   );
 };
 

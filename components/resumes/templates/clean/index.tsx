@@ -1,136 +1,122 @@
-'use client';
+"use client"
 
-import type { ResumeTemplateProps } from '@/types/resumeTypes';
-import { formatDate } from '@/utils/data-utils';
-import type React from 'react';
+import type { ResumeTemplateProps } from "@/types/resumeTypes"
+import { formatDate } from "@/utils/data-utils"
+import type React from "react"
 
 /**
- * Template Clean Professional de CV (inspiré du design Sophia Foster)
+ * Template Clean Professional de CV (inspiré du design Sophia Foster) - Version Responsive
  * Caractéristiques:
  * - Design très épuré et minimaliste
- * - Layout en deux colonnes (70/30)
+ * - Layout en deux colonnes (70/30) sur desktop, une colonne sur mobile
  * - Typographie simple et claire
  * - Pas de bordures, juste des lignes de séparation
  * - Fond blanc avec texte noir
  * - Accents de couleur subtils
  * - Très professionnel et structuré
+ * - Optimisé pour tous les appareils
  */
 export const CleanProfessionalTemplate: React.FC<ResumeTemplateProps> = ({
   resume,
   isEditable = false,
   onEditSection,
 }) => {
-  const {
-    personalInfo,
-    educations,
-    experiences,
-    skills,
-    languages,
-    certifications,
-    projects,
-    achievements,
-  } = resume;
+  const { personalInfo, educations, experiences, skills, languages, certifications, projects, achievements } = resume
 
   const theme = resume.theme || {
-    primary: '#2563EB',
-    secondary: '#F8FAFC',
-    accent: '#1E40AF',
-    background: '#FFFFFF',
-    text: '#1F2937',
-  };
+    primary: "#2563EB",
+    secondary: "#F8FAFC",
+    accent: "#1E40AF",
+    background: "#FFFFFF",
+    text: "#1F2937",
+  }
 
   const handleEditSection = (sectionType: string, sectionId?: string) => {
     if (isEditable && onEditSection) {
-      onEditSection(sectionType, sectionId || '');
+      onEditSection(sectionType, sectionId || "")
     }
-  };
+  }
 
   return (
     <div
-      className="max-w-4xl mx-auto bg-white shadow-lg"
+      className="w-full max-w-4xl mx-auto bg-white shadow-lg"
       style={{
-        fontFamily: resume.font?.name || 'Arial, sans-serif',
+        fontFamily: resume.font?.name || "Arial, sans-serif",
         color: theme.text,
         backgroundColor: theme.background,
       }}
     >
-      {/* En-tête avec nom et titre */}
-      <header className="p-8 pb-6" onClick={() => handleEditSection('personalInfo')}>
-        <h1 className="text-4xl font-bold mb-2 tracking-wide" style={{ color: theme.text }}>
+      {/* En-tête avec nom et titre - Responsive */}
+      <header className="p-4 sm:p-6 lg:p-8 pb-4 sm:pb-6" onClick={() => handleEditSection("personalInfo")}>
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-2 tracking-wide" style={{ color: theme.text }}>
           {personalInfo?.firstName?.toUpperCase()} {personalInfo?.lastName?.toUpperCase()}
         </h1>
-        {personalInfo?.title && (
-          <h2 className="text-lg text-gray-600 mb-4">{personalInfo.title}</h2>
-        )}
+        {personalInfo?.title && <h2 className="text-base sm:text-lg text-gray-600 mb-4">{personalInfo.title}</h2>}
 
-        {/* Informations de contact */}
-        <div className="flex flex-wrap gap-6 text-sm text-gray-600">
-          {personalInfo?.email && <span>{personalInfo.email}</span>}
+        {/* Informations de contact - Responsive */}
+        <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-6 text-xs sm:text-sm text-gray-600">
+          {personalInfo?.email && <span className="break-all">{personalInfo.email}</span>}
           {personalInfo?.phone && <span>{personalInfo.phone}</span>}
           {personalInfo?.location && <span>{personalInfo.location}</span>}
-          {personalInfo?.website && <span>{personalInfo.website}</span>}
+          {personalInfo?.website && <span className="break-all">{personalInfo.website}</span>}
         </div>
       </header>
 
-      <div className="grid grid-cols-1 lg:grid-cols-10 gap-8 px-8">
+      <div className="grid grid-cols-1 lg:grid-cols-10 gap-6 lg:gap-8 px-4 sm:px-6 lg:px-8">
         {/* Colonne principale (70%) */}
-        <div className="lg:col-span-7 space-y-8">
+        <div className="lg:col-span-7 space-y-6 lg:space-y-8">
           {/* Summary */}
           {personalInfo?.description && (
-            <section onClick={() => handleEditSection('summary')}>
+            <section onClick={() => handleEditSection("summary")}>
               <h2
-                className="text-lg font-bold mb-4 pb-2 border-b border-gray-300"
+                className="text-base sm:text-lg font-bold mb-3 sm:mb-4 pb-2 border-b border-gray-300"
                 style={{ color: theme.text }}
               >
                 SUMMARY
               </h2>
-              <p className="text-sm leading-relaxed text-gray-700">{personalInfo.description}</p>
+              <p className="text-xs sm:text-sm leading-relaxed text-gray-700">{personalInfo.description}</p>
             </section>
           )}
 
           {/* Experience */}
           {experiences && experiences.length > 0 && (
-            <section onClick={() => handleEditSection('experiences')}>
+            <section onClick={() => handleEditSection("experiences")}>
               <h2
-                className="text-lg font-bold mb-4 pb-2 border-b border-gray-300"
+                className="text-base sm:text-lg font-bold mb-3 sm:mb-4 pb-2 border-b border-gray-300"
                 style={{ color: theme.text }}
               >
                 EXPERIENCE
               </h2>
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 {experiences
                   .sort((a, b) => a.order - b.order)
-                  .map(experience => (
+                  .map((experience) => (
                     <div key={experience.id}>
-                      <div className="flex justify-between items-start mb-2">
-                        <div>
-                          <h3 className="font-bold text-base">{experience.position}</h3>
-                          <h4 className="text-sm font-medium" style={{ color: theme.primary }}>
+                      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2 space-y-1 sm:space-y-0">
+                        <div className="flex-1">
+                          <h3 className="font-bold text-sm sm:text-base">{experience.position}</h3>
+                          <h4 className="text-xs sm:text-sm font-medium" style={{ color: theme.primary }}>
                             {experience.company}
                           </h4>
                           {experience.location && (
-                            <p className="text-sm text-gray-600">{experience.location}</p>
+                            <p className="text-xs sm:text-sm text-gray-600">{experience.location}</p>
                           )}
                         </div>
-                        <div className="text-sm text-gray-600 text-right">
-                          {formatDate(experience.startDate)} -{' '}
-                          {experience.current
-                            ? 'Present'
-                            : experience.endDate
-                            ? formatDate(experience.endDate)
-                            : ''}
+                        <div className="text-xs sm:text-sm text-gray-600 sm:text-right sm:ml-4 sm:flex-shrink-0">
+                          {formatDate(experience.startDate)} -{" "}
+                          {experience.current ? "Present" : experience.endDate ? formatDate(experience.endDate) : ""}
                         </div>
                       </div>
                       {experience.description && (
-                        <ul className="text-sm text-gray-700 space-y-1 ml-0">
-                          {experience.description.split('\n').map(
+                        <ul className="text-xs sm:text-sm text-gray-700 space-y-1 ml-0">
+                          {experience.description.split("\n").map(
                             (line, index) =>
                               line.trim() && (
                                 <li key={index} className="flex items-start">
                                   <span className="mr-2 mt-2 w-1 h-1 bg-gray-400 rounded-full flex-shrink-0" />
                                   {line.trim()}
                                 </li>
-                              )
+                              ),
                           )}
                         </ul>
                       )}
@@ -142,9 +128,9 @@ export const CleanProfessionalTemplate: React.FC<ResumeTemplateProps> = ({
 
           {/* Education */}
           {educations && educations.length > 0 && (
-            <section onClick={() => handleEditSection('educations')}>
+            <section onClick={() => handleEditSection("educations")}>
               <h2
-                className="text-lg font-bold mb-4 pb-2 border-b border-gray-300"
+                className="text-base sm:text-lg font-bold mb-3 sm:mb-4 pb-2 border-b border-gray-300"
                 style={{ color: theme.text }}
               >
                 EDUCATION
@@ -152,28 +138,28 @@ export const CleanProfessionalTemplate: React.FC<ResumeTemplateProps> = ({
               <div className="space-y-4">
                 {educations
                   .sort((a, b) => a.order - b.order)
-                  .map(education => (
+                  .map((education) => (
                     <div key={education.id}>
-                      <div className="flex justify-between items-start mb-1">
-                        <div>
-                          <h3 className="font-bold text-sm">{education.degree}</h3>
-                          <h4 className="text-sm" style={{ color: theme.primary }}>
+                      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-1 space-y-1 sm:space-y-0">
+                        <div className="flex-1">
+                          <h3 className="font-bold text-xs sm:text-sm">{education.degree}</h3>
+                          <h4 className="text-xs sm:text-sm" style={{ color: theme.primary }}>
                             {education.institution}
                           </h4>
                           {education.fieldOfStudy && (
-                            <p className="text-sm text-gray-600">{education.fieldOfStudy}</p>
+                            <p className="text-xs sm:text-sm text-gray-600">{education.fieldOfStudy}</p>
                           )}
                           {education.location && (
-                            <p className="text-sm text-gray-600">{education.location}</p>
+                            <p className="text-xs sm:text-sm text-gray-600">{education.location}</p>
                           )}
                         </div>
-                        <div className="text-sm text-gray-600">
-                          {formatDate(education.startDate)} -{' '}
-                          {education.endDate ? formatDate(education.endDate) : 'Present'}
+                        <div className="text-xs sm:text-sm text-gray-600 sm:ml-4 sm:flex-shrink-0">
+                          {formatDate(education.startDate)} -{" "}
+                          {education.endDate ? formatDate(education.endDate) : "Present"}
                         </div>
                       </div>
                       {education.description && (
-                        <p className="text-sm text-gray-700 mt-2">{education.description}</p>
+                        <p className="text-xs sm:text-sm text-gray-700 mt-2">{education.description}</p>
                       )}
                     </div>
                   ))}
@@ -183,9 +169,9 @@ export const CleanProfessionalTemplate: React.FC<ResumeTemplateProps> = ({
 
           {/* Projects */}
           {projects && projects.length > 0 && (
-            <section onClick={() => handleEditSection('projects')}>
+            <section onClick={() => handleEditSection("projects")}>
               <h2
-                className="text-lg font-bold mb-4 pb-2 border-b border-gray-300"
+                className="text-base sm:text-lg font-bold mb-3 sm:mb-4 pb-2 border-b border-gray-300"
                 style={{ color: theme.text }}
               >
                 PROJECTS
@@ -193,26 +179,26 @@ export const CleanProfessionalTemplate: React.FC<ResumeTemplateProps> = ({
               <div className="space-y-4">
                 {projects
                   .sort((a, b) => a.order - b.order)
-                  .map(project => (
+                  .map((project) => (
                     <div key={project.id}>
-                      <div className="flex justify-between items-start mb-1">
-                        <h3 className="font-bold text-sm">{project.title}</h3>
+                      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-1 space-y-1 sm:space-y-0">
+                        <h3 className="font-bold text-xs sm:text-sm flex-1">{project.title}</h3>
                         {(project.startDate || project.endDate) && (
-                          <div className="text-sm text-gray-600">
+                          <div className="text-xs sm:text-sm text-gray-600 sm:ml-4 sm:flex-shrink-0">
                             {project.startDate && formatDate(project.startDate)}
                             {project.endDate && ` - ${formatDate(project.endDate)}`}
                           </div>
                         )}
                       </div>
                       {project.description && (
-                        <p className="text-sm text-gray-700 mb-2">{project.description}</p>
+                        <p className="text-xs sm:text-sm text-gray-700 mb-2">{project.description}</p>
                       )}
                       {project.url && (
                         <a
                           href={project.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-sm hover:underline"
+                          className="text-xs sm:text-sm hover:underline break-all"
                           style={{ color: theme.primary }}
                         >
                           View Project
@@ -225,13 +211,13 @@ export const CleanProfessionalTemplate: React.FC<ResumeTemplateProps> = ({
           )}
         </div>
 
-        {/* Sidebar droite (30%) */}
-        <div className="lg:col-span-3 space-y-8">
+        {/* Sidebar droite (30%) - Responsive */}
+        <div className="lg:col-span-3 space-y-6 lg:space-y-8">
           {/* Achievements */}
           {achievements && achievements.length > 0 && (
-            <section onClick={() => handleEditSection('achievements')}>
+            <section onClick={() => handleEditSection("achievements")}>
               <h2
-                className="text-lg font-bold mb-4 pb-2 border-b border-gray-300"
+                className="text-base sm:text-lg font-bold mb-3 sm:mb-4 pb-2 border-b border-gray-300"
                 style={{ color: theme.text }}
               >
                 ACHIEVEMENTS
@@ -239,26 +225,24 @@ export const CleanProfessionalTemplate: React.FC<ResumeTemplateProps> = ({
               <div className="space-y-3">
                 {achievements
                   .sort((a, b) => a.order - b.order)
-                  .map(achievement => (
+                  .map((achievement) => (
                     <div key={achievement.id}>
-                      <h3 className="font-semibold text-sm">{achievement.title}</h3>
+                      <h3 className="font-semibold text-xs sm:text-sm">{achievement.title}</h3>
                       {achievement.description && (
                         <p className="text-xs text-gray-700 mt-1">{achievement.description}</p>
                       )}
-                      {achievement.date && (
-                        <p className="text-xs text-gray-500 mt-1">{formatDate(achievement.date)}</p>
-                      )}
+                      {achievement.date && <p className="text-xs text-gray-500 mt-1">{formatDate(achievement.date)}</p>}
                     </div>
                   ))}
               </div>
             </section>
           )}
 
-          {/* Skills */}
+          {/* Skills - Responsive */}
           {skills && skills.length > 0 && (
-            <section onClick={() => handleEditSection('skills')}>
+            <section onClick={() => handleEditSection("skills")}>
               <h2
-                className="text-lg font-bold mb-4 pb-2 border-b border-gray-300"
+                className="text-base sm:text-lg font-bold mb-3 sm:mb-4 pb-2 border-b border-gray-300"
                 style={{ color: theme.text }}
               >
                 SKILLS
@@ -267,22 +251,25 @@ export const CleanProfessionalTemplate: React.FC<ResumeTemplateProps> = ({
                 {Object.entries(
                   skills
                     .sort((a, b) => a.order - b.order)
-                    .reduce((acc, skill) => {
-                      const category = skill.category || 'Technical';
-                      if (!acc[category]) {
-                        acc[category] = [];
-                      }
-                      acc[category].push(skill);
-                      return acc;
-                    }, {} as Record<string, typeof skills>)
+                    .reduce(
+                      (acc, skill) => {
+                        const category = skill.category || "Technical"
+                        if (!acc[category]) {
+                          acc[category] = []
+                        }
+                        acc[category].push(skill)
+                        return acc
+                      },
+                      {} as Record<string, typeof skills>,
+                    ),
                 ).map(([category, skillsInCategory]) => (
                   <div key={category}>
-                    <h3 className="text-sm font-semibold mb-2">{category}</h3>
+                    <h3 className="text-xs sm:text-sm font-semibold mb-2">{category}</h3>
                     <div className="flex flex-wrap gap-1">
-                      {skillsInCategory.map(skill => (
+                      {skillsInCategory.map((skill) => (
                         <span
                           key={skill.id}
-                          className="text-xs px-2 py-1 bg-gray-100 text-gray-700 rounded"
+                          className="text-xs px-2 py-1 bg-gray-100 text-gray-700 rounded whitespace-nowrap"
                         >
                           {skill.name}
                         </span>
@@ -296,9 +283,9 @@ export const CleanProfessionalTemplate: React.FC<ResumeTemplateProps> = ({
 
           {/* Certifications/Courses */}
           {certifications && certifications.length > 0 && (
-            <section onClick={() => handleEditSection('certifications')}>
+            <section onClick={() => handleEditSection("certifications")}>
               <h2
-                className="text-lg font-bold mb-4 pb-2 border-b border-gray-300"
+                className="text-base sm:text-lg font-bold mb-3 sm:mb-4 pb-2 border-b border-gray-300"
                 style={{ color: theme.text }}
               >
                 COURSES
@@ -306,9 +293,9 @@ export const CleanProfessionalTemplate: React.FC<ResumeTemplateProps> = ({
               <div className="space-y-3">
                 {certifications
                   .sort((a, b) => a.order - b.order)
-                  .map(cert => (
+                  .map((cert) => (
                     <div key={cert.id}>
-                      <h3 className="font-semibold text-sm">{cert.name}</h3>
+                      <h3 className="font-semibold text-xs sm:text-sm">{cert.name}</h3>
                       <p className="text-xs text-gray-600">{cert.issuer}</p>
                       {cert.issueDate && (
                         <p className="text-xs text-gray-500">
@@ -321,7 +308,7 @@ export const CleanProfessionalTemplate: React.FC<ResumeTemplateProps> = ({
                           href={cert.credentialUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-xs hover:underline"
+                          className="text-xs hover:underline break-all"
                           style={{ color: theme.primary }}
                         >
                           View Certificate
@@ -335,9 +322,9 @@ export const CleanProfessionalTemplate: React.FC<ResumeTemplateProps> = ({
 
           {/* Languages */}
           {languages && languages.length > 0 && (
-            <section onClick={() => handleEditSection('languages')}>
+            <section onClick={() => handleEditSection("languages")} className="pb-6 lg:pb-0">
               <h2
-                className="text-lg font-bold mb-4 pb-2 border-b border-gray-300"
+                className="text-base sm:text-lg font-bold mb-3 sm:mb-4 pb-2 border-b border-gray-300"
                 style={{ color: theme.text }}
               >
                 LANGUAGES
@@ -345,14 +332,13 @@ export const CleanProfessionalTemplate: React.FC<ResumeTemplateProps> = ({
               <div className="space-y-2">
                 {languages
                   .sort((a, b) => a.order - b.order)
-                  .map(language => (
+                  .map((language) => (
                     <div key={language.id} className="flex justify-between items-center">
-                      <span className="text-sm">{language.name}</span>
-                      <span className="text-xs text-gray-500">
-                        {typeof language.level === 'string'
-                          ? language.level.charAt(0).toUpperCase() +
-                            language.level.slice(1).toLowerCase()
-                          : language.level || 'N/A'}
+                      <span className="text-xs sm:text-sm">{language.name}</span>
+                      <span className="text-xs text-gray-500 ml-2">
+                        {typeof language.level === "string"
+                          ? language.level.charAt(0).toUpperCase() + language.level.slice(1).toLowerCase()
+                          : language.level || "N/A"}
                       </span>
                     </div>
                   ))}
@@ -361,7 +347,6 @@ export const CleanProfessionalTemplate: React.FC<ResumeTemplateProps> = ({
           )}
         </div>
       </div>
-      
     </div>
-  );
-};
+  )
+}

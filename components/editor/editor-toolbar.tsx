@@ -65,8 +65,6 @@ const EditorToolbar: React.FC<EditorToolbarProps> = ({
 
   const [resumeIsSaving, setResumeIsSaving] = useState(false);
 
-  if (!resume) return null;
-
   const handleSave = async () => {
     setResumeIsSaving(true);
     try {
@@ -104,6 +102,10 @@ const EditorToolbar: React.FC<EditorToolbarProps> = ({
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [undo, redo, canUndo, canRedo]);
+
+if (!resume) {
+  return null;
+}
 
   return (
     <div className="border-b border-slate-200 dark:border-slate-700 px-4 py-3">

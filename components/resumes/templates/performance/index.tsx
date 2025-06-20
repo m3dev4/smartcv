@@ -26,11 +26,11 @@ export const PerformanceTemplate: React.FC<ResumeTemplateProps> = ({
     achievements,
   } = resume;
   const theme = resume.theme || {
-    primary: '#4CAF50',
-    secondary: '#EDF7ED',
-    accent: '#2E7D32',
+    primary: '#3e1704',
+    secondary: '#f6eef3',
+    accent: '#fb923c',
     background: '#FFFFFF',
-    text: '#333333',
+    text: '#1f2937',
   };
 
   const handleEditSection = (sectionType: string, sectionId?: string) => {

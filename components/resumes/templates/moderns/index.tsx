@@ -23,11 +23,11 @@ export const ModernTemplate: React.FC<ResumeTemplateProps> = ({
   const { personalInfo, educations, experiences, skills, languages, certifications, achievements } =
     resume;
   const theme = resume.theme || {
-    primary: '#4C4F50',
-    secondary: '#E8F5E9',
-    accent: '#2E7D32',
+    primary: '#363636',
+    secondary: '#16191d',
+    accent: '#ffffff',
     background: '#FFFFFF',
-    text: '#333333',
+    text: '#1f2937',
   };
   const hanldeEditSection = (sectionType: string, sectionId?: string) => {
     if (isEditable && onEditSection) {
