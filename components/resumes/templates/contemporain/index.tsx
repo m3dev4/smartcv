@@ -4,6 +4,7 @@ import type { ResumeTemplateProps } from '@/types/resumeTypes';
 import { formatDate } from '@/utils/data-utils';
 import type React from 'react';
 
+
 /**
  * Template Contemporain de CV
  * Caractéristiques:
@@ -15,7 +16,7 @@ import type React from 'react';
  */
 export const ContemporaryTemplate: React.FC<ResumeTemplateProps> = ({
   resume,
-  isEditable = false,
+  isEditable = true,
   onEditSection,
 }) => {
   const {

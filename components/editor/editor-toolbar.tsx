@@ -21,6 +21,21 @@ import { toast } from 'sonner';
 import { Toaster } from '../ui/sonner';
 import { formatDistanceToNow } from 'date-fns';
 import { fr } from 'date-fns/locale';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuPortal,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
+import { downloadResume } from '@/utils/download-resume';
 
 interface EditorToolbarProps {
   onTogglePropertiesPanel: () => void;
@@ -33,6 +48,7 @@ const EditorToolbar: React.FC<EditorToolbarProps> = ({
   onToggleMobileSidebar, // Destructure the new prop
 }) => {
   const {
+    resume,
     undo,
     redo,
     canUndo,
@@ -48,6 +64,8 @@ const EditorToolbar: React.FC<EditorToolbarProps> = ({
   } = useResume();
 
   const [resumeIsSaving, setResumeIsSaving] = useState(false);
+
+  if (!resume) return null;
 
   const handleSave = async () => {
     setResumeIsSaving(true);
@@ -145,17 +163,14 @@ const EditorToolbar: React.FC<EditorToolbarProps> = ({
           <Badge variant="secondary" className="text-xs">
             {lastSaved ? (
               <>
-               <span>
-                Dernière sauvegarde: {formatDistanceToNow
-                 (lastSaved, { addSuffix: true, locale: fr })
-                }
-               </span>
-              </>
-            ): (
-              <>
                 <span>
-                  Aucune sauvegarde
+                  Dernière sauvegarde:{' '}
+                  {formatDistanceToNow(lastSaved, { addSuffix: true, locale: fr })}
                 </span>
+              </>
+            ) : (
+              <>
+                <span>Aucune sauvegarde</span>
               </>
             )}
           </Badge>
@@ -182,10 +197,31 @@ const EditorToolbar: React.FC<EditorToolbarProps> = ({
 
           <Separator className="h-6" orientation="vertical" />
 
-          <Button variant="ghost" size="sm">
-            <Download className="h-4 w-4 mr-2" />
-            Télécharger
-          </Button>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" size="sm">
+                <Download className="h-4 w-4 mr-2" />
+                Télécharger
+              </Button>
+            </DropdownMenuTrigger>
+
+            <DropdownMenuContent>
+              <DropdownMenuGroup>
+                <DropdownMenuItem onClick={() => downloadResume(resume, 'pdf')}>
+                  <Download className="h-4 w-4 mr-2" />
+                  Télécharger en PDF
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => downloadResume(resume, 'json')}>
+                  <Download className="h-4 w-4 mr-2" />
+                  Télécharger en JSON
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => downloadResume(resume, 'docx')}>
+                  <Download className="h-4 w-4 mr-2" />
+                  Télécharger en DOCX
+                </DropdownMenuItem>
+              </DropdownMenuGroup>
+            </DropdownMenuContent>
+          </DropdownMenu>
 
           <Separator className="h-6" orientation="vertical" />
 
