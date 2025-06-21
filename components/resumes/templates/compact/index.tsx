@@ -156,7 +156,7 @@ export const CompactModernTemplate: React.FC<ResumeTemplateProps> = ({
         <div className="lg:col-span-2 p-6 space-y-6">
           {/* Résumé/À propos */}
           {personalInfo?.description && (
-            <section onClick={() => handleEditSection('summary')}>
+            <section onClick={() => handleEditSection('personalInfo')}>
               <h2
                 className="text-lg font-bold mb-3 pb-2 border-b-2"
                 style={{ color: theme.primary, borderColor: theme.primary }}

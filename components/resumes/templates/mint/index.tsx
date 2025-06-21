@@ -172,7 +172,7 @@ export const MintGreenTemplate: React.FC<ResumeTemplateProps> = ({ resume, isEdi
 
         {/* Section Summary */}
         {personalInfo?.description && (
-          <section onClick={() => handleEditSection("summary")}>
+          <section onClick={() => handleEditSection("personalInfo")}>
             <div className="flex items-center mb-4">
               <div
                 className="w-6 h-6 sm:w-8 sm:h-8 rounded-full flex items-center justify-center mr-3"

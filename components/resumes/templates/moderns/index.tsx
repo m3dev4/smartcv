@@ -191,7 +191,7 @@ export const ModernTemplate: React.FC<ResumeTemplateProps> = ({
           style={{ backgroundColor: theme.secondary, color: theme.accent }}
         >
           {personalInfo?.description && (
-            <div className="mb-8" onClick={() => hanldeEditSection('summury')}>
+            <div className="mb-8" onClick={() => hanldeEditSection('personalInfo')}>
               <h3
                 className="text-lg font-bold uppercase mb-2 pb-1 border-b-2"
                 style={{ borderColor: theme.primary }}

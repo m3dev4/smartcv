@@ -121,7 +121,7 @@ export const ExecutiveTemplate: React.FC<ResumeTemplateProps> = ({ resume, isEdi
         <div className="flex-1 px-4 sm:px-8 lg:px-12 py-6 sm:py-8 lg:py-10">
           {/* Summary professionnel */}
           {personalInfo?.description && (
-            <section onClick={() => handleEditSection("summary")} className="mb-8 sm:mb-10 lg:mb-12">
+            <section onClick={() => handleEditSection("personalInfo")} className="mb-8 sm:mb-10 lg:mb-12">
               <div className="flex items-center mb-4 sm:mb-6">
                 <div className="w-8 sm:w-10 lg:w-12 h-px bg-slate-700 mr-3 sm:mr-4"></div>
                 <h2

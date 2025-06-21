@@ -72,7 +72,7 @@ export const MinimalistTemplate: React.FC<ResumeTemplateProps> = ({
       <div className="max-w-2xl mx-auto px-8 space-y-12">
         {/* Summary */}
         {personalInfo?.description && (
-          <section onClick={() => handleEditSection('summary')}>
+          <section onClick={() => handleEditSection('personalInfo')}>
             <p className="text-lg leading-relaxed text-gray-700 text-center italic">
               {personalInfo.description}
             </p>

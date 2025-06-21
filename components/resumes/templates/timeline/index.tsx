@@ -98,7 +98,7 @@ export const TimelineTemplate: React.FC<ResumeTemplateProps> = ({
         <div className="lg:col-span-2 space-y-8">
           {/* Summary */}
           {personalInfo?.description && (
-            <section onClick={() => handleEditSection('summary')}>
+            <section onClick={() => handleEditSection('personalInfo')}>
               <h2
                 className="text-lg font-bold mb-4 uppercase tracking-wide"
                 style={{ color: theme.text }}

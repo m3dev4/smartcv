@@ -231,7 +231,7 @@ export const ClassicTemplate: React.FC<ResumeTemplateProps> = ({
 
           {/* desctiption / À propos */}
           {personalInfo?.description && (
-            <div className="mb-6" onClick={() => handleEditSection('summary')}>
+            <div className="mb-6" onClick={() => handleEditSection('personalInfo')}>
               <p className="text-gray-700 leading-relaxed">{personalInfo.description}</p>
             </div>
           )}

@@ -48,9 +48,9 @@ export function EditorPropertiesPanel({
 
   const getSectionTitle = () => {
     const titles: Record<string, string> = {
-      personal: 'Informations personnelles',
-      experience: 'Expériences',
-      education: 'Formation',
+      personalInfo: 'Informations personnelles',
+      experiences: 'Expériences',
+      educations: 'Formation',
       skills: 'Compétences',
       languages: 'Langues',
       projects: 'Projets',
@@ -65,11 +65,11 @@ export function EditorPropertiesPanel({
 
   const renderSectionEditor = () => {
     switch (selectedSection) {
-      case 'personal':
+      case 'personalInfo':
         return <RenderPersonalInfoEditor />;
-      case 'experience':
+      case 'experiences':
         return <RenderExperienceEditor />;
-      case 'education':
+      case 'educations':
         return <RenderEducationEditor />;
       case 'skills':
         return <RenderSkillsEditor />;

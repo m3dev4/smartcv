@@ -121,7 +121,7 @@ export const ElegantTemplate: React.FC<ResumeTemplateProps> = ({ resume, isEdita
         <div className="flex-1 p-4 sm:p-6 lg:p-8">
           {/* Summary avec style élégant */}
           {personalInfo?.description && (
-            <section onClick={() => handleEditSection("summary")} className="mb-6 lg:mb-8">
+            <section onClick={() => handleEditSection("personalInfo")} className="mb-6 lg:mb-8">
               <div className="relative">
                 <div
                   className="absolute left-0 top-0 w-1 h-6 sm:h-8 rounded-full"

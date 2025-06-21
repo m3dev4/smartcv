@@ -156,7 +156,7 @@ export const PerformanceTemplate: React.FC<ResumeTemplateProps> = ({
 
         {/* Description / À propos */}
         {personalInfo?.description && (
-          <div className="mt-4" onClick={() => handleEditSection('summary')}>
+          <div className="mt-4" onClick={() => handleEditSection('personalInfo')}>
             <p className="text-gray-700 text-sm leading-relaxed">{personalInfo.description}</p>
           </div>
         )}

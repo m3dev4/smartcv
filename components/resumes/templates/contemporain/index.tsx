@@ -163,7 +163,7 @@ export const ContemporaryTemplate: React.FC<ResumeTemplateProps> = ({
             borderColor: theme.primary,
             color: theme.accent,
           }}
-          onClick={() => handleEditSection('summary')}
+          onClick={() => handleEditSection('personalInfo')}
         >
           <p className="text-lg leading-relaxed font-light italic">"{personalInfo.description}"</p>
         </div>

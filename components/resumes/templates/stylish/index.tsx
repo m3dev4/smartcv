@@ -109,7 +109,7 @@ export const StylishTemplate: React.FC<ResumeTemplateProps> = ({ resume, isEdita
         <div className="lg:col-span-2 space-y-6 lg:space-y-8">
           {/* Summary */}
           {personalInfo?.description && (
-            <section onClick={() => handleEditSection("summary")}>
+            <section onClick={() => handleEditSection("personalInfo")}>
               <h2
                 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 pb-2 border-b-2"
                 style={{ color: theme.primary, borderColor: theme.primary }}

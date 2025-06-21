@@ -41,7 +41,7 @@ function replaceOklchColors(cssText: string): string {
   };
 
   let result = cssText;
-  
+
   // Remplacer les correspondances exactes
   Object.keys(oklchToRgb).forEach(oklch => {
     const regex = new RegExp(oklch.replace(/[()]/g, '\\$&'), 'g');
@@ -49,23 +49,23 @@ function replaceOklchColors(cssText: string): string {
   });
 
   // Remplacer les patterns OKLCH génériques par des couleurs sûres
-  result = result.replace(/oklch\([^)]+\)/g, (match) => {
+  result = result.replace(/oklch\([^)]+\)/g, match => {
     // Extraire les valeurs L, C, H
     const values = match.match(/oklch\(\s*([0-9.]+)\s+([0-9.]+)\s+([0-9.]+)\s*\)/);
     if (values) {
       const l = parseFloat(values[1]);
       const c = parseFloat(values[2]);
       const h = parseFloat(values[3]);
-      
+
       // Conversion approximative basée sur la luminosité
       if (l > 0.9) return 'rgb(245, 245, 245)'; // Très clair
       if (l > 0.8) return 'rgb(220, 220, 220)'; // Clair
       if (l > 0.6) return 'rgb(160, 160, 160)'; // Moyen clair
       if (l > 0.4) return 'rgb(100, 100, 100)'; // Moyen foncé
-      if (l > 0.2) return 'rgb(60, 60, 60)';   // Foncé
+      if (l > 0.2) return 'rgb(60, 60, 60)'; // Foncé
       return 'rgb(30, 30, 30)'; // Très foncé
     }
-    
+
     // Fallback pour les patterns non reconnus
     return 'rgb(128, 128, 128)';
   });
@@ -77,7 +77,7 @@ function replaceOklchColors(cssText: string): string {
 function createCompatibleStyleSheet(): HTMLStyleElement {
   const style = document.createElement('style');
   style.type = 'text/css';
-  
+
   // CSS pour remplacer les couleurs OKLCH par des équivalents RGB
   const css = `
     /* Remplacement des couleurs OKLCH courantes */
@@ -114,7 +114,7 @@ function createCompatibleStyleSheet(): HTMLStyleElement {
       color: rgb(59, 130, 246) !important;
     }
   `;
-  
+
   style.innerHTML = css;
   return style;
 }
@@ -147,13 +147,17 @@ async function exportPdf() {
     // Fonction pour forcer les styles RGB
     const forceRgbStyles = (element: HTMLElement) => {
       const computedStyle = getComputedStyle(element);
-      
+
       // Propriétés à traiter
       const properties = [
-        'color', 'backgroundColor', 'borderTopColor', 
-        'borderRightColor', 'borderBottomColor', 'borderLeftColor'
+        'color',
+        'backgroundColor',
+        'borderTopColor',
+        'borderRightColor',
+        'borderBottomColor',
+        'borderLeftColor',
       ];
-      
+
       properties.forEach(prop => {
         const value = computedStyle.getPropertyValue(prop);
         if (value && value.includes('oklch')) {
@@ -170,7 +174,7 @@ async function exportPdf() {
           }
         }
       });
-      
+
       // Traiter les enfants
       Array.from(element.children).forEach(child => {
         if (child instanceof HTMLElement) {
@@ -193,17 +197,6 @@ async function exportPdf() {
       backgroundColor: '#ffffff',
       logging: false,
       removeContainer: false,
-      width: 794,
-      height: 1123, // A4 height
-      onclone: (clonedDoc) => {
-        // Nettoyer les styles OKLCH dans le document cloné
-        const styles = clonedDoc.querySelectorAll('style');
-        styles.forEach(style => {
-          if (style.textContent) {
-            style.textContent = replaceOklchColors(style.textContent);
-          }
-        });
-      }
     });
 
     // Créer le PDF
@@ -211,45 +204,53 @@ async function exportPdf() {
     const pdf = new jsPDF({
       orientation: 'portrait',
       unit: 'pt',
-      format: 'a4'
+      format: 'a4',
     });
 
     const pdfWidth = pdf.internal.pageSize.getWidth();
     const pdfHeight = pdf.internal.pageSize.getHeight();
     const imgWidth = canvas.width;
     const imgHeight = canvas.height;
-    const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
-    const finalWidth = imgWidth * ratio;
-    const finalHeight = imgHeight * ratio;
+    const ratio = pdfWidth / imgWidth;
+    const pageHeightPx = pdfHeight / ratio;
 
-    pdf.addImage(imgData, 'PNG', 0, 0, finalWidth, finalHeight);
+    let position = 0;
+
+    while (position < imgHeight) {
+      pdf.addImage(imgData, 'PNG', 0, -position * ratio, imgWidth * ratio, imgHeight * ratio);
+      position += pageHeightPx;
+      if (position < imgHeight) {
+        pdf.addPage();
+      }
+    }
+
     pdf.save('resume.pdf');
 
     // Nettoyer
     document.body.removeChild(container);
-
   } catch (error) {
-    console.error('Erreur lors de l\'export PDF:', error);
-    
+    console.error("Erreur lors de l'export PDF:", error);
+
     // Fallback ultra-simple
     try {
       const canvas = await html2canvas(node, {
         scale: 1,
         backgroundColor: '#ffffff',
-        logging: false
+        logging: false,
       });
-      
+
       const imgData = canvas.toDataURL('image/png');
       const pdf = new jsPDF('p', 'pt', 'a4');
       const pdfWidth = pdf.internal.pageSize.getWidth();
       const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
-      
+
       pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
       pdf.save('resume.pdf');
-      
     } catch (fallbackError) {
       console.error('Erreur du fallback:', fallbackError);
-      alert('Erreur lors de la génération du PDF. Veuillez vérifier que votre CV ne contient pas de couleurs OKLCH non supportées.');
+      alert(
+        'Erreur lors de la génération du PDF. Veuillez vérifier que votre CV ne contient pas de couleurs OKLCH non supportées.'
+      );
     }
   }
 }
@@ -262,7 +263,9 @@ async function exportDocx(resume: Resume) {
           new Paragraph({
             children: [
               new TextRun({
-                text: `${resume.personalInfo?.firstName || ''} ${resume.personalInfo?.lastName || ''}`,
+                text: `${resume.personalInfo?.firstName || ''} ${
+                  resume.personalInfo?.lastName || ''
+                }`,
                 bold: true,
                 size: 31,
               }),
@@ -288,12 +291,12 @@ async function exportDocx(resume: Resume) {
       },
     ],
   });
-  
+
   try {
     const blob = await Packer.toBlob(doc);
     saveAs(blob, 'resume.docx');
   } catch (error) {
-    console.error('Erreur lors de l\'export DOCX:', error);
+    console.error("Erreur lors de l'export DOCX:", error);
     alert('Erreur lors de la génération du fichier DOCX.');
   }
 }
