@@ -1,4 +1,5 @@
 import React from 'react';
+import { ResumeProvider } from '@/context/resume-context';
 import { ResumeTemplateProps } from '@/types/resumeTypes';
 import { ModernTemplate } from '../resumes/templates/moderns';
 import { ClassicTemplate } from '../resumes/templates/classic';
@@ -96,7 +97,8 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({
   const containerSize = 100 / scale;
 
   return (
-    <div className={`aspect-[3/4] overflow-hidden bg-white ${className}`}>
+    <ResumeProvider resumeId={resume.id} templateType={templateType}>
+      <div className={`aspect-[3/4] overflow-hidden bg-white ${className}`}>
       <div 
         className={`origin-top-left`}
         style={{
@@ -107,7 +109,8 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({
       >
         {renderTemplatePreview(templateType)}
       </div>
-    </div>
+      </div>
+    </ResumeProvider>
   );
 };
 
