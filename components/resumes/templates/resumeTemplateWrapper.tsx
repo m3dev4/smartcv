@@ -4,6 +4,15 @@ import React from 'react';
 import { ModernTemplate } from './moderns';
 import { ClassicTemplate } from './classic';
 import { PerformanceTemplate } from './performance';
+import { ContemporaryTemplate } from './contemporain';
+import { MintGreenTemplate } from './mint';
+import { CompactModernTemplate } from './compact';
+import { CleanProfessionalTemplate } from './clean';
+import { StylishTemplate } from './stylish';
+import { TimelineTemplate } from './timeline';
+import { MinimalistTemplate } from './minimalist';
+import { ElegantTemplate } from './elegant';
+import { ExecutiveTemplate } from './executive';
 
 const ResumeTemplateWrapper: React.FC<ResumeWrapperTemplateProps> = ({
   type,
@@ -28,6 +37,24 @@ const ResumeTemplateWrapper: React.FC<ResumeWrapperTemplateProps> = ({
         return <ClassicTemplate {...props} />;
       case ResumeTemplateType.PERFORMANCE:
         return <PerformanceTemplate {...props} />;
+      case ResumeTemplateType.CONTEMPORAIN:
+        return <ContemporaryTemplate {...props} />;
+      case ResumeTemplateType.MINT:
+        return <MintGreenTemplate {...props} />;
+      case ResumeTemplateType.COMPACT:
+        return <CompactModernTemplate {...props} />;
+      case ResumeTemplateType.CLEAN:
+        return <CleanProfessionalTemplate {...props} />;
+      case ResumeTemplateType.STYLISH:
+        return <StylishTemplate {...props} />;
+      case ResumeTemplateType.TIMELINE:
+        return <TimelineTemplate {...props} />;
+      case ResumeTemplateType.MINIMALIST:
+        return <MinimalistTemplate {...props} />;
+      case ResumeTemplateType.ELEGANT:
+        return <ElegantTemplate {...props} />;
+      case ResumeTemplateType.EXECUTIVE:
+        return <ExecutiveTemplate {...props} />;
       default:
         return <ModernTemplate {...props} />;
     }

@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2017",  // Changez de es5 à es2017 ou plus récent
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -8,7 +8,7 @@
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
-    "module": "esnext",
+    "module": "commonjs",  // Changez de esnext à commonjs pour ts-node
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,

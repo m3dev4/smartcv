@@ -84,13 +84,9 @@ const RegisterPage = () => {
     <div className="flex items-start flex-col lg:flex-row">
       {/* Image illustrative - Cachée sur mobile */}
       <div className="hidden lg:flex lg:w-1/2 xl:w-3/5">
-        <Image
-          src="/images/cv-auth.jpg"
-          width={630}
-          height={620}
-          alt="image illustrative"
-          className="w-full h-full object-cover"
-        />
+         <video className="w-full h-screen object-cover" autoPlay loop muted playsInline>
+          <source src="/videos/smartcv.mp4" type="video/mp4" />
+        </video>
       </div>
 
       {/* Conteneur du formulaire */}
@@ -98,11 +94,11 @@ const RegisterPage = () => {
         <div className="w-full max-w-md space-y-8">
           {/* En-tête */}
           <div className="text-center">
-            <h2 className="text-2xl lg:text-3xl font-extrabold text-gray-900">
+            <h2 className="text-2xl lg:text-3xl font-extrabold text-gray-900 dark:text-white">
               Nous sommes ravis de vous voir !
             </h2>
-            <p className="text-lg font-medium text-gray-700 mt-2">Créez votre compte</p>
-            <p className="mt-4 text-sm text-gray-600">
+            <p className="text-lg font-medium text-gray-700 mt-2 dark:text-gray-200">Créez votre compte</p>
+            <p className="mt-4 text-sm text-gray-600 dark:text-gray-400">
               Ou{' '}
               <Link
                 href="/sign-in"
@@ -170,7 +166,7 @@ const RegisterPage = () => {
             {/* Prénom et Nom */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <Label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1">
+                <Label htmlFor="firstName" className="block dark:text-white text-sm font-medium text-gray-700 mb-1">
                   Prénom
                 </Label>
                 <Input
@@ -192,7 +188,7 @@ const RegisterPage = () => {
               </div>
 
               <div>
-                <Label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-1">
+                <Label htmlFor="lastName" className="block dark:text-white text-sm font-medium text-gray-700 mb-1">
                   Nom
                 </Label>
                 <Input
@@ -214,7 +210,7 @@ const RegisterPage = () => {
 
             {/* Email */}
             <div>
-              <Label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+              <Label htmlFor="email" className="block dark:text-white text-sm font-medium text-gray-700 mb-1">
                 Email
               </Label>
               <Input
@@ -235,7 +231,7 @@ const RegisterPage = () => {
 
             {/* Mot de passe */}
             <div>
-              <Label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+              <Label htmlFor="password" className="block dark:text-white text-sm font-medium text-gray-700 mb-1">
                 Mot de passe
               </Label>
               <Input
@@ -258,7 +254,7 @@ const RegisterPage = () => {
             <div>
               <Label
                 htmlFor="confirmPassword"
-                className="block text-sm font-medium text-gray-700 mb-1"
+                className="block text-sm font-medium dark:text-white text-gray-700 mb-1"
               >
                 Confirmer le mot de passe
               </Label>

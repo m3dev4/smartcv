@@ -93,6 +93,31 @@ export type Theme = $Result.DefaultSelection<Prisma.$ThemePayload>
  * 
  */
 export type Font = $Result.DefaultSelection<Prisma.$FontPayload>
+/**
+ * Model LinkedInProfile
+ * 
+ */
+export type LinkedInProfile = $Result.DefaultSelection<Prisma.$LinkedInProfilePayload>
+/**
+ * Model LinkedInExperience
+ * 
+ */
+export type LinkedInExperience = $Result.DefaultSelection<Prisma.$LinkedInExperiencePayload>
+/**
+ * Model LinkedInEducation
+ * 
+ */
+export type LinkedInEducation = $Result.DefaultSelection<Prisma.$LinkedInEducationPayload>
+/**
+ * Model LinkedInSkill
+ * 
+ */
+export type LinkedInSkill = $Result.DefaultSelection<Prisma.$LinkedInSkillPayload>
+/**
+ * Model LinkedInCertification
+ * 
+ */
+export type LinkedInCertification = $Result.DefaultSelection<Prisma.$LinkedInCertificationPayload>
 
 /**
  * Enums
@@ -115,7 +140,8 @@ export const SectionType: {
   CERTIFICATIONS: 'CERTIFICATIONS',
   PROJECTS: 'PROJECTS',
   ACHIEVEMENTS: 'ACHIEVEMENTS',
-  CUSTOM: 'CUSTOM'
+  CUSTOM: 'CUSTOM',
+  LINKEDINPROFILE: 'LINKEDINPROFILE'
 };
 
 export type SectionType = (typeof SectionType)[keyof typeof SectionType]
@@ -429,6 +455,56 @@ export class PrismaClient<
     * ```
     */
   get font(): Prisma.FontDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.linkedInProfile`: Exposes CRUD operations for the **LinkedInProfile** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more LinkedInProfiles
+    * const linkedInProfiles = await prisma.linkedInProfile.findMany()
+    * ```
+    */
+  get linkedInProfile(): Prisma.LinkedInProfileDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.linkedInExperience`: Exposes CRUD operations for the **LinkedInExperience** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more LinkedInExperiences
+    * const linkedInExperiences = await prisma.linkedInExperience.findMany()
+    * ```
+    */
+  get linkedInExperience(): Prisma.LinkedInExperienceDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.linkedInEducation`: Exposes CRUD operations for the **LinkedInEducation** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more LinkedInEducations
+    * const linkedInEducations = await prisma.linkedInEducation.findMany()
+    * ```
+    */
+  get linkedInEducation(): Prisma.LinkedInEducationDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.linkedInSkill`: Exposes CRUD operations for the **LinkedInSkill** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more LinkedInSkills
+    * const linkedInSkills = await prisma.linkedInSkill.findMany()
+    * ```
+    */
+  get linkedInSkill(): Prisma.LinkedInSkillDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.linkedInCertification`: Exposes CRUD operations for the **LinkedInCertification** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more LinkedInCertifications
+    * const linkedInCertifications = await prisma.linkedInCertification.findMany()
+    * ```
+    */
+  get linkedInCertification(): Prisma.LinkedInCertificationDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -884,7 +960,12 @@ export namespace Prisma {
     CustomSection: 'CustomSection',
     Template: 'Template',
     Theme: 'Theme',
-    Font: 'Font'
+    Font: 'Font',
+    LinkedInProfile: 'LinkedInProfile',
+    LinkedInExperience: 'LinkedInExperience',
+    LinkedInEducation: 'LinkedInEducation',
+    LinkedInSkill: 'LinkedInSkill',
+    LinkedInCertification: 'LinkedInCertification'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -903,7 +984,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "session" | "resume" | "personalInfo" | "section" | "education" | "experience" | "skill" | "language" | "certification" | "project" | "achievement" | "customSection" | "template" | "theme" | "font"
+      modelProps: "user" | "session" | "resume" | "personalInfo" | "section" | "education" | "experience" | "skill" | "language" | "certification" | "project" | "achievement" | "customSection" | "template" | "theme" | "font" | "linkedInProfile" | "linkedInExperience" | "linkedInEducation" | "linkedInSkill" | "linkedInCertification"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -2091,6 +2172,376 @@ export namespace Prisma {
           }
         }
       }
+      LinkedInProfile: {
+        payload: Prisma.$LinkedInProfilePayload<ExtArgs>
+        fields: Prisma.LinkedInProfileFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.LinkedInProfileFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInProfilePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.LinkedInProfileFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInProfilePayload>
+          }
+          findFirst: {
+            args: Prisma.LinkedInProfileFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInProfilePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.LinkedInProfileFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInProfilePayload>
+          }
+          findMany: {
+            args: Prisma.LinkedInProfileFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInProfilePayload>[]
+          }
+          create: {
+            args: Prisma.LinkedInProfileCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInProfilePayload>
+          }
+          createMany: {
+            args: Prisma.LinkedInProfileCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.LinkedInProfileCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInProfilePayload>[]
+          }
+          delete: {
+            args: Prisma.LinkedInProfileDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInProfilePayload>
+          }
+          update: {
+            args: Prisma.LinkedInProfileUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInProfilePayload>
+          }
+          deleteMany: {
+            args: Prisma.LinkedInProfileDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.LinkedInProfileUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.LinkedInProfileUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInProfilePayload>[]
+          }
+          upsert: {
+            args: Prisma.LinkedInProfileUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInProfilePayload>
+          }
+          aggregate: {
+            args: Prisma.LinkedInProfileAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateLinkedInProfile>
+          }
+          groupBy: {
+            args: Prisma.LinkedInProfileGroupByArgs<ExtArgs>
+            result: $Utils.Optional<LinkedInProfileGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.LinkedInProfileCountArgs<ExtArgs>
+            result: $Utils.Optional<LinkedInProfileCountAggregateOutputType> | number
+          }
+        }
+      }
+      LinkedInExperience: {
+        payload: Prisma.$LinkedInExperiencePayload<ExtArgs>
+        fields: Prisma.LinkedInExperienceFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.LinkedInExperienceFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInExperiencePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.LinkedInExperienceFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInExperiencePayload>
+          }
+          findFirst: {
+            args: Prisma.LinkedInExperienceFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInExperiencePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.LinkedInExperienceFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInExperiencePayload>
+          }
+          findMany: {
+            args: Prisma.LinkedInExperienceFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInExperiencePayload>[]
+          }
+          create: {
+            args: Prisma.LinkedInExperienceCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInExperiencePayload>
+          }
+          createMany: {
+            args: Prisma.LinkedInExperienceCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.LinkedInExperienceCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInExperiencePayload>[]
+          }
+          delete: {
+            args: Prisma.LinkedInExperienceDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInExperiencePayload>
+          }
+          update: {
+            args: Prisma.LinkedInExperienceUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInExperiencePayload>
+          }
+          deleteMany: {
+            args: Prisma.LinkedInExperienceDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.LinkedInExperienceUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.LinkedInExperienceUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInExperiencePayload>[]
+          }
+          upsert: {
+            args: Prisma.LinkedInExperienceUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInExperiencePayload>
+          }
+          aggregate: {
+            args: Prisma.LinkedInExperienceAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateLinkedInExperience>
+          }
+          groupBy: {
+            args: Prisma.LinkedInExperienceGroupByArgs<ExtArgs>
+            result: $Utils.Optional<LinkedInExperienceGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.LinkedInExperienceCountArgs<ExtArgs>
+            result: $Utils.Optional<LinkedInExperienceCountAggregateOutputType> | number
+          }
+        }
+      }
+      LinkedInEducation: {
+        payload: Prisma.$LinkedInEducationPayload<ExtArgs>
+        fields: Prisma.LinkedInEducationFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.LinkedInEducationFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInEducationPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.LinkedInEducationFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInEducationPayload>
+          }
+          findFirst: {
+            args: Prisma.LinkedInEducationFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInEducationPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.LinkedInEducationFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInEducationPayload>
+          }
+          findMany: {
+            args: Prisma.LinkedInEducationFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInEducationPayload>[]
+          }
+          create: {
+            args: Prisma.LinkedInEducationCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInEducationPayload>
+          }
+          createMany: {
+            args: Prisma.LinkedInEducationCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.LinkedInEducationCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInEducationPayload>[]
+          }
+          delete: {
+            args: Prisma.LinkedInEducationDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInEducationPayload>
+          }
+          update: {
+            args: Prisma.LinkedInEducationUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInEducationPayload>
+          }
+          deleteMany: {
+            args: Prisma.LinkedInEducationDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.LinkedInEducationUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.LinkedInEducationUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInEducationPayload>[]
+          }
+          upsert: {
+            args: Prisma.LinkedInEducationUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInEducationPayload>
+          }
+          aggregate: {
+            args: Prisma.LinkedInEducationAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateLinkedInEducation>
+          }
+          groupBy: {
+            args: Prisma.LinkedInEducationGroupByArgs<ExtArgs>
+            result: $Utils.Optional<LinkedInEducationGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.LinkedInEducationCountArgs<ExtArgs>
+            result: $Utils.Optional<LinkedInEducationCountAggregateOutputType> | number
+          }
+        }
+      }
+      LinkedInSkill: {
+        payload: Prisma.$LinkedInSkillPayload<ExtArgs>
+        fields: Prisma.LinkedInSkillFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.LinkedInSkillFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInSkillPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.LinkedInSkillFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInSkillPayload>
+          }
+          findFirst: {
+            args: Prisma.LinkedInSkillFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInSkillPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.LinkedInSkillFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInSkillPayload>
+          }
+          findMany: {
+            args: Prisma.LinkedInSkillFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInSkillPayload>[]
+          }
+          create: {
+            args: Prisma.LinkedInSkillCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInSkillPayload>
+          }
+          createMany: {
+            args: Prisma.LinkedInSkillCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.LinkedInSkillCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInSkillPayload>[]
+          }
+          delete: {
+            args: Prisma.LinkedInSkillDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInSkillPayload>
+          }
+          update: {
+            args: Prisma.LinkedInSkillUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInSkillPayload>
+          }
+          deleteMany: {
+            args: Prisma.LinkedInSkillDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.LinkedInSkillUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.LinkedInSkillUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInSkillPayload>[]
+          }
+          upsert: {
+            args: Prisma.LinkedInSkillUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInSkillPayload>
+          }
+          aggregate: {
+            args: Prisma.LinkedInSkillAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateLinkedInSkill>
+          }
+          groupBy: {
+            args: Prisma.LinkedInSkillGroupByArgs<ExtArgs>
+            result: $Utils.Optional<LinkedInSkillGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.LinkedInSkillCountArgs<ExtArgs>
+            result: $Utils.Optional<LinkedInSkillCountAggregateOutputType> | number
+          }
+        }
+      }
+      LinkedInCertification: {
+        payload: Prisma.$LinkedInCertificationPayload<ExtArgs>
+        fields: Prisma.LinkedInCertificationFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.LinkedInCertificationFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInCertificationPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.LinkedInCertificationFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInCertificationPayload>
+          }
+          findFirst: {
+            args: Prisma.LinkedInCertificationFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInCertificationPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.LinkedInCertificationFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInCertificationPayload>
+          }
+          findMany: {
+            args: Prisma.LinkedInCertificationFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInCertificationPayload>[]
+          }
+          create: {
+            args: Prisma.LinkedInCertificationCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInCertificationPayload>
+          }
+          createMany: {
+            args: Prisma.LinkedInCertificationCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.LinkedInCertificationCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInCertificationPayload>[]
+          }
+          delete: {
+            args: Prisma.LinkedInCertificationDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInCertificationPayload>
+          }
+          update: {
+            args: Prisma.LinkedInCertificationUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInCertificationPayload>
+          }
+          deleteMany: {
+            args: Prisma.LinkedInCertificationDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.LinkedInCertificationUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.LinkedInCertificationUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInCertificationPayload>[]
+          }
+          upsert: {
+            args: Prisma.LinkedInCertificationUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LinkedInCertificationPayload>
+          }
+          aggregate: {
+            args: Prisma.LinkedInCertificationAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateLinkedInCertification>
+          }
+          groupBy: {
+            args: Prisma.LinkedInCertificationGroupByArgs<ExtArgs>
+            result: $Utils.Optional<LinkedInCertificationGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.LinkedInCertificationCountArgs<ExtArgs>
+            result: $Utils.Optional<LinkedInCertificationCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -2191,6 +2642,11 @@ export namespace Prisma {
     template?: TemplateOmit
     theme?: ThemeOmit
     font?: FontOmit
+    linkedInProfile?: LinkedInProfileOmit
+    linkedInExperience?: LinkedInExperienceOmit
+    linkedInEducation?: LinkedInEducationOmit
+    linkedInSkill?: LinkedInSkillOmit
+    linkedInCertification?: LinkedInCertificationOmit
   }
 
   /* Types for Logging */
@@ -2513,6 +2969,64 @@ export namespace Prisma {
    */
   export type FontCountOutputTypeCountResumesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: ResumeWhereInput
+  }
+
+
+  /**
+   * Count Type LinkedInProfileCountOutputType
+   */
+
+  export type LinkedInProfileCountOutputType = {
+    experiences: number
+    educations: number
+    skills: number
+    certifications: number
+  }
+
+  export type LinkedInProfileCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    experiences?: boolean | LinkedInProfileCountOutputTypeCountExperiencesArgs
+    educations?: boolean | LinkedInProfileCountOutputTypeCountEducationsArgs
+    skills?: boolean | LinkedInProfileCountOutputTypeCountSkillsArgs
+    certifications?: boolean | LinkedInProfileCountOutputTypeCountCertificationsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * LinkedInProfileCountOutputType without action
+   */
+  export type LinkedInProfileCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInProfileCountOutputType
+     */
+    select?: LinkedInProfileCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * LinkedInProfileCountOutputType without action
+   */
+  export type LinkedInProfileCountOutputTypeCountExperiencesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LinkedInExperienceWhereInput
+  }
+
+  /**
+   * LinkedInProfileCountOutputType without action
+   */
+  export type LinkedInProfileCountOutputTypeCountEducationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LinkedInEducationWhereInput
+  }
+
+  /**
+   * LinkedInProfileCountOutputType without action
+   */
+  export type LinkedInProfileCountOutputTypeCountSkillsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LinkedInSkillWhereInput
+  }
+
+  /**
+   * LinkedInProfileCountOutputType without action
+   */
+  export type LinkedInProfileCountOutputTypeCountCertificationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LinkedInCertificationWhereInput
   }
 
 
@@ -5037,6 +5551,7 @@ export namespace Prisma {
     projects?: boolean | Resume$projectsArgs<ExtArgs>
     achievements?: boolean | Resume$achievementsArgs<ExtArgs>
     customSections?: boolean | Resume$customSectionsArgs<ExtArgs>
+    LinkedInProfile?: boolean | Resume$LinkedInProfileArgs<ExtArgs>
     _count?: boolean | ResumeCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["resume"]>
 
@@ -5103,6 +5618,7 @@ export namespace Prisma {
     projects?: boolean | Resume$projectsArgs<ExtArgs>
     achievements?: boolean | Resume$achievementsArgs<ExtArgs>
     customSections?: boolean | Resume$customSectionsArgs<ExtArgs>
+    LinkedInProfile?: boolean | Resume$LinkedInProfileArgs<ExtArgs>
     _count?: boolean | ResumeCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type ResumeIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -5135,6 +5651,7 @@ export namespace Prisma {
       projects: Prisma.$ProjectPayload<ExtArgs>[]
       achievements: Prisma.$AchievementPayload<ExtArgs>[]
       customSections: Prisma.$CustomSectionPayload<ExtArgs>[]
+      LinkedInProfile: Prisma.$LinkedInProfilePayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -5555,6 +6072,7 @@ export namespace Prisma {
     projects<T extends Resume$projectsArgs<ExtArgs> = {}>(args?: Subset<T, Resume$projectsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     achievements<T extends Resume$achievementsArgs<ExtArgs> = {}>(args?: Subset<T, Resume$achievementsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AchievementPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     customSections<T extends Resume$customSectionsArgs<ExtArgs> = {}>(args?: Subset<T, Resume$customSectionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomSectionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    LinkedInProfile<T extends Resume$LinkedInProfileArgs<ExtArgs> = {}>(args?: Subset<T, Resume$LinkedInProfileArgs<ExtArgs>>): Prisma__LinkedInProfileClient<$Result.GetResult<Prisma.$LinkedInProfilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -6241,6 +6759,25 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: CustomSectionScalarFieldEnum | CustomSectionScalarFieldEnum[]
+  }
+
+  /**
+   * Resume.LinkedInProfile
+   */
+  export type Resume$LinkedInProfileArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInProfile
+     */
+    select?: LinkedInProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInProfile
+     */
+    omit?: LinkedInProfileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInProfileInclude<ExtArgs> | null
+    where?: LinkedInProfileWhereInput
   }
 
   /**
@@ -20844,6 +21381,5769 @@ export namespace Prisma {
 
 
   /**
+   * Model LinkedInProfile
+   */
+
+  export type AggregateLinkedInProfile = {
+    _count: LinkedInProfileCountAggregateOutputType | null
+    _avg: LinkedInProfileAvgAggregateOutputType | null
+    _sum: LinkedInProfileSumAggregateOutputType | null
+    _min: LinkedInProfileMinAggregateOutputType | null
+    _max: LinkedInProfileMaxAggregateOutputType | null
+  }
+
+  export type LinkedInProfileAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type LinkedInProfileSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type LinkedInProfileMinAggregateOutputType = {
+    id: number | null
+    resumeId: string | null
+    urn: string | null
+    firstName: string | null
+    lastName: string | null
+    headline: string | null
+    summury: string | null
+    username: string | null
+    profilePicture: string | null
+    country: string | null
+    city: string | null
+  }
+
+  export type LinkedInProfileMaxAggregateOutputType = {
+    id: number | null
+    resumeId: string | null
+    urn: string | null
+    firstName: string | null
+    lastName: string | null
+    headline: string | null
+    summury: string | null
+    username: string | null
+    profilePicture: string | null
+    country: string | null
+    city: string | null
+  }
+
+  export type LinkedInProfileCountAggregateOutputType = {
+    id: number
+    resumeId: number
+    urn: number
+    firstName: number
+    lastName: number
+    headline: number
+    summury: number
+    username: number
+    profilePicture: number
+    country: number
+    city: number
+    _all: number
+  }
+
+
+  export type LinkedInProfileAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type LinkedInProfileSumAggregateInputType = {
+    id?: true
+  }
+
+  export type LinkedInProfileMinAggregateInputType = {
+    id?: true
+    resumeId?: true
+    urn?: true
+    firstName?: true
+    lastName?: true
+    headline?: true
+    summury?: true
+    username?: true
+    profilePicture?: true
+    country?: true
+    city?: true
+  }
+
+  export type LinkedInProfileMaxAggregateInputType = {
+    id?: true
+    resumeId?: true
+    urn?: true
+    firstName?: true
+    lastName?: true
+    headline?: true
+    summury?: true
+    username?: true
+    profilePicture?: true
+    country?: true
+    city?: true
+  }
+
+  export type LinkedInProfileCountAggregateInputType = {
+    id?: true
+    resumeId?: true
+    urn?: true
+    firstName?: true
+    lastName?: true
+    headline?: true
+    summury?: true
+    username?: true
+    profilePicture?: true
+    country?: true
+    city?: true
+    _all?: true
+  }
+
+  export type LinkedInProfileAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LinkedInProfile to aggregate.
+     */
+    where?: LinkedInProfileWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LinkedInProfiles to fetch.
+     */
+    orderBy?: LinkedInProfileOrderByWithRelationInput | LinkedInProfileOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: LinkedInProfileWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LinkedInProfiles from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LinkedInProfiles.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned LinkedInProfiles
+    **/
+    _count?: true | LinkedInProfileCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: LinkedInProfileAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: LinkedInProfileSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: LinkedInProfileMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: LinkedInProfileMaxAggregateInputType
+  }
+
+  export type GetLinkedInProfileAggregateType<T extends LinkedInProfileAggregateArgs> = {
+        [P in keyof T & keyof AggregateLinkedInProfile]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateLinkedInProfile[P]>
+      : GetScalarType<T[P], AggregateLinkedInProfile[P]>
+  }
+
+
+
+
+  export type LinkedInProfileGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LinkedInProfileWhereInput
+    orderBy?: LinkedInProfileOrderByWithAggregationInput | LinkedInProfileOrderByWithAggregationInput[]
+    by: LinkedInProfileScalarFieldEnum[] | LinkedInProfileScalarFieldEnum
+    having?: LinkedInProfileScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: LinkedInProfileCountAggregateInputType | true
+    _avg?: LinkedInProfileAvgAggregateInputType
+    _sum?: LinkedInProfileSumAggregateInputType
+    _min?: LinkedInProfileMinAggregateInputType
+    _max?: LinkedInProfileMaxAggregateInputType
+  }
+
+  export type LinkedInProfileGroupByOutputType = {
+    id: number
+    resumeId: string
+    urn: string
+    firstName: string | null
+    lastName: string
+    headline: string | null
+    summury: string | null
+    username: string
+    profilePicture: string | null
+    country: string | null
+    city: string | null
+    _count: LinkedInProfileCountAggregateOutputType | null
+    _avg: LinkedInProfileAvgAggregateOutputType | null
+    _sum: LinkedInProfileSumAggregateOutputType | null
+    _min: LinkedInProfileMinAggregateOutputType | null
+    _max: LinkedInProfileMaxAggregateOutputType | null
+  }
+
+  type GetLinkedInProfileGroupByPayload<T extends LinkedInProfileGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<LinkedInProfileGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof LinkedInProfileGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], LinkedInProfileGroupByOutputType[P]>
+            : GetScalarType<T[P], LinkedInProfileGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type LinkedInProfileSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    urn?: boolean
+    firstName?: boolean
+    lastName?: boolean
+    headline?: boolean
+    summury?: boolean
+    username?: boolean
+    profilePicture?: boolean
+    country?: boolean
+    city?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+    experiences?: boolean | LinkedInProfile$experiencesArgs<ExtArgs>
+    educations?: boolean | LinkedInProfile$educationsArgs<ExtArgs>
+    skills?: boolean | LinkedInProfile$skillsArgs<ExtArgs>
+    certifications?: boolean | LinkedInProfile$certificationsArgs<ExtArgs>
+    _count?: boolean | LinkedInProfileCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["linkedInProfile"]>
+
+  export type LinkedInProfileSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    urn?: boolean
+    firstName?: boolean
+    lastName?: boolean
+    headline?: boolean
+    summury?: boolean
+    username?: boolean
+    profilePicture?: boolean
+    country?: boolean
+    city?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["linkedInProfile"]>
+
+  export type LinkedInProfileSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    urn?: boolean
+    firstName?: boolean
+    lastName?: boolean
+    headline?: boolean
+    summury?: boolean
+    username?: boolean
+    profilePicture?: boolean
+    country?: boolean
+    city?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["linkedInProfile"]>
+
+  export type LinkedInProfileSelectScalar = {
+    id?: boolean
+    resumeId?: boolean
+    urn?: boolean
+    firstName?: boolean
+    lastName?: boolean
+    headline?: boolean
+    summury?: boolean
+    username?: boolean
+    profilePicture?: boolean
+    country?: boolean
+    city?: boolean
+  }
+
+  export type LinkedInProfileOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "resumeId" | "urn" | "firstName" | "lastName" | "headline" | "summury" | "username" | "profilePicture" | "country" | "city", ExtArgs["result"]["linkedInProfile"]>
+  export type LinkedInProfileInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+    experiences?: boolean | LinkedInProfile$experiencesArgs<ExtArgs>
+    educations?: boolean | LinkedInProfile$educationsArgs<ExtArgs>
+    skills?: boolean | LinkedInProfile$skillsArgs<ExtArgs>
+    certifications?: boolean | LinkedInProfile$certificationsArgs<ExtArgs>
+    _count?: boolean | LinkedInProfileCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type LinkedInProfileIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }
+  export type LinkedInProfileIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }
+
+  export type $LinkedInProfilePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "LinkedInProfile"
+    objects: {
+      resume: Prisma.$ResumePayload<ExtArgs>
+      experiences: Prisma.$LinkedInExperiencePayload<ExtArgs>[]
+      educations: Prisma.$LinkedInEducationPayload<ExtArgs>[]
+      skills: Prisma.$LinkedInSkillPayload<ExtArgs>[]
+      certifications: Prisma.$LinkedInCertificationPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      resumeId: string
+      urn: string
+      firstName: string | null
+      lastName: string
+      headline: string | null
+      summury: string | null
+      username: string
+      profilePicture: string | null
+      country: string | null
+      city: string | null
+    }, ExtArgs["result"]["linkedInProfile"]>
+    composites: {}
+  }
+
+  type LinkedInProfileGetPayload<S extends boolean | null | undefined | LinkedInProfileDefaultArgs> = $Result.GetResult<Prisma.$LinkedInProfilePayload, S>
+
+  type LinkedInProfileCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<LinkedInProfileFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: LinkedInProfileCountAggregateInputType | true
+    }
+
+  export interface LinkedInProfileDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['LinkedInProfile'], meta: { name: 'LinkedInProfile' } }
+    /**
+     * Find zero or one LinkedInProfile that matches the filter.
+     * @param {LinkedInProfileFindUniqueArgs} args - Arguments to find a LinkedInProfile
+     * @example
+     * // Get one LinkedInProfile
+     * const linkedInProfile = await prisma.linkedInProfile.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends LinkedInProfileFindUniqueArgs>(args: SelectSubset<T, LinkedInProfileFindUniqueArgs<ExtArgs>>): Prisma__LinkedInProfileClient<$Result.GetResult<Prisma.$LinkedInProfilePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one LinkedInProfile that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {LinkedInProfileFindUniqueOrThrowArgs} args - Arguments to find a LinkedInProfile
+     * @example
+     * // Get one LinkedInProfile
+     * const linkedInProfile = await prisma.linkedInProfile.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends LinkedInProfileFindUniqueOrThrowArgs>(args: SelectSubset<T, LinkedInProfileFindUniqueOrThrowArgs<ExtArgs>>): Prisma__LinkedInProfileClient<$Result.GetResult<Prisma.$LinkedInProfilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first LinkedInProfile that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LinkedInProfileFindFirstArgs} args - Arguments to find a LinkedInProfile
+     * @example
+     * // Get one LinkedInProfile
+     * const linkedInProfile = await prisma.linkedInProfile.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends LinkedInProfileFindFirstArgs>(args?: SelectSubset<T, LinkedInProfileFindFirstArgs<ExtArgs>>): Prisma__LinkedInProfileClient<$Result.GetResult<Prisma.$LinkedInProfilePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first LinkedInProfile that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LinkedInProfileFindFirstOrThrowArgs} args - Arguments to find a LinkedInProfile
+     * @example
+     * // Get one LinkedInProfile
+     * const linkedInProfile = await prisma.linkedInProfile.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends LinkedInProfileFindFirstOrThrowArgs>(args?: SelectSubset<T, LinkedInProfileFindFirstOrThrowArgs<ExtArgs>>): Prisma__LinkedInProfileClient<$Result.GetResult<Prisma.$LinkedInProfilePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more LinkedInProfiles that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LinkedInProfileFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all LinkedInProfiles
+     * const linkedInProfiles = await prisma.linkedInProfile.findMany()
+     * 
+     * // Get first 10 LinkedInProfiles
+     * const linkedInProfiles = await prisma.linkedInProfile.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const linkedInProfileWithIdOnly = await prisma.linkedInProfile.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends LinkedInProfileFindManyArgs>(args?: SelectSubset<T, LinkedInProfileFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LinkedInProfilePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a LinkedInProfile.
+     * @param {LinkedInProfileCreateArgs} args - Arguments to create a LinkedInProfile.
+     * @example
+     * // Create one LinkedInProfile
+     * const LinkedInProfile = await prisma.linkedInProfile.create({
+     *   data: {
+     *     // ... data to create a LinkedInProfile
+     *   }
+     * })
+     * 
+     */
+    create<T extends LinkedInProfileCreateArgs>(args: SelectSubset<T, LinkedInProfileCreateArgs<ExtArgs>>): Prisma__LinkedInProfileClient<$Result.GetResult<Prisma.$LinkedInProfilePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many LinkedInProfiles.
+     * @param {LinkedInProfileCreateManyArgs} args - Arguments to create many LinkedInProfiles.
+     * @example
+     * // Create many LinkedInProfiles
+     * const linkedInProfile = await prisma.linkedInProfile.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends LinkedInProfileCreateManyArgs>(args?: SelectSubset<T, LinkedInProfileCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many LinkedInProfiles and returns the data saved in the database.
+     * @param {LinkedInProfileCreateManyAndReturnArgs} args - Arguments to create many LinkedInProfiles.
+     * @example
+     * // Create many LinkedInProfiles
+     * const linkedInProfile = await prisma.linkedInProfile.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many LinkedInProfiles and only return the `id`
+     * const linkedInProfileWithIdOnly = await prisma.linkedInProfile.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends LinkedInProfileCreateManyAndReturnArgs>(args?: SelectSubset<T, LinkedInProfileCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LinkedInProfilePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a LinkedInProfile.
+     * @param {LinkedInProfileDeleteArgs} args - Arguments to delete one LinkedInProfile.
+     * @example
+     * // Delete one LinkedInProfile
+     * const LinkedInProfile = await prisma.linkedInProfile.delete({
+     *   where: {
+     *     // ... filter to delete one LinkedInProfile
+     *   }
+     * })
+     * 
+     */
+    delete<T extends LinkedInProfileDeleteArgs>(args: SelectSubset<T, LinkedInProfileDeleteArgs<ExtArgs>>): Prisma__LinkedInProfileClient<$Result.GetResult<Prisma.$LinkedInProfilePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one LinkedInProfile.
+     * @param {LinkedInProfileUpdateArgs} args - Arguments to update one LinkedInProfile.
+     * @example
+     * // Update one LinkedInProfile
+     * const linkedInProfile = await prisma.linkedInProfile.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends LinkedInProfileUpdateArgs>(args: SelectSubset<T, LinkedInProfileUpdateArgs<ExtArgs>>): Prisma__LinkedInProfileClient<$Result.GetResult<Prisma.$LinkedInProfilePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more LinkedInProfiles.
+     * @param {LinkedInProfileDeleteManyArgs} args - Arguments to filter LinkedInProfiles to delete.
+     * @example
+     * // Delete a few LinkedInProfiles
+     * const { count } = await prisma.linkedInProfile.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends LinkedInProfileDeleteManyArgs>(args?: SelectSubset<T, LinkedInProfileDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more LinkedInProfiles.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LinkedInProfileUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many LinkedInProfiles
+     * const linkedInProfile = await prisma.linkedInProfile.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends LinkedInProfileUpdateManyArgs>(args: SelectSubset<T, LinkedInProfileUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more LinkedInProfiles and returns the data updated in the database.
+     * @param {LinkedInProfileUpdateManyAndReturnArgs} args - Arguments to update many LinkedInProfiles.
+     * @example
+     * // Update many LinkedInProfiles
+     * const linkedInProfile = await prisma.linkedInProfile.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more LinkedInProfiles and only return the `id`
+     * const linkedInProfileWithIdOnly = await prisma.linkedInProfile.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends LinkedInProfileUpdateManyAndReturnArgs>(args: SelectSubset<T, LinkedInProfileUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LinkedInProfilePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one LinkedInProfile.
+     * @param {LinkedInProfileUpsertArgs} args - Arguments to update or create a LinkedInProfile.
+     * @example
+     * // Update or create a LinkedInProfile
+     * const linkedInProfile = await prisma.linkedInProfile.upsert({
+     *   create: {
+     *     // ... data to create a LinkedInProfile
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the LinkedInProfile we want to update
+     *   }
+     * })
+     */
+    upsert<T extends LinkedInProfileUpsertArgs>(args: SelectSubset<T, LinkedInProfileUpsertArgs<ExtArgs>>): Prisma__LinkedInProfileClient<$Result.GetResult<Prisma.$LinkedInProfilePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of LinkedInProfiles.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LinkedInProfileCountArgs} args - Arguments to filter LinkedInProfiles to count.
+     * @example
+     * // Count the number of LinkedInProfiles
+     * const count = await prisma.linkedInProfile.count({
+     *   where: {
+     *     // ... the filter for the LinkedInProfiles we want to count
+     *   }
+     * })
+    **/
+    count<T extends LinkedInProfileCountArgs>(
+      args?: Subset<T, LinkedInProfileCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], LinkedInProfileCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a LinkedInProfile.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LinkedInProfileAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends LinkedInProfileAggregateArgs>(args: Subset<T, LinkedInProfileAggregateArgs>): Prisma.PrismaPromise<GetLinkedInProfileAggregateType<T>>
+
+    /**
+     * Group by LinkedInProfile.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LinkedInProfileGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends LinkedInProfileGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: LinkedInProfileGroupByArgs['orderBy'] }
+        : { orderBy?: LinkedInProfileGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, LinkedInProfileGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLinkedInProfileGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the LinkedInProfile model
+   */
+  readonly fields: LinkedInProfileFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for LinkedInProfile.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__LinkedInProfileClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    resume<T extends ResumeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ResumeDefaultArgs<ExtArgs>>): Prisma__ResumeClient<$Result.GetResult<Prisma.$ResumePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    experiences<T extends LinkedInProfile$experiencesArgs<ExtArgs> = {}>(args?: Subset<T, LinkedInProfile$experiencesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LinkedInExperiencePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    educations<T extends LinkedInProfile$educationsArgs<ExtArgs> = {}>(args?: Subset<T, LinkedInProfile$educationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LinkedInEducationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    skills<T extends LinkedInProfile$skillsArgs<ExtArgs> = {}>(args?: Subset<T, LinkedInProfile$skillsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LinkedInSkillPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    certifications<T extends LinkedInProfile$certificationsArgs<ExtArgs> = {}>(args?: Subset<T, LinkedInProfile$certificationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LinkedInCertificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the LinkedInProfile model
+   */
+  interface LinkedInProfileFieldRefs {
+    readonly id: FieldRef<"LinkedInProfile", 'Int'>
+    readonly resumeId: FieldRef<"LinkedInProfile", 'String'>
+    readonly urn: FieldRef<"LinkedInProfile", 'String'>
+    readonly firstName: FieldRef<"LinkedInProfile", 'String'>
+    readonly lastName: FieldRef<"LinkedInProfile", 'String'>
+    readonly headline: FieldRef<"LinkedInProfile", 'String'>
+    readonly summury: FieldRef<"LinkedInProfile", 'String'>
+    readonly username: FieldRef<"LinkedInProfile", 'String'>
+    readonly profilePicture: FieldRef<"LinkedInProfile", 'String'>
+    readonly country: FieldRef<"LinkedInProfile", 'String'>
+    readonly city: FieldRef<"LinkedInProfile", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * LinkedInProfile findUnique
+   */
+  export type LinkedInProfileFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInProfile
+     */
+    select?: LinkedInProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInProfile
+     */
+    omit?: LinkedInProfileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInProfileInclude<ExtArgs> | null
+    /**
+     * Filter, which LinkedInProfile to fetch.
+     */
+    where: LinkedInProfileWhereUniqueInput
+  }
+
+  /**
+   * LinkedInProfile findUniqueOrThrow
+   */
+  export type LinkedInProfileFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInProfile
+     */
+    select?: LinkedInProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInProfile
+     */
+    omit?: LinkedInProfileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInProfileInclude<ExtArgs> | null
+    /**
+     * Filter, which LinkedInProfile to fetch.
+     */
+    where: LinkedInProfileWhereUniqueInput
+  }
+
+  /**
+   * LinkedInProfile findFirst
+   */
+  export type LinkedInProfileFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInProfile
+     */
+    select?: LinkedInProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInProfile
+     */
+    omit?: LinkedInProfileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInProfileInclude<ExtArgs> | null
+    /**
+     * Filter, which LinkedInProfile to fetch.
+     */
+    where?: LinkedInProfileWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LinkedInProfiles to fetch.
+     */
+    orderBy?: LinkedInProfileOrderByWithRelationInput | LinkedInProfileOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for LinkedInProfiles.
+     */
+    cursor?: LinkedInProfileWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LinkedInProfiles from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LinkedInProfiles.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LinkedInProfiles.
+     */
+    distinct?: LinkedInProfileScalarFieldEnum | LinkedInProfileScalarFieldEnum[]
+  }
+
+  /**
+   * LinkedInProfile findFirstOrThrow
+   */
+  export type LinkedInProfileFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInProfile
+     */
+    select?: LinkedInProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInProfile
+     */
+    omit?: LinkedInProfileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInProfileInclude<ExtArgs> | null
+    /**
+     * Filter, which LinkedInProfile to fetch.
+     */
+    where?: LinkedInProfileWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LinkedInProfiles to fetch.
+     */
+    orderBy?: LinkedInProfileOrderByWithRelationInput | LinkedInProfileOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for LinkedInProfiles.
+     */
+    cursor?: LinkedInProfileWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LinkedInProfiles from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LinkedInProfiles.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LinkedInProfiles.
+     */
+    distinct?: LinkedInProfileScalarFieldEnum | LinkedInProfileScalarFieldEnum[]
+  }
+
+  /**
+   * LinkedInProfile findMany
+   */
+  export type LinkedInProfileFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInProfile
+     */
+    select?: LinkedInProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInProfile
+     */
+    omit?: LinkedInProfileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInProfileInclude<ExtArgs> | null
+    /**
+     * Filter, which LinkedInProfiles to fetch.
+     */
+    where?: LinkedInProfileWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LinkedInProfiles to fetch.
+     */
+    orderBy?: LinkedInProfileOrderByWithRelationInput | LinkedInProfileOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing LinkedInProfiles.
+     */
+    cursor?: LinkedInProfileWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LinkedInProfiles from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LinkedInProfiles.
+     */
+    skip?: number
+    distinct?: LinkedInProfileScalarFieldEnum | LinkedInProfileScalarFieldEnum[]
+  }
+
+  /**
+   * LinkedInProfile create
+   */
+  export type LinkedInProfileCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInProfile
+     */
+    select?: LinkedInProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInProfile
+     */
+    omit?: LinkedInProfileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInProfileInclude<ExtArgs> | null
+    /**
+     * The data needed to create a LinkedInProfile.
+     */
+    data: XOR<LinkedInProfileCreateInput, LinkedInProfileUncheckedCreateInput>
+  }
+
+  /**
+   * LinkedInProfile createMany
+   */
+  export type LinkedInProfileCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many LinkedInProfiles.
+     */
+    data: LinkedInProfileCreateManyInput | LinkedInProfileCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * LinkedInProfile createManyAndReturn
+   */
+  export type LinkedInProfileCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInProfile
+     */
+    select?: LinkedInProfileSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInProfile
+     */
+    omit?: LinkedInProfileOmit<ExtArgs> | null
+    /**
+     * The data used to create many LinkedInProfiles.
+     */
+    data: LinkedInProfileCreateManyInput | LinkedInProfileCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInProfileIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * LinkedInProfile update
+   */
+  export type LinkedInProfileUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInProfile
+     */
+    select?: LinkedInProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInProfile
+     */
+    omit?: LinkedInProfileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInProfileInclude<ExtArgs> | null
+    /**
+     * The data needed to update a LinkedInProfile.
+     */
+    data: XOR<LinkedInProfileUpdateInput, LinkedInProfileUncheckedUpdateInput>
+    /**
+     * Choose, which LinkedInProfile to update.
+     */
+    where: LinkedInProfileWhereUniqueInput
+  }
+
+  /**
+   * LinkedInProfile updateMany
+   */
+  export type LinkedInProfileUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update LinkedInProfiles.
+     */
+    data: XOR<LinkedInProfileUpdateManyMutationInput, LinkedInProfileUncheckedUpdateManyInput>
+    /**
+     * Filter which LinkedInProfiles to update
+     */
+    where?: LinkedInProfileWhereInput
+    /**
+     * Limit how many LinkedInProfiles to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * LinkedInProfile updateManyAndReturn
+   */
+  export type LinkedInProfileUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInProfile
+     */
+    select?: LinkedInProfileSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInProfile
+     */
+    omit?: LinkedInProfileOmit<ExtArgs> | null
+    /**
+     * The data used to update LinkedInProfiles.
+     */
+    data: XOR<LinkedInProfileUpdateManyMutationInput, LinkedInProfileUncheckedUpdateManyInput>
+    /**
+     * Filter which LinkedInProfiles to update
+     */
+    where?: LinkedInProfileWhereInput
+    /**
+     * Limit how many LinkedInProfiles to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInProfileIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * LinkedInProfile upsert
+   */
+  export type LinkedInProfileUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInProfile
+     */
+    select?: LinkedInProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInProfile
+     */
+    omit?: LinkedInProfileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInProfileInclude<ExtArgs> | null
+    /**
+     * The filter to search for the LinkedInProfile to update in case it exists.
+     */
+    where: LinkedInProfileWhereUniqueInput
+    /**
+     * In case the LinkedInProfile found by the `where` argument doesn't exist, create a new LinkedInProfile with this data.
+     */
+    create: XOR<LinkedInProfileCreateInput, LinkedInProfileUncheckedCreateInput>
+    /**
+     * In case the LinkedInProfile was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<LinkedInProfileUpdateInput, LinkedInProfileUncheckedUpdateInput>
+  }
+
+  /**
+   * LinkedInProfile delete
+   */
+  export type LinkedInProfileDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInProfile
+     */
+    select?: LinkedInProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInProfile
+     */
+    omit?: LinkedInProfileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInProfileInclude<ExtArgs> | null
+    /**
+     * Filter which LinkedInProfile to delete.
+     */
+    where: LinkedInProfileWhereUniqueInput
+  }
+
+  /**
+   * LinkedInProfile deleteMany
+   */
+  export type LinkedInProfileDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LinkedInProfiles to delete
+     */
+    where?: LinkedInProfileWhereInput
+    /**
+     * Limit how many LinkedInProfiles to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * LinkedInProfile.experiences
+   */
+  export type LinkedInProfile$experiencesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInExperience
+     */
+    select?: LinkedInExperienceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInExperience
+     */
+    omit?: LinkedInExperienceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInExperienceInclude<ExtArgs> | null
+    where?: LinkedInExperienceWhereInput
+    orderBy?: LinkedInExperienceOrderByWithRelationInput | LinkedInExperienceOrderByWithRelationInput[]
+    cursor?: LinkedInExperienceWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: LinkedInExperienceScalarFieldEnum | LinkedInExperienceScalarFieldEnum[]
+  }
+
+  /**
+   * LinkedInProfile.educations
+   */
+  export type LinkedInProfile$educationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInEducation
+     */
+    select?: LinkedInEducationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInEducation
+     */
+    omit?: LinkedInEducationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInEducationInclude<ExtArgs> | null
+    where?: LinkedInEducationWhereInput
+    orderBy?: LinkedInEducationOrderByWithRelationInput | LinkedInEducationOrderByWithRelationInput[]
+    cursor?: LinkedInEducationWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: LinkedInEducationScalarFieldEnum | LinkedInEducationScalarFieldEnum[]
+  }
+
+  /**
+   * LinkedInProfile.skills
+   */
+  export type LinkedInProfile$skillsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInSkill
+     */
+    select?: LinkedInSkillSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInSkill
+     */
+    omit?: LinkedInSkillOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInSkillInclude<ExtArgs> | null
+    where?: LinkedInSkillWhereInput
+    orderBy?: LinkedInSkillOrderByWithRelationInput | LinkedInSkillOrderByWithRelationInput[]
+    cursor?: LinkedInSkillWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: LinkedInSkillScalarFieldEnum | LinkedInSkillScalarFieldEnum[]
+  }
+
+  /**
+   * LinkedInProfile.certifications
+   */
+  export type LinkedInProfile$certificationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInCertification
+     */
+    select?: LinkedInCertificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInCertification
+     */
+    omit?: LinkedInCertificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInCertificationInclude<ExtArgs> | null
+    where?: LinkedInCertificationWhereInput
+    orderBy?: LinkedInCertificationOrderByWithRelationInput | LinkedInCertificationOrderByWithRelationInput[]
+    cursor?: LinkedInCertificationWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: LinkedInCertificationScalarFieldEnum | LinkedInCertificationScalarFieldEnum[]
+  }
+
+  /**
+   * LinkedInProfile without action
+   */
+  export type LinkedInProfileDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInProfile
+     */
+    select?: LinkedInProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInProfile
+     */
+    omit?: LinkedInProfileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInProfileInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model LinkedInExperience
+   */
+
+  export type AggregateLinkedInExperience = {
+    _count: LinkedInExperienceCountAggregateOutputType | null
+    _avg: LinkedInExperienceAvgAggregateOutputType | null
+    _sum: LinkedInExperienceSumAggregateOutputType | null
+    _min: LinkedInExperienceMinAggregateOutputType | null
+    _max: LinkedInExperienceMaxAggregateOutputType | null
+  }
+
+  export type LinkedInExperienceAvgAggregateOutputType = {
+    id: number | null
+    profileId: number | null
+  }
+
+  export type LinkedInExperienceSumAggregateOutputType = {
+    id: number | null
+    profileId: number | null
+  }
+
+  export type LinkedInExperienceMinAggregateOutputType = {
+    id: number | null
+    profileId: number | null
+    companyId: string | null
+    companyName: string | null
+    title: string | null
+    startDate: Date | null
+    endDate: Date | null
+    description: string | null
+    location: string | null
+    current: boolean | null
+  }
+
+  export type LinkedInExperienceMaxAggregateOutputType = {
+    id: number | null
+    profileId: number | null
+    companyId: string | null
+    companyName: string | null
+    title: string | null
+    startDate: Date | null
+    endDate: Date | null
+    description: string | null
+    location: string | null
+    current: boolean | null
+  }
+
+  export type LinkedInExperienceCountAggregateOutputType = {
+    id: number
+    profileId: number
+    companyId: number
+    companyName: number
+    title: number
+    startDate: number
+    endDate: number
+    description: number
+    location: number
+    current: number
+    _all: number
+  }
+
+
+  export type LinkedInExperienceAvgAggregateInputType = {
+    id?: true
+    profileId?: true
+  }
+
+  export type LinkedInExperienceSumAggregateInputType = {
+    id?: true
+    profileId?: true
+  }
+
+  export type LinkedInExperienceMinAggregateInputType = {
+    id?: true
+    profileId?: true
+    companyId?: true
+    companyName?: true
+    title?: true
+    startDate?: true
+    endDate?: true
+    description?: true
+    location?: true
+    current?: true
+  }
+
+  export type LinkedInExperienceMaxAggregateInputType = {
+    id?: true
+    profileId?: true
+    companyId?: true
+    companyName?: true
+    title?: true
+    startDate?: true
+    endDate?: true
+    description?: true
+    location?: true
+    current?: true
+  }
+
+  export type LinkedInExperienceCountAggregateInputType = {
+    id?: true
+    profileId?: true
+    companyId?: true
+    companyName?: true
+    title?: true
+    startDate?: true
+    endDate?: true
+    description?: true
+    location?: true
+    current?: true
+    _all?: true
+  }
+
+  export type LinkedInExperienceAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LinkedInExperience to aggregate.
+     */
+    where?: LinkedInExperienceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LinkedInExperiences to fetch.
+     */
+    orderBy?: LinkedInExperienceOrderByWithRelationInput | LinkedInExperienceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: LinkedInExperienceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LinkedInExperiences from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LinkedInExperiences.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned LinkedInExperiences
+    **/
+    _count?: true | LinkedInExperienceCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: LinkedInExperienceAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: LinkedInExperienceSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: LinkedInExperienceMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: LinkedInExperienceMaxAggregateInputType
+  }
+
+  export type GetLinkedInExperienceAggregateType<T extends LinkedInExperienceAggregateArgs> = {
+        [P in keyof T & keyof AggregateLinkedInExperience]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateLinkedInExperience[P]>
+      : GetScalarType<T[P], AggregateLinkedInExperience[P]>
+  }
+
+
+
+
+  export type LinkedInExperienceGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LinkedInExperienceWhereInput
+    orderBy?: LinkedInExperienceOrderByWithAggregationInput | LinkedInExperienceOrderByWithAggregationInput[]
+    by: LinkedInExperienceScalarFieldEnum[] | LinkedInExperienceScalarFieldEnum
+    having?: LinkedInExperienceScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: LinkedInExperienceCountAggregateInputType | true
+    _avg?: LinkedInExperienceAvgAggregateInputType
+    _sum?: LinkedInExperienceSumAggregateInputType
+    _min?: LinkedInExperienceMinAggregateInputType
+    _max?: LinkedInExperienceMaxAggregateInputType
+  }
+
+  export type LinkedInExperienceGroupByOutputType = {
+    id: number
+    profileId: number
+    companyId: string | null
+    companyName: string
+    title: string
+    startDate: Date
+    endDate: Date | null
+    description: string | null
+    location: string | null
+    current: boolean
+    _count: LinkedInExperienceCountAggregateOutputType | null
+    _avg: LinkedInExperienceAvgAggregateOutputType | null
+    _sum: LinkedInExperienceSumAggregateOutputType | null
+    _min: LinkedInExperienceMinAggregateOutputType | null
+    _max: LinkedInExperienceMaxAggregateOutputType | null
+  }
+
+  type GetLinkedInExperienceGroupByPayload<T extends LinkedInExperienceGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<LinkedInExperienceGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof LinkedInExperienceGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], LinkedInExperienceGroupByOutputType[P]>
+            : GetScalarType<T[P], LinkedInExperienceGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type LinkedInExperienceSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    profileId?: boolean
+    companyId?: boolean
+    companyName?: boolean
+    title?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    description?: boolean
+    location?: boolean
+    current?: boolean
+    profile?: boolean | LinkedInProfileDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["linkedInExperience"]>
+
+  export type LinkedInExperienceSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    profileId?: boolean
+    companyId?: boolean
+    companyName?: boolean
+    title?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    description?: boolean
+    location?: boolean
+    current?: boolean
+    profile?: boolean | LinkedInProfileDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["linkedInExperience"]>
+
+  export type LinkedInExperienceSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    profileId?: boolean
+    companyId?: boolean
+    companyName?: boolean
+    title?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    description?: boolean
+    location?: boolean
+    current?: boolean
+    profile?: boolean | LinkedInProfileDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["linkedInExperience"]>
+
+  export type LinkedInExperienceSelectScalar = {
+    id?: boolean
+    profileId?: boolean
+    companyId?: boolean
+    companyName?: boolean
+    title?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    description?: boolean
+    location?: boolean
+    current?: boolean
+  }
+
+  export type LinkedInExperienceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "profileId" | "companyId" | "companyName" | "title" | "startDate" | "endDate" | "description" | "location" | "current", ExtArgs["result"]["linkedInExperience"]>
+  export type LinkedInExperienceInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    profile?: boolean | LinkedInProfileDefaultArgs<ExtArgs>
+  }
+  export type LinkedInExperienceIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    profile?: boolean | LinkedInProfileDefaultArgs<ExtArgs>
+  }
+  export type LinkedInExperienceIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    profile?: boolean | LinkedInProfileDefaultArgs<ExtArgs>
+  }
+
+  export type $LinkedInExperiencePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "LinkedInExperience"
+    objects: {
+      profile: Prisma.$LinkedInProfilePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      profileId: number
+      companyId: string | null
+      companyName: string
+      title: string
+      startDate: Date
+      endDate: Date | null
+      description: string | null
+      location: string | null
+      current: boolean
+    }, ExtArgs["result"]["linkedInExperience"]>
+    composites: {}
+  }
+
+  type LinkedInExperienceGetPayload<S extends boolean | null | undefined | LinkedInExperienceDefaultArgs> = $Result.GetResult<Prisma.$LinkedInExperiencePayload, S>
+
+  type LinkedInExperienceCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<LinkedInExperienceFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: LinkedInExperienceCountAggregateInputType | true
+    }
+
+  export interface LinkedInExperienceDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['LinkedInExperience'], meta: { name: 'LinkedInExperience' } }
+    /**
+     * Find zero or one LinkedInExperience that matches the filter.
+     * @param {LinkedInExperienceFindUniqueArgs} args - Arguments to find a LinkedInExperience
+     * @example
+     * // Get one LinkedInExperience
+     * const linkedInExperience = await prisma.linkedInExperience.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends LinkedInExperienceFindUniqueArgs>(args: SelectSubset<T, LinkedInExperienceFindUniqueArgs<ExtArgs>>): Prisma__LinkedInExperienceClient<$Result.GetResult<Prisma.$LinkedInExperiencePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one LinkedInExperience that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {LinkedInExperienceFindUniqueOrThrowArgs} args - Arguments to find a LinkedInExperience
+     * @example
+     * // Get one LinkedInExperience
+     * const linkedInExperience = await prisma.linkedInExperience.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends LinkedInExperienceFindUniqueOrThrowArgs>(args: SelectSubset<T, LinkedInExperienceFindUniqueOrThrowArgs<ExtArgs>>): Prisma__LinkedInExperienceClient<$Result.GetResult<Prisma.$LinkedInExperiencePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first LinkedInExperience that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LinkedInExperienceFindFirstArgs} args - Arguments to find a LinkedInExperience
+     * @example
+     * // Get one LinkedInExperience
+     * const linkedInExperience = await prisma.linkedInExperience.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends LinkedInExperienceFindFirstArgs>(args?: SelectSubset<T, LinkedInExperienceFindFirstArgs<ExtArgs>>): Prisma__LinkedInExperienceClient<$Result.GetResult<Prisma.$LinkedInExperiencePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first LinkedInExperience that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LinkedInExperienceFindFirstOrThrowArgs} args - Arguments to find a LinkedInExperience
+     * @example
+     * // Get one LinkedInExperience
+     * const linkedInExperience = await prisma.linkedInExperience.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends LinkedInExperienceFindFirstOrThrowArgs>(args?: SelectSubset<T, LinkedInExperienceFindFirstOrThrowArgs<ExtArgs>>): Prisma__LinkedInExperienceClient<$Result.GetResult<Prisma.$LinkedInExperiencePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more LinkedInExperiences that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LinkedInExperienceFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all LinkedInExperiences
+     * const linkedInExperiences = await prisma.linkedInExperience.findMany()
+     * 
+     * // Get first 10 LinkedInExperiences
+     * const linkedInExperiences = await prisma.linkedInExperience.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const linkedInExperienceWithIdOnly = await prisma.linkedInExperience.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends LinkedInExperienceFindManyArgs>(args?: SelectSubset<T, LinkedInExperienceFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LinkedInExperiencePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a LinkedInExperience.
+     * @param {LinkedInExperienceCreateArgs} args - Arguments to create a LinkedInExperience.
+     * @example
+     * // Create one LinkedInExperience
+     * const LinkedInExperience = await prisma.linkedInExperience.create({
+     *   data: {
+     *     // ... data to create a LinkedInExperience
+     *   }
+     * })
+     * 
+     */
+    create<T extends LinkedInExperienceCreateArgs>(args: SelectSubset<T, LinkedInExperienceCreateArgs<ExtArgs>>): Prisma__LinkedInExperienceClient<$Result.GetResult<Prisma.$LinkedInExperiencePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many LinkedInExperiences.
+     * @param {LinkedInExperienceCreateManyArgs} args - Arguments to create many LinkedInExperiences.
+     * @example
+     * // Create many LinkedInExperiences
+     * const linkedInExperience = await prisma.linkedInExperience.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends LinkedInExperienceCreateManyArgs>(args?: SelectSubset<T, LinkedInExperienceCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many LinkedInExperiences and returns the data saved in the database.
+     * @param {LinkedInExperienceCreateManyAndReturnArgs} args - Arguments to create many LinkedInExperiences.
+     * @example
+     * // Create many LinkedInExperiences
+     * const linkedInExperience = await prisma.linkedInExperience.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many LinkedInExperiences and only return the `id`
+     * const linkedInExperienceWithIdOnly = await prisma.linkedInExperience.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends LinkedInExperienceCreateManyAndReturnArgs>(args?: SelectSubset<T, LinkedInExperienceCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LinkedInExperiencePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a LinkedInExperience.
+     * @param {LinkedInExperienceDeleteArgs} args - Arguments to delete one LinkedInExperience.
+     * @example
+     * // Delete one LinkedInExperience
+     * const LinkedInExperience = await prisma.linkedInExperience.delete({
+     *   where: {
+     *     // ... filter to delete one LinkedInExperience
+     *   }
+     * })
+     * 
+     */
+    delete<T extends LinkedInExperienceDeleteArgs>(args: SelectSubset<T, LinkedInExperienceDeleteArgs<ExtArgs>>): Prisma__LinkedInExperienceClient<$Result.GetResult<Prisma.$LinkedInExperiencePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one LinkedInExperience.
+     * @param {LinkedInExperienceUpdateArgs} args - Arguments to update one LinkedInExperience.
+     * @example
+     * // Update one LinkedInExperience
+     * const linkedInExperience = await prisma.linkedInExperience.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends LinkedInExperienceUpdateArgs>(args: SelectSubset<T, LinkedInExperienceUpdateArgs<ExtArgs>>): Prisma__LinkedInExperienceClient<$Result.GetResult<Prisma.$LinkedInExperiencePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more LinkedInExperiences.
+     * @param {LinkedInExperienceDeleteManyArgs} args - Arguments to filter LinkedInExperiences to delete.
+     * @example
+     * // Delete a few LinkedInExperiences
+     * const { count } = await prisma.linkedInExperience.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends LinkedInExperienceDeleteManyArgs>(args?: SelectSubset<T, LinkedInExperienceDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more LinkedInExperiences.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LinkedInExperienceUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many LinkedInExperiences
+     * const linkedInExperience = await prisma.linkedInExperience.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends LinkedInExperienceUpdateManyArgs>(args: SelectSubset<T, LinkedInExperienceUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more LinkedInExperiences and returns the data updated in the database.
+     * @param {LinkedInExperienceUpdateManyAndReturnArgs} args - Arguments to update many LinkedInExperiences.
+     * @example
+     * // Update many LinkedInExperiences
+     * const linkedInExperience = await prisma.linkedInExperience.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more LinkedInExperiences and only return the `id`
+     * const linkedInExperienceWithIdOnly = await prisma.linkedInExperience.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends LinkedInExperienceUpdateManyAndReturnArgs>(args: SelectSubset<T, LinkedInExperienceUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LinkedInExperiencePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one LinkedInExperience.
+     * @param {LinkedInExperienceUpsertArgs} args - Arguments to update or create a LinkedInExperience.
+     * @example
+     * // Update or create a LinkedInExperience
+     * const linkedInExperience = await prisma.linkedInExperience.upsert({
+     *   create: {
+     *     // ... data to create a LinkedInExperience
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the LinkedInExperience we want to update
+     *   }
+     * })
+     */
+    upsert<T extends LinkedInExperienceUpsertArgs>(args: SelectSubset<T, LinkedInExperienceUpsertArgs<ExtArgs>>): Prisma__LinkedInExperienceClient<$Result.GetResult<Prisma.$LinkedInExperiencePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of LinkedInExperiences.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LinkedInExperienceCountArgs} args - Arguments to filter LinkedInExperiences to count.
+     * @example
+     * // Count the number of LinkedInExperiences
+     * const count = await prisma.linkedInExperience.count({
+     *   where: {
+     *     // ... the filter for the LinkedInExperiences we want to count
+     *   }
+     * })
+    **/
+    count<T extends LinkedInExperienceCountArgs>(
+      args?: Subset<T, LinkedInExperienceCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], LinkedInExperienceCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a LinkedInExperience.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LinkedInExperienceAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends LinkedInExperienceAggregateArgs>(args: Subset<T, LinkedInExperienceAggregateArgs>): Prisma.PrismaPromise<GetLinkedInExperienceAggregateType<T>>
+
+    /**
+     * Group by LinkedInExperience.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LinkedInExperienceGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends LinkedInExperienceGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: LinkedInExperienceGroupByArgs['orderBy'] }
+        : { orderBy?: LinkedInExperienceGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, LinkedInExperienceGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLinkedInExperienceGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the LinkedInExperience model
+   */
+  readonly fields: LinkedInExperienceFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for LinkedInExperience.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__LinkedInExperienceClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    profile<T extends LinkedInProfileDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LinkedInProfileDefaultArgs<ExtArgs>>): Prisma__LinkedInProfileClient<$Result.GetResult<Prisma.$LinkedInProfilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the LinkedInExperience model
+   */
+  interface LinkedInExperienceFieldRefs {
+    readonly id: FieldRef<"LinkedInExperience", 'Int'>
+    readonly profileId: FieldRef<"LinkedInExperience", 'Int'>
+    readonly companyId: FieldRef<"LinkedInExperience", 'String'>
+    readonly companyName: FieldRef<"LinkedInExperience", 'String'>
+    readonly title: FieldRef<"LinkedInExperience", 'String'>
+    readonly startDate: FieldRef<"LinkedInExperience", 'DateTime'>
+    readonly endDate: FieldRef<"LinkedInExperience", 'DateTime'>
+    readonly description: FieldRef<"LinkedInExperience", 'String'>
+    readonly location: FieldRef<"LinkedInExperience", 'String'>
+    readonly current: FieldRef<"LinkedInExperience", 'Boolean'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * LinkedInExperience findUnique
+   */
+  export type LinkedInExperienceFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInExperience
+     */
+    select?: LinkedInExperienceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInExperience
+     */
+    omit?: LinkedInExperienceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInExperienceInclude<ExtArgs> | null
+    /**
+     * Filter, which LinkedInExperience to fetch.
+     */
+    where: LinkedInExperienceWhereUniqueInput
+  }
+
+  /**
+   * LinkedInExperience findUniqueOrThrow
+   */
+  export type LinkedInExperienceFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInExperience
+     */
+    select?: LinkedInExperienceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInExperience
+     */
+    omit?: LinkedInExperienceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInExperienceInclude<ExtArgs> | null
+    /**
+     * Filter, which LinkedInExperience to fetch.
+     */
+    where: LinkedInExperienceWhereUniqueInput
+  }
+
+  /**
+   * LinkedInExperience findFirst
+   */
+  export type LinkedInExperienceFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInExperience
+     */
+    select?: LinkedInExperienceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInExperience
+     */
+    omit?: LinkedInExperienceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInExperienceInclude<ExtArgs> | null
+    /**
+     * Filter, which LinkedInExperience to fetch.
+     */
+    where?: LinkedInExperienceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LinkedInExperiences to fetch.
+     */
+    orderBy?: LinkedInExperienceOrderByWithRelationInput | LinkedInExperienceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for LinkedInExperiences.
+     */
+    cursor?: LinkedInExperienceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LinkedInExperiences from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LinkedInExperiences.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LinkedInExperiences.
+     */
+    distinct?: LinkedInExperienceScalarFieldEnum | LinkedInExperienceScalarFieldEnum[]
+  }
+
+  /**
+   * LinkedInExperience findFirstOrThrow
+   */
+  export type LinkedInExperienceFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInExperience
+     */
+    select?: LinkedInExperienceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInExperience
+     */
+    omit?: LinkedInExperienceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInExperienceInclude<ExtArgs> | null
+    /**
+     * Filter, which LinkedInExperience to fetch.
+     */
+    where?: LinkedInExperienceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LinkedInExperiences to fetch.
+     */
+    orderBy?: LinkedInExperienceOrderByWithRelationInput | LinkedInExperienceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for LinkedInExperiences.
+     */
+    cursor?: LinkedInExperienceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LinkedInExperiences from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LinkedInExperiences.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LinkedInExperiences.
+     */
+    distinct?: LinkedInExperienceScalarFieldEnum | LinkedInExperienceScalarFieldEnum[]
+  }
+
+  /**
+   * LinkedInExperience findMany
+   */
+  export type LinkedInExperienceFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInExperience
+     */
+    select?: LinkedInExperienceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInExperience
+     */
+    omit?: LinkedInExperienceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInExperienceInclude<ExtArgs> | null
+    /**
+     * Filter, which LinkedInExperiences to fetch.
+     */
+    where?: LinkedInExperienceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LinkedInExperiences to fetch.
+     */
+    orderBy?: LinkedInExperienceOrderByWithRelationInput | LinkedInExperienceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing LinkedInExperiences.
+     */
+    cursor?: LinkedInExperienceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LinkedInExperiences from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LinkedInExperiences.
+     */
+    skip?: number
+    distinct?: LinkedInExperienceScalarFieldEnum | LinkedInExperienceScalarFieldEnum[]
+  }
+
+  /**
+   * LinkedInExperience create
+   */
+  export type LinkedInExperienceCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInExperience
+     */
+    select?: LinkedInExperienceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInExperience
+     */
+    omit?: LinkedInExperienceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInExperienceInclude<ExtArgs> | null
+    /**
+     * The data needed to create a LinkedInExperience.
+     */
+    data: XOR<LinkedInExperienceCreateInput, LinkedInExperienceUncheckedCreateInput>
+  }
+
+  /**
+   * LinkedInExperience createMany
+   */
+  export type LinkedInExperienceCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many LinkedInExperiences.
+     */
+    data: LinkedInExperienceCreateManyInput | LinkedInExperienceCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * LinkedInExperience createManyAndReturn
+   */
+  export type LinkedInExperienceCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInExperience
+     */
+    select?: LinkedInExperienceSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInExperience
+     */
+    omit?: LinkedInExperienceOmit<ExtArgs> | null
+    /**
+     * The data used to create many LinkedInExperiences.
+     */
+    data: LinkedInExperienceCreateManyInput | LinkedInExperienceCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInExperienceIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * LinkedInExperience update
+   */
+  export type LinkedInExperienceUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInExperience
+     */
+    select?: LinkedInExperienceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInExperience
+     */
+    omit?: LinkedInExperienceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInExperienceInclude<ExtArgs> | null
+    /**
+     * The data needed to update a LinkedInExperience.
+     */
+    data: XOR<LinkedInExperienceUpdateInput, LinkedInExperienceUncheckedUpdateInput>
+    /**
+     * Choose, which LinkedInExperience to update.
+     */
+    where: LinkedInExperienceWhereUniqueInput
+  }
+
+  /**
+   * LinkedInExperience updateMany
+   */
+  export type LinkedInExperienceUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update LinkedInExperiences.
+     */
+    data: XOR<LinkedInExperienceUpdateManyMutationInput, LinkedInExperienceUncheckedUpdateManyInput>
+    /**
+     * Filter which LinkedInExperiences to update
+     */
+    where?: LinkedInExperienceWhereInput
+    /**
+     * Limit how many LinkedInExperiences to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * LinkedInExperience updateManyAndReturn
+   */
+  export type LinkedInExperienceUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInExperience
+     */
+    select?: LinkedInExperienceSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInExperience
+     */
+    omit?: LinkedInExperienceOmit<ExtArgs> | null
+    /**
+     * The data used to update LinkedInExperiences.
+     */
+    data: XOR<LinkedInExperienceUpdateManyMutationInput, LinkedInExperienceUncheckedUpdateManyInput>
+    /**
+     * Filter which LinkedInExperiences to update
+     */
+    where?: LinkedInExperienceWhereInput
+    /**
+     * Limit how many LinkedInExperiences to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInExperienceIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * LinkedInExperience upsert
+   */
+  export type LinkedInExperienceUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInExperience
+     */
+    select?: LinkedInExperienceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInExperience
+     */
+    omit?: LinkedInExperienceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInExperienceInclude<ExtArgs> | null
+    /**
+     * The filter to search for the LinkedInExperience to update in case it exists.
+     */
+    where: LinkedInExperienceWhereUniqueInput
+    /**
+     * In case the LinkedInExperience found by the `where` argument doesn't exist, create a new LinkedInExperience with this data.
+     */
+    create: XOR<LinkedInExperienceCreateInput, LinkedInExperienceUncheckedCreateInput>
+    /**
+     * In case the LinkedInExperience was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<LinkedInExperienceUpdateInput, LinkedInExperienceUncheckedUpdateInput>
+  }
+
+  /**
+   * LinkedInExperience delete
+   */
+  export type LinkedInExperienceDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInExperience
+     */
+    select?: LinkedInExperienceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInExperience
+     */
+    omit?: LinkedInExperienceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInExperienceInclude<ExtArgs> | null
+    /**
+     * Filter which LinkedInExperience to delete.
+     */
+    where: LinkedInExperienceWhereUniqueInput
+  }
+
+  /**
+   * LinkedInExperience deleteMany
+   */
+  export type LinkedInExperienceDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LinkedInExperiences to delete
+     */
+    where?: LinkedInExperienceWhereInput
+    /**
+     * Limit how many LinkedInExperiences to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * LinkedInExperience without action
+   */
+  export type LinkedInExperienceDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInExperience
+     */
+    select?: LinkedInExperienceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInExperience
+     */
+    omit?: LinkedInExperienceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInExperienceInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model LinkedInEducation
+   */
+
+  export type AggregateLinkedInEducation = {
+    _count: LinkedInEducationCountAggregateOutputType | null
+    _avg: LinkedInEducationAvgAggregateOutputType | null
+    _sum: LinkedInEducationSumAggregateOutputType | null
+    _min: LinkedInEducationMinAggregateOutputType | null
+    _max: LinkedInEducationMaxAggregateOutputType | null
+  }
+
+  export type LinkedInEducationAvgAggregateOutputType = {
+    id: number | null
+    profileId: number | null
+  }
+
+  export type LinkedInEducationSumAggregateOutputType = {
+    id: number | null
+    profileId: number | null
+  }
+
+  export type LinkedInEducationMinAggregateOutputType = {
+    id: number | null
+    profileId: number | null
+    schoolName: string | null
+    degree: string | null
+    fieldOfStudy: string | null
+    startDate: Date | null
+    endDate: Date | null
+    current: boolean | null
+  }
+
+  export type LinkedInEducationMaxAggregateOutputType = {
+    id: number | null
+    profileId: number | null
+    schoolName: string | null
+    degree: string | null
+    fieldOfStudy: string | null
+    startDate: Date | null
+    endDate: Date | null
+    current: boolean | null
+  }
+
+  export type LinkedInEducationCountAggregateOutputType = {
+    id: number
+    profileId: number
+    schoolName: number
+    degree: number
+    fieldOfStudy: number
+    startDate: number
+    endDate: number
+    current: number
+    _all: number
+  }
+
+
+  export type LinkedInEducationAvgAggregateInputType = {
+    id?: true
+    profileId?: true
+  }
+
+  export type LinkedInEducationSumAggregateInputType = {
+    id?: true
+    profileId?: true
+  }
+
+  export type LinkedInEducationMinAggregateInputType = {
+    id?: true
+    profileId?: true
+    schoolName?: true
+    degree?: true
+    fieldOfStudy?: true
+    startDate?: true
+    endDate?: true
+    current?: true
+  }
+
+  export type LinkedInEducationMaxAggregateInputType = {
+    id?: true
+    profileId?: true
+    schoolName?: true
+    degree?: true
+    fieldOfStudy?: true
+    startDate?: true
+    endDate?: true
+    current?: true
+  }
+
+  export type LinkedInEducationCountAggregateInputType = {
+    id?: true
+    profileId?: true
+    schoolName?: true
+    degree?: true
+    fieldOfStudy?: true
+    startDate?: true
+    endDate?: true
+    current?: true
+    _all?: true
+  }
+
+  export type LinkedInEducationAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LinkedInEducation to aggregate.
+     */
+    where?: LinkedInEducationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LinkedInEducations to fetch.
+     */
+    orderBy?: LinkedInEducationOrderByWithRelationInput | LinkedInEducationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: LinkedInEducationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LinkedInEducations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LinkedInEducations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned LinkedInEducations
+    **/
+    _count?: true | LinkedInEducationCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: LinkedInEducationAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: LinkedInEducationSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: LinkedInEducationMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: LinkedInEducationMaxAggregateInputType
+  }
+
+  export type GetLinkedInEducationAggregateType<T extends LinkedInEducationAggregateArgs> = {
+        [P in keyof T & keyof AggregateLinkedInEducation]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateLinkedInEducation[P]>
+      : GetScalarType<T[P], AggregateLinkedInEducation[P]>
+  }
+
+
+
+
+  export type LinkedInEducationGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LinkedInEducationWhereInput
+    orderBy?: LinkedInEducationOrderByWithAggregationInput | LinkedInEducationOrderByWithAggregationInput[]
+    by: LinkedInEducationScalarFieldEnum[] | LinkedInEducationScalarFieldEnum
+    having?: LinkedInEducationScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: LinkedInEducationCountAggregateInputType | true
+    _avg?: LinkedInEducationAvgAggregateInputType
+    _sum?: LinkedInEducationSumAggregateInputType
+    _min?: LinkedInEducationMinAggregateInputType
+    _max?: LinkedInEducationMaxAggregateInputType
+  }
+
+  export type LinkedInEducationGroupByOutputType = {
+    id: number
+    profileId: number
+    schoolName: string
+    degree: string | null
+    fieldOfStudy: string | null
+    startDate: Date
+    endDate: Date | null
+    current: boolean
+    _count: LinkedInEducationCountAggregateOutputType | null
+    _avg: LinkedInEducationAvgAggregateOutputType | null
+    _sum: LinkedInEducationSumAggregateOutputType | null
+    _min: LinkedInEducationMinAggregateOutputType | null
+    _max: LinkedInEducationMaxAggregateOutputType | null
+  }
+
+  type GetLinkedInEducationGroupByPayload<T extends LinkedInEducationGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<LinkedInEducationGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof LinkedInEducationGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], LinkedInEducationGroupByOutputType[P]>
+            : GetScalarType<T[P], LinkedInEducationGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type LinkedInEducationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    profileId?: boolean
+    schoolName?: boolean
+    degree?: boolean
+    fieldOfStudy?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    current?: boolean
+    profile?: boolean | LinkedInProfileDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["linkedInEducation"]>
+
+  export type LinkedInEducationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    profileId?: boolean
+    schoolName?: boolean
+    degree?: boolean
+    fieldOfStudy?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    current?: boolean
+    profile?: boolean | LinkedInProfileDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["linkedInEducation"]>
+
+  export type LinkedInEducationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    profileId?: boolean
+    schoolName?: boolean
+    degree?: boolean
+    fieldOfStudy?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    current?: boolean
+    profile?: boolean | LinkedInProfileDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["linkedInEducation"]>
+
+  export type LinkedInEducationSelectScalar = {
+    id?: boolean
+    profileId?: boolean
+    schoolName?: boolean
+    degree?: boolean
+    fieldOfStudy?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    current?: boolean
+  }
+
+  export type LinkedInEducationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "profileId" | "schoolName" | "degree" | "fieldOfStudy" | "startDate" | "endDate" | "current", ExtArgs["result"]["linkedInEducation"]>
+  export type LinkedInEducationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    profile?: boolean | LinkedInProfileDefaultArgs<ExtArgs>
+  }
+  export type LinkedInEducationIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    profile?: boolean | LinkedInProfileDefaultArgs<ExtArgs>
+  }
+  export type LinkedInEducationIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    profile?: boolean | LinkedInProfileDefaultArgs<ExtArgs>
+  }
+
+  export type $LinkedInEducationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "LinkedInEducation"
+    objects: {
+      profile: Prisma.$LinkedInProfilePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      profileId: number
+      schoolName: string
+      degree: string | null
+      fieldOfStudy: string | null
+      startDate: Date
+      endDate: Date | null
+      current: boolean
+    }, ExtArgs["result"]["linkedInEducation"]>
+    composites: {}
+  }
+
+  type LinkedInEducationGetPayload<S extends boolean | null | undefined | LinkedInEducationDefaultArgs> = $Result.GetResult<Prisma.$LinkedInEducationPayload, S>
+
+  type LinkedInEducationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<LinkedInEducationFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: LinkedInEducationCountAggregateInputType | true
+    }
+
+  export interface LinkedInEducationDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['LinkedInEducation'], meta: { name: 'LinkedInEducation' } }
+    /**
+     * Find zero or one LinkedInEducation that matches the filter.
+     * @param {LinkedInEducationFindUniqueArgs} args - Arguments to find a LinkedInEducation
+     * @example
+     * // Get one LinkedInEducation
+     * const linkedInEducation = await prisma.linkedInEducation.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends LinkedInEducationFindUniqueArgs>(args: SelectSubset<T, LinkedInEducationFindUniqueArgs<ExtArgs>>): Prisma__LinkedInEducationClient<$Result.GetResult<Prisma.$LinkedInEducationPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one LinkedInEducation that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {LinkedInEducationFindUniqueOrThrowArgs} args - Arguments to find a LinkedInEducation
+     * @example
+     * // Get one LinkedInEducation
+     * const linkedInEducation = await prisma.linkedInEducation.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends LinkedInEducationFindUniqueOrThrowArgs>(args: SelectSubset<T, LinkedInEducationFindUniqueOrThrowArgs<ExtArgs>>): Prisma__LinkedInEducationClient<$Result.GetResult<Prisma.$LinkedInEducationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first LinkedInEducation that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LinkedInEducationFindFirstArgs} args - Arguments to find a LinkedInEducation
+     * @example
+     * // Get one LinkedInEducation
+     * const linkedInEducation = await prisma.linkedInEducation.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends LinkedInEducationFindFirstArgs>(args?: SelectSubset<T, LinkedInEducationFindFirstArgs<ExtArgs>>): Prisma__LinkedInEducationClient<$Result.GetResult<Prisma.$LinkedInEducationPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first LinkedInEducation that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LinkedInEducationFindFirstOrThrowArgs} args - Arguments to find a LinkedInEducation
+     * @example
+     * // Get one LinkedInEducation
+     * const linkedInEducation = await prisma.linkedInEducation.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends LinkedInEducationFindFirstOrThrowArgs>(args?: SelectSubset<T, LinkedInEducationFindFirstOrThrowArgs<ExtArgs>>): Prisma__LinkedInEducationClient<$Result.GetResult<Prisma.$LinkedInEducationPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more LinkedInEducations that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LinkedInEducationFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all LinkedInEducations
+     * const linkedInEducations = await prisma.linkedInEducation.findMany()
+     * 
+     * // Get first 10 LinkedInEducations
+     * const linkedInEducations = await prisma.linkedInEducation.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const linkedInEducationWithIdOnly = await prisma.linkedInEducation.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends LinkedInEducationFindManyArgs>(args?: SelectSubset<T, LinkedInEducationFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LinkedInEducationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a LinkedInEducation.
+     * @param {LinkedInEducationCreateArgs} args - Arguments to create a LinkedInEducation.
+     * @example
+     * // Create one LinkedInEducation
+     * const LinkedInEducation = await prisma.linkedInEducation.create({
+     *   data: {
+     *     // ... data to create a LinkedInEducation
+     *   }
+     * })
+     * 
+     */
+    create<T extends LinkedInEducationCreateArgs>(args: SelectSubset<T, LinkedInEducationCreateArgs<ExtArgs>>): Prisma__LinkedInEducationClient<$Result.GetResult<Prisma.$LinkedInEducationPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many LinkedInEducations.
+     * @param {LinkedInEducationCreateManyArgs} args - Arguments to create many LinkedInEducations.
+     * @example
+     * // Create many LinkedInEducations
+     * const linkedInEducation = await prisma.linkedInEducation.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends LinkedInEducationCreateManyArgs>(args?: SelectSubset<T, LinkedInEducationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many LinkedInEducations and returns the data saved in the database.
+     * @param {LinkedInEducationCreateManyAndReturnArgs} args - Arguments to create many LinkedInEducations.
+     * @example
+     * // Create many LinkedInEducations
+     * const linkedInEducation = await prisma.linkedInEducation.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many LinkedInEducations and only return the `id`
+     * const linkedInEducationWithIdOnly = await prisma.linkedInEducation.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends LinkedInEducationCreateManyAndReturnArgs>(args?: SelectSubset<T, LinkedInEducationCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LinkedInEducationPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a LinkedInEducation.
+     * @param {LinkedInEducationDeleteArgs} args - Arguments to delete one LinkedInEducation.
+     * @example
+     * // Delete one LinkedInEducation
+     * const LinkedInEducation = await prisma.linkedInEducation.delete({
+     *   where: {
+     *     // ... filter to delete one LinkedInEducation
+     *   }
+     * })
+     * 
+     */
+    delete<T extends LinkedInEducationDeleteArgs>(args: SelectSubset<T, LinkedInEducationDeleteArgs<ExtArgs>>): Prisma__LinkedInEducationClient<$Result.GetResult<Prisma.$LinkedInEducationPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one LinkedInEducation.
+     * @param {LinkedInEducationUpdateArgs} args - Arguments to update one LinkedInEducation.
+     * @example
+     * // Update one LinkedInEducation
+     * const linkedInEducation = await prisma.linkedInEducation.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends LinkedInEducationUpdateArgs>(args: SelectSubset<T, LinkedInEducationUpdateArgs<ExtArgs>>): Prisma__LinkedInEducationClient<$Result.GetResult<Prisma.$LinkedInEducationPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more LinkedInEducations.
+     * @param {LinkedInEducationDeleteManyArgs} args - Arguments to filter LinkedInEducations to delete.
+     * @example
+     * // Delete a few LinkedInEducations
+     * const { count } = await prisma.linkedInEducation.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends LinkedInEducationDeleteManyArgs>(args?: SelectSubset<T, LinkedInEducationDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more LinkedInEducations.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LinkedInEducationUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many LinkedInEducations
+     * const linkedInEducation = await prisma.linkedInEducation.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends LinkedInEducationUpdateManyArgs>(args: SelectSubset<T, LinkedInEducationUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more LinkedInEducations and returns the data updated in the database.
+     * @param {LinkedInEducationUpdateManyAndReturnArgs} args - Arguments to update many LinkedInEducations.
+     * @example
+     * // Update many LinkedInEducations
+     * const linkedInEducation = await prisma.linkedInEducation.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more LinkedInEducations and only return the `id`
+     * const linkedInEducationWithIdOnly = await prisma.linkedInEducation.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends LinkedInEducationUpdateManyAndReturnArgs>(args: SelectSubset<T, LinkedInEducationUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LinkedInEducationPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one LinkedInEducation.
+     * @param {LinkedInEducationUpsertArgs} args - Arguments to update or create a LinkedInEducation.
+     * @example
+     * // Update or create a LinkedInEducation
+     * const linkedInEducation = await prisma.linkedInEducation.upsert({
+     *   create: {
+     *     // ... data to create a LinkedInEducation
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the LinkedInEducation we want to update
+     *   }
+     * })
+     */
+    upsert<T extends LinkedInEducationUpsertArgs>(args: SelectSubset<T, LinkedInEducationUpsertArgs<ExtArgs>>): Prisma__LinkedInEducationClient<$Result.GetResult<Prisma.$LinkedInEducationPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of LinkedInEducations.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LinkedInEducationCountArgs} args - Arguments to filter LinkedInEducations to count.
+     * @example
+     * // Count the number of LinkedInEducations
+     * const count = await prisma.linkedInEducation.count({
+     *   where: {
+     *     // ... the filter for the LinkedInEducations we want to count
+     *   }
+     * })
+    **/
+    count<T extends LinkedInEducationCountArgs>(
+      args?: Subset<T, LinkedInEducationCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], LinkedInEducationCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a LinkedInEducation.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LinkedInEducationAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends LinkedInEducationAggregateArgs>(args: Subset<T, LinkedInEducationAggregateArgs>): Prisma.PrismaPromise<GetLinkedInEducationAggregateType<T>>
+
+    /**
+     * Group by LinkedInEducation.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LinkedInEducationGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends LinkedInEducationGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: LinkedInEducationGroupByArgs['orderBy'] }
+        : { orderBy?: LinkedInEducationGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, LinkedInEducationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLinkedInEducationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the LinkedInEducation model
+   */
+  readonly fields: LinkedInEducationFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for LinkedInEducation.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__LinkedInEducationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    profile<T extends LinkedInProfileDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LinkedInProfileDefaultArgs<ExtArgs>>): Prisma__LinkedInProfileClient<$Result.GetResult<Prisma.$LinkedInProfilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the LinkedInEducation model
+   */
+  interface LinkedInEducationFieldRefs {
+    readonly id: FieldRef<"LinkedInEducation", 'Int'>
+    readonly profileId: FieldRef<"LinkedInEducation", 'Int'>
+    readonly schoolName: FieldRef<"LinkedInEducation", 'String'>
+    readonly degree: FieldRef<"LinkedInEducation", 'String'>
+    readonly fieldOfStudy: FieldRef<"LinkedInEducation", 'String'>
+    readonly startDate: FieldRef<"LinkedInEducation", 'DateTime'>
+    readonly endDate: FieldRef<"LinkedInEducation", 'DateTime'>
+    readonly current: FieldRef<"LinkedInEducation", 'Boolean'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * LinkedInEducation findUnique
+   */
+  export type LinkedInEducationFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInEducation
+     */
+    select?: LinkedInEducationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInEducation
+     */
+    omit?: LinkedInEducationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInEducationInclude<ExtArgs> | null
+    /**
+     * Filter, which LinkedInEducation to fetch.
+     */
+    where: LinkedInEducationWhereUniqueInput
+  }
+
+  /**
+   * LinkedInEducation findUniqueOrThrow
+   */
+  export type LinkedInEducationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInEducation
+     */
+    select?: LinkedInEducationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInEducation
+     */
+    omit?: LinkedInEducationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInEducationInclude<ExtArgs> | null
+    /**
+     * Filter, which LinkedInEducation to fetch.
+     */
+    where: LinkedInEducationWhereUniqueInput
+  }
+
+  /**
+   * LinkedInEducation findFirst
+   */
+  export type LinkedInEducationFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInEducation
+     */
+    select?: LinkedInEducationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInEducation
+     */
+    omit?: LinkedInEducationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInEducationInclude<ExtArgs> | null
+    /**
+     * Filter, which LinkedInEducation to fetch.
+     */
+    where?: LinkedInEducationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LinkedInEducations to fetch.
+     */
+    orderBy?: LinkedInEducationOrderByWithRelationInput | LinkedInEducationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for LinkedInEducations.
+     */
+    cursor?: LinkedInEducationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LinkedInEducations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LinkedInEducations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LinkedInEducations.
+     */
+    distinct?: LinkedInEducationScalarFieldEnum | LinkedInEducationScalarFieldEnum[]
+  }
+
+  /**
+   * LinkedInEducation findFirstOrThrow
+   */
+  export type LinkedInEducationFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInEducation
+     */
+    select?: LinkedInEducationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInEducation
+     */
+    omit?: LinkedInEducationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInEducationInclude<ExtArgs> | null
+    /**
+     * Filter, which LinkedInEducation to fetch.
+     */
+    where?: LinkedInEducationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LinkedInEducations to fetch.
+     */
+    orderBy?: LinkedInEducationOrderByWithRelationInput | LinkedInEducationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for LinkedInEducations.
+     */
+    cursor?: LinkedInEducationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LinkedInEducations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LinkedInEducations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LinkedInEducations.
+     */
+    distinct?: LinkedInEducationScalarFieldEnum | LinkedInEducationScalarFieldEnum[]
+  }
+
+  /**
+   * LinkedInEducation findMany
+   */
+  export type LinkedInEducationFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInEducation
+     */
+    select?: LinkedInEducationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInEducation
+     */
+    omit?: LinkedInEducationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInEducationInclude<ExtArgs> | null
+    /**
+     * Filter, which LinkedInEducations to fetch.
+     */
+    where?: LinkedInEducationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LinkedInEducations to fetch.
+     */
+    orderBy?: LinkedInEducationOrderByWithRelationInput | LinkedInEducationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing LinkedInEducations.
+     */
+    cursor?: LinkedInEducationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LinkedInEducations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LinkedInEducations.
+     */
+    skip?: number
+    distinct?: LinkedInEducationScalarFieldEnum | LinkedInEducationScalarFieldEnum[]
+  }
+
+  /**
+   * LinkedInEducation create
+   */
+  export type LinkedInEducationCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInEducation
+     */
+    select?: LinkedInEducationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInEducation
+     */
+    omit?: LinkedInEducationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInEducationInclude<ExtArgs> | null
+    /**
+     * The data needed to create a LinkedInEducation.
+     */
+    data: XOR<LinkedInEducationCreateInput, LinkedInEducationUncheckedCreateInput>
+  }
+
+  /**
+   * LinkedInEducation createMany
+   */
+  export type LinkedInEducationCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many LinkedInEducations.
+     */
+    data: LinkedInEducationCreateManyInput | LinkedInEducationCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * LinkedInEducation createManyAndReturn
+   */
+  export type LinkedInEducationCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInEducation
+     */
+    select?: LinkedInEducationSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInEducation
+     */
+    omit?: LinkedInEducationOmit<ExtArgs> | null
+    /**
+     * The data used to create many LinkedInEducations.
+     */
+    data: LinkedInEducationCreateManyInput | LinkedInEducationCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInEducationIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * LinkedInEducation update
+   */
+  export type LinkedInEducationUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInEducation
+     */
+    select?: LinkedInEducationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInEducation
+     */
+    omit?: LinkedInEducationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInEducationInclude<ExtArgs> | null
+    /**
+     * The data needed to update a LinkedInEducation.
+     */
+    data: XOR<LinkedInEducationUpdateInput, LinkedInEducationUncheckedUpdateInput>
+    /**
+     * Choose, which LinkedInEducation to update.
+     */
+    where: LinkedInEducationWhereUniqueInput
+  }
+
+  /**
+   * LinkedInEducation updateMany
+   */
+  export type LinkedInEducationUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update LinkedInEducations.
+     */
+    data: XOR<LinkedInEducationUpdateManyMutationInput, LinkedInEducationUncheckedUpdateManyInput>
+    /**
+     * Filter which LinkedInEducations to update
+     */
+    where?: LinkedInEducationWhereInput
+    /**
+     * Limit how many LinkedInEducations to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * LinkedInEducation updateManyAndReturn
+   */
+  export type LinkedInEducationUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInEducation
+     */
+    select?: LinkedInEducationSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInEducation
+     */
+    omit?: LinkedInEducationOmit<ExtArgs> | null
+    /**
+     * The data used to update LinkedInEducations.
+     */
+    data: XOR<LinkedInEducationUpdateManyMutationInput, LinkedInEducationUncheckedUpdateManyInput>
+    /**
+     * Filter which LinkedInEducations to update
+     */
+    where?: LinkedInEducationWhereInput
+    /**
+     * Limit how many LinkedInEducations to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInEducationIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * LinkedInEducation upsert
+   */
+  export type LinkedInEducationUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInEducation
+     */
+    select?: LinkedInEducationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInEducation
+     */
+    omit?: LinkedInEducationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInEducationInclude<ExtArgs> | null
+    /**
+     * The filter to search for the LinkedInEducation to update in case it exists.
+     */
+    where: LinkedInEducationWhereUniqueInput
+    /**
+     * In case the LinkedInEducation found by the `where` argument doesn't exist, create a new LinkedInEducation with this data.
+     */
+    create: XOR<LinkedInEducationCreateInput, LinkedInEducationUncheckedCreateInput>
+    /**
+     * In case the LinkedInEducation was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<LinkedInEducationUpdateInput, LinkedInEducationUncheckedUpdateInput>
+  }
+
+  /**
+   * LinkedInEducation delete
+   */
+  export type LinkedInEducationDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInEducation
+     */
+    select?: LinkedInEducationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInEducation
+     */
+    omit?: LinkedInEducationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInEducationInclude<ExtArgs> | null
+    /**
+     * Filter which LinkedInEducation to delete.
+     */
+    where: LinkedInEducationWhereUniqueInput
+  }
+
+  /**
+   * LinkedInEducation deleteMany
+   */
+  export type LinkedInEducationDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LinkedInEducations to delete
+     */
+    where?: LinkedInEducationWhereInput
+    /**
+     * Limit how many LinkedInEducations to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * LinkedInEducation without action
+   */
+  export type LinkedInEducationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInEducation
+     */
+    select?: LinkedInEducationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInEducation
+     */
+    omit?: LinkedInEducationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInEducationInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model LinkedInSkill
+   */
+
+  export type AggregateLinkedInSkill = {
+    _count: LinkedInSkillCountAggregateOutputType | null
+    _avg: LinkedInSkillAvgAggregateOutputType | null
+    _sum: LinkedInSkillSumAggregateOutputType | null
+    _min: LinkedInSkillMinAggregateOutputType | null
+    _max: LinkedInSkillMaxAggregateOutputType | null
+  }
+
+  export type LinkedInSkillAvgAggregateOutputType = {
+    id: number | null
+    profileId: number | null
+    endorsementsCount: number | null
+  }
+
+  export type LinkedInSkillSumAggregateOutputType = {
+    id: number | null
+    profileId: number | null
+    endorsementsCount: number | null
+  }
+
+  export type LinkedInSkillMinAggregateOutputType = {
+    id: number | null
+    profileId: number | null
+    name: string | null
+    endorsementsCount: number | null
+    passsedAssement: boolean | null
+  }
+
+  export type LinkedInSkillMaxAggregateOutputType = {
+    id: number | null
+    profileId: number | null
+    name: string | null
+    endorsementsCount: number | null
+    passsedAssement: boolean | null
+  }
+
+  export type LinkedInSkillCountAggregateOutputType = {
+    id: number
+    profileId: number
+    name: number
+    endorsementsCount: number
+    passsedAssement: number
+    _all: number
+  }
+
+
+  export type LinkedInSkillAvgAggregateInputType = {
+    id?: true
+    profileId?: true
+    endorsementsCount?: true
+  }
+
+  export type LinkedInSkillSumAggregateInputType = {
+    id?: true
+    profileId?: true
+    endorsementsCount?: true
+  }
+
+  export type LinkedInSkillMinAggregateInputType = {
+    id?: true
+    profileId?: true
+    name?: true
+    endorsementsCount?: true
+    passsedAssement?: true
+  }
+
+  export type LinkedInSkillMaxAggregateInputType = {
+    id?: true
+    profileId?: true
+    name?: true
+    endorsementsCount?: true
+    passsedAssement?: true
+  }
+
+  export type LinkedInSkillCountAggregateInputType = {
+    id?: true
+    profileId?: true
+    name?: true
+    endorsementsCount?: true
+    passsedAssement?: true
+    _all?: true
+  }
+
+  export type LinkedInSkillAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LinkedInSkill to aggregate.
+     */
+    where?: LinkedInSkillWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LinkedInSkills to fetch.
+     */
+    orderBy?: LinkedInSkillOrderByWithRelationInput | LinkedInSkillOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: LinkedInSkillWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LinkedInSkills from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LinkedInSkills.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned LinkedInSkills
+    **/
+    _count?: true | LinkedInSkillCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: LinkedInSkillAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: LinkedInSkillSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: LinkedInSkillMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: LinkedInSkillMaxAggregateInputType
+  }
+
+  export type GetLinkedInSkillAggregateType<T extends LinkedInSkillAggregateArgs> = {
+        [P in keyof T & keyof AggregateLinkedInSkill]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateLinkedInSkill[P]>
+      : GetScalarType<T[P], AggregateLinkedInSkill[P]>
+  }
+
+
+
+
+  export type LinkedInSkillGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LinkedInSkillWhereInput
+    orderBy?: LinkedInSkillOrderByWithAggregationInput | LinkedInSkillOrderByWithAggregationInput[]
+    by: LinkedInSkillScalarFieldEnum[] | LinkedInSkillScalarFieldEnum
+    having?: LinkedInSkillScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: LinkedInSkillCountAggregateInputType | true
+    _avg?: LinkedInSkillAvgAggregateInputType
+    _sum?: LinkedInSkillSumAggregateInputType
+    _min?: LinkedInSkillMinAggregateInputType
+    _max?: LinkedInSkillMaxAggregateInputType
+  }
+
+  export type LinkedInSkillGroupByOutputType = {
+    id: number
+    profileId: number
+    name: string
+    endorsementsCount: number
+    passsedAssement: boolean
+    _count: LinkedInSkillCountAggregateOutputType | null
+    _avg: LinkedInSkillAvgAggregateOutputType | null
+    _sum: LinkedInSkillSumAggregateOutputType | null
+    _min: LinkedInSkillMinAggregateOutputType | null
+    _max: LinkedInSkillMaxAggregateOutputType | null
+  }
+
+  type GetLinkedInSkillGroupByPayload<T extends LinkedInSkillGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<LinkedInSkillGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof LinkedInSkillGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], LinkedInSkillGroupByOutputType[P]>
+            : GetScalarType<T[P], LinkedInSkillGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type LinkedInSkillSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    profileId?: boolean
+    name?: boolean
+    endorsementsCount?: boolean
+    passsedAssement?: boolean
+    profile?: boolean | LinkedInProfileDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["linkedInSkill"]>
+
+  export type LinkedInSkillSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    profileId?: boolean
+    name?: boolean
+    endorsementsCount?: boolean
+    passsedAssement?: boolean
+    profile?: boolean | LinkedInProfileDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["linkedInSkill"]>
+
+  export type LinkedInSkillSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    profileId?: boolean
+    name?: boolean
+    endorsementsCount?: boolean
+    passsedAssement?: boolean
+    profile?: boolean | LinkedInProfileDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["linkedInSkill"]>
+
+  export type LinkedInSkillSelectScalar = {
+    id?: boolean
+    profileId?: boolean
+    name?: boolean
+    endorsementsCount?: boolean
+    passsedAssement?: boolean
+  }
+
+  export type LinkedInSkillOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "profileId" | "name" | "endorsementsCount" | "passsedAssement", ExtArgs["result"]["linkedInSkill"]>
+  export type LinkedInSkillInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    profile?: boolean | LinkedInProfileDefaultArgs<ExtArgs>
+  }
+  export type LinkedInSkillIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    profile?: boolean | LinkedInProfileDefaultArgs<ExtArgs>
+  }
+  export type LinkedInSkillIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    profile?: boolean | LinkedInProfileDefaultArgs<ExtArgs>
+  }
+
+  export type $LinkedInSkillPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "LinkedInSkill"
+    objects: {
+      profile: Prisma.$LinkedInProfilePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      profileId: number
+      name: string
+      endorsementsCount: number
+      passsedAssement: boolean
+    }, ExtArgs["result"]["linkedInSkill"]>
+    composites: {}
+  }
+
+  type LinkedInSkillGetPayload<S extends boolean | null | undefined | LinkedInSkillDefaultArgs> = $Result.GetResult<Prisma.$LinkedInSkillPayload, S>
+
+  type LinkedInSkillCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<LinkedInSkillFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: LinkedInSkillCountAggregateInputType | true
+    }
+
+  export interface LinkedInSkillDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['LinkedInSkill'], meta: { name: 'LinkedInSkill' } }
+    /**
+     * Find zero or one LinkedInSkill that matches the filter.
+     * @param {LinkedInSkillFindUniqueArgs} args - Arguments to find a LinkedInSkill
+     * @example
+     * // Get one LinkedInSkill
+     * const linkedInSkill = await prisma.linkedInSkill.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends LinkedInSkillFindUniqueArgs>(args: SelectSubset<T, LinkedInSkillFindUniqueArgs<ExtArgs>>): Prisma__LinkedInSkillClient<$Result.GetResult<Prisma.$LinkedInSkillPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one LinkedInSkill that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {LinkedInSkillFindUniqueOrThrowArgs} args - Arguments to find a LinkedInSkill
+     * @example
+     * // Get one LinkedInSkill
+     * const linkedInSkill = await prisma.linkedInSkill.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends LinkedInSkillFindUniqueOrThrowArgs>(args: SelectSubset<T, LinkedInSkillFindUniqueOrThrowArgs<ExtArgs>>): Prisma__LinkedInSkillClient<$Result.GetResult<Prisma.$LinkedInSkillPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first LinkedInSkill that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LinkedInSkillFindFirstArgs} args - Arguments to find a LinkedInSkill
+     * @example
+     * // Get one LinkedInSkill
+     * const linkedInSkill = await prisma.linkedInSkill.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends LinkedInSkillFindFirstArgs>(args?: SelectSubset<T, LinkedInSkillFindFirstArgs<ExtArgs>>): Prisma__LinkedInSkillClient<$Result.GetResult<Prisma.$LinkedInSkillPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first LinkedInSkill that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LinkedInSkillFindFirstOrThrowArgs} args - Arguments to find a LinkedInSkill
+     * @example
+     * // Get one LinkedInSkill
+     * const linkedInSkill = await prisma.linkedInSkill.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends LinkedInSkillFindFirstOrThrowArgs>(args?: SelectSubset<T, LinkedInSkillFindFirstOrThrowArgs<ExtArgs>>): Prisma__LinkedInSkillClient<$Result.GetResult<Prisma.$LinkedInSkillPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more LinkedInSkills that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LinkedInSkillFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all LinkedInSkills
+     * const linkedInSkills = await prisma.linkedInSkill.findMany()
+     * 
+     * // Get first 10 LinkedInSkills
+     * const linkedInSkills = await prisma.linkedInSkill.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const linkedInSkillWithIdOnly = await prisma.linkedInSkill.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends LinkedInSkillFindManyArgs>(args?: SelectSubset<T, LinkedInSkillFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LinkedInSkillPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a LinkedInSkill.
+     * @param {LinkedInSkillCreateArgs} args - Arguments to create a LinkedInSkill.
+     * @example
+     * // Create one LinkedInSkill
+     * const LinkedInSkill = await prisma.linkedInSkill.create({
+     *   data: {
+     *     // ... data to create a LinkedInSkill
+     *   }
+     * })
+     * 
+     */
+    create<T extends LinkedInSkillCreateArgs>(args: SelectSubset<T, LinkedInSkillCreateArgs<ExtArgs>>): Prisma__LinkedInSkillClient<$Result.GetResult<Prisma.$LinkedInSkillPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many LinkedInSkills.
+     * @param {LinkedInSkillCreateManyArgs} args - Arguments to create many LinkedInSkills.
+     * @example
+     * // Create many LinkedInSkills
+     * const linkedInSkill = await prisma.linkedInSkill.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends LinkedInSkillCreateManyArgs>(args?: SelectSubset<T, LinkedInSkillCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many LinkedInSkills and returns the data saved in the database.
+     * @param {LinkedInSkillCreateManyAndReturnArgs} args - Arguments to create many LinkedInSkills.
+     * @example
+     * // Create many LinkedInSkills
+     * const linkedInSkill = await prisma.linkedInSkill.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many LinkedInSkills and only return the `id`
+     * const linkedInSkillWithIdOnly = await prisma.linkedInSkill.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends LinkedInSkillCreateManyAndReturnArgs>(args?: SelectSubset<T, LinkedInSkillCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LinkedInSkillPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a LinkedInSkill.
+     * @param {LinkedInSkillDeleteArgs} args - Arguments to delete one LinkedInSkill.
+     * @example
+     * // Delete one LinkedInSkill
+     * const LinkedInSkill = await prisma.linkedInSkill.delete({
+     *   where: {
+     *     // ... filter to delete one LinkedInSkill
+     *   }
+     * })
+     * 
+     */
+    delete<T extends LinkedInSkillDeleteArgs>(args: SelectSubset<T, LinkedInSkillDeleteArgs<ExtArgs>>): Prisma__LinkedInSkillClient<$Result.GetResult<Prisma.$LinkedInSkillPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one LinkedInSkill.
+     * @param {LinkedInSkillUpdateArgs} args - Arguments to update one LinkedInSkill.
+     * @example
+     * // Update one LinkedInSkill
+     * const linkedInSkill = await prisma.linkedInSkill.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends LinkedInSkillUpdateArgs>(args: SelectSubset<T, LinkedInSkillUpdateArgs<ExtArgs>>): Prisma__LinkedInSkillClient<$Result.GetResult<Prisma.$LinkedInSkillPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more LinkedInSkills.
+     * @param {LinkedInSkillDeleteManyArgs} args - Arguments to filter LinkedInSkills to delete.
+     * @example
+     * // Delete a few LinkedInSkills
+     * const { count } = await prisma.linkedInSkill.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends LinkedInSkillDeleteManyArgs>(args?: SelectSubset<T, LinkedInSkillDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more LinkedInSkills.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LinkedInSkillUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many LinkedInSkills
+     * const linkedInSkill = await prisma.linkedInSkill.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends LinkedInSkillUpdateManyArgs>(args: SelectSubset<T, LinkedInSkillUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more LinkedInSkills and returns the data updated in the database.
+     * @param {LinkedInSkillUpdateManyAndReturnArgs} args - Arguments to update many LinkedInSkills.
+     * @example
+     * // Update many LinkedInSkills
+     * const linkedInSkill = await prisma.linkedInSkill.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more LinkedInSkills and only return the `id`
+     * const linkedInSkillWithIdOnly = await prisma.linkedInSkill.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends LinkedInSkillUpdateManyAndReturnArgs>(args: SelectSubset<T, LinkedInSkillUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LinkedInSkillPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one LinkedInSkill.
+     * @param {LinkedInSkillUpsertArgs} args - Arguments to update or create a LinkedInSkill.
+     * @example
+     * // Update or create a LinkedInSkill
+     * const linkedInSkill = await prisma.linkedInSkill.upsert({
+     *   create: {
+     *     // ... data to create a LinkedInSkill
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the LinkedInSkill we want to update
+     *   }
+     * })
+     */
+    upsert<T extends LinkedInSkillUpsertArgs>(args: SelectSubset<T, LinkedInSkillUpsertArgs<ExtArgs>>): Prisma__LinkedInSkillClient<$Result.GetResult<Prisma.$LinkedInSkillPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of LinkedInSkills.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LinkedInSkillCountArgs} args - Arguments to filter LinkedInSkills to count.
+     * @example
+     * // Count the number of LinkedInSkills
+     * const count = await prisma.linkedInSkill.count({
+     *   where: {
+     *     // ... the filter for the LinkedInSkills we want to count
+     *   }
+     * })
+    **/
+    count<T extends LinkedInSkillCountArgs>(
+      args?: Subset<T, LinkedInSkillCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], LinkedInSkillCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a LinkedInSkill.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LinkedInSkillAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends LinkedInSkillAggregateArgs>(args: Subset<T, LinkedInSkillAggregateArgs>): Prisma.PrismaPromise<GetLinkedInSkillAggregateType<T>>
+
+    /**
+     * Group by LinkedInSkill.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LinkedInSkillGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends LinkedInSkillGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: LinkedInSkillGroupByArgs['orderBy'] }
+        : { orderBy?: LinkedInSkillGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, LinkedInSkillGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLinkedInSkillGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the LinkedInSkill model
+   */
+  readonly fields: LinkedInSkillFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for LinkedInSkill.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__LinkedInSkillClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    profile<T extends LinkedInProfileDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LinkedInProfileDefaultArgs<ExtArgs>>): Prisma__LinkedInProfileClient<$Result.GetResult<Prisma.$LinkedInProfilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the LinkedInSkill model
+   */
+  interface LinkedInSkillFieldRefs {
+    readonly id: FieldRef<"LinkedInSkill", 'Int'>
+    readonly profileId: FieldRef<"LinkedInSkill", 'Int'>
+    readonly name: FieldRef<"LinkedInSkill", 'String'>
+    readonly endorsementsCount: FieldRef<"LinkedInSkill", 'Int'>
+    readonly passsedAssement: FieldRef<"LinkedInSkill", 'Boolean'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * LinkedInSkill findUnique
+   */
+  export type LinkedInSkillFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInSkill
+     */
+    select?: LinkedInSkillSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInSkill
+     */
+    omit?: LinkedInSkillOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInSkillInclude<ExtArgs> | null
+    /**
+     * Filter, which LinkedInSkill to fetch.
+     */
+    where: LinkedInSkillWhereUniqueInput
+  }
+
+  /**
+   * LinkedInSkill findUniqueOrThrow
+   */
+  export type LinkedInSkillFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInSkill
+     */
+    select?: LinkedInSkillSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInSkill
+     */
+    omit?: LinkedInSkillOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInSkillInclude<ExtArgs> | null
+    /**
+     * Filter, which LinkedInSkill to fetch.
+     */
+    where: LinkedInSkillWhereUniqueInput
+  }
+
+  /**
+   * LinkedInSkill findFirst
+   */
+  export type LinkedInSkillFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInSkill
+     */
+    select?: LinkedInSkillSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInSkill
+     */
+    omit?: LinkedInSkillOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInSkillInclude<ExtArgs> | null
+    /**
+     * Filter, which LinkedInSkill to fetch.
+     */
+    where?: LinkedInSkillWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LinkedInSkills to fetch.
+     */
+    orderBy?: LinkedInSkillOrderByWithRelationInput | LinkedInSkillOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for LinkedInSkills.
+     */
+    cursor?: LinkedInSkillWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LinkedInSkills from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LinkedInSkills.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LinkedInSkills.
+     */
+    distinct?: LinkedInSkillScalarFieldEnum | LinkedInSkillScalarFieldEnum[]
+  }
+
+  /**
+   * LinkedInSkill findFirstOrThrow
+   */
+  export type LinkedInSkillFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInSkill
+     */
+    select?: LinkedInSkillSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInSkill
+     */
+    omit?: LinkedInSkillOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInSkillInclude<ExtArgs> | null
+    /**
+     * Filter, which LinkedInSkill to fetch.
+     */
+    where?: LinkedInSkillWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LinkedInSkills to fetch.
+     */
+    orderBy?: LinkedInSkillOrderByWithRelationInput | LinkedInSkillOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for LinkedInSkills.
+     */
+    cursor?: LinkedInSkillWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LinkedInSkills from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LinkedInSkills.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LinkedInSkills.
+     */
+    distinct?: LinkedInSkillScalarFieldEnum | LinkedInSkillScalarFieldEnum[]
+  }
+
+  /**
+   * LinkedInSkill findMany
+   */
+  export type LinkedInSkillFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInSkill
+     */
+    select?: LinkedInSkillSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInSkill
+     */
+    omit?: LinkedInSkillOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInSkillInclude<ExtArgs> | null
+    /**
+     * Filter, which LinkedInSkills to fetch.
+     */
+    where?: LinkedInSkillWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LinkedInSkills to fetch.
+     */
+    orderBy?: LinkedInSkillOrderByWithRelationInput | LinkedInSkillOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing LinkedInSkills.
+     */
+    cursor?: LinkedInSkillWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LinkedInSkills from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LinkedInSkills.
+     */
+    skip?: number
+    distinct?: LinkedInSkillScalarFieldEnum | LinkedInSkillScalarFieldEnum[]
+  }
+
+  /**
+   * LinkedInSkill create
+   */
+  export type LinkedInSkillCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInSkill
+     */
+    select?: LinkedInSkillSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInSkill
+     */
+    omit?: LinkedInSkillOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInSkillInclude<ExtArgs> | null
+    /**
+     * The data needed to create a LinkedInSkill.
+     */
+    data: XOR<LinkedInSkillCreateInput, LinkedInSkillUncheckedCreateInput>
+  }
+
+  /**
+   * LinkedInSkill createMany
+   */
+  export type LinkedInSkillCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many LinkedInSkills.
+     */
+    data: LinkedInSkillCreateManyInput | LinkedInSkillCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * LinkedInSkill createManyAndReturn
+   */
+  export type LinkedInSkillCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInSkill
+     */
+    select?: LinkedInSkillSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInSkill
+     */
+    omit?: LinkedInSkillOmit<ExtArgs> | null
+    /**
+     * The data used to create many LinkedInSkills.
+     */
+    data: LinkedInSkillCreateManyInput | LinkedInSkillCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInSkillIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * LinkedInSkill update
+   */
+  export type LinkedInSkillUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInSkill
+     */
+    select?: LinkedInSkillSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInSkill
+     */
+    omit?: LinkedInSkillOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInSkillInclude<ExtArgs> | null
+    /**
+     * The data needed to update a LinkedInSkill.
+     */
+    data: XOR<LinkedInSkillUpdateInput, LinkedInSkillUncheckedUpdateInput>
+    /**
+     * Choose, which LinkedInSkill to update.
+     */
+    where: LinkedInSkillWhereUniqueInput
+  }
+
+  /**
+   * LinkedInSkill updateMany
+   */
+  export type LinkedInSkillUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update LinkedInSkills.
+     */
+    data: XOR<LinkedInSkillUpdateManyMutationInput, LinkedInSkillUncheckedUpdateManyInput>
+    /**
+     * Filter which LinkedInSkills to update
+     */
+    where?: LinkedInSkillWhereInput
+    /**
+     * Limit how many LinkedInSkills to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * LinkedInSkill updateManyAndReturn
+   */
+  export type LinkedInSkillUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInSkill
+     */
+    select?: LinkedInSkillSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInSkill
+     */
+    omit?: LinkedInSkillOmit<ExtArgs> | null
+    /**
+     * The data used to update LinkedInSkills.
+     */
+    data: XOR<LinkedInSkillUpdateManyMutationInput, LinkedInSkillUncheckedUpdateManyInput>
+    /**
+     * Filter which LinkedInSkills to update
+     */
+    where?: LinkedInSkillWhereInput
+    /**
+     * Limit how many LinkedInSkills to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInSkillIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * LinkedInSkill upsert
+   */
+  export type LinkedInSkillUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInSkill
+     */
+    select?: LinkedInSkillSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInSkill
+     */
+    omit?: LinkedInSkillOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInSkillInclude<ExtArgs> | null
+    /**
+     * The filter to search for the LinkedInSkill to update in case it exists.
+     */
+    where: LinkedInSkillWhereUniqueInput
+    /**
+     * In case the LinkedInSkill found by the `where` argument doesn't exist, create a new LinkedInSkill with this data.
+     */
+    create: XOR<LinkedInSkillCreateInput, LinkedInSkillUncheckedCreateInput>
+    /**
+     * In case the LinkedInSkill was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<LinkedInSkillUpdateInput, LinkedInSkillUncheckedUpdateInput>
+  }
+
+  /**
+   * LinkedInSkill delete
+   */
+  export type LinkedInSkillDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInSkill
+     */
+    select?: LinkedInSkillSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInSkill
+     */
+    omit?: LinkedInSkillOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInSkillInclude<ExtArgs> | null
+    /**
+     * Filter which LinkedInSkill to delete.
+     */
+    where: LinkedInSkillWhereUniqueInput
+  }
+
+  /**
+   * LinkedInSkill deleteMany
+   */
+  export type LinkedInSkillDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LinkedInSkills to delete
+     */
+    where?: LinkedInSkillWhereInput
+    /**
+     * Limit how many LinkedInSkills to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * LinkedInSkill without action
+   */
+  export type LinkedInSkillDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInSkill
+     */
+    select?: LinkedInSkillSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInSkill
+     */
+    omit?: LinkedInSkillOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInSkillInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model LinkedInCertification
+   */
+
+  export type AggregateLinkedInCertification = {
+    _count: LinkedInCertificationCountAggregateOutputType | null
+    _avg: LinkedInCertificationAvgAggregateOutputType | null
+    _sum: LinkedInCertificationSumAggregateOutputType | null
+    _min: LinkedInCertificationMinAggregateOutputType | null
+    _max: LinkedInCertificationMaxAggregateOutputType | null
+  }
+
+  export type LinkedInCertificationAvgAggregateOutputType = {
+    id: number | null
+    profileId: number | null
+  }
+
+  export type LinkedInCertificationSumAggregateOutputType = {
+    id: number | null
+    profileId: number | null
+  }
+
+  export type LinkedInCertificationMinAggregateOutputType = {
+    id: number | null
+    profileId: number | null
+    name: string | null
+    issuing_organization: string | null
+  }
+
+  export type LinkedInCertificationMaxAggregateOutputType = {
+    id: number | null
+    profileId: number | null
+    name: string | null
+    issuing_organization: string | null
+  }
+
+  export type LinkedInCertificationCountAggregateOutputType = {
+    id: number
+    profileId: number
+    name: number
+    issuing_organization: number
+    _all: number
+  }
+
+
+  export type LinkedInCertificationAvgAggregateInputType = {
+    id?: true
+    profileId?: true
+  }
+
+  export type LinkedInCertificationSumAggregateInputType = {
+    id?: true
+    profileId?: true
+  }
+
+  export type LinkedInCertificationMinAggregateInputType = {
+    id?: true
+    profileId?: true
+    name?: true
+    issuing_organization?: true
+  }
+
+  export type LinkedInCertificationMaxAggregateInputType = {
+    id?: true
+    profileId?: true
+    name?: true
+    issuing_organization?: true
+  }
+
+  export type LinkedInCertificationCountAggregateInputType = {
+    id?: true
+    profileId?: true
+    name?: true
+    issuing_organization?: true
+    _all?: true
+  }
+
+  export type LinkedInCertificationAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LinkedInCertification to aggregate.
+     */
+    where?: LinkedInCertificationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LinkedInCertifications to fetch.
+     */
+    orderBy?: LinkedInCertificationOrderByWithRelationInput | LinkedInCertificationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: LinkedInCertificationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LinkedInCertifications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LinkedInCertifications.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned LinkedInCertifications
+    **/
+    _count?: true | LinkedInCertificationCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: LinkedInCertificationAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: LinkedInCertificationSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: LinkedInCertificationMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: LinkedInCertificationMaxAggregateInputType
+  }
+
+  export type GetLinkedInCertificationAggregateType<T extends LinkedInCertificationAggregateArgs> = {
+        [P in keyof T & keyof AggregateLinkedInCertification]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateLinkedInCertification[P]>
+      : GetScalarType<T[P], AggregateLinkedInCertification[P]>
+  }
+
+
+
+
+  export type LinkedInCertificationGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LinkedInCertificationWhereInput
+    orderBy?: LinkedInCertificationOrderByWithAggregationInput | LinkedInCertificationOrderByWithAggregationInput[]
+    by: LinkedInCertificationScalarFieldEnum[] | LinkedInCertificationScalarFieldEnum
+    having?: LinkedInCertificationScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: LinkedInCertificationCountAggregateInputType | true
+    _avg?: LinkedInCertificationAvgAggregateInputType
+    _sum?: LinkedInCertificationSumAggregateInputType
+    _min?: LinkedInCertificationMinAggregateInputType
+    _max?: LinkedInCertificationMaxAggregateInputType
+  }
+
+  export type LinkedInCertificationGroupByOutputType = {
+    id: number
+    profileId: number
+    name: string
+    issuing_organization: string
+    _count: LinkedInCertificationCountAggregateOutputType | null
+    _avg: LinkedInCertificationAvgAggregateOutputType | null
+    _sum: LinkedInCertificationSumAggregateOutputType | null
+    _min: LinkedInCertificationMinAggregateOutputType | null
+    _max: LinkedInCertificationMaxAggregateOutputType | null
+  }
+
+  type GetLinkedInCertificationGroupByPayload<T extends LinkedInCertificationGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<LinkedInCertificationGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof LinkedInCertificationGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], LinkedInCertificationGroupByOutputType[P]>
+            : GetScalarType<T[P], LinkedInCertificationGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type LinkedInCertificationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    profileId?: boolean
+    name?: boolean
+    issuing_organization?: boolean
+    profile?: boolean | LinkedInProfileDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["linkedInCertification"]>
+
+  export type LinkedInCertificationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    profileId?: boolean
+    name?: boolean
+    issuing_organization?: boolean
+    profile?: boolean | LinkedInProfileDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["linkedInCertification"]>
+
+  export type LinkedInCertificationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    profileId?: boolean
+    name?: boolean
+    issuing_organization?: boolean
+    profile?: boolean | LinkedInProfileDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["linkedInCertification"]>
+
+  export type LinkedInCertificationSelectScalar = {
+    id?: boolean
+    profileId?: boolean
+    name?: boolean
+    issuing_organization?: boolean
+  }
+
+  export type LinkedInCertificationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "profileId" | "name" | "issuing_organization", ExtArgs["result"]["linkedInCertification"]>
+  export type LinkedInCertificationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    profile?: boolean | LinkedInProfileDefaultArgs<ExtArgs>
+  }
+  export type LinkedInCertificationIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    profile?: boolean | LinkedInProfileDefaultArgs<ExtArgs>
+  }
+  export type LinkedInCertificationIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    profile?: boolean | LinkedInProfileDefaultArgs<ExtArgs>
+  }
+
+  export type $LinkedInCertificationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "LinkedInCertification"
+    objects: {
+      profile: Prisma.$LinkedInProfilePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      profileId: number
+      name: string
+      issuing_organization: string
+    }, ExtArgs["result"]["linkedInCertification"]>
+    composites: {}
+  }
+
+  type LinkedInCertificationGetPayload<S extends boolean | null | undefined | LinkedInCertificationDefaultArgs> = $Result.GetResult<Prisma.$LinkedInCertificationPayload, S>
+
+  type LinkedInCertificationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<LinkedInCertificationFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: LinkedInCertificationCountAggregateInputType | true
+    }
+
+  export interface LinkedInCertificationDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['LinkedInCertification'], meta: { name: 'LinkedInCertification' } }
+    /**
+     * Find zero or one LinkedInCertification that matches the filter.
+     * @param {LinkedInCertificationFindUniqueArgs} args - Arguments to find a LinkedInCertification
+     * @example
+     * // Get one LinkedInCertification
+     * const linkedInCertification = await prisma.linkedInCertification.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends LinkedInCertificationFindUniqueArgs>(args: SelectSubset<T, LinkedInCertificationFindUniqueArgs<ExtArgs>>): Prisma__LinkedInCertificationClient<$Result.GetResult<Prisma.$LinkedInCertificationPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one LinkedInCertification that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {LinkedInCertificationFindUniqueOrThrowArgs} args - Arguments to find a LinkedInCertification
+     * @example
+     * // Get one LinkedInCertification
+     * const linkedInCertification = await prisma.linkedInCertification.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends LinkedInCertificationFindUniqueOrThrowArgs>(args: SelectSubset<T, LinkedInCertificationFindUniqueOrThrowArgs<ExtArgs>>): Prisma__LinkedInCertificationClient<$Result.GetResult<Prisma.$LinkedInCertificationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first LinkedInCertification that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LinkedInCertificationFindFirstArgs} args - Arguments to find a LinkedInCertification
+     * @example
+     * // Get one LinkedInCertification
+     * const linkedInCertification = await prisma.linkedInCertification.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends LinkedInCertificationFindFirstArgs>(args?: SelectSubset<T, LinkedInCertificationFindFirstArgs<ExtArgs>>): Prisma__LinkedInCertificationClient<$Result.GetResult<Prisma.$LinkedInCertificationPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first LinkedInCertification that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LinkedInCertificationFindFirstOrThrowArgs} args - Arguments to find a LinkedInCertification
+     * @example
+     * // Get one LinkedInCertification
+     * const linkedInCertification = await prisma.linkedInCertification.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends LinkedInCertificationFindFirstOrThrowArgs>(args?: SelectSubset<T, LinkedInCertificationFindFirstOrThrowArgs<ExtArgs>>): Prisma__LinkedInCertificationClient<$Result.GetResult<Prisma.$LinkedInCertificationPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more LinkedInCertifications that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LinkedInCertificationFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all LinkedInCertifications
+     * const linkedInCertifications = await prisma.linkedInCertification.findMany()
+     * 
+     * // Get first 10 LinkedInCertifications
+     * const linkedInCertifications = await prisma.linkedInCertification.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const linkedInCertificationWithIdOnly = await prisma.linkedInCertification.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends LinkedInCertificationFindManyArgs>(args?: SelectSubset<T, LinkedInCertificationFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LinkedInCertificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a LinkedInCertification.
+     * @param {LinkedInCertificationCreateArgs} args - Arguments to create a LinkedInCertification.
+     * @example
+     * // Create one LinkedInCertification
+     * const LinkedInCertification = await prisma.linkedInCertification.create({
+     *   data: {
+     *     // ... data to create a LinkedInCertification
+     *   }
+     * })
+     * 
+     */
+    create<T extends LinkedInCertificationCreateArgs>(args: SelectSubset<T, LinkedInCertificationCreateArgs<ExtArgs>>): Prisma__LinkedInCertificationClient<$Result.GetResult<Prisma.$LinkedInCertificationPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many LinkedInCertifications.
+     * @param {LinkedInCertificationCreateManyArgs} args - Arguments to create many LinkedInCertifications.
+     * @example
+     * // Create many LinkedInCertifications
+     * const linkedInCertification = await prisma.linkedInCertification.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends LinkedInCertificationCreateManyArgs>(args?: SelectSubset<T, LinkedInCertificationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many LinkedInCertifications and returns the data saved in the database.
+     * @param {LinkedInCertificationCreateManyAndReturnArgs} args - Arguments to create many LinkedInCertifications.
+     * @example
+     * // Create many LinkedInCertifications
+     * const linkedInCertification = await prisma.linkedInCertification.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many LinkedInCertifications and only return the `id`
+     * const linkedInCertificationWithIdOnly = await prisma.linkedInCertification.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends LinkedInCertificationCreateManyAndReturnArgs>(args?: SelectSubset<T, LinkedInCertificationCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LinkedInCertificationPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a LinkedInCertification.
+     * @param {LinkedInCertificationDeleteArgs} args - Arguments to delete one LinkedInCertification.
+     * @example
+     * // Delete one LinkedInCertification
+     * const LinkedInCertification = await prisma.linkedInCertification.delete({
+     *   where: {
+     *     // ... filter to delete one LinkedInCertification
+     *   }
+     * })
+     * 
+     */
+    delete<T extends LinkedInCertificationDeleteArgs>(args: SelectSubset<T, LinkedInCertificationDeleteArgs<ExtArgs>>): Prisma__LinkedInCertificationClient<$Result.GetResult<Prisma.$LinkedInCertificationPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one LinkedInCertification.
+     * @param {LinkedInCertificationUpdateArgs} args - Arguments to update one LinkedInCertification.
+     * @example
+     * // Update one LinkedInCertification
+     * const linkedInCertification = await prisma.linkedInCertification.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends LinkedInCertificationUpdateArgs>(args: SelectSubset<T, LinkedInCertificationUpdateArgs<ExtArgs>>): Prisma__LinkedInCertificationClient<$Result.GetResult<Prisma.$LinkedInCertificationPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more LinkedInCertifications.
+     * @param {LinkedInCertificationDeleteManyArgs} args - Arguments to filter LinkedInCertifications to delete.
+     * @example
+     * // Delete a few LinkedInCertifications
+     * const { count } = await prisma.linkedInCertification.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends LinkedInCertificationDeleteManyArgs>(args?: SelectSubset<T, LinkedInCertificationDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more LinkedInCertifications.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LinkedInCertificationUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many LinkedInCertifications
+     * const linkedInCertification = await prisma.linkedInCertification.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends LinkedInCertificationUpdateManyArgs>(args: SelectSubset<T, LinkedInCertificationUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more LinkedInCertifications and returns the data updated in the database.
+     * @param {LinkedInCertificationUpdateManyAndReturnArgs} args - Arguments to update many LinkedInCertifications.
+     * @example
+     * // Update many LinkedInCertifications
+     * const linkedInCertification = await prisma.linkedInCertification.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more LinkedInCertifications and only return the `id`
+     * const linkedInCertificationWithIdOnly = await prisma.linkedInCertification.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends LinkedInCertificationUpdateManyAndReturnArgs>(args: SelectSubset<T, LinkedInCertificationUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LinkedInCertificationPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one LinkedInCertification.
+     * @param {LinkedInCertificationUpsertArgs} args - Arguments to update or create a LinkedInCertification.
+     * @example
+     * // Update or create a LinkedInCertification
+     * const linkedInCertification = await prisma.linkedInCertification.upsert({
+     *   create: {
+     *     // ... data to create a LinkedInCertification
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the LinkedInCertification we want to update
+     *   }
+     * })
+     */
+    upsert<T extends LinkedInCertificationUpsertArgs>(args: SelectSubset<T, LinkedInCertificationUpsertArgs<ExtArgs>>): Prisma__LinkedInCertificationClient<$Result.GetResult<Prisma.$LinkedInCertificationPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of LinkedInCertifications.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LinkedInCertificationCountArgs} args - Arguments to filter LinkedInCertifications to count.
+     * @example
+     * // Count the number of LinkedInCertifications
+     * const count = await prisma.linkedInCertification.count({
+     *   where: {
+     *     // ... the filter for the LinkedInCertifications we want to count
+     *   }
+     * })
+    **/
+    count<T extends LinkedInCertificationCountArgs>(
+      args?: Subset<T, LinkedInCertificationCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], LinkedInCertificationCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a LinkedInCertification.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LinkedInCertificationAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends LinkedInCertificationAggregateArgs>(args: Subset<T, LinkedInCertificationAggregateArgs>): Prisma.PrismaPromise<GetLinkedInCertificationAggregateType<T>>
+
+    /**
+     * Group by LinkedInCertification.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LinkedInCertificationGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends LinkedInCertificationGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: LinkedInCertificationGroupByArgs['orderBy'] }
+        : { orderBy?: LinkedInCertificationGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, LinkedInCertificationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLinkedInCertificationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the LinkedInCertification model
+   */
+  readonly fields: LinkedInCertificationFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for LinkedInCertification.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__LinkedInCertificationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    profile<T extends LinkedInProfileDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LinkedInProfileDefaultArgs<ExtArgs>>): Prisma__LinkedInProfileClient<$Result.GetResult<Prisma.$LinkedInProfilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the LinkedInCertification model
+   */
+  interface LinkedInCertificationFieldRefs {
+    readonly id: FieldRef<"LinkedInCertification", 'Int'>
+    readonly profileId: FieldRef<"LinkedInCertification", 'Int'>
+    readonly name: FieldRef<"LinkedInCertification", 'String'>
+    readonly issuing_organization: FieldRef<"LinkedInCertification", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * LinkedInCertification findUnique
+   */
+  export type LinkedInCertificationFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInCertification
+     */
+    select?: LinkedInCertificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInCertification
+     */
+    omit?: LinkedInCertificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInCertificationInclude<ExtArgs> | null
+    /**
+     * Filter, which LinkedInCertification to fetch.
+     */
+    where: LinkedInCertificationWhereUniqueInput
+  }
+
+  /**
+   * LinkedInCertification findUniqueOrThrow
+   */
+  export type LinkedInCertificationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInCertification
+     */
+    select?: LinkedInCertificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInCertification
+     */
+    omit?: LinkedInCertificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInCertificationInclude<ExtArgs> | null
+    /**
+     * Filter, which LinkedInCertification to fetch.
+     */
+    where: LinkedInCertificationWhereUniqueInput
+  }
+
+  /**
+   * LinkedInCertification findFirst
+   */
+  export type LinkedInCertificationFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInCertification
+     */
+    select?: LinkedInCertificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInCertification
+     */
+    omit?: LinkedInCertificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInCertificationInclude<ExtArgs> | null
+    /**
+     * Filter, which LinkedInCertification to fetch.
+     */
+    where?: LinkedInCertificationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LinkedInCertifications to fetch.
+     */
+    orderBy?: LinkedInCertificationOrderByWithRelationInput | LinkedInCertificationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for LinkedInCertifications.
+     */
+    cursor?: LinkedInCertificationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LinkedInCertifications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LinkedInCertifications.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LinkedInCertifications.
+     */
+    distinct?: LinkedInCertificationScalarFieldEnum | LinkedInCertificationScalarFieldEnum[]
+  }
+
+  /**
+   * LinkedInCertification findFirstOrThrow
+   */
+  export type LinkedInCertificationFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInCertification
+     */
+    select?: LinkedInCertificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInCertification
+     */
+    omit?: LinkedInCertificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInCertificationInclude<ExtArgs> | null
+    /**
+     * Filter, which LinkedInCertification to fetch.
+     */
+    where?: LinkedInCertificationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LinkedInCertifications to fetch.
+     */
+    orderBy?: LinkedInCertificationOrderByWithRelationInput | LinkedInCertificationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for LinkedInCertifications.
+     */
+    cursor?: LinkedInCertificationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LinkedInCertifications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LinkedInCertifications.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LinkedInCertifications.
+     */
+    distinct?: LinkedInCertificationScalarFieldEnum | LinkedInCertificationScalarFieldEnum[]
+  }
+
+  /**
+   * LinkedInCertification findMany
+   */
+  export type LinkedInCertificationFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInCertification
+     */
+    select?: LinkedInCertificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInCertification
+     */
+    omit?: LinkedInCertificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInCertificationInclude<ExtArgs> | null
+    /**
+     * Filter, which LinkedInCertifications to fetch.
+     */
+    where?: LinkedInCertificationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LinkedInCertifications to fetch.
+     */
+    orderBy?: LinkedInCertificationOrderByWithRelationInput | LinkedInCertificationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing LinkedInCertifications.
+     */
+    cursor?: LinkedInCertificationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LinkedInCertifications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LinkedInCertifications.
+     */
+    skip?: number
+    distinct?: LinkedInCertificationScalarFieldEnum | LinkedInCertificationScalarFieldEnum[]
+  }
+
+  /**
+   * LinkedInCertification create
+   */
+  export type LinkedInCertificationCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInCertification
+     */
+    select?: LinkedInCertificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInCertification
+     */
+    omit?: LinkedInCertificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInCertificationInclude<ExtArgs> | null
+    /**
+     * The data needed to create a LinkedInCertification.
+     */
+    data: XOR<LinkedInCertificationCreateInput, LinkedInCertificationUncheckedCreateInput>
+  }
+
+  /**
+   * LinkedInCertification createMany
+   */
+  export type LinkedInCertificationCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many LinkedInCertifications.
+     */
+    data: LinkedInCertificationCreateManyInput | LinkedInCertificationCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * LinkedInCertification createManyAndReturn
+   */
+  export type LinkedInCertificationCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInCertification
+     */
+    select?: LinkedInCertificationSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInCertification
+     */
+    omit?: LinkedInCertificationOmit<ExtArgs> | null
+    /**
+     * The data used to create many LinkedInCertifications.
+     */
+    data: LinkedInCertificationCreateManyInput | LinkedInCertificationCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInCertificationIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * LinkedInCertification update
+   */
+  export type LinkedInCertificationUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInCertification
+     */
+    select?: LinkedInCertificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInCertification
+     */
+    omit?: LinkedInCertificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInCertificationInclude<ExtArgs> | null
+    /**
+     * The data needed to update a LinkedInCertification.
+     */
+    data: XOR<LinkedInCertificationUpdateInput, LinkedInCertificationUncheckedUpdateInput>
+    /**
+     * Choose, which LinkedInCertification to update.
+     */
+    where: LinkedInCertificationWhereUniqueInput
+  }
+
+  /**
+   * LinkedInCertification updateMany
+   */
+  export type LinkedInCertificationUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update LinkedInCertifications.
+     */
+    data: XOR<LinkedInCertificationUpdateManyMutationInput, LinkedInCertificationUncheckedUpdateManyInput>
+    /**
+     * Filter which LinkedInCertifications to update
+     */
+    where?: LinkedInCertificationWhereInput
+    /**
+     * Limit how many LinkedInCertifications to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * LinkedInCertification updateManyAndReturn
+   */
+  export type LinkedInCertificationUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInCertification
+     */
+    select?: LinkedInCertificationSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInCertification
+     */
+    omit?: LinkedInCertificationOmit<ExtArgs> | null
+    /**
+     * The data used to update LinkedInCertifications.
+     */
+    data: XOR<LinkedInCertificationUpdateManyMutationInput, LinkedInCertificationUncheckedUpdateManyInput>
+    /**
+     * Filter which LinkedInCertifications to update
+     */
+    where?: LinkedInCertificationWhereInput
+    /**
+     * Limit how many LinkedInCertifications to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInCertificationIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * LinkedInCertification upsert
+   */
+  export type LinkedInCertificationUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInCertification
+     */
+    select?: LinkedInCertificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInCertification
+     */
+    omit?: LinkedInCertificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInCertificationInclude<ExtArgs> | null
+    /**
+     * The filter to search for the LinkedInCertification to update in case it exists.
+     */
+    where: LinkedInCertificationWhereUniqueInput
+    /**
+     * In case the LinkedInCertification found by the `where` argument doesn't exist, create a new LinkedInCertification with this data.
+     */
+    create: XOR<LinkedInCertificationCreateInput, LinkedInCertificationUncheckedCreateInput>
+    /**
+     * In case the LinkedInCertification was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<LinkedInCertificationUpdateInput, LinkedInCertificationUncheckedUpdateInput>
+  }
+
+  /**
+   * LinkedInCertification delete
+   */
+  export type LinkedInCertificationDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInCertification
+     */
+    select?: LinkedInCertificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInCertification
+     */
+    omit?: LinkedInCertificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInCertificationInclude<ExtArgs> | null
+    /**
+     * Filter which LinkedInCertification to delete.
+     */
+    where: LinkedInCertificationWhereUniqueInput
+  }
+
+  /**
+   * LinkedInCertification deleteMany
+   */
+  export type LinkedInCertificationDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LinkedInCertifications to delete
+     */
+    where?: LinkedInCertificationWhereInput
+    /**
+     * Limit how many LinkedInCertifications to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * LinkedInCertification without action
+   */
+  export type LinkedInCertificationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LinkedInCertification
+     */
+    select?: LinkedInCertificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LinkedInCertification
+     */
+    omit?: LinkedInCertificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LinkedInCertificationInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -21084,6 +27384,74 @@ export namespace Prisma {
   };
 
   export type FontScalarFieldEnum = (typeof FontScalarFieldEnum)[keyof typeof FontScalarFieldEnum]
+
+
+  export const LinkedInProfileScalarFieldEnum: {
+    id: 'id',
+    resumeId: 'resumeId',
+    urn: 'urn',
+    firstName: 'firstName',
+    lastName: 'lastName',
+    headline: 'headline',
+    summury: 'summury',
+    username: 'username',
+    profilePicture: 'profilePicture',
+    country: 'country',
+    city: 'city'
+  };
+
+  export type LinkedInProfileScalarFieldEnum = (typeof LinkedInProfileScalarFieldEnum)[keyof typeof LinkedInProfileScalarFieldEnum]
+
+
+  export const LinkedInExperienceScalarFieldEnum: {
+    id: 'id',
+    profileId: 'profileId',
+    companyId: 'companyId',
+    companyName: 'companyName',
+    title: 'title',
+    startDate: 'startDate',
+    endDate: 'endDate',
+    description: 'description',
+    location: 'location',
+    current: 'current'
+  };
+
+  export type LinkedInExperienceScalarFieldEnum = (typeof LinkedInExperienceScalarFieldEnum)[keyof typeof LinkedInExperienceScalarFieldEnum]
+
+
+  export const LinkedInEducationScalarFieldEnum: {
+    id: 'id',
+    profileId: 'profileId',
+    schoolName: 'schoolName',
+    degree: 'degree',
+    fieldOfStudy: 'fieldOfStudy',
+    startDate: 'startDate',
+    endDate: 'endDate',
+    current: 'current'
+  };
+
+  export type LinkedInEducationScalarFieldEnum = (typeof LinkedInEducationScalarFieldEnum)[keyof typeof LinkedInEducationScalarFieldEnum]
+
+
+  export const LinkedInSkillScalarFieldEnum: {
+    id: 'id',
+    profileId: 'profileId',
+    name: 'name',
+    endorsementsCount: 'endorsementsCount',
+    passsedAssement: 'passsedAssement'
+  };
+
+  export type LinkedInSkillScalarFieldEnum = (typeof LinkedInSkillScalarFieldEnum)[keyof typeof LinkedInSkillScalarFieldEnum]
+
+
+  export const LinkedInCertificationScalarFieldEnum: {
+    id: 'id',
+    profileId: 'profileId',
+    name: 'name',
+    issuing_organization: 'issuing_organization'
+  };
+
+  export type LinkedInCertificationScalarFieldEnum = (typeof LinkedInCertificationScalarFieldEnum)[keyof typeof LinkedInCertificationScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -21419,6 +27787,7 @@ export namespace Prisma {
     projects?: ProjectListRelationFilter
     achievements?: AchievementListRelationFilter
     customSections?: CustomSectionListRelationFilter
+    LinkedInProfile?: XOR<LinkedInProfileNullableScalarRelationFilter, LinkedInProfileWhereInput> | null
   }
 
   export type ResumeOrderByWithRelationInput = {
@@ -21446,6 +27815,7 @@ export namespace Prisma {
     projects?: ProjectOrderByRelationAggregateInput
     achievements?: AchievementOrderByRelationAggregateInput
     customSections?: CustomSectionOrderByRelationAggregateInput
+    LinkedInProfile?: LinkedInProfileOrderByWithRelationInput
   }
 
   export type ResumeWhereUniqueInput = Prisma.AtLeast<{
@@ -21476,6 +27846,7 @@ export namespace Prisma {
     projects?: ProjectListRelationFilter
     achievements?: AchievementListRelationFilter
     customSections?: CustomSectionListRelationFilter
+    LinkedInProfile?: XOR<LinkedInProfileNullableScalarRelationFilter, LinkedInProfileWhereInput> | null
   }, "id" | "publicUrl">
 
   export type ResumeOrderByWithAggregationInput = {
@@ -22429,6 +28800,368 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"Font"> | Date | string
   }
 
+  export type LinkedInProfileWhereInput = {
+    AND?: LinkedInProfileWhereInput | LinkedInProfileWhereInput[]
+    OR?: LinkedInProfileWhereInput[]
+    NOT?: LinkedInProfileWhereInput | LinkedInProfileWhereInput[]
+    id?: IntFilter<"LinkedInProfile"> | number
+    resumeId?: StringFilter<"LinkedInProfile"> | string
+    urn?: StringFilter<"LinkedInProfile"> | string
+    firstName?: StringNullableFilter<"LinkedInProfile"> | string | null
+    lastName?: StringFilter<"LinkedInProfile"> | string
+    headline?: StringNullableFilter<"LinkedInProfile"> | string | null
+    summury?: StringNullableFilter<"LinkedInProfile"> | string | null
+    username?: StringFilter<"LinkedInProfile"> | string
+    profilePicture?: StringNullableFilter<"LinkedInProfile"> | string | null
+    country?: StringNullableFilter<"LinkedInProfile"> | string | null
+    city?: StringNullableFilter<"LinkedInProfile"> | string | null
+    resume?: XOR<ResumeScalarRelationFilter, ResumeWhereInput>
+    experiences?: LinkedInExperienceListRelationFilter
+    educations?: LinkedInEducationListRelationFilter
+    skills?: LinkedInSkillListRelationFilter
+    certifications?: LinkedInCertificationListRelationFilter
+  }
+
+  export type LinkedInProfileOrderByWithRelationInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    urn?: SortOrder
+    firstName?: SortOrderInput | SortOrder
+    lastName?: SortOrder
+    headline?: SortOrderInput | SortOrder
+    summury?: SortOrderInput | SortOrder
+    username?: SortOrder
+    profilePicture?: SortOrderInput | SortOrder
+    country?: SortOrderInput | SortOrder
+    city?: SortOrderInput | SortOrder
+    resume?: ResumeOrderByWithRelationInput
+    experiences?: LinkedInExperienceOrderByRelationAggregateInput
+    educations?: LinkedInEducationOrderByRelationAggregateInput
+    skills?: LinkedInSkillOrderByRelationAggregateInput
+    certifications?: LinkedInCertificationOrderByRelationAggregateInput
+  }
+
+  export type LinkedInProfileWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    resumeId?: string
+    AND?: LinkedInProfileWhereInput | LinkedInProfileWhereInput[]
+    OR?: LinkedInProfileWhereInput[]
+    NOT?: LinkedInProfileWhereInput | LinkedInProfileWhereInput[]
+    urn?: StringFilter<"LinkedInProfile"> | string
+    firstName?: StringNullableFilter<"LinkedInProfile"> | string | null
+    lastName?: StringFilter<"LinkedInProfile"> | string
+    headline?: StringNullableFilter<"LinkedInProfile"> | string | null
+    summury?: StringNullableFilter<"LinkedInProfile"> | string | null
+    username?: StringFilter<"LinkedInProfile"> | string
+    profilePicture?: StringNullableFilter<"LinkedInProfile"> | string | null
+    country?: StringNullableFilter<"LinkedInProfile"> | string | null
+    city?: StringNullableFilter<"LinkedInProfile"> | string | null
+    resume?: XOR<ResumeScalarRelationFilter, ResumeWhereInput>
+    experiences?: LinkedInExperienceListRelationFilter
+    educations?: LinkedInEducationListRelationFilter
+    skills?: LinkedInSkillListRelationFilter
+    certifications?: LinkedInCertificationListRelationFilter
+  }, "id" | "resumeId">
+
+  export type LinkedInProfileOrderByWithAggregationInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    urn?: SortOrder
+    firstName?: SortOrderInput | SortOrder
+    lastName?: SortOrder
+    headline?: SortOrderInput | SortOrder
+    summury?: SortOrderInput | SortOrder
+    username?: SortOrder
+    profilePicture?: SortOrderInput | SortOrder
+    country?: SortOrderInput | SortOrder
+    city?: SortOrderInput | SortOrder
+    _count?: LinkedInProfileCountOrderByAggregateInput
+    _avg?: LinkedInProfileAvgOrderByAggregateInput
+    _max?: LinkedInProfileMaxOrderByAggregateInput
+    _min?: LinkedInProfileMinOrderByAggregateInput
+    _sum?: LinkedInProfileSumOrderByAggregateInput
+  }
+
+  export type LinkedInProfileScalarWhereWithAggregatesInput = {
+    AND?: LinkedInProfileScalarWhereWithAggregatesInput | LinkedInProfileScalarWhereWithAggregatesInput[]
+    OR?: LinkedInProfileScalarWhereWithAggregatesInput[]
+    NOT?: LinkedInProfileScalarWhereWithAggregatesInput | LinkedInProfileScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"LinkedInProfile"> | number
+    resumeId?: StringWithAggregatesFilter<"LinkedInProfile"> | string
+    urn?: StringWithAggregatesFilter<"LinkedInProfile"> | string
+    firstName?: StringNullableWithAggregatesFilter<"LinkedInProfile"> | string | null
+    lastName?: StringWithAggregatesFilter<"LinkedInProfile"> | string
+    headline?: StringNullableWithAggregatesFilter<"LinkedInProfile"> | string | null
+    summury?: StringNullableWithAggregatesFilter<"LinkedInProfile"> | string | null
+    username?: StringWithAggregatesFilter<"LinkedInProfile"> | string
+    profilePicture?: StringNullableWithAggregatesFilter<"LinkedInProfile"> | string | null
+    country?: StringNullableWithAggregatesFilter<"LinkedInProfile"> | string | null
+    city?: StringNullableWithAggregatesFilter<"LinkedInProfile"> | string | null
+  }
+
+  export type LinkedInExperienceWhereInput = {
+    AND?: LinkedInExperienceWhereInput | LinkedInExperienceWhereInput[]
+    OR?: LinkedInExperienceWhereInput[]
+    NOT?: LinkedInExperienceWhereInput | LinkedInExperienceWhereInput[]
+    id?: IntFilter<"LinkedInExperience"> | number
+    profileId?: IntFilter<"LinkedInExperience"> | number
+    companyId?: StringNullableFilter<"LinkedInExperience"> | string | null
+    companyName?: StringFilter<"LinkedInExperience"> | string
+    title?: StringFilter<"LinkedInExperience"> | string
+    startDate?: DateTimeFilter<"LinkedInExperience"> | Date | string
+    endDate?: DateTimeNullableFilter<"LinkedInExperience"> | Date | string | null
+    description?: StringNullableFilter<"LinkedInExperience"> | string | null
+    location?: StringNullableFilter<"LinkedInExperience"> | string | null
+    current?: BoolFilter<"LinkedInExperience"> | boolean
+    profile?: XOR<LinkedInProfileScalarRelationFilter, LinkedInProfileWhereInput>
+  }
+
+  export type LinkedInExperienceOrderByWithRelationInput = {
+    id?: SortOrder
+    profileId?: SortOrder
+    companyId?: SortOrderInput | SortOrder
+    companyName?: SortOrder
+    title?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
+    location?: SortOrderInput | SortOrder
+    current?: SortOrder
+    profile?: LinkedInProfileOrderByWithRelationInput
+  }
+
+  export type LinkedInExperienceWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: LinkedInExperienceWhereInput | LinkedInExperienceWhereInput[]
+    OR?: LinkedInExperienceWhereInput[]
+    NOT?: LinkedInExperienceWhereInput | LinkedInExperienceWhereInput[]
+    profileId?: IntFilter<"LinkedInExperience"> | number
+    companyId?: StringNullableFilter<"LinkedInExperience"> | string | null
+    companyName?: StringFilter<"LinkedInExperience"> | string
+    title?: StringFilter<"LinkedInExperience"> | string
+    startDate?: DateTimeFilter<"LinkedInExperience"> | Date | string
+    endDate?: DateTimeNullableFilter<"LinkedInExperience"> | Date | string | null
+    description?: StringNullableFilter<"LinkedInExperience"> | string | null
+    location?: StringNullableFilter<"LinkedInExperience"> | string | null
+    current?: BoolFilter<"LinkedInExperience"> | boolean
+    profile?: XOR<LinkedInProfileScalarRelationFilter, LinkedInProfileWhereInput>
+  }, "id">
+
+  export type LinkedInExperienceOrderByWithAggregationInput = {
+    id?: SortOrder
+    profileId?: SortOrder
+    companyId?: SortOrderInput | SortOrder
+    companyName?: SortOrder
+    title?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
+    location?: SortOrderInput | SortOrder
+    current?: SortOrder
+    _count?: LinkedInExperienceCountOrderByAggregateInput
+    _avg?: LinkedInExperienceAvgOrderByAggregateInput
+    _max?: LinkedInExperienceMaxOrderByAggregateInput
+    _min?: LinkedInExperienceMinOrderByAggregateInput
+    _sum?: LinkedInExperienceSumOrderByAggregateInput
+  }
+
+  export type LinkedInExperienceScalarWhereWithAggregatesInput = {
+    AND?: LinkedInExperienceScalarWhereWithAggregatesInput | LinkedInExperienceScalarWhereWithAggregatesInput[]
+    OR?: LinkedInExperienceScalarWhereWithAggregatesInput[]
+    NOT?: LinkedInExperienceScalarWhereWithAggregatesInput | LinkedInExperienceScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"LinkedInExperience"> | number
+    profileId?: IntWithAggregatesFilter<"LinkedInExperience"> | number
+    companyId?: StringNullableWithAggregatesFilter<"LinkedInExperience"> | string | null
+    companyName?: StringWithAggregatesFilter<"LinkedInExperience"> | string
+    title?: StringWithAggregatesFilter<"LinkedInExperience"> | string
+    startDate?: DateTimeWithAggregatesFilter<"LinkedInExperience"> | Date | string
+    endDate?: DateTimeNullableWithAggregatesFilter<"LinkedInExperience"> | Date | string | null
+    description?: StringNullableWithAggregatesFilter<"LinkedInExperience"> | string | null
+    location?: StringNullableWithAggregatesFilter<"LinkedInExperience"> | string | null
+    current?: BoolWithAggregatesFilter<"LinkedInExperience"> | boolean
+  }
+
+  export type LinkedInEducationWhereInput = {
+    AND?: LinkedInEducationWhereInput | LinkedInEducationWhereInput[]
+    OR?: LinkedInEducationWhereInput[]
+    NOT?: LinkedInEducationWhereInput | LinkedInEducationWhereInput[]
+    id?: IntFilter<"LinkedInEducation"> | number
+    profileId?: IntFilter<"LinkedInEducation"> | number
+    schoolName?: StringFilter<"LinkedInEducation"> | string
+    degree?: StringNullableFilter<"LinkedInEducation"> | string | null
+    fieldOfStudy?: StringNullableFilter<"LinkedInEducation"> | string | null
+    startDate?: DateTimeFilter<"LinkedInEducation"> | Date | string
+    endDate?: DateTimeNullableFilter<"LinkedInEducation"> | Date | string | null
+    current?: BoolFilter<"LinkedInEducation"> | boolean
+    profile?: XOR<LinkedInProfileScalarRelationFilter, LinkedInProfileWhereInput>
+  }
+
+  export type LinkedInEducationOrderByWithRelationInput = {
+    id?: SortOrder
+    profileId?: SortOrder
+    schoolName?: SortOrder
+    degree?: SortOrderInput | SortOrder
+    fieldOfStudy?: SortOrderInput | SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrderInput | SortOrder
+    current?: SortOrder
+    profile?: LinkedInProfileOrderByWithRelationInput
+  }
+
+  export type LinkedInEducationWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: LinkedInEducationWhereInput | LinkedInEducationWhereInput[]
+    OR?: LinkedInEducationWhereInput[]
+    NOT?: LinkedInEducationWhereInput | LinkedInEducationWhereInput[]
+    profileId?: IntFilter<"LinkedInEducation"> | number
+    schoolName?: StringFilter<"LinkedInEducation"> | string
+    degree?: StringNullableFilter<"LinkedInEducation"> | string | null
+    fieldOfStudy?: StringNullableFilter<"LinkedInEducation"> | string | null
+    startDate?: DateTimeFilter<"LinkedInEducation"> | Date | string
+    endDate?: DateTimeNullableFilter<"LinkedInEducation"> | Date | string | null
+    current?: BoolFilter<"LinkedInEducation"> | boolean
+    profile?: XOR<LinkedInProfileScalarRelationFilter, LinkedInProfileWhereInput>
+  }, "id">
+
+  export type LinkedInEducationOrderByWithAggregationInput = {
+    id?: SortOrder
+    profileId?: SortOrder
+    schoolName?: SortOrder
+    degree?: SortOrderInput | SortOrder
+    fieldOfStudy?: SortOrderInput | SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrderInput | SortOrder
+    current?: SortOrder
+    _count?: LinkedInEducationCountOrderByAggregateInput
+    _avg?: LinkedInEducationAvgOrderByAggregateInput
+    _max?: LinkedInEducationMaxOrderByAggregateInput
+    _min?: LinkedInEducationMinOrderByAggregateInput
+    _sum?: LinkedInEducationSumOrderByAggregateInput
+  }
+
+  export type LinkedInEducationScalarWhereWithAggregatesInput = {
+    AND?: LinkedInEducationScalarWhereWithAggregatesInput | LinkedInEducationScalarWhereWithAggregatesInput[]
+    OR?: LinkedInEducationScalarWhereWithAggregatesInput[]
+    NOT?: LinkedInEducationScalarWhereWithAggregatesInput | LinkedInEducationScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"LinkedInEducation"> | number
+    profileId?: IntWithAggregatesFilter<"LinkedInEducation"> | number
+    schoolName?: StringWithAggregatesFilter<"LinkedInEducation"> | string
+    degree?: StringNullableWithAggregatesFilter<"LinkedInEducation"> | string | null
+    fieldOfStudy?: StringNullableWithAggregatesFilter<"LinkedInEducation"> | string | null
+    startDate?: DateTimeWithAggregatesFilter<"LinkedInEducation"> | Date | string
+    endDate?: DateTimeNullableWithAggregatesFilter<"LinkedInEducation"> | Date | string | null
+    current?: BoolWithAggregatesFilter<"LinkedInEducation"> | boolean
+  }
+
+  export type LinkedInSkillWhereInput = {
+    AND?: LinkedInSkillWhereInput | LinkedInSkillWhereInput[]
+    OR?: LinkedInSkillWhereInput[]
+    NOT?: LinkedInSkillWhereInput | LinkedInSkillWhereInput[]
+    id?: IntFilter<"LinkedInSkill"> | number
+    profileId?: IntFilter<"LinkedInSkill"> | number
+    name?: StringFilter<"LinkedInSkill"> | string
+    endorsementsCount?: IntFilter<"LinkedInSkill"> | number
+    passsedAssement?: BoolFilter<"LinkedInSkill"> | boolean
+    profile?: XOR<LinkedInProfileScalarRelationFilter, LinkedInProfileWhereInput>
+  }
+
+  export type LinkedInSkillOrderByWithRelationInput = {
+    id?: SortOrder
+    profileId?: SortOrder
+    name?: SortOrder
+    endorsementsCount?: SortOrder
+    passsedAssement?: SortOrder
+    profile?: LinkedInProfileOrderByWithRelationInput
+  }
+
+  export type LinkedInSkillWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: LinkedInSkillWhereInput | LinkedInSkillWhereInput[]
+    OR?: LinkedInSkillWhereInput[]
+    NOT?: LinkedInSkillWhereInput | LinkedInSkillWhereInput[]
+    profileId?: IntFilter<"LinkedInSkill"> | number
+    name?: StringFilter<"LinkedInSkill"> | string
+    endorsementsCount?: IntFilter<"LinkedInSkill"> | number
+    passsedAssement?: BoolFilter<"LinkedInSkill"> | boolean
+    profile?: XOR<LinkedInProfileScalarRelationFilter, LinkedInProfileWhereInput>
+  }, "id">
+
+  export type LinkedInSkillOrderByWithAggregationInput = {
+    id?: SortOrder
+    profileId?: SortOrder
+    name?: SortOrder
+    endorsementsCount?: SortOrder
+    passsedAssement?: SortOrder
+    _count?: LinkedInSkillCountOrderByAggregateInput
+    _avg?: LinkedInSkillAvgOrderByAggregateInput
+    _max?: LinkedInSkillMaxOrderByAggregateInput
+    _min?: LinkedInSkillMinOrderByAggregateInput
+    _sum?: LinkedInSkillSumOrderByAggregateInput
+  }
+
+  export type LinkedInSkillScalarWhereWithAggregatesInput = {
+    AND?: LinkedInSkillScalarWhereWithAggregatesInput | LinkedInSkillScalarWhereWithAggregatesInput[]
+    OR?: LinkedInSkillScalarWhereWithAggregatesInput[]
+    NOT?: LinkedInSkillScalarWhereWithAggregatesInput | LinkedInSkillScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"LinkedInSkill"> | number
+    profileId?: IntWithAggregatesFilter<"LinkedInSkill"> | number
+    name?: StringWithAggregatesFilter<"LinkedInSkill"> | string
+    endorsementsCount?: IntWithAggregatesFilter<"LinkedInSkill"> | number
+    passsedAssement?: BoolWithAggregatesFilter<"LinkedInSkill"> | boolean
+  }
+
+  export type LinkedInCertificationWhereInput = {
+    AND?: LinkedInCertificationWhereInput | LinkedInCertificationWhereInput[]
+    OR?: LinkedInCertificationWhereInput[]
+    NOT?: LinkedInCertificationWhereInput | LinkedInCertificationWhereInput[]
+    id?: IntFilter<"LinkedInCertification"> | number
+    profileId?: IntFilter<"LinkedInCertification"> | number
+    name?: StringFilter<"LinkedInCertification"> | string
+    issuing_organization?: StringFilter<"LinkedInCertification"> | string
+    profile?: XOR<LinkedInProfileScalarRelationFilter, LinkedInProfileWhereInput>
+  }
+
+  export type LinkedInCertificationOrderByWithRelationInput = {
+    id?: SortOrder
+    profileId?: SortOrder
+    name?: SortOrder
+    issuing_organization?: SortOrder
+    profile?: LinkedInProfileOrderByWithRelationInput
+  }
+
+  export type LinkedInCertificationWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: LinkedInCertificationWhereInput | LinkedInCertificationWhereInput[]
+    OR?: LinkedInCertificationWhereInput[]
+    NOT?: LinkedInCertificationWhereInput | LinkedInCertificationWhereInput[]
+    profileId?: IntFilter<"LinkedInCertification"> | number
+    name?: StringFilter<"LinkedInCertification"> | string
+    issuing_organization?: StringFilter<"LinkedInCertification"> | string
+    profile?: XOR<LinkedInProfileScalarRelationFilter, LinkedInProfileWhereInput>
+  }, "id">
+
+  export type LinkedInCertificationOrderByWithAggregationInput = {
+    id?: SortOrder
+    profileId?: SortOrder
+    name?: SortOrder
+    issuing_organization?: SortOrder
+    _count?: LinkedInCertificationCountOrderByAggregateInput
+    _avg?: LinkedInCertificationAvgOrderByAggregateInput
+    _max?: LinkedInCertificationMaxOrderByAggregateInput
+    _min?: LinkedInCertificationMinOrderByAggregateInput
+    _sum?: LinkedInCertificationSumOrderByAggregateInput
+  }
+
+  export type LinkedInCertificationScalarWhereWithAggregatesInput = {
+    AND?: LinkedInCertificationScalarWhereWithAggregatesInput | LinkedInCertificationScalarWhereWithAggregatesInput[]
+    OR?: LinkedInCertificationScalarWhereWithAggregatesInput[]
+    NOT?: LinkedInCertificationScalarWhereWithAggregatesInput | LinkedInCertificationScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"LinkedInCertification"> | number
+    profileId?: IntWithAggregatesFilter<"LinkedInCertification"> | number
+    name?: StringWithAggregatesFilter<"LinkedInCertification"> | string
+    issuing_organization?: StringWithAggregatesFilter<"LinkedInCertification"> | string
+  }
+
   export type UserCreateInput = {
     id?: string
     email: string
@@ -22646,6 +29379,7 @@ export namespace Prisma {
     projects?: ProjectCreateNestedManyWithoutResumeInput
     achievements?: AchievementCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+    LinkedInProfile?: LinkedInProfileCreateNestedOneWithoutResumeInput
   }
 
   export type ResumeUncheckedCreateInput = {
@@ -22669,6 +29403,7 @@ export namespace Prisma {
     projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
     achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+    LinkedInProfile?: LinkedInProfileUncheckedCreateNestedOneWithoutResumeInput
   }
 
   export type ResumeUpdateInput = {
@@ -22692,6 +29427,7 @@ export namespace Prisma {
     projects?: ProjectUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+    LinkedInProfile?: LinkedInProfileUpdateOneWithoutResumeNestedInput
   }
 
   export type ResumeUncheckedUpdateInput = {
@@ -22715,6 +29451,7 @@ export namespace Prisma {
     projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+    LinkedInProfile?: LinkedInProfileUncheckedUpdateOneWithoutResumeNestedInput
   }
 
   export type ResumeCreateManyInput = {
@@ -23741,6 +30478,373 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type LinkedInProfileCreateInput = {
+    urn: string
+    firstName?: string | null
+    lastName: string
+    headline?: string | null
+    summury?: string | null
+    username: string
+    profilePicture?: string | null
+    country?: string | null
+    city?: string | null
+    resume: ResumeCreateNestedOneWithoutLinkedInProfileInput
+    experiences?: LinkedInExperienceCreateNestedManyWithoutProfileInput
+    educations?: LinkedInEducationCreateNestedManyWithoutProfileInput
+    skills?: LinkedInSkillCreateNestedManyWithoutProfileInput
+    certifications?: LinkedInCertificationCreateNestedManyWithoutProfileInput
+  }
+
+  export type LinkedInProfileUncheckedCreateInput = {
+    id?: number
+    resumeId: string
+    urn: string
+    firstName?: string | null
+    lastName: string
+    headline?: string | null
+    summury?: string | null
+    username: string
+    profilePicture?: string | null
+    country?: string | null
+    city?: string | null
+    experiences?: LinkedInExperienceUncheckedCreateNestedManyWithoutProfileInput
+    educations?: LinkedInEducationUncheckedCreateNestedManyWithoutProfileInput
+    skills?: LinkedInSkillUncheckedCreateNestedManyWithoutProfileInput
+    certifications?: LinkedInCertificationUncheckedCreateNestedManyWithoutProfileInput
+  }
+
+  export type LinkedInProfileUpdateInput = {
+    urn?: StringFieldUpdateOperationsInput | string
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    headline?: NullableStringFieldUpdateOperationsInput | string | null
+    summury?: NullableStringFieldUpdateOperationsInput | string | null
+    username?: StringFieldUpdateOperationsInput | string
+    profilePicture?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: NullableStringFieldUpdateOperationsInput | string | null
+    resume?: ResumeUpdateOneRequiredWithoutLinkedInProfileNestedInput
+    experiences?: LinkedInExperienceUpdateManyWithoutProfileNestedInput
+    educations?: LinkedInEducationUpdateManyWithoutProfileNestedInput
+    skills?: LinkedInSkillUpdateManyWithoutProfileNestedInput
+    certifications?: LinkedInCertificationUpdateManyWithoutProfileNestedInput
+  }
+
+  export type LinkedInProfileUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    resumeId?: StringFieldUpdateOperationsInput | string
+    urn?: StringFieldUpdateOperationsInput | string
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    headline?: NullableStringFieldUpdateOperationsInput | string | null
+    summury?: NullableStringFieldUpdateOperationsInput | string | null
+    username?: StringFieldUpdateOperationsInput | string
+    profilePicture?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: NullableStringFieldUpdateOperationsInput | string | null
+    experiences?: LinkedInExperienceUncheckedUpdateManyWithoutProfileNestedInput
+    educations?: LinkedInEducationUncheckedUpdateManyWithoutProfileNestedInput
+    skills?: LinkedInSkillUncheckedUpdateManyWithoutProfileNestedInput
+    certifications?: LinkedInCertificationUncheckedUpdateManyWithoutProfileNestedInput
+  }
+
+  export type LinkedInProfileCreateManyInput = {
+    id?: number
+    resumeId: string
+    urn: string
+    firstName?: string | null
+    lastName: string
+    headline?: string | null
+    summury?: string | null
+    username: string
+    profilePicture?: string | null
+    country?: string | null
+    city?: string | null
+  }
+
+  export type LinkedInProfileUpdateManyMutationInput = {
+    urn?: StringFieldUpdateOperationsInput | string
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    headline?: NullableStringFieldUpdateOperationsInput | string | null
+    summury?: NullableStringFieldUpdateOperationsInput | string | null
+    username?: StringFieldUpdateOperationsInput | string
+    profilePicture?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type LinkedInProfileUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    resumeId?: StringFieldUpdateOperationsInput | string
+    urn?: StringFieldUpdateOperationsInput | string
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    headline?: NullableStringFieldUpdateOperationsInput | string | null
+    summury?: NullableStringFieldUpdateOperationsInput | string | null
+    username?: StringFieldUpdateOperationsInput | string
+    profilePicture?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type LinkedInExperienceCreateInput = {
+    companyId?: string | null
+    companyName: string
+    title: string
+    startDate: Date | string
+    endDate?: Date | string | null
+    description?: string | null
+    location?: string | null
+    current?: boolean
+    profile: LinkedInProfileCreateNestedOneWithoutExperiencesInput
+  }
+
+  export type LinkedInExperienceUncheckedCreateInput = {
+    id?: number
+    profileId: number
+    companyId?: string | null
+    companyName: string
+    title: string
+    startDate: Date | string
+    endDate?: Date | string | null
+    description?: string | null
+    location?: string | null
+    current?: boolean
+  }
+
+  export type LinkedInExperienceUpdateInput = {
+    companyId?: NullableStringFieldUpdateOperationsInput | string | null
+    companyName?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    current?: BoolFieldUpdateOperationsInput | boolean
+    profile?: LinkedInProfileUpdateOneRequiredWithoutExperiencesNestedInput
+  }
+
+  export type LinkedInExperienceUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    profileId?: IntFieldUpdateOperationsInput | number
+    companyId?: NullableStringFieldUpdateOperationsInput | string | null
+    companyName?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    current?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type LinkedInExperienceCreateManyInput = {
+    id?: number
+    profileId: number
+    companyId?: string | null
+    companyName: string
+    title: string
+    startDate: Date | string
+    endDate?: Date | string | null
+    description?: string | null
+    location?: string | null
+    current?: boolean
+  }
+
+  export type LinkedInExperienceUpdateManyMutationInput = {
+    companyId?: NullableStringFieldUpdateOperationsInput | string | null
+    companyName?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    current?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type LinkedInExperienceUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    profileId?: IntFieldUpdateOperationsInput | number
+    companyId?: NullableStringFieldUpdateOperationsInput | string | null
+    companyName?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    current?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type LinkedInEducationCreateInput = {
+    schoolName: string
+    degree?: string | null
+    fieldOfStudy?: string | null
+    startDate: Date | string
+    endDate?: Date | string | null
+    current?: boolean
+    profile: LinkedInProfileCreateNestedOneWithoutEducationsInput
+  }
+
+  export type LinkedInEducationUncheckedCreateInput = {
+    id?: number
+    profileId: number
+    schoolName: string
+    degree?: string | null
+    fieldOfStudy?: string | null
+    startDate: Date | string
+    endDate?: Date | string | null
+    current?: boolean
+  }
+
+  export type LinkedInEducationUpdateInput = {
+    schoolName?: StringFieldUpdateOperationsInput | string
+    degree?: NullableStringFieldUpdateOperationsInput | string | null
+    fieldOfStudy?: NullableStringFieldUpdateOperationsInput | string | null
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    current?: BoolFieldUpdateOperationsInput | boolean
+    profile?: LinkedInProfileUpdateOneRequiredWithoutEducationsNestedInput
+  }
+
+  export type LinkedInEducationUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    profileId?: IntFieldUpdateOperationsInput | number
+    schoolName?: StringFieldUpdateOperationsInput | string
+    degree?: NullableStringFieldUpdateOperationsInput | string | null
+    fieldOfStudy?: NullableStringFieldUpdateOperationsInput | string | null
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    current?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type LinkedInEducationCreateManyInput = {
+    id?: number
+    profileId: number
+    schoolName: string
+    degree?: string | null
+    fieldOfStudy?: string | null
+    startDate: Date | string
+    endDate?: Date | string | null
+    current?: boolean
+  }
+
+  export type LinkedInEducationUpdateManyMutationInput = {
+    schoolName?: StringFieldUpdateOperationsInput | string
+    degree?: NullableStringFieldUpdateOperationsInput | string | null
+    fieldOfStudy?: NullableStringFieldUpdateOperationsInput | string | null
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    current?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type LinkedInEducationUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    profileId?: IntFieldUpdateOperationsInput | number
+    schoolName?: StringFieldUpdateOperationsInput | string
+    degree?: NullableStringFieldUpdateOperationsInput | string | null
+    fieldOfStudy?: NullableStringFieldUpdateOperationsInput | string | null
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    current?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type LinkedInSkillCreateInput = {
+    name: string
+    endorsementsCount?: number
+    passsedAssement?: boolean
+    profile: LinkedInProfileCreateNestedOneWithoutSkillsInput
+  }
+
+  export type LinkedInSkillUncheckedCreateInput = {
+    id?: number
+    profileId: number
+    name: string
+    endorsementsCount?: number
+    passsedAssement?: boolean
+  }
+
+  export type LinkedInSkillUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    endorsementsCount?: IntFieldUpdateOperationsInput | number
+    passsedAssement?: BoolFieldUpdateOperationsInput | boolean
+    profile?: LinkedInProfileUpdateOneRequiredWithoutSkillsNestedInput
+  }
+
+  export type LinkedInSkillUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    profileId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    endorsementsCount?: IntFieldUpdateOperationsInput | number
+    passsedAssement?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type LinkedInSkillCreateManyInput = {
+    id?: number
+    profileId: number
+    name: string
+    endorsementsCount?: number
+    passsedAssement?: boolean
+  }
+
+  export type LinkedInSkillUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    endorsementsCount?: IntFieldUpdateOperationsInput | number
+    passsedAssement?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type LinkedInSkillUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    profileId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    endorsementsCount?: IntFieldUpdateOperationsInput | number
+    passsedAssement?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type LinkedInCertificationCreateInput = {
+    name: string
+    issuing_organization: string
+    profile: LinkedInProfileCreateNestedOneWithoutCertificationsInput
+  }
+
+  export type LinkedInCertificationUncheckedCreateInput = {
+    id?: number
+    profileId: number
+    name: string
+    issuing_organization: string
+  }
+
+  export type LinkedInCertificationUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    issuing_organization?: StringFieldUpdateOperationsInput | string
+    profile?: LinkedInProfileUpdateOneRequiredWithoutCertificationsNestedInput
+  }
+
+  export type LinkedInCertificationUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    profileId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    issuing_organization?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LinkedInCertificationCreateManyInput = {
+    id?: number
+    profileId: number
+    name: string
+    issuing_organization: string
+  }
+
+  export type LinkedInCertificationUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    issuing_organization?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LinkedInCertificationUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    profileId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    issuing_organization?: StringFieldUpdateOperationsInput | string
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -24070,6 +31174,11 @@ export namespace Prisma {
     every?: CustomSectionWhereInput
     some?: CustomSectionWhereInput
     none?: CustomSectionWhereInput
+  }
+
+  export type LinkedInProfileNullableScalarRelationFilter = {
+    is?: LinkedInProfileWhereInput | null
+    isNot?: LinkedInProfileWhereInput | null
   }
 
   export type SectionOrderByRelationAggregateInput = {
@@ -24715,6 +31824,260 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
+  export type LinkedInExperienceListRelationFilter = {
+    every?: LinkedInExperienceWhereInput
+    some?: LinkedInExperienceWhereInput
+    none?: LinkedInExperienceWhereInput
+  }
+
+  export type LinkedInEducationListRelationFilter = {
+    every?: LinkedInEducationWhereInput
+    some?: LinkedInEducationWhereInput
+    none?: LinkedInEducationWhereInput
+  }
+
+  export type LinkedInSkillListRelationFilter = {
+    every?: LinkedInSkillWhereInput
+    some?: LinkedInSkillWhereInput
+    none?: LinkedInSkillWhereInput
+  }
+
+  export type LinkedInCertificationListRelationFilter = {
+    every?: LinkedInCertificationWhereInput
+    some?: LinkedInCertificationWhereInput
+    none?: LinkedInCertificationWhereInput
+  }
+
+  export type LinkedInExperienceOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type LinkedInEducationOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type LinkedInSkillOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type LinkedInCertificationOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type LinkedInProfileCountOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    urn?: SortOrder
+    firstName?: SortOrder
+    lastName?: SortOrder
+    headline?: SortOrder
+    summury?: SortOrder
+    username?: SortOrder
+    profilePicture?: SortOrder
+    country?: SortOrder
+    city?: SortOrder
+  }
+
+  export type LinkedInProfileAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type LinkedInProfileMaxOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    urn?: SortOrder
+    firstName?: SortOrder
+    lastName?: SortOrder
+    headline?: SortOrder
+    summury?: SortOrder
+    username?: SortOrder
+    profilePicture?: SortOrder
+    country?: SortOrder
+    city?: SortOrder
+  }
+
+  export type LinkedInProfileMinOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    urn?: SortOrder
+    firstName?: SortOrder
+    lastName?: SortOrder
+    headline?: SortOrder
+    summury?: SortOrder
+    username?: SortOrder
+    profilePicture?: SortOrder
+    country?: SortOrder
+    city?: SortOrder
+  }
+
+  export type LinkedInProfileSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type LinkedInProfileScalarRelationFilter = {
+    is?: LinkedInProfileWhereInput
+    isNot?: LinkedInProfileWhereInput
+  }
+
+  export type LinkedInExperienceCountOrderByAggregateInput = {
+    id?: SortOrder
+    profileId?: SortOrder
+    companyId?: SortOrder
+    companyName?: SortOrder
+    title?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    description?: SortOrder
+    location?: SortOrder
+    current?: SortOrder
+  }
+
+  export type LinkedInExperienceAvgOrderByAggregateInput = {
+    id?: SortOrder
+    profileId?: SortOrder
+  }
+
+  export type LinkedInExperienceMaxOrderByAggregateInput = {
+    id?: SortOrder
+    profileId?: SortOrder
+    companyId?: SortOrder
+    companyName?: SortOrder
+    title?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    description?: SortOrder
+    location?: SortOrder
+    current?: SortOrder
+  }
+
+  export type LinkedInExperienceMinOrderByAggregateInput = {
+    id?: SortOrder
+    profileId?: SortOrder
+    companyId?: SortOrder
+    companyName?: SortOrder
+    title?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    description?: SortOrder
+    location?: SortOrder
+    current?: SortOrder
+  }
+
+  export type LinkedInExperienceSumOrderByAggregateInput = {
+    id?: SortOrder
+    profileId?: SortOrder
+  }
+
+  export type LinkedInEducationCountOrderByAggregateInput = {
+    id?: SortOrder
+    profileId?: SortOrder
+    schoolName?: SortOrder
+    degree?: SortOrder
+    fieldOfStudy?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    current?: SortOrder
+  }
+
+  export type LinkedInEducationAvgOrderByAggregateInput = {
+    id?: SortOrder
+    profileId?: SortOrder
+  }
+
+  export type LinkedInEducationMaxOrderByAggregateInput = {
+    id?: SortOrder
+    profileId?: SortOrder
+    schoolName?: SortOrder
+    degree?: SortOrder
+    fieldOfStudy?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    current?: SortOrder
+  }
+
+  export type LinkedInEducationMinOrderByAggregateInput = {
+    id?: SortOrder
+    profileId?: SortOrder
+    schoolName?: SortOrder
+    degree?: SortOrder
+    fieldOfStudy?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    current?: SortOrder
+  }
+
+  export type LinkedInEducationSumOrderByAggregateInput = {
+    id?: SortOrder
+    profileId?: SortOrder
+  }
+
+  export type LinkedInSkillCountOrderByAggregateInput = {
+    id?: SortOrder
+    profileId?: SortOrder
+    name?: SortOrder
+    endorsementsCount?: SortOrder
+    passsedAssement?: SortOrder
+  }
+
+  export type LinkedInSkillAvgOrderByAggregateInput = {
+    id?: SortOrder
+    profileId?: SortOrder
+    endorsementsCount?: SortOrder
+  }
+
+  export type LinkedInSkillMaxOrderByAggregateInput = {
+    id?: SortOrder
+    profileId?: SortOrder
+    name?: SortOrder
+    endorsementsCount?: SortOrder
+    passsedAssement?: SortOrder
+  }
+
+  export type LinkedInSkillMinOrderByAggregateInput = {
+    id?: SortOrder
+    profileId?: SortOrder
+    name?: SortOrder
+    endorsementsCount?: SortOrder
+    passsedAssement?: SortOrder
+  }
+
+  export type LinkedInSkillSumOrderByAggregateInput = {
+    id?: SortOrder
+    profileId?: SortOrder
+    endorsementsCount?: SortOrder
+  }
+
+  export type LinkedInCertificationCountOrderByAggregateInput = {
+    id?: SortOrder
+    profileId?: SortOrder
+    name?: SortOrder
+    issuing_organization?: SortOrder
+  }
+
+  export type LinkedInCertificationAvgOrderByAggregateInput = {
+    id?: SortOrder
+    profileId?: SortOrder
+  }
+
+  export type LinkedInCertificationMaxOrderByAggregateInput = {
+    id?: SortOrder
+    profileId?: SortOrder
+    name?: SortOrder
+    issuing_organization?: SortOrder
+  }
+
+  export type LinkedInCertificationMinOrderByAggregateInput = {
+    id?: SortOrder
+    profileId?: SortOrder
+    name?: SortOrder
+    issuing_organization?: SortOrder
+  }
+
+  export type LinkedInCertificationSumOrderByAggregateInput = {
+    id?: SortOrder
+    profileId?: SortOrder
+  }
+
   export type SessionCreateNestedManyWithoutUserInput = {
     create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
     connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
@@ -24930,6 +32293,12 @@ export namespace Prisma {
     connect?: CustomSectionWhereUniqueInput | CustomSectionWhereUniqueInput[]
   }
 
+  export type LinkedInProfileCreateNestedOneWithoutResumeInput = {
+    create?: XOR<LinkedInProfileCreateWithoutResumeInput, LinkedInProfileUncheckedCreateWithoutResumeInput>
+    connectOrCreate?: LinkedInProfileCreateOrConnectWithoutResumeInput
+    connect?: LinkedInProfileWhereUniqueInput
+  }
+
   export type PersonalInfoUncheckedCreateNestedOneWithoutResumeInput = {
     create?: XOR<PersonalInfoCreateWithoutResumeInput, PersonalInfoUncheckedCreateWithoutResumeInput>
     connectOrCreate?: PersonalInfoCreateOrConnectWithoutResumeInput
@@ -24997,6 +32366,12 @@ export namespace Prisma {
     connectOrCreate?: CustomSectionCreateOrConnectWithoutResumeInput | CustomSectionCreateOrConnectWithoutResumeInput[]
     createMany?: CustomSectionCreateManyResumeInputEnvelope
     connect?: CustomSectionWhereUniqueInput | CustomSectionWhereUniqueInput[]
+  }
+
+  export type LinkedInProfileUncheckedCreateNestedOneWithoutResumeInput = {
+    create?: XOR<LinkedInProfileCreateWithoutResumeInput, LinkedInProfileUncheckedCreateWithoutResumeInput>
+    connectOrCreate?: LinkedInProfileCreateOrConnectWithoutResumeInput
+    connect?: LinkedInProfileWhereUniqueInput
   }
 
   export type UserUpdateOneRequiredWithoutResumeNestedInput = {
@@ -25169,6 +32544,16 @@ export namespace Prisma {
     deleteMany?: CustomSectionScalarWhereInput | CustomSectionScalarWhereInput[]
   }
 
+  export type LinkedInProfileUpdateOneWithoutResumeNestedInput = {
+    create?: XOR<LinkedInProfileCreateWithoutResumeInput, LinkedInProfileUncheckedCreateWithoutResumeInput>
+    connectOrCreate?: LinkedInProfileCreateOrConnectWithoutResumeInput
+    upsert?: LinkedInProfileUpsertWithoutResumeInput
+    disconnect?: LinkedInProfileWhereInput | boolean
+    delete?: LinkedInProfileWhereInput | boolean
+    connect?: LinkedInProfileWhereUniqueInput
+    update?: XOR<XOR<LinkedInProfileUpdateToOneWithWhereWithoutResumeInput, LinkedInProfileUpdateWithoutResumeInput>, LinkedInProfileUncheckedUpdateWithoutResumeInput>
+  }
+
   export type PersonalInfoUncheckedUpdateOneWithoutResumeNestedInput = {
     create?: XOR<PersonalInfoCreateWithoutResumeInput, PersonalInfoUncheckedCreateWithoutResumeInput>
     connectOrCreate?: PersonalInfoCreateOrConnectWithoutResumeInput
@@ -25303,6 +32688,16 @@ export namespace Prisma {
     update?: CustomSectionUpdateWithWhereUniqueWithoutResumeInput | CustomSectionUpdateWithWhereUniqueWithoutResumeInput[]
     updateMany?: CustomSectionUpdateManyWithWhereWithoutResumeInput | CustomSectionUpdateManyWithWhereWithoutResumeInput[]
     deleteMany?: CustomSectionScalarWhereInput | CustomSectionScalarWhereInput[]
+  }
+
+  export type LinkedInProfileUncheckedUpdateOneWithoutResumeNestedInput = {
+    create?: XOR<LinkedInProfileCreateWithoutResumeInput, LinkedInProfileUncheckedCreateWithoutResumeInput>
+    connectOrCreate?: LinkedInProfileCreateOrConnectWithoutResumeInput
+    upsert?: LinkedInProfileUpsertWithoutResumeInput
+    disconnect?: LinkedInProfileWhereInput | boolean
+    delete?: LinkedInProfileWhereInput | boolean
+    connect?: LinkedInProfileWhereUniqueInput
+    update?: XOR<XOR<LinkedInProfileUpdateToOneWithWhereWithoutResumeInput, LinkedInProfileUpdateWithoutResumeInput>, LinkedInProfileUncheckedUpdateWithoutResumeInput>
   }
 
   export type ResumeCreateNestedOneWithoutPersonalInfoInput = {
@@ -25587,6 +32982,244 @@ export namespace Prisma {
     deleteMany?: ResumeScalarWhereInput | ResumeScalarWhereInput[]
   }
 
+  export type ResumeCreateNestedOneWithoutLinkedInProfileInput = {
+    create?: XOR<ResumeCreateWithoutLinkedInProfileInput, ResumeUncheckedCreateWithoutLinkedInProfileInput>
+    connectOrCreate?: ResumeCreateOrConnectWithoutLinkedInProfileInput
+    connect?: ResumeWhereUniqueInput
+  }
+
+  export type LinkedInExperienceCreateNestedManyWithoutProfileInput = {
+    create?: XOR<LinkedInExperienceCreateWithoutProfileInput, LinkedInExperienceUncheckedCreateWithoutProfileInput> | LinkedInExperienceCreateWithoutProfileInput[] | LinkedInExperienceUncheckedCreateWithoutProfileInput[]
+    connectOrCreate?: LinkedInExperienceCreateOrConnectWithoutProfileInput | LinkedInExperienceCreateOrConnectWithoutProfileInput[]
+    createMany?: LinkedInExperienceCreateManyProfileInputEnvelope
+    connect?: LinkedInExperienceWhereUniqueInput | LinkedInExperienceWhereUniqueInput[]
+  }
+
+  export type LinkedInEducationCreateNestedManyWithoutProfileInput = {
+    create?: XOR<LinkedInEducationCreateWithoutProfileInput, LinkedInEducationUncheckedCreateWithoutProfileInput> | LinkedInEducationCreateWithoutProfileInput[] | LinkedInEducationUncheckedCreateWithoutProfileInput[]
+    connectOrCreate?: LinkedInEducationCreateOrConnectWithoutProfileInput | LinkedInEducationCreateOrConnectWithoutProfileInput[]
+    createMany?: LinkedInEducationCreateManyProfileInputEnvelope
+    connect?: LinkedInEducationWhereUniqueInput | LinkedInEducationWhereUniqueInput[]
+  }
+
+  export type LinkedInSkillCreateNestedManyWithoutProfileInput = {
+    create?: XOR<LinkedInSkillCreateWithoutProfileInput, LinkedInSkillUncheckedCreateWithoutProfileInput> | LinkedInSkillCreateWithoutProfileInput[] | LinkedInSkillUncheckedCreateWithoutProfileInput[]
+    connectOrCreate?: LinkedInSkillCreateOrConnectWithoutProfileInput | LinkedInSkillCreateOrConnectWithoutProfileInput[]
+    createMany?: LinkedInSkillCreateManyProfileInputEnvelope
+    connect?: LinkedInSkillWhereUniqueInput | LinkedInSkillWhereUniqueInput[]
+  }
+
+  export type LinkedInCertificationCreateNestedManyWithoutProfileInput = {
+    create?: XOR<LinkedInCertificationCreateWithoutProfileInput, LinkedInCertificationUncheckedCreateWithoutProfileInput> | LinkedInCertificationCreateWithoutProfileInput[] | LinkedInCertificationUncheckedCreateWithoutProfileInput[]
+    connectOrCreate?: LinkedInCertificationCreateOrConnectWithoutProfileInput | LinkedInCertificationCreateOrConnectWithoutProfileInput[]
+    createMany?: LinkedInCertificationCreateManyProfileInputEnvelope
+    connect?: LinkedInCertificationWhereUniqueInput | LinkedInCertificationWhereUniqueInput[]
+  }
+
+  export type LinkedInExperienceUncheckedCreateNestedManyWithoutProfileInput = {
+    create?: XOR<LinkedInExperienceCreateWithoutProfileInput, LinkedInExperienceUncheckedCreateWithoutProfileInput> | LinkedInExperienceCreateWithoutProfileInput[] | LinkedInExperienceUncheckedCreateWithoutProfileInput[]
+    connectOrCreate?: LinkedInExperienceCreateOrConnectWithoutProfileInput | LinkedInExperienceCreateOrConnectWithoutProfileInput[]
+    createMany?: LinkedInExperienceCreateManyProfileInputEnvelope
+    connect?: LinkedInExperienceWhereUniqueInput | LinkedInExperienceWhereUniqueInput[]
+  }
+
+  export type LinkedInEducationUncheckedCreateNestedManyWithoutProfileInput = {
+    create?: XOR<LinkedInEducationCreateWithoutProfileInput, LinkedInEducationUncheckedCreateWithoutProfileInput> | LinkedInEducationCreateWithoutProfileInput[] | LinkedInEducationUncheckedCreateWithoutProfileInput[]
+    connectOrCreate?: LinkedInEducationCreateOrConnectWithoutProfileInput | LinkedInEducationCreateOrConnectWithoutProfileInput[]
+    createMany?: LinkedInEducationCreateManyProfileInputEnvelope
+    connect?: LinkedInEducationWhereUniqueInput | LinkedInEducationWhereUniqueInput[]
+  }
+
+  export type LinkedInSkillUncheckedCreateNestedManyWithoutProfileInput = {
+    create?: XOR<LinkedInSkillCreateWithoutProfileInput, LinkedInSkillUncheckedCreateWithoutProfileInput> | LinkedInSkillCreateWithoutProfileInput[] | LinkedInSkillUncheckedCreateWithoutProfileInput[]
+    connectOrCreate?: LinkedInSkillCreateOrConnectWithoutProfileInput | LinkedInSkillCreateOrConnectWithoutProfileInput[]
+    createMany?: LinkedInSkillCreateManyProfileInputEnvelope
+    connect?: LinkedInSkillWhereUniqueInput | LinkedInSkillWhereUniqueInput[]
+  }
+
+  export type LinkedInCertificationUncheckedCreateNestedManyWithoutProfileInput = {
+    create?: XOR<LinkedInCertificationCreateWithoutProfileInput, LinkedInCertificationUncheckedCreateWithoutProfileInput> | LinkedInCertificationCreateWithoutProfileInput[] | LinkedInCertificationUncheckedCreateWithoutProfileInput[]
+    connectOrCreate?: LinkedInCertificationCreateOrConnectWithoutProfileInput | LinkedInCertificationCreateOrConnectWithoutProfileInput[]
+    createMany?: LinkedInCertificationCreateManyProfileInputEnvelope
+    connect?: LinkedInCertificationWhereUniqueInput | LinkedInCertificationWhereUniqueInput[]
+  }
+
+  export type ResumeUpdateOneRequiredWithoutLinkedInProfileNestedInput = {
+    create?: XOR<ResumeCreateWithoutLinkedInProfileInput, ResumeUncheckedCreateWithoutLinkedInProfileInput>
+    connectOrCreate?: ResumeCreateOrConnectWithoutLinkedInProfileInput
+    upsert?: ResumeUpsertWithoutLinkedInProfileInput
+    connect?: ResumeWhereUniqueInput
+    update?: XOR<XOR<ResumeUpdateToOneWithWhereWithoutLinkedInProfileInput, ResumeUpdateWithoutLinkedInProfileInput>, ResumeUncheckedUpdateWithoutLinkedInProfileInput>
+  }
+
+  export type LinkedInExperienceUpdateManyWithoutProfileNestedInput = {
+    create?: XOR<LinkedInExperienceCreateWithoutProfileInput, LinkedInExperienceUncheckedCreateWithoutProfileInput> | LinkedInExperienceCreateWithoutProfileInput[] | LinkedInExperienceUncheckedCreateWithoutProfileInput[]
+    connectOrCreate?: LinkedInExperienceCreateOrConnectWithoutProfileInput | LinkedInExperienceCreateOrConnectWithoutProfileInput[]
+    upsert?: LinkedInExperienceUpsertWithWhereUniqueWithoutProfileInput | LinkedInExperienceUpsertWithWhereUniqueWithoutProfileInput[]
+    createMany?: LinkedInExperienceCreateManyProfileInputEnvelope
+    set?: LinkedInExperienceWhereUniqueInput | LinkedInExperienceWhereUniqueInput[]
+    disconnect?: LinkedInExperienceWhereUniqueInput | LinkedInExperienceWhereUniqueInput[]
+    delete?: LinkedInExperienceWhereUniqueInput | LinkedInExperienceWhereUniqueInput[]
+    connect?: LinkedInExperienceWhereUniqueInput | LinkedInExperienceWhereUniqueInput[]
+    update?: LinkedInExperienceUpdateWithWhereUniqueWithoutProfileInput | LinkedInExperienceUpdateWithWhereUniqueWithoutProfileInput[]
+    updateMany?: LinkedInExperienceUpdateManyWithWhereWithoutProfileInput | LinkedInExperienceUpdateManyWithWhereWithoutProfileInput[]
+    deleteMany?: LinkedInExperienceScalarWhereInput | LinkedInExperienceScalarWhereInput[]
+  }
+
+  export type LinkedInEducationUpdateManyWithoutProfileNestedInput = {
+    create?: XOR<LinkedInEducationCreateWithoutProfileInput, LinkedInEducationUncheckedCreateWithoutProfileInput> | LinkedInEducationCreateWithoutProfileInput[] | LinkedInEducationUncheckedCreateWithoutProfileInput[]
+    connectOrCreate?: LinkedInEducationCreateOrConnectWithoutProfileInput | LinkedInEducationCreateOrConnectWithoutProfileInput[]
+    upsert?: LinkedInEducationUpsertWithWhereUniqueWithoutProfileInput | LinkedInEducationUpsertWithWhereUniqueWithoutProfileInput[]
+    createMany?: LinkedInEducationCreateManyProfileInputEnvelope
+    set?: LinkedInEducationWhereUniqueInput | LinkedInEducationWhereUniqueInput[]
+    disconnect?: LinkedInEducationWhereUniqueInput | LinkedInEducationWhereUniqueInput[]
+    delete?: LinkedInEducationWhereUniqueInput | LinkedInEducationWhereUniqueInput[]
+    connect?: LinkedInEducationWhereUniqueInput | LinkedInEducationWhereUniqueInput[]
+    update?: LinkedInEducationUpdateWithWhereUniqueWithoutProfileInput | LinkedInEducationUpdateWithWhereUniqueWithoutProfileInput[]
+    updateMany?: LinkedInEducationUpdateManyWithWhereWithoutProfileInput | LinkedInEducationUpdateManyWithWhereWithoutProfileInput[]
+    deleteMany?: LinkedInEducationScalarWhereInput | LinkedInEducationScalarWhereInput[]
+  }
+
+  export type LinkedInSkillUpdateManyWithoutProfileNestedInput = {
+    create?: XOR<LinkedInSkillCreateWithoutProfileInput, LinkedInSkillUncheckedCreateWithoutProfileInput> | LinkedInSkillCreateWithoutProfileInput[] | LinkedInSkillUncheckedCreateWithoutProfileInput[]
+    connectOrCreate?: LinkedInSkillCreateOrConnectWithoutProfileInput | LinkedInSkillCreateOrConnectWithoutProfileInput[]
+    upsert?: LinkedInSkillUpsertWithWhereUniqueWithoutProfileInput | LinkedInSkillUpsertWithWhereUniqueWithoutProfileInput[]
+    createMany?: LinkedInSkillCreateManyProfileInputEnvelope
+    set?: LinkedInSkillWhereUniqueInput | LinkedInSkillWhereUniqueInput[]
+    disconnect?: LinkedInSkillWhereUniqueInput | LinkedInSkillWhereUniqueInput[]
+    delete?: LinkedInSkillWhereUniqueInput | LinkedInSkillWhereUniqueInput[]
+    connect?: LinkedInSkillWhereUniqueInput | LinkedInSkillWhereUniqueInput[]
+    update?: LinkedInSkillUpdateWithWhereUniqueWithoutProfileInput | LinkedInSkillUpdateWithWhereUniqueWithoutProfileInput[]
+    updateMany?: LinkedInSkillUpdateManyWithWhereWithoutProfileInput | LinkedInSkillUpdateManyWithWhereWithoutProfileInput[]
+    deleteMany?: LinkedInSkillScalarWhereInput | LinkedInSkillScalarWhereInput[]
+  }
+
+  export type LinkedInCertificationUpdateManyWithoutProfileNestedInput = {
+    create?: XOR<LinkedInCertificationCreateWithoutProfileInput, LinkedInCertificationUncheckedCreateWithoutProfileInput> | LinkedInCertificationCreateWithoutProfileInput[] | LinkedInCertificationUncheckedCreateWithoutProfileInput[]
+    connectOrCreate?: LinkedInCertificationCreateOrConnectWithoutProfileInput | LinkedInCertificationCreateOrConnectWithoutProfileInput[]
+    upsert?: LinkedInCertificationUpsertWithWhereUniqueWithoutProfileInput | LinkedInCertificationUpsertWithWhereUniqueWithoutProfileInput[]
+    createMany?: LinkedInCertificationCreateManyProfileInputEnvelope
+    set?: LinkedInCertificationWhereUniqueInput | LinkedInCertificationWhereUniqueInput[]
+    disconnect?: LinkedInCertificationWhereUniqueInput | LinkedInCertificationWhereUniqueInput[]
+    delete?: LinkedInCertificationWhereUniqueInput | LinkedInCertificationWhereUniqueInput[]
+    connect?: LinkedInCertificationWhereUniqueInput | LinkedInCertificationWhereUniqueInput[]
+    update?: LinkedInCertificationUpdateWithWhereUniqueWithoutProfileInput | LinkedInCertificationUpdateWithWhereUniqueWithoutProfileInput[]
+    updateMany?: LinkedInCertificationUpdateManyWithWhereWithoutProfileInput | LinkedInCertificationUpdateManyWithWhereWithoutProfileInput[]
+    deleteMany?: LinkedInCertificationScalarWhereInput | LinkedInCertificationScalarWhereInput[]
+  }
+
+  export type LinkedInExperienceUncheckedUpdateManyWithoutProfileNestedInput = {
+    create?: XOR<LinkedInExperienceCreateWithoutProfileInput, LinkedInExperienceUncheckedCreateWithoutProfileInput> | LinkedInExperienceCreateWithoutProfileInput[] | LinkedInExperienceUncheckedCreateWithoutProfileInput[]
+    connectOrCreate?: LinkedInExperienceCreateOrConnectWithoutProfileInput | LinkedInExperienceCreateOrConnectWithoutProfileInput[]
+    upsert?: LinkedInExperienceUpsertWithWhereUniqueWithoutProfileInput | LinkedInExperienceUpsertWithWhereUniqueWithoutProfileInput[]
+    createMany?: LinkedInExperienceCreateManyProfileInputEnvelope
+    set?: LinkedInExperienceWhereUniqueInput | LinkedInExperienceWhereUniqueInput[]
+    disconnect?: LinkedInExperienceWhereUniqueInput | LinkedInExperienceWhereUniqueInput[]
+    delete?: LinkedInExperienceWhereUniqueInput | LinkedInExperienceWhereUniqueInput[]
+    connect?: LinkedInExperienceWhereUniqueInput | LinkedInExperienceWhereUniqueInput[]
+    update?: LinkedInExperienceUpdateWithWhereUniqueWithoutProfileInput | LinkedInExperienceUpdateWithWhereUniqueWithoutProfileInput[]
+    updateMany?: LinkedInExperienceUpdateManyWithWhereWithoutProfileInput | LinkedInExperienceUpdateManyWithWhereWithoutProfileInput[]
+    deleteMany?: LinkedInExperienceScalarWhereInput | LinkedInExperienceScalarWhereInput[]
+  }
+
+  export type LinkedInEducationUncheckedUpdateManyWithoutProfileNestedInput = {
+    create?: XOR<LinkedInEducationCreateWithoutProfileInput, LinkedInEducationUncheckedCreateWithoutProfileInput> | LinkedInEducationCreateWithoutProfileInput[] | LinkedInEducationUncheckedCreateWithoutProfileInput[]
+    connectOrCreate?: LinkedInEducationCreateOrConnectWithoutProfileInput | LinkedInEducationCreateOrConnectWithoutProfileInput[]
+    upsert?: LinkedInEducationUpsertWithWhereUniqueWithoutProfileInput | LinkedInEducationUpsertWithWhereUniqueWithoutProfileInput[]
+    createMany?: LinkedInEducationCreateManyProfileInputEnvelope
+    set?: LinkedInEducationWhereUniqueInput | LinkedInEducationWhereUniqueInput[]
+    disconnect?: LinkedInEducationWhereUniqueInput | LinkedInEducationWhereUniqueInput[]
+    delete?: LinkedInEducationWhereUniqueInput | LinkedInEducationWhereUniqueInput[]
+    connect?: LinkedInEducationWhereUniqueInput | LinkedInEducationWhereUniqueInput[]
+    update?: LinkedInEducationUpdateWithWhereUniqueWithoutProfileInput | LinkedInEducationUpdateWithWhereUniqueWithoutProfileInput[]
+    updateMany?: LinkedInEducationUpdateManyWithWhereWithoutProfileInput | LinkedInEducationUpdateManyWithWhereWithoutProfileInput[]
+    deleteMany?: LinkedInEducationScalarWhereInput | LinkedInEducationScalarWhereInput[]
+  }
+
+  export type LinkedInSkillUncheckedUpdateManyWithoutProfileNestedInput = {
+    create?: XOR<LinkedInSkillCreateWithoutProfileInput, LinkedInSkillUncheckedCreateWithoutProfileInput> | LinkedInSkillCreateWithoutProfileInput[] | LinkedInSkillUncheckedCreateWithoutProfileInput[]
+    connectOrCreate?: LinkedInSkillCreateOrConnectWithoutProfileInput | LinkedInSkillCreateOrConnectWithoutProfileInput[]
+    upsert?: LinkedInSkillUpsertWithWhereUniqueWithoutProfileInput | LinkedInSkillUpsertWithWhereUniqueWithoutProfileInput[]
+    createMany?: LinkedInSkillCreateManyProfileInputEnvelope
+    set?: LinkedInSkillWhereUniqueInput | LinkedInSkillWhereUniqueInput[]
+    disconnect?: LinkedInSkillWhereUniqueInput | LinkedInSkillWhereUniqueInput[]
+    delete?: LinkedInSkillWhereUniqueInput | LinkedInSkillWhereUniqueInput[]
+    connect?: LinkedInSkillWhereUniqueInput | LinkedInSkillWhereUniqueInput[]
+    update?: LinkedInSkillUpdateWithWhereUniqueWithoutProfileInput | LinkedInSkillUpdateWithWhereUniqueWithoutProfileInput[]
+    updateMany?: LinkedInSkillUpdateManyWithWhereWithoutProfileInput | LinkedInSkillUpdateManyWithWhereWithoutProfileInput[]
+    deleteMany?: LinkedInSkillScalarWhereInput | LinkedInSkillScalarWhereInput[]
+  }
+
+  export type LinkedInCertificationUncheckedUpdateManyWithoutProfileNestedInput = {
+    create?: XOR<LinkedInCertificationCreateWithoutProfileInput, LinkedInCertificationUncheckedCreateWithoutProfileInput> | LinkedInCertificationCreateWithoutProfileInput[] | LinkedInCertificationUncheckedCreateWithoutProfileInput[]
+    connectOrCreate?: LinkedInCertificationCreateOrConnectWithoutProfileInput | LinkedInCertificationCreateOrConnectWithoutProfileInput[]
+    upsert?: LinkedInCertificationUpsertWithWhereUniqueWithoutProfileInput | LinkedInCertificationUpsertWithWhereUniqueWithoutProfileInput[]
+    createMany?: LinkedInCertificationCreateManyProfileInputEnvelope
+    set?: LinkedInCertificationWhereUniqueInput | LinkedInCertificationWhereUniqueInput[]
+    disconnect?: LinkedInCertificationWhereUniqueInput | LinkedInCertificationWhereUniqueInput[]
+    delete?: LinkedInCertificationWhereUniqueInput | LinkedInCertificationWhereUniqueInput[]
+    connect?: LinkedInCertificationWhereUniqueInput | LinkedInCertificationWhereUniqueInput[]
+    update?: LinkedInCertificationUpdateWithWhereUniqueWithoutProfileInput | LinkedInCertificationUpdateWithWhereUniqueWithoutProfileInput[]
+    updateMany?: LinkedInCertificationUpdateManyWithWhereWithoutProfileInput | LinkedInCertificationUpdateManyWithWhereWithoutProfileInput[]
+    deleteMany?: LinkedInCertificationScalarWhereInput | LinkedInCertificationScalarWhereInput[]
+  }
+
+  export type LinkedInProfileCreateNestedOneWithoutExperiencesInput = {
+    create?: XOR<LinkedInProfileCreateWithoutExperiencesInput, LinkedInProfileUncheckedCreateWithoutExperiencesInput>
+    connectOrCreate?: LinkedInProfileCreateOrConnectWithoutExperiencesInput
+    connect?: LinkedInProfileWhereUniqueInput
+  }
+
+  export type LinkedInProfileUpdateOneRequiredWithoutExperiencesNestedInput = {
+    create?: XOR<LinkedInProfileCreateWithoutExperiencesInput, LinkedInProfileUncheckedCreateWithoutExperiencesInput>
+    connectOrCreate?: LinkedInProfileCreateOrConnectWithoutExperiencesInput
+    upsert?: LinkedInProfileUpsertWithoutExperiencesInput
+    connect?: LinkedInProfileWhereUniqueInput
+    update?: XOR<XOR<LinkedInProfileUpdateToOneWithWhereWithoutExperiencesInput, LinkedInProfileUpdateWithoutExperiencesInput>, LinkedInProfileUncheckedUpdateWithoutExperiencesInput>
+  }
+
+  export type LinkedInProfileCreateNestedOneWithoutEducationsInput = {
+    create?: XOR<LinkedInProfileCreateWithoutEducationsInput, LinkedInProfileUncheckedCreateWithoutEducationsInput>
+    connectOrCreate?: LinkedInProfileCreateOrConnectWithoutEducationsInput
+    connect?: LinkedInProfileWhereUniqueInput
+  }
+
+  export type LinkedInProfileUpdateOneRequiredWithoutEducationsNestedInput = {
+    create?: XOR<LinkedInProfileCreateWithoutEducationsInput, LinkedInProfileUncheckedCreateWithoutEducationsInput>
+    connectOrCreate?: LinkedInProfileCreateOrConnectWithoutEducationsInput
+    upsert?: LinkedInProfileUpsertWithoutEducationsInput
+    connect?: LinkedInProfileWhereUniqueInput
+    update?: XOR<XOR<LinkedInProfileUpdateToOneWithWhereWithoutEducationsInput, LinkedInProfileUpdateWithoutEducationsInput>, LinkedInProfileUncheckedUpdateWithoutEducationsInput>
+  }
+
+  export type LinkedInProfileCreateNestedOneWithoutSkillsInput = {
+    create?: XOR<LinkedInProfileCreateWithoutSkillsInput, LinkedInProfileUncheckedCreateWithoutSkillsInput>
+    connectOrCreate?: LinkedInProfileCreateOrConnectWithoutSkillsInput
+    connect?: LinkedInProfileWhereUniqueInput
+  }
+
+  export type LinkedInProfileUpdateOneRequiredWithoutSkillsNestedInput = {
+    create?: XOR<LinkedInProfileCreateWithoutSkillsInput, LinkedInProfileUncheckedCreateWithoutSkillsInput>
+    connectOrCreate?: LinkedInProfileCreateOrConnectWithoutSkillsInput
+    upsert?: LinkedInProfileUpsertWithoutSkillsInput
+    connect?: LinkedInProfileWhereUniqueInput
+    update?: XOR<XOR<LinkedInProfileUpdateToOneWithWhereWithoutSkillsInput, LinkedInProfileUpdateWithoutSkillsInput>, LinkedInProfileUncheckedUpdateWithoutSkillsInput>
+  }
+
+  export type LinkedInProfileCreateNestedOneWithoutCertificationsInput = {
+    create?: XOR<LinkedInProfileCreateWithoutCertificationsInput, LinkedInProfileUncheckedCreateWithoutCertificationsInput>
+    connectOrCreate?: LinkedInProfileCreateOrConnectWithoutCertificationsInput
+    connect?: LinkedInProfileWhereUniqueInput
+  }
+
+  export type LinkedInProfileUpdateOneRequiredWithoutCertificationsNestedInput = {
+    create?: XOR<LinkedInProfileCreateWithoutCertificationsInput, LinkedInProfileUncheckedCreateWithoutCertificationsInput>
+    connectOrCreate?: LinkedInProfileCreateOrConnectWithoutCertificationsInput
+    upsert?: LinkedInProfileUpsertWithoutCertificationsInput
+    connect?: LinkedInProfileWhereUniqueInput
+    update?: XOR<XOR<LinkedInProfileUpdateToOneWithWhereWithoutCertificationsInput, LinkedInProfileUpdateWithoutCertificationsInput>, LinkedInProfileUncheckedUpdateWithoutCertificationsInput>
+  }
+
   export type NestedStringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -25860,6 +33493,7 @@ export namespace Prisma {
     projects?: ProjectCreateNestedManyWithoutResumeInput
     achievements?: AchievementCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+    LinkedInProfile?: LinkedInProfileCreateNestedOneWithoutResumeInput
   }
 
   export type ResumeUncheckedCreateWithoutUserInput = {
@@ -25882,6 +33516,7 @@ export namespace Prisma {
     projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
     achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+    LinkedInProfile?: LinkedInProfileUncheckedCreateNestedOneWithoutResumeInput
   }
 
   export type ResumeCreateOrConnectWithoutUserInput = {
@@ -26456,6 +34091,44 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type LinkedInProfileCreateWithoutResumeInput = {
+    urn: string
+    firstName?: string | null
+    lastName: string
+    headline?: string | null
+    summury?: string | null
+    username: string
+    profilePicture?: string | null
+    country?: string | null
+    city?: string | null
+    experiences?: LinkedInExperienceCreateNestedManyWithoutProfileInput
+    educations?: LinkedInEducationCreateNestedManyWithoutProfileInput
+    skills?: LinkedInSkillCreateNestedManyWithoutProfileInput
+    certifications?: LinkedInCertificationCreateNestedManyWithoutProfileInput
+  }
+
+  export type LinkedInProfileUncheckedCreateWithoutResumeInput = {
+    id?: number
+    urn: string
+    firstName?: string | null
+    lastName: string
+    headline?: string | null
+    summury?: string | null
+    username: string
+    profilePicture?: string | null
+    country?: string | null
+    city?: string | null
+    experiences?: LinkedInExperienceUncheckedCreateNestedManyWithoutProfileInput
+    educations?: LinkedInEducationUncheckedCreateNestedManyWithoutProfileInput
+    skills?: LinkedInSkillUncheckedCreateNestedManyWithoutProfileInput
+    certifications?: LinkedInCertificationUncheckedCreateNestedManyWithoutProfileInput
+  }
+
+  export type LinkedInProfileCreateOrConnectWithoutResumeInput = {
+    where: LinkedInProfileWhereUniqueInput
+    create: XOR<LinkedInProfileCreateWithoutResumeInput, LinkedInProfileUncheckedCreateWithoutResumeInput>
+  }
+
   export type UserUpsertWithoutResumeInput = {
     update: XOR<UserUpdateWithoutResumeInput, UserUncheckedUpdateWithoutResumeInput>
     create: XOR<UserCreateWithoutResumeInput, UserUncheckedCreateWithoutResumeInput>
@@ -26906,6 +34579,50 @@ export namespace Prisma {
     order?: IntFilter<"CustomSection"> | number
   }
 
+  export type LinkedInProfileUpsertWithoutResumeInput = {
+    update: XOR<LinkedInProfileUpdateWithoutResumeInput, LinkedInProfileUncheckedUpdateWithoutResumeInput>
+    create: XOR<LinkedInProfileCreateWithoutResumeInput, LinkedInProfileUncheckedCreateWithoutResumeInput>
+    where?: LinkedInProfileWhereInput
+  }
+
+  export type LinkedInProfileUpdateToOneWithWhereWithoutResumeInput = {
+    where?: LinkedInProfileWhereInput
+    data: XOR<LinkedInProfileUpdateWithoutResumeInput, LinkedInProfileUncheckedUpdateWithoutResumeInput>
+  }
+
+  export type LinkedInProfileUpdateWithoutResumeInput = {
+    urn?: StringFieldUpdateOperationsInput | string
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    headline?: NullableStringFieldUpdateOperationsInput | string | null
+    summury?: NullableStringFieldUpdateOperationsInput | string | null
+    username?: StringFieldUpdateOperationsInput | string
+    profilePicture?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: NullableStringFieldUpdateOperationsInput | string | null
+    experiences?: LinkedInExperienceUpdateManyWithoutProfileNestedInput
+    educations?: LinkedInEducationUpdateManyWithoutProfileNestedInput
+    skills?: LinkedInSkillUpdateManyWithoutProfileNestedInput
+    certifications?: LinkedInCertificationUpdateManyWithoutProfileNestedInput
+  }
+
+  export type LinkedInProfileUncheckedUpdateWithoutResumeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    urn?: StringFieldUpdateOperationsInput | string
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    headline?: NullableStringFieldUpdateOperationsInput | string | null
+    summury?: NullableStringFieldUpdateOperationsInput | string | null
+    username?: StringFieldUpdateOperationsInput | string
+    profilePicture?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: NullableStringFieldUpdateOperationsInput | string | null
+    experiences?: LinkedInExperienceUncheckedUpdateManyWithoutProfileNestedInput
+    educations?: LinkedInEducationUncheckedUpdateManyWithoutProfileNestedInput
+    skills?: LinkedInSkillUncheckedUpdateManyWithoutProfileNestedInput
+    certifications?: LinkedInCertificationUncheckedUpdateManyWithoutProfileNestedInput
+  }
+
   export type ResumeCreateWithoutPersonalInfoInput = {
     id?: string
     title: string
@@ -26926,6 +34643,7 @@ export namespace Prisma {
     projects?: ProjectCreateNestedManyWithoutResumeInput
     achievements?: AchievementCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+    LinkedInProfile?: LinkedInProfileCreateNestedOneWithoutResumeInput
   }
 
   export type ResumeUncheckedCreateWithoutPersonalInfoInput = {
@@ -26948,6 +34666,7 @@ export namespace Prisma {
     projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
     achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+    LinkedInProfile?: LinkedInProfileUncheckedCreateNestedOneWithoutResumeInput
   }
 
   export type ResumeCreateOrConnectWithoutPersonalInfoInput = {
@@ -26986,6 +34705,7 @@ export namespace Prisma {
     projects?: ProjectUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+    LinkedInProfile?: LinkedInProfileUpdateOneWithoutResumeNestedInput
   }
 
   export type ResumeUncheckedUpdateWithoutPersonalInfoInput = {
@@ -27008,6 +34728,7 @@ export namespace Prisma {
     projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+    LinkedInProfile?: LinkedInProfileUncheckedUpdateOneWithoutResumeNestedInput
   }
 
   export type ResumeCreateWithoutSectionsInput = {
@@ -27030,6 +34751,7 @@ export namespace Prisma {
     projects?: ProjectCreateNestedManyWithoutResumeInput
     achievements?: AchievementCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+    LinkedInProfile?: LinkedInProfileCreateNestedOneWithoutResumeInput
   }
 
   export type ResumeUncheckedCreateWithoutSectionsInput = {
@@ -27052,6 +34774,7 @@ export namespace Prisma {
     projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
     achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+    LinkedInProfile?: LinkedInProfileUncheckedCreateNestedOneWithoutResumeInput
   }
 
   export type ResumeCreateOrConnectWithoutSectionsInput = {
@@ -27090,6 +34813,7 @@ export namespace Prisma {
     projects?: ProjectUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+    LinkedInProfile?: LinkedInProfileUpdateOneWithoutResumeNestedInput
   }
 
   export type ResumeUncheckedUpdateWithoutSectionsInput = {
@@ -27112,6 +34836,7 @@ export namespace Prisma {
     projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+    LinkedInProfile?: LinkedInProfileUncheckedUpdateOneWithoutResumeNestedInput
   }
 
   export type ResumeCreateWithoutEducationsInput = {
@@ -27134,6 +34859,7 @@ export namespace Prisma {
     projects?: ProjectCreateNestedManyWithoutResumeInput
     achievements?: AchievementCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+    LinkedInProfile?: LinkedInProfileCreateNestedOneWithoutResumeInput
   }
 
   export type ResumeUncheckedCreateWithoutEducationsInput = {
@@ -27156,6 +34882,7 @@ export namespace Prisma {
     projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
     achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+    LinkedInProfile?: LinkedInProfileUncheckedCreateNestedOneWithoutResumeInput
   }
 
   export type ResumeCreateOrConnectWithoutEducationsInput = {
@@ -27194,6 +34921,7 @@ export namespace Prisma {
     projects?: ProjectUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+    LinkedInProfile?: LinkedInProfileUpdateOneWithoutResumeNestedInput
   }
 
   export type ResumeUncheckedUpdateWithoutEducationsInput = {
@@ -27216,6 +34944,7 @@ export namespace Prisma {
     projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+    LinkedInProfile?: LinkedInProfileUncheckedUpdateOneWithoutResumeNestedInput
   }
 
   export type ResumeCreateWithoutExperiencesInput = {
@@ -27238,6 +34967,7 @@ export namespace Prisma {
     projects?: ProjectCreateNestedManyWithoutResumeInput
     achievements?: AchievementCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+    LinkedInProfile?: LinkedInProfileCreateNestedOneWithoutResumeInput
   }
 
   export type ResumeUncheckedCreateWithoutExperiencesInput = {
@@ -27260,6 +34990,7 @@ export namespace Prisma {
     projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
     achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+    LinkedInProfile?: LinkedInProfileUncheckedCreateNestedOneWithoutResumeInput
   }
 
   export type ResumeCreateOrConnectWithoutExperiencesInput = {
@@ -27298,6 +35029,7 @@ export namespace Prisma {
     projects?: ProjectUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+    LinkedInProfile?: LinkedInProfileUpdateOneWithoutResumeNestedInput
   }
 
   export type ResumeUncheckedUpdateWithoutExperiencesInput = {
@@ -27320,6 +35052,7 @@ export namespace Prisma {
     projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+    LinkedInProfile?: LinkedInProfileUncheckedUpdateOneWithoutResumeNestedInput
   }
 
   export type ResumeCreateWithoutSkillsInput = {
@@ -27342,6 +35075,7 @@ export namespace Prisma {
     projects?: ProjectCreateNestedManyWithoutResumeInput
     achievements?: AchievementCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+    LinkedInProfile?: LinkedInProfileCreateNestedOneWithoutResumeInput
   }
 
   export type ResumeUncheckedCreateWithoutSkillsInput = {
@@ -27364,6 +35098,7 @@ export namespace Prisma {
     projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
     achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+    LinkedInProfile?: LinkedInProfileUncheckedCreateNestedOneWithoutResumeInput
   }
 
   export type ResumeCreateOrConnectWithoutSkillsInput = {
@@ -27402,6 +35137,7 @@ export namespace Prisma {
     projects?: ProjectUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+    LinkedInProfile?: LinkedInProfileUpdateOneWithoutResumeNestedInput
   }
 
   export type ResumeUncheckedUpdateWithoutSkillsInput = {
@@ -27424,6 +35160,7 @@ export namespace Prisma {
     projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+    LinkedInProfile?: LinkedInProfileUncheckedUpdateOneWithoutResumeNestedInput
   }
 
   export type ResumeCreateWithoutLanguagesInput = {
@@ -27446,6 +35183,7 @@ export namespace Prisma {
     projects?: ProjectCreateNestedManyWithoutResumeInput
     achievements?: AchievementCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+    LinkedInProfile?: LinkedInProfileCreateNestedOneWithoutResumeInput
   }
 
   export type ResumeUncheckedCreateWithoutLanguagesInput = {
@@ -27468,6 +35206,7 @@ export namespace Prisma {
     projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
     achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+    LinkedInProfile?: LinkedInProfileUncheckedCreateNestedOneWithoutResumeInput
   }
 
   export type ResumeCreateOrConnectWithoutLanguagesInput = {
@@ -27506,6 +35245,7 @@ export namespace Prisma {
     projects?: ProjectUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+    LinkedInProfile?: LinkedInProfileUpdateOneWithoutResumeNestedInput
   }
 
   export type ResumeUncheckedUpdateWithoutLanguagesInput = {
@@ -27528,6 +35268,7 @@ export namespace Prisma {
     projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+    LinkedInProfile?: LinkedInProfileUncheckedUpdateOneWithoutResumeNestedInput
   }
 
   export type ResumeCreateWithoutCertificationsInput = {
@@ -27550,6 +35291,7 @@ export namespace Prisma {
     projects?: ProjectCreateNestedManyWithoutResumeInput
     achievements?: AchievementCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+    LinkedInProfile?: LinkedInProfileCreateNestedOneWithoutResumeInput
   }
 
   export type ResumeUncheckedCreateWithoutCertificationsInput = {
@@ -27572,6 +35314,7 @@ export namespace Prisma {
     projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
     achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+    LinkedInProfile?: LinkedInProfileUncheckedCreateNestedOneWithoutResumeInput
   }
 
   export type ResumeCreateOrConnectWithoutCertificationsInput = {
@@ -27610,6 +35353,7 @@ export namespace Prisma {
     projects?: ProjectUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+    LinkedInProfile?: LinkedInProfileUpdateOneWithoutResumeNestedInput
   }
 
   export type ResumeUncheckedUpdateWithoutCertificationsInput = {
@@ -27632,6 +35376,7 @@ export namespace Prisma {
     projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+    LinkedInProfile?: LinkedInProfileUncheckedUpdateOneWithoutResumeNestedInput
   }
 
   export type ResumeCreateWithoutProjectsInput = {
@@ -27654,6 +35399,7 @@ export namespace Prisma {
     certifications?: CertificationCreateNestedManyWithoutResumeInput
     achievements?: AchievementCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+    LinkedInProfile?: LinkedInProfileCreateNestedOneWithoutResumeInput
   }
 
   export type ResumeUncheckedCreateWithoutProjectsInput = {
@@ -27676,6 +35422,7 @@ export namespace Prisma {
     certifications?: CertificationUncheckedCreateNestedManyWithoutResumeInput
     achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+    LinkedInProfile?: LinkedInProfileUncheckedCreateNestedOneWithoutResumeInput
   }
 
   export type ResumeCreateOrConnectWithoutProjectsInput = {
@@ -27714,6 +35461,7 @@ export namespace Prisma {
     certifications?: CertificationUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+    LinkedInProfile?: LinkedInProfileUpdateOneWithoutResumeNestedInput
   }
 
   export type ResumeUncheckedUpdateWithoutProjectsInput = {
@@ -27736,6 +35484,7 @@ export namespace Prisma {
     certifications?: CertificationUncheckedUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+    LinkedInProfile?: LinkedInProfileUncheckedUpdateOneWithoutResumeNestedInput
   }
 
   export type ResumeCreateWithoutAchievementsInput = {
@@ -27758,6 +35507,7 @@ export namespace Prisma {
     certifications?: CertificationCreateNestedManyWithoutResumeInput
     projects?: ProjectCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+    LinkedInProfile?: LinkedInProfileCreateNestedOneWithoutResumeInput
   }
 
   export type ResumeUncheckedCreateWithoutAchievementsInput = {
@@ -27780,6 +35530,7 @@ export namespace Prisma {
     certifications?: CertificationUncheckedCreateNestedManyWithoutResumeInput
     projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+    LinkedInProfile?: LinkedInProfileUncheckedCreateNestedOneWithoutResumeInput
   }
 
   export type ResumeCreateOrConnectWithoutAchievementsInput = {
@@ -27818,6 +35569,7 @@ export namespace Prisma {
     certifications?: CertificationUpdateManyWithoutResumeNestedInput
     projects?: ProjectUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+    LinkedInProfile?: LinkedInProfileUpdateOneWithoutResumeNestedInput
   }
 
   export type ResumeUncheckedUpdateWithoutAchievementsInput = {
@@ -27840,6 +35592,7 @@ export namespace Prisma {
     certifications?: CertificationUncheckedUpdateManyWithoutResumeNestedInput
     projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+    LinkedInProfile?: LinkedInProfileUncheckedUpdateOneWithoutResumeNestedInput
   }
 
   export type ResumeCreateWithoutCustomSectionsInput = {
@@ -27862,6 +35615,7 @@ export namespace Prisma {
     certifications?: CertificationCreateNestedManyWithoutResumeInput
     projects?: ProjectCreateNestedManyWithoutResumeInput
     achievements?: AchievementCreateNestedManyWithoutResumeInput
+    LinkedInProfile?: LinkedInProfileCreateNestedOneWithoutResumeInput
   }
 
   export type ResumeUncheckedCreateWithoutCustomSectionsInput = {
@@ -27884,6 +35638,7 @@ export namespace Prisma {
     certifications?: CertificationUncheckedCreateNestedManyWithoutResumeInput
     projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
     achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
+    LinkedInProfile?: LinkedInProfileUncheckedCreateNestedOneWithoutResumeInput
   }
 
   export type ResumeCreateOrConnectWithoutCustomSectionsInput = {
@@ -27922,6 +35677,7 @@ export namespace Prisma {
     certifications?: CertificationUpdateManyWithoutResumeNestedInput
     projects?: ProjectUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUpdateManyWithoutResumeNestedInput
+    LinkedInProfile?: LinkedInProfileUpdateOneWithoutResumeNestedInput
   }
 
   export type ResumeUncheckedUpdateWithoutCustomSectionsInput = {
@@ -27944,6 +35700,7 @@ export namespace Prisma {
     certifications?: CertificationUncheckedUpdateManyWithoutResumeNestedInput
     projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
+    LinkedInProfile?: LinkedInProfileUncheckedUpdateOneWithoutResumeNestedInput
   }
 
   export type ResumeCreateWithoutTemplateInput = {
@@ -27966,6 +35723,7 @@ export namespace Prisma {
     projects?: ProjectCreateNestedManyWithoutResumeInput
     achievements?: AchievementCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+    LinkedInProfile?: LinkedInProfileCreateNestedOneWithoutResumeInput
   }
 
   export type ResumeUncheckedCreateWithoutTemplateInput = {
@@ -27988,6 +35746,7 @@ export namespace Prisma {
     projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
     achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+    LinkedInProfile?: LinkedInProfileUncheckedCreateNestedOneWithoutResumeInput
   }
 
   export type ResumeCreateOrConnectWithoutTemplateInput = {
@@ -28036,6 +35795,7 @@ export namespace Prisma {
     projects?: ProjectCreateNestedManyWithoutResumeInput
     achievements?: AchievementCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+    LinkedInProfile?: LinkedInProfileCreateNestedOneWithoutResumeInput
   }
 
   export type ResumeUncheckedCreateWithoutThemeInput = {
@@ -28058,6 +35818,7 @@ export namespace Prisma {
     projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
     achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+    LinkedInProfile?: LinkedInProfileUncheckedCreateNestedOneWithoutResumeInput
   }
 
   export type ResumeCreateOrConnectWithoutThemeInput = {
@@ -28106,6 +35867,7 @@ export namespace Prisma {
     projects?: ProjectCreateNestedManyWithoutResumeInput
     achievements?: AchievementCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+    LinkedInProfile?: LinkedInProfileCreateNestedOneWithoutResumeInput
   }
 
   export type ResumeUncheckedCreateWithoutFontInput = {
@@ -28128,6 +35890,7 @@ export namespace Prisma {
     projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
     achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+    LinkedInProfile?: LinkedInProfileUncheckedCreateNestedOneWithoutResumeInput
   }
 
   export type ResumeCreateOrConnectWithoutFontInput = {
@@ -28154,6 +35917,663 @@ export namespace Prisma {
   export type ResumeUpdateManyWithWhereWithoutFontInput = {
     where: ResumeScalarWhereInput
     data: XOR<ResumeUpdateManyMutationInput, ResumeUncheckedUpdateManyWithoutFontInput>
+  }
+
+  export type ResumeCreateWithoutLinkedInProfileInput = {
+    id?: string
+    title: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isPublic?: boolean
+    publicUrl?: string | null
+    user: UserCreateNestedOneWithoutResumeInput
+    template: TemplateCreateNestedOneWithoutResumesInput
+    theme: ThemeCreateNestedOneWithoutResumesInput
+    font?: FontCreateNestedOneWithoutResumesInput
+    personalInfo?: PersonalInfoCreateNestedOneWithoutResumeInput
+    sections?: SectionCreateNestedManyWithoutResumeInput
+    educations?: EducationCreateNestedManyWithoutResumeInput
+    experiences?: ExperienceCreateNestedManyWithoutResumeInput
+    skills?: SkillCreateNestedManyWithoutResumeInput
+    languages?: LanguageCreateNestedManyWithoutResumeInput
+    certifications?: CertificationCreateNestedManyWithoutResumeInput
+    projects?: ProjectCreateNestedManyWithoutResumeInput
+    achievements?: AchievementCreateNestedManyWithoutResumeInput
+    customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+  }
+
+  export type ResumeUncheckedCreateWithoutLinkedInProfileInput = {
+    id?: string
+    title: string
+    userId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isPublic?: boolean
+    publicUrl?: string | null
+    templateId: string
+    themeId: string
+    fontId?: string | null
+    personalInfo?: PersonalInfoUncheckedCreateNestedOneWithoutResumeInput
+    sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
+    educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
+    experiences?: ExperienceUncheckedCreateNestedManyWithoutResumeInput
+    skills?: SkillUncheckedCreateNestedManyWithoutResumeInput
+    languages?: LanguageUncheckedCreateNestedManyWithoutResumeInput
+    certifications?: CertificationUncheckedCreateNestedManyWithoutResumeInput
+    projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
+    achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
+    customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+  }
+
+  export type ResumeCreateOrConnectWithoutLinkedInProfileInput = {
+    where: ResumeWhereUniqueInput
+    create: XOR<ResumeCreateWithoutLinkedInProfileInput, ResumeUncheckedCreateWithoutLinkedInProfileInput>
+  }
+
+  export type LinkedInExperienceCreateWithoutProfileInput = {
+    companyId?: string | null
+    companyName: string
+    title: string
+    startDate: Date | string
+    endDate?: Date | string | null
+    description?: string | null
+    location?: string | null
+    current?: boolean
+  }
+
+  export type LinkedInExperienceUncheckedCreateWithoutProfileInput = {
+    id?: number
+    companyId?: string | null
+    companyName: string
+    title: string
+    startDate: Date | string
+    endDate?: Date | string | null
+    description?: string | null
+    location?: string | null
+    current?: boolean
+  }
+
+  export type LinkedInExperienceCreateOrConnectWithoutProfileInput = {
+    where: LinkedInExperienceWhereUniqueInput
+    create: XOR<LinkedInExperienceCreateWithoutProfileInput, LinkedInExperienceUncheckedCreateWithoutProfileInput>
+  }
+
+  export type LinkedInExperienceCreateManyProfileInputEnvelope = {
+    data: LinkedInExperienceCreateManyProfileInput | LinkedInExperienceCreateManyProfileInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type LinkedInEducationCreateWithoutProfileInput = {
+    schoolName: string
+    degree?: string | null
+    fieldOfStudy?: string | null
+    startDate: Date | string
+    endDate?: Date | string | null
+    current?: boolean
+  }
+
+  export type LinkedInEducationUncheckedCreateWithoutProfileInput = {
+    id?: number
+    schoolName: string
+    degree?: string | null
+    fieldOfStudy?: string | null
+    startDate: Date | string
+    endDate?: Date | string | null
+    current?: boolean
+  }
+
+  export type LinkedInEducationCreateOrConnectWithoutProfileInput = {
+    where: LinkedInEducationWhereUniqueInput
+    create: XOR<LinkedInEducationCreateWithoutProfileInput, LinkedInEducationUncheckedCreateWithoutProfileInput>
+  }
+
+  export type LinkedInEducationCreateManyProfileInputEnvelope = {
+    data: LinkedInEducationCreateManyProfileInput | LinkedInEducationCreateManyProfileInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type LinkedInSkillCreateWithoutProfileInput = {
+    name: string
+    endorsementsCount?: number
+    passsedAssement?: boolean
+  }
+
+  export type LinkedInSkillUncheckedCreateWithoutProfileInput = {
+    id?: number
+    name: string
+    endorsementsCount?: number
+    passsedAssement?: boolean
+  }
+
+  export type LinkedInSkillCreateOrConnectWithoutProfileInput = {
+    where: LinkedInSkillWhereUniqueInput
+    create: XOR<LinkedInSkillCreateWithoutProfileInput, LinkedInSkillUncheckedCreateWithoutProfileInput>
+  }
+
+  export type LinkedInSkillCreateManyProfileInputEnvelope = {
+    data: LinkedInSkillCreateManyProfileInput | LinkedInSkillCreateManyProfileInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type LinkedInCertificationCreateWithoutProfileInput = {
+    name: string
+    issuing_organization: string
+  }
+
+  export type LinkedInCertificationUncheckedCreateWithoutProfileInput = {
+    id?: number
+    name: string
+    issuing_organization: string
+  }
+
+  export type LinkedInCertificationCreateOrConnectWithoutProfileInput = {
+    where: LinkedInCertificationWhereUniqueInput
+    create: XOR<LinkedInCertificationCreateWithoutProfileInput, LinkedInCertificationUncheckedCreateWithoutProfileInput>
+  }
+
+  export type LinkedInCertificationCreateManyProfileInputEnvelope = {
+    data: LinkedInCertificationCreateManyProfileInput | LinkedInCertificationCreateManyProfileInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ResumeUpsertWithoutLinkedInProfileInput = {
+    update: XOR<ResumeUpdateWithoutLinkedInProfileInput, ResumeUncheckedUpdateWithoutLinkedInProfileInput>
+    create: XOR<ResumeCreateWithoutLinkedInProfileInput, ResumeUncheckedCreateWithoutLinkedInProfileInput>
+    where?: ResumeWhereInput
+  }
+
+  export type ResumeUpdateToOneWithWhereWithoutLinkedInProfileInput = {
+    where?: ResumeWhereInput
+    data: XOR<ResumeUpdateWithoutLinkedInProfileInput, ResumeUncheckedUpdateWithoutLinkedInProfileInput>
+  }
+
+  export type ResumeUpdateWithoutLinkedInProfileInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    user?: UserUpdateOneRequiredWithoutResumeNestedInput
+    template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
+    theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
+    font?: FontUpdateOneWithoutResumesNestedInput
+    personalInfo?: PersonalInfoUpdateOneWithoutResumeNestedInput
+    sections?: SectionUpdateManyWithoutResumeNestedInput
+    educations?: EducationUpdateManyWithoutResumeNestedInput
+    experiences?: ExperienceUpdateManyWithoutResumeNestedInput
+    skills?: SkillUpdateManyWithoutResumeNestedInput
+    languages?: LanguageUpdateManyWithoutResumeNestedInput
+    certifications?: CertificationUpdateManyWithoutResumeNestedInput
+    projects?: ProjectUpdateManyWithoutResumeNestedInput
+    achievements?: AchievementUpdateManyWithoutResumeNestedInput
+    customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+  }
+
+  export type ResumeUncheckedUpdateWithoutLinkedInProfileInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    templateId?: StringFieldUpdateOperationsInput | string
+    themeId?: StringFieldUpdateOperationsInput | string
+    fontId?: NullableStringFieldUpdateOperationsInput | string | null
+    personalInfo?: PersonalInfoUncheckedUpdateOneWithoutResumeNestedInput
+    sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
+    educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
+    experiences?: ExperienceUncheckedUpdateManyWithoutResumeNestedInput
+    skills?: SkillUncheckedUpdateManyWithoutResumeNestedInput
+    languages?: LanguageUncheckedUpdateManyWithoutResumeNestedInput
+    certifications?: CertificationUncheckedUpdateManyWithoutResumeNestedInput
+    projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
+    achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
+    customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+  }
+
+  export type LinkedInExperienceUpsertWithWhereUniqueWithoutProfileInput = {
+    where: LinkedInExperienceWhereUniqueInput
+    update: XOR<LinkedInExperienceUpdateWithoutProfileInput, LinkedInExperienceUncheckedUpdateWithoutProfileInput>
+    create: XOR<LinkedInExperienceCreateWithoutProfileInput, LinkedInExperienceUncheckedCreateWithoutProfileInput>
+  }
+
+  export type LinkedInExperienceUpdateWithWhereUniqueWithoutProfileInput = {
+    where: LinkedInExperienceWhereUniqueInput
+    data: XOR<LinkedInExperienceUpdateWithoutProfileInput, LinkedInExperienceUncheckedUpdateWithoutProfileInput>
+  }
+
+  export type LinkedInExperienceUpdateManyWithWhereWithoutProfileInput = {
+    where: LinkedInExperienceScalarWhereInput
+    data: XOR<LinkedInExperienceUpdateManyMutationInput, LinkedInExperienceUncheckedUpdateManyWithoutProfileInput>
+  }
+
+  export type LinkedInExperienceScalarWhereInput = {
+    AND?: LinkedInExperienceScalarWhereInput | LinkedInExperienceScalarWhereInput[]
+    OR?: LinkedInExperienceScalarWhereInput[]
+    NOT?: LinkedInExperienceScalarWhereInput | LinkedInExperienceScalarWhereInput[]
+    id?: IntFilter<"LinkedInExperience"> | number
+    profileId?: IntFilter<"LinkedInExperience"> | number
+    companyId?: StringNullableFilter<"LinkedInExperience"> | string | null
+    companyName?: StringFilter<"LinkedInExperience"> | string
+    title?: StringFilter<"LinkedInExperience"> | string
+    startDate?: DateTimeFilter<"LinkedInExperience"> | Date | string
+    endDate?: DateTimeNullableFilter<"LinkedInExperience"> | Date | string | null
+    description?: StringNullableFilter<"LinkedInExperience"> | string | null
+    location?: StringNullableFilter<"LinkedInExperience"> | string | null
+    current?: BoolFilter<"LinkedInExperience"> | boolean
+  }
+
+  export type LinkedInEducationUpsertWithWhereUniqueWithoutProfileInput = {
+    where: LinkedInEducationWhereUniqueInput
+    update: XOR<LinkedInEducationUpdateWithoutProfileInput, LinkedInEducationUncheckedUpdateWithoutProfileInput>
+    create: XOR<LinkedInEducationCreateWithoutProfileInput, LinkedInEducationUncheckedCreateWithoutProfileInput>
+  }
+
+  export type LinkedInEducationUpdateWithWhereUniqueWithoutProfileInput = {
+    where: LinkedInEducationWhereUniqueInput
+    data: XOR<LinkedInEducationUpdateWithoutProfileInput, LinkedInEducationUncheckedUpdateWithoutProfileInput>
+  }
+
+  export type LinkedInEducationUpdateManyWithWhereWithoutProfileInput = {
+    where: LinkedInEducationScalarWhereInput
+    data: XOR<LinkedInEducationUpdateManyMutationInput, LinkedInEducationUncheckedUpdateManyWithoutProfileInput>
+  }
+
+  export type LinkedInEducationScalarWhereInput = {
+    AND?: LinkedInEducationScalarWhereInput | LinkedInEducationScalarWhereInput[]
+    OR?: LinkedInEducationScalarWhereInput[]
+    NOT?: LinkedInEducationScalarWhereInput | LinkedInEducationScalarWhereInput[]
+    id?: IntFilter<"LinkedInEducation"> | number
+    profileId?: IntFilter<"LinkedInEducation"> | number
+    schoolName?: StringFilter<"LinkedInEducation"> | string
+    degree?: StringNullableFilter<"LinkedInEducation"> | string | null
+    fieldOfStudy?: StringNullableFilter<"LinkedInEducation"> | string | null
+    startDate?: DateTimeFilter<"LinkedInEducation"> | Date | string
+    endDate?: DateTimeNullableFilter<"LinkedInEducation"> | Date | string | null
+    current?: BoolFilter<"LinkedInEducation"> | boolean
+  }
+
+  export type LinkedInSkillUpsertWithWhereUniqueWithoutProfileInput = {
+    where: LinkedInSkillWhereUniqueInput
+    update: XOR<LinkedInSkillUpdateWithoutProfileInput, LinkedInSkillUncheckedUpdateWithoutProfileInput>
+    create: XOR<LinkedInSkillCreateWithoutProfileInput, LinkedInSkillUncheckedCreateWithoutProfileInput>
+  }
+
+  export type LinkedInSkillUpdateWithWhereUniqueWithoutProfileInput = {
+    where: LinkedInSkillWhereUniqueInput
+    data: XOR<LinkedInSkillUpdateWithoutProfileInput, LinkedInSkillUncheckedUpdateWithoutProfileInput>
+  }
+
+  export type LinkedInSkillUpdateManyWithWhereWithoutProfileInput = {
+    where: LinkedInSkillScalarWhereInput
+    data: XOR<LinkedInSkillUpdateManyMutationInput, LinkedInSkillUncheckedUpdateManyWithoutProfileInput>
+  }
+
+  export type LinkedInSkillScalarWhereInput = {
+    AND?: LinkedInSkillScalarWhereInput | LinkedInSkillScalarWhereInput[]
+    OR?: LinkedInSkillScalarWhereInput[]
+    NOT?: LinkedInSkillScalarWhereInput | LinkedInSkillScalarWhereInput[]
+    id?: IntFilter<"LinkedInSkill"> | number
+    profileId?: IntFilter<"LinkedInSkill"> | number
+    name?: StringFilter<"LinkedInSkill"> | string
+    endorsementsCount?: IntFilter<"LinkedInSkill"> | number
+    passsedAssement?: BoolFilter<"LinkedInSkill"> | boolean
+  }
+
+  export type LinkedInCertificationUpsertWithWhereUniqueWithoutProfileInput = {
+    where: LinkedInCertificationWhereUniqueInput
+    update: XOR<LinkedInCertificationUpdateWithoutProfileInput, LinkedInCertificationUncheckedUpdateWithoutProfileInput>
+    create: XOR<LinkedInCertificationCreateWithoutProfileInput, LinkedInCertificationUncheckedCreateWithoutProfileInput>
+  }
+
+  export type LinkedInCertificationUpdateWithWhereUniqueWithoutProfileInput = {
+    where: LinkedInCertificationWhereUniqueInput
+    data: XOR<LinkedInCertificationUpdateWithoutProfileInput, LinkedInCertificationUncheckedUpdateWithoutProfileInput>
+  }
+
+  export type LinkedInCertificationUpdateManyWithWhereWithoutProfileInput = {
+    where: LinkedInCertificationScalarWhereInput
+    data: XOR<LinkedInCertificationUpdateManyMutationInput, LinkedInCertificationUncheckedUpdateManyWithoutProfileInput>
+  }
+
+  export type LinkedInCertificationScalarWhereInput = {
+    AND?: LinkedInCertificationScalarWhereInput | LinkedInCertificationScalarWhereInput[]
+    OR?: LinkedInCertificationScalarWhereInput[]
+    NOT?: LinkedInCertificationScalarWhereInput | LinkedInCertificationScalarWhereInput[]
+    id?: IntFilter<"LinkedInCertification"> | number
+    profileId?: IntFilter<"LinkedInCertification"> | number
+    name?: StringFilter<"LinkedInCertification"> | string
+    issuing_organization?: StringFilter<"LinkedInCertification"> | string
+  }
+
+  export type LinkedInProfileCreateWithoutExperiencesInput = {
+    urn: string
+    firstName?: string | null
+    lastName: string
+    headline?: string | null
+    summury?: string | null
+    username: string
+    profilePicture?: string | null
+    country?: string | null
+    city?: string | null
+    resume: ResumeCreateNestedOneWithoutLinkedInProfileInput
+    educations?: LinkedInEducationCreateNestedManyWithoutProfileInput
+    skills?: LinkedInSkillCreateNestedManyWithoutProfileInput
+    certifications?: LinkedInCertificationCreateNestedManyWithoutProfileInput
+  }
+
+  export type LinkedInProfileUncheckedCreateWithoutExperiencesInput = {
+    id?: number
+    resumeId: string
+    urn: string
+    firstName?: string | null
+    lastName: string
+    headline?: string | null
+    summury?: string | null
+    username: string
+    profilePicture?: string | null
+    country?: string | null
+    city?: string | null
+    educations?: LinkedInEducationUncheckedCreateNestedManyWithoutProfileInput
+    skills?: LinkedInSkillUncheckedCreateNestedManyWithoutProfileInput
+    certifications?: LinkedInCertificationUncheckedCreateNestedManyWithoutProfileInput
+  }
+
+  export type LinkedInProfileCreateOrConnectWithoutExperiencesInput = {
+    where: LinkedInProfileWhereUniqueInput
+    create: XOR<LinkedInProfileCreateWithoutExperiencesInput, LinkedInProfileUncheckedCreateWithoutExperiencesInput>
+  }
+
+  export type LinkedInProfileUpsertWithoutExperiencesInput = {
+    update: XOR<LinkedInProfileUpdateWithoutExperiencesInput, LinkedInProfileUncheckedUpdateWithoutExperiencesInput>
+    create: XOR<LinkedInProfileCreateWithoutExperiencesInput, LinkedInProfileUncheckedCreateWithoutExperiencesInput>
+    where?: LinkedInProfileWhereInput
+  }
+
+  export type LinkedInProfileUpdateToOneWithWhereWithoutExperiencesInput = {
+    where?: LinkedInProfileWhereInput
+    data: XOR<LinkedInProfileUpdateWithoutExperiencesInput, LinkedInProfileUncheckedUpdateWithoutExperiencesInput>
+  }
+
+  export type LinkedInProfileUpdateWithoutExperiencesInput = {
+    urn?: StringFieldUpdateOperationsInput | string
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    headline?: NullableStringFieldUpdateOperationsInput | string | null
+    summury?: NullableStringFieldUpdateOperationsInput | string | null
+    username?: StringFieldUpdateOperationsInput | string
+    profilePicture?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: NullableStringFieldUpdateOperationsInput | string | null
+    resume?: ResumeUpdateOneRequiredWithoutLinkedInProfileNestedInput
+    educations?: LinkedInEducationUpdateManyWithoutProfileNestedInput
+    skills?: LinkedInSkillUpdateManyWithoutProfileNestedInput
+    certifications?: LinkedInCertificationUpdateManyWithoutProfileNestedInput
+  }
+
+  export type LinkedInProfileUncheckedUpdateWithoutExperiencesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    resumeId?: StringFieldUpdateOperationsInput | string
+    urn?: StringFieldUpdateOperationsInput | string
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    headline?: NullableStringFieldUpdateOperationsInput | string | null
+    summury?: NullableStringFieldUpdateOperationsInput | string | null
+    username?: StringFieldUpdateOperationsInput | string
+    profilePicture?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: NullableStringFieldUpdateOperationsInput | string | null
+    educations?: LinkedInEducationUncheckedUpdateManyWithoutProfileNestedInput
+    skills?: LinkedInSkillUncheckedUpdateManyWithoutProfileNestedInput
+    certifications?: LinkedInCertificationUncheckedUpdateManyWithoutProfileNestedInput
+  }
+
+  export type LinkedInProfileCreateWithoutEducationsInput = {
+    urn: string
+    firstName?: string | null
+    lastName: string
+    headline?: string | null
+    summury?: string | null
+    username: string
+    profilePicture?: string | null
+    country?: string | null
+    city?: string | null
+    resume: ResumeCreateNestedOneWithoutLinkedInProfileInput
+    experiences?: LinkedInExperienceCreateNestedManyWithoutProfileInput
+    skills?: LinkedInSkillCreateNestedManyWithoutProfileInput
+    certifications?: LinkedInCertificationCreateNestedManyWithoutProfileInput
+  }
+
+  export type LinkedInProfileUncheckedCreateWithoutEducationsInput = {
+    id?: number
+    resumeId: string
+    urn: string
+    firstName?: string | null
+    lastName: string
+    headline?: string | null
+    summury?: string | null
+    username: string
+    profilePicture?: string | null
+    country?: string | null
+    city?: string | null
+    experiences?: LinkedInExperienceUncheckedCreateNestedManyWithoutProfileInput
+    skills?: LinkedInSkillUncheckedCreateNestedManyWithoutProfileInput
+    certifications?: LinkedInCertificationUncheckedCreateNestedManyWithoutProfileInput
+  }
+
+  export type LinkedInProfileCreateOrConnectWithoutEducationsInput = {
+    where: LinkedInProfileWhereUniqueInput
+    create: XOR<LinkedInProfileCreateWithoutEducationsInput, LinkedInProfileUncheckedCreateWithoutEducationsInput>
+  }
+
+  export type LinkedInProfileUpsertWithoutEducationsInput = {
+    update: XOR<LinkedInProfileUpdateWithoutEducationsInput, LinkedInProfileUncheckedUpdateWithoutEducationsInput>
+    create: XOR<LinkedInProfileCreateWithoutEducationsInput, LinkedInProfileUncheckedCreateWithoutEducationsInput>
+    where?: LinkedInProfileWhereInput
+  }
+
+  export type LinkedInProfileUpdateToOneWithWhereWithoutEducationsInput = {
+    where?: LinkedInProfileWhereInput
+    data: XOR<LinkedInProfileUpdateWithoutEducationsInput, LinkedInProfileUncheckedUpdateWithoutEducationsInput>
+  }
+
+  export type LinkedInProfileUpdateWithoutEducationsInput = {
+    urn?: StringFieldUpdateOperationsInput | string
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    headline?: NullableStringFieldUpdateOperationsInput | string | null
+    summury?: NullableStringFieldUpdateOperationsInput | string | null
+    username?: StringFieldUpdateOperationsInput | string
+    profilePicture?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: NullableStringFieldUpdateOperationsInput | string | null
+    resume?: ResumeUpdateOneRequiredWithoutLinkedInProfileNestedInput
+    experiences?: LinkedInExperienceUpdateManyWithoutProfileNestedInput
+    skills?: LinkedInSkillUpdateManyWithoutProfileNestedInput
+    certifications?: LinkedInCertificationUpdateManyWithoutProfileNestedInput
+  }
+
+  export type LinkedInProfileUncheckedUpdateWithoutEducationsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    resumeId?: StringFieldUpdateOperationsInput | string
+    urn?: StringFieldUpdateOperationsInput | string
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    headline?: NullableStringFieldUpdateOperationsInput | string | null
+    summury?: NullableStringFieldUpdateOperationsInput | string | null
+    username?: StringFieldUpdateOperationsInput | string
+    profilePicture?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: NullableStringFieldUpdateOperationsInput | string | null
+    experiences?: LinkedInExperienceUncheckedUpdateManyWithoutProfileNestedInput
+    skills?: LinkedInSkillUncheckedUpdateManyWithoutProfileNestedInput
+    certifications?: LinkedInCertificationUncheckedUpdateManyWithoutProfileNestedInput
+  }
+
+  export type LinkedInProfileCreateWithoutSkillsInput = {
+    urn: string
+    firstName?: string | null
+    lastName: string
+    headline?: string | null
+    summury?: string | null
+    username: string
+    profilePicture?: string | null
+    country?: string | null
+    city?: string | null
+    resume: ResumeCreateNestedOneWithoutLinkedInProfileInput
+    experiences?: LinkedInExperienceCreateNestedManyWithoutProfileInput
+    educations?: LinkedInEducationCreateNestedManyWithoutProfileInput
+    certifications?: LinkedInCertificationCreateNestedManyWithoutProfileInput
+  }
+
+  export type LinkedInProfileUncheckedCreateWithoutSkillsInput = {
+    id?: number
+    resumeId: string
+    urn: string
+    firstName?: string | null
+    lastName: string
+    headline?: string | null
+    summury?: string | null
+    username: string
+    profilePicture?: string | null
+    country?: string | null
+    city?: string | null
+    experiences?: LinkedInExperienceUncheckedCreateNestedManyWithoutProfileInput
+    educations?: LinkedInEducationUncheckedCreateNestedManyWithoutProfileInput
+    certifications?: LinkedInCertificationUncheckedCreateNestedManyWithoutProfileInput
+  }
+
+  export type LinkedInProfileCreateOrConnectWithoutSkillsInput = {
+    where: LinkedInProfileWhereUniqueInput
+    create: XOR<LinkedInProfileCreateWithoutSkillsInput, LinkedInProfileUncheckedCreateWithoutSkillsInput>
+  }
+
+  export type LinkedInProfileUpsertWithoutSkillsInput = {
+    update: XOR<LinkedInProfileUpdateWithoutSkillsInput, LinkedInProfileUncheckedUpdateWithoutSkillsInput>
+    create: XOR<LinkedInProfileCreateWithoutSkillsInput, LinkedInProfileUncheckedCreateWithoutSkillsInput>
+    where?: LinkedInProfileWhereInput
+  }
+
+  export type LinkedInProfileUpdateToOneWithWhereWithoutSkillsInput = {
+    where?: LinkedInProfileWhereInput
+    data: XOR<LinkedInProfileUpdateWithoutSkillsInput, LinkedInProfileUncheckedUpdateWithoutSkillsInput>
+  }
+
+  export type LinkedInProfileUpdateWithoutSkillsInput = {
+    urn?: StringFieldUpdateOperationsInput | string
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    headline?: NullableStringFieldUpdateOperationsInput | string | null
+    summury?: NullableStringFieldUpdateOperationsInput | string | null
+    username?: StringFieldUpdateOperationsInput | string
+    profilePicture?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: NullableStringFieldUpdateOperationsInput | string | null
+    resume?: ResumeUpdateOneRequiredWithoutLinkedInProfileNestedInput
+    experiences?: LinkedInExperienceUpdateManyWithoutProfileNestedInput
+    educations?: LinkedInEducationUpdateManyWithoutProfileNestedInput
+    certifications?: LinkedInCertificationUpdateManyWithoutProfileNestedInput
+  }
+
+  export type LinkedInProfileUncheckedUpdateWithoutSkillsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    resumeId?: StringFieldUpdateOperationsInput | string
+    urn?: StringFieldUpdateOperationsInput | string
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    headline?: NullableStringFieldUpdateOperationsInput | string | null
+    summury?: NullableStringFieldUpdateOperationsInput | string | null
+    username?: StringFieldUpdateOperationsInput | string
+    profilePicture?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: NullableStringFieldUpdateOperationsInput | string | null
+    experiences?: LinkedInExperienceUncheckedUpdateManyWithoutProfileNestedInput
+    educations?: LinkedInEducationUncheckedUpdateManyWithoutProfileNestedInput
+    certifications?: LinkedInCertificationUncheckedUpdateManyWithoutProfileNestedInput
+  }
+
+  export type LinkedInProfileCreateWithoutCertificationsInput = {
+    urn: string
+    firstName?: string | null
+    lastName: string
+    headline?: string | null
+    summury?: string | null
+    username: string
+    profilePicture?: string | null
+    country?: string | null
+    city?: string | null
+    resume: ResumeCreateNestedOneWithoutLinkedInProfileInput
+    experiences?: LinkedInExperienceCreateNestedManyWithoutProfileInput
+    educations?: LinkedInEducationCreateNestedManyWithoutProfileInput
+    skills?: LinkedInSkillCreateNestedManyWithoutProfileInput
+  }
+
+  export type LinkedInProfileUncheckedCreateWithoutCertificationsInput = {
+    id?: number
+    resumeId: string
+    urn: string
+    firstName?: string | null
+    lastName: string
+    headline?: string | null
+    summury?: string | null
+    username: string
+    profilePicture?: string | null
+    country?: string | null
+    city?: string | null
+    experiences?: LinkedInExperienceUncheckedCreateNestedManyWithoutProfileInput
+    educations?: LinkedInEducationUncheckedCreateNestedManyWithoutProfileInput
+    skills?: LinkedInSkillUncheckedCreateNestedManyWithoutProfileInput
+  }
+
+  export type LinkedInProfileCreateOrConnectWithoutCertificationsInput = {
+    where: LinkedInProfileWhereUniqueInput
+    create: XOR<LinkedInProfileCreateWithoutCertificationsInput, LinkedInProfileUncheckedCreateWithoutCertificationsInput>
+  }
+
+  export type LinkedInProfileUpsertWithoutCertificationsInput = {
+    update: XOR<LinkedInProfileUpdateWithoutCertificationsInput, LinkedInProfileUncheckedUpdateWithoutCertificationsInput>
+    create: XOR<LinkedInProfileCreateWithoutCertificationsInput, LinkedInProfileUncheckedCreateWithoutCertificationsInput>
+    where?: LinkedInProfileWhereInput
+  }
+
+  export type LinkedInProfileUpdateToOneWithWhereWithoutCertificationsInput = {
+    where?: LinkedInProfileWhereInput
+    data: XOR<LinkedInProfileUpdateWithoutCertificationsInput, LinkedInProfileUncheckedUpdateWithoutCertificationsInput>
+  }
+
+  export type LinkedInProfileUpdateWithoutCertificationsInput = {
+    urn?: StringFieldUpdateOperationsInput | string
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    headline?: NullableStringFieldUpdateOperationsInput | string | null
+    summury?: NullableStringFieldUpdateOperationsInput | string | null
+    username?: StringFieldUpdateOperationsInput | string
+    profilePicture?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: NullableStringFieldUpdateOperationsInput | string | null
+    resume?: ResumeUpdateOneRequiredWithoutLinkedInProfileNestedInput
+    experiences?: LinkedInExperienceUpdateManyWithoutProfileNestedInput
+    educations?: LinkedInEducationUpdateManyWithoutProfileNestedInput
+    skills?: LinkedInSkillUpdateManyWithoutProfileNestedInput
+  }
+
+  export type LinkedInProfileUncheckedUpdateWithoutCertificationsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    resumeId?: StringFieldUpdateOperationsInput | string
+    urn?: StringFieldUpdateOperationsInput | string
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: StringFieldUpdateOperationsInput | string
+    headline?: NullableStringFieldUpdateOperationsInput | string | null
+    summury?: NullableStringFieldUpdateOperationsInput | string | null
+    username?: StringFieldUpdateOperationsInput | string
+    profilePicture?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: NullableStringFieldUpdateOperationsInput | string | null
+    experiences?: LinkedInExperienceUncheckedUpdateManyWithoutProfileNestedInput
+    educations?: LinkedInEducationUncheckedUpdateManyWithoutProfileNestedInput
+    skills?: LinkedInSkillUncheckedUpdateManyWithoutProfileNestedInput
   }
 
   export type SessionCreateManyUserInput = {
@@ -28224,6 +36644,7 @@ export namespace Prisma {
     projects?: ProjectUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+    LinkedInProfile?: LinkedInProfileUpdateOneWithoutResumeNestedInput
   }
 
   export type ResumeUncheckedUpdateWithoutUserInput = {
@@ -28246,6 +36667,7 @@ export namespace Prisma {
     projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+    LinkedInProfile?: LinkedInProfileUncheckedUpdateOneWithoutResumeNestedInput
   }
 
   export type ResumeUncheckedUpdateManyWithoutUserInput = {
@@ -28624,6 +37046,7 @@ export namespace Prisma {
     projects?: ProjectUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+    LinkedInProfile?: LinkedInProfileUpdateOneWithoutResumeNestedInput
   }
 
   export type ResumeUncheckedUpdateWithoutTemplateInput = {
@@ -28646,6 +37069,7 @@ export namespace Prisma {
     projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+    LinkedInProfile?: LinkedInProfileUncheckedUpdateOneWithoutResumeNestedInput
   }
 
   export type ResumeUncheckedUpdateManyWithoutTemplateInput = {
@@ -28692,6 +37116,7 @@ export namespace Prisma {
     projects?: ProjectUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+    LinkedInProfile?: LinkedInProfileUpdateOneWithoutResumeNestedInput
   }
 
   export type ResumeUncheckedUpdateWithoutThemeInput = {
@@ -28714,6 +37139,7 @@ export namespace Prisma {
     projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+    LinkedInProfile?: LinkedInProfileUncheckedUpdateOneWithoutResumeNestedInput
   }
 
   export type ResumeUncheckedUpdateManyWithoutThemeInput = {
@@ -28760,6 +37186,7 @@ export namespace Prisma {
     projects?: ProjectUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+    LinkedInProfile?: LinkedInProfileUpdateOneWithoutResumeNestedInput
   }
 
   export type ResumeUncheckedUpdateWithoutFontInput = {
@@ -28782,6 +37209,7 @@ export namespace Prisma {
     projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+    LinkedInProfile?: LinkedInProfileUncheckedUpdateOneWithoutResumeNestedInput
   }
 
   export type ResumeUncheckedUpdateManyWithoutFontInput = {
@@ -28794,6 +37222,142 @@ export namespace Prisma {
     publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
     templateId?: StringFieldUpdateOperationsInput | string
     themeId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LinkedInExperienceCreateManyProfileInput = {
+    id?: number
+    companyId?: string | null
+    companyName: string
+    title: string
+    startDate: Date | string
+    endDate?: Date | string | null
+    description?: string | null
+    location?: string | null
+    current?: boolean
+  }
+
+  export type LinkedInEducationCreateManyProfileInput = {
+    id?: number
+    schoolName: string
+    degree?: string | null
+    fieldOfStudy?: string | null
+    startDate: Date | string
+    endDate?: Date | string | null
+    current?: boolean
+  }
+
+  export type LinkedInSkillCreateManyProfileInput = {
+    id?: number
+    name: string
+    endorsementsCount?: number
+    passsedAssement?: boolean
+  }
+
+  export type LinkedInCertificationCreateManyProfileInput = {
+    id?: number
+    name: string
+    issuing_organization: string
+  }
+
+  export type LinkedInExperienceUpdateWithoutProfileInput = {
+    companyId?: NullableStringFieldUpdateOperationsInput | string | null
+    companyName?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    current?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type LinkedInExperienceUncheckedUpdateWithoutProfileInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    companyId?: NullableStringFieldUpdateOperationsInput | string | null
+    companyName?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    current?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type LinkedInExperienceUncheckedUpdateManyWithoutProfileInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    companyId?: NullableStringFieldUpdateOperationsInput | string | null
+    companyName?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    current?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type LinkedInEducationUpdateWithoutProfileInput = {
+    schoolName?: StringFieldUpdateOperationsInput | string
+    degree?: NullableStringFieldUpdateOperationsInput | string | null
+    fieldOfStudy?: NullableStringFieldUpdateOperationsInput | string | null
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    current?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type LinkedInEducationUncheckedUpdateWithoutProfileInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    schoolName?: StringFieldUpdateOperationsInput | string
+    degree?: NullableStringFieldUpdateOperationsInput | string | null
+    fieldOfStudy?: NullableStringFieldUpdateOperationsInput | string | null
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    current?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type LinkedInEducationUncheckedUpdateManyWithoutProfileInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    schoolName?: StringFieldUpdateOperationsInput | string
+    degree?: NullableStringFieldUpdateOperationsInput | string | null
+    fieldOfStudy?: NullableStringFieldUpdateOperationsInput | string | null
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    current?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type LinkedInSkillUpdateWithoutProfileInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    endorsementsCount?: IntFieldUpdateOperationsInput | number
+    passsedAssement?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type LinkedInSkillUncheckedUpdateWithoutProfileInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    endorsementsCount?: IntFieldUpdateOperationsInput | number
+    passsedAssement?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type LinkedInSkillUncheckedUpdateManyWithoutProfileInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    endorsementsCount?: IntFieldUpdateOperationsInput | number
+    passsedAssement?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type LinkedInCertificationUpdateWithoutProfileInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    issuing_organization?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LinkedInCertificationUncheckedUpdateWithoutProfileInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    issuing_organization?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LinkedInCertificationUncheckedUpdateManyWithoutProfileInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    issuing_organization?: StringFieldUpdateOperationsInput | string
   }
 
 

@@ -17,7 +17,7 @@ const ResumePreview = ({ resume, selectedSection, onSelectedSection }: ResumePre
   const { isPreviewMode } = useResume()
 
   return (
-    <div className="p-4 h-full flex items-start justify-center overflow-auto">
+    <div id="resume-preview" className="p-4 h-full flex items-start justify-center overflow-auto">
       <ResumeTemplateWrapper
         type={templateType}
         resume={resume}

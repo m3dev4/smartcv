@@ -1,5 +1,18 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "../styles/print.css";
+
+/* Variables CSS pour les polices Google Fonts */
+:root {
+  --font-ibm-plex-sans: 'IBM Plex Sans', sans-serif;
+  --font-inter: 'Inter', sans-serif;
+  --font-roboto: 'Roboto', sans-serif;
+  --font-open-sans: 'Open Sans', sans-serif;
+  --font-lato: 'Lato', sans-serif;
+  --font-montserrat: 'Montserrat', sans-serif;
+  --font-poppins: 'Poppins', sans-serif;
+  --font-source-sans: 'Source Sans 3', sans-serif;
+}
 
 @custom-variant dark (&:is(.dark *));
 
@@ -200,4 +213,36 @@
    );
    z-index: 0;
   };
+}
+
+/* Classes utilitaires pour la typographie */
+@layer utilities {
+  .font-size-xs { font-size: 12px; }
+  .font-size-sm { font-size: 14px; }
+  .font-size-base { font-size: 16px; }
+  .font-size-lg { font-size: 18px; }
+  .font-size-xl { font-size: 20px; }
+  
+  .line-height-tight { line-height: 1.2; }
+  .line-height-normal { line-height: 1.5; }
+  .line-height-relaxed { line-height: 1.8; }
+  .line-height-loose { line-height: 2.0; }
+}
+
+/* Styles pour l'impression avec polices optimisées */
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+  
+  .resume-container {
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+  }
+  
+  .resume-container h1 { font-size: 18px !important; }
+  .resume-container h2 { font-size: 16px !important; }
+  .resume-container h3 { font-size: 14px !important; }
+  .resume-container p, .resume-container span { font-size: 12px !important; }
 }

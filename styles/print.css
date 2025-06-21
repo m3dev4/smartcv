@@ -1,0 +1,73 @@
+@media print {
+  /* Masquer la barre de formatage lors de l'impression */
+  .format-toolbar {
+    display: none !important;
+  }
+
+  /* Préserver les styles de texte */
+  [contenteditable] {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Préserver les styles de police */
+  span[style*="font-size"],
+  span[style*="font-weight"],
+  span[style*="font-style"],
+  span[style*="text-decoration"] {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  /* Assurer que les couleurs et les fonds sont imprimés */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Éviter les sauts de page indésirables */
+  .page-break-inside-avoid {
+    page-break-inside: avoid;
+  }
+
+  /* Forcer le fond blanc pour économiser l'encre */
+  body {
+    background: white !important;
+  }
+
+  /* Cacher les éléments d'interface utilisateur */
+  button:not([data-print="true"]),
+  [role="button"]:not([data-print="true"]) {
+    display: none !important;
+  }
+
+  /* Assurer que le contenu est visible */
+  .text-gray-700,
+  .text-gray-600,
+  .text-sm {
+    color: #374151 !important; /* Un gris foncé qui s'imprime bien */
+  }
+
+  /* Optimiser la mise en page pour l'impression */
+  .resume-container {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  /* Assurer que les images s'impriment correctement */
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+
+  /* Préserver les marges et espacements importants */
+  .mb-4, .mb-8 {
+    margin-bottom: 1rem !important;
+  }
+
+  .p-6 {
+    padding: 1.5rem !important;
+  }
+}

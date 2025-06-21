@@ -15,6 +15,11 @@ type SignUpParams = {
   firstName: string;
   lastName: string;
 };
+type updateUserProfileParams = {
+  password: string;
+  firstName: string;
+  lastName: string;
+};
 
 type SignInParams = {
   email: string;
@@ -28,7 +33,7 @@ const createTransporter = () => {
     port: Number(process.env.EMAIL_PORT),
     secure: false, // true pour 465, false pour les autres ports
     auth: {
-      user: process.env.EMAIL_USERNAME, // Utilisation de EMAIL_USERNAME au lieu de EMAIL_USER pour correspondre à .env.local
+      user: process.env.EMAIL_USERNAME,
       pass: process.env.EMAIL_PASSWORD,
     },
     tls: {
@@ -55,6 +60,41 @@ const sendVerificationEmail = async (email: string, token: string) => {
         <a href="${verificationUrl}">Vérifier mon email</a>
         <p>Ce lien expirera dans 24 heures.</p>
         <p>Si vous n'avez pas demandé cette vérification, vous pouvez ignorer cet email.</p>
+      </div>
+    `,
+  });
+};
+
+const sendPasswordResetEmail = async (email: string, token: string) => {
+  const transporter = createTransporter();
+  const resetUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/reset-password?token=${token}`;
+
+  await transporter.sendMail({
+    from: process.env.EMAIL_USERNAME,
+    to: email,
+    subject: 'Reinitialisation de votre mot de passe',
+    html: `
+      <div>
+        <h1>Bienvenue sur SmartCV!</h1>
+        <p>Merci de vous avoir inscrit. Veuillez choisir un nouveau mot de passe en cliquant sur le lien ci-dessous :</p>
+        <a href="${resetUrl}">Reinitialiser mon mot de passe</a>
+        <p>Ce lien expirera dans 24 heures.</p>
+        <p>Si vous n'avez pas demandé cette réinitialisation, vous pouvez ignorer cet email.</p>
+      </div>
+    `,
+  });
+};
+
+const sendEmailAfterPasswordReset = async (email: string) => {
+  const transporter = createTransporter();
+
+  await transporter.sendMail({
+    from: process.env.EMAIL_USERNAME,
+    to: email,
+    subject: 'Votre mot de passe a été reinitialiser',
+    html: `
+      <div>
+        <h1>Votre mot de passe a été reinitialiser</h1
       </div>
     `,
   });
@@ -254,5 +294,193 @@ export async function getCurrentUser() {
   } catch (error) {
     console.error("Erreur lors de la récupération de l'utilisateur connecté:", error);
     return null;
+  }
+}
+
+// Forgot password
+export async function forgotPassword(email: string) {
+  try {
+    const userExist = await prisma.user.findUnique({
+      where: { email },
+    });
+    if (!userExist) {
+      return {
+        success: false,
+        message: 'Utilisateur introuvable',
+      };
+    }
+    const token = uuidv4();
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+
+    await prisma.user.update({
+      where: { email },
+      data: {
+        passwordResetToken: token,
+        passwordResetExpires: tomorrow,
+      },
+    });
+
+    await sendPasswordResetEmail(email, token);
+    return {
+      success: true,
+      message: 'Email envoyé',
+    };
+  } catch (error) {
+    console.error("Erreur lors de l'envoi de l'email de réinitialisation de mot de passe:", error);
+    return {
+      success: false,
+      message:
+        "Une erreur est survenue lors de l'envoi de l'email de réinitialisation de mot de passe",
+    };
+  }
+}
+
+// Reset password
+export async function resetPassword(token: string, newPassword: string) {
+  try {
+    // Validation des paramètres
+    if (!token || !newPassword) {
+      return {
+        success: false,
+        message: 'Token et nouveau mot de passe requis',
+      };
+    }
+
+    // Validation de la force du mot de passe (optionnel)
+    if (newPassword.length < 8) {
+      return {
+        success: false,
+        message: 'Le mot de passe doit contenir au moins 8 caractères',
+      };
+    }
+
+    const user = await prisma.user.findUnique({
+      where: { passwordResetToken: token },
+    });
+
+    if (!user) {
+      return {
+        success: false,
+        message: 'Token de réinitialisation invalide',
+      };
+    }
+
+    // Vérification de l'expiration du token
+    if (user.passwordResetExpires && user.passwordResetExpires < new Date()) {
+      return {
+        success: false,
+        message: 'Token de réinitialisation expiré',
+      };
+    }
+
+    // Mise à jour du mot de passe et suppression du token
+    await prisma.user.update({
+      where: { id: user.id },
+      data: {
+        passwordHash: await hash(newPassword, 12), // 12 rounds pour plus de sécurité
+        passwordResetToken: null,
+        passwordResetExpires: null,
+      },
+    });
+
+    // Email de confirmation (optionnel)
+    await sendEmailAfterPasswordReset(user.email);
+
+    return {
+      success: true,
+      message: 'Votre mot de passe a été mis à jour avec succès',
+    };
+  } catch (error) {
+    console.error('Erreur lors de la réinitialisation du mot de passe:', error);
+    return {
+      success: false,
+      message: 'Une erreur est survenue lors de la réinitialisation du mot de passe',
+    };
+  }
+}
+
+// update user profile
+export async function updateUserProfile({
+  firstName,
+  lastName,
+  password,
+}: updateUserProfileParams) {
+  const session = await getCurrentUser();
+
+  if (!session) {
+    return {
+      success: false,
+      message: 'Utilisateur introuvable',
+    };
+  }
+  try {
+    const existingUser = await prisma.user.findUnique({
+      where: { email: session.email },
+    });
+    if (!existingUser) {
+      return {
+        success: false,
+        message: 'Utilisateur introuvable',
+      };
+    }
+
+    const updateData: any = {};
+
+    if (firstName) updateData.firstName = firstName;
+    if (lastName) updateData.lastName = lastName;
+    if (password) updateData.passwordHash = await hash(password, 10);
+
+    if (Object.keys(updateData).length === 0) {
+      return {
+        success: false,
+        message: 'Aucune mise à jour effectuée',
+      };
+    }
+
+    const hashedPassword = await hash(password, 10);
+    await prisma.user.update({
+      where: { id: session.id },
+      data: {
+        firstName,
+        lastName,
+        passwordHash: hashedPassword,
+      },
+    });
+
+    return {
+      success: true,
+      message: 'Profil mis à jour avec succès',
+    };
+  } catch (error: any) {
+    console.error("Erreur lors de la mise à jour du profil de l'utilisateur:", error);
+  }
+}
+
+// delete account
+export async function deleteAccount() {
+  const session = await getCurrentUser();
+
+  if (!session) {
+    return {
+      success: false,
+      message: 'Utilisateur introuvable',
+    };
+  }
+
+  try {
+    await prisma.user.delete({
+      where: { id: session.id },
+    });
+    return {
+      success: true,
+      message: 'Compte supprimé avec succès',
+    };
+  } catch (error) {
+    console.error('Erreur lors de la suppression du compte:', error);
+    return {
+      success: false,
+      message: 'Une erreur est survenue lors de la suppression du compte',
+    };
   }
 }

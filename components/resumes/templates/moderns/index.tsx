@@ -1,7 +1,10 @@
 import { ResumeEnumLanguages } from '@/enums/resumeEnumLanguages';
 import { ResumeTemplateProps } from '@/types/resumeTypes';
 import { formatDate } from '@/utils/data-utils';
+import { SimpleEditableText } from '@/components/editor/simple-editable-text';
 import Image from 'next/image';
+
+import { getTypographyStyles } from '@/utils/fonts/google-fonts';
 
 /**
  * Template Moderne de Cv
@@ -20,23 +23,25 @@ export const ModernTemplate: React.FC<ResumeTemplateProps> = ({
   const { personalInfo, educations, experiences, skills, languages, certifications, achievements } =
     resume;
   const theme = resume.theme || {
-    primary: '#4C4F50',
-    secondary: '#E8F5E9',
-    accent: '#2E7D32',
+    primary: '#363636',
+    secondary: '#16191d',
+    accent: '#ffffff',
     background: '#FFFFFF',
-    text: '#333333',
+    text: '#1f2937',
   };
-  const hanldeEditSection = (sectionType: string, sectionId?: string)  => {
+  const hanldeEditSection = (sectionType: string, sectionId?: string) => {
     if (isEditable && onEditSection) {
       onEditSection(sectionType, sectionId || '');
     }
   };
 
+ 
+
   return (
     <div
       className="flex flex-col bg-white shadow-lg rounded-lg overflow-hidden max-w-4xl mx-auto"
       style={{
-        fontFamily: resume.font?.name || 'Inter, sans-serif',
+        ...getTypographyStyles(resume.font?.name, resume.font?.size, resume.font?.lineHeight),
         color: theme.text,
         backgroundColor: theme.background,
       }}
@@ -46,6 +51,7 @@ export const ModernTemplate: React.FC<ResumeTemplateProps> = ({
         className="flex flex-col sm:flex-row p-6 gap-6"
         style={{
           backgroundColor: theme.secondary,
+          color: theme.accent,
         }}
       >
         {/* Photo de profil */}
@@ -180,7 +186,10 @@ export const ModernTemplate: React.FC<ResumeTemplateProps> = ({
 
       <div className="flex flex-col md:flex-row  p-0">
         {/* column Gauche */}
-        <div className="w-full md:w-1/3 p-6" style={{ backgroundColor: theme.secondary }}>
+        <div
+          className="w-full md:w-1/3 p-6"
+          style={{ backgroundColor: theme.secondary, color: theme.accent }}
+        >
           {personalInfo?.description && (
             <div className="mb-8" onClick={() => hanldeEditSection('summury')}>
               <h3
@@ -189,7 +198,10 @@ export const ModernTemplate: React.FC<ResumeTemplateProps> = ({
               >
                 Résumé
               </h3>
-              <p className="text-sm leading-relaxed">{personalInfo.description}</p>
+              <SimpleEditableText
+                content={personalInfo.description}
+                className="text-sm leading-relaxed"
+              />
             </div>
           )}
 
@@ -335,9 +347,10 @@ export const ModernTemplate: React.FC<ResumeTemplateProps> = ({
                         )}
                       </div>
                       {experience.description && (
-                        <p className="text-sm text-gray-700 whitespace-pre-line">
-                          {experience.description}
-                        </p>
+                        <SimpleEditableText
+                          content={experience.description || ''}
+                          className="text-sm text-gray-700 whitespace-pre-line"
+                        />
                       )}
                     </div>
                   ))}
@@ -379,7 +392,10 @@ export const ModernTemplate: React.FC<ResumeTemplateProps> = ({
                         <p className="text-sm font-medium">{education.fieldOfStudy}</p>
                       )}
                       {education.description && (
-                        <p className="text-sm text-gray-700">{education.description}</p>
+                        <SimpleEditableText
+                          content={education.description}
+                          className="text-sm text-gray-700"
+                        />
                       )}
                     </div>
                   ))}
@@ -421,7 +437,10 @@ export const ModernTemplate: React.FC<ResumeTemplateProps> = ({
                       <div>
                         <h3 className="text-sm font-medium">{achievements.title}</h3>
                         {achievements.description && (
-                          <p className="text-sm text-gray-700">{achievements.description}</p>
+                          <SimpleEditableText
+                            content={achievements.description}
+                            className="text-sm text-gray-700"
+                          />
                         )}
 
                         {achievements.date && (

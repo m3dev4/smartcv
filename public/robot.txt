@@ -1,0 +1,19 @@
+User-agent: *
+
+Allow: /
+Allow: /templates
+Allow: /public/
+
+Disallow: /admin/
+Disallow: /api/
+Disallow: /auth/
+Disallow: /settings
+Disallow: /dashboard/resume
+
+Disallow: /sitemap.xml
+Disallow: /*json$
+
+sitemap: smart-cv-sn.netlify.app/sitemap.xml
+Host: smart-cv-sn.netlify.app
+
+Crawl-delay: 10

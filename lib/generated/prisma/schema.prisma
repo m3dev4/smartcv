@@ -69,16 +69,17 @@ model Resume {
   font       Font?    @relation(fields: [fontId], references: [id])
 
   //Relations avec les sections
-  personalInfo   PersonalInfo?
-  sections       Section[]
-  educations     Education[]
-  experiences    Experience[]
-  skills         Skill[]
-  languages      Language[]
-  certifications Certification[]
-  projects       Project[]
-  achievements   Achievement[]
-  customSections CustomSection[]
+  personalInfo    PersonalInfo?
+  sections        Section[]
+  educations      Education[]
+  experiences     Experience[]
+  skills          Skill[]
+  languages       Language[]
+  certifications  Certification[]
+  projects        Project[]
+  achievements    Achievement[]
+  customSections  CustomSection[]
+  LinkedInProfile LinkedInProfile?
 }
 
 model PersonalInfo {
@@ -118,6 +119,7 @@ enum SectionType {
   PROJECTS
   ACHIEVEMENTS
   CUSTOM
+  LINKEDINPROFILE
 }
 
 model Education {
@@ -255,4 +257,76 @@ model Font {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   resumes   Resume[]
+}
+
+model LinkedInProfile {
+  id        Int     @id @default(autoincrement())
+  resumeId  String  @unique
+  urn       String
+  firstName String?
+  lastName  String
+  headline  String?
+  summury   String?
+  username  String
+
+  //Information personnelles
+  profilePicture String?
+
+  //Geo
+  country String?
+  city    String?
+
+  //relation
+  resume         Resume                  @relation(fields: [resumeId], references: [id])
+  experiences    LinkedInExperience[]
+  educations     LinkedInEducation[]
+  skills         LinkedInSkill[]
+  certifications LinkedInCertification[]
+}
+
+model LinkedInExperience {
+  id          Int       @id @default(autoincrement())
+  profileId   Int
+  companyId   String?
+  companyName String
+  title       String
+  startDate   DateTime  @db.Timestamptz()
+  endDate     DateTime? @db.Timestamptz()
+  description String?
+  location    String?
+  current     Boolean   @default(false)
+
+  profile LinkedInProfile @relation(fields: [profileId], references: [id])
+}
+
+model LinkedInEducation {
+  id           Int       @id @default(autoincrement())
+  profileId    Int
+  schoolName   String
+  degree       String?
+  fieldOfStudy String?
+  startDate    DateTime  @db.Timestamptz()
+  endDate      DateTime? @db.Timestamptz()
+  current      Boolean   @default(false)
+
+  profile LinkedInProfile @relation(fields: [profileId], references: [id])
+}
+
+model LinkedInSkill {
+  id                Int     @id @default(autoincrement())
+  profileId         Int
+  name              String
+  endorsementsCount Int     @default(0)
+  passsedAssement   Boolean @default(false)
+
+  profile LinkedInProfile @relation(fields: [profileId], references: [id])
+}
+
+model LinkedInCertification {
+  id                   Int    @id @default(autoincrement())
+  profileId            Int
+  name                 String
+  issuing_organization String
+
+  profile LinkedInProfile @relation(fields: [profileId], references: [id])
 }

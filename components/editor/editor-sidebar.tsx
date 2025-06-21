@@ -10,6 +10,7 @@ import {
   GraduationCap,
   Languages,
   Layout,
+  Linkedin,
   Palette,
   Trophy,
   Type,
@@ -40,6 +41,10 @@ const designTools = [
   { id: 'template', label: 'Template', icon: Layout },
   { id: 'theme', label: 'Thème', icon: Palette },
   { id: 'font', label: 'Police', icon: Type },
+];
+
+const linkedinExtract = [
+  { id: 'linkedin', label: 'Créer depuis LinkedIn', icon: Linkedin },
 ];
 
 const EditorSidebar: React.FC<EditorSidebarProps> = ({
@@ -105,6 +110,29 @@ const EditorSidebar: React.FC<EditorSidebarProps> = ({
             {!collapsed && <h3 className="text-sm font-medium text-gray-500 mb-3">DESIGN</h3>}
             <div className="space-y-2">
               {designTools.map(tool => (
+                <Button
+                  key={tool.id}
+                  variant={selectedSection === tool.id ? 'secondary' : 'ghost'}
+                  className={cn('w-full h-10', collapsed ? 'justify-center' : 'justify-start px-3')}
+                  onClick={() => onSelectSection(tool.id)}
+                >
+                  {collapsed ? (
+                    <tool.icon className="h-4 w-4 shrink-0" />
+                  ) : (
+                    <>
+                      <tool.icon className="h-4 w-4 mr-3 shrink-0" />
+                      <span className="text-sm">{tool.label}</span>
+                    </>
+                  )}
+                </Button>
+              ))}
+            </div>
+          </div>
+
+           <div>
+            {!collapsed && <h3 className="text-sm font-medium text-gray-500 mb-3">Créer depuis LinkedIn</h3>}
+            <div className="space-y-2">
+              {linkedinExtract.map(tool => (
                 <Button
                   key={tool.id}
                   variant={selectedSection === tool.id ? 'secondary' : 'ghost'}

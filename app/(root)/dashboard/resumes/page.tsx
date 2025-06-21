@@ -12,6 +12,8 @@ import { listResume } from '@/app/api/actions';
 import { formatDistanceToNow } from 'date-fns';
 import { fr } from 'date-fns/locale';
 import ResumeDrawer from '@/components/resumeDrawer';
+import ResumePreview from '@/components/render/resumePreview';
+import { toast, Toaster } from 'sonner';
 
 interface Resume {
   id: string;
@@ -20,7 +22,12 @@ interface Resume {
   updatedAt: string;
   createdAt: string;
   progress?: number;
-  // autres propriétés
+  userId: string;
+  isPublic: boolean;
+  publicUrl: string | null;
+  themeId: string;
+  fontId: string | null;
+  // autres propriétés possibles
 }
 
 const DashboardPage = () => {
@@ -116,8 +123,12 @@ const DashboardPage = () => {
     fetchResumes();
   }, []);
 
+  // Compute list to display : privilégie partiels, sinon tous les CV
+  const displayedResumes = partialResumes.length > 0 ? partialResumes : resumes;
+
   return (
     <section className="flex flex-col items-center justify-start h-full w-full py-8 md:py-12">
+     
       <div className="container relative overflow-hidden px-4 sm:px-6 lg:px-8">
         <h1 className="text-2xl sm:text-3xl font-bold text-center md:text-left">CV</h1>
         {/* Cartes pour créer/importer un CV */}
@@ -141,7 +152,10 @@ const DashboardPage = () => {
             </CardContent>
           </Card>
 
-          <Card className="w-full max-w-xs sm:w-64 h-72 sm:h-80 bg-accent border-accent/100 hover:scale-105 transition-transform cursor-pointer group">
+          <Card
+            className="w-full max-w-xs sm:w-64 h-72 sm:h-80 bg-accent border-accent/100 hover:scale-105 transition-transform cursor-pointer group"
+            onClick={() => toast.info('Fonctionnalité d\'import en cours de développement')}
+          >
             <CardContent className="flex items-center flex-col justify-center h-full p-6 relative">
               <div className="flex items-center justify-center">
                 <Upload
@@ -180,14 +194,15 @@ const DashboardPage = () => {
                 >
                   <div className="flex flex-col w-full ">
                     <div className={`  rouded-t-xl relative overflow-hidden`}>
-                      <div className="flex items-center justify-center aspect-[3/4] overflow-hidden">
+                      <div className="flex items-center justify-center w-full  aspect-[3/4] overflow-hidden">
                         {temp.thumbnail ? (
                           <Image
                             src={temp.thumbnail || '/placeholder.svg'}
                             alt={temp.name || 'Template thumbnail'}
-                            width={500} // Adjusted width for better fit in h-48 container
-                            height={600} // Adjusted height for better fit
-                            className="object-cover w-full h-full" // Changed to object-cover for better fill
+                           quality={100}
+                           priority={true}
+                           fill={true}
+                            className="object-fill w-full h-full"
                           />
                         ) : (
                           <div className="w-full h-full bg-gray-200 flex items-center justify-center text-gray-500 aspect-[3/4]">
@@ -235,25 +250,27 @@ const DashboardPage = () => {
       </Dialog>
 
       {/* My CVs */}
-      {partialResumes.length > 0 && (
+      {displayedResumes.length > 0 && (
         <div className="mt-8 container px-4 sm:px-6 lg:px-8">
           <h2 className="text-xl font-semibold mb-4">Mes CVs</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {partialResumes.map(resume => {
-              const template = templates.find(t => t.id === resume.templateId);
+            {displayedResumes.map(resume => {
+              const template = templates.find(t => t.id === (resume.templateId ?? resume.templateId));
               const isOpen = openDrawerId === resume.id;
 
               return (
                 <div key={resume.id}>
                   <Card
-                    className="hover:shadow-md transition-shadow border-dashed border-2 border-gray-300 cursor-pointer group hover:scale-110 transition-transform"
+                    className="hover:shadow-md transition-shadow border outline-none border-2 border-gray-300 dark:border-gray-800 cursor-pointer group hover:scale-110 transition-transform"
                     onClick={() => setOpenDrawerId(resume.id)}
                   >
                     <CardContent className="p-0">
-                      <div className="relative aspect-[3/4] overflow-hidden rounded-t-lg">
-                        <div className="w-full h-full flex items-center justify-center bg-gray-100">
-                          <FileText className="w-12 h-12 text-gray-400" />
-                        </div>
+                      <div className="relative w-full -mt-6 h-full top-0 aspect-[3/4] overflow-hidden rounded-t-lg">
+                        <ResumePreview
+                          resume={resume}
+                          scale={0.55}
+                          className="w-full aspect-[3/4] object-cover h-full"
+                        />
                       </div>
                       <div className="p-4">
                         <div className="flex justify-between flex-col items-center mb-2">

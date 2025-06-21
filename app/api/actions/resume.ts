@@ -3,7 +3,6 @@ import prisma from '@/lib/prisma';
 import { getCurrentUser } from '@/utils/auth';
 import { calculateResumeProgress } from '@/utils/resumeWithProgress';
 import { createResumeValidation, updateResumeValidation } from '@/validations/resumeValidation';
-import { clean } from 'better-auth/react';
 import { revalidatePath } from 'next/cache';
 
 /**
@@ -160,10 +159,17 @@ export async function updateResume(formData: FormData) {
       };
     }
 
-    // Vérifier l'existence du template
-    const template = await prisma.template.findUnique({
+    // Vérifier l'existence du template : d'abord par nom, puis par ID
+    let template = await prisma.template.findUnique({
       where: { name: validatedData.templateId },
     });
+
+    if (!template) {
+      template = await prisma.template.findUnique({
+        where: { id: validatedData.templateId },
+      });
+    }
+
     console.log('Template trouvé :', template);
 
     if (!template) {
@@ -431,7 +437,7 @@ export async function updateResume(formData: FormData) {
             if (sectionName === 'skills') {
               const cleanedData = parsedData.map((item, index) => {
                 const { resumeId, id, ...cleanItem } = item;
-            
+
                 // Validation explicite du niveau
                 if (cleanItem.hasOwnProperty('level')) {
                   const validatedLevel = validateLevel(cleanItem.level);
@@ -442,10 +448,10 @@ export async function updateResume(formData: FormData) {
                 } else {
                   cleanItem.level = 1;
                 }
-            
+
                 return cleanItem;
               });
-            
+
               // Ajouter les données nettoyées au resumeData
               if (existingResume) {
                 resumeData[sectionName] = {
@@ -462,7 +468,7 @@ export async function updateResume(formData: FormData) {
             if (sectionName === 'languages') {
               const cleanedData = parsedData.map(item => {
                 const { resumeId, id, ...cleanItem } = item;
-            
+
                 // Mapping des niveaux avec une validation plus robuste
                 const languageLevelMap: Record<string, string> = {
                   '1': 'BEGINNER',
@@ -470,30 +476,30 @@ export async function updateResume(formData: FormData) {
                   '3': 'ADVANCED',
                   '4': 'FLUENT',
                   '5': 'NATIVE',
-                  'BEGINNER': 'BEGINNER',
-                  'INTERMEDIATE': 'INTERMEDIATE', 
-                  'ADVANCED': 'ADVANCED',
-                  'FLUENT': 'FLUENT',
-                  'NATIVE': 'NATIVE'
+                  BEGINNER: 'BEGINNER',
+                  INTERMEDIATE: 'INTERMEDIATE',
+                  ADVANCED: 'ADVANCED',
+                  FLUENT: 'FLUENT',
+                  NATIVE: 'NATIVE',
                 };
-            
+
                 // Conversion et validation du niveau
                 if (cleanItem.level !== undefined && cleanItem.level !== null) {
                   // Convertir en chaîne pour la comparaison
                   const levelStr = String(cleanItem.level).toUpperCase();
-                  
+
                   // Utiliser le mapping ou fallback sur BEGINNER
                   cleanItem.level = languageLevelMap[levelStr] || 'BEGINNER';
                 } else {
                   cleanItem.level = 'BEGINNER';
                 }
-            
+
                 // Ajouter des logs de débogage
                 console.log(`Langue traitée: ${cleanItem.name}, Niveau: ${cleanItem.level}`);
-            
+
                 return cleanItem;
               });
-            
+
               // Modification pour CV existant
               if (existingResume) {
                 resumeData[sectionName] = {
@@ -741,9 +747,33 @@ export async function deleteResume(id: string) {
         message: 'CV introuvable',
       };
     }
-    await prisma.resume.delete({
-      where: { id },
+    await prisma.$transaction(async tx => {
+      const profile = await tx.linkedInProfile.findUnique({
+        where: { resumeId: id },
+        select: { id: true },
+      });
+      if (profile) {
+        await tx.linkedInExperience.deleteMany({
+          where: { profileId: profile.id },
+        });
+        await tx.linkedInEducation.deleteMany({
+          where: { profileId: profile.id },
+        });
+        await tx.linkedInSkill.deleteMany({
+          where: { profileId: profile.id },
+        });
+        await tx.linkedInCertification.deleteMany({
+          where: { profileId: profile.id },
+        });
+        // Supprimer ensuite le profil LinkedIn lui-même
+        await tx.linkedInProfile.delete({
+          where: { resumeId: id },
+        });
+      }
+
+      await tx.resume.delete({ where: { id } });
     });
+
     revalidatePath('/resumes');
     return {
       success: true,
@@ -788,8 +818,10 @@ export async function listResume(options?: { includePartial?: boolean }) {
 
     if (options?.includePartial) {
       whereCondition.OR = [
-        { personalInfo: { none: {} } },
+        // Pas de PersonalInfo (relation 1-1) => utiliser 'is: null'
+        { personalInfo: { is: null } },
         {
+          // Ou aucune expérience/éducation/compétence
           AND: [
             { experiences: { none: {} } },
             { educations: { none: {} } },
@@ -800,12 +832,13 @@ export async function listResume(options?: { includePartial?: boolean }) {
     }
 
     const resumes = await prisma.resume.findMany({
-      where: { userId: user.id },
+      where: whereCondition,
       orderBy: { updatedAt: 'desc' },
       include: {
-        personalInfo: true,
+        template: true, // <-- new line to include chosen template
         theme: true,
         font: true,
+        personalInfo: true,
         experiences: { take: 1 },
         educations: { take: 1 },
         skills: { take: 1 },
@@ -817,6 +850,14 @@ export async function listResume(options?: { includePartial?: boolean }) {
 
     const resumesWithProgress = resumes.map(resume => ({
       ...resume,
+      // flatten template dates to ISO strings to ensure serialisable across server actions
+      template: resume.template
+        ? {
+            ...resume.template,
+            createdAt: resume.template.createdAt.toISOString(),
+            updatedAt: resume.template.updatedAt.toISOString(),
+          }
+        : null,
       progress: calculateResumeProgress(resume),
     }));
 

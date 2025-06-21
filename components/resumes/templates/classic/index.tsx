@@ -1,7 +1,7 @@
 import { ResumeEnumLanguages } from '@/enums/resumeEnumLanguages';
 import { ResumeTemplateProps } from '@/types/resumeTypes';
 import { formatDate } from '@/utils/data-utils';
-
+import { getTypographyStyles } from '@/utils/fonts/google-fonts';
 import React from 'react';
 
 /**
@@ -20,11 +20,11 @@ export const ClassicTemplate: React.FC<ResumeTemplateProps> = ({
   const { personalInfo, educations, experiences, skills, languages, certifications, achievements } =
     resume;
   const theme = resume.theme || {
-    primary: '#EDF7ED',
-    secondary: '#2D3E50',
-    accent: '#2E7D32',
+    primary: '#1e3a8a',
+    secondary: '#38014b',
+    accent: '#fafafa',
     background: '#FFFFFF',
-    text: '#333333',
+    text: '#374151',
   };
   const fontName = resume.font?.name || 'Inter, sans-serif';
 
@@ -49,7 +49,7 @@ export const ClassicTemplate: React.FC<ResumeTemplateProps> = ({
         {/* Sidebar gauche */}
         <div
           className="w-full md:w-2/6 p-6 text-white"
-          style={{ backgroundColor: theme.secondary }}
+          style={{ backgroundColor: theme.secondary, color: theme.accent }}
         >
           {/* Informations de contact */}
           <div className="mb-8" onClick={() => handleEditSection('personalInfo')}>

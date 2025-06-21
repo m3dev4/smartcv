@@ -1,8 +1,16 @@
-import { Metadata } from "next";
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "SmartCV - Dashboard",
-  description: "Dashboard",
+  title: 'SmartCV - Dashboard',
+  description: 'Prenez le controle de votre CV avec votre dashboard',
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+    }
+  },
 };
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {

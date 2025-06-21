@@ -78,13 +78,9 @@ const RegisterPage = () => {
     <div className="flex flex-col lg:flex-row">
       {/* Image illustrative - Cachée sur mobile */}
       <div className="hidden lg:flex lg:w-1/2 xl:w-3/5">
-        <Image
-          src="/images/login-cv.jpg"
-          width={640}
-          height={620}
-          alt="image illustrative"
-          className="w-full h-full object-cover"
-        />
+        <video className="w-full h-screen object-cover" autoPlay loop muted playsInline>
+          <source src="/videos/signInVideo.mp4" type="video/mp4" />
+        </video>
       </div>
 
       {/* Conteneur du formulaire */}
@@ -92,15 +88,15 @@ const RegisterPage = () => {
         <div className="w-full max-w-md space-y-8">
           {/* En-tête */}
           <div className="text-center">
-            <h2 className="text-2xl lg:text-3xl font-extrabold text-gray-900">
+            <h2 className="text-2xl lg:text-3xl font-extrabold text-gray-900 dark:text-white">
               Nous sommes ravis de vous revoir !
             </h2>
-            <p className="text-lg font-medium text-gray-700 mt-2">Connectez-vous à votre compte</p>
-            <p className="mt-4 text-sm text-gray-600">
+            <p className="text-lg font-medium text-gray-700 mt-2 dark:text-gray-200">Connectez-vous à votre compte</p>
+            <p className="mt-4 text-sm text-gray-600 dark:text-gray-400">
               Ou{' '}
               <Link
                 href="/sign-up"
-                className="text-indigo-500 font-medium hover:text-indigo-600 transition-colors"
+                className="text-indigo-500 font-medium hover:text-indigo-600 transition-colors "
               >
                 Creez un compte
               </Link>
@@ -166,7 +162,7 @@ const RegisterPage = () => {
 
             {/* Email */}
             <div>
-              <Label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+              <Label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">
                 Email
               </Label>
               <Input
@@ -187,7 +183,7 @@ const RegisterPage = () => {
 
             {/* Mot de passe */}
             <div>
-              <Label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+              <Label htmlFor="password" className="block text-sm dark:text-gray-200 font-medium text-gray-700 mb-1">
                 Mot de passe
               </Label>
               <Input
@@ -206,11 +202,22 @@ const RegisterPage = () => {
               {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password}</p>}
             </div>
 
+            <div className="flex py-auto justify-end w-full ">
+              <div className="flex items-center gap-2 justify-end">
+                <p>Mot de passe oublié ?</p>
+                <Link href="/forgotPassword">
+                  <span className="text-blue-500 cursor-pointer hover:underline focus:underline">
+                    Cliquer ici
+                  </span>
+                </Link>
+              </div>
+            </div>
+
             {/* Bouton de soumission */}
             <Button
               type="submit"
               disabled={isSubmitting}
-              className="w-full flex justify-center items-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="w-full flex justify-center items-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium  bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
               {isSubmitting ? <Loader className="animate-spin h-5 w-5" /> : 'Se connecter'}
             </Button>
