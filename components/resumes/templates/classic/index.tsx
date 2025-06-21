@@ -13,10 +13,10 @@ import React from 'react';
  * - Design épuré et professionnel
  */
 export const ClassicTemplate: React.FC<ResumeTemplateProps> = ({
-  resume,
-  isEditable = false,
-  onEditSection,
-}) => {
+                                                                 resume,
+                                                                 isEditable = false,
+                                                                 onEditSection,
+                                                               }) => {
   const { personalInfo, educations, experiences, skills, languages, certifications, achievements } =
     resume;
   const theme = resume.theme || {
@@ -27,7 +27,6 @@ export const ClassicTemplate: React.FC<ResumeTemplateProps> = ({
     text: '#374151',
   };
   const fontName = resume.font?.name || 'Inter, sans-serif';
-
 
 
   const handleEditSection = (sectionType: string, sectionId?: string) => {
@@ -231,7 +230,7 @@ export const ClassicTemplate: React.FC<ResumeTemplateProps> = ({
 
           {/* desctiption / À propos */}
           {personalInfo?.description && (
-            <div className="mb-6" onClick={() => handleEditSection('personalInfo')}>
+            <div className="mb-6" onClick={() => handleEditSection('summary')}>
               <p className="text-gray-700 leading-relaxed">{personalInfo.description}</p>
             </div>
           )}
@@ -268,8 +267,8 @@ export const ClassicTemplate: React.FC<ResumeTemplateProps> = ({
                           {experience.current
                             ? 'Présent'
                             : experience.endDate
-                            ? formatDate(experience.endDate)
-                            : ''}
+                              ? formatDate(experience.endDate)
+                              : ''}
                         </div>
                       </div>
                       {experience.description && (
