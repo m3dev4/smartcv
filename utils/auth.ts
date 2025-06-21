@@ -15,6 +15,11 @@ type SignUpParams = {
   firstName: string;
   lastName: string;
 };
+type updateUserProfileParams = {
+  password: string;
+  firstName: string;
+  lastName: string;
+};
 
 type SignInParams = {
   email: string;
@@ -28,7 +33,7 @@ const createTransporter = () => {
     port: Number(process.env.EMAIL_PORT),
     secure: false, // true pour 465, false pour les autres ports
     auth: {
-      user: process.env.EMAIL_USERNAME, // Utilisation de EMAIL_USERNAME au lieu de EMAIL_USER pour correspondre à .env.local
+      user: process.env.EMAIL_USERNAME,
       pass: process.env.EMAIL_PASSWORD,
     },
     tls: {
@@ -391,6 +396,91 @@ export async function resetPassword(token: string, newPassword: string) {
     return {
       success: false,
       message: 'Une erreur est survenue lors de la réinitialisation du mot de passe',
+    };
+  }
+}
+
+// update user profile
+export async function updateUserProfile({
+  firstName,
+  lastName,
+  password,
+}: updateUserProfileParams) {
+  const session = await getCurrentUser();
+
+  if (!session) {
+    return {
+      success: false,
+      message: 'Utilisateur introuvable',
+    };
+  }
+  try {
+    const existingUser = await prisma.user.findUnique({
+      where: { email: session.email },
+    });
+    if (!existingUser) {
+      return {
+        success: false,
+        message: 'Utilisateur introuvable',
+      };
+    }
+
+    const updateData: any = {};
+
+    if (firstName) updateData.firstName = firstName;
+    if (lastName) updateData.lastName = lastName;
+    if (password) updateData.passwordHash = await hash(password, 10);
+
+    if (Object.keys(updateData).length === 0) {
+      return {
+        success: false,
+        message: 'Aucune mise à jour effectuée',
+      };
+    }
+
+    const hashedPassword = await hash(password, 10);
+    await prisma.user.update({
+      where: { id: session.id },
+      data: {
+        firstName,
+        lastName,
+        passwordHash: hashedPassword,
+      },
+    });
+
+    return {
+      success: true,
+      message: 'Profil mis à jour avec succès',
+    };
+  } catch (error: any) {
+    console.error("Erreur lors de la mise à jour du profil de l'utilisateur:", error);
+  }
+}
+
+// delete account
+export async function deleteAccount() {
+  const session = await getCurrentUser();
+
+  if (!session) {
+    return {
+      success: false,
+      message: 'Utilisateur introuvable',
+    };
+  }
+
+  try {
+    await prisma.user.delete({
+      where: { id: session.id },
+    });
+    return {
+      success: true,
+      message: 'Compte supprimé avec succès',
+    };
+  } catch (error) {
+    console.error('Erreur lors de la suppression du compte:', error);
+    return {
+      success: false,
+      message: 'Une erreur est survenue lors de la suppression du compte',
     };
   }
 }
