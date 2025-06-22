@@ -1,3 +1,5 @@
+"use server"
+
 import { PrismaClient } from '@/lib/generated/prisma';
 import { getCurrentUser } from '@/utils/auth';
 import { referenceValidation } from '@/validations/referenceValidation';

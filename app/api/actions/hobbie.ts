@@ -55,7 +55,7 @@ export async function addHobbie(formData: FormData) {
       resumeId: formData.get('resumeId') as string,
       name: formData.get('name') as string,
       icon: formData.get('icon') as string,
-      order: formData.get('order') ? parseInt(formData.get('order') as string) : undefined,
+      order: formData.has('order') ? parseInt(formData.get('order') as string) : undefined,
     };
 
     //Validations des données
@@ -72,7 +72,7 @@ export async function addHobbie(formData: FormData) {
         where: { resumeId: validatedData.resumeId },
         orderBy: { order: 'desc' },
       });
-      validatedData.order = maxOderHobbie ? maxOderHobbie.order + 1 : 0;
+      validatedData.order = maxOderHobbie ? 1 + maxOderHobbie.order : 0;
     }
 
     // creation de l'hobbi
@@ -114,7 +114,7 @@ export async function updateHobbie(formData: FormData) {
       resumeId: formData.get('resumeId') as string,
       name: formData.get('name') as string,
       icon: formData.get('icon') as string,
-      order: formData.get('order') ? parseInt(formData.get('order') as string) : undefined,
+      order: formData.has('order') ? parseInt(formData.get('order') as string) : undefined,
     };
     const validateData = hobbieSchema.parse(data);
 

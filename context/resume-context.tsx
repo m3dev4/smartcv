@@ -192,6 +192,62 @@ export function ResumeProvider({ children, resumeId, templateType }: ResumeProvi
           order: achievement.order || index,
         })) || [],
 
+      // Conversion des loisirs/hobbies
+      hobbies:
+        prismaResume.hobbies?.map((hobby: any, index: number) => ({
+          id: hobby.id,
+          name: hobby.name,
+          icon: hobby.icon,
+          order: hobby.order || index,
+        })) || [],
+
+      // Conversion des références
+      references:
+        prismaResume.references?.map((ref: any, index: number) => ({
+          id: ref.id,
+          name: ref.name,
+          company: ref.company,
+          email: ref.email,
+          phone: ref.phone,
+          relation: ref.relation,
+          order: ref.order || index,
+        })) || [],
+
+      // Conversion des publications
+      publications:
+        prismaResume.publications?.map((pub: any, index: number) => ({
+          id: pub.id,
+          title: pub.title,
+          publisher: pub.publisher,
+          url: pub.url,
+          date: pub.date,
+          description: pub.description,
+          order: pub.order || index,
+        })) || [],
+
+      // Conversion des expériences de bénévolat
+      volunteerings:
+        prismaResume.volunteerings?.map((vol: any, index: number) => ({
+          id: vol.id,
+          organization: vol.organization,
+          role: vol.role,
+          startDate: vol.startDate,
+          endDate: vol.endDate,
+          description: vol.description,
+          order: vol.order || index,
+        })) || [],
+
+      // Conversion des prix/récompenses
+      awards:
+        prismaResume.awards?.map((award: any, index: number) => ({
+          id: award.id,
+          title: award.title,
+          issuer: award.issuer,
+          date: award.date,
+          description: award.description,
+          order: award.order || index,
+        })) || [],
+
       // Conversion des sections personnalisées
       customSections:
         prismaResume.customSections?.map((section: any, index: number) => ({
@@ -296,161 +352,99 @@ export function ResumeProvider({ children, resumeId, templateType }: ResumeProvi
 
     if (!resumeId) {
       console.error('DEBUG - ID du CV manquant - impossible de sauvegarder');
-      throw new Error('ID du CV manquant - impossible de sauvegarder');
+      throw new Error('ID du CV manquant');
     }
 
-    // Vérifier que le CV a un ID (pour les CV existants)
-    if (!resume.id && !resumeId) {
-      console.error('DEBUG - CV non identifié - veuillez rafraîchir la page');
-      throw new Error('CV non identifié - veuillez rafraîchir la page');
-    }
+    setIsSaving(true);
 
     try {
-      setIsSaving(true);
-
-      // Utiliser l'ID du CV s'il existe, sinon utiliser resumeId
-      const cvId = resume.id || resumeId;
-
-      // Créer un FormData pour l'API
+      // Préparer les données pour l'API
       const formData = new FormData();
-      formData.append('id', cvId);
-      formData.append('title', resume.title || 'Mon CV');
-      formData.append('templateId', resume.templateId || 'modern');
+      formData.append('id', resumeId);
+      formData.append('title', resume.title || '');
+      formData.append('templateId', resume.template?.id || '');
       formData.append('themeId', resume.theme?.id || '');
-      formData.append(
-        'theme',
-        JSON.stringify({
-          primary: resume.theme?.primary,
-          secondary: resume.theme?.secondary,
-          accent: resume.theme?.accent,
-          background: resume.theme?.background,
-          text: resume.theme?.text,
-        })
-      );
       formData.append('fontId', resume.font?.id || '');
 
-      // Log détaillé de toutes les données avant envoi
-      console.log('DEBUG - Données complètes du CV avant envoi :', {
-        id: cvId,
-        title: resume.title,
-        templateId: resume.templateId,
-        themeId: resume.theme?.id,
-        fontId: resume.font?.id,
-        personalInfo: resume.personalInfo,
-        experiences: resume.experiences,
-        educations: resume.educations,
-        skills: resume.skills,
-        languages: resume.languages,
-        certifications: resume.certifications,
-        achievements: resume.achievements,
-        projects: resume.projects,
-        customSections: resume.customSections,
-      });
-
-      // Ajouter les données personnelles et autres sections si nécessaire
+      // Ajouter les sections
       if (resume.personalInfo) {
-        console.log('DEBUG - Sauvegarde des informations personnelles:', resume.personalInfo);
         formData.append('personalInfo', JSON.stringify(resume.personalInfo));
       }
 
-      // Sections à sauvegarder
-      const sections = [
-        'experiences',
-        'educations',
-        'skills',
-        'languages',
-        'certifications',
-        'achievements',
-        'projects',
-        'customSections',
-      ];
+      if (resume.experiences && resume.experiences.length > 0) {
+        formData.append('experiences', JSON.stringify(resume.experiences));
+      }
 
-      // Préserver les sections existantes de l'original si elles ne sont pas modifiées
-      sections.forEach(section => {
-        const sectionKey = section as keyof typeof resume;
-        const currentData = resume[sectionKey];
+      if (resume.educations && resume.educations.length > 0) {
+        formData.append('educations', JSON.stringify(resume.educations));
+      }
 
-        // Si la section actuelle est vide mais existait dans l'original, utiliser les données originales
-        const dataToSave =
-          Array.isArray(currentData) &&
-          currentData.length === 0 &&
-          originalResume &&
-          Array.isArray(originalResume[sectionKey]) &&
-          (originalResume[sectionKey] as any[]).length > 0
-            ? originalResume[sectionKey]
-            : currentData;
+      if (resume.skills && resume.skills.length > 0) {
+        formData.append('skills', JSON.stringify(resume.skills));
+      }
 
-        if (dataToSave && Array.isArray(dataToSave) && dataToSave.length > 0) {
-          console.log(`DEBUG - Sauvegarde de la section ${section}:`, dataToSave);
+      if (resume.languages && resume.languages.length > 0) {
+        formData.append('languages', JSON.stringify(resume.languages));
+      }
 
-          if (resume.skills && resume.skills.length > 0) {
-            const skillsToSave = resume.skills.map(skill => ({
-              ...skill,
-              level: skill.level || 1,
-            }));
-            formData.append('skills', JSON.stringify(skillsToSave));
-          }
+      if (resume.certifications && resume.certifications.length > 0) {
+        formData.append('certifications', JSON.stringify(resume.certifications));
+      }
 
-          if (resume.languages && resume.languages?.length > 0) {
-            const languagesToSave = resume.languages.map(language => ({
-              ...language,
-              level: language.level || 'BEGINNER',
-            }));
-            formData.append('languages', JSON.stringify(languagesToSave));
-          }
+      if (resume.achievements && resume.achievements.length > 0) {
+        formData.append('achievements', JSON.stringify(resume.achievements));
+      }
 
-          // Traitement spécial pour les éducations
-          if (section === 'educations') {
-            const cleanedEducations = dataToSave.map((edu: any) => {
-              // Supprimer le champ 'institutions' s'il existe et utiliser 'institution'
-              const { institutions, ...cleanEdu } = edu;
-              return {
-                ...cleanEdu,
-                institution: cleanEdu.institution || institutions || '',
-              };
-            });
+      if (resume.projects && resume.projects.length > 0) {
+        formData.append('projects', JSON.stringify(resume.projects));
+      }
 
-            // Ne garder que les éducations valides
-            const validEducations = cleanedEducations.filter(
-              (edu: any) => edu.institution && edu.institution.trim() !== ''
-            );
+      if (resume.hobbies && resume.hobbies.length > 0) {
+        formData.append('hobbies', JSON.stringify(resume.hobbies));
+      }
 
-            formData.append(section, JSON.stringify(validEducations));
-          } else {
-            formData.append(section, JSON.stringify(dataToSave));
-          }
-        } else if (originalResume && originalResume[sectionKey]) {
-          // Si la section est vide mais existait dans l'original, envoyer une section vide
-          // pour éviter que le backend ne supprime la section
-          formData.append(section, JSON.stringify([]));
-        }
-      });
+      if (resume.references && resume.references.length > 0) {
+        formData.append('references', JSON.stringify(resume.references));
+      }
 
-      // Appeler l'API pour mettre à jour le CV
+      if (resume.publications && resume.publications.length > 0) {
+        formData.append('publications', JSON.stringify(resume.publications));
+      }
+
+      if (resume.volunteerings && resume.volunteerings.length > 0) {
+        formData.append('volunteerings', JSON.stringify(resume.volunteerings));
+      }
+
+      if (resume.awards && resume.awards.length > 0) {
+        formData.append('awards', JSON.stringify(resume.awards));
+      }
+
+      if (resume.customSections && resume.customSections.length > 0) {
+        formData.append('customSections', JSON.stringify(resume.customSections));
+      }
+
+      if (resume.theme) {
+        formData.append('theme', JSON.stringify(resume.theme));
+      }
+
       const result = await updateResumeApi(formData);
 
       if (result.success) {
-        console.log('DEBUG - CV mis à jour avec succès !', result);
         setLastSaved(new Date());
-
-        // Mettre à jour l'original avec les nouvelles données
-        if (result.resume) {
-          // Utiliser une conversion de type pour résoudre le problème de typage
-          setOriginalResume(prevResume => result.resume as unknown as typeof prevResume);
-        }
-
-        return result;
+        console.log('✅ CV sauvegardé avec succès');
       } else {
-        console.error('DEBUG - Erreur lors de la mise à jour du CV:', result.message);
-        throw new Error(result.message || 'Erreur inconnue lors de la sauvegarde');
+        throw new Error(result.message || 'Erreur lors de la sauvegarde');
       }
-    } catch (error) {
-      console.error('DEBUG - Erreur détaillée lors de la sauvegarde:', error);
+    } catch (error: any) {
+      console.error('❌ Erreur lors de la sauvegarde:', error);
       throw error;
     } finally {
       setIsSaving(false);
     }
   };
+
+  // Suite du fichier avec les autres fonctions existantes...
+  // (updateResume, undo, redo, zoomIn, zoomOut, etc.)
 
   const zoomIn = () => {
     if (zoomLevel < 200) {
@@ -576,6 +570,11 @@ export function ResumeProvider({ children, resumeId, templateType }: ResumeProvi
             'achievements',
             'projects',
             'customSections',
+            'hobbies',
+            'volunteerings',
+            'publications',
+            'references',
+            'awards',
           ];
 
           ensuredSections.forEach(section => {
@@ -605,6 +604,11 @@ export function ResumeProvider({ children, resumeId, templateType }: ResumeProvi
             achievements: [],
             projects: [],
             customSections: [],
+            hobbies: [],
+            volunteerings: [],
+            references: [],
+            awards: [],
+            publications: []
           };
           setResume(defaultResume);
           setOriginalResume(defaultResume);
@@ -627,6 +631,11 @@ export function ResumeProvider({ children, resumeId, templateType }: ResumeProvi
           achievements: [],
           projects: [],
           customSections: [],
+          hobbies: [],
+          references: [],
+          publications: [],
+          volunteerings: [],
+          awards: []
         };
         setResume(defaultResume);
         setOriginalResume(defaultResume);
