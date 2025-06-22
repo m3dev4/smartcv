@@ -1,8 +1,6 @@
-'use server';
-
 import { PrismaClient } from '@/lib/generated/prisma';
 import { getCurrentUser } from '@/utils/auth';
-import { hobbieSchema } from '@/validations/hobbie';
+import { referenceValidation } from '@/validations/referenceValidation';
 import { revalidatePath } from 'next/cache';
 
 const prisma = new PrismaClient();
@@ -36,30 +34,32 @@ async function checkResumeOwnership(resumeId: string, userEmail: string) {
 
   return { success: true, userId: user.id };
 }
-/*
- * Ajoute une nouvelle hobbie
- * */
-export async function addHobbie(formData: FormData) {
+
+/**
+ * Add ref
+ */
+
+export async function addReference(formData: FormData) {
   const session = await getCurrentUser();
 
   if (!session?.email) {
     return {
       success: false,
-      error: 'Vous devez vous connectez pour ajouter un hobbi',
+      error: 'Vous devez vous connectez pour ajouter un reference',
     };
   }
 
   try {
-    //Récupératon des données du formulaire
     const data = {
       resumeId: formData.get('resumeId') as string,
       name: formData.get('name') as string,
-      icon: formData.get('icon') as string,
-      order: formData.get('order') ? parseInt(formData.get('order') as string) : undefined,
+      company: formData.get('company') as string,
+      email: formData.get('email') as string,
+      phone: formData.get('phone') as string,
+      relation: formData.get('relation') as string,
+      order: formData.has('order') ? parseInt(formData.get('order') as string) : undefined,
     };
-
-    //Validations des données
-    const validatedData = hobbieSchema.parse(data);
+    const validatedData = referenceValidation.parse(data);
 
     const ownershipCheck = await checkResumeOwnership(validatedData.resumeId, session.email);
 
@@ -68,60 +68,60 @@ export async function addHobbie(formData: FormData) {
     }
 
     if (validatedData.order === undefined) {
-      const maxOderHobbie = await prisma.hobby.findFirst({
+      const maxOrderReference = await prisma.reference.findFirst({
         where: { resumeId: validatedData.resumeId },
         orderBy: { order: 'desc' },
       });
-      validatedData.order = maxOderHobbie ? maxOderHobbie.order + 1 : 0;
+      validatedData.order = maxOrderReference ? maxOrderReference.order + 1 : 0;
     }
 
-    // creation de l'hobbi
-    const hobby = await prisma.hobby.create({
+    const reference = await prisma.reference.create({
       data: {
         name: validatedData.name,
-        icon: validatedData.icon,
+        company: validatedData.company,
+        email: validatedData.email,
+        phone: validatedData.phone,
+        relation: validatedData.relation,
         order: validatedData.order,
         resume: {
           connect: { id: validatedData.resumeId },
         },
       },
     });
-    revalidatePath(`/editor/${validatedData.resumeId}`);
-    return {
-      success: true,
-      hobby,
-    };
-  } catch (error: any) {
-    console.error("Erreur lors de l'ajout de l'hobby ");
+  } catch (error) {
+    console.error('Erreur lors de la creation du reference');
   }
 }
 
 /**
- * Mise a jour l'hobby
+ * Update ref
  */
-export async function updateHobbie(formData: FormData) {
+
+export async function updateReference(formData: FormData) {
   const session = await getCurrentUser();
 
   if (!session?.email) {
     return {
       success: false,
-      error: 'Vous devez vous connecter',
+      error: 'Vous devez vous connectez pour ajouter un reference',
     };
   }
-
   try {
     const data = {
       resumeId: formData.get('resumeId') as string,
       name: formData.get('name') as string,
-      icon: formData.get('icon') as string,
-      order: formData.get('order') ? parseInt(formData.get('order') as string) : undefined,
+      company: formData.get('company') as string,
+      email: formData.get('email') as string,
+      phone: formData.get('phone') as string,
+      relation: formData.get('relation') as string,
+      order: formData.has('order') ? parseInt(formData.get('order') as string) : undefined,
     };
-    const validateData = hobbieSchema.parse(data);
+    const validateData = referenceValidation.parse(data);
 
     if (!validateData) {
       return {
         success: false,
-        error: "L'id de l'hobbi est requis pour la mise à jour",
+        error: "L'id du reference est requis pour la mise à jour",
       };
     }
 
@@ -131,73 +131,79 @@ export async function updateHobbie(formData: FormData) {
       return ownershipCheck;
     }
 
-    const existingHobby = await prisma.hobby.findFirst({
+    const existingReference = await prisma.reference.findFirst({
       where: {
         id: validateData.id,
         resumeId: validateData.resumeId,
       },
     });
 
-    if (!existingHobby) {
+    if (!existingReference) {
       return {
         success: false,
-        error: "Hobby non trouvé ou vous n'avez pas les droits pour faire cette action",
+        error: "Reference non trouvé ou vous n'avez pas les droits pour faire cette action",
       };
     }
-    const hobby = await prisma.hobby.update({
+    const reference = await prisma.reference.update({
       where: { id: validateData.id },
       data: {
         name: validateData.name,
-        icon: validateData.icon,
+        company: validateData.company,
+        phone: validateData.phone,
+        email: validateData.email,
+        relation: validateData.relation,
         ...(validateData.order !== undefined && { order: validateData.order }),
       },
     });
     return {
       success: true,
-      hobby,
+      reference,
     };
   } catch (error: any) {
-    console.error("Erreur lors de la mise a jour d'hobby", error);
+    console.error('Erreur lors de la mise a jour du reference', error);
   }
 }
 
-/**
- * Delete hobby
- */
-export async function deleteHobbie(id: string, resumeId: string) {
+export async function deleteReference(id: string, resumeId: string) {
+  // Vérification de l'authentification
   const session = await getCurrentUser();
-
   if (!session?.email) {
-    return { success: false, error: 'Vous devez être connecté pour supprimer une certification' };
+    return { success: false, error: 'Vous devez être connecté pour supprimer une reference' };
   }
+
   try {
+    // Vérification des droits sur le CV
     const ownershipCheck = await checkResumeOwnership(resumeId, session.email);
     if (!ownershipCheck.success) {
       return ownershipCheck;
     }
 
-    const existingHobby = await prisma.hobby.findFirst({
+    // Vérification que la reference existe et appartient au CV
+    const existingReference = await prisma.reference.findFirst({
       where: {
         id,
         resumeId,
       },
     });
-    if (!existingHobby) {
+
+    if (!existingReference) {
       return {
         success: false,
-        eror: "L'hobby non trouvé ou vous ne dspose pas de droit pour cette action",
+        error: "Reference non trouvée ou vous n'avez pas les droits pour la supprimer",
       };
     }
 
-    await prisma.hobby.delete({
+    // Suppression de la reference
+    await prisma.reference.delete({
       where: { id },
     });
 
-    await prisma.hobby.updateMany({
+    // Réorganisation des ordres après suppression
+    await prisma.reference.updateMany({
       where: {
         resumeId,
         order: {
-          gt: existingHobby.order,
+          gt: existingReference.order,
         },
       },
       data: {
@@ -207,21 +213,26 @@ export async function deleteHobbie(id: string, resumeId: string) {
       },
     });
 
+    // Revalidation du cache
     revalidatePath(`/editor/${resumeId}`);
 
     return { success: true };
-  } catch (error: any) {
-    console.error('Erreur lors de la suppression');
+  } catch (error) {
+    console.error('Erreur lors de la suppression de la reference:', error);
+    return {
+      success: false,
+      error: 'Une erreur est survenue lors de la suppression de la reference',
+    };
   }
 }
 
-export async function reorderHooby(resumeId: string, hobbyIds: string[]) {
+export async function reorderReference(resumeId: string, referenceIds: string[]) {
   // Vérification de l'authentification
   const session = await getCurrentUser();
   if (!session?.email) {
     return {
       success: false,
-      error: 'Vous devez être connecté pour réorganiser les hobbies',
+      error: 'Vous devez être connecté pour réorganiser les references',
     };
   }
 
@@ -233,22 +244,22 @@ export async function reorderHooby(resumeId: string, hobbyIds: string[]) {
     }
 
     // Vérification que toutes les refence appartiennent au CV
-    const hobby = await prisma.hobby.findMany({
+    const reference = await prisma.reference.findMany({
       where: {
         resumeId,
       },
     });
 
-    const validHobbyIds = hobby.map(hob => hob.id);
-    const allIdsValid = hobbyIds.every(id => validHobbyIds.includes(id));
+    const validReferenceIds = reference.map(ref => ref.id);
+    const allIdsValid = referenceIds.every(id => validReferenceIds.includes(id));
 
     if (!allIdsValid) {
       return { success: false, error: "Certaines reference n'appartiennent pas à ce CV" };
     }
 
     // Mise à jour de l'ordre de chaque reference
-    const updates = hobbyIds.map((id, index) =>
-      prisma.hobby.update({
+    const updates = referenceIds.map((id, index) =>
+      prisma.reference.update({
         where: { id },
         data: { order: index },
       })
@@ -261,10 +272,10 @@ export async function reorderHooby(resumeId: string, hobbyIds: string[]) {
 
     return { success: true };
   } catch (error) {
-    console.error('Erreur lors de la réorganisation des hobbies:', error);
+    console.error('Erreur lors de la réorganisation des references:', error);
     return {
       success: false,
-      error: 'Une erreur est survenue lors de la réorganisation des hobbies',
+      error: 'Une erreur est survenue lors de la réorganisation des references',
     };
   }
 }
