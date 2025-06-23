@@ -1,10 +1,10 @@
 <div align="center">
 
-# SmartCV
+# 🚀 SmartCV
 
-<img src="public/logo.png" alt="SmartCV Logo" width="200"/>
+<img src="public/logo.png" alt="SmartCV Logo" width="180"/>
 
-*Transformez votre parcours professionnel avec des CV innovants et percutants*
+**Réinventez votre CV. Révélez votre potentiel.**
 
 [![Next.js](https://img.shields.io/badge/Next.js-13.5+-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
@@ -13,11 +13,121 @@
 
 </div>
 
-## 📋 À propos
+## ✨ Présentation
 
-SmartCV est une plateforme web innovante conçue pour la création et la gestion de CV professionnels. Notre application permet aux utilisateurs de créer, personnaliser et partager des curriculum vitae de qualité professionnelle, adaptés aux exigences du marché du travail moderne.
+**SmartCV** est la plateforme web ultime pour créer, personnaliser et gérer vos CV avec un impact visuel unique. Pensée pour les professionnels modernes, SmartCV vous permet de concevoir des CV qui captivent l’attention des recruteurs grâce à une expérience utilisateur fluide et des fonctionnalités avancées, dont un affichage circulaire innovant et l’intégration de l’IA.
 
-Avec une interface utilisateur intuitive et des fonctionnalités avancées, SmartCV transforme l'expérience de création de CV en un processus simple et efficace, tout en maximisant l'impact visuel et le contenu de votre profil professionnel.
+---
+
+## 🖼️ Aperçu visuel
+
+L’interface de SmartCV met en avant votre CV principal, entouré de miniatures de vos autres modèles dans une disposition circulaire dynamique. Ce design immersif valorise votre profil et facilite la gestion de plusieurs versions de CV pour différents objectifs professionnels.
+
+---
+
+## 🚩 Fonctionnalités clés
+
+- 🎨 **Création intuitive de CV** : Interface drag-and-drop ultra fluide
+- 🌀 **Affichage circulaire** : Présentation centrale du CV entourée de miniatures pour une navigation rapide
+- 🏆 **Modèles professionnels** : Large choix de designs adaptés à tous les secteurs
+- 📱 **Responsive design** : Parfaitement adapté desktop, tablette et mobile
+- 📤 **Exportation multi-format** : Téléchargement en PDF, DOCX ou partage par URL
+- 🤖 **Analyse IA** : Suggestions personnalisées pour optimiser votre CV
+- 🔒 **Gestion de profil** : Sauvegarde et organisation de multiples CV
+- 🔗 **Partage instantané** : Génération de liens publics sécurisés
+
+---
+
+## 🛠️ Technologies
+
+- **Frontend** : Next.js, React, TypeScript, Tailwind CSS
+- **Backend** : Next.js API Routes, Prisma ORM
+- **Base de données** : PostgreSQL
+- **Authentification** : Better Auth, Nodemailer
+- **Gestion d’état** : React Context API
+- **Animations** : Framer Motion
+- **Autres** : React Hook Form, Radix UI, Tiptap Editor
+
+---
+
+## 🚀 Installation rapide
+
+```bash
+# Cloner le dépôt
+git clone https://github.com/votre-username/smartcv.git
+cd smartcv
+
+# Installer les dépendances
+npm install
+
+# Configurer les variables d'environnement
+cp .env.example .env.local
+# Puis renseignez vos valeurs :
+# DATABASE_URL, EMAIL_HOST, EMAIL_PORT, EMAIL_USERNAME, EMAIL_PASSWORD, NEXT_PUBLIC_BASE_URL
+
+# Exécuter les migrations Prisma
+npx prisma migrate dev
+
+# Lancer le serveur de développement
+npm run dev
+```
+
+Accédez à [http://localhost:3000](http://localhost:3000) pour découvrir SmartCV.
+
+---
+
+## 🗂️ Structure du projet
+
+```text
+smartcv/
+├── app/           # App Router Next.js (pages, auth, dashboard)
+├── components/    # Composants réutilisables (cv, landing, ui)
+├── hooks/         # Custom React hooks
+├── lib/           # Fonctions utilitaires, client Prisma
+├── middleware.ts  # Middleware Next.js
+├── public/        # Fichiers statiques (images, logos)
+├── prisma/        # Schéma et migrations Prisma
+├── utils/         # Fonctions utilitaires diverses
+├── types/         # Types TypeScript
+```
+
+---
+
+## 📖 Utilisation
+
+### Authentification
+1. **Inscription** : Créez un compte avec votre email
+2. **Vérification** : Confirmez via le lien reçu par email
+3. **Connexion** : Accédez à votre espace personnel
+
+### Gestion de CV
+1. **Tableau de bord** : Visualisez et organisez vos CV
+2. **Création** : Sélectionnez un modèle, personnalisez le contenu et le style
+3. **Personnalisation avancée** : Modifiez couleurs, polices, sections
+4. **Export/Partage** : Téléchargez ou partagez instantanément
+
+---
+
+## 🛣️ Roadmap
+
+- [ ] Intégration LinkedIn pour import automatique
+- [ ] Analyse sémantique d’offres d’emploi
+- [ ] Mode collaboration (feedback RH)
+- [ ] Application mobile native
+- [ ] Authentification sociale (Google, GitHub, etc.)
+- [ ] Système de récupération de mot de passe
+
+---
+
+## 🤝 Contribuer
+
+Toute contribution est la bienvenue ! Merci de consulter le fichier `CONTRIBUTING.md` pour les bonnes pratiques.
+
+---
+
+## 📄 Licence
+
+Ce projet est sous licence MIT.
 
 ## ✨ Caractéristiques
 

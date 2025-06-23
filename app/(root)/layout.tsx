@@ -189,7 +189,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
                     @Mouhamed Lo
                   </Link>
                 </p>
-                <p className="font-medium">SmartCV v1.0.0</p>
+                <p className="font-medium">SmartCV v0.0.1</p>
               </div>
             </div>
           )}
