@@ -72,14 +72,19 @@ export function AddSectionDialog({ trigger, onSectionAdded }: AddSectionDialogPr
   const handleAddSection = (sectionId: string) => {
     if (!resume) return;
 
-    // Générer un ID unique pour la custom section
-    const customSectionId = `custom-${sectionId}-${Date.now()}`;
+    // Pour les loisirs, on redirige directement vers l'éditeur sans créer de custom section
+    if (sectionId === 'hobbies') {
+      // Fermer le dialog et rediriger vers l'éditeur hobbies
+      setOpen(false);
+      onSectionAdded?.('hobbies'); // Utilise l'ID de section standard
+      return;
+    }
 
-    // Trouver la section correspondante
+    // Pour les autres sections, créer une custom section
+    const customSectionId = `custom-${sectionId}-${Date.now()}`;
     const sectionOption = sectionOptions.find(option => option.id === sectionId);
     if (!sectionOption) return;
 
-    // Créer une nouvelle custom section
     const newCustomSection = {
       id: customSectionId,
       title: sectionOption.title,
@@ -94,7 +99,6 @@ export function AddSectionDialog({ trigger, onSectionAdded }: AddSectionDialogPr
       order: (resume.customSections?.length || 0) + 1,
     };
 
-    // Mettre à jour le CV avec la nouvelle section
     const updatedCustomSections = [...(resume.customSections || []), newCustomSection];
 
     updateResume({
@@ -127,26 +131,14 @@ export function AddSectionDialog({ trigger, onSectionAdded }: AddSectionDialogPr
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
           {sectionOptions.map(section => {
             const IconComponent = section.icon;
-            const isAlreadyAdded = resume?.customSections?.some(customSection => {
-              try {
-                const content = JSON.parse(customSection.content);
-                return content.type === section.id;
-              } catch {
-                return false;
-              }
-            });
 
             return (
               <Card
                 key={section.id}
                 className={`cursor-pointer transition-all hover:shadow-md ${
                   selectedSection === section.id ? 'ring-2 ring-blue-500' : ''
-                } ${isAlreadyAdded ? 'opacity-50 cursor-not-allowed' : ''}`}
-                onClick={() => {
-                  if (!isAlreadyAdded) {
-                    setSelectedSection(section.id);
-                  }
-                }}
+                }`}
+                onClick={() => setSelectedSection(section.id)}
               >
                 <CardHeader className="pb-3">
                   <div className="flex items-center gap-3">
@@ -156,9 +148,6 @@ export function AddSectionDialog({ trigger, onSectionAdded }: AddSectionDialogPr
                     <div className="flex-1">
                       <CardTitle className="text-sm font-medium">
                         {section.title}
-                        {isAlreadyAdded && (
-                          <span className="ml-2 text-xs text-muted-foreground">(Déjà ajoutée)</span>
-                        )}
                       </CardTitle>
                     </div>
                   </div>
@@ -177,17 +166,7 @@ export function AddSectionDialog({ trigger, onSectionAdded }: AddSectionDialogPr
           </Button>
           <Button
             onClick={() => selectedSection && handleAddSection(selectedSection)}
-            disabled={
-              !selectedSection ||
-              resume?.customSections?.some(customSection => {
-                try {
-                  const content = JSON.parse(customSection.content);
-                  return content.type === selectedSection;
-                } catch {
-                  return false;
-                }
-              })
-            }
+            disabled={!selectedSection}
           >
             Ajouter la section
           </Button>

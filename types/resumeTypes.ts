@@ -82,7 +82,7 @@ export interface ResumeTemplateProps {
       name: string
       icon?: string
       order?: number;
-    }
+    }[]
     references: {
       id: string
       name: string
@@ -91,7 +91,7 @@ export interface ResumeTemplateProps {
       phone?: string
       relation?: string
       order?: number
-    }
+    }[]
     publications: {
       id: string
       title: string
@@ -100,7 +100,7 @@ export interface ResumeTemplateProps {
       date?: Date
       description?: string
       order?: number
-    }
+    }[]
     volunteerings: {
       id: string
       organization: string
@@ -109,7 +109,7 @@ export interface ResumeTemplateProps {
       endDate?: Date
       description?: string
       order?: number
-    }
+    }[]
     awards: {
       id: string
       title: string
@@ -117,7 +117,7 @@ export interface ResumeTemplateProps {
       date?: Date
       description?: string
       order?: number
-    }
+    }[]
     customSections?: {
       id: string;
       title: string;

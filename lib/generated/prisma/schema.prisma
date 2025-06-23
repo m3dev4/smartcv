@@ -85,7 +85,7 @@ model Resume {
   volunteerings   Volunteering[]
   awards          Award[]
   LinkedInProfile LinkedInProfile?
-  volunteeringId  String
+  // volunteeringId  String
 }
 
 model PersonalInfo {

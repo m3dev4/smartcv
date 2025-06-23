@@ -322,6 +322,8 @@ export async function createResumeFromLinkedIn(username: string) {
                   })),
                 }
               : undefined,
+
+
           },
         },
       },

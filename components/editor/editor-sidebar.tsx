@@ -7,6 +7,7 @@ import {
   ChevronLeft,
   ChevronRight,
   GraduationCap,
+  Heart,
   Languages,
   Layout,
   Linkedin,
@@ -28,9 +29,9 @@ interface EditorSidebarProps {
 }
 
 const sections = [
-  { id: 'personal', label: 'Informations personnelles', icon: User, color: 'bg-blue-500' },
-  { id: 'experience', label: 'Expériences', icon: Briefcase, color: 'bg-green-500' },
-  { id: 'education', label: 'Formation', icon: GraduationCap, color: 'bg-purple-500' },
+  { id: 'personalInfo', label: 'Informations personnelles', icon: User, color: 'bg-blue-500' },
+  { id: 'experiences', label: 'Expériences', icon: Briefcase, color: 'bg-green-500' },
+  { id: 'educations', label: 'Formation', icon: GraduationCap, color: 'bg-purple-500' },
   { id: 'skills', label: 'Compétences', icon: Award, color: 'bg-orange-500' },
   { id: 'languages', label: 'Langues', icon: Languages, color: 'bg-pink-500' },
   { id: 'certifications', label: 'Certifications', icon: Award, color: 'bg-cyan-500' },
@@ -43,7 +44,9 @@ const designTools = [
   { id: 'font', label: 'Police', icon: Type },
 ];
 
-const linkedinExtract = [{ id: 'linkedin', label: 'Créer depuis LinkedIn', icon: Linkedin }];
+const linkedinExtract = [
+  { id: 'linkedin', label: 'Créer depuis LinkedIn', icon: Linkedin },
+];
 
 const EditorSidebar: React.FC<EditorSidebarProps> = ({
   collapsed,
@@ -53,7 +56,6 @@ const EditorSidebar: React.FC<EditorSidebarProps> = ({
   isMobileView = false,
 }) => {
   const handleSectionAdded = (sectionId: string) => {
-    // Sélectionner automatiquement la nouvelle section ajoutée
     onSelectSection(sectionId);
   };
 
@@ -66,25 +68,21 @@ const EditorSidebar: React.FC<EditorSidebarProps> = ({
       {/* Header */}
       <div className="p-4 border-b border-slate-200 dark:border-slate-700 flex items-center justify-between">
         {!collapsed && <h2 className="font-semibold">{isMobileView ? 'Menu' : 'Editeur CV'}</h2>}
-        <Button
-          variant="ghost"
-          onClick={onToggleCollapse}
-          aria-label={
-            isMobileView ? 'Close menu' : collapsed ? 'Expand sidebar' : 'Collapse sidebar'
-          }
+        <Button 
+          variant="ghost" 
+          onClick={onToggleCollapse} 
+          aria-label={isMobileView ? 'Close menu' : (collapsed ? 'Expand sidebar' : 'Collapse sidebar')}
         >
           {isMobileView ? (
             <ChevronLeft className="h-4 w-4" />
-          ) : collapsed ? (
-            <ChevronRight className="h-4 w-4" />
           ) : (
-            <ChevronLeft className="h-4 w-4" />
+            collapsed ? <ChevronRight className="h-4 w-4" /> : <ChevronLeft className="h-4 w-4" />
           )}
         </Button>
       </div>
 
       <ScrollArea className="flex-1">
-        <div className={cn('space-y-2', collapsed ? 'p-2' : 'p-4')}>
+        <div className={cn("space-y-2", collapsed ? "p-2" : "p-4")}>
           <div>
             {!collapsed && <h3>Sections</h3>}
             <div className="space-y-2">
@@ -110,7 +108,9 @@ const EditorSidebar: React.FC<EditorSidebarProps> = ({
                 </Button>
               ))}
 
-              {!collapsed && <AddSectionDialog onSectionAdded={handleSectionAdded} />}
+              {!collapsed && (
+                <AddSectionDialog onSectionAdded={handleSectionAdded} />
+              )}
             </div>
           </div>
           {!collapsed && <Separator />}
@@ -139,9 +139,7 @@ const EditorSidebar: React.FC<EditorSidebarProps> = ({
           </div>
 
           <div>
-            {!collapsed && (
-              <h3 className="text-sm font-medium text-gray-500 mb-3">Créer depuis LinkedIn</h3>
-            )}
+            {!collapsed && <h3 className="text-sm font-medium text-gray-500 mb-3">Créer depuis LinkedIn</h3>}
             <div className="space-y-2">
               {linkedinExtract.map(tool => (
                 <Button

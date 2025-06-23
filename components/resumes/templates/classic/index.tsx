@@ -1,3 +1,4 @@
+import { addHobbie } from '@/app/api/actions/hobbie';
 import { ResumeEnumLanguages } from '@/enums/resumeEnumLanguages';
 import { ResumeTemplateProps } from '@/types/resumeTypes';
 import { formatDate } from '@/utils/data-utils';
@@ -17,7 +18,7 @@ export const ClassicTemplate: React.FC<ResumeTemplateProps> = ({
                                                                  isEditable = false,
                                                                  onEditSection,
                                                                }) => {
-  const { personalInfo, educations, experiences, skills, languages, certifications, achievements } =
+  const { personalInfo, educations, experiences, skills, languages, certifications, achievements, hobbies } =
     resume;
   const theme = resume.theme || {
     primary: '#1e3a8a',
@@ -384,6 +385,42 @@ export const ClassicTemplate: React.FC<ResumeTemplateProps> = ({
                     </div>
                   ))}
               </div>
+            </div>
+          )}
+
+          {/* Hobbies */}
+          {hobbies && hobbies.length > 0 && (
+            <div className="mb-6" onClick={() => handleEditSection('hobbies')}>
+              <h2
+                className="text-xl font-bold uppercase mb-4 pb-2 flex items-center gap-2"
+                style={{ borderBottom: `2px solid ${theme.primary}` }}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6 text-gray-500 mr-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9.75 17a4.25 4.25 0 104.5-7.5m-7.5 4.5a4.25 4.25 0 107.5 4.5m1.5-8a4.25 4.25 0 11-4.5-7.5"
+                  />
+                </svg>
+                Hobbies
+              </h2>
+              <ul className="list-disc list-inside space-y-1 pl-2">
+                {hobbies.map((hobby, idx) => (
+                  <li key={idx} className="flex items-center gap-2">
+                    <p className='text-sm font-semibold'>{hobby.name}</p>
+                    {hobby.icon && (
+                      <span className="text-xs" aria-label="Icône hobby">{hobby.icon}</span>
+                    )}
+                  </li>
+                ))}
+              </ul>
             </div>
           )}
         </div>

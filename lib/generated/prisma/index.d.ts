@@ -5854,7 +5854,6 @@ export namespace Prisma {
     templateId: string | null
     themeId: string | null
     fontId: string | null
-    volunteeringId: string | null
   }
 
   export type ResumeMaxAggregateOutputType = {
@@ -5868,7 +5867,6 @@ export namespace Prisma {
     templateId: string | null
     themeId: string | null
     fontId: string | null
-    volunteeringId: string | null
   }
 
   export type ResumeCountAggregateOutputType = {
@@ -5882,7 +5880,6 @@ export namespace Prisma {
     templateId: number
     themeId: number
     fontId: number
-    volunteeringId: number
     _all: number
   }
 
@@ -5898,7 +5895,6 @@ export namespace Prisma {
     templateId?: true
     themeId?: true
     fontId?: true
-    volunteeringId?: true
   }
 
   export type ResumeMaxAggregateInputType = {
@@ -5912,7 +5908,6 @@ export namespace Prisma {
     templateId?: true
     themeId?: true
     fontId?: true
-    volunteeringId?: true
   }
 
   export type ResumeCountAggregateInputType = {
@@ -5926,7 +5921,6 @@ export namespace Prisma {
     templateId?: true
     themeId?: true
     fontId?: true
-    volunteeringId?: true
     _all?: true
   }
 
@@ -6013,7 +6007,6 @@ export namespace Prisma {
     templateId: string
     themeId: string
     fontId: string | null
-    volunteeringId: string
     _count: ResumeCountAggregateOutputType | null
     _min: ResumeMinAggregateOutputType | null
     _max: ResumeMaxAggregateOutputType | null
@@ -6044,7 +6037,6 @@ export namespace Prisma {
     templateId?: boolean
     themeId?: boolean
     fontId?: boolean
-    volunteeringId?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
     template?: boolean | TemplateDefaultArgs<ExtArgs>
     theme?: boolean | ThemeDefaultArgs<ExtArgs>
@@ -6079,7 +6071,6 @@ export namespace Prisma {
     templateId?: boolean
     themeId?: boolean
     fontId?: boolean
-    volunteeringId?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
     template?: boolean | TemplateDefaultArgs<ExtArgs>
     theme?: boolean | ThemeDefaultArgs<ExtArgs>
@@ -6097,7 +6088,6 @@ export namespace Prisma {
     templateId?: boolean
     themeId?: boolean
     fontId?: boolean
-    volunteeringId?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
     template?: boolean | TemplateDefaultArgs<ExtArgs>
     theme?: boolean | ThemeDefaultArgs<ExtArgs>
@@ -6115,10 +6105,9 @@ export namespace Prisma {
     templateId?: boolean
     themeId?: boolean
     fontId?: boolean
-    volunteeringId?: boolean
   }
 
-  export type ResumeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "userId" | "createdAt" | "updatedAt" | "isPublic" | "publicUrl" | "templateId" | "themeId" | "fontId" | "volunteeringId", ExtArgs["result"]["resume"]>
+  export type ResumeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "userId" | "createdAt" | "updatedAt" | "isPublic" | "publicUrl" | "templateId" | "themeId" | "fontId", ExtArgs["result"]["resume"]>
   export type ResumeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
     template?: boolean | TemplateDefaultArgs<ExtArgs>
@@ -6190,7 +6179,6 @@ export namespace Prisma {
       templateId: string
       themeId: string
       fontId: string | null
-      volunteeringId: string
     }, ExtArgs["result"]["resume"]>
     composites: {}
   }
@@ -6644,7 +6632,6 @@ export namespace Prisma {
     readonly templateId: FieldRef<"Resume", 'String'>
     readonly themeId: FieldRef<"Resume", 'String'>
     readonly fontId: FieldRef<"Resume", 'String'>
-    readonly volunteeringId: FieldRef<"Resume", 'String'>
   }
     
 
@@ -33456,8 +33443,7 @@ export namespace Prisma {
     publicUrl: 'publicUrl',
     templateId: 'templateId',
     themeId: 'themeId',
-    fontId: 'fontId',
-    volunteeringId: 'volunteeringId'
+    fontId: 'fontId'
   };
 
   export type ResumeScalarFieldEnum = (typeof ResumeScalarFieldEnum)[keyof typeof ResumeScalarFieldEnum]
@@ -34096,7 +34082,6 @@ export namespace Prisma {
     templateId?: StringFilter<"Resume"> | string
     themeId?: StringFilter<"Resume"> | string
     fontId?: StringNullableFilter<"Resume"> | string | null
-    volunteeringId?: StringFilter<"Resume"> | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
     template?: XOR<TemplateScalarRelationFilter, TemplateWhereInput>
     theme?: XOR<ThemeScalarRelationFilter, ThemeWhereInput>
@@ -34130,7 +34115,6 @@ export namespace Prisma {
     templateId?: SortOrder
     themeId?: SortOrder
     fontId?: SortOrderInput | SortOrder
-    volunteeringId?: SortOrder
     user?: UserOrderByWithRelationInput
     template?: TemplateOrderByWithRelationInput
     theme?: ThemeOrderByWithRelationInput
@@ -34167,7 +34151,6 @@ export namespace Prisma {
     templateId?: StringFilter<"Resume"> | string
     themeId?: StringFilter<"Resume"> | string
     fontId?: StringNullableFilter<"Resume"> | string | null
-    volunteeringId?: StringFilter<"Resume"> | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
     template?: XOR<TemplateScalarRelationFilter, TemplateWhereInput>
     theme?: XOR<ThemeScalarRelationFilter, ThemeWhereInput>
@@ -34201,7 +34184,6 @@ export namespace Prisma {
     templateId?: SortOrder
     themeId?: SortOrder
     fontId?: SortOrderInput | SortOrder
-    volunteeringId?: SortOrder
     _count?: ResumeCountOrderByAggregateInput
     _max?: ResumeMaxOrderByAggregateInput
     _min?: ResumeMinOrderByAggregateInput
@@ -34221,7 +34203,6 @@ export namespace Prisma {
     templateId?: StringWithAggregatesFilter<"Resume"> | string
     themeId?: StringWithAggregatesFilter<"Resume"> | string
     fontId?: StringNullableWithAggregatesFilter<"Resume"> | string | null
-    volunteeringId?: StringWithAggregatesFilter<"Resume"> | string
   }
 
   export type PersonalInfoWhereInput = {
@@ -36048,7 +36029,6 @@ export namespace Prisma {
     updatedAt?: Date | string
     isPublic?: boolean
     publicUrl?: string | null
-    volunteeringId: string
     user: UserCreateNestedOneWithoutResumeInput
     template: TemplateCreateNestedOneWithoutResumesInput
     theme: ThemeCreateNestedOneWithoutResumesInput
@@ -36082,7 +36062,6 @@ export namespace Prisma {
     templateId: string
     themeId: string
     fontId?: string | null
-    volunteeringId: string
     personalInfo?: PersonalInfoUncheckedCreateNestedOneWithoutResumeInput
     sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
     educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
@@ -36108,7 +36087,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isPublic?: BoolFieldUpdateOperationsInput | boolean
     publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    volunteeringId?: StringFieldUpdateOperationsInput | string
     user?: UserUpdateOneRequiredWithoutResumeNestedInput
     template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
     theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
@@ -36142,7 +36120,6 @@ export namespace Prisma {
     templateId?: StringFieldUpdateOperationsInput | string
     themeId?: StringFieldUpdateOperationsInput | string
     fontId?: NullableStringFieldUpdateOperationsInput | string | null
-    volunteeringId?: StringFieldUpdateOperationsInput | string
     personalInfo?: PersonalInfoUncheckedUpdateOneWithoutResumeNestedInput
     sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
     educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
@@ -36172,7 +36149,6 @@ export namespace Prisma {
     templateId: string
     themeId: string
     fontId?: string | null
-    volunteeringId: string
   }
 
   export type ResumeUpdateManyMutationInput = {
@@ -36182,7 +36158,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isPublic?: BoolFieldUpdateOperationsInput | boolean
     publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    volunteeringId?: StringFieldUpdateOperationsInput | string
   }
 
   export type ResumeUncheckedUpdateManyInput = {
@@ -36196,7 +36171,6 @@ export namespace Prisma {
     templateId?: StringFieldUpdateOperationsInput | string
     themeId?: StringFieldUpdateOperationsInput | string
     fontId?: NullableStringFieldUpdateOperationsInput | string | null
-    volunteeringId?: StringFieldUpdateOperationsInput | string
   }
 
   export type PersonalInfoCreateInput = {
@@ -38340,7 +38314,6 @@ export namespace Prisma {
     templateId?: SortOrder
     themeId?: SortOrder
     fontId?: SortOrder
-    volunteeringId?: SortOrder
   }
 
   export type ResumeMaxOrderByAggregateInput = {
@@ -38354,7 +38327,6 @@ export namespace Prisma {
     templateId?: SortOrder
     themeId?: SortOrder
     fontId?: SortOrder
-    volunteeringId?: SortOrder
   }
 
   export type ResumeMinOrderByAggregateInput = {
@@ -38368,7 +38340,6 @@ export namespace Prisma {
     templateId?: SortOrder
     themeId?: SortOrder
     fontId?: SortOrder
-    volunteeringId?: SortOrder
   }
 
   export type ResumeScalarRelationFilter = {
@@ -41130,7 +41101,6 @@ export namespace Prisma {
     updatedAt?: Date | string
     isPublic?: boolean
     publicUrl?: string | null
-    volunteeringId: string
     template: TemplateCreateNestedOneWithoutResumesInput
     theme: ThemeCreateNestedOneWithoutResumesInput
     font?: FontCreateNestedOneWithoutResumesInput
@@ -41162,7 +41132,6 @@ export namespace Prisma {
     templateId: string
     themeId: string
     fontId?: string | null
-    volunteeringId: string
     personalInfo?: PersonalInfoUncheckedCreateNestedOneWithoutResumeInput
     sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
     educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
@@ -41250,7 +41219,6 @@ export namespace Prisma {
     templateId?: StringFilter<"Resume"> | string
     themeId?: StringFilter<"Resume"> | string
     fontId?: StringNullableFilter<"Resume"> | string | null
-    volunteeringId?: StringFilter<"Resume"> | string
   }
 
   export type UserCreateWithoutSessionsInput = {
@@ -42581,7 +42549,6 @@ export namespace Prisma {
     updatedAt?: Date | string
     isPublic?: boolean
     publicUrl?: string | null
-    volunteeringId: string
     user: UserCreateNestedOneWithoutResumeInput
     template: TemplateCreateNestedOneWithoutResumesInput
     theme: ThemeCreateNestedOneWithoutResumesInput
@@ -42614,7 +42581,6 @@ export namespace Prisma {
     templateId: string
     themeId: string
     fontId?: string | null
-    volunteeringId: string
     sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
     educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
     experiences?: ExperienceUncheckedCreateNestedManyWithoutResumeInput
@@ -42655,7 +42621,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isPublic?: BoolFieldUpdateOperationsInput | boolean
     publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    volunteeringId?: StringFieldUpdateOperationsInput | string
     user?: UserUpdateOneRequiredWithoutResumeNestedInput
     template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
     theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
@@ -42688,7 +42653,6 @@ export namespace Prisma {
     templateId?: StringFieldUpdateOperationsInput | string
     themeId?: StringFieldUpdateOperationsInput | string
     fontId?: NullableStringFieldUpdateOperationsInput | string | null
-    volunteeringId?: StringFieldUpdateOperationsInput | string
     sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
     educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
     experiences?: ExperienceUncheckedUpdateManyWithoutResumeNestedInput
@@ -42713,7 +42677,6 @@ export namespace Prisma {
     updatedAt?: Date | string
     isPublic?: boolean
     publicUrl?: string | null
-    volunteeringId: string
     user: UserCreateNestedOneWithoutResumeInput
     template: TemplateCreateNestedOneWithoutResumesInput
     theme: ThemeCreateNestedOneWithoutResumesInput
@@ -42746,7 +42709,6 @@ export namespace Prisma {
     templateId: string
     themeId: string
     fontId?: string | null
-    volunteeringId: string
     personalInfo?: PersonalInfoUncheckedCreateNestedOneWithoutResumeInput
     educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
     experiences?: ExperienceUncheckedCreateNestedManyWithoutResumeInput
@@ -42787,7 +42749,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isPublic?: BoolFieldUpdateOperationsInput | boolean
     publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    volunteeringId?: StringFieldUpdateOperationsInput | string
     user?: UserUpdateOneRequiredWithoutResumeNestedInput
     template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
     theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
@@ -42820,7 +42781,6 @@ export namespace Prisma {
     templateId?: StringFieldUpdateOperationsInput | string
     themeId?: StringFieldUpdateOperationsInput | string
     fontId?: NullableStringFieldUpdateOperationsInput | string | null
-    volunteeringId?: StringFieldUpdateOperationsInput | string
     personalInfo?: PersonalInfoUncheckedUpdateOneWithoutResumeNestedInput
     educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
     experiences?: ExperienceUncheckedUpdateManyWithoutResumeNestedInput
@@ -42845,7 +42805,6 @@ export namespace Prisma {
     updatedAt?: Date | string
     isPublic?: boolean
     publicUrl?: string | null
-    volunteeringId: string
     user: UserCreateNestedOneWithoutResumeInput
     template: TemplateCreateNestedOneWithoutResumesInput
     theme: ThemeCreateNestedOneWithoutResumesInput
@@ -42878,7 +42837,6 @@ export namespace Prisma {
     templateId: string
     themeId: string
     fontId?: string | null
-    volunteeringId: string
     personalInfo?: PersonalInfoUncheckedCreateNestedOneWithoutResumeInput
     sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
     experiences?: ExperienceUncheckedCreateNestedManyWithoutResumeInput
@@ -42919,7 +42877,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isPublic?: BoolFieldUpdateOperationsInput | boolean
     publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    volunteeringId?: StringFieldUpdateOperationsInput | string
     user?: UserUpdateOneRequiredWithoutResumeNestedInput
     template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
     theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
@@ -42952,7 +42909,6 @@ export namespace Prisma {
     templateId?: StringFieldUpdateOperationsInput | string
     themeId?: StringFieldUpdateOperationsInput | string
     fontId?: NullableStringFieldUpdateOperationsInput | string | null
-    volunteeringId?: StringFieldUpdateOperationsInput | string
     personalInfo?: PersonalInfoUncheckedUpdateOneWithoutResumeNestedInput
     sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
     experiences?: ExperienceUncheckedUpdateManyWithoutResumeNestedInput
@@ -42977,7 +42933,6 @@ export namespace Prisma {
     updatedAt?: Date | string
     isPublic?: boolean
     publicUrl?: string | null
-    volunteeringId: string
     user: UserCreateNestedOneWithoutResumeInput
     template: TemplateCreateNestedOneWithoutResumesInput
     theme: ThemeCreateNestedOneWithoutResumesInput
@@ -43010,7 +42965,6 @@ export namespace Prisma {
     templateId: string
     themeId: string
     fontId?: string | null
-    volunteeringId: string
     personalInfo?: PersonalInfoUncheckedCreateNestedOneWithoutResumeInput
     sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
     educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
@@ -43051,7 +43005,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isPublic?: BoolFieldUpdateOperationsInput | boolean
     publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    volunteeringId?: StringFieldUpdateOperationsInput | string
     user?: UserUpdateOneRequiredWithoutResumeNestedInput
     template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
     theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
@@ -43084,7 +43037,6 @@ export namespace Prisma {
     templateId?: StringFieldUpdateOperationsInput | string
     themeId?: StringFieldUpdateOperationsInput | string
     fontId?: NullableStringFieldUpdateOperationsInput | string | null
-    volunteeringId?: StringFieldUpdateOperationsInput | string
     personalInfo?: PersonalInfoUncheckedUpdateOneWithoutResumeNestedInput
     sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
     educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
@@ -43109,7 +43061,6 @@ export namespace Prisma {
     updatedAt?: Date | string
     isPublic?: boolean
     publicUrl?: string | null
-    volunteeringId: string
     user: UserCreateNestedOneWithoutResumeInput
     template: TemplateCreateNestedOneWithoutResumesInput
     theme: ThemeCreateNestedOneWithoutResumesInput
@@ -43142,7 +43093,6 @@ export namespace Prisma {
     templateId: string
     themeId: string
     fontId?: string | null
-    volunteeringId: string
     personalInfo?: PersonalInfoUncheckedCreateNestedOneWithoutResumeInput
     sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
     educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
@@ -43183,7 +43133,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isPublic?: BoolFieldUpdateOperationsInput | boolean
     publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    volunteeringId?: StringFieldUpdateOperationsInput | string
     user?: UserUpdateOneRequiredWithoutResumeNestedInput
     template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
     theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
@@ -43216,7 +43165,6 @@ export namespace Prisma {
     templateId?: StringFieldUpdateOperationsInput | string
     themeId?: StringFieldUpdateOperationsInput | string
     fontId?: NullableStringFieldUpdateOperationsInput | string | null
-    volunteeringId?: StringFieldUpdateOperationsInput | string
     personalInfo?: PersonalInfoUncheckedUpdateOneWithoutResumeNestedInput
     sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
     educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
@@ -43241,7 +43189,6 @@ export namespace Prisma {
     updatedAt?: Date | string
     isPublic?: boolean
     publicUrl?: string | null
-    volunteeringId: string
     user: UserCreateNestedOneWithoutResumeInput
     template: TemplateCreateNestedOneWithoutResumesInput
     theme: ThemeCreateNestedOneWithoutResumesInput
@@ -43274,7 +43221,6 @@ export namespace Prisma {
     templateId: string
     themeId: string
     fontId?: string | null
-    volunteeringId: string
     personalInfo?: PersonalInfoUncheckedCreateNestedOneWithoutResumeInput
     sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
     educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
@@ -43315,7 +43261,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isPublic?: BoolFieldUpdateOperationsInput | boolean
     publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    volunteeringId?: StringFieldUpdateOperationsInput | string
     user?: UserUpdateOneRequiredWithoutResumeNestedInput
     template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
     theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
@@ -43348,7 +43293,6 @@ export namespace Prisma {
     templateId?: StringFieldUpdateOperationsInput | string
     themeId?: StringFieldUpdateOperationsInput | string
     fontId?: NullableStringFieldUpdateOperationsInput | string | null
-    volunteeringId?: StringFieldUpdateOperationsInput | string
     personalInfo?: PersonalInfoUncheckedUpdateOneWithoutResumeNestedInput
     sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
     educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
@@ -43373,7 +43317,6 @@ export namespace Prisma {
     updatedAt?: Date | string
     isPublic?: boolean
     publicUrl?: string | null
-    volunteeringId: string
     user: UserCreateNestedOneWithoutResumeInput
     template: TemplateCreateNestedOneWithoutResumesInput
     theme: ThemeCreateNestedOneWithoutResumesInput
@@ -43406,7 +43349,6 @@ export namespace Prisma {
     templateId: string
     themeId: string
     fontId?: string | null
-    volunteeringId: string
     personalInfo?: PersonalInfoUncheckedCreateNestedOneWithoutResumeInput
     sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
     educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
@@ -43447,7 +43389,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isPublic?: BoolFieldUpdateOperationsInput | boolean
     publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    volunteeringId?: StringFieldUpdateOperationsInput | string
     user?: UserUpdateOneRequiredWithoutResumeNestedInput
     template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
     theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
@@ -43480,7 +43421,6 @@ export namespace Prisma {
     templateId?: StringFieldUpdateOperationsInput | string
     themeId?: StringFieldUpdateOperationsInput | string
     fontId?: NullableStringFieldUpdateOperationsInput | string | null
-    volunteeringId?: StringFieldUpdateOperationsInput | string
     personalInfo?: PersonalInfoUncheckedUpdateOneWithoutResumeNestedInput
     sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
     educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
@@ -43505,7 +43445,6 @@ export namespace Prisma {
     updatedAt?: Date | string
     isPublic?: boolean
     publicUrl?: string | null
-    volunteeringId: string
     user: UserCreateNestedOneWithoutResumeInput
     template: TemplateCreateNestedOneWithoutResumesInput
     theme: ThemeCreateNestedOneWithoutResumesInput
@@ -43538,7 +43477,6 @@ export namespace Prisma {
     templateId: string
     themeId: string
     fontId?: string | null
-    volunteeringId: string
     personalInfo?: PersonalInfoUncheckedCreateNestedOneWithoutResumeInput
     sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
     educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
@@ -43579,7 +43517,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isPublic?: BoolFieldUpdateOperationsInput | boolean
     publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    volunteeringId?: StringFieldUpdateOperationsInput | string
     user?: UserUpdateOneRequiredWithoutResumeNestedInput
     template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
     theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
@@ -43612,7 +43549,6 @@ export namespace Prisma {
     templateId?: StringFieldUpdateOperationsInput | string
     themeId?: StringFieldUpdateOperationsInput | string
     fontId?: NullableStringFieldUpdateOperationsInput | string | null
-    volunteeringId?: StringFieldUpdateOperationsInput | string
     personalInfo?: PersonalInfoUncheckedUpdateOneWithoutResumeNestedInput
     sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
     educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
@@ -43637,7 +43573,6 @@ export namespace Prisma {
     updatedAt?: Date | string
     isPublic?: boolean
     publicUrl?: string | null
-    volunteeringId: string
     user: UserCreateNestedOneWithoutResumeInput
     template: TemplateCreateNestedOneWithoutResumesInput
     theme: ThemeCreateNestedOneWithoutResumesInput
@@ -43670,7 +43605,6 @@ export namespace Prisma {
     templateId: string
     themeId: string
     fontId?: string | null
-    volunteeringId: string
     personalInfo?: PersonalInfoUncheckedCreateNestedOneWithoutResumeInput
     sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
     educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
@@ -43711,7 +43645,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isPublic?: BoolFieldUpdateOperationsInput | boolean
     publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    volunteeringId?: StringFieldUpdateOperationsInput | string
     user?: UserUpdateOneRequiredWithoutResumeNestedInput
     template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
     theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
@@ -43744,7 +43677,6 @@ export namespace Prisma {
     templateId?: StringFieldUpdateOperationsInput | string
     themeId?: StringFieldUpdateOperationsInput | string
     fontId?: NullableStringFieldUpdateOperationsInput | string | null
-    volunteeringId?: StringFieldUpdateOperationsInput | string
     personalInfo?: PersonalInfoUncheckedUpdateOneWithoutResumeNestedInput
     sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
     educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
@@ -43769,7 +43701,6 @@ export namespace Prisma {
     updatedAt?: Date | string
     isPublic?: boolean
     publicUrl?: string | null
-    volunteeringId: string
     user: UserCreateNestedOneWithoutResumeInput
     template: TemplateCreateNestedOneWithoutResumesInput
     theme: ThemeCreateNestedOneWithoutResumesInput
@@ -43802,7 +43733,6 @@ export namespace Prisma {
     templateId: string
     themeId: string
     fontId?: string | null
-    volunteeringId: string
     personalInfo?: PersonalInfoUncheckedCreateNestedOneWithoutResumeInput
     sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
     educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
@@ -43843,7 +43773,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isPublic?: BoolFieldUpdateOperationsInput | boolean
     publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    volunteeringId?: StringFieldUpdateOperationsInput | string
     user?: UserUpdateOneRequiredWithoutResumeNestedInput
     template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
     theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
@@ -43876,7 +43805,6 @@ export namespace Prisma {
     templateId?: StringFieldUpdateOperationsInput | string
     themeId?: StringFieldUpdateOperationsInput | string
     fontId?: NullableStringFieldUpdateOperationsInput | string | null
-    volunteeringId?: StringFieldUpdateOperationsInput | string
     personalInfo?: PersonalInfoUncheckedUpdateOneWithoutResumeNestedInput
     sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
     educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
@@ -43901,7 +43829,6 @@ export namespace Prisma {
     updatedAt?: Date | string
     isPublic?: boolean
     publicUrl?: string | null
-    volunteeringId: string
     user: UserCreateNestedOneWithoutResumeInput
     template: TemplateCreateNestedOneWithoutResumesInput
     theme: ThemeCreateNestedOneWithoutResumesInput
@@ -43934,7 +43861,6 @@ export namespace Prisma {
     templateId: string
     themeId: string
     fontId?: string | null
-    volunteeringId: string
     personalInfo?: PersonalInfoUncheckedCreateNestedOneWithoutResumeInput
     sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
     educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
@@ -43975,7 +43901,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isPublic?: BoolFieldUpdateOperationsInput | boolean
     publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    volunteeringId?: StringFieldUpdateOperationsInput | string
     user?: UserUpdateOneRequiredWithoutResumeNestedInput
     template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
     theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
@@ -44008,7 +43933,6 @@ export namespace Prisma {
     templateId?: StringFieldUpdateOperationsInput | string
     themeId?: StringFieldUpdateOperationsInput | string
     fontId?: NullableStringFieldUpdateOperationsInput | string | null
-    volunteeringId?: StringFieldUpdateOperationsInput | string
     personalInfo?: PersonalInfoUncheckedUpdateOneWithoutResumeNestedInput
     sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
     educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
@@ -44033,7 +43957,6 @@ export namespace Prisma {
     updatedAt?: Date | string
     isPublic?: boolean
     publicUrl?: string | null
-    volunteeringId: string
     user: UserCreateNestedOneWithoutResumeInput
     template: TemplateCreateNestedOneWithoutResumesInput
     theme: ThemeCreateNestedOneWithoutResumesInput
@@ -44066,7 +43989,6 @@ export namespace Prisma {
     templateId: string
     themeId: string
     fontId?: string | null
-    volunteeringId: string
     personalInfo?: PersonalInfoUncheckedCreateNestedOneWithoutResumeInput
     sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
     educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
@@ -44107,7 +44029,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isPublic?: BoolFieldUpdateOperationsInput | boolean
     publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    volunteeringId?: StringFieldUpdateOperationsInput | string
     user?: UserUpdateOneRequiredWithoutResumeNestedInput
     template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
     theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
@@ -44140,7 +44061,6 @@ export namespace Prisma {
     templateId?: StringFieldUpdateOperationsInput | string
     themeId?: StringFieldUpdateOperationsInput | string
     fontId?: NullableStringFieldUpdateOperationsInput | string | null
-    volunteeringId?: StringFieldUpdateOperationsInput | string
     personalInfo?: PersonalInfoUncheckedUpdateOneWithoutResumeNestedInput
     sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
     educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
@@ -44165,7 +44085,6 @@ export namespace Prisma {
     updatedAt?: Date | string
     isPublic?: boolean
     publicUrl?: string | null
-    volunteeringId: string
     user: UserCreateNestedOneWithoutResumeInput
     template: TemplateCreateNestedOneWithoutResumesInput
     theme: ThemeCreateNestedOneWithoutResumesInput
@@ -44198,7 +44117,6 @@ export namespace Prisma {
     templateId: string
     themeId: string
     fontId?: string | null
-    volunteeringId: string
     personalInfo?: PersonalInfoUncheckedCreateNestedOneWithoutResumeInput
     sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
     educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
@@ -44239,7 +44157,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isPublic?: BoolFieldUpdateOperationsInput | boolean
     publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    volunteeringId?: StringFieldUpdateOperationsInput | string
     user?: UserUpdateOneRequiredWithoutResumeNestedInput
     template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
     theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
@@ -44272,7 +44189,6 @@ export namespace Prisma {
     templateId?: StringFieldUpdateOperationsInput | string
     themeId?: StringFieldUpdateOperationsInput | string
     fontId?: NullableStringFieldUpdateOperationsInput | string | null
-    volunteeringId?: StringFieldUpdateOperationsInput | string
     personalInfo?: PersonalInfoUncheckedUpdateOneWithoutResumeNestedInput
     sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
     educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
@@ -44297,7 +44213,6 @@ export namespace Prisma {
     updatedAt?: Date | string
     isPublic?: boolean
     publicUrl?: string | null
-    volunteeringId: string
     user: UserCreateNestedOneWithoutResumeInput
     template: TemplateCreateNestedOneWithoutResumesInput
     theme: ThemeCreateNestedOneWithoutResumesInput
@@ -44330,7 +44245,6 @@ export namespace Prisma {
     templateId: string
     themeId: string
     fontId?: string | null
-    volunteeringId: string
     personalInfo?: PersonalInfoUncheckedCreateNestedOneWithoutResumeInput
     sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
     educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
@@ -44371,7 +44285,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isPublic?: BoolFieldUpdateOperationsInput | boolean
     publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    volunteeringId?: StringFieldUpdateOperationsInput | string
     user?: UserUpdateOneRequiredWithoutResumeNestedInput
     template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
     theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
@@ -44404,7 +44317,6 @@ export namespace Prisma {
     templateId?: StringFieldUpdateOperationsInput | string
     themeId?: StringFieldUpdateOperationsInput | string
     fontId?: NullableStringFieldUpdateOperationsInput | string | null
-    volunteeringId?: StringFieldUpdateOperationsInput | string
     personalInfo?: PersonalInfoUncheckedUpdateOneWithoutResumeNestedInput
     sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
     educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
@@ -44429,7 +44341,6 @@ export namespace Prisma {
     updatedAt?: Date | string
     isPublic?: boolean
     publicUrl?: string | null
-    volunteeringId: string
     user: UserCreateNestedOneWithoutResumeInput
     template: TemplateCreateNestedOneWithoutResumesInput
     theme: ThemeCreateNestedOneWithoutResumesInput
@@ -44462,7 +44373,6 @@ export namespace Prisma {
     templateId: string
     themeId: string
     fontId?: string | null
-    volunteeringId: string
     personalInfo?: PersonalInfoUncheckedCreateNestedOneWithoutResumeInput
     sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
     educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
@@ -44503,7 +44413,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isPublic?: BoolFieldUpdateOperationsInput | boolean
     publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    volunteeringId?: StringFieldUpdateOperationsInput | string
     user?: UserUpdateOneRequiredWithoutResumeNestedInput
     template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
     theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
@@ -44536,7 +44445,6 @@ export namespace Prisma {
     templateId?: StringFieldUpdateOperationsInput | string
     themeId?: StringFieldUpdateOperationsInput | string
     fontId?: NullableStringFieldUpdateOperationsInput | string | null
-    volunteeringId?: StringFieldUpdateOperationsInput | string
     personalInfo?: PersonalInfoUncheckedUpdateOneWithoutResumeNestedInput
     sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
     educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
@@ -44561,7 +44469,6 @@ export namespace Prisma {
     updatedAt?: Date | string
     isPublic?: boolean
     publicUrl?: string | null
-    volunteeringId: string
     user: UserCreateNestedOneWithoutResumeInput
     theme: ThemeCreateNestedOneWithoutResumesInput
     font?: FontCreateNestedOneWithoutResumesInput
@@ -44593,7 +44500,6 @@ export namespace Prisma {
     publicUrl?: string | null
     themeId: string
     fontId?: string | null
-    volunteeringId: string
     personalInfo?: PersonalInfoUncheckedCreateNestedOneWithoutResumeInput
     sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
     educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
@@ -44645,7 +44551,6 @@ export namespace Prisma {
     updatedAt?: Date | string
     isPublic?: boolean
     publicUrl?: string | null
-    volunteeringId: string
     user: UserCreateNestedOneWithoutResumeInput
     template: TemplateCreateNestedOneWithoutResumesInput
     font?: FontCreateNestedOneWithoutResumesInput
@@ -44677,7 +44582,6 @@ export namespace Prisma {
     publicUrl?: string | null
     templateId: string
     fontId?: string | null
-    volunteeringId: string
     personalInfo?: PersonalInfoUncheckedCreateNestedOneWithoutResumeInput
     sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
     educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
@@ -44729,7 +44633,6 @@ export namespace Prisma {
     updatedAt?: Date | string
     isPublic?: boolean
     publicUrl?: string | null
-    volunteeringId: string
     user: UserCreateNestedOneWithoutResumeInput
     template: TemplateCreateNestedOneWithoutResumesInput
     theme: ThemeCreateNestedOneWithoutResumesInput
@@ -44761,7 +44664,6 @@ export namespace Prisma {
     publicUrl?: string | null
     templateId: string
     themeId: string
-    volunteeringId: string
     personalInfo?: PersonalInfoUncheckedCreateNestedOneWithoutResumeInput
     sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
     educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
@@ -44813,7 +44715,6 @@ export namespace Prisma {
     updatedAt?: Date | string
     isPublic?: boolean
     publicUrl?: string | null
-    volunteeringId: string
     user: UserCreateNestedOneWithoutResumeInput
     template: TemplateCreateNestedOneWithoutResumesInput
     theme: ThemeCreateNestedOneWithoutResumesInput
@@ -44846,7 +44747,6 @@ export namespace Prisma {
     templateId: string
     themeId: string
     fontId?: string | null
-    volunteeringId: string
     personalInfo?: PersonalInfoUncheckedCreateNestedOneWithoutResumeInput
     sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
     educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
@@ -44993,7 +44893,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isPublic?: BoolFieldUpdateOperationsInput | boolean
     publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    volunteeringId?: StringFieldUpdateOperationsInput | string
     user?: UserUpdateOneRequiredWithoutResumeNestedInput
     template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
     theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
@@ -45026,7 +44925,6 @@ export namespace Prisma {
     templateId?: StringFieldUpdateOperationsInput | string
     themeId?: StringFieldUpdateOperationsInput | string
     fontId?: NullableStringFieldUpdateOperationsInput | string | null
-    volunteeringId?: StringFieldUpdateOperationsInput | string
     personalInfo?: PersonalInfoUncheckedUpdateOneWithoutResumeNestedInput
     sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
     educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
@@ -45506,7 +45404,6 @@ export namespace Prisma {
     templateId: string
     themeId: string
     fontId?: string | null
-    volunteeringId: string
   }
 
   export type SessionUpdateWithoutUserInput = {
@@ -45543,7 +45440,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isPublic?: BoolFieldUpdateOperationsInput | boolean
     publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    volunteeringId?: StringFieldUpdateOperationsInput | string
     template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
     theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
     font?: FontUpdateOneWithoutResumesNestedInput
@@ -45575,7 +45471,6 @@ export namespace Prisma {
     templateId?: StringFieldUpdateOperationsInput | string
     themeId?: StringFieldUpdateOperationsInput | string
     fontId?: NullableStringFieldUpdateOperationsInput | string | null
-    volunteeringId?: StringFieldUpdateOperationsInput | string
     personalInfo?: PersonalInfoUncheckedUpdateOneWithoutResumeNestedInput
     sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
     educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
@@ -45604,7 +45499,6 @@ export namespace Prisma {
     templateId?: StringFieldUpdateOperationsInput | string
     themeId?: StringFieldUpdateOperationsInput | string
     fontId?: NullableStringFieldUpdateOperationsInput | string | null
-    volunteeringId?: StringFieldUpdateOperationsInput | string
   }
 
   export type SectionCreateManyResumeInput = {
@@ -46133,7 +46027,6 @@ export namespace Prisma {
     publicUrl?: string | null
     themeId: string
     fontId?: string | null
-    volunteeringId: string
   }
 
   export type ResumeUpdateWithoutTemplateInput = {
@@ -46143,7 +46036,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isPublic?: BoolFieldUpdateOperationsInput | boolean
     publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    volunteeringId?: StringFieldUpdateOperationsInput | string
     user?: UserUpdateOneRequiredWithoutResumeNestedInput
     theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
     font?: FontUpdateOneWithoutResumesNestedInput
@@ -46175,7 +46067,6 @@ export namespace Prisma {
     publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
     themeId?: StringFieldUpdateOperationsInput | string
     fontId?: NullableStringFieldUpdateOperationsInput | string | null
-    volunteeringId?: StringFieldUpdateOperationsInput | string
     personalInfo?: PersonalInfoUncheckedUpdateOneWithoutResumeNestedInput
     sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
     educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
@@ -46204,7 +46095,6 @@ export namespace Prisma {
     publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
     themeId?: StringFieldUpdateOperationsInput | string
     fontId?: NullableStringFieldUpdateOperationsInput | string | null
-    volunteeringId?: StringFieldUpdateOperationsInput | string
   }
 
   export type ResumeCreateManyThemeInput = {
@@ -46217,7 +46107,6 @@ export namespace Prisma {
     publicUrl?: string | null
     templateId: string
     fontId?: string | null
-    volunteeringId: string
   }
 
   export type ResumeUpdateWithoutThemeInput = {
@@ -46227,7 +46116,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isPublic?: BoolFieldUpdateOperationsInput | boolean
     publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    volunteeringId?: StringFieldUpdateOperationsInput | string
     user?: UserUpdateOneRequiredWithoutResumeNestedInput
     template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
     font?: FontUpdateOneWithoutResumesNestedInput
@@ -46259,7 +46147,6 @@ export namespace Prisma {
     publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
     templateId?: StringFieldUpdateOperationsInput | string
     fontId?: NullableStringFieldUpdateOperationsInput | string | null
-    volunteeringId?: StringFieldUpdateOperationsInput | string
     personalInfo?: PersonalInfoUncheckedUpdateOneWithoutResumeNestedInput
     sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
     educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
@@ -46288,7 +46175,6 @@ export namespace Prisma {
     publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
     templateId?: StringFieldUpdateOperationsInput | string
     fontId?: NullableStringFieldUpdateOperationsInput | string | null
-    volunteeringId?: StringFieldUpdateOperationsInput | string
   }
 
   export type ResumeCreateManyFontInput = {
@@ -46301,7 +46187,6 @@ export namespace Prisma {
     publicUrl?: string | null
     templateId: string
     themeId: string
-    volunteeringId: string
   }
 
   export type ResumeUpdateWithoutFontInput = {
@@ -46311,7 +46196,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isPublic?: BoolFieldUpdateOperationsInput | boolean
     publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    volunteeringId?: StringFieldUpdateOperationsInput | string
     user?: UserUpdateOneRequiredWithoutResumeNestedInput
     template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
     theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
@@ -46343,7 +46227,6 @@ export namespace Prisma {
     publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
     templateId?: StringFieldUpdateOperationsInput | string
     themeId?: StringFieldUpdateOperationsInput | string
-    volunteeringId?: StringFieldUpdateOperationsInput | string
     personalInfo?: PersonalInfoUncheckedUpdateOneWithoutResumeNestedInput
     sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
     educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
@@ -46372,7 +46255,6 @@ export namespace Prisma {
     publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
     templateId?: StringFieldUpdateOperationsInput | string
     themeId?: StringFieldUpdateOperationsInput | string
-    volunteeringId?: StringFieldUpdateOperationsInput | string
   }
 
   export type LinkedInExperienceCreateManyProfileInput = {
