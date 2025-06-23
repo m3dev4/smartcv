@@ -71,33 +71,15 @@ export const CleanProfessionalTemplate: React.FC<ResumeTemplateProps> = ({
       <header className="p-4 sm:p-6 lg:p-8 pb-4 sm:pb-6" onClick={() => handleEditSection("personalInfo")}>
         <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-2 tracking-wide" style={{ color: theme.text }}
         >
-          <EditableText
-            value={`${personalInfo?.firstName?.toUpperCase() || ''} ${personalInfo?.lastName?.toUpperCase() || ''}`}
-            onChange={(value) => {
-              const names = value.split(' ');
-              const firstName = names[0]?.toLowerCase() || '';
-              const lastName = names.slice(1).join(' ').toLowerCase() || '';
-              handlePersonalInfoUpdate('firstName', firstName);
-              handlePersonalInfoUpdate('lastName', lastName);
-            }}
-            as="span"
-          />
+        {personalInfo?.firstName?.toUpperCase() || ''} {personalInfo?.lastName?.toUpperCase() || ''}
         </h1>
         {personalInfo?.title ? (
           <h2 className="text-base sm:text-lg text-gray-600 mb-4">
-            <EditableText
-              value={personalInfo.title}
-              onChange={(value) => handlePersonalInfoUpdate('title', value)}
-              as="span"
-            />
+            {personalInfo.title}
           </h2>
         ) : isEditable ? (
           <h2 className="text-base sm:text-lg text-gray-600 mb-4">
-            <EditableText
-              value=""
-              onChange={(value) => handlePersonalInfoUpdate('title', value)}
-              as="span"
-            />
+            
           </h2>
         ) : null}
 
@@ -105,73 +87,34 @@ export const CleanProfessionalTemplate: React.FC<ResumeTemplateProps> = ({
         <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-6 text-xs sm:text-sm text-gray-600">
           {personalInfo?.email ? (
             <span className="break-all">
-              <EditableText
-                value={personalInfo.email}
-                onChange={(value) => handlePersonalInfoUpdate('email', value)}
-                as="span"
-              />
+              {personalInfo.email}
             </span>
           ) : isEditable ? (
             <span className="break-all">
-              <EditableText
-                value=""
-                onChange={(value) => handlePersonalInfoUpdate('email', value)}
-                as="span"
-              />
+              ""
             </span>
           ) : null}
           
           {personalInfo?.phone ? (
             <span>
-              <EditableText
-                value={personalInfo.phone}
-                onChange={(value) => handlePersonalInfoUpdate('phone', value)}
-                as="span"
-              />
+              {personalInfo.phone}
             </span>
           ) : isEditable ? (
             <span>
-              <EditableText
-                value=""
-                onChange={(value) => handlePersonalInfoUpdate('phone', value)}
-                as="span"
-              />
+              ""
             </span>
           ) : null}
           
           {personalInfo?.location ? (
             <span>
-              <EditableText
-                value={personalInfo.location}
-                onChange={(value) => handlePersonalInfoUpdate('location', value)}
-                as="span"
-              />
-            </span>
-          ) : isEditable ? (
-            <span>
-              <EditableText
-                value=""
-                onChange={(value) => handlePersonalInfoUpdate('location', value)}
-                as="span"
-              />
+              {personalInfo.location}
             </span>
           ) : null}
+    
           
           {personalInfo?.website ? (
             <span className="break-all">
-              <EditableText
-                value={personalInfo.website}
-                onChange={(value) => handlePersonalInfoUpdate('website', value)}
-                as="span"
-              />
-            </span>
-          ) : isEditable ? (
-            <span className="break-all">
-              <EditableText
-                value=""
-                onChange={(value) => handlePersonalInfoUpdate('website', value)}
-                as="span"
-              />
+              {personalInfo.website}
             </span>
           ) : null}
         </div>
@@ -190,11 +133,7 @@ export const CleanProfessionalTemplate: React.FC<ResumeTemplateProps> = ({
                 SUMMARY
               </h2>
               <p className="text-xs sm:text-sm leading-relaxed text-gray-700">
-                <EditableText
-                  value={personalInfo.description || ''}
-                  onChange={(value) => handlePersonalInfoUpdate('description', value)}
-                  multiline={true}
-                />
+                {personalInfo.description || ''}
               </p>
             </section>
           )}

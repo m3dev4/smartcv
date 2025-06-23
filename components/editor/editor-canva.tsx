@@ -14,7 +14,7 @@ const EditorCanva: React.FC<EditorCanvaProps> = ({ selectedSection, onselectedSe
   
   if (isLoading || !resume) {
     return (
-      <div className="flex-1 flex items-center justify-center">
+      <div className="flex-1 flex items-center h-screen justify-center">
         <div className="flex flex-col items-center justify-center gap-4">
           <Loader2 className="h-8 w-8 animate-spin" />
           <p className="text-sm text-muted-foreground">Chargement du CV...</p>
@@ -24,7 +24,7 @@ const EditorCanva: React.FC<EditorCanvaProps> = ({ selectedSection, onselectedSe
   }
 
   return (
-    <div className={`flex-1 overflow-auto h-full flex items-start justify-center ${isPreviewMode ? 'bg-green-50 p-0' : 'p-8 bg-slate-100 dark:bg-slate-900'}`}>
+    <div className={`flex-1 overflow-auto h-full flex items-start justify-center ${isPreviewMode ? 'bg-green-50 p-0' : 'p-8 bg-slate-900-100 dark:bg-slate-900-900'}`}>
       <div
         className={`w-full max-w-4xl mx-auto h-auto relative ${isPreviewMode ? 'pt-0' : 'pt-4'}`}
         style={{ 
@@ -42,7 +42,7 @@ const EditorCanva: React.FC<EditorCanvaProps> = ({ selectedSection, onselectedSe
 
         {/* Conteneur principal du CV */}
         <div
-          className={`relative ${isPreviewMode ? '' : 'shadow-2xl rounded-lg'} overflow-auto ${isPreviewMode ? 'border-0' : 'border border-slate-200 dark:border-slate-700'}`}
+          className={`relative ${isPreviewMode ? '' : 'shadow-2xl rounded-lg'} overflow-auto ${isPreviewMode ? 'border-0' : 'border border-slate-200 dark:border-neutral-800'}`}
         >
           <ResumePreview
             resume={resume}

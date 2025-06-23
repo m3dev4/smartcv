@@ -62,12 +62,12 @@ const EditorSidebar: React.FC<EditorSidebarProps> = ({
   return (
     <div
       className={cn(
-        'border-r border-slate-200 dark:border-slate-700 flex flex-col h-full w-full bg-white dark:bg-black/90'
+        'border-r border-slate-200 dark:border-neutral-800 flex flex-col h-full w-full bg-white dark:bg-neutral-900'
       )}
     >
       {/* Header */}
-      <div className="p-4 border-b border-slate-200 dark:border-slate-700 flex items-center justify-between">
-        {!collapsed && <h2 className="font-semibold">{isMobileView ? 'Menu' : 'Editeur CV'}</h2>}
+      <div className="p-4 border-b border-slate-200 dark:border-neutral-800 flex items-center justify-between">
+        {!collapsed && <h2 className="font-semibold">{isMobileView ? 'Menu' : 'SmartCV'}</h2>}
         <Button 
           variant="ghost" 
           onClick={onToggleCollapse} 
@@ -81,7 +81,7 @@ const EditorSidebar: React.FC<EditorSidebarProps> = ({
         </Button>
       </div>
 
-      <ScrollArea className="flex-1">
+      <ScrollArea className="flex-1 overflow-y-auto">
         <div className={cn("space-y-2", collapsed ? "p-2" : "p-4")}>
           <div>
             {!collapsed && <h3>Sections</h3>}

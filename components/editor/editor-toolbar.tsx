@@ -108,7 +108,7 @@ if (!resume) {
 }
 
   return (
-    <div className="border-b border-slate-200 dark:border-slate-700 px-4 py-3">
+    <div className="border-b border-slate-200 dark:border-neutral-800 px-4 py-3">
       <Toaster position="top-right" offset={20} />
       <div className="flex items-center justify-between">
         {/* left section */}
@@ -192,10 +192,10 @@ if (!resume) {
 
           <Separator className="h-6" orientation="vertical" />
 
-          <Button variant="ghost" size="sm">
+          {/* <Button variant="ghost" size="sm">
             <Share className="h-4 w-4 mr-2" />
             Partager
-          </Button>
+          </Button> */}
 
           <Separator className="h-6" orientation="vertical" />
 

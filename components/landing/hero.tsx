@@ -65,7 +65,7 @@ const Hero = () => {
                 <Link href="/dashboard/resumes">
                   <Button
                     variant="outline"
-                    className="border-slate-300 dark:border-slate-700 cursor-pointer hover:bg-slate-50 bg-black text-white dark:bg-slate-800 dark:hover:bg-slate-700 px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-semibold rounded-lg transition-all duration-200 hover:shadow-md w-full sm:w-auto"
+                    className="border-slate-300 dark:border-slate-700 cursor-pointer hover:bg-slate-900-50 bg-black text-white dark:bg-slate-900-800 dark:hover:bg-slate-900-700 px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-semibold rounded-lg transition-all duration-200 hover:shadow-md w-full sm:w-auto"
                   >
                     Dashboard
                   </Button>
@@ -74,7 +74,7 @@ const Hero = () => {
                 <Link href="/sign-in">
                   <Button
                     variant="outline"
-                    className="border-slate-300 dark:border-slate-700 cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-700 px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-semibold rounded-lg transition-all duration-200 hover:shadow-md w-full sm:w-auto"
+                    className="border-slate-300 dark:border-slate-700 cursor-pointer hover:bg-slate-900-50 dark:hover:bg-slate-900-700 px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-semibold rounded-lg transition-all duration-200 hover:shadow-md w-full sm:w-auto"
                   >
                     Commencer
                   </Button>
@@ -82,7 +82,7 @@ const Hero = () => {
               )}
               <Button
                 variant="outline"
-                className="border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-semibold rounded-lg transition-all duration-200 hover:shadow-md w-full sm:w-auto"
+                className="border-slate-300 dark:border-slate-700 hover:bg-slate-900-50 dark:hover:bg-slate-900-700 px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-semibold rounded-lg transition-all duration-200 hover:shadow-md w-full sm:w-auto"
               >
                 En savoir plus
               </Button>

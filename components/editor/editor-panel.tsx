@@ -32,7 +32,7 @@ export function EditorPropertiesPanel({
 
   if (!selectedSection || !resume) {
     return (
-      <div className={`w-full p-6 ${!isMobileView ? 'lg:border-l border-gray-200' : ''}`}>
+      <div className={`w-full p-6 dark:bg-neutral-900 h-full ${!isMobileView ? 'lg:border-l border-neutral-800' : ''}`}>
         <div className="flex items-center justify-between mb-4">
           <h3 className="font-semibold">Propriétés</h3>
           <Button variant="ghost" size="sm" onClick={onClose}>

@@ -11,6 +11,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Award, BookOpen, Contact, FolderOpen, Heart, Plus, Trophy, Users } from 'lucide-react';
+import { toast } from 'sonner';
 import { useResume } from '@/context/resume-context';
 
 interface SectionOption {
@@ -20,6 +21,11 @@ interface SectionOption {
   icon: React.ComponentType<{ className?: string }>;
   color: string;
 }
+
+// Sections actuellement non disponibles
+const disabledSections = ['awards', 'publications', 'references', 'volunteering'] as const;
+
+type DisabledSectionId = typeof disabledSections[number];
 
 const sectionOptions: SectionOption[] = [
   {
@@ -70,6 +76,11 @@ export function AddSectionDialog({ trigger, onSectionAdded }: AddSectionDialogPr
   const { resume, updateResume } = useResume();
 
   const handleAddSection = (sectionId: string) => {
+    // Sécurité supplémentaire : empêcher l'ajout si la section est désactivée
+    if ((disabledSections as readonly string[]).includes(sectionId)) {
+      toast.warning('Cette section est en cours de développement.');
+      return;
+    }
     if (!resume) return;
 
     // Pour les loisirs, on redirige directement vers l'éditeur sans créer de custom section
@@ -130,15 +141,23 @@ export function AddSectionDialog({ trigger, onSectionAdded }: AddSectionDialogPr
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
           {sectionOptions.map(section => {
+            const isDisabled = (disabledSections as readonly string[]).includes(section.id);
+
             const IconComponent = section.icon;
 
             return (
               <Card
                 key={section.id}
-                className={`cursor-pointer transition-all hover:shadow-md ${
+                className={`transition-all ${isDisabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer hover:shadow-md'} ${
                   selectedSection === section.id ? 'ring-2 ring-blue-500' : ''
                 }`}
-                onClick={() => setSelectedSection(section.id)}
+                onClick={() => {
+                  if (isDisabled) {
+                    toast.warning('Cette section est en cours de développement.');
+                    return;
+                  }
+                  setSelectedSection(section.id);
+                }}
               >
                 <CardHeader className="pb-3">
                   <div className="flex items-center gap-3">

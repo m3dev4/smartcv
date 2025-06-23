@@ -364,7 +364,11 @@ export function ResumeProvider({ children, resumeId, templateType }: ResumeProvi
       formData.append('title', resume.title || '');
       formData.append('templateId', resume.template?.id || '');
       formData.append('themeId', resume.theme?.id || '');
-      formData.append('fontId', resume.font?.id || '');
+      // Déterminer identifiant ou nom de police à envoyer
+      const fontIdentifier = (resume.font?.id && resume.font.id.startsWith('cm'))
+        ? resume.font.id
+        : (resume.font?.name || '');
+      formData.append('fontId', fontIdentifier);
 
       // Ajouter les sections
       if (resume.personalInfo) {
@@ -425,6 +429,11 @@ export function ResumeProvider({ children, resumeId, templateType }: ResumeProvi
 
       if (resume.theme) {
         formData.append('theme', JSON.stringify(resume.theme));
+      }
+
+      // Ajout du fontId sélectionné
+      if (resume.font && resume.font.id) {
+        formData.append('fontId', resume.font.id);
       }
 
       const result = await updateResumeApi(formData);

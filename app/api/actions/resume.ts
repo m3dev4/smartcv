@@ -77,6 +77,8 @@ export async function createResume(formData: FormData) {
       });
     }
 
+    // -- fin gestion police --
+
     // Recuperation de l'utilisateur par email
     const user = await prisma.user.findUnique({
       where: { email: session.email },
@@ -95,7 +97,7 @@ export async function createResume(formData: FormData) {
         title: validatedData.title,
         templateId: template.id, // Utiliser l'ID du template
         themeId: theme.id, // Utiliser l'ID du thème par défaut
-        fontId: font.id, // Utiliser l'ID de la police par défaut
+        fontId: validatedData.fontId, // Utiliser l'ID de la police par défaut
         userId: user.id,
 
         personalInfo: {
@@ -369,7 +371,7 @@ export async function updateResume(formData: FormData) {
       title: validatedData.title,
       templateId: template.id,
       themeId: theme.id,
-      fontId: font.id,
+      fontId: validatedData.fontId,
     };
 
     // Gestion des informations personnelles
