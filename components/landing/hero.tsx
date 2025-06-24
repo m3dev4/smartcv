@@ -3,10 +3,13 @@ import { IBM_Plex_Sans } from 'next/font/google';
 import { Button } from '../ui/button';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
+import { ModernGridBackground } from '../modern-grid-background';
 import { companys } from '@/constants';
 import Image from 'next/image';
 import { useAuth } from '@/hooks/auth';
 import Link from 'next/link';
+import { signOut } from '@/utils/auth';
+import { LogOut } from 'lucide-react';
 
 const ibmPlexSans = IBM_Plex_Sans({
   subsets: ['latin'],
@@ -16,17 +19,15 @@ const ibmPlexSans = IBM_Plex_Sans({
 const Hero = () => {
   const { user, isAuthenticated, isLoading } = useAuth();
 
+  const handleLogout = () => {
+    signOut();
+  };
+
   return (
     <main className="container relative mx-auto w-full px-4 sm:px-6 lg:px-8">
-      <div className="relative flex flex-col lg:flex-row min-h-[calc(100vh-80px)] lg:h-auto lg:min-h-0 lg:items-center py-12 md:py-16 lg:py-24 bg-white dark:bg-black">
-        <div
-          className={cn(
-            'absolute inset-0 z-0 opacity-30',
-            '[background-size:30px_30px] sm:[background-size:40px_40px]',
-            '[background-image:linear-gradient(to_right,#e4e4e7_1px,transparent_1px),linear-gradient(to_bottom,#e4e4e7_1px,transparent_1px)]',
-            'dark:[background-image:linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px)]'
-          )}
-        />
+      <div className="relative flex flex-col lg:flex-row min-h-[calc(100vh-80px)] lg:h-auto lg:min-h-0 lg:items-center py-12 md:py-16 lg:py-24">
+        {/* Grille de fond moderne avec effets visuels */}
+        <ModernGridBackground />
         <div
           className={`relative lg:-mt-30 grid lg:grid-cols-2 gap-8 md:gap-12 items-center w-full h-full ${ibmPlexSans.className}`}
         >
@@ -65,7 +66,7 @@ const Hero = () => {
                 <Link href="/dashboard/resumes">
                   <Button
                     variant="outline"
-                    className="border-slate-300 dark:border-slate-700 cursor-pointer hover:bg-slate-900-50 bg-black text-white dark:bg-slate-900-800 dark:hover:bg-slate-900-700 px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-semibold rounded-lg transition-all duration-200 hover:shadow-md w-full sm:w-auto"
+                    className="border-slate-300 dark:border-slate-700 cursor-pointer hover:bg-gradient-to-r from-neutral-900 to-neutral-900-50 bg-black text-white dark:bg-gradient-to-r from-neutral-900 to-neutral-900-800 dark:hover:bg-gradient-to-r from-neutral-900 to-neutral-900-700 px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-semibold rounded-lg transition-all duration-200 hover:shadow-md w-full sm:w-auto"
                   >
                     Dashboard
                   </Button>
@@ -74,18 +75,23 @@ const Hero = () => {
                 <Link href="/sign-in">
                   <Button
                     variant="outline"
-                    className="border-slate-300 dark:border-slate-700 cursor-pointer hover:bg-slate-900-50 dark:hover:bg-slate-900-700 px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-semibold rounded-lg transition-all duration-200 hover:shadow-md w-full sm:w-auto"
+                    className="border-slate-300 dark:border-slate-700 cursor-pointer hover:bg-gradient-to-r from-neutral-900 to-neutral-900-50 dark:hover:bg-gradient-to-r from-neutral-900 to-neutral-900-700 px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-semibold rounded-lg transition-all duration-200 hover:shadow-md w-full sm:w-auto"
                   >
                     Commencer
                   </Button>
                 </Link>
               )}
-              <Button
-                variant="outline"
-                className="border-slate-300 dark:border-slate-700 hover:bg-slate-900-50 dark:hover:bg-slate-900-700 px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-semibold rounded-lg transition-all duration-200 hover:shadow-md w-full sm:w-auto"
-              >
-                En savoir plus
-              </Button>
+              {isAuthenticated && (
+                <Button
+                  variant="outline"
+                  className="border-slate-300 dark:border-slate-700 cursor-pointer hover:bg-gradient-to-r from-neutral-900 to-neutral-900-50 dark:hover:bg-gradient-to-r from-neutral-900 to-neutral-900-700 px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-semibold rounded-lg transition-all duration-200 hover:shadow-md w-full sm:w-auto"
+                  onClick={handleLogout}
+                >
+                  <span className="flex items-center gap-2">
+                    <LogOut className="h-5 w-5" /> Se deconnecter
+                  </span>
+                </Button>
+              )}
             </div>
           </div>
 

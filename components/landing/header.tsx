@@ -24,7 +24,7 @@ const Header = () => {
       <div className="flex w-full items-center">
         <div className="p-4 flex justify-center items-center gap-4">
           <span>
-            <Image src="/images/logo.svg" alt="Logo" width={50} height={50} className='object-contain rounded-full bg-background' />
+            <Image src="/images/logo.svg" alt="Logo" width={50} height={50} className='object-contain flex items-center justify-center text-black dark:text-white' />
           </span>
           {toggleMode ? (
             <Sun size={20} onClick={handleToggle} className="transition ease-in duration-300" />

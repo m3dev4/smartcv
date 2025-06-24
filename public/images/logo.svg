@@ -1,7 +1,6 @@
 <svg width="220" height="180" viewBox="0 0 220 180" fill="none" xmlns="http://www.w3.org/2000/svg">
   <!-- Lettrage principal -->
-  <text x="28" y="54" font-family="Inter, Arial, sans-serif" font-size="48" font-weight="bold" fill="#fff">S<tspan font-size="44" font-weight="bold">x</tspan></text>
-  <text x="28" y="90" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="bold" fill="#fff">SmartCV</text>
+  <text x="10" y="90" font-family="Inter, Arial, sans-serif" font-size="48" font-weight="bold" fill="#b50442">SmartCV</text>
   <!-- Lignes horizontales -->
   <rect x="28" y="110" width="110" height="10" rx="5" fill="#23232b" opacity="0.7"/>
   <rect x="28" y="127" width="80" height="8" rx="4" fill="#23232b" opacity="0.5"/>

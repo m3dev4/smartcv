@@ -2,7 +2,7 @@
 
 # 🚀 SmartCV
 
-<img src="public/logo.png" alt="SmartCV Logo" width="180"/>
+<img src="/public/images/logo.svg" alt="SmartCV Logo" width="180"/>
 
 **Réinventez votre CV. Révélez votre potentiel.**
 
@@ -96,11 +96,13 @@ smartcv/
 ## 📖 Utilisation
 
 ### Authentification
+
 1. **Inscription** : Créez un compte avec votre email
 2. **Vérification** : Confirmez via le lien reçu par email
 3. **Connexion** : Accédez à votre espace personnel
 
 ### Gestion de CV
+
 1. **Tableau de bord** : Visualisez et organisez vos CV
 2. **Création** : Sélectionnez un modèle, personnalisez le contenu et le style
 3. **Personnalisation avancée** : Modifiez couleurs, polices, sections
@@ -219,9 +221,6 @@ smartcv/
 
 ## 📝 Roadmap
 
-
-
-
 - [ ] Intégration avec LinkedIn pour l'importation de profils
 - [ ] Analyse sémantique des offres d'emploi pour optimiser les CV
 - [ ] Mode collaboration pour les retours d'experts RH
@@ -245,12 +244,7 @@ Les contributions sont les bienvenues ! N'hésitez pas à :
 
 Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
 
-## 📞 Contact
-
-Pour toute question ou suggestion, n'hésitez pas à nous contacter :
-
-- **Email** : contact@smartcv.com
-- **Site web** : [www.smartcv.com](https://www.smartcv.com)
+- **Site web** : [smart-cv-sn.netlify.app](https://smart-cv-sn.netlify.app/)
 
 ---
 
