@@ -79,7 +79,13 @@ model Resume {
   projects        Project[]
   achievements    Achievement[]
   customSections  CustomSection[]
+  hobbies         Hobby[]
+  references      Reference[]
+  publications    Publication[]
+  volunteerings   Volunteering[]
+  awards          Award[]
   LinkedInProfile LinkedInProfile?
+  // volunteeringId  String
 }
 
 model PersonalInfo {
@@ -219,6 +225,62 @@ model CustomSection {
   title    String
   content  String @db.Text
   order    Int    @default(0)
+}
+
+model Hobby {
+  id       String  @id @default(cuid())
+  resumeId String
+  resume   Resume  @relation(fields: [resumeId], references: [id])
+  name     String
+  icon     String?
+  order    Int?
+}
+
+model Reference {
+  id       String  @id @default(cuid())
+  resumeId String
+  resume   Resume  @relation(fields: [resumeId], references: [id])
+  name     String
+  company  String
+  email    String?
+  phone    String?
+  relation String?
+  order    Int?
+}
+
+model Publication {
+  id          String   @id @default(cuid())
+  resumeId    String
+  resume      Resume   @relation(fields: [resumeId], references: [id])
+  title       String
+  publisher   String?
+  date        DateTime
+  url         String?
+  description String?
+  order       Int?
+}
+
+model Volunteering {
+  id           String    @id @default(cuid())
+  resumeId     String
+  resume       Resume    @relation(fields: [resumeId], references: [id])
+  organization String
+  role         String
+  startDate    DateTime?
+  endDate      DateTime?
+  description  String
+  order        Int?
+}
+
+model Award {
+  id          String   @id @default(cuid())
+  resumeId    String
+  resume      Resume   @relation(fields: [resumeId], references: [id])
+  title       String
+  issuer      String?
+  date        DateTime
+  description String?
+  order       Int?
 }
 
 model Template {

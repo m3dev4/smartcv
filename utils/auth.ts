@@ -52,15 +52,85 @@ const sendVerificationEmail = async (email: string, token: string) => {
   await transporter.sendMail({
     from: process.env.EMAIL_USERNAME,
     to: email,
-    subject: 'Vérification de votre email',
+    subject: 'Vérification de votre email - SmartCV',
     html: `
-      <div>
-        <h1>Bienvenue sur SmartCV!</h1>
-        <p>Merci de vous être inscrit. Veuillez vérifier votre adresse email en cliquant sur le lien ci-dessous :</p>
-        <a href="${verificationUrl}">Vérifier mon email</a>
-        <p>Ce lien expirera dans 24 heures.</p>
-        <p>Si vous n'avez pas demandé cette vérification, vous pouvez ignorer cet email.</p>
-      </div>
+      <!DOCTYPE html>
+      <html lang="fr">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Vérification Email - SmartCV</title>
+      </head>
+      <body style="margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8fafc;">
+        <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+          
+          <!-- Header -->
+          <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px 30px; text-align: center;">
+            <h1 style="color: #ffffff; margin: 0; font-size: 28px; font-weight: 700; letter-spacing: -0.5px;">
+              SmartCV
+            </h1>
+            <p style="color: #e2e8f0; margin: 10px 0 0 0; font-size: 16px; opacity: 0.9;">
+              Votre plateforme de CV intelligente
+            </p>
+          </div>
+  
+          <!-- Content -->
+          <div style="padding: 50px 30px;">
+            <div style="text-align: center; margin-bottom: 40px;">
+              <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center;">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <polyline points="22,6 12,13 2,6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <h2 style="color: #1a202c; margin: 0 0 15px 0; font-size: 24px; font-weight: 600;">
+                Bienvenue sur SmartCV !
+              </h2>
+              <p style="color: #4a5568; margin: 0; font-size: 16px; line-height: 1.6;">
+                Nous sommes ravis de vous accueillir dans notre communauté.<br>
+                Pour commencer à utiliser votre compte, veuillez vérifier votre adresse email.
+              </p>
+            </div>
+  
+            <!-- CTA Button -->
+            <div style="text-align: center; margin: 40px 0;">
+              <a href="${verificationUrl}" 
+                 style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #ffffff; text-decoration: none; padding: 16px 32px; border-radius: 8px; font-weight: 600; font-size: 16px; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4); transition: all 0.3s ease;">
+                ✉️ Vérifier mon email
+              </a>
+            </div>
+  
+            <!-- Info Box -->
+            <div style="background-color: #f7fafc; border-left: 4px solid #667eea; padding: 20px; margin: 30px 0; border-radius: 0 8px 8px 0;">
+              <p style="margin: 0; color: #4a5568; font-size: 14px; line-height: 1.5;">
+                <strong>⏰ Important :</strong> Ce lien de vérification expirera dans <strong>24 heures</strong>. 
+                Si vous n'avez pas demandé cette vérification, vous pouvez ignorer cet email en toute sécurité.
+              </p>
+            </div>
+  
+            <!-- Alternative Link -->
+            <div style="text-align: center; margin-top: 30px; padding-top: 30px; border-top: 1px solid #e2e8f0;">
+              <p style="color: #718096; font-size: 14px; margin: 0 0 10px 0;">
+                Le bouton ne fonctionne pas ? Copiez et collez ce lien dans votre navigateur :
+              </p>
+              <p style="word-break: break-all; color: #667eea; font-size: 12px; background-color: #f7fafc; padding: 10px; border-radius: 4px; margin: 0;">
+                ${verificationUrl}
+              </p>
+            </div>
+          </div>
+  
+          <!-- Footer -->
+          <div style="background-color: #f8fafc; padding: 30px; text-align: center; border-top: 1px solid #e2e8f0;">
+            <p style="color: #718096; font-size: 14px; margin: 0 0 10px 0;">
+              Cet email a été envoyé par <strong>SmartCV</strong>
+            </p>
+            <p style="color: #a0aec0; font-size: 12px; margin: 0;">
+              © ${new Date().getFullYear()} SmartCV. Tous droits réservés.
+            </p>
+          </div>
+        </div>
+      </body>
+      </html>
     `,
   });
 };

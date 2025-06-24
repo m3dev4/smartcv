@@ -79,6 +79,31 @@ export type Achievement = $Result.DefaultSelection<Prisma.$AchievementPayload>
  */
 export type CustomSection = $Result.DefaultSelection<Prisma.$CustomSectionPayload>
 /**
+ * Model Hobby
+ * 
+ */
+export type Hobby = $Result.DefaultSelection<Prisma.$HobbyPayload>
+/**
+ * Model Reference
+ * 
+ */
+export type Reference = $Result.DefaultSelection<Prisma.$ReferencePayload>
+/**
+ * Model Publication
+ * 
+ */
+export type Publication = $Result.DefaultSelection<Prisma.$PublicationPayload>
+/**
+ * Model Volunteering
+ * 
+ */
+export type Volunteering = $Result.DefaultSelection<Prisma.$VolunteeringPayload>
+/**
+ * Model Award
+ * 
+ */
+export type Award = $Result.DefaultSelection<Prisma.$AwardPayload>
+/**
  * Model Template
  * 
  */
@@ -425,6 +450,56 @@ export class PrismaClient<
     * ```
     */
   get customSection(): Prisma.CustomSectionDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.hobby`: Exposes CRUD operations for the **Hobby** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Hobbies
+    * const hobbies = await prisma.hobby.findMany()
+    * ```
+    */
+  get hobby(): Prisma.HobbyDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.reference`: Exposes CRUD operations for the **Reference** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more References
+    * const references = await prisma.reference.findMany()
+    * ```
+    */
+  get reference(): Prisma.ReferenceDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.publication`: Exposes CRUD operations for the **Publication** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Publications
+    * const publications = await prisma.publication.findMany()
+    * ```
+    */
+  get publication(): Prisma.PublicationDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.volunteering`: Exposes CRUD operations for the **Volunteering** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Volunteerings
+    * const volunteerings = await prisma.volunteering.findMany()
+    * ```
+    */
+  get volunteering(): Prisma.VolunteeringDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.award`: Exposes CRUD operations for the **Award** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Awards
+    * const awards = await prisma.award.findMany()
+    * ```
+    */
+  get award(): Prisma.AwardDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.template`: Exposes CRUD operations for the **Template** model.
@@ -958,6 +1033,11 @@ export namespace Prisma {
     Project: 'Project',
     Achievement: 'Achievement',
     CustomSection: 'CustomSection',
+    Hobby: 'Hobby',
+    Reference: 'Reference',
+    Publication: 'Publication',
+    Volunteering: 'Volunteering',
+    Award: 'Award',
     Template: 'Template',
     Theme: 'Theme',
     Font: 'Font',
@@ -984,7 +1064,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "session" | "resume" | "personalInfo" | "section" | "education" | "experience" | "skill" | "language" | "certification" | "project" | "achievement" | "customSection" | "template" | "theme" | "font" | "linkedInProfile" | "linkedInExperience" | "linkedInEducation" | "linkedInSkill" | "linkedInCertification"
+      modelProps: "user" | "session" | "resume" | "personalInfo" | "section" | "education" | "experience" | "skill" | "language" | "certification" | "project" | "achievement" | "customSection" | "hobby" | "reference" | "publication" | "volunteering" | "award" | "template" | "theme" | "font" | "linkedInProfile" | "linkedInExperience" | "linkedInEducation" | "linkedInSkill" | "linkedInCertification"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1950,6 +2030,376 @@ export namespace Prisma {
           }
         }
       }
+      Hobby: {
+        payload: Prisma.$HobbyPayload<ExtArgs>
+        fields: Prisma.HobbyFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.HobbyFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HobbyPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.HobbyFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HobbyPayload>
+          }
+          findFirst: {
+            args: Prisma.HobbyFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HobbyPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.HobbyFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HobbyPayload>
+          }
+          findMany: {
+            args: Prisma.HobbyFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HobbyPayload>[]
+          }
+          create: {
+            args: Prisma.HobbyCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HobbyPayload>
+          }
+          createMany: {
+            args: Prisma.HobbyCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.HobbyCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HobbyPayload>[]
+          }
+          delete: {
+            args: Prisma.HobbyDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HobbyPayload>
+          }
+          update: {
+            args: Prisma.HobbyUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HobbyPayload>
+          }
+          deleteMany: {
+            args: Prisma.HobbyDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.HobbyUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.HobbyUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HobbyPayload>[]
+          }
+          upsert: {
+            args: Prisma.HobbyUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HobbyPayload>
+          }
+          aggregate: {
+            args: Prisma.HobbyAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateHobby>
+          }
+          groupBy: {
+            args: Prisma.HobbyGroupByArgs<ExtArgs>
+            result: $Utils.Optional<HobbyGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.HobbyCountArgs<ExtArgs>
+            result: $Utils.Optional<HobbyCountAggregateOutputType> | number
+          }
+        }
+      }
+      Reference: {
+        payload: Prisma.$ReferencePayload<ExtArgs>
+        fields: Prisma.ReferenceFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ReferenceFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReferencePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ReferenceFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReferencePayload>
+          }
+          findFirst: {
+            args: Prisma.ReferenceFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReferencePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ReferenceFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReferencePayload>
+          }
+          findMany: {
+            args: Prisma.ReferenceFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReferencePayload>[]
+          }
+          create: {
+            args: Prisma.ReferenceCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReferencePayload>
+          }
+          createMany: {
+            args: Prisma.ReferenceCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ReferenceCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReferencePayload>[]
+          }
+          delete: {
+            args: Prisma.ReferenceDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReferencePayload>
+          }
+          update: {
+            args: Prisma.ReferenceUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReferencePayload>
+          }
+          deleteMany: {
+            args: Prisma.ReferenceDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ReferenceUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ReferenceUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReferencePayload>[]
+          }
+          upsert: {
+            args: Prisma.ReferenceUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReferencePayload>
+          }
+          aggregate: {
+            args: Prisma.ReferenceAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateReference>
+          }
+          groupBy: {
+            args: Prisma.ReferenceGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ReferenceGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ReferenceCountArgs<ExtArgs>
+            result: $Utils.Optional<ReferenceCountAggregateOutputType> | number
+          }
+        }
+      }
+      Publication: {
+        payload: Prisma.$PublicationPayload<ExtArgs>
+        fields: Prisma.PublicationFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.PublicationFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PublicationPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.PublicationFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PublicationPayload>
+          }
+          findFirst: {
+            args: Prisma.PublicationFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PublicationPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.PublicationFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PublicationPayload>
+          }
+          findMany: {
+            args: Prisma.PublicationFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PublicationPayload>[]
+          }
+          create: {
+            args: Prisma.PublicationCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PublicationPayload>
+          }
+          createMany: {
+            args: Prisma.PublicationCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.PublicationCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PublicationPayload>[]
+          }
+          delete: {
+            args: Prisma.PublicationDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PublicationPayload>
+          }
+          update: {
+            args: Prisma.PublicationUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PublicationPayload>
+          }
+          deleteMany: {
+            args: Prisma.PublicationDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.PublicationUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.PublicationUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PublicationPayload>[]
+          }
+          upsert: {
+            args: Prisma.PublicationUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PublicationPayload>
+          }
+          aggregate: {
+            args: Prisma.PublicationAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePublication>
+          }
+          groupBy: {
+            args: Prisma.PublicationGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PublicationGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.PublicationCountArgs<ExtArgs>
+            result: $Utils.Optional<PublicationCountAggregateOutputType> | number
+          }
+        }
+      }
+      Volunteering: {
+        payload: Prisma.$VolunteeringPayload<ExtArgs>
+        fields: Prisma.VolunteeringFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.VolunteeringFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VolunteeringPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.VolunteeringFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VolunteeringPayload>
+          }
+          findFirst: {
+            args: Prisma.VolunteeringFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VolunteeringPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.VolunteeringFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VolunteeringPayload>
+          }
+          findMany: {
+            args: Prisma.VolunteeringFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VolunteeringPayload>[]
+          }
+          create: {
+            args: Prisma.VolunteeringCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VolunteeringPayload>
+          }
+          createMany: {
+            args: Prisma.VolunteeringCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.VolunteeringCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VolunteeringPayload>[]
+          }
+          delete: {
+            args: Prisma.VolunteeringDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VolunteeringPayload>
+          }
+          update: {
+            args: Prisma.VolunteeringUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VolunteeringPayload>
+          }
+          deleteMany: {
+            args: Prisma.VolunteeringDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.VolunteeringUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.VolunteeringUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VolunteeringPayload>[]
+          }
+          upsert: {
+            args: Prisma.VolunteeringUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VolunteeringPayload>
+          }
+          aggregate: {
+            args: Prisma.VolunteeringAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateVolunteering>
+          }
+          groupBy: {
+            args: Prisma.VolunteeringGroupByArgs<ExtArgs>
+            result: $Utils.Optional<VolunteeringGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.VolunteeringCountArgs<ExtArgs>
+            result: $Utils.Optional<VolunteeringCountAggregateOutputType> | number
+          }
+        }
+      }
+      Award: {
+        payload: Prisma.$AwardPayload<ExtArgs>
+        fields: Prisma.AwardFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.AwardFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AwardPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.AwardFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AwardPayload>
+          }
+          findFirst: {
+            args: Prisma.AwardFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AwardPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.AwardFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AwardPayload>
+          }
+          findMany: {
+            args: Prisma.AwardFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AwardPayload>[]
+          }
+          create: {
+            args: Prisma.AwardCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AwardPayload>
+          }
+          createMany: {
+            args: Prisma.AwardCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.AwardCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AwardPayload>[]
+          }
+          delete: {
+            args: Prisma.AwardDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AwardPayload>
+          }
+          update: {
+            args: Prisma.AwardUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AwardPayload>
+          }
+          deleteMany: {
+            args: Prisma.AwardDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.AwardUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.AwardUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AwardPayload>[]
+          }
+          upsert: {
+            args: Prisma.AwardUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AwardPayload>
+          }
+          aggregate: {
+            args: Prisma.AwardAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateAward>
+          }
+          groupBy: {
+            args: Prisma.AwardGroupByArgs<ExtArgs>
+            result: $Utils.Optional<AwardGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.AwardCountArgs<ExtArgs>
+            result: $Utils.Optional<AwardCountAggregateOutputType> | number
+          }
+        }
+      }
       Template: {
         payload: Prisma.$TemplatePayload<ExtArgs>
         fields: Prisma.TemplateFieldRefs
@@ -2639,6 +3089,11 @@ export namespace Prisma {
     project?: ProjectOmit
     achievement?: AchievementOmit
     customSection?: CustomSectionOmit
+    hobby?: HobbyOmit
+    reference?: ReferenceOmit
+    publication?: PublicationOmit
+    volunteering?: VolunteeringOmit
+    award?: AwardOmit
     template?: TemplateOmit
     theme?: ThemeOmit
     font?: FontOmit
@@ -2790,6 +3245,11 @@ export namespace Prisma {
     projects: number
     achievements: number
     customSections: number
+    hobbies: number
+    references: number
+    publications: number
+    volunteerings: number
+    awards: number
   }
 
   export type ResumeCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2802,6 +3262,11 @@ export namespace Prisma {
     projects?: boolean | ResumeCountOutputTypeCountProjectsArgs
     achievements?: boolean | ResumeCountOutputTypeCountAchievementsArgs
     customSections?: boolean | ResumeCountOutputTypeCountCustomSectionsArgs
+    hobbies?: boolean | ResumeCountOutputTypeCountHobbiesArgs
+    references?: boolean | ResumeCountOutputTypeCountReferencesArgs
+    publications?: boolean | ResumeCountOutputTypeCountPublicationsArgs
+    volunteerings?: boolean | ResumeCountOutputTypeCountVolunteeringsArgs
+    awards?: boolean | ResumeCountOutputTypeCountAwardsArgs
   }
 
   // Custom InputTypes
@@ -2876,6 +3341,41 @@ export namespace Prisma {
    */
   export type ResumeCountOutputTypeCountCustomSectionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: CustomSectionWhereInput
+  }
+
+  /**
+   * ResumeCountOutputType without action
+   */
+  export type ResumeCountOutputTypeCountHobbiesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: HobbyWhereInput
+  }
+
+  /**
+   * ResumeCountOutputType without action
+   */
+  export type ResumeCountOutputTypeCountReferencesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ReferenceWhereInput
+  }
+
+  /**
+   * ResumeCountOutputType without action
+   */
+  export type ResumeCountOutputTypeCountPublicationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PublicationWhereInput
+  }
+
+  /**
+   * ResumeCountOutputType without action
+   */
+  export type ResumeCountOutputTypeCountVolunteeringsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: VolunteeringWhereInput
+  }
+
+  /**
+   * ResumeCountOutputType without action
+   */
+  export type ResumeCountOutputTypeCountAwardsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AwardWhereInput
   }
 
 
@@ -5551,6 +6051,11 @@ export namespace Prisma {
     projects?: boolean | Resume$projectsArgs<ExtArgs>
     achievements?: boolean | Resume$achievementsArgs<ExtArgs>
     customSections?: boolean | Resume$customSectionsArgs<ExtArgs>
+    hobbies?: boolean | Resume$hobbiesArgs<ExtArgs>
+    references?: boolean | Resume$referencesArgs<ExtArgs>
+    publications?: boolean | Resume$publicationsArgs<ExtArgs>
+    volunteerings?: boolean | Resume$volunteeringsArgs<ExtArgs>
+    awards?: boolean | Resume$awardsArgs<ExtArgs>
     LinkedInProfile?: boolean | Resume$LinkedInProfileArgs<ExtArgs>
     _count?: boolean | ResumeCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["resume"]>
@@ -5618,6 +6123,11 @@ export namespace Prisma {
     projects?: boolean | Resume$projectsArgs<ExtArgs>
     achievements?: boolean | Resume$achievementsArgs<ExtArgs>
     customSections?: boolean | Resume$customSectionsArgs<ExtArgs>
+    hobbies?: boolean | Resume$hobbiesArgs<ExtArgs>
+    references?: boolean | Resume$referencesArgs<ExtArgs>
+    publications?: boolean | Resume$publicationsArgs<ExtArgs>
+    volunteerings?: boolean | Resume$volunteeringsArgs<ExtArgs>
+    awards?: boolean | Resume$awardsArgs<ExtArgs>
     LinkedInProfile?: boolean | Resume$LinkedInProfileArgs<ExtArgs>
     _count?: boolean | ResumeCountOutputTypeDefaultArgs<ExtArgs>
   }
@@ -5651,6 +6161,11 @@ export namespace Prisma {
       projects: Prisma.$ProjectPayload<ExtArgs>[]
       achievements: Prisma.$AchievementPayload<ExtArgs>[]
       customSections: Prisma.$CustomSectionPayload<ExtArgs>[]
+      hobbies: Prisma.$HobbyPayload<ExtArgs>[]
+      references: Prisma.$ReferencePayload<ExtArgs>[]
+      publications: Prisma.$PublicationPayload<ExtArgs>[]
+      volunteerings: Prisma.$VolunteeringPayload<ExtArgs>[]
+      awards: Prisma.$AwardPayload<ExtArgs>[]
       LinkedInProfile: Prisma.$LinkedInProfilePayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
@@ -6072,6 +6587,11 @@ export namespace Prisma {
     projects<T extends Resume$projectsArgs<ExtArgs> = {}>(args?: Subset<T, Resume$projectsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     achievements<T extends Resume$achievementsArgs<ExtArgs> = {}>(args?: Subset<T, Resume$achievementsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AchievementPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     customSections<T extends Resume$customSectionsArgs<ExtArgs> = {}>(args?: Subset<T, Resume$customSectionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomSectionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    hobbies<T extends Resume$hobbiesArgs<ExtArgs> = {}>(args?: Subset<T, Resume$hobbiesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HobbyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    references<T extends Resume$referencesArgs<ExtArgs> = {}>(args?: Subset<T, Resume$referencesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReferencePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    publications<T extends Resume$publicationsArgs<ExtArgs> = {}>(args?: Subset<T, Resume$publicationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PublicationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    volunteerings<T extends Resume$volunteeringsArgs<ExtArgs> = {}>(args?: Subset<T, Resume$volunteeringsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VolunteeringPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    awards<T extends Resume$awardsArgs<ExtArgs> = {}>(args?: Subset<T, Resume$awardsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AwardPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     LinkedInProfile<T extends Resume$LinkedInProfileArgs<ExtArgs> = {}>(args?: Subset<T, Resume$LinkedInProfileArgs<ExtArgs>>): Prisma__LinkedInProfileClient<$Result.GetResult<Prisma.$LinkedInProfilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -6759,6 +7279,126 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: CustomSectionScalarFieldEnum | CustomSectionScalarFieldEnum[]
+  }
+
+  /**
+   * Resume.hobbies
+   */
+  export type Resume$hobbiesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Hobby
+     */
+    select?: HobbySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Hobby
+     */
+    omit?: HobbyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HobbyInclude<ExtArgs> | null
+    where?: HobbyWhereInput
+    orderBy?: HobbyOrderByWithRelationInput | HobbyOrderByWithRelationInput[]
+    cursor?: HobbyWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: HobbyScalarFieldEnum | HobbyScalarFieldEnum[]
+  }
+
+  /**
+   * Resume.references
+   */
+  export type Resume$referencesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Reference
+     */
+    select?: ReferenceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Reference
+     */
+    omit?: ReferenceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReferenceInclude<ExtArgs> | null
+    where?: ReferenceWhereInput
+    orderBy?: ReferenceOrderByWithRelationInput | ReferenceOrderByWithRelationInput[]
+    cursor?: ReferenceWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ReferenceScalarFieldEnum | ReferenceScalarFieldEnum[]
+  }
+
+  /**
+   * Resume.publications
+   */
+  export type Resume$publicationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Publication
+     */
+    select?: PublicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Publication
+     */
+    omit?: PublicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PublicationInclude<ExtArgs> | null
+    where?: PublicationWhereInput
+    orderBy?: PublicationOrderByWithRelationInput | PublicationOrderByWithRelationInput[]
+    cursor?: PublicationWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PublicationScalarFieldEnum | PublicationScalarFieldEnum[]
+  }
+
+  /**
+   * Resume.volunteerings
+   */
+  export type Resume$volunteeringsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Volunteering
+     */
+    select?: VolunteeringSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Volunteering
+     */
+    omit?: VolunteeringOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VolunteeringInclude<ExtArgs> | null
+    where?: VolunteeringWhereInput
+    orderBy?: VolunteeringOrderByWithRelationInput | VolunteeringOrderByWithRelationInput[]
+    cursor?: VolunteeringWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: VolunteeringScalarFieldEnum | VolunteeringScalarFieldEnum[]
+  }
+
+  /**
+   * Resume.awards
+   */
+  export type Resume$awardsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Award
+     */
+    select?: AwardSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Award
+     */
+    omit?: AwardOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AwardInclude<ExtArgs> | null
+    where?: AwardWhereInput
+    orderBy?: AwardOrderByWithRelationInput | AwardOrderByWithRelationInput[]
+    cursor?: AwardWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: AwardScalarFieldEnum | AwardScalarFieldEnum[]
   }
 
   /**
@@ -18028,6 +18668,5609 @@ export namespace Prisma {
 
 
   /**
+   * Model Hobby
+   */
+
+  export type AggregateHobby = {
+    _count: HobbyCountAggregateOutputType | null
+    _avg: HobbyAvgAggregateOutputType | null
+    _sum: HobbySumAggregateOutputType | null
+    _min: HobbyMinAggregateOutputType | null
+    _max: HobbyMaxAggregateOutputType | null
+  }
+
+  export type HobbyAvgAggregateOutputType = {
+    order: number | null
+  }
+
+  export type HobbySumAggregateOutputType = {
+    order: number | null
+  }
+
+  export type HobbyMinAggregateOutputType = {
+    id: string | null
+    resumeId: string | null
+    name: string | null
+    icon: string | null
+    order: number | null
+  }
+
+  export type HobbyMaxAggregateOutputType = {
+    id: string | null
+    resumeId: string | null
+    name: string | null
+    icon: string | null
+    order: number | null
+  }
+
+  export type HobbyCountAggregateOutputType = {
+    id: number
+    resumeId: number
+    name: number
+    icon: number
+    order: number
+    _all: number
+  }
+
+
+  export type HobbyAvgAggregateInputType = {
+    order?: true
+  }
+
+  export type HobbySumAggregateInputType = {
+    order?: true
+  }
+
+  export type HobbyMinAggregateInputType = {
+    id?: true
+    resumeId?: true
+    name?: true
+    icon?: true
+    order?: true
+  }
+
+  export type HobbyMaxAggregateInputType = {
+    id?: true
+    resumeId?: true
+    name?: true
+    icon?: true
+    order?: true
+  }
+
+  export type HobbyCountAggregateInputType = {
+    id?: true
+    resumeId?: true
+    name?: true
+    icon?: true
+    order?: true
+    _all?: true
+  }
+
+  export type HobbyAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Hobby to aggregate.
+     */
+    where?: HobbyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Hobbies to fetch.
+     */
+    orderBy?: HobbyOrderByWithRelationInput | HobbyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: HobbyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Hobbies from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Hobbies.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Hobbies
+    **/
+    _count?: true | HobbyCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: HobbyAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: HobbySumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: HobbyMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: HobbyMaxAggregateInputType
+  }
+
+  export type GetHobbyAggregateType<T extends HobbyAggregateArgs> = {
+        [P in keyof T & keyof AggregateHobby]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateHobby[P]>
+      : GetScalarType<T[P], AggregateHobby[P]>
+  }
+
+
+
+
+  export type HobbyGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: HobbyWhereInput
+    orderBy?: HobbyOrderByWithAggregationInput | HobbyOrderByWithAggregationInput[]
+    by: HobbyScalarFieldEnum[] | HobbyScalarFieldEnum
+    having?: HobbyScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: HobbyCountAggregateInputType | true
+    _avg?: HobbyAvgAggregateInputType
+    _sum?: HobbySumAggregateInputType
+    _min?: HobbyMinAggregateInputType
+    _max?: HobbyMaxAggregateInputType
+  }
+
+  export type HobbyGroupByOutputType = {
+    id: string
+    resumeId: string
+    name: string
+    icon: string | null
+    order: number | null
+    _count: HobbyCountAggregateOutputType | null
+    _avg: HobbyAvgAggregateOutputType | null
+    _sum: HobbySumAggregateOutputType | null
+    _min: HobbyMinAggregateOutputType | null
+    _max: HobbyMaxAggregateOutputType | null
+  }
+
+  type GetHobbyGroupByPayload<T extends HobbyGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<HobbyGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof HobbyGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], HobbyGroupByOutputType[P]>
+            : GetScalarType<T[P], HobbyGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type HobbySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    name?: boolean
+    icon?: boolean
+    order?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["hobby"]>
+
+  export type HobbySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    name?: boolean
+    icon?: boolean
+    order?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["hobby"]>
+
+  export type HobbySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    name?: boolean
+    icon?: boolean
+    order?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["hobby"]>
+
+  export type HobbySelectScalar = {
+    id?: boolean
+    resumeId?: boolean
+    name?: boolean
+    icon?: boolean
+    order?: boolean
+  }
+
+  export type HobbyOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "resumeId" | "name" | "icon" | "order", ExtArgs["result"]["hobby"]>
+  export type HobbyInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }
+  export type HobbyIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }
+  export type HobbyIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }
+
+  export type $HobbyPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Hobby"
+    objects: {
+      resume: Prisma.$ResumePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      resumeId: string
+      name: string
+      icon: string | null
+      order: number | null
+    }, ExtArgs["result"]["hobby"]>
+    composites: {}
+  }
+
+  type HobbyGetPayload<S extends boolean | null | undefined | HobbyDefaultArgs> = $Result.GetResult<Prisma.$HobbyPayload, S>
+
+  type HobbyCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<HobbyFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: HobbyCountAggregateInputType | true
+    }
+
+  export interface HobbyDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Hobby'], meta: { name: 'Hobby' } }
+    /**
+     * Find zero or one Hobby that matches the filter.
+     * @param {HobbyFindUniqueArgs} args - Arguments to find a Hobby
+     * @example
+     * // Get one Hobby
+     * const hobby = await prisma.hobby.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends HobbyFindUniqueArgs>(args: SelectSubset<T, HobbyFindUniqueArgs<ExtArgs>>): Prisma__HobbyClient<$Result.GetResult<Prisma.$HobbyPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Hobby that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {HobbyFindUniqueOrThrowArgs} args - Arguments to find a Hobby
+     * @example
+     * // Get one Hobby
+     * const hobby = await prisma.hobby.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends HobbyFindUniqueOrThrowArgs>(args: SelectSubset<T, HobbyFindUniqueOrThrowArgs<ExtArgs>>): Prisma__HobbyClient<$Result.GetResult<Prisma.$HobbyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Hobby that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HobbyFindFirstArgs} args - Arguments to find a Hobby
+     * @example
+     * // Get one Hobby
+     * const hobby = await prisma.hobby.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends HobbyFindFirstArgs>(args?: SelectSubset<T, HobbyFindFirstArgs<ExtArgs>>): Prisma__HobbyClient<$Result.GetResult<Prisma.$HobbyPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Hobby that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HobbyFindFirstOrThrowArgs} args - Arguments to find a Hobby
+     * @example
+     * // Get one Hobby
+     * const hobby = await prisma.hobby.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends HobbyFindFirstOrThrowArgs>(args?: SelectSubset<T, HobbyFindFirstOrThrowArgs<ExtArgs>>): Prisma__HobbyClient<$Result.GetResult<Prisma.$HobbyPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Hobbies that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HobbyFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Hobbies
+     * const hobbies = await prisma.hobby.findMany()
+     * 
+     * // Get first 10 Hobbies
+     * const hobbies = await prisma.hobby.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const hobbyWithIdOnly = await prisma.hobby.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends HobbyFindManyArgs>(args?: SelectSubset<T, HobbyFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HobbyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Hobby.
+     * @param {HobbyCreateArgs} args - Arguments to create a Hobby.
+     * @example
+     * // Create one Hobby
+     * const Hobby = await prisma.hobby.create({
+     *   data: {
+     *     // ... data to create a Hobby
+     *   }
+     * })
+     * 
+     */
+    create<T extends HobbyCreateArgs>(args: SelectSubset<T, HobbyCreateArgs<ExtArgs>>): Prisma__HobbyClient<$Result.GetResult<Prisma.$HobbyPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Hobbies.
+     * @param {HobbyCreateManyArgs} args - Arguments to create many Hobbies.
+     * @example
+     * // Create many Hobbies
+     * const hobby = await prisma.hobby.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends HobbyCreateManyArgs>(args?: SelectSubset<T, HobbyCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Hobbies and returns the data saved in the database.
+     * @param {HobbyCreateManyAndReturnArgs} args - Arguments to create many Hobbies.
+     * @example
+     * // Create many Hobbies
+     * const hobby = await prisma.hobby.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Hobbies and only return the `id`
+     * const hobbyWithIdOnly = await prisma.hobby.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends HobbyCreateManyAndReturnArgs>(args?: SelectSubset<T, HobbyCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HobbyPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Hobby.
+     * @param {HobbyDeleteArgs} args - Arguments to delete one Hobby.
+     * @example
+     * // Delete one Hobby
+     * const Hobby = await prisma.hobby.delete({
+     *   where: {
+     *     // ... filter to delete one Hobby
+     *   }
+     * })
+     * 
+     */
+    delete<T extends HobbyDeleteArgs>(args: SelectSubset<T, HobbyDeleteArgs<ExtArgs>>): Prisma__HobbyClient<$Result.GetResult<Prisma.$HobbyPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Hobby.
+     * @param {HobbyUpdateArgs} args - Arguments to update one Hobby.
+     * @example
+     * // Update one Hobby
+     * const hobby = await prisma.hobby.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends HobbyUpdateArgs>(args: SelectSubset<T, HobbyUpdateArgs<ExtArgs>>): Prisma__HobbyClient<$Result.GetResult<Prisma.$HobbyPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Hobbies.
+     * @param {HobbyDeleteManyArgs} args - Arguments to filter Hobbies to delete.
+     * @example
+     * // Delete a few Hobbies
+     * const { count } = await prisma.hobby.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends HobbyDeleteManyArgs>(args?: SelectSubset<T, HobbyDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Hobbies.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HobbyUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Hobbies
+     * const hobby = await prisma.hobby.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends HobbyUpdateManyArgs>(args: SelectSubset<T, HobbyUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Hobbies and returns the data updated in the database.
+     * @param {HobbyUpdateManyAndReturnArgs} args - Arguments to update many Hobbies.
+     * @example
+     * // Update many Hobbies
+     * const hobby = await prisma.hobby.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Hobbies and only return the `id`
+     * const hobbyWithIdOnly = await prisma.hobby.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends HobbyUpdateManyAndReturnArgs>(args: SelectSubset<T, HobbyUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HobbyPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Hobby.
+     * @param {HobbyUpsertArgs} args - Arguments to update or create a Hobby.
+     * @example
+     * // Update or create a Hobby
+     * const hobby = await prisma.hobby.upsert({
+     *   create: {
+     *     // ... data to create a Hobby
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Hobby we want to update
+     *   }
+     * })
+     */
+    upsert<T extends HobbyUpsertArgs>(args: SelectSubset<T, HobbyUpsertArgs<ExtArgs>>): Prisma__HobbyClient<$Result.GetResult<Prisma.$HobbyPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Hobbies.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HobbyCountArgs} args - Arguments to filter Hobbies to count.
+     * @example
+     * // Count the number of Hobbies
+     * const count = await prisma.hobby.count({
+     *   where: {
+     *     // ... the filter for the Hobbies we want to count
+     *   }
+     * })
+    **/
+    count<T extends HobbyCountArgs>(
+      args?: Subset<T, HobbyCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], HobbyCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Hobby.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HobbyAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends HobbyAggregateArgs>(args: Subset<T, HobbyAggregateArgs>): Prisma.PrismaPromise<GetHobbyAggregateType<T>>
+
+    /**
+     * Group by Hobby.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HobbyGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends HobbyGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: HobbyGroupByArgs['orderBy'] }
+        : { orderBy?: HobbyGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, HobbyGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetHobbyGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Hobby model
+   */
+  readonly fields: HobbyFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Hobby.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__HobbyClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    resume<T extends ResumeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ResumeDefaultArgs<ExtArgs>>): Prisma__ResumeClient<$Result.GetResult<Prisma.$ResumePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Hobby model
+   */
+  interface HobbyFieldRefs {
+    readonly id: FieldRef<"Hobby", 'String'>
+    readonly resumeId: FieldRef<"Hobby", 'String'>
+    readonly name: FieldRef<"Hobby", 'String'>
+    readonly icon: FieldRef<"Hobby", 'String'>
+    readonly order: FieldRef<"Hobby", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Hobby findUnique
+   */
+  export type HobbyFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Hobby
+     */
+    select?: HobbySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Hobby
+     */
+    omit?: HobbyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HobbyInclude<ExtArgs> | null
+    /**
+     * Filter, which Hobby to fetch.
+     */
+    where: HobbyWhereUniqueInput
+  }
+
+  /**
+   * Hobby findUniqueOrThrow
+   */
+  export type HobbyFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Hobby
+     */
+    select?: HobbySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Hobby
+     */
+    omit?: HobbyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HobbyInclude<ExtArgs> | null
+    /**
+     * Filter, which Hobby to fetch.
+     */
+    where: HobbyWhereUniqueInput
+  }
+
+  /**
+   * Hobby findFirst
+   */
+  export type HobbyFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Hobby
+     */
+    select?: HobbySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Hobby
+     */
+    omit?: HobbyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HobbyInclude<ExtArgs> | null
+    /**
+     * Filter, which Hobby to fetch.
+     */
+    where?: HobbyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Hobbies to fetch.
+     */
+    orderBy?: HobbyOrderByWithRelationInput | HobbyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Hobbies.
+     */
+    cursor?: HobbyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Hobbies from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Hobbies.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Hobbies.
+     */
+    distinct?: HobbyScalarFieldEnum | HobbyScalarFieldEnum[]
+  }
+
+  /**
+   * Hobby findFirstOrThrow
+   */
+  export type HobbyFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Hobby
+     */
+    select?: HobbySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Hobby
+     */
+    omit?: HobbyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HobbyInclude<ExtArgs> | null
+    /**
+     * Filter, which Hobby to fetch.
+     */
+    where?: HobbyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Hobbies to fetch.
+     */
+    orderBy?: HobbyOrderByWithRelationInput | HobbyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Hobbies.
+     */
+    cursor?: HobbyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Hobbies from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Hobbies.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Hobbies.
+     */
+    distinct?: HobbyScalarFieldEnum | HobbyScalarFieldEnum[]
+  }
+
+  /**
+   * Hobby findMany
+   */
+  export type HobbyFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Hobby
+     */
+    select?: HobbySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Hobby
+     */
+    omit?: HobbyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HobbyInclude<ExtArgs> | null
+    /**
+     * Filter, which Hobbies to fetch.
+     */
+    where?: HobbyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Hobbies to fetch.
+     */
+    orderBy?: HobbyOrderByWithRelationInput | HobbyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Hobbies.
+     */
+    cursor?: HobbyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Hobbies from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Hobbies.
+     */
+    skip?: number
+    distinct?: HobbyScalarFieldEnum | HobbyScalarFieldEnum[]
+  }
+
+  /**
+   * Hobby create
+   */
+  export type HobbyCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Hobby
+     */
+    select?: HobbySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Hobby
+     */
+    omit?: HobbyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HobbyInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Hobby.
+     */
+    data: XOR<HobbyCreateInput, HobbyUncheckedCreateInput>
+  }
+
+  /**
+   * Hobby createMany
+   */
+  export type HobbyCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Hobbies.
+     */
+    data: HobbyCreateManyInput | HobbyCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Hobby createManyAndReturn
+   */
+  export type HobbyCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Hobby
+     */
+    select?: HobbySelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Hobby
+     */
+    omit?: HobbyOmit<ExtArgs> | null
+    /**
+     * The data used to create many Hobbies.
+     */
+    data: HobbyCreateManyInput | HobbyCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HobbyIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Hobby update
+   */
+  export type HobbyUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Hobby
+     */
+    select?: HobbySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Hobby
+     */
+    omit?: HobbyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HobbyInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Hobby.
+     */
+    data: XOR<HobbyUpdateInput, HobbyUncheckedUpdateInput>
+    /**
+     * Choose, which Hobby to update.
+     */
+    where: HobbyWhereUniqueInput
+  }
+
+  /**
+   * Hobby updateMany
+   */
+  export type HobbyUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Hobbies.
+     */
+    data: XOR<HobbyUpdateManyMutationInput, HobbyUncheckedUpdateManyInput>
+    /**
+     * Filter which Hobbies to update
+     */
+    where?: HobbyWhereInput
+    /**
+     * Limit how many Hobbies to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Hobby updateManyAndReturn
+   */
+  export type HobbyUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Hobby
+     */
+    select?: HobbySelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Hobby
+     */
+    omit?: HobbyOmit<ExtArgs> | null
+    /**
+     * The data used to update Hobbies.
+     */
+    data: XOR<HobbyUpdateManyMutationInput, HobbyUncheckedUpdateManyInput>
+    /**
+     * Filter which Hobbies to update
+     */
+    where?: HobbyWhereInput
+    /**
+     * Limit how many Hobbies to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HobbyIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Hobby upsert
+   */
+  export type HobbyUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Hobby
+     */
+    select?: HobbySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Hobby
+     */
+    omit?: HobbyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HobbyInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Hobby to update in case it exists.
+     */
+    where: HobbyWhereUniqueInput
+    /**
+     * In case the Hobby found by the `where` argument doesn't exist, create a new Hobby with this data.
+     */
+    create: XOR<HobbyCreateInput, HobbyUncheckedCreateInput>
+    /**
+     * In case the Hobby was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<HobbyUpdateInput, HobbyUncheckedUpdateInput>
+  }
+
+  /**
+   * Hobby delete
+   */
+  export type HobbyDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Hobby
+     */
+    select?: HobbySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Hobby
+     */
+    omit?: HobbyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HobbyInclude<ExtArgs> | null
+    /**
+     * Filter which Hobby to delete.
+     */
+    where: HobbyWhereUniqueInput
+  }
+
+  /**
+   * Hobby deleteMany
+   */
+  export type HobbyDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Hobbies to delete
+     */
+    where?: HobbyWhereInput
+    /**
+     * Limit how many Hobbies to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Hobby without action
+   */
+  export type HobbyDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Hobby
+     */
+    select?: HobbySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Hobby
+     */
+    omit?: HobbyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HobbyInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Reference
+   */
+
+  export type AggregateReference = {
+    _count: ReferenceCountAggregateOutputType | null
+    _avg: ReferenceAvgAggregateOutputType | null
+    _sum: ReferenceSumAggregateOutputType | null
+    _min: ReferenceMinAggregateOutputType | null
+    _max: ReferenceMaxAggregateOutputType | null
+  }
+
+  export type ReferenceAvgAggregateOutputType = {
+    order: number | null
+  }
+
+  export type ReferenceSumAggregateOutputType = {
+    order: number | null
+  }
+
+  export type ReferenceMinAggregateOutputType = {
+    id: string | null
+    resumeId: string | null
+    name: string | null
+    company: string | null
+    email: string | null
+    phone: string | null
+    relation: string | null
+    order: number | null
+  }
+
+  export type ReferenceMaxAggregateOutputType = {
+    id: string | null
+    resumeId: string | null
+    name: string | null
+    company: string | null
+    email: string | null
+    phone: string | null
+    relation: string | null
+    order: number | null
+  }
+
+  export type ReferenceCountAggregateOutputType = {
+    id: number
+    resumeId: number
+    name: number
+    company: number
+    email: number
+    phone: number
+    relation: number
+    order: number
+    _all: number
+  }
+
+
+  export type ReferenceAvgAggregateInputType = {
+    order?: true
+  }
+
+  export type ReferenceSumAggregateInputType = {
+    order?: true
+  }
+
+  export type ReferenceMinAggregateInputType = {
+    id?: true
+    resumeId?: true
+    name?: true
+    company?: true
+    email?: true
+    phone?: true
+    relation?: true
+    order?: true
+  }
+
+  export type ReferenceMaxAggregateInputType = {
+    id?: true
+    resumeId?: true
+    name?: true
+    company?: true
+    email?: true
+    phone?: true
+    relation?: true
+    order?: true
+  }
+
+  export type ReferenceCountAggregateInputType = {
+    id?: true
+    resumeId?: true
+    name?: true
+    company?: true
+    email?: true
+    phone?: true
+    relation?: true
+    order?: true
+    _all?: true
+  }
+
+  export type ReferenceAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Reference to aggregate.
+     */
+    where?: ReferenceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of References to fetch.
+     */
+    orderBy?: ReferenceOrderByWithRelationInput | ReferenceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ReferenceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` References from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` References.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned References
+    **/
+    _count?: true | ReferenceCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ReferenceAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ReferenceSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ReferenceMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ReferenceMaxAggregateInputType
+  }
+
+  export type GetReferenceAggregateType<T extends ReferenceAggregateArgs> = {
+        [P in keyof T & keyof AggregateReference]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateReference[P]>
+      : GetScalarType<T[P], AggregateReference[P]>
+  }
+
+
+
+
+  export type ReferenceGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ReferenceWhereInput
+    orderBy?: ReferenceOrderByWithAggregationInput | ReferenceOrderByWithAggregationInput[]
+    by: ReferenceScalarFieldEnum[] | ReferenceScalarFieldEnum
+    having?: ReferenceScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ReferenceCountAggregateInputType | true
+    _avg?: ReferenceAvgAggregateInputType
+    _sum?: ReferenceSumAggregateInputType
+    _min?: ReferenceMinAggregateInputType
+    _max?: ReferenceMaxAggregateInputType
+  }
+
+  export type ReferenceGroupByOutputType = {
+    id: string
+    resumeId: string
+    name: string
+    company: string
+    email: string | null
+    phone: string | null
+    relation: string | null
+    order: number | null
+    _count: ReferenceCountAggregateOutputType | null
+    _avg: ReferenceAvgAggregateOutputType | null
+    _sum: ReferenceSumAggregateOutputType | null
+    _min: ReferenceMinAggregateOutputType | null
+    _max: ReferenceMaxAggregateOutputType | null
+  }
+
+  type GetReferenceGroupByPayload<T extends ReferenceGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ReferenceGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ReferenceGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ReferenceGroupByOutputType[P]>
+            : GetScalarType<T[P], ReferenceGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ReferenceSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    name?: boolean
+    company?: boolean
+    email?: boolean
+    phone?: boolean
+    relation?: boolean
+    order?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["reference"]>
+
+  export type ReferenceSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    name?: boolean
+    company?: boolean
+    email?: boolean
+    phone?: boolean
+    relation?: boolean
+    order?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["reference"]>
+
+  export type ReferenceSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    name?: boolean
+    company?: boolean
+    email?: boolean
+    phone?: boolean
+    relation?: boolean
+    order?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["reference"]>
+
+  export type ReferenceSelectScalar = {
+    id?: boolean
+    resumeId?: boolean
+    name?: boolean
+    company?: boolean
+    email?: boolean
+    phone?: boolean
+    relation?: boolean
+    order?: boolean
+  }
+
+  export type ReferenceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "resumeId" | "name" | "company" | "email" | "phone" | "relation" | "order", ExtArgs["result"]["reference"]>
+  export type ReferenceInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }
+  export type ReferenceIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }
+  export type ReferenceIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }
+
+  export type $ReferencePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Reference"
+    objects: {
+      resume: Prisma.$ResumePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      resumeId: string
+      name: string
+      company: string
+      email: string | null
+      phone: string | null
+      relation: string | null
+      order: number | null
+    }, ExtArgs["result"]["reference"]>
+    composites: {}
+  }
+
+  type ReferenceGetPayload<S extends boolean | null | undefined | ReferenceDefaultArgs> = $Result.GetResult<Prisma.$ReferencePayload, S>
+
+  type ReferenceCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ReferenceFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ReferenceCountAggregateInputType | true
+    }
+
+  export interface ReferenceDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Reference'], meta: { name: 'Reference' } }
+    /**
+     * Find zero or one Reference that matches the filter.
+     * @param {ReferenceFindUniqueArgs} args - Arguments to find a Reference
+     * @example
+     * // Get one Reference
+     * const reference = await prisma.reference.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ReferenceFindUniqueArgs>(args: SelectSubset<T, ReferenceFindUniqueArgs<ExtArgs>>): Prisma__ReferenceClient<$Result.GetResult<Prisma.$ReferencePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Reference that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ReferenceFindUniqueOrThrowArgs} args - Arguments to find a Reference
+     * @example
+     * // Get one Reference
+     * const reference = await prisma.reference.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ReferenceFindUniqueOrThrowArgs>(args: SelectSubset<T, ReferenceFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ReferenceClient<$Result.GetResult<Prisma.$ReferencePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Reference that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReferenceFindFirstArgs} args - Arguments to find a Reference
+     * @example
+     * // Get one Reference
+     * const reference = await prisma.reference.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ReferenceFindFirstArgs>(args?: SelectSubset<T, ReferenceFindFirstArgs<ExtArgs>>): Prisma__ReferenceClient<$Result.GetResult<Prisma.$ReferencePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Reference that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReferenceFindFirstOrThrowArgs} args - Arguments to find a Reference
+     * @example
+     * // Get one Reference
+     * const reference = await prisma.reference.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ReferenceFindFirstOrThrowArgs>(args?: SelectSubset<T, ReferenceFindFirstOrThrowArgs<ExtArgs>>): Prisma__ReferenceClient<$Result.GetResult<Prisma.$ReferencePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more References that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReferenceFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all References
+     * const references = await prisma.reference.findMany()
+     * 
+     * // Get first 10 References
+     * const references = await prisma.reference.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const referenceWithIdOnly = await prisma.reference.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ReferenceFindManyArgs>(args?: SelectSubset<T, ReferenceFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReferencePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Reference.
+     * @param {ReferenceCreateArgs} args - Arguments to create a Reference.
+     * @example
+     * // Create one Reference
+     * const Reference = await prisma.reference.create({
+     *   data: {
+     *     // ... data to create a Reference
+     *   }
+     * })
+     * 
+     */
+    create<T extends ReferenceCreateArgs>(args: SelectSubset<T, ReferenceCreateArgs<ExtArgs>>): Prisma__ReferenceClient<$Result.GetResult<Prisma.$ReferencePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many References.
+     * @param {ReferenceCreateManyArgs} args - Arguments to create many References.
+     * @example
+     * // Create many References
+     * const reference = await prisma.reference.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ReferenceCreateManyArgs>(args?: SelectSubset<T, ReferenceCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many References and returns the data saved in the database.
+     * @param {ReferenceCreateManyAndReturnArgs} args - Arguments to create many References.
+     * @example
+     * // Create many References
+     * const reference = await prisma.reference.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many References and only return the `id`
+     * const referenceWithIdOnly = await prisma.reference.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ReferenceCreateManyAndReturnArgs>(args?: SelectSubset<T, ReferenceCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReferencePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Reference.
+     * @param {ReferenceDeleteArgs} args - Arguments to delete one Reference.
+     * @example
+     * // Delete one Reference
+     * const Reference = await prisma.reference.delete({
+     *   where: {
+     *     // ... filter to delete one Reference
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ReferenceDeleteArgs>(args: SelectSubset<T, ReferenceDeleteArgs<ExtArgs>>): Prisma__ReferenceClient<$Result.GetResult<Prisma.$ReferencePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Reference.
+     * @param {ReferenceUpdateArgs} args - Arguments to update one Reference.
+     * @example
+     * // Update one Reference
+     * const reference = await prisma.reference.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ReferenceUpdateArgs>(args: SelectSubset<T, ReferenceUpdateArgs<ExtArgs>>): Prisma__ReferenceClient<$Result.GetResult<Prisma.$ReferencePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more References.
+     * @param {ReferenceDeleteManyArgs} args - Arguments to filter References to delete.
+     * @example
+     * // Delete a few References
+     * const { count } = await prisma.reference.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ReferenceDeleteManyArgs>(args?: SelectSubset<T, ReferenceDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more References.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReferenceUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many References
+     * const reference = await prisma.reference.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ReferenceUpdateManyArgs>(args: SelectSubset<T, ReferenceUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more References and returns the data updated in the database.
+     * @param {ReferenceUpdateManyAndReturnArgs} args - Arguments to update many References.
+     * @example
+     * // Update many References
+     * const reference = await prisma.reference.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more References and only return the `id`
+     * const referenceWithIdOnly = await prisma.reference.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ReferenceUpdateManyAndReturnArgs>(args: SelectSubset<T, ReferenceUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReferencePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Reference.
+     * @param {ReferenceUpsertArgs} args - Arguments to update or create a Reference.
+     * @example
+     * // Update or create a Reference
+     * const reference = await prisma.reference.upsert({
+     *   create: {
+     *     // ... data to create a Reference
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Reference we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ReferenceUpsertArgs>(args: SelectSubset<T, ReferenceUpsertArgs<ExtArgs>>): Prisma__ReferenceClient<$Result.GetResult<Prisma.$ReferencePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of References.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReferenceCountArgs} args - Arguments to filter References to count.
+     * @example
+     * // Count the number of References
+     * const count = await prisma.reference.count({
+     *   where: {
+     *     // ... the filter for the References we want to count
+     *   }
+     * })
+    **/
+    count<T extends ReferenceCountArgs>(
+      args?: Subset<T, ReferenceCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ReferenceCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Reference.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReferenceAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ReferenceAggregateArgs>(args: Subset<T, ReferenceAggregateArgs>): Prisma.PrismaPromise<GetReferenceAggregateType<T>>
+
+    /**
+     * Group by Reference.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReferenceGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ReferenceGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ReferenceGroupByArgs['orderBy'] }
+        : { orderBy?: ReferenceGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ReferenceGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetReferenceGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Reference model
+   */
+  readonly fields: ReferenceFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Reference.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ReferenceClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    resume<T extends ResumeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ResumeDefaultArgs<ExtArgs>>): Prisma__ResumeClient<$Result.GetResult<Prisma.$ResumePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Reference model
+   */
+  interface ReferenceFieldRefs {
+    readonly id: FieldRef<"Reference", 'String'>
+    readonly resumeId: FieldRef<"Reference", 'String'>
+    readonly name: FieldRef<"Reference", 'String'>
+    readonly company: FieldRef<"Reference", 'String'>
+    readonly email: FieldRef<"Reference", 'String'>
+    readonly phone: FieldRef<"Reference", 'String'>
+    readonly relation: FieldRef<"Reference", 'String'>
+    readonly order: FieldRef<"Reference", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Reference findUnique
+   */
+  export type ReferenceFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Reference
+     */
+    select?: ReferenceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Reference
+     */
+    omit?: ReferenceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReferenceInclude<ExtArgs> | null
+    /**
+     * Filter, which Reference to fetch.
+     */
+    where: ReferenceWhereUniqueInput
+  }
+
+  /**
+   * Reference findUniqueOrThrow
+   */
+  export type ReferenceFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Reference
+     */
+    select?: ReferenceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Reference
+     */
+    omit?: ReferenceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReferenceInclude<ExtArgs> | null
+    /**
+     * Filter, which Reference to fetch.
+     */
+    where: ReferenceWhereUniqueInput
+  }
+
+  /**
+   * Reference findFirst
+   */
+  export type ReferenceFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Reference
+     */
+    select?: ReferenceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Reference
+     */
+    omit?: ReferenceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReferenceInclude<ExtArgs> | null
+    /**
+     * Filter, which Reference to fetch.
+     */
+    where?: ReferenceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of References to fetch.
+     */
+    orderBy?: ReferenceOrderByWithRelationInput | ReferenceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for References.
+     */
+    cursor?: ReferenceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` References from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` References.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of References.
+     */
+    distinct?: ReferenceScalarFieldEnum | ReferenceScalarFieldEnum[]
+  }
+
+  /**
+   * Reference findFirstOrThrow
+   */
+  export type ReferenceFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Reference
+     */
+    select?: ReferenceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Reference
+     */
+    omit?: ReferenceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReferenceInclude<ExtArgs> | null
+    /**
+     * Filter, which Reference to fetch.
+     */
+    where?: ReferenceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of References to fetch.
+     */
+    orderBy?: ReferenceOrderByWithRelationInput | ReferenceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for References.
+     */
+    cursor?: ReferenceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` References from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` References.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of References.
+     */
+    distinct?: ReferenceScalarFieldEnum | ReferenceScalarFieldEnum[]
+  }
+
+  /**
+   * Reference findMany
+   */
+  export type ReferenceFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Reference
+     */
+    select?: ReferenceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Reference
+     */
+    omit?: ReferenceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReferenceInclude<ExtArgs> | null
+    /**
+     * Filter, which References to fetch.
+     */
+    where?: ReferenceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of References to fetch.
+     */
+    orderBy?: ReferenceOrderByWithRelationInput | ReferenceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing References.
+     */
+    cursor?: ReferenceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` References from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` References.
+     */
+    skip?: number
+    distinct?: ReferenceScalarFieldEnum | ReferenceScalarFieldEnum[]
+  }
+
+  /**
+   * Reference create
+   */
+  export type ReferenceCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Reference
+     */
+    select?: ReferenceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Reference
+     */
+    omit?: ReferenceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReferenceInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Reference.
+     */
+    data: XOR<ReferenceCreateInput, ReferenceUncheckedCreateInput>
+  }
+
+  /**
+   * Reference createMany
+   */
+  export type ReferenceCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many References.
+     */
+    data: ReferenceCreateManyInput | ReferenceCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Reference createManyAndReturn
+   */
+  export type ReferenceCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Reference
+     */
+    select?: ReferenceSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Reference
+     */
+    omit?: ReferenceOmit<ExtArgs> | null
+    /**
+     * The data used to create many References.
+     */
+    data: ReferenceCreateManyInput | ReferenceCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReferenceIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Reference update
+   */
+  export type ReferenceUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Reference
+     */
+    select?: ReferenceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Reference
+     */
+    omit?: ReferenceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReferenceInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Reference.
+     */
+    data: XOR<ReferenceUpdateInput, ReferenceUncheckedUpdateInput>
+    /**
+     * Choose, which Reference to update.
+     */
+    where: ReferenceWhereUniqueInput
+  }
+
+  /**
+   * Reference updateMany
+   */
+  export type ReferenceUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update References.
+     */
+    data: XOR<ReferenceUpdateManyMutationInput, ReferenceUncheckedUpdateManyInput>
+    /**
+     * Filter which References to update
+     */
+    where?: ReferenceWhereInput
+    /**
+     * Limit how many References to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Reference updateManyAndReturn
+   */
+  export type ReferenceUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Reference
+     */
+    select?: ReferenceSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Reference
+     */
+    omit?: ReferenceOmit<ExtArgs> | null
+    /**
+     * The data used to update References.
+     */
+    data: XOR<ReferenceUpdateManyMutationInput, ReferenceUncheckedUpdateManyInput>
+    /**
+     * Filter which References to update
+     */
+    where?: ReferenceWhereInput
+    /**
+     * Limit how many References to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReferenceIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Reference upsert
+   */
+  export type ReferenceUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Reference
+     */
+    select?: ReferenceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Reference
+     */
+    omit?: ReferenceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReferenceInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Reference to update in case it exists.
+     */
+    where: ReferenceWhereUniqueInput
+    /**
+     * In case the Reference found by the `where` argument doesn't exist, create a new Reference with this data.
+     */
+    create: XOR<ReferenceCreateInput, ReferenceUncheckedCreateInput>
+    /**
+     * In case the Reference was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ReferenceUpdateInput, ReferenceUncheckedUpdateInput>
+  }
+
+  /**
+   * Reference delete
+   */
+  export type ReferenceDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Reference
+     */
+    select?: ReferenceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Reference
+     */
+    omit?: ReferenceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReferenceInclude<ExtArgs> | null
+    /**
+     * Filter which Reference to delete.
+     */
+    where: ReferenceWhereUniqueInput
+  }
+
+  /**
+   * Reference deleteMany
+   */
+  export type ReferenceDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which References to delete
+     */
+    where?: ReferenceWhereInput
+    /**
+     * Limit how many References to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Reference without action
+   */
+  export type ReferenceDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Reference
+     */
+    select?: ReferenceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Reference
+     */
+    omit?: ReferenceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReferenceInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Publication
+   */
+
+  export type AggregatePublication = {
+    _count: PublicationCountAggregateOutputType | null
+    _avg: PublicationAvgAggregateOutputType | null
+    _sum: PublicationSumAggregateOutputType | null
+    _min: PublicationMinAggregateOutputType | null
+    _max: PublicationMaxAggregateOutputType | null
+  }
+
+  export type PublicationAvgAggregateOutputType = {
+    order: number | null
+  }
+
+  export type PublicationSumAggregateOutputType = {
+    order: number | null
+  }
+
+  export type PublicationMinAggregateOutputType = {
+    id: string | null
+    resumeId: string | null
+    title: string | null
+    publisher: string | null
+    date: Date | null
+    url: string | null
+    description: string | null
+    order: number | null
+  }
+
+  export type PublicationMaxAggregateOutputType = {
+    id: string | null
+    resumeId: string | null
+    title: string | null
+    publisher: string | null
+    date: Date | null
+    url: string | null
+    description: string | null
+    order: number | null
+  }
+
+  export type PublicationCountAggregateOutputType = {
+    id: number
+    resumeId: number
+    title: number
+    publisher: number
+    date: number
+    url: number
+    description: number
+    order: number
+    _all: number
+  }
+
+
+  export type PublicationAvgAggregateInputType = {
+    order?: true
+  }
+
+  export type PublicationSumAggregateInputType = {
+    order?: true
+  }
+
+  export type PublicationMinAggregateInputType = {
+    id?: true
+    resumeId?: true
+    title?: true
+    publisher?: true
+    date?: true
+    url?: true
+    description?: true
+    order?: true
+  }
+
+  export type PublicationMaxAggregateInputType = {
+    id?: true
+    resumeId?: true
+    title?: true
+    publisher?: true
+    date?: true
+    url?: true
+    description?: true
+    order?: true
+  }
+
+  export type PublicationCountAggregateInputType = {
+    id?: true
+    resumeId?: true
+    title?: true
+    publisher?: true
+    date?: true
+    url?: true
+    description?: true
+    order?: true
+    _all?: true
+  }
+
+  export type PublicationAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Publication to aggregate.
+     */
+    where?: PublicationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Publications to fetch.
+     */
+    orderBy?: PublicationOrderByWithRelationInput | PublicationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: PublicationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Publications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Publications.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Publications
+    **/
+    _count?: true | PublicationCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: PublicationAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: PublicationSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: PublicationMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: PublicationMaxAggregateInputType
+  }
+
+  export type GetPublicationAggregateType<T extends PublicationAggregateArgs> = {
+        [P in keyof T & keyof AggregatePublication]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePublication[P]>
+      : GetScalarType<T[P], AggregatePublication[P]>
+  }
+
+
+
+
+  export type PublicationGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PublicationWhereInput
+    orderBy?: PublicationOrderByWithAggregationInput | PublicationOrderByWithAggregationInput[]
+    by: PublicationScalarFieldEnum[] | PublicationScalarFieldEnum
+    having?: PublicationScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: PublicationCountAggregateInputType | true
+    _avg?: PublicationAvgAggregateInputType
+    _sum?: PublicationSumAggregateInputType
+    _min?: PublicationMinAggregateInputType
+    _max?: PublicationMaxAggregateInputType
+  }
+
+  export type PublicationGroupByOutputType = {
+    id: string
+    resumeId: string
+    title: string
+    publisher: string | null
+    date: Date
+    url: string | null
+    description: string | null
+    order: number | null
+    _count: PublicationCountAggregateOutputType | null
+    _avg: PublicationAvgAggregateOutputType | null
+    _sum: PublicationSumAggregateOutputType | null
+    _min: PublicationMinAggregateOutputType | null
+    _max: PublicationMaxAggregateOutputType | null
+  }
+
+  type GetPublicationGroupByPayload<T extends PublicationGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<PublicationGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof PublicationGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], PublicationGroupByOutputType[P]>
+            : GetScalarType<T[P], PublicationGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type PublicationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    title?: boolean
+    publisher?: boolean
+    date?: boolean
+    url?: boolean
+    description?: boolean
+    order?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["publication"]>
+
+  export type PublicationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    title?: boolean
+    publisher?: boolean
+    date?: boolean
+    url?: boolean
+    description?: boolean
+    order?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["publication"]>
+
+  export type PublicationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    title?: boolean
+    publisher?: boolean
+    date?: boolean
+    url?: boolean
+    description?: boolean
+    order?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["publication"]>
+
+  export type PublicationSelectScalar = {
+    id?: boolean
+    resumeId?: boolean
+    title?: boolean
+    publisher?: boolean
+    date?: boolean
+    url?: boolean
+    description?: boolean
+    order?: boolean
+  }
+
+  export type PublicationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "resumeId" | "title" | "publisher" | "date" | "url" | "description" | "order", ExtArgs["result"]["publication"]>
+  export type PublicationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }
+  export type PublicationIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }
+  export type PublicationIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }
+
+  export type $PublicationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Publication"
+    objects: {
+      resume: Prisma.$ResumePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      resumeId: string
+      title: string
+      publisher: string | null
+      date: Date
+      url: string | null
+      description: string | null
+      order: number | null
+    }, ExtArgs["result"]["publication"]>
+    composites: {}
+  }
+
+  type PublicationGetPayload<S extends boolean | null | undefined | PublicationDefaultArgs> = $Result.GetResult<Prisma.$PublicationPayload, S>
+
+  type PublicationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<PublicationFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: PublicationCountAggregateInputType | true
+    }
+
+  export interface PublicationDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Publication'], meta: { name: 'Publication' } }
+    /**
+     * Find zero or one Publication that matches the filter.
+     * @param {PublicationFindUniqueArgs} args - Arguments to find a Publication
+     * @example
+     * // Get one Publication
+     * const publication = await prisma.publication.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends PublicationFindUniqueArgs>(args: SelectSubset<T, PublicationFindUniqueArgs<ExtArgs>>): Prisma__PublicationClient<$Result.GetResult<Prisma.$PublicationPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Publication that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {PublicationFindUniqueOrThrowArgs} args - Arguments to find a Publication
+     * @example
+     * // Get one Publication
+     * const publication = await prisma.publication.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends PublicationFindUniqueOrThrowArgs>(args: SelectSubset<T, PublicationFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PublicationClient<$Result.GetResult<Prisma.$PublicationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Publication that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PublicationFindFirstArgs} args - Arguments to find a Publication
+     * @example
+     * // Get one Publication
+     * const publication = await prisma.publication.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends PublicationFindFirstArgs>(args?: SelectSubset<T, PublicationFindFirstArgs<ExtArgs>>): Prisma__PublicationClient<$Result.GetResult<Prisma.$PublicationPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Publication that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PublicationFindFirstOrThrowArgs} args - Arguments to find a Publication
+     * @example
+     * // Get one Publication
+     * const publication = await prisma.publication.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends PublicationFindFirstOrThrowArgs>(args?: SelectSubset<T, PublicationFindFirstOrThrowArgs<ExtArgs>>): Prisma__PublicationClient<$Result.GetResult<Prisma.$PublicationPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Publications that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PublicationFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Publications
+     * const publications = await prisma.publication.findMany()
+     * 
+     * // Get first 10 Publications
+     * const publications = await prisma.publication.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const publicationWithIdOnly = await prisma.publication.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends PublicationFindManyArgs>(args?: SelectSubset<T, PublicationFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PublicationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Publication.
+     * @param {PublicationCreateArgs} args - Arguments to create a Publication.
+     * @example
+     * // Create one Publication
+     * const Publication = await prisma.publication.create({
+     *   data: {
+     *     // ... data to create a Publication
+     *   }
+     * })
+     * 
+     */
+    create<T extends PublicationCreateArgs>(args: SelectSubset<T, PublicationCreateArgs<ExtArgs>>): Prisma__PublicationClient<$Result.GetResult<Prisma.$PublicationPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Publications.
+     * @param {PublicationCreateManyArgs} args - Arguments to create many Publications.
+     * @example
+     * // Create many Publications
+     * const publication = await prisma.publication.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends PublicationCreateManyArgs>(args?: SelectSubset<T, PublicationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Publications and returns the data saved in the database.
+     * @param {PublicationCreateManyAndReturnArgs} args - Arguments to create many Publications.
+     * @example
+     * // Create many Publications
+     * const publication = await prisma.publication.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Publications and only return the `id`
+     * const publicationWithIdOnly = await prisma.publication.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends PublicationCreateManyAndReturnArgs>(args?: SelectSubset<T, PublicationCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PublicationPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Publication.
+     * @param {PublicationDeleteArgs} args - Arguments to delete one Publication.
+     * @example
+     * // Delete one Publication
+     * const Publication = await prisma.publication.delete({
+     *   where: {
+     *     // ... filter to delete one Publication
+     *   }
+     * })
+     * 
+     */
+    delete<T extends PublicationDeleteArgs>(args: SelectSubset<T, PublicationDeleteArgs<ExtArgs>>): Prisma__PublicationClient<$Result.GetResult<Prisma.$PublicationPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Publication.
+     * @param {PublicationUpdateArgs} args - Arguments to update one Publication.
+     * @example
+     * // Update one Publication
+     * const publication = await prisma.publication.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends PublicationUpdateArgs>(args: SelectSubset<T, PublicationUpdateArgs<ExtArgs>>): Prisma__PublicationClient<$Result.GetResult<Prisma.$PublicationPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Publications.
+     * @param {PublicationDeleteManyArgs} args - Arguments to filter Publications to delete.
+     * @example
+     * // Delete a few Publications
+     * const { count } = await prisma.publication.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends PublicationDeleteManyArgs>(args?: SelectSubset<T, PublicationDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Publications.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PublicationUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Publications
+     * const publication = await prisma.publication.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends PublicationUpdateManyArgs>(args: SelectSubset<T, PublicationUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Publications and returns the data updated in the database.
+     * @param {PublicationUpdateManyAndReturnArgs} args - Arguments to update many Publications.
+     * @example
+     * // Update many Publications
+     * const publication = await prisma.publication.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Publications and only return the `id`
+     * const publicationWithIdOnly = await prisma.publication.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends PublicationUpdateManyAndReturnArgs>(args: SelectSubset<T, PublicationUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PublicationPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Publication.
+     * @param {PublicationUpsertArgs} args - Arguments to update or create a Publication.
+     * @example
+     * // Update or create a Publication
+     * const publication = await prisma.publication.upsert({
+     *   create: {
+     *     // ... data to create a Publication
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Publication we want to update
+     *   }
+     * })
+     */
+    upsert<T extends PublicationUpsertArgs>(args: SelectSubset<T, PublicationUpsertArgs<ExtArgs>>): Prisma__PublicationClient<$Result.GetResult<Prisma.$PublicationPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Publications.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PublicationCountArgs} args - Arguments to filter Publications to count.
+     * @example
+     * // Count the number of Publications
+     * const count = await prisma.publication.count({
+     *   where: {
+     *     // ... the filter for the Publications we want to count
+     *   }
+     * })
+    **/
+    count<T extends PublicationCountArgs>(
+      args?: Subset<T, PublicationCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], PublicationCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Publication.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PublicationAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends PublicationAggregateArgs>(args: Subset<T, PublicationAggregateArgs>): Prisma.PrismaPromise<GetPublicationAggregateType<T>>
+
+    /**
+     * Group by Publication.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PublicationGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends PublicationGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: PublicationGroupByArgs['orderBy'] }
+        : { orderBy?: PublicationGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, PublicationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPublicationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Publication model
+   */
+  readonly fields: PublicationFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Publication.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__PublicationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    resume<T extends ResumeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ResumeDefaultArgs<ExtArgs>>): Prisma__ResumeClient<$Result.GetResult<Prisma.$ResumePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Publication model
+   */
+  interface PublicationFieldRefs {
+    readonly id: FieldRef<"Publication", 'String'>
+    readonly resumeId: FieldRef<"Publication", 'String'>
+    readonly title: FieldRef<"Publication", 'String'>
+    readonly publisher: FieldRef<"Publication", 'String'>
+    readonly date: FieldRef<"Publication", 'DateTime'>
+    readonly url: FieldRef<"Publication", 'String'>
+    readonly description: FieldRef<"Publication", 'String'>
+    readonly order: FieldRef<"Publication", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Publication findUnique
+   */
+  export type PublicationFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Publication
+     */
+    select?: PublicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Publication
+     */
+    omit?: PublicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PublicationInclude<ExtArgs> | null
+    /**
+     * Filter, which Publication to fetch.
+     */
+    where: PublicationWhereUniqueInput
+  }
+
+  /**
+   * Publication findUniqueOrThrow
+   */
+  export type PublicationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Publication
+     */
+    select?: PublicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Publication
+     */
+    omit?: PublicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PublicationInclude<ExtArgs> | null
+    /**
+     * Filter, which Publication to fetch.
+     */
+    where: PublicationWhereUniqueInput
+  }
+
+  /**
+   * Publication findFirst
+   */
+  export type PublicationFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Publication
+     */
+    select?: PublicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Publication
+     */
+    omit?: PublicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PublicationInclude<ExtArgs> | null
+    /**
+     * Filter, which Publication to fetch.
+     */
+    where?: PublicationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Publications to fetch.
+     */
+    orderBy?: PublicationOrderByWithRelationInput | PublicationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Publications.
+     */
+    cursor?: PublicationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Publications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Publications.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Publications.
+     */
+    distinct?: PublicationScalarFieldEnum | PublicationScalarFieldEnum[]
+  }
+
+  /**
+   * Publication findFirstOrThrow
+   */
+  export type PublicationFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Publication
+     */
+    select?: PublicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Publication
+     */
+    omit?: PublicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PublicationInclude<ExtArgs> | null
+    /**
+     * Filter, which Publication to fetch.
+     */
+    where?: PublicationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Publications to fetch.
+     */
+    orderBy?: PublicationOrderByWithRelationInput | PublicationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Publications.
+     */
+    cursor?: PublicationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Publications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Publications.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Publications.
+     */
+    distinct?: PublicationScalarFieldEnum | PublicationScalarFieldEnum[]
+  }
+
+  /**
+   * Publication findMany
+   */
+  export type PublicationFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Publication
+     */
+    select?: PublicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Publication
+     */
+    omit?: PublicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PublicationInclude<ExtArgs> | null
+    /**
+     * Filter, which Publications to fetch.
+     */
+    where?: PublicationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Publications to fetch.
+     */
+    orderBy?: PublicationOrderByWithRelationInput | PublicationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Publications.
+     */
+    cursor?: PublicationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Publications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Publications.
+     */
+    skip?: number
+    distinct?: PublicationScalarFieldEnum | PublicationScalarFieldEnum[]
+  }
+
+  /**
+   * Publication create
+   */
+  export type PublicationCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Publication
+     */
+    select?: PublicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Publication
+     */
+    omit?: PublicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PublicationInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Publication.
+     */
+    data: XOR<PublicationCreateInput, PublicationUncheckedCreateInput>
+  }
+
+  /**
+   * Publication createMany
+   */
+  export type PublicationCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Publications.
+     */
+    data: PublicationCreateManyInput | PublicationCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Publication createManyAndReturn
+   */
+  export type PublicationCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Publication
+     */
+    select?: PublicationSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Publication
+     */
+    omit?: PublicationOmit<ExtArgs> | null
+    /**
+     * The data used to create many Publications.
+     */
+    data: PublicationCreateManyInput | PublicationCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PublicationIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Publication update
+   */
+  export type PublicationUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Publication
+     */
+    select?: PublicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Publication
+     */
+    omit?: PublicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PublicationInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Publication.
+     */
+    data: XOR<PublicationUpdateInput, PublicationUncheckedUpdateInput>
+    /**
+     * Choose, which Publication to update.
+     */
+    where: PublicationWhereUniqueInput
+  }
+
+  /**
+   * Publication updateMany
+   */
+  export type PublicationUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Publications.
+     */
+    data: XOR<PublicationUpdateManyMutationInput, PublicationUncheckedUpdateManyInput>
+    /**
+     * Filter which Publications to update
+     */
+    where?: PublicationWhereInput
+    /**
+     * Limit how many Publications to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Publication updateManyAndReturn
+   */
+  export type PublicationUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Publication
+     */
+    select?: PublicationSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Publication
+     */
+    omit?: PublicationOmit<ExtArgs> | null
+    /**
+     * The data used to update Publications.
+     */
+    data: XOR<PublicationUpdateManyMutationInput, PublicationUncheckedUpdateManyInput>
+    /**
+     * Filter which Publications to update
+     */
+    where?: PublicationWhereInput
+    /**
+     * Limit how many Publications to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PublicationIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Publication upsert
+   */
+  export type PublicationUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Publication
+     */
+    select?: PublicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Publication
+     */
+    omit?: PublicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PublicationInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Publication to update in case it exists.
+     */
+    where: PublicationWhereUniqueInput
+    /**
+     * In case the Publication found by the `where` argument doesn't exist, create a new Publication with this data.
+     */
+    create: XOR<PublicationCreateInput, PublicationUncheckedCreateInput>
+    /**
+     * In case the Publication was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<PublicationUpdateInput, PublicationUncheckedUpdateInput>
+  }
+
+  /**
+   * Publication delete
+   */
+  export type PublicationDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Publication
+     */
+    select?: PublicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Publication
+     */
+    omit?: PublicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PublicationInclude<ExtArgs> | null
+    /**
+     * Filter which Publication to delete.
+     */
+    where: PublicationWhereUniqueInput
+  }
+
+  /**
+   * Publication deleteMany
+   */
+  export type PublicationDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Publications to delete
+     */
+    where?: PublicationWhereInput
+    /**
+     * Limit how many Publications to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Publication without action
+   */
+  export type PublicationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Publication
+     */
+    select?: PublicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Publication
+     */
+    omit?: PublicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PublicationInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Volunteering
+   */
+
+  export type AggregateVolunteering = {
+    _count: VolunteeringCountAggregateOutputType | null
+    _avg: VolunteeringAvgAggregateOutputType | null
+    _sum: VolunteeringSumAggregateOutputType | null
+    _min: VolunteeringMinAggregateOutputType | null
+    _max: VolunteeringMaxAggregateOutputType | null
+  }
+
+  export type VolunteeringAvgAggregateOutputType = {
+    order: number | null
+  }
+
+  export type VolunteeringSumAggregateOutputType = {
+    order: number | null
+  }
+
+  export type VolunteeringMinAggregateOutputType = {
+    id: string | null
+    resumeId: string | null
+    organization: string | null
+    role: string | null
+    startDate: Date | null
+    endDate: Date | null
+    description: string | null
+    order: number | null
+  }
+
+  export type VolunteeringMaxAggregateOutputType = {
+    id: string | null
+    resumeId: string | null
+    organization: string | null
+    role: string | null
+    startDate: Date | null
+    endDate: Date | null
+    description: string | null
+    order: number | null
+  }
+
+  export type VolunteeringCountAggregateOutputType = {
+    id: number
+    resumeId: number
+    organization: number
+    role: number
+    startDate: number
+    endDate: number
+    description: number
+    order: number
+    _all: number
+  }
+
+
+  export type VolunteeringAvgAggregateInputType = {
+    order?: true
+  }
+
+  export type VolunteeringSumAggregateInputType = {
+    order?: true
+  }
+
+  export type VolunteeringMinAggregateInputType = {
+    id?: true
+    resumeId?: true
+    organization?: true
+    role?: true
+    startDate?: true
+    endDate?: true
+    description?: true
+    order?: true
+  }
+
+  export type VolunteeringMaxAggregateInputType = {
+    id?: true
+    resumeId?: true
+    organization?: true
+    role?: true
+    startDate?: true
+    endDate?: true
+    description?: true
+    order?: true
+  }
+
+  export type VolunteeringCountAggregateInputType = {
+    id?: true
+    resumeId?: true
+    organization?: true
+    role?: true
+    startDate?: true
+    endDate?: true
+    description?: true
+    order?: true
+    _all?: true
+  }
+
+  export type VolunteeringAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Volunteering to aggregate.
+     */
+    where?: VolunteeringWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Volunteerings to fetch.
+     */
+    orderBy?: VolunteeringOrderByWithRelationInput | VolunteeringOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: VolunteeringWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Volunteerings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Volunteerings.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Volunteerings
+    **/
+    _count?: true | VolunteeringCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: VolunteeringAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: VolunteeringSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: VolunteeringMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: VolunteeringMaxAggregateInputType
+  }
+
+  export type GetVolunteeringAggregateType<T extends VolunteeringAggregateArgs> = {
+        [P in keyof T & keyof AggregateVolunteering]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateVolunteering[P]>
+      : GetScalarType<T[P], AggregateVolunteering[P]>
+  }
+
+
+
+
+  export type VolunteeringGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: VolunteeringWhereInput
+    orderBy?: VolunteeringOrderByWithAggregationInput | VolunteeringOrderByWithAggregationInput[]
+    by: VolunteeringScalarFieldEnum[] | VolunteeringScalarFieldEnum
+    having?: VolunteeringScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: VolunteeringCountAggregateInputType | true
+    _avg?: VolunteeringAvgAggregateInputType
+    _sum?: VolunteeringSumAggregateInputType
+    _min?: VolunteeringMinAggregateInputType
+    _max?: VolunteeringMaxAggregateInputType
+  }
+
+  export type VolunteeringGroupByOutputType = {
+    id: string
+    resumeId: string
+    organization: string
+    role: string
+    startDate: Date | null
+    endDate: Date | null
+    description: string
+    order: number | null
+    _count: VolunteeringCountAggregateOutputType | null
+    _avg: VolunteeringAvgAggregateOutputType | null
+    _sum: VolunteeringSumAggregateOutputType | null
+    _min: VolunteeringMinAggregateOutputType | null
+    _max: VolunteeringMaxAggregateOutputType | null
+  }
+
+  type GetVolunteeringGroupByPayload<T extends VolunteeringGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<VolunteeringGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof VolunteeringGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], VolunteeringGroupByOutputType[P]>
+            : GetScalarType<T[P], VolunteeringGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type VolunteeringSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    organization?: boolean
+    role?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    description?: boolean
+    order?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["volunteering"]>
+
+  export type VolunteeringSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    organization?: boolean
+    role?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    description?: boolean
+    order?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["volunteering"]>
+
+  export type VolunteeringSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    organization?: boolean
+    role?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    description?: boolean
+    order?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["volunteering"]>
+
+  export type VolunteeringSelectScalar = {
+    id?: boolean
+    resumeId?: boolean
+    organization?: boolean
+    role?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    description?: boolean
+    order?: boolean
+  }
+
+  export type VolunteeringOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "resumeId" | "organization" | "role" | "startDate" | "endDate" | "description" | "order", ExtArgs["result"]["volunteering"]>
+  export type VolunteeringInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }
+  export type VolunteeringIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }
+  export type VolunteeringIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }
+
+  export type $VolunteeringPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Volunteering"
+    objects: {
+      resume: Prisma.$ResumePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      resumeId: string
+      organization: string
+      role: string
+      startDate: Date | null
+      endDate: Date | null
+      description: string
+      order: number | null
+    }, ExtArgs["result"]["volunteering"]>
+    composites: {}
+  }
+
+  type VolunteeringGetPayload<S extends boolean | null | undefined | VolunteeringDefaultArgs> = $Result.GetResult<Prisma.$VolunteeringPayload, S>
+
+  type VolunteeringCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<VolunteeringFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: VolunteeringCountAggregateInputType | true
+    }
+
+  export interface VolunteeringDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Volunteering'], meta: { name: 'Volunteering' } }
+    /**
+     * Find zero or one Volunteering that matches the filter.
+     * @param {VolunteeringFindUniqueArgs} args - Arguments to find a Volunteering
+     * @example
+     * // Get one Volunteering
+     * const volunteering = await prisma.volunteering.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends VolunteeringFindUniqueArgs>(args: SelectSubset<T, VolunteeringFindUniqueArgs<ExtArgs>>): Prisma__VolunteeringClient<$Result.GetResult<Prisma.$VolunteeringPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Volunteering that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {VolunteeringFindUniqueOrThrowArgs} args - Arguments to find a Volunteering
+     * @example
+     * // Get one Volunteering
+     * const volunteering = await prisma.volunteering.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends VolunteeringFindUniqueOrThrowArgs>(args: SelectSubset<T, VolunteeringFindUniqueOrThrowArgs<ExtArgs>>): Prisma__VolunteeringClient<$Result.GetResult<Prisma.$VolunteeringPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Volunteering that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VolunteeringFindFirstArgs} args - Arguments to find a Volunteering
+     * @example
+     * // Get one Volunteering
+     * const volunteering = await prisma.volunteering.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends VolunteeringFindFirstArgs>(args?: SelectSubset<T, VolunteeringFindFirstArgs<ExtArgs>>): Prisma__VolunteeringClient<$Result.GetResult<Prisma.$VolunteeringPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Volunteering that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VolunteeringFindFirstOrThrowArgs} args - Arguments to find a Volunteering
+     * @example
+     * // Get one Volunteering
+     * const volunteering = await prisma.volunteering.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends VolunteeringFindFirstOrThrowArgs>(args?: SelectSubset<T, VolunteeringFindFirstOrThrowArgs<ExtArgs>>): Prisma__VolunteeringClient<$Result.GetResult<Prisma.$VolunteeringPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Volunteerings that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VolunteeringFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Volunteerings
+     * const volunteerings = await prisma.volunteering.findMany()
+     * 
+     * // Get first 10 Volunteerings
+     * const volunteerings = await prisma.volunteering.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const volunteeringWithIdOnly = await prisma.volunteering.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends VolunteeringFindManyArgs>(args?: SelectSubset<T, VolunteeringFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VolunteeringPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Volunteering.
+     * @param {VolunteeringCreateArgs} args - Arguments to create a Volunteering.
+     * @example
+     * // Create one Volunteering
+     * const Volunteering = await prisma.volunteering.create({
+     *   data: {
+     *     // ... data to create a Volunteering
+     *   }
+     * })
+     * 
+     */
+    create<T extends VolunteeringCreateArgs>(args: SelectSubset<T, VolunteeringCreateArgs<ExtArgs>>): Prisma__VolunteeringClient<$Result.GetResult<Prisma.$VolunteeringPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Volunteerings.
+     * @param {VolunteeringCreateManyArgs} args - Arguments to create many Volunteerings.
+     * @example
+     * // Create many Volunteerings
+     * const volunteering = await prisma.volunteering.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends VolunteeringCreateManyArgs>(args?: SelectSubset<T, VolunteeringCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Volunteerings and returns the data saved in the database.
+     * @param {VolunteeringCreateManyAndReturnArgs} args - Arguments to create many Volunteerings.
+     * @example
+     * // Create many Volunteerings
+     * const volunteering = await prisma.volunteering.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Volunteerings and only return the `id`
+     * const volunteeringWithIdOnly = await prisma.volunteering.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends VolunteeringCreateManyAndReturnArgs>(args?: SelectSubset<T, VolunteeringCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VolunteeringPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Volunteering.
+     * @param {VolunteeringDeleteArgs} args - Arguments to delete one Volunteering.
+     * @example
+     * // Delete one Volunteering
+     * const Volunteering = await prisma.volunteering.delete({
+     *   where: {
+     *     // ... filter to delete one Volunteering
+     *   }
+     * })
+     * 
+     */
+    delete<T extends VolunteeringDeleteArgs>(args: SelectSubset<T, VolunteeringDeleteArgs<ExtArgs>>): Prisma__VolunteeringClient<$Result.GetResult<Prisma.$VolunteeringPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Volunteering.
+     * @param {VolunteeringUpdateArgs} args - Arguments to update one Volunteering.
+     * @example
+     * // Update one Volunteering
+     * const volunteering = await prisma.volunteering.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends VolunteeringUpdateArgs>(args: SelectSubset<T, VolunteeringUpdateArgs<ExtArgs>>): Prisma__VolunteeringClient<$Result.GetResult<Prisma.$VolunteeringPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Volunteerings.
+     * @param {VolunteeringDeleteManyArgs} args - Arguments to filter Volunteerings to delete.
+     * @example
+     * // Delete a few Volunteerings
+     * const { count } = await prisma.volunteering.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends VolunteeringDeleteManyArgs>(args?: SelectSubset<T, VolunteeringDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Volunteerings.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VolunteeringUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Volunteerings
+     * const volunteering = await prisma.volunteering.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends VolunteeringUpdateManyArgs>(args: SelectSubset<T, VolunteeringUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Volunteerings and returns the data updated in the database.
+     * @param {VolunteeringUpdateManyAndReturnArgs} args - Arguments to update many Volunteerings.
+     * @example
+     * // Update many Volunteerings
+     * const volunteering = await prisma.volunteering.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Volunteerings and only return the `id`
+     * const volunteeringWithIdOnly = await prisma.volunteering.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends VolunteeringUpdateManyAndReturnArgs>(args: SelectSubset<T, VolunteeringUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VolunteeringPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Volunteering.
+     * @param {VolunteeringUpsertArgs} args - Arguments to update or create a Volunteering.
+     * @example
+     * // Update or create a Volunteering
+     * const volunteering = await prisma.volunteering.upsert({
+     *   create: {
+     *     // ... data to create a Volunteering
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Volunteering we want to update
+     *   }
+     * })
+     */
+    upsert<T extends VolunteeringUpsertArgs>(args: SelectSubset<T, VolunteeringUpsertArgs<ExtArgs>>): Prisma__VolunteeringClient<$Result.GetResult<Prisma.$VolunteeringPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Volunteerings.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VolunteeringCountArgs} args - Arguments to filter Volunteerings to count.
+     * @example
+     * // Count the number of Volunteerings
+     * const count = await prisma.volunteering.count({
+     *   where: {
+     *     // ... the filter for the Volunteerings we want to count
+     *   }
+     * })
+    **/
+    count<T extends VolunteeringCountArgs>(
+      args?: Subset<T, VolunteeringCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], VolunteeringCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Volunteering.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VolunteeringAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends VolunteeringAggregateArgs>(args: Subset<T, VolunteeringAggregateArgs>): Prisma.PrismaPromise<GetVolunteeringAggregateType<T>>
+
+    /**
+     * Group by Volunteering.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VolunteeringGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends VolunteeringGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: VolunteeringGroupByArgs['orderBy'] }
+        : { orderBy?: VolunteeringGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, VolunteeringGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetVolunteeringGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Volunteering model
+   */
+  readonly fields: VolunteeringFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Volunteering.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__VolunteeringClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    resume<T extends ResumeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ResumeDefaultArgs<ExtArgs>>): Prisma__ResumeClient<$Result.GetResult<Prisma.$ResumePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Volunteering model
+   */
+  interface VolunteeringFieldRefs {
+    readonly id: FieldRef<"Volunteering", 'String'>
+    readonly resumeId: FieldRef<"Volunteering", 'String'>
+    readonly organization: FieldRef<"Volunteering", 'String'>
+    readonly role: FieldRef<"Volunteering", 'String'>
+    readonly startDate: FieldRef<"Volunteering", 'DateTime'>
+    readonly endDate: FieldRef<"Volunteering", 'DateTime'>
+    readonly description: FieldRef<"Volunteering", 'String'>
+    readonly order: FieldRef<"Volunteering", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Volunteering findUnique
+   */
+  export type VolunteeringFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Volunteering
+     */
+    select?: VolunteeringSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Volunteering
+     */
+    omit?: VolunteeringOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VolunteeringInclude<ExtArgs> | null
+    /**
+     * Filter, which Volunteering to fetch.
+     */
+    where: VolunteeringWhereUniqueInput
+  }
+
+  /**
+   * Volunteering findUniqueOrThrow
+   */
+  export type VolunteeringFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Volunteering
+     */
+    select?: VolunteeringSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Volunteering
+     */
+    omit?: VolunteeringOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VolunteeringInclude<ExtArgs> | null
+    /**
+     * Filter, which Volunteering to fetch.
+     */
+    where: VolunteeringWhereUniqueInput
+  }
+
+  /**
+   * Volunteering findFirst
+   */
+  export type VolunteeringFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Volunteering
+     */
+    select?: VolunteeringSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Volunteering
+     */
+    omit?: VolunteeringOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VolunteeringInclude<ExtArgs> | null
+    /**
+     * Filter, which Volunteering to fetch.
+     */
+    where?: VolunteeringWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Volunteerings to fetch.
+     */
+    orderBy?: VolunteeringOrderByWithRelationInput | VolunteeringOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Volunteerings.
+     */
+    cursor?: VolunteeringWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Volunteerings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Volunteerings.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Volunteerings.
+     */
+    distinct?: VolunteeringScalarFieldEnum | VolunteeringScalarFieldEnum[]
+  }
+
+  /**
+   * Volunteering findFirstOrThrow
+   */
+  export type VolunteeringFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Volunteering
+     */
+    select?: VolunteeringSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Volunteering
+     */
+    omit?: VolunteeringOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VolunteeringInclude<ExtArgs> | null
+    /**
+     * Filter, which Volunteering to fetch.
+     */
+    where?: VolunteeringWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Volunteerings to fetch.
+     */
+    orderBy?: VolunteeringOrderByWithRelationInput | VolunteeringOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Volunteerings.
+     */
+    cursor?: VolunteeringWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Volunteerings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Volunteerings.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Volunteerings.
+     */
+    distinct?: VolunteeringScalarFieldEnum | VolunteeringScalarFieldEnum[]
+  }
+
+  /**
+   * Volunteering findMany
+   */
+  export type VolunteeringFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Volunteering
+     */
+    select?: VolunteeringSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Volunteering
+     */
+    omit?: VolunteeringOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VolunteeringInclude<ExtArgs> | null
+    /**
+     * Filter, which Volunteerings to fetch.
+     */
+    where?: VolunteeringWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Volunteerings to fetch.
+     */
+    orderBy?: VolunteeringOrderByWithRelationInput | VolunteeringOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Volunteerings.
+     */
+    cursor?: VolunteeringWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Volunteerings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Volunteerings.
+     */
+    skip?: number
+    distinct?: VolunteeringScalarFieldEnum | VolunteeringScalarFieldEnum[]
+  }
+
+  /**
+   * Volunteering create
+   */
+  export type VolunteeringCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Volunteering
+     */
+    select?: VolunteeringSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Volunteering
+     */
+    omit?: VolunteeringOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VolunteeringInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Volunteering.
+     */
+    data: XOR<VolunteeringCreateInput, VolunteeringUncheckedCreateInput>
+  }
+
+  /**
+   * Volunteering createMany
+   */
+  export type VolunteeringCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Volunteerings.
+     */
+    data: VolunteeringCreateManyInput | VolunteeringCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Volunteering createManyAndReturn
+   */
+  export type VolunteeringCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Volunteering
+     */
+    select?: VolunteeringSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Volunteering
+     */
+    omit?: VolunteeringOmit<ExtArgs> | null
+    /**
+     * The data used to create many Volunteerings.
+     */
+    data: VolunteeringCreateManyInput | VolunteeringCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VolunteeringIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Volunteering update
+   */
+  export type VolunteeringUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Volunteering
+     */
+    select?: VolunteeringSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Volunteering
+     */
+    omit?: VolunteeringOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VolunteeringInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Volunteering.
+     */
+    data: XOR<VolunteeringUpdateInput, VolunteeringUncheckedUpdateInput>
+    /**
+     * Choose, which Volunteering to update.
+     */
+    where: VolunteeringWhereUniqueInput
+  }
+
+  /**
+   * Volunteering updateMany
+   */
+  export type VolunteeringUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Volunteerings.
+     */
+    data: XOR<VolunteeringUpdateManyMutationInput, VolunteeringUncheckedUpdateManyInput>
+    /**
+     * Filter which Volunteerings to update
+     */
+    where?: VolunteeringWhereInput
+    /**
+     * Limit how many Volunteerings to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Volunteering updateManyAndReturn
+   */
+  export type VolunteeringUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Volunteering
+     */
+    select?: VolunteeringSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Volunteering
+     */
+    omit?: VolunteeringOmit<ExtArgs> | null
+    /**
+     * The data used to update Volunteerings.
+     */
+    data: XOR<VolunteeringUpdateManyMutationInput, VolunteeringUncheckedUpdateManyInput>
+    /**
+     * Filter which Volunteerings to update
+     */
+    where?: VolunteeringWhereInput
+    /**
+     * Limit how many Volunteerings to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VolunteeringIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Volunteering upsert
+   */
+  export type VolunteeringUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Volunteering
+     */
+    select?: VolunteeringSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Volunteering
+     */
+    omit?: VolunteeringOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VolunteeringInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Volunteering to update in case it exists.
+     */
+    where: VolunteeringWhereUniqueInput
+    /**
+     * In case the Volunteering found by the `where` argument doesn't exist, create a new Volunteering with this data.
+     */
+    create: XOR<VolunteeringCreateInput, VolunteeringUncheckedCreateInput>
+    /**
+     * In case the Volunteering was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<VolunteeringUpdateInput, VolunteeringUncheckedUpdateInput>
+  }
+
+  /**
+   * Volunteering delete
+   */
+  export type VolunteeringDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Volunteering
+     */
+    select?: VolunteeringSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Volunteering
+     */
+    omit?: VolunteeringOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VolunteeringInclude<ExtArgs> | null
+    /**
+     * Filter which Volunteering to delete.
+     */
+    where: VolunteeringWhereUniqueInput
+  }
+
+  /**
+   * Volunteering deleteMany
+   */
+  export type VolunteeringDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Volunteerings to delete
+     */
+    where?: VolunteeringWhereInput
+    /**
+     * Limit how many Volunteerings to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Volunteering without action
+   */
+  export type VolunteeringDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Volunteering
+     */
+    select?: VolunteeringSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Volunteering
+     */
+    omit?: VolunteeringOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VolunteeringInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Award
+   */
+
+  export type AggregateAward = {
+    _count: AwardCountAggregateOutputType | null
+    _avg: AwardAvgAggregateOutputType | null
+    _sum: AwardSumAggregateOutputType | null
+    _min: AwardMinAggregateOutputType | null
+    _max: AwardMaxAggregateOutputType | null
+  }
+
+  export type AwardAvgAggregateOutputType = {
+    order: number | null
+  }
+
+  export type AwardSumAggregateOutputType = {
+    order: number | null
+  }
+
+  export type AwardMinAggregateOutputType = {
+    id: string | null
+    resumeId: string | null
+    title: string | null
+    issuer: string | null
+    date: Date | null
+    description: string | null
+    order: number | null
+  }
+
+  export type AwardMaxAggregateOutputType = {
+    id: string | null
+    resumeId: string | null
+    title: string | null
+    issuer: string | null
+    date: Date | null
+    description: string | null
+    order: number | null
+  }
+
+  export type AwardCountAggregateOutputType = {
+    id: number
+    resumeId: number
+    title: number
+    issuer: number
+    date: number
+    description: number
+    order: number
+    _all: number
+  }
+
+
+  export type AwardAvgAggregateInputType = {
+    order?: true
+  }
+
+  export type AwardSumAggregateInputType = {
+    order?: true
+  }
+
+  export type AwardMinAggregateInputType = {
+    id?: true
+    resumeId?: true
+    title?: true
+    issuer?: true
+    date?: true
+    description?: true
+    order?: true
+  }
+
+  export type AwardMaxAggregateInputType = {
+    id?: true
+    resumeId?: true
+    title?: true
+    issuer?: true
+    date?: true
+    description?: true
+    order?: true
+  }
+
+  export type AwardCountAggregateInputType = {
+    id?: true
+    resumeId?: true
+    title?: true
+    issuer?: true
+    date?: true
+    description?: true
+    order?: true
+    _all?: true
+  }
+
+  export type AwardAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Award to aggregate.
+     */
+    where?: AwardWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Awards to fetch.
+     */
+    orderBy?: AwardOrderByWithRelationInput | AwardOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: AwardWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Awards from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Awards.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Awards
+    **/
+    _count?: true | AwardCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: AwardAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: AwardSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: AwardMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: AwardMaxAggregateInputType
+  }
+
+  export type GetAwardAggregateType<T extends AwardAggregateArgs> = {
+        [P in keyof T & keyof AggregateAward]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateAward[P]>
+      : GetScalarType<T[P], AggregateAward[P]>
+  }
+
+
+
+
+  export type AwardGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AwardWhereInput
+    orderBy?: AwardOrderByWithAggregationInput | AwardOrderByWithAggregationInput[]
+    by: AwardScalarFieldEnum[] | AwardScalarFieldEnum
+    having?: AwardScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: AwardCountAggregateInputType | true
+    _avg?: AwardAvgAggregateInputType
+    _sum?: AwardSumAggregateInputType
+    _min?: AwardMinAggregateInputType
+    _max?: AwardMaxAggregateInputType
+  }
+
+  export type AwardGroupByOutputType = {
+    id: string
+    resumeId: string
+    title: string
+    issuer: string | null
+    date: Date
+    description: string | null
+    order: number | null
+    _count: AwardCountAggregateOutputType | null
+    _avg: AwardAvgAggregateOutputType | null
+    _sum: AwardSumAggregateOutputType | null
+    _min: AwardMinAggregateOutputType | null
+    _max: AwardMaxAggregateOutputType | null
+  }
+
+  type GetAwardGroupByPayload<T extends AwardGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<AwardGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof AwardGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], AwardGroupByOutputType[P]>
+            : GetScalarType<T[P], AwardGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type AwardSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    title?: boolean
+    issuer?: boolean
+    date?: boolean
+    description?: boolean
+    order?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["award"]>
+
+  export type AwardSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    title?: boolean
+    issuer?: boolean
+    date?: boolean
+    description?: boolean
+    order?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["award"]>
+
+  export type AwardSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    resumeId?: boolean
+    title?: boolean
+    issuer?: boolean
+    date?: boolean
+    description?: boolean
+    order?: boolean
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["award"]>
+
+  export type AwardSelectScalar = {
+    id?: boolean
+    resumeId?: boolean
+    title?: boolean
+    issuer?: boolean
+    date?: boolean
+    description?: boolean
+    order?: boolean
+  }
+
+  export type AwardOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "resumeId" | "title" | "issuer" | "date" | "description" | "order", ExtArgs["result"]["award"]>
+  export type AwardInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }
+  export type AwardIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }
+  export type AwardIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    resume?: boolean | ResumeDefaultArgs<ExtArgs>
+  }
+
+  export type $AwardPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Award"
+    objects: {
+      resume: Prisma.$ResumePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      resumeId: string
+      title: string
+      issuer: string | null
+      date: Date
+      description: string | null
+      order: number | null
+    }, ExtArgs["result"]["award"]>
+    composites: {}
+  }
+
+  type AwardGetPayload<S extends boolean | null | undefined | AwardDefaultArgs> = $Result.GetResult<Prisma.$AwardPayload, S>
+
+  type AwardCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<AwardFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: AwardCountAggregateInputType | true
+    }
+
+  export interface AwardDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Award'], meta: { name: 'Award' } }
+    /**
+     * Find zero or one Award that matches the filter.
+     * @param {AwardFindUniqueArgs} args - Arguments to find a Award
+     * @example
+     * // Get one Award
+     * const award = await prisma.award.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends AwardFindUniqueArgs>(args: SelectSubset<T, AwardFindUniqueArgs<ExtArgs>>): Prisma__AwardClient<$Result.GetResult<Prisma.$AwardPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Award that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {AwardFindUniqueOrThrowArgs} args - Arguments to find a Award
+     * @example
+     * // Get one Award
+     * const award = await prisma.award.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends AwardFindUniqueOrThrowArgs>(args: SelectSubset<T, AwardFindUniqueOrThrowArgs<ExtArgs>>): Prisma__AwardClient<$Result.GetResult<Prisma.$AwardPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Award that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AwardFindFirstArgs} args - Arguments to find a Award
+     * @example
+     * // Get one Award
+     * const award = await prisma.award.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends AwardFindFirstArgs>(args?: SelectSubset<T, AwardFindFirstArgs<ExtArgs>>): Prisma__AwardClient<$Result.GetResult<Prisma.$AwardPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Award that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AwardFindFirstOrThrowArgs} args - Arguments to find a Award
+     * @example
+     * // Get one Award
+     * const award = await prisma.award.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends AwardFindFirstOrThrowArgs>(args?: SelectSubset<T, AwardFindFirstOrThrowArgs<ExtArgs>>): Prisma__AwardClient<$Result.GetResult<Prisma.$AwardPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Awards that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AwardFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Awards
+     * const awards = await prisma.award.findMany()
+     * 
+     * // Get first 10 Awards
+     * const awards = await prisma.award.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const awardWithIdOnly = await prisma.award.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends AwardFindManyArgs>(args?: SelectSubset<T, AwardFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AwardPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Award.
+     * @param {AwardCreateArgs} args - Arguments to create a Award.
+     * @example
+     * // Create one Award
+     * const Award = await prisma.award.create({
+     *   data: {
+     *     // ... data to create a Award
+     *   }
+     * })
+     * 
+     */
+    create<T extends AwardCreateArgs>(args: SelectSubset<T, AwardCreateArgs<ExtArgs>>): Prisma__AwardClient<$Result.GetResult<Prisma.$AwardPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Awards.
+     * @param {AwardCreateManyArgs} args - Arguments to create many Awards.
+     * @example
+     * // Create many Awards
+     * const award = await prisma.award.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends AwardCreateManyArgs>(args?: SelectSubset<T, AwardCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Awards and returns the data saved in the database.
+     * @param {AwardCreateManyAndReturnArgs} args - Arguments to create many Awards.
+     * @example
+     * // Create many Awards
+     * const award = await prisma.award.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Awards and only return the `id`
+     * const awardWithIdOnly = await prisma.award.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends AwardCreateManyAndReturnArgs>(args?: SelectSubset<T, AwardCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AwardPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Award.
+     * @param {AwardDeleteArgs} args - Arguments to delete one Award.
+     * @example
+     * // Delete one Award
+     * const Award = await prisma.award.delete({
+     *   where: {
+     *     // ... filter to delete one Award
+     *   }
+     * })
+     * 
+     */
+    delete<T extends AwardDeleteArgs>(args: SelectSubset<T, AwardDeleteArgs<ExtArgs>>): Prisma__AwardClient<$Result.GetResult<Prisma.$AwardPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Award.
+     * @param {AwardUpdateArgs} args - Arguments to update one Award.
+     * @example
+     * // Update one Award
+     * const award = await prisma.award.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends AwardUpdateArgs>(args: SelectSubset<T, AwardUpdateArgs<ExtArgs>>): Prisma__AwardClient<$Result.GetResult<Prisma.$AwardPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Awards.
+     * @param {AwardDeleteManyArgs} args - Arguments to filter Awards to delete.
+     * @example
+     * // Delete a few Awards
+     * const { count } = await prisma.award.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends AwardDeleteManyArgs>(args?: SelectSubset<T, AwardDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Awards.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AwardUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Awards
+     * const award = await prisma.award.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends AwardUpdateManyArgs>(args: SelectSubset<T, AwardUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Awards and returns the data updated in the database.
+     * @param {AwardUpdateManyAndReturnArgs} args - Arguments to update many Awards.
+     * @example
+     * // Update many Awards
+     * const award = await prisma.award.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Awards and only return the `id`
+     * const awardWithIdOnly = await prisma.award.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends AwardUpdateManyAndReturnArgs>(args: SelectSubset<T, AwardUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AwardPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Award.
+     * @param {AwardUpsertArgs} args - Arguments to update or create a Award.
+     * @example
+     * // Update or create a Award
+     * const award = await prisma.award.upsert({
+     *   create: {
+     *     // ... data to create a Award
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Award we want to update
+     *   }
+     * })
+     */
+    upsert<T extends AwardUpsertArgs>(args: SelectSubset<T, AwardUpsertArgs<ExtArgs>>): Prisma__AwardClient<$Result.GetResult<Prisma.$AwardPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Awards.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AwardCountArgs} args - Arguments to filter Awards to count.
+     * @example
+     * // Count the number of Awards
+     * const count = await prisma.award.count({
+     *   where: {
+     *     // ... the filter for the Awards we want to count
+     *   }
+     * })
+    **/
+    count<T extends AwardCountArgs>(
+      args?: Subset<T, AwardCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], AwardCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Award.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AwardAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends AwardAggregateArgs>(args: Subset<T, AwardAggregateArgs>): Prisma.PrismaPromise<GetAwardAggregateType<T>>
+
+    /**
+     * Group by Award.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AwardGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends AwardGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: AwardGroupByArgs['orderBy'] }
+        : { orderBy?: AwardGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, AwardGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAwardGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Award model
+   */
+  readonly fields: AwardFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Award.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__AwardClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    resume<T extends ResumeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ResumeDefaultArgs<ExtArgs>>): Prisma__ResumeClient<$Result.GetResult<Prisma.$ResumePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Award model
+   */
+  interface AwardFieldRefs {
+    readonly id: FieldRef<"Award", 'String'>
+    readonly resumeId: FieldRef<"Award", 'String'>
+    readonly title: FieldRef<"Award", 'String'>
+    readonly issuer: FieldRef<"Award", 'String'>
+    readonly date: FieldRef<"Award", 'DateTime'>
+    readonly description: FieldRef<"Award", 'String'>
+    readonly order: FieldRef<"Award", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Award findUnique
+   */
+  export type AwardFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Award
+     */
+    select?: AwardSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Award
+     */
+    omit?: AwardOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AwardInclude<ExtArgs> | null
+    /**
+     * Filter, which Award to fetch.
+     */
+    where: AwardWhereUniqueInput
+  }
+
+  /**
+   * Award findUniqueOrThrow
+   */
+  export type AwardFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Award
+     */
+    select?: AwardSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Award
+     */
+    omit?: AwardOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AwardInclude<ExtArgs> | null
+    /**
+     * Filter, which Award to fetch.
+     */
+    where: AwardWhereUniqueInput
+  }
+
+  /**
+   * Award findFirst
+   */
+  export type AwardFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Award
+     */
+    select?: AwardSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Award
+     */
+    omit?: AwardOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AwardInclude<ExtArgs> | null
+    /**
+     * Filter, which Award to fetch.
+     */
+    where?: AwardWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Awards to fetch.
+     */
+    orderBy?: AwardOrderByWithRelationInput | AwardOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Awards.
+     */
+    cursor?: AwardWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Awards from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Awards.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Awards.
+     */
+    distinct?: AwardScalarFieldEnum | AwardScalarFieldEnum[]
+  }
+
+  /**
+   * Award findFirstOrThrow
+   */
+  export type AwardFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Award
+     */
+    select?: AwardSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Award
+     */
+    omit?: AwardOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AwardInclude<ExtArgs> | null
+    /**
+     * Filter, which Award to fetch.
+     */
+    where?: AwardWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Awards to fetch.
+     */
+    orderBy?: AwardOrderByWithRelationInput | AwardOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Awards.
+     */
+    cursor?: AwardWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Awards from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Awards.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Awards.
+     */
+    distinct?: AwardScalarFieldEnum | AwardScalarFieldEnum[]
+  }
+
+  /**
+   * Award findMany
+   */
+  export type AwardFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Award
+     */
+    select?: AwardSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Award
+     */
+    omit?: AwardOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AwardInclude<ExtArgs> | null
+    /**
+     * Filter, which Awards to fetch.
+     */
+    where?: AwardWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Awards to fetch.
+     */
+    orderBy?: AwardOrderByWithRelationInput | AwardOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Awards.
+     */
+    cursor?: AwardWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Awards from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Awards.
+     */
+    skip?: number
+    distinct?: AwardScalarFieldEnum | AwardScalarFieldEnum[]
+  }
+
+  /**
+   * Award create
+   */
+  export type AwardCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Award
+     */
+    select?: AwardSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Award
+     */
+    omit?: AwardOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AwardInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Award.
+     */
+    data: XOR<AwardCreateInput, AwardUncheckedCreateInput>
+  }
+
+  /**
+   * Award createMany
+   */
+  export type AwardCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Awards.
+     */
+    data: AwardCreateManyInput | AwardCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Award createManyAndReturn
+   */
+  export type AwardCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Award
+     */
+    select?: AwardSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Award
+     */
+    omit?: AwardOmit<ExtArgs> | null
+    /**
+     * The data used to create many Awards.
+     */
+    data: AwardCreateManyInput | AwardCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AwardIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Award update
+   */
+  export type AwardUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Award
+     */
+    select?: AwardSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Award
+     */
+    omit?: AwardOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AwardInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Award.
+     */
+    data: XOR<AwardUpdateInput, AwardUncheckedUpdateInput>
+    /**
+     * Choose, which Award to update.
+     */
+    where: AwardWhereUniqueInput
+  }
+
+  /**
+   * Award updateMany
+   */
+  export type AwardUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Awards.
+     */
+    data: XOR<AwardUpdateManyMutationInput, AwardUncheckedUpdateManyInput>
+    /**
+     * Filter which Awards to update
+     */
+    where?: AwardWhereInput
+    /**
+     * Limit how many Awards to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Award updateManyAndReturn
+   */
+  export type AwardUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Award
+     */
+    select?: AwardSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Award
+     */
+    omit?: AwardOmit<ExtArgs> | null
+    /**
+     * The data used to update Awards.
+     */
+    data: XOR<AwardUpdateManyMutationInput, AwardUncheckedUpdateManyInput>
+    /**
+     * Filter which Awards to update
+     */
+    where?: AwardWhereInput
+    /**
+     * Limit how many Awards to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AwardIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Award upsert
+   */
+  export type AwardUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Award
+     */
+    select?: AwardSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Award
+     */
+    omit?: AwardOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AwardInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Award to update in case it exists.
+     */
+    where: AwardWhereUniqueInput
+    /**
+     * In case the Award found by the `where` argument doesn't exist, create a new Award with this data.
+     */
+    create: XOR<AwardCreateInput, AwardUncheckedCreateInput>
+    /**
+     * In case the Award was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<AwardUpdateInput, AwardUncheckedUpdateInput>
+  }
+
+  /**
+   * Award delete
+   */
+  export type AwardDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Award
+     */
+    select?: AwardSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Award
+     */
+    omit?: AwardOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AwardInclude<ExtArgs> | null
+    /**
+     * Filter which Award to delete.
+     */
+    where: AwardWhereUniqueInput
+  }
+
+  /**
+   * Award deleteMany
+   */
+  export type AwardDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Awards to delete
+     */
+    where?: AwardWhereInput
+    /**
+     * Limit how many Awards to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Award without action
+   */
+  export type AwardDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Award
+     */
+    select?: AwardSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Award
+     */
+    omit?: AwardOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AwardInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Model Template
    */
 
@@ -27342,6 +33585,72 @@ export namespace Prisma {
   export type CustomSectionScalarFieldEnum = (typeof CustomSectionScalarFieldEnum)[keyof typeof CustomSectionScalarFieldEnum]
 
 
+  export const HobbyScalarFieldEnum: {
+    id: 'id',
+    resumeId: 'resumeId',
+    name: 'name',
+    icon: 'icon',
+    order: 'order'
+  };
+
+  export type HobbyScalarFieldEnum = (typeof HobbyScalarFieldEnum)[keyof typeof HobbyScalarFieldEnum]
+
+
+  export const ReferenceScalarFieldEnum: {
+    id: 'id',
+    resumeId: 'resumeId',
+    name: 'name',
+    company: 'company',
+    email: 'email',
+    phone: 'phone',
+    relation: 'relation',
+    order: 'order'
+  };
+
+  export type ReferenceScalarFieldEnum = (typeof ReferenceScalarFieldEnum)[keyof typeof ReferenceScalarFieldEnum]
+
+
+  export const PublicationScalarFieldEnum: {
+    id: 'id',
+    resumeId: 'resumeId',
+    title: 'title',
+    publisher: 'publisher',
+    date: 'date',
+    url: 'url',
+    description: 'description',
+    order: 'order'
+  };
+
+  export type PublicationScalarFieldEnum = (typeof PublicationScalarFieldEnum)[keyof typeof PublicationScalarFieldEnum]
+
+
+  export const VolunteeringScalarFieldEnum: {
+    id: 'id',
+    resumeId: 'resumeId',
+    organization: 'organization',
+    role: 'role',
+    startDate: 'startDate',
+    endDate: 'endDate',
+    description: 'description',
+    order: 'order'
+  };
+
+  export type VolunteeringScalarFieldEnum = (typeof VolunteeringScalarFieldEnum)[keyof typeof VolunteeringScalarFieldEnum]
+
+
+  export const AwardScalarFieldEnum: {
+    id: 'id',
+    resumeId: 'resumeId',
+    title: 'title',
+    issuer: 'issuer',
+    date: 'date',
+    description: 'description',
+    order: 'order'
+  };
+
+  export type AwardScalarFieldEnum = (typeof AwardScalarFieldEnum)[keyof typeof AwardScalarFieldEnum]
+
+
   export const TemplateScalarFieldEnum: {
     id: 'id',
     name: 'name',
@@ -27787,6 +34096,11 @@ export namespace Prisma {
     projects?: ProjectListRelationFilter
     achievements?: AchievementListRelationFilter
     customSections?: CustomSectionListRelationFilter
+    hobbies?: HobbyListRelationFilter
+    references?: ReferenceListRelationFilter
+    publications?: PublicationListRelationFilter
+    volunteerings?: VolunteeringListRelationFilter
+    awards?: AwardListRelationFilter
     LinkedInProfile?: XOR<LinkedInProfileNullableScalarRelationFilter, LinkedInProfileWhereInput> | null
   }
 
@@ -27815,6 +34129,11 @@ export namespace Prisma {
     projects?: ProjectOrderByRelationAggregateInput
     achievements?: AchievementOrderByRelationAggregateInput
     customSections?: CustomSectionOrderByRelationAggregateInput
+    hobbies?: HobbyOrderByRelationAggregateInput
+    references?: ReferenceOrderByRelationAggregateInput
+    publications?: PublicationOrderByRelationAggregateInput
+    volunteerings?: VolunteeringOrderByRelationAggregateInput
+    awards?: AwardOrderByRelationAggregateInput
     LinkedInProfile?: LinkedInProfileOrderByWithRelationInput
   }
 
@@ -27846,6 +34165,11 @@ export namespace Prisma {
     projects?: ProjectListRelationFilter
     achievements?: AchievementListRelationFilter
     customSections?: CustomSectionListRelationFilter
+    hobbies?: HobbyListRelationFilter
+    references?: ReferenceListRelationFilter
+    publications?: PublicationListRelationFilter
+    volunteerings?: VolunteeringListRelationFilter
+    awards?: AwardListRelationFilter
     LinkedInProfile?: XOR<LinkedInProfileNullableScalarRelationFilter, LinkedInProfileWhereInput> | null
   }, "id" | "publicUrl">
 
@@ -28578,6 +34902,346 @@ export namespace Prisma {
     title?: StringWithAggregatesFilter<"CustomSection"> | string
     content?: StringWithAggregatesFilter<"CustomSection"> | string
     order?: IntWithAggregatesFilter<"CustomSection"> | number
+  }
+
+  export type HobbyWhereInput = {
+    AND?: HobbyWhereInput | HobbyWhereInput[]
+    OR?: HobbyWhereInput[]
+    NOT?: HobbyWhereInput | HobbyWhereInput[]
+    id?: StringFilter<"Hobby"> | string
+    resumeId?: StringFilter<"Hobby"> | string
+    name?: StringFilter<"Hobby"> | string
+    icon?: StringNullableFilter<"Hobby"> | string | null
+    order?: IntNullableFilter<"Hobby"> | number | null
+    resume?: XOR<ResumeScalarRelationFilter, ResumeWhereInput>
+  }
+
+  export type HobbyOrderByWithRelationInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    name?: SortOrder
+    icon?: SortOrderInput | SortOrder
+    order?: SortOrderInput | SortOrder
+    resume?: ResumeOrderByWithRelationInput
+  }
+
+  export type HobbyWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: HobbyWhereInput | HobbyWhereInput[]
+    OR?: HobbyWhereInput[]
+    NOT?: HobbyWhereInput | HobbyWhereInput[]
+    resumeId?: StringFilter<"Hobby"> | string
+    name?: StringFilter<"Hobby"> | string
+    icon?: StringNullableFilter<"Hobby"> | string | null
+    order?: IntNullableFilter<"Hobby"> | number | null
+    resume?: XOR<ResumeScalarRelationFilter, ResumeWhereInput>
+  }, "id">
+
+  export type HobbyOrderByWithAggregationInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    name?: SortOrder
+    icon?: SortOrderInput | SortOrder
+    order?: SortOrderInput | SortOrder
+    _count?: HobbyCountOrderByAggregateInput
+    _avg?: HobbyAvgOrderByAggregateInput
+    _max?: HobbyMaxOrderByAggregateInput
+    _min?: HobbyMinOrderByAggregateInput
+    _sum?: HobbySumOrderByAggregateInput
+  }
+
+  export type HobbyScalarWhereWithAggregatesInput = {
+    AND?: HobbyScalarWhereWithAggregatesInput | HobbyScalarWhereWithAggregatesInput[]
+    OR?: HobbyScalarWhereWithAggregatesInput[]
+    NOT?: HobbyScalarWhereWithAggregatesInput | HobbyScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Hobby"> | string
+    resumeId?: StringWithAggregatesFilter<"Hobby"> | string
+    name?: StringWithAggregatesFilter<"Hobby"> | string
+    icon?: StringNullableWithAggregatesFilter<"Hobby"> | string | null
+    order?: IntNullableWithAggregatesFilter<"Hobby"> | number | null
+  }
+
+  export type ReferenceWhereInput = {
+    AND?: ReferenceWhereInput | ReferenceWhereInput[]
+    OR?: ReferenceWhereInput[]
+    NOT?: ReferenceWhereInput | ReferenceWhereInput[]
+    id?: StringFilter<"Reference"> | string
+    resumeId?: StringFilter<"Reference"> | string
+    name?: StringFilter<"Reference"> | string
+    company?: StringFilter<"Reference"> | string
+    email?: StringNullableFilter<"Reference"> | string | null
+    phone?: StringNullableFilter<"Reference"> | string | null
+    relation?: StringNullableFilter<"Reference"> | string | null
+    order?: IntNullableFilter<"Reference"> | number | null
+    resume?: XOR<ResumeScalarRelationFilter, ResumeWhereInput>
+  }
+
+  export type ReferenceOrderByWithRelationInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    name?: SortOrder
+    company?: SortOrder
+    email?: SortOrderInput | SortOrder
+    phone?: SortOrderInput | SortOrder
+    relation?: SortOrderInput | SortOrder
+    order?: SortOrderInput | SortOrder
+    resume?: ResumeOrderByWithRelationInput
+  }
+
+  export type ReferenceWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: ReferenceWhereInput | ReferenceWhereInput[]
+    OR?: ReferenceWhereInput[]
+    NOT?: ReferenceWhereInput | ReferenceWhereInput[]
+    resumeId?: StringFilter<"Reference"> | string
+    name?: StringFilter<"Reference"> | string
+    company?: StringFilter<"Reference"> | string
+    email?: StringNullableFilter<"Reference"> | string | null
+    phone?: StringNullableFilter<"Reference"> | string | null
+    relation?: StringNullableFilter<"Reference"> | string | null
+    order?: IntNullableFilter<"Reference"> | number | null
+    resume?: XOR<ResumeScalarRelationFilter, ResumeWhereInput>
+  }, "id">
+
+  export type ReferenceOrderByWithAggregationInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    name?: SortOrder
+    company?: SortOrder
+    email?: SortOrderInput | SortOrder
+    phone?: SortOrderInput | SortOrder
+    relation?: SortOrderInput | SortOrder
+    order?: SortOrderInput | SortOrder
+    _count?: ReferenceCountOrderByAggregateInput
+    _avg?: ReferenceAvgOrderByAggregateInput
+    _max?: ReferenceMaxOrderByAggregateInput
+    _min?: ReferenceMinOrderByAggregateInput
+    _sum?: ReferenceSumOrderByAggregateInput
+  }
+
+  export type ReferenceScalarWhereWithAggregatesInput = {
+    AND?: ReferenceScalarWhereWithAggregatesInput | ReferenceScalarWhereWithAggregatesInput[]
+    OR?: ReferenceScalarWhereWithAggregatesInput[]
+    NOT?: ReferenceScalarWhereWithAggregatesInput | ReferenceScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Reference"> | string
+    resumeId?: StringWithAggregatesFilter<"Reference"> | string
+    name?: StringWithAggregatesFilter<"Reference"> | string
+    company?: StringWithAggregatesFilter<"Reference"> | string
+    email?: StringNullableWithAggregatesFilter<"Reference"> | string | null
+    phone?: StringNullableWithAggregatesFilter<"Reference"> | string | null
+    relation?: StringNullableWithAggregatesFilter<"Reference"> | string | null
+    order?: IntNullableWithAggregatesFilter<"Reference"> | number | null
+  }
+
+  export type PublicationWhereInput = {
+    AND?: PublicationWhereInput | PublicationWhereInput[]
+    OR?: PublicationWhereInput[]
+    NOT?: PublicationWhereInput | PublicationWhereInput[]
+    id?: StringFilter<"Publication"> | string
+    resumeId?: StringFilter<"Publication"> | string
+    title?: StringFilter<"Publication"> | string
+    publisher?: StringNullableFilter<"Publication"> | string | null
+    date?: DateTimeFilter<"Publication"> | Date | string
+    url?: StringNullableFilter<"Publication"> | string | null
+    description?: StringNullableFilter<"Publication"> | string | null
+    order?: IntNullableFilter<"Publication"> | number | null
+    resume?: XOR<ResumeScalarRelationFilter, ResumeWhereInput>
+  }
+
+  export type PublicationOrderByWithRelationInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    title?: SortOrder
+    publisher?: SortOrderInput | SortOrder
+    date?: SortOrder
+    url?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
+    order?: SortOrderInput | SortOrder
+    resume?: ResumeOrderByWithRelationInput
+  }
+
+  export type PublicationWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: PublicationWhereInput | PublicationWhereInput[]
+    OR?: PublicationWhereInput[]
+    NOT?: PublicationWhereInput | PublicationWhereInput[]
+    resumeId?: StringFilter<"Publication"> | string
+    title?: StringFilter<"Publication"> | string
+    publisher?: StringNullableFilter<"Publication"> | string | null
+    date?: DateTimeFilter<"Publication"> | Date | string
+    url?: StringNullableFilter<"Publication"> | string | null
+    description?: StringNullableFilter<"Publication"> | string | null
+    order?: IntNullableFilter<"Publication"> | number | null
+    resume?: XOR<ResumeScalarRelationFilter, ResumeWhereInput>
+  }, "id">
+
+  export type PublicationOrderByWithAggregationInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    title?: SortOrder
+    publisher?: SortOrderInput | SortOrder
+    date?: SortOrder
+    url?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
+    order?: SortOrderInput | SortOrder
+    _count?: PublicationCountOrderByAggregateInput
+    _avg?: PublicationAvgOrderByAggregateInput
+    _max?: PublicationMaxOrderByAggregateInput
+    _min?: PublicationMinOrderByAggregateInput
+    _sum?: PublicationSumOrderByAggregateInput
+  }
+
+  export type PublicationScalarWhereWithAggregatesInput = {
+    AND?: PublicationScalarWhereWithAggregatesInput | PublicationScalarWhereWithAggregatesInput[]
+    OR?: PublicationScalarWhereWithAggregatesInput[]
+    NOT?: PublicationScalarWhereWithAggregatesInput | PublicationScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Publication"> | string
+    resumeId?: StringWithAggregatesFilter<"Publication"> | string
+    title?: StringWithAggregatesFilter<"Publication"> | string
+    publisher?: StringNullableWithAggregatesFilter<"Publication"> | string | null
+    date?: DateTimeWithAggregatesFilter<"Publication"> | Date | string
+    url?: StringNullableWithAggregatesFilter<"Publication"> | string | null
+    description?: StringNullableWithAggregatesFilter<"Publication"> | string | null
+    order?: IntNullableWithAggregatesFilter<"Publication"> | number | null
+  }
+
+  export type VolunteeringWhereInput = {
+    AND?: VolunteeringWhereInput | VolunteeringWhereInput[]
+    OR?: VolunteeringWhereInput[]
+    NOT?: VolunteeringWhereInput | VolunteeringWhereInput[]
+    id?: StringFilter<"Volunteering"> | string
+    resumeId?: StringFilter<"Volunteering"> | string
+    organization?: StringFilter<"Volunteering"> | string
+    role?: StringFilter<"Volunteering"> | string
+    startDate?: DateTimeNullableFilter<"Volunteering"> | Date | string | null
+    endDate?: DateTimeNullableFilter<"Volunteering"> | Date | string | null
+    description?: StringFilter<"Volunteering"> | string
+    order?: IntNullableFilter<"Volunteering"> | number | null
+    resume?: XOR<ResumeScalarRelationFilter, ResumeWhereInput>
+  }
+
+  export type VolunteeringOrderByWithRelationInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    organization?: SortOrder
+    role?: SortOrder
+    startDate?: SortOrderInput | SortOrder
+    endDate?: SortOrderInput | SortOrder
+    description?: SortOrder
+    order?: SortOrderInput | SortOrder
+    resume?: ResumeOrderByWithRelationInput
+  }
+
+  export type VolunteeringWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: VolunteeringWhereInput | VolunteeringWhereInput[]
+    OR?: VolunteeringWhereInput[]
+    NOT?: VolunteeringWhereInput | VolunteeringWhereInput[]
+    resumeId?: StringFilter<"Volunteering"> | string
+    organization?: StringFilter<"Volunteering"> | string
+    role?: StringFilter<"Volunteering"> | string
+    startDate?: DateTimeNullableFilter<"Volunteering"> | Date | string | null
+    endDate?: DateTimeNullableFilter<"Volunteering"> | Date | string | null
+    description?: StringFilter<"Volunteering"> | string
+    order?: IntNullableFilter<"Volunteering"> | number | null
+    resume?: XOR<ResumeScalarRelationFilter, ResumeWhereInput>
+  }, "id">
+
+  export type VolunteeringOrderByWithAggregationInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    organization?: SortOrder
+    role?: SortOrder
+    startDate?: SortOrderInput | SortOrder
+    endDate?: SortOrderInput | SortOrder
+    description?: SortOrder
+    order?: SortOrderInput | SortOrder
+    _count?: VolunteeringCountOrderByAggregateInput
+    _avg?: VolunteeringAvgOrderByAggregateInput
+    _max?: VolunteeringMaxOrderByAggregateInput
+    _min?: VolunteeringMinOrderByAggregateInput
+    _sum?: VolunteeringSumOrderByAggregateInput
+  }
+
+  export type VolunteeringScalarWhereWithAggregatesInput = {
+    AND?: VolunteeringScalarWhereWithAggregatesInput | VolunteeringScalarWhereWithAggregatesInput[]
+    OR?: VolunteeringScalarWhereWithAggregatesInput[]
+    NOT?: VolunteeringScalarWhereWithAggregatesInput | VolunteeringScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Volunteering"> | string
+    resumeId?: StringWithAggregatesFilter<"Volunteering"> | string
+    organization?: StringWithAggregatesFilter<"Volunteering"> | string
+    role?: StringWithAggregatesFilter<"Volunteering"> | string
+    startDate?: DateTimeNullableWithAggregatesFilter<"Volunteering"> | Date | string | null
+    endDate?: DateTimeNullableWithAggregatesFilter<"Volunteering"> | Date | string | null
+    description?: StringWithAggregatesFilter<"Volunteering"> | string
+    order?: IntNullableWithAggregatesFilter<"Volunteering"> | number | null
+  }
+
+  export type AwardWhereInput = {
+    AND?: AwardWhereInput | AwardWhereInput[]
+    OR?: AwardWhereInput[]
+    NOT?: AwardWhereInput | AwardWhereInput[]
+    id?: StringFilter<"Award"> | string
+    resumeId?: StringFilter<"Award"> | string
+    title?: StringFilter<"Award"> | string
+    issuer?: StringNullableFilter<"Award"> | string | null
+    date?: DateTimeFilter<"Award"> | Date | string
+    description?: StringNullableFilter<"Award"> | string | null
+    order?: IntNullableFilter<"Award"> | number | null
+    resume?: XOR<ResumeScalarRelationFilter, ResumeWhereInput>
+  }
+
+  export type AwardOrderByWithRelationInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    title?: SortOrder
+    issuer?: SortOrderInput | SortOrder
+    date?: SortOrder
+    description?: SortOrderInput | SortOrder
+    order?: SortOrderInput | SortOrder
+    resume?: ResumeOrderByWithRelationInput
+  }
+
+  export type AwardWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: AwardWhereInput | AwardWhereInput[]
+    OR?: AwardWhereInput[]
+    NOT?: AwardWhereInput | AwardWhereInput[]
+    resumeId?: StringFilter<"Award"> | string
+    title?: StringFilter<"Award"> | string
+    issuer?: StringNullableFilter<"Award"> | string | null
+    date?: DateTimeFilter<"Award"> | Date | string
+    description?: StringNullableFilter<"Award"> | string | null
+    order?: IntNullableFilter<"Award"> | number | null
+    resume?: XOR<ResumeScalarRelationFilter, ResumeWhereInput>
+  }, "id">
+
+  export type AwardOrderByWithAggregationInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    title?: SortOrder
+    issuer?: SortOrderInput | SortOrder
+    date?: SortOrder
+    description?: SortOrderInput | SortOrder
+    order?: SortOrderInput | SortOrder
+    _count?: AwardCountOrderByAggregateInput
+    _avg?: AwardAvgOrderByAggregateInput
+    _max?: AwardMaxOrderByAggregateInput
+    _min?: AwardMinOrderByAggregateInput
+    _sum?: AwardSumOrderByAggregateInput
+  }
+
+  export type AwardScalarWhereWithAggregatesInput = {
+    AND?: AwardScalarWhereWithAggregatesInput | AwardScalarWhereWithAggregatesInput[]
+    OR?: AwardScalarWhereWithAggregatesInput[]
+    NOT?: AwardScalarWhereWithAggregatesInput | AwardScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Award"> | string
+    resumeId?: StringWithAggregatesFilter<"Award"> | string
+    title?: StringWithAggregatesFilter<"Award"> | string
+    issuer?: StringNullableWithAggregatesFilter<"Award"> | string | null
+    date?: DateTimeWithAggregatesFilter<"Award"> | Date | string
+    description?: StringNullableWithAggregatesFilter<"Award"> | string | null
+    order?: IntNullableWithAggregatesFilter<"Award"> | number | null
   }
 
   export type TemplateWhereInput = {
@@ -29379,6 +36043,11 @@ export namespace Prisma {
     projects?: ProjectCreateNestedManyWithoutResumeInput
     achievements?: AchievementCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+    hobbies?: HobbyCreateNestedManyWithoutResumeInput
+    references?: ReferenceCreateNestedManyWithoutResumeInput
+    publications?: PublicationCreateNestedManyWithoutResumeInput
+    volunteerings?: VolunteeringCreateNestedManyWithoutResumeInput
+    awards?: AwardCreateNestedManyWithoutResumeInput
     LinkedInProfile?: LinkedInProfileCreateNestedOneWithoutResumeInput
   }
 
@@ -29403,6 +36072,11 @@ export namespace Prisma {
     projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
     achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+    hobbies?: HobbyUncheckedCreateNestedManyWithoutResumeInput
+    references?: ReferenceUncheckedCreateNestedManyWithoutResumeInput
+    publications?: PublicationUncheckedCreateNestedManyWithoutResumeInput
+    volunteerings?: VolunteeringUncheckedCreateNestedManyWithoutResumeInput
+    awards?: AwardUncheckedCreateNestedManyWithoutResumeInput
     LinkedInProfile?: LinkedInProfileUncheckedCreateNestedOneWithoutResumeInput
   }
 
@@ -29427,6 +36101,11 @@ export namespace Prisma {
     projects?: ProjectUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+    hobbies?: HobbyUpdateManyWithoutResumeNestedInput
+    references?: ReferenceUpdateManyWithoutResumeNestedInput
+    publications?: PublicationUpdateManyWithoutResumeNestedInput
+    volunteerings?: VolunteeringUpdateManyWithoutResumeNestedInput
+    awards?: AwardUpdateManyWithoutResumeNestedInput
     LinkedInProfile?: LinkedInProfileUpdateOneWithoutResumeNestedInput
   }
 
@@ -29451,6 +36130,11 @@ export namespace Prisma {
     projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+    hobbies?: HobbyUncheckedUpdateManyWithoutResumeNestedInput
+    references?: ReferenceUncheckedUpdateManyWithoutResumeNestedInput
+    publications?: PublicationUncheckedUpdateManyWithoutResumeNestedInput
+    volunteerings?: VolunteeringUncheckedUpdateManyWithoutResumeNestedInput
+    awards?: AwardUncheckedUpdateManyWithoutResumeNestedInput
     LinkedInProfile?: LinkedInProfileUncheckedUpdateOneWithoutResumeNestedInput
   }
 
@@ -30219,6 +36903,358 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     order?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type HobbyCreateInput = {
+    id?: string
+    name: string
+    icon?: string | null
+    order?: number | null
+    resume: ResumeCreateNestedOneWithoutHobbiesInput
+  }
+
+  export type HobbyUncheckedCreateInput = {
+    id?: string
+    resumeId: string
+    name: string
+    icon?: string | null
+    order?: number | null
+  }
+
+  export type HobbyUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: NullableIntFieldUpdateOperationsInput | number | null
+    resume?: ResumeUpdateOneRequiredWithoutHobbiesNestedInput
+  }
+
+  export type HobbyUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    resumeId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type HobbyCreateManyInput = {
+    id?: string
+    resumeId: string
+    name: string
+    icon?: string | null
+    order?: number | null
+  }
+
+  export type HobbyUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type HobbyUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    resumeId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type ReferenceCreateInput = {
+    id?: string
+    name: string
+    company: string
+    email?: string | null
+    phone?: string | null
+    relation?: string | null
+    order?: number | null
+    resume: ResumeCreateNestedOneWithoutReferencesInput
+  }
+
+  export type ReferenceUncheckedCreateInput = {
+    id?: string
+    resumeId: string
+    name: string
+    company: string
+    email?: string | null
+    phone?: string | null
+    relation?: string | null
+    order?: number | null
+  }
+
+  export type ReferenceUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    company?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    relation?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: NullableIntFieldUpdateOperationsInput | number | null
+    resume?: ResumeUpdateOneRequiredWithoutReferencesNestedInput
+  }
+
+  export type ReferenceUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    resumeId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    company?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    relation?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type ReferenceCreateManyInput = {
+    id?: string
+    resumeId: string
+    name: string
+    company: string
+    email?: string | null
+    phone?: string | null
+    relation?: string | null
+    order?: number | null
+  }
+
+  export type ReferenceUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    company?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    relation?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type ReferenceUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    resumeId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    company?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    relation?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type PublicationCreateInput = {
+    id?: string
+    title: string
+    publisher?: string | null
+    date: Date | string
+    url?: string | null
+    description?: string | null
+    order?: number | null
+    resume: ResumeCreateNestedOneWithoutPublicationsInput
+  }
+
+  export type PublicationUncheckedCreateInput = {
+    id?: string
+    resumeId: string
+    title: string
+    publisher?: string | null
+    date: Date | string
+    url?: string | null
+    description?: string | null
+    order?: number | null
+  }
+
+  export type PublicationUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    publisher?: NullableStringFieldUpdateOperationsInput | string | null
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    url?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: NullableIntFieldUpdateOperationsInput | number | null
+    resume?: ResumeUpdateOneRequiredWithoutPublicationsNestedInput
+  }
+
+  export type PublicationUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    resumeId?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    publisher?: NullableStringFieldUpdateOperationsInput | string | null
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    url?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type PublicationCreateManyInput = {
+    id?: string
+    resumeId: string
+    title: string
+    publisher?: string | null
+    date: Date | string
+    url?: string | null
+    description?: string | null
+    order?: number | null
+  }
+
+  export type PublicationUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    publisher?: NullableStringFieldUpdateOperationsInput | string | null
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    url?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type PublicationUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    resumeId?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    publisher?: NullableStringFieldUpdateOperationsInput | string | null
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    url?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type VolunteeringCreateInput = {
+    id?: string
+    organization: string
+    role: string
+    startDate?: Date | string | null
+    endDate?: Date | string | null
+    description: string
+    order?: number | null
+    resume: ResumeCreateNestedOneWithoutVolunteeringsInput
+  }
+
+  export type VolunteeringUncheckedCreateInput = {
+    id?: string
+    resumeId: string
+    organization: string
+    role: string
+    startDate?: Date | string | null
+    endDate?: Date | string | null
+    description: string
+    order?: number | null
+  }
+
+  export type VolunteeringUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    organization?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    description?: StringFieldUpdateOperationsInput | string
+    order?: NullableIntFieldUpdateOperationsInput | number | null
+    resume?: ResumeUpdateOneRequiredWithoutVolunteeringsNestedInput
+  }
+
+  export type VolunteeringUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    resumeId?: StringFieldUpdateOperationsInput | string
+    organization?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    description?: StringFieldUpdateOperationsInput | string
+    order?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type VolunteeringCreateManyInput = {
+    id?: string
+    resumeId: string
+    organization: string
+    role: string
+    startDate?: Date | string | null
+    endDate?: Date | string | null
+    description: string
+    order?: number | null
+  }
+
+  export type VolunteeringUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    organization?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    description?: StringFieldUpdateOperationsInput | string
+    order?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type VolunteeringUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    resumeId?: StringFieldUpdateOperationsInput | string
+    organization?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    description?: StringFieldUpdateOperationsInput | string
+    order?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type AwardCreateInput = {
+    id?: string
+    title: string
+    issuer?: string | null
+    date: Date | string
+    description?: string | null
+    order?: number | null
+    resume: ResumeCreateNestedOneWithoutAwardsInput
+  }
+
+  export type AwardUncheckedCreateInput = {
+    id?: string
+    resumeId: string
+    title: string
+    issuer?: string | null
+    date: Date | string
+    description?: string | null
+    order?: number | null
+  }
+
+  export type AwardUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    issuer?: NullableStringFieldUpdateOperationsInput | string | null
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: NullableIntFieldUpdateOperationsInput | number | null
+    resume?: ResumeUpdateOneRequiredWithoutAwardsNestedInput
+  }
+
+  export type AwardUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    resumeId?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    issuer?: NullableStringFieldUpdateOperationsInput | string | null
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type AwardCreateManyInput = {
+    id?: string
+    resumeId: string
+    title: string
+    issuer?: string | null
+    date: Date | string
+    description?: string | null
+    order?: number | null
+  }
+
+  export type AwardUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    issuer?: NullableStringFieldUpdateOperationsInput | string | null
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type AwardUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    resumeId?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    issuer?: NullableStringFieldUpdateOperationsInput | string | null
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type TemplateCreateInput = {
@@ -31176,6 +38212,36 @@ export namespace Prisma {
     none?: CustomSectionWhereInput
   }
 
+  export type HobbyListRelationFilter = {
+    every?: HobbyWhereInput
+    some?: HobbyWhereInput
+    none?: HobbyWhereInput
+  }
+
+  export type ReferenceListRelationFilter = {
+    every?: ReferenceWhereInput
+    some?: ReferenceWhereInput
+    none?: ReferenceWhereInput
+  }
+
+  export type PublicationListRelationFilter = {
+    every?: PublicationWhereInput
+    some?: PublicationWhereInput
+    none?: PublicationWhereInput
+  }
+
+  export type VolunteeringListRelationFilter = {
+    every?: VolunteeringWhereInput
+    some?: VolunteeringWhereInput
+    none?: VolunteeringWhereInput
+  }
+
+  export type AwardListRelationFilter = {
+    every?: AwardWhereInput
+    some?: AwardWhereInput
+    none?: AwardWhereInput
+  }
+
   export type LinkedInProfileNullableScalarRelationFilter = {
     is?: LinkedInProfileWhereInput | null
     isNot?: LinkedInProfileWhereInput | null
@@ -31214,6 +38280,26 @@ export namespace Prisma {
   }
 
   export type CustomSectionOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type HobbyOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ReferenceOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type PublicationOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type VolunteeringOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type AwardOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -31716,6 +38802,226 @@ export namespace Prisma {
   }
 
   export type CustomSectionSumOrderByAggregateInput = {
+    order?: SortOrder
+  }
+
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type HobbyCountOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    name?: SortOrder
+    icon?: SortOrder
+    order?: SortOrder
+  }
+
+  export type HobbyAvgOrderByAggregateInput = {
+    order?: SortOrder
+  }
+
+  export type HobbyMaxOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    name?: SortOrder
+    icon?: SortOrder
+    order?: SortOrder
+  }
+
+  export type HobbyMinOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    name?: SortOrder
+    icon?: SortOrder
+    order?: SortOrder
+  }
+
+  export type HobbySumOrderByAggregateInput = {
+    order?: SortOrder
+  }
+
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type ReferenceCountOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    name?: SortOrder
+    company?: SortOrder
+    email?: SortOrder
+    phone?: SortOrder
+    relation?: SortOrder
+    order?: SortOrder
+  }
+
+  export type ReferenceAvgOrderByAggregateInput = {
+    order?: SortOrder
+  }
+
+  export type ReferenceMaxOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    name?: SortOrder
+    company?: SortOrder
+    email?: SortOrder
+    phone?: SortOrder
+    relation?: SortOrder
+    order?: SortOrder
+  }
+
+  export type ReferenceMinOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    name?: SortOrder
+    company?: SortOrder
+    email?: SortOrder
+    phone?: SortOrder
+    relation?: SortOrder
+    order?: SortOrder
+  }
+
+  export type ReferenceSumOrderByAggregateInput = {
+    order?: SortOrder
+  }
+
+  export type PublicationCountOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    title?: SortOrder
+    publisher?: SortOrder
+    date?: SortOrder
+    url?: SortOrder
+    description?: SortOrder
+    order?: SortOrder
+  }
+
+  export type PublicationAvgOrderByAggregateInput = {
+    order?: SortOrder
+  }
+
+  export type PublicationMaxOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    title?: SortOrder
+    publisher?: SortOrder
+    date?: SortOrder
+    url?: SortOrder
+    description?: SortOrder
+    order?: SortOrder
+  }
+
+  export type PublicationMinOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    title?: SortOrder
+    publisher?: SortOrder
+    date?: SortOrder
+    url?: SortOrder
+    description?: SortOrder
+    order?: SortOrder
+  }
+
+  export type PublicationSumOrderByAggregateInput = {
+    order?: SortOrder
+  }
+
+  export type VolunteeringCountOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    organization?: SortOrder
+    role?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    description?: SortOrder
+    order?: SortOrder
+  }
+
+  export type VolunteeringAvgOrderByAggregateInput = {
+    order?: SortOrder
+  }
+
+  export type VolunteeringMaxOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    organization?: SortOrder
+    role?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    description?: SortOrder
+    order?: SortOrder
+  }
+
+  export type VolunteeringMinOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    organization?: SortOrder
+    role?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    description?: SortOrder
+    order?: SortOrder
+  }
+
+  export type VolunteeringSumOrderByAggregateInput = {
+    order?: SortOrder
+  }
+
+  export type AwardCountOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    title?: SortOrder
+    issuer?: SortOrder
+    date?: SortOrder
+    description?: SortOrder
+    order?: SortOrder
+  }
+
+  export type AwardAvgOrderByAggregateInput = {
+    order?: SortOrder
+  }
+
+  export type AwardMaxOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    title?: SortOrder
+    issuer?: SortOrder
+    date?: SortOrder
+    description?: SortOrder
+    order?: SortOrder
+  }
+
+  export type AwardMinOrderByAggregateInput = {
+    id?: SortOrder
+    resumeId?: SortOrder
+    title?: SortOrder
+    issuer?: SortOrder
+    date?: SortOrder
+    description?: SortOrder
+    order?: SortOrder
+  }
+
+  export type AwardSumOrderByAggregateInput = {
     order?: SortOrder
   }
 
@@ -32293,6 +39599,41 @@ export namespace Prisma {
     connect?: CustomSectionWhereUniqueInput | CustomSectionWhereUniqueInput[]
   }
 
+  export type HobbyCreateNestedManyWithoutResumeInput = {
+    create?: XOR<HobbyCreateWithoutResumeInput, HobbyUncheckedCreateWithoutResumeInput> | HobbyCreateWithoutResumeInput[] | HobbyUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: HobbyCreateOrConnectWithoutResumeInput | HobbyCreateOrConnectWithoutResumeInput[]
+    createMany?: HobbyCreateManyResumeInputEnvelope
+    connect?: HobbyWhereUniqueInput | HobbyWhereUniqueInput[]
+  }
+
+  export type ReferenceCreateNestedManyWithoutResumeInput = {
+    create?: XOR<ReferenceCreateWithoutResumeInput, ReferenceUncheckedCreateWithoutResumeInput> | ReferenceCreateWithoutResumeInput[] | ReferenceUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: ReferenceCreateOrConnectWithoutResumeInput | ReferenceCreateOrConnectWithoutResumeInput[]
+    createMany?: ReferenceCreateManyResumeInputEnvelope
+    connect?: ReferenceWhereUniqueInput | ReferenceWhereUniqueInput[]
+  }
+
+  export type PublicationCreateNestedManyWithoutResumeInput = {
+    create?: XOR<PublicationCreateWithoutResumeInput, PublicationUncheckedCreateWithoutResumeInput> | PublicationCreateWithoutResumeInput[] | PublicationUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: PublicationCreateOrConnectWithoutResumeInput | PublicationCreateOrConnectWithoutResumeInput[]
+    createMany?: PublicationCreateManyResumeInputEnvelope
+    connect?: PublicationWhereUniqueInput | PublicationWhereUniqueInput[]
+  }
+
+  export type VolunteeringCreateNestedManyWithoutResumeInput = {
+    create?: XOR<VolunteeringCreateWithoutResumeInput, VolunteeringUncheckedCreateWithoutResumeInput> | VolunteeringCreateWithoutResumeInput[] | VolunteeringUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: VolunteeringCreateOrConnectWithoutResumeInput | VolunteeringCreateOrConnectWithoutResumeInput[]
+    createMany?: VolunteeringCreateManyResumeInputEnvelope
+    connect?: VolunteeringWhereUniqueInput | VolunteeringWhereUniqueInput[]
+  }
+
+  export type AwardCreateNestedManyWithoutResumeInput = {
+    create?: XOR<AwardCreateWithoutResumeInput, AwardUncheckedCreateWithoutResumeInput> | AwardCreateWithoutResumeInput[] | AwardUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: AwardCreateOrConnectWithoutResumeInput | AwardCreateOrConnectWithoutResumeInput[]
+    createMany?: AwardCreateManyResumeInputEnvelope
+    connect?: AwardWhereUniqueInput | AwardWhereUniqueInput[]
+  }
+
   export type LinkedInProfileCreateNestedOneWithoutResumeInput = {
     create?: XOR<LinkedInProfileCreateWithoutResumeInput, LinkedInProfileUncheckedCreateWithoutResumeInput>
     connectOrCreate?: LinkedInProfileCreateOrConnectWithoutResumeInput
@@ -32366,6 +39707,41 @@ export namespace Prisma {
     connectOrCreate?: CustomSectionCreateOrConnectWithoutResumeInput | CustomSectionCreateOrConnectWithoutResumeInput[]
     createMany?: CustomSectionCreateManyResumeInputEnvelope
     connect?: CustomSectionWhereUniqueInput | CustomSectionWhereUniqueInput[]
+  }
+
+  export type HobbyUncheckedCreateNestedManyWithoutResumeInput = {
+    create?: XOR<HobbyCreateWithoutResumeInput, HobbyUncheckedCreateWithoutResumeInput> | HobbyCreateWithoutResumeInput[] | HobbyUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: HobbyCreateOrConnectWithoutResumeInput | HobbyCreateOrConnectWithoutResumeInput[]
+    createMany?: HobbyCreateManyResumeInputEnvelope
+    connect?: HobbyWhereUniqueInput | HobbyWhereUniqueInput[]
+  }
+
+  export type ReferenceUncheckedCreateNestedManyWithoutResumeInput = {
+    create?: XOR<ReferenceCreateWithoutResumeInput, ReferenceUncheckedCreateWithoutResumeInput> | ReferenceCreateWithoutResumeInput[] | ReferenceUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: ReferenceCreateOrConnectWithoutResumeInput | ReferenceCreateOrConnectWithoutResumeInput[]
+    createMany?: ReferenceCreateManyResumeInputEnvelope
+    connect?: ReferenceWhereUniqueInput | ReferenceWhereUniqueInput[]
+  }
+
+  export type PublicationUncheckedCreateNestedManyWithoutResumeInput = {
+    create?: XOR<PublicationCreateWithoutResumeInput, PublicationUncheckedCreateWithoutResumeInput> | PublicationCreateWithoutResumeInput[] | PublicationUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: PublicationCreateOrConnectWithoutResumeInput | PublicationCreateOrConnectWithoutResumeInput[]
+    createMany?: PublicationCreateManyResumeInputEnvelope
+    connect?: PublicationWhereUniqueInput | PublicationWhereUniqueInput[]
+  }
+
+  export type VolunteeringUncheckedCreateNestedManyWithoutResumeInput = {
+    create?: XOR<VolunteeringCreateWithoutResumeInput, VolunteeringUncheckedCreateWithoutResumeInput> | VolunteeringCreateWithoutResumeInput[] | VolunteeringUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: VolunteeringCreateOrConnectWithoutResumeInput | VolunteeringCreateOrConnectWithoutResumeInput[]
+    createMany?: VolunteeringCreateManyResumeInputEnvelope
+    connect?: VolunteeringWhereUniqueInput | VolunteeringWhereUniqueInput[]
+  }
+
+  export type AwardUncheckedCreateNestedManyWithoutResumeInput = {
+    create?: XOR<AwardCreateWithoutResumeInput, AwardUncheckedCreateWithoutResumeInput> | AwardCreateWithoutResumeInput[] | AwardUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: AwardCreateOrConnectWithoutResumeInput | AwardCreateOrConnectWithoutResumeInput[]
+    createMany?: AwardCreateManyResumeInputEnvelope
+    connect?: AwardWhereUniqueInput | AwardWhereUniqueInput[]
   }
 
   export type LinkedInProfileUncheckedCreateNestedOneWithoutResumeInput = {
@@ -32544,6 +39920,76 @@ export namespace Prisma {
     deleteMany?: CustomSectionScalarWhereInput | CustomSectionScalarWhereInput[]
   }
 
+  export type HobbyUpdateManyWithoutResumeNestedInput = {
+    create?: XOR<HobbyCreateWithoutResumeInput, HobbyUncheckedCreateWithoutResumeInput> | HobbyCreateWithoutResumeInput[] | HobbyUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: HobbyCreateOrConnectWithoutResumeInput | HobbyCreateOrConnectWithoutResumeInput[]
+    upsert?: HobbyUpsertWithWhereUniqueWithoutResumeInput | HobbyUpsertWithWhereUniqueWithoutResumeInput[]
+    createMany?: HobbyCreateManyResumeInputEnvelope
+    set?: HobbyWhereUniqueInput | HobbyWhereUniqueInput[]
+    disconnect?: HobbyWhereUniqueInput | HobbyWhereUniqueInput[]
+    delete?: HobbyWhereUniqueInput | HobbyWhereUniqueInput[]
+    connect?: HobbyWhereUniqueInput | HobbyWhereUniqueInput[]
+    update?: HobbyUpdateWithWhereUniqueWithoutResumeInput | HobbyUpdateWithWhereUniqueWithoutResumeInput[]
+    updateMany?: HobbyUpdateManyWithWhereWithoutResumeInput | HobbyUpdateManyWithWhereWithoutResumeInput[]
+    deleteMany?: HobbyScalarWhereInput | HobbyScalarWhereInput[]
+  }
+
+  export type ReferenceUpdateManyWithoutResumeNestedInput = {
+    create?: XOR<ReferenceCreateWithoutResumeInput, ReferenceUncheckedCreateWithoutResumeInput> | ReferenceCreateWithoutResumeInput[] | ReferenceUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: ReferenceCreateOrConnectWithoutResumeInput | ReferenceCreateOrConnectWithoutResumeInput[]
+    upsert?: ReferenceUpsertWithWhereUniqueWithoutResumeInput | ReferenceUpsertWithWhereUniqueWithoutResumeInput[]
+    createMany?: ReferenceCreateManyResumeInputEnvelope
+    set?: ReferenceWhereUniqueInput | ReferenceWhereUniqueInput[]
+    disconnect?: ReferenceWhereUniqueInput | ReferenceWhereUniqueInput[]
+    delete?: ReferenceWhereUniqueInput | ReferenceWhereUniqueInput[]
+    connect?: ReferenceWhereUniqueInput | ReferenceWhereUniqueInput[]
+    update?: ReferenceUpdateWithWhereUniqueWithoutResumeInput | ReferenceUpdateWithWhereUniqueWithoutResumeInput[]
+    updateMany?: ReferenceUpdateManyWithWhereWithoutResumeInput | ReferenceUpdateManyWithWhereWithoutResumeInput[]
+    deleteMany?: ReferenceScalarWhereInput | ReferenceScalarWhereInput[]
+  }
+
+  export type PublicationUpdateManyWithoutResumeNestedInput = {
+    create?: XOR<PublicationCreateWithoutResumeInput, PublicationUncheckedCreateWithoutResumeInput> | PublicationCreateWithoutResumeInput[] | PublicationUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: PublicationCreateOrConnectWithoutResumeInput | PublicationCreateOrConnectWithoutResumeInput[]
+    upsert?: PublicationUpsertWithWhereUniqueWithoutResumeInput | PublicationUpsertWithWhereUniqueWithoutResumeInput[]
+    createMany?: PublicationCreateManyResumeInputEnvelope
+    set?: PublicationWhereUniqueInput | PublicationWhereUniqueInput[]
+    disconnect?: PublicationWhereUniqueInput | PublicationWhereUniqueInput[]
+    delete?: PublicationWhereUniqueInput | PublicationWhereUniqueInput[]
+    connect?: PublicationWhereUniqueInput | PublicationWhereUniqueInput[]
+    update?: PublicationUpdateWithWhereUniqueWithoutResumeInput | PublicationUpdateWithWhereUniqueWithoutResumeInput[]
+    updateMany?: PublicationUpdateManyWithWhereWithoutResumeInput | PublicationUpdateManyWithWhereWithoutResumeInput[]
+    deleteMany?: PublicationScalarWhereInput | PublicationScalarWhereInput[]
+  }
+
+  export type VolunteeringUpdateManyWithoutResumeNestedInput = {
+    create?: XOR<VolunteeringCreateWithoutResumeInput, VolunteeringUncheckedCreateWithoutResumeInput> | VolunteeringCreateWithoutResumeInput[] | VolunteeringUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: VolunteeringCreateOrConnectWithoutResumeInput | VolunteeringCreateOrConnectWithoutResumeInput[]
+    upsert?: VolunteeringUpsertWithWhereUniqueWithoutResumeInput | VolunteeringUpsertWithWhereUniqueWithoutResumeInput[]
+    createMany?: VolunteeringCreateManyResumeInputEnvelope
+    set?: VolunteeringWhereUniqueInput | VolunteeringWhereUniqueInput[]
+    disconnect?: VolunteeringWhereUniqueInput | VolunteeringWhereUniqueInput[]
+    delete?: VolunteeringWhereUniqueInput | VolunteeringWhereUniqueInput[]
+    connect?: VolunteeringWhereUniqueInput | VolunteeringWhereUniqueInput[]
+    update?: VolunteeringUpdateWithWhereUniqueWithoutResumeInput | VolunteeringUpdateWithWhereUniqueWithoutResumeInput[]
+    updateMany?: VolunteeringUpdateManyWithWhereWithoutResumeInput | VolunteeringUpdateManyWithWhereWithoutResumeInput[]
+    deleteMany?: VolunteeringScalarWhereInput | VolunteeringScalarWhereInput[]
+  }
+
+  export type AwardUpdateManyWithoutResumeNestedInput = {
+    create?: XOR<AwardCreateWithoutResumeInput, AwardUncheckedCreateWithoutResumeInput> | AwardCreateWithoutResumeInput[] | AwardUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: AwardCreateOrConnectWithoutResumeInput | AwardCreateOrConnectWithoutResumeInput[]
+    upsert?: AwardUpsertWithWhereUniqueWithoutResumeInput | AwardUpsertWithWhereUniqueWithoutResumeInput[]
+    createMany?: AwardCreateManyResumeInputEnvelope
+    set?: AwardWhereUniqueInput | AwardWhereUniqueInput[]
+    disconnect?: AwardWhereUniqueInput | AwardWhereUniqueInput[]
+    delete?: AwardWhereUniqueInput | AwardWhereUniqueInput[]
+    connect?: AwardWhereUniqueInput | AwardWhereUniqueInput[]
+    update?: AwardUpdateWithWhereUniqueWithoutResumeInput | AwardUpdateWithWhereUniqueWithoutResumeInput[]
+    updateMany?: AwardUpdateManyWithWhereWithoutResumeInput | AwardUpdateManyWithWhereWithoutResumeInput[]
+    deleteMany?: AwardScalarWhereInput | AwardScalarWhereInput[]
+  }
+
   export type LinkedInProfileUpdateOneWithoutResumeNestedInput = {
     create?: XOR<LinkedInProfileCreateWithoutResumeInput, LinkedInProfileUncheckedCreateWithoutResumeInput>
     connectOrCreate?: LinkedInProfileCreateOrConnectWithoutResumeInput
@@ -32688,6 +40134,76 @@ export namespace Prisma {
     update?: CustomSectionUpdateWithWhereUniqueWithoutResumeInput | CustomSectionUpdateWithWhereUniqueWithoutResumeInput[]
     updateMany?: CustomSectionUpdateManyWithWhereWithoutResumeInput | CustomSectionUpdateManyWithWhereWithoutResumeInput[]
     deleteMany?: CustomSectionScalarWhereInput | CustomSectionScalarWhereInput[]
+  }
+
+  export type HobbyUncheckedUpdateManyWithoutResumeNestedInput = {
+    create?: XOR<HobbyCreateWithoutResumeInput, HobbyUncheckedCreateWithoutResumeInput> | HobbyCreateWithoutResumeInput[] | HobbyUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: HobbyCreateOrConnectWithoutResumeInput | HobbyCreateOrConnectWithoutResumeInput[]
+    upsert?: HobbyUpsertWithWhereUniqueWithoutResumeInput | HobbyUpsertWithWhereUniqueWithoutResumeInput[]
+    createMany?: HobbyCreateManyResumeInputEnvelope
+    set?: HobbyWhereUniqueInput | HobbyWhereUniqueInput[]
+    disconnect?: HobbyWhereUniqueInput | HobbyWhereUniqueInput[]
+    delete?: HobbyWhereUniqueInput | HobbyWhereUniqueInput[]
+    connect?: HobbyWhereUniqueInput | HobbyWhereUniqueInput[]
+    update?: HobbyUpdateWithWhereUniqueWithoutResumeInput | HobbyUpdateWithWhereUniqueWithoutResumeInput[]
+    updateMany?: HobbyUpdateManyWithWhereWithoutResumeInput | HobbyUpdateManyWithWhereWithoutResumeInput[]
+    deleteMany?: HobbyScalarWhereInput | HobbyScalarWhereInput[]
+  }
+
+  export type ReferenceUncheckedUpdateManyWithoutResumeNestedInput = {
+    create?: XOR<ReferenceCreateWithoutResumeInput, ReferenceUncheckedCreateWithoutResumeInput> | ReferenceCreateWithoutResumeInput[] | ReferenceUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: ReferenceCreateOrConnectWithoutResumeInput | ReferenceCreateOrConnectWithoutResumeInput[]
+    upsert?: ReferenceUpsertWithWhereUniqueWithoutResumeInput | ReferenceUpsertWithWhereUniqueWithoutResumeInput[]
+    createMany?: ReferenceCreateManyResumeInputEnvelope
+    set?: ReferenceWhereUniqueInput | ReferenceWhereUniqueInput[]
+    disconnect?: ReferenceWhereUniqueInput | ReferenceWhereUniqueInput[]
+    delete?: ReferenceWhereUniqueInput | ReferenceWhereUniqueInput[]
+    connect?: ReferenceWhereUniqueInput | ReferenceWhereUniqueInput[]
+    update?: ReferenceUpdateWithWhereUniqueWithoutResumeInput | ReferenceUpdateWithWhereUniqueWithoutResumeInput[]
+    updateMany?: ReferenceUpdateManyWithWhereWithoutResumeInput | ReferenceUpdateManyWithWhereWithoutResumeInput[]
+    deleteMany?: ReferenceScalarWhereInput | ReferenceScalarWhereInput[]
+  }
+
+  export type PublicationUncheckedUpdateManyWithoutResumeNestedInput = {
+    create?: XOR<PublicationCreateWithoutResumeInput, PublicationUncheckedCreateWithoutResumeInput> | PublicationCreateWithoutResumeInput[] | PublicationUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: PublicationCreateOrConnectWithoutResumeInput | PublicationCreateOrConnectWithoutResumeInput[]
+    upsert?: PublicationUpsertWithWhereUniqueWithoutResumeInput | PublicationUpsertWithWhereUniqueWithoutResumeInput[]
+    createMany?: PublicationCreateManyResumeInputEnvelope
+    set?: PublicationWhereUniqueInput | PublicationWhereUniqueInput[]
+    disconnect?: PublicationWhereUniqueInput | PublicationWhereUniqueInput[]
+    delete?: PublicationWhereUniqueInput | PublicationWhereUniqueInput[]
+    connect?: PublicationWhereUniqueInput | PublicationWhereUniqueInput[]
+    update?: PublicationUpdateWithWhereUniqueWithoutResumeInput | PublicationUpdateWithWhereUniqueWithoutResumeInput[]
+    updateMany?: PublicationUpdateManyWithWhereWithoutResumeInput | PublicationUpdateManyWithWhereWithoutResumeInput[]
+    deleteMany?: PublicationScalarWhereInput | PublicationScalarWhereInput[]
+  }
+
+  export type VolunteeringUncheckedUpdateManyWithoutResumeNestedInput = {
+    create?: XOR<VolunteeringCreateWithoutResumeInput, VolunteeringUncheckedCreateWithoutResumeInput> | VolunteeringCreateWithoutResumeInput[] | VolunteeringUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: VolunteeringCreateOrConnectWithoutResumeInput | VolunteeringCreateOrConnectWithoutResumeInput[]
+    upsert?: VolunteeringUpsertWithWhereUniqueWithoutResumeInput | VolunteeringUpsertWithWhereUniqueWithoutResumeInput[]
+    createMany?: VolunteeringCreateManyResumeInputEnvelope
+    set?: VolunteeringWhereUniqueInput | VolunteeringWhereUniqueInput[]
+    disconnect?: VolunteeringWhereUniqueInput | VolunteeringWhereUniqueInput[]
+    delete?: VolunteeringWhereUniqueInput | VolunteeringWhereUniqueInput[]
+    connect?: VolunteeringWhereUniqueInput | VolunteeringWhereUniqueInput[]
+    update?: VolunteeringUpdateWithWhereUniqueWithoutResumeInput | VolunteeringUpdateWithWhereUniqueWithoutResumeInput[]
+    updateMany?: VolunteeringUpdateManyWithWhereWithoutResumeInput | VolunteeringUpdateManyWithWhereWithoutResumeInput[]
+    deleteMany?: VolunteeringScalarWhereInput | VolunteeringScalarWhereInput[]
+  }
+
+  export type AwardUncheckedUpdateManyWithoutResumeNestedInput = {
+    create?: XOR<AwardCreateWithoutResumeInput, AwardUncheckedCreateWithoutResumeInput> | AwardCreateWithoutResumeInput[] | AwardUncheckedCreateWithoutResumeInput[]
+    connectOrCreate?: AwardCreateOrConnectWithoutResumeInput | AwardCreateOrConnectWithoutResumeInput[]
+    upsert?: AwardUpsertWithWhereUniqueWithoutResumeInput | AwardUpsertWithWhereUniqueWithoutResumeInput[]
+    createMany?: AwardCreateManyResumeInputEnvelope
+    set?: AwardWhereUniqueInput | AwardWhereUniqueInput[]
+    disconnect?: AwardWhereUniqueInput | AwardWhereUniqueInput[]
+    delete?: AwardWhereUniqueInput | AwardWhereUniqueInput[]
+    connect?: AwardWhereUniqueInput | AwardWhereUniqueInput[]
+    update?: AwardUpdateWithWhereUniqueWithoutResumeInput | AwardUpdateWithWhereUniqueWithoutResumeInput[]
+    updateMany?: AwardUpdateManyWithWhereWithoutResumeInput | AwardUpdateManyWithWhereWithoutResumeInput[]
+    deleteMany?: AwardScalarWhereInput | AwardScalarWhereInput[]
   }
 
   export type LinkedInProfileUncheckedUpdateOneWithoutResumeNestedInput = {
@@ -32854,6 +40370,84 @@ export namespace Prisma {
     upsert?: ResumeUpsertWithoutCustomSectionsInput
     connect?: ResumeWhereUniqueInput
     update?: XOR<XOR<ResumeUpdateToOneWithWhereWithoutCustomSectionsInput, ResumeUpdateWithoutCustomSectionsInput>, ResumeUncheckedUpdateWithoutCustomSectionsInput>
+  }
+
+  export type ResumeCreateNestedOneWithoutHobbiesInput = {
+    create?: XOR<ResumeCreateWithoutHobbiesInput, ResumeUncheckedCreateWithoutHobbiesInput>
+    connectOrCreate?: ResumeCreateOrConnectWithoutHobbiesInput
+    connect?: ResumeWhereUniqueInput
+  }
+
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type ResumeUpdateOneRequiredWithoutHobbiesNestedInput = {
+    create?: XOR<ResumeCreateWithoutHobbiesInput, ResumeUncheckedCreateWithoutHobbiesInput>
+    connectOrCreate?: ResumeCreateOrConnectWithoutHobbiesInput
+    upsert?: ResumeUpsertWithoutHobbiesInput
+    connect?: ResumeWhereUniqueInput
+    update?: XOR<XOR<ResumeUpdateToOneWithWhereWithoutHobbiesInput, ResumeUpdateWithoutHobbiesInput>, ResumeUncheckedUpdateWithoutHobbiesInput>
+  }
+
+  export type ResumeCreateNestedOneWithoutReferencesInput = {
+    create?: XOR<ResumeCreateWithoutReferencesInput, ResumeUncheckedCreateWithoutReferencesInput>
+    connectOrCreate?: ResumeCreateOrConnectWithoutReferencesInput
+    connect?: ResumeWhereUniqueInput
+  }
+
+  export type ResumeUpdateOneRequiredWithoutReferencesNestedInput = {
+    create?: XOR<ResumeCreateWithoutReferencesInput, ResumeUncheckedCreateWithoutReferencesInput>
+    connectOrCreate?: ResumeCreateOrConnectWithoutReferencesInput
+    upsert?: ResumeUpsertWithoutReferencesInput
+    connect?: ResumeWhereUniqueInput
+    update?: XOR<XOR<ResumeUpdateToOneWithWhereWithoutReferencesInput, ResumeUpdateWithoutReferencesInput>, ResumeUncheckedUpdateWithoutReferencesInput>
+  }
+
+  export type ResumeCreateNestedOneWithoutPublicationsInput = {
+    create?: XOR<ResumeCreateWithoutPublicationsInput, ResumeUncheckedCreateWithoutPublicationsInput>
+    connectOrCreate?: ResumeCreateOrConnectWithoutPublicationsInput
+    connect?: ResumeWhereUniqueInput
+  }
+
+  export type ResumeUpdateOneRequiredWithoutPublicationsNestedInput = {
+    create?: XOR<ResumeCreateWithoutPublicationsInput, ResumeUncheckedCreateWithoutPublicationsInput>
+    connectOrCreate?: ResumeCreateOrConnectWithoutPublicationsInput
+    upsert?: ResumeUpsertWithoutPublicationsInput
+    connect?: ResumeWhereUniqueInput
+    update?: XOR<XOR<ResumeUpdateToOneWithWhereWithoutPublicationsInput, ResumeUpdateWithoutPublicationsInput>, ResumeUncheckedUpdateWithoutPublicationsInput>
+  }
+
+  export type ResumeCreateNestedOneWithoutVolunteeringsInput = {
+    create?: XOR<ResumeCreateWithoutVolunteeringsInput, ResumeUncheckedCreateWithoutVolunteeringsInput>
+    connectOrCreate?: ResumeCreateOrConnectWithoutVolunteeringsInput
+    connect?: ResumeWhereUniqueInput
+  }
+
+  export type ResumeUpdateOneRequiredWithoutVolunteeringsNestedInput = {
+    create?: XOR<ResumeCreateWithoutVolunteeringsInput, ResumeUncheckedCreateWithoutVolunteeringsInput>
+    connectOrCreate?: ResumeCreateOrConnectWithoutVolunteeringsInput
+    upsert?: ResumeUpsertWithoutVolunteeringsInput
+    connect?: ResumeWhereUniqueInput
+    update?: XOR<XOR<ResumeUpdateToOneWithWhereWithoutVolunteeringsInput, ResumeUpdateWithoutVolunteeringsInput>, ResumeUncheckedUpdateWithoutVolunteeringsInput>
+  }
+
+  export type ResumeCreateNestedOneWithoutAwardsInput = {
+    create?: XOR<ResumeCreateWithoutAwardsInput, ResumeUncheckedCreateWithoutAwardsInput>
+    connectOrCreate?: ResumeCreateOrConnectWithoutAwardsInput
+    connect?: ResumeWhereUniqueInput
+  }
+
+  export type ResumeUpdateOneRequiredWithoutAwardsNestedInput = {
+    create?: XOR<ResumeCreateWithoutAwardsInput, ResumeUncheckedCreateWithoutAwardsInput>
+    connectOrCreate?: ResumeCreateOrConnectWithoutAwardsInput
+    upsert?: ResumeUpsertWithoutAwardsInput
+    connect?: ResumeWhereUniqueInput
+    update?: XOR<XOR<ResumeUpdateToOneWithWhereWithoutAwardsInput, ResumeUpdateWithoutAwardsInput>, ResumeUncheckedUpdateWithoutAwardsInput>
   }
 
   export type ResumeCreateNestedManyWithoutTemplateInput = {
@@ -33445,6 +41039,33 @@ export namespace Prisma {
     _max?: NestedEnumLanguageLevelFilter<$PrismaModel>
   }
 
+  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
   export type SessionCreateWithoutUserInput = {
     id?: string
     token: string
@@ -33493,6 +41114,11 @@ export namespace Prisma {
     projects?: ProjectCreateNestedManyWithoutResumeInput
     achievements?: AchievementCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+    hobbies?: HobbyCreateNestedManyWithoutResumeInput
+    references?: ReferenceCreateNestedManyWithoutResumeInput
+    publications?: PublicationCreateNestedManyWithoutResumeInput
+    volunteerings?: VolunteeringCreateNestedManyWithoutResumeInput
+    awards?: AwardCreateNestedManyWithoutResumeInput
     LinkedInProfile?: LinkedInProfileCreateNestedOneWithoutResumeInput
   }
 
@@ -33516,6 +41142,11 @@ export namespace Prisma {
     projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
     achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+    hobbies?: HobbyUncheckedCreateNestedManyWithoutResumeInput
+    references?: ReferenceUncheckedCreateNestedManyWithoutResumeInput
+    publications?: PublicationUncheckedCreateNestedManyWithoutResumeInput
+    volunteerings?: VolunteeringUncheckedCreateNestedManyWithoutResumeInput
+    awards?: AwardUncheckedCreateNestedManyWithoutResumeInput
     LinkedInProfile?: LinkedInProfileUncheckedCreateNestedOneWithoutResumeInput
   }
 
@@ -34091,6 +41722,148 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type HobbyCreateWithoutResumeInput = {
+    id?: string
+    name: string
+    icon?: string | null
+    order?: number | null
+  }
+
+  export type HobbyUncheckedCreateWithoutResumeInput = {
+    id?: string
+    name: string
+    icon?: string | null
+    order?: number | null
+  }
+
+  export type HobbyCreateOrConnectWithoutResumeInput = {
+    where: HobbyWhereUniqueInput
+    create: XOR<HobbyCreateWithoutResumeInput, HobbyUncheckedCreateWithoutResumeInput>
+  }
+
+  export type HobbyCreateManyResumeInputEnvelope = {
+    data: HobbyCreateManyResumeInput | HobbyCreateManyResumeInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ReferenceCreateWithoutResumeInput = {
+    id?: string
+    name: string
+    company: string
+    email?: string | null
+    phone?: string | null
+    relation?: string | null
+    order?: number | null
+  }
+
+  export type ReferenceUncheckedCreateWithoutResumeInput = {
+    id?: string
+    name: string
+    company: string
+    email?: string | null
+    phone?: string | null
+    relation?: string | null
+    order?: number | null
+  }
+
+  export type ReferenceCreateOrConnectWithoutResumeInput = {
+    where: ReferenceWhereUniqueInput
+    create: XOR<ReferenceCreateWithoutResumeInput, ReferenceUncheckedCreateWithoutResumeInput>
+  }
+
+  export type ReferenceCreateManyResumeInputEnvelope = {
+    data: ReferenceCreateManyResumeInput | ReferenceCreateManyResumeInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type PublicationCreateWithoutResumeInput = {
+    id?: string
+    title: string
+    publisher?: string | null
+    date: Date | string
+    url?: string | null
+    description?: string | null
+    order?: number | null
+  }
+
+  export type PublicationUncheckedCreateWithoutResumeInput = {
+    id?: string
+    title: string
+    publisher?: string | null
+    date: Date | string
+    url?: string | null
+    description?: string | null
+    order?: number | null
+  }
+
+  export type PublicationCreateOrConnectWithoutResumeInput = {
+    where: PublicationWhereUniqueInput
+    create: XOR<PublicationCreateWithoutResumeInput, PublicationUncheckedCreateWithoutResumeInput>
+  }
+
+  export type PublicationCreateManyResumeInputEnvelope = {
+    data: PublicationCreateManyResumeInput | PublicationCreateManyResumeInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type VolunteeringCreateWithoutResumeInput = {
+    id?: string
+    organization: string
+    role: string
+    startDate?: Date | string | null
+    endDate?: Date | string | null
+    description: string
+    order?: number | null
+  }
+
+  export type VolunteeringUncheckedCreateWithoutResumeInput = {
+    id?: string
+    organization: string
+    role: string
+    startDate?: Date | string | null
+    endDate?: Date | string | null
+    description: string
+    order?: number | null
+  }
+
+  export type VolunteeringCreateOrConnectWithoutResumeInput = {
+    where: VolunteeringWhereUniqueInput
+    create: XOR<VolunteeringCreateWithoutResumeInput, VolunteeringUncheckedCreateWithoutResumeInput>
+  }
+
+  export type VolunteeringCreateManyResumeInputEnvelope = {
+    data: VolunteeringCreateManyResumeInput | VolunteeringCreateManyResumeInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type AwardCreateWithoutResumeInput = {
+    id?: string
+    title: string
+    issuer?: string | null
+    date: Date | string
+    description?: string | null
+    order?: number | null
+  }
+
+  export type AwardUncheckedCreateWithoutResumeInput = {
+    id?: string
+    title: string
+    issuer?: string | null
+    date: Date | string
+    description?: string | null
+    order?: number | null
+  }
+
+  export type AwardCreateOrConnectWithoutResumeInput = {
+    where: AwardWhereUniqueInput
+    create: XOR<AwardCreateWithoutResumeInput, AwardUncheckedCreateWithoutResumeInput>
+  }
+
+  export type AwardCreateManyResumeInputEnvelope = {
+    data: AwardCreateManyResumeInput | AwardCreateManyResumeInput[]
+    skipDuplicates?: boolean
+  }
+
   export type LinkedInProfileCreateWithoutResumeInput = {
     urn: string
     firstName?: string | null
@@ -34579,6 +42352,152 @@ export namespace Prisma {
     order?: IntFilter<"CustomSection"> | number
   }
 
+  export type HobbyUpsertWithWhereUniqueWithoutResumeInput = {
+    where: HobbyWhereUniqueInput
+    update: XOR<HobbyUpdateWithoutResumeInput, HobbyUncheckedUpdateWithoutResumeInput>
+    create: XOR<HobbyCreateWithoutResumeInput, HobbyUncheckedCreateWithoutResumeInput>
+  }
+
+  export type HobbyUpdateWithWhereUniqueWithoutResumeInput = {
+    where: HobbyWhereUniqueInput
+    data: XOR<HobbyUpdateWithoutResumeInput, HobbyUncheckedUpdateWithoutResumeInput>
+  }
+
+  export type HobbyUpdateManyWithWhereWithoutResumeInput = {
+    where: HobbyScalarWhereInput
+    data: XOR<HobbyUpdateManyMutationInput, HobbyUncheckedUpdateManyWithoutResumeInput>
+  }
+
+  export type HobbyScalarWhereInput = {
+    AND?: HobbyScalarWhereInput | HobbyScalarWhereInput[]
+    OR?: HobbyScalarWhereInput[]
+    NOT?: HobbyScalarWhereInput | HobbyScalarWhereInput[]
+    id?: StringFilter<"Hobby"> | string
+    resumeId?: StringFilter<"Hobby"> | string
+    name?: StringFilter<"Hobby"> | string
+    icon?: StringNullableFilter<"Hobby"> | string | null
+    order?: IntNullableFilter<"Hobby"> | number | null
+  }
+
+  export type ReferenceUpsertWithWhereUniqueWithoutResumeInput = {
+    where: ReferenceWhereUniqueInput
+    update: XOR<ReferenceUpdateWithoutResumeInput, ReferenceUncheckedUpdateWithoutResumeInput>
+    create: XOR<ReferenceCreateWithoutResumeInput, ReferenceUncheckedCreateWithoutResumeInput>
+  }
+
+  export type ReferenceUpdateWithWhereUniqueWithoutResumeInput = {
+    where: ReferenceWhereUniqueInput
+    data: XOR<ReferenceUpdateWithoutResumeInput, ReferenceUncheckedUpdateWithoutResumeInput>
+  }
+
+  export type ReferenceUpdateManyWithWhereWithoutResumeInput = {
+    where: ReferenceScalarWhereInput
+    data: XOR<ReferenceUpdateManyMutationInput, ReferenceUncheckedUpdateManyWithoutResumeInput>
+  }
+
+  export type ReferenceScalarWhereInput = {
+    AND?: ReferenceScalarWhereInput | ReferenceScalarWhereInput[]
+    OR?: ReferenceScalarWhereInput[]
+    NOT?: ReferenceScalarWhereInput | ReferenceScalarWhereInput[]
+    id?: StringFilter<"Reference"> | string
+    resumeId?: StringFilter<"Reference"> | string
+    name?: StringFilter<"Reference"> | string
+    company?: StringFilter<"Reference"> | string
+    email?: StringNullableFilter<"Reference"> | string | null
+    phone?: StringNullableFilter<"Reference"> | string | null
+    relation?: StringNullableFilter<"Reference"> | string | null
+    order?: IntNullableFilter<"Reference"> | number | null
+  }
+
+  export type PublicationUpsertWithWhereUniqueWithoutResumeInput = {
+    where: PublicationWhereUniqueInput
+    update: XOR<PublicationUpdateWithoutResumeInput, PublicationUncheckedUpdateWithoutResumeInput>
+    create: XOR<PublicationCreateWithoutResumeInput, PublicationUncheckedCreateWithoutResumeInput>
+  }
+
+  export type PublicationUpdateWithWhereUniqueWithoutResumeInput = {
+    where: PublicationWhereUniqueInput
+    data: XOR<PublicationUpdateWithoutResumeInput, PublicationUncheckedUpdateWithoutResumeInput>
+  }
+
+  export type PublicationUpdateManyWithWhereWithoutResumeInput = {
+    where: PublicationScalarWhereInput
+    data: XOR<PublicationUpdateManyMutationInput, PublicationUncheckedUpdateManyWithoutResumeInput>
+  }
+
+  export type PublicationScalarWhereInput = {
+    AND?: PublicationScalarWhereInput | PublicationScalarWhereInput[]
+    OR?: PublicationScalarWhereInput[]
+    NOT?: PublicationScalarWhereInput | PublicationScalarWhereInput[]
+    id?: StringFilter<"Publication"> | string
+    resumeId?: StringFilter<"Publication"> | string
+    title?: StringFilter<"Publication"> | string
+    publisher?: StringNullableFilter<"Publication"> | string | null
+    date?: DateTimeFilter<"Publication"> | Date | string
+    url?: StringNullableFilter<"Publication"> | string | null
+    description?: StringNullableFilter<"Publication"> | string | null
+    order?: IntNullableFilter<"Publication"> | number | null
+  }
+
+  export type VolunteeringUpsertWithWhereUniqueWithoutResumeInput = {
+    where: VolunteeringWhereUniqueInput
+    update: XOR<VolunteeringUpdateWithoutResumeInput, VolunteeringUncheckedUpdateWithoutResumeInput>
+    create: XOR<VolunteeringCreateWithoutResumeInput, VolunteeringUncheckedCreateWithoutResumeInput>
+  }
+
+  export type VolunteeringUpdateWithWhereUniqueWithoutResumeInput = {
+    where: VolunteeringWhereUniqueInput
+    data: XOR<VolunteeringUpdateWithoutResumeInput, VolunteeringUncheckedUpdateWithoutResumeInput>
+  }
+
+  export type VolunteeringUpdateManyWithWhereWithoutResumeInput = {
+    where: VolunteeringScalarWhereInput
+    data: XOR<VolunteeringUpdateManyMutationInput, VolunteeringUncheckedUpdateManyWithoutResumeInput>
+  }
+
+  export type VolunteeringScalarWhereInput = {
+    AND?: VolunteeringScalarWhereInput | VolunteeringScalarWhereInput[]
+    OR?: VolunteeringScalarWhereInput[]
+    NOT?: VolunteeringScalarWhereInput | VolunteeringScalarWhereInput[]
+    id?: StringFilter<"Volunteering"> | string
+    resumeId?: StringFilter<"Volunteering"> | string
+    organization?: StringFilter<"Volunteering"> | string
+    role?: StringFilter<"Volunteering"> | string
+    startDate?: DateTimeNullableFilter<"Volunteering"> | Date | string | null
+    endDate?: DateTimeNullableFilter<"Volunteering"> | Date | string | null
+    description?: StringFilter<"Volunteering"> | string
+    order?: IntNullableFilter<"Volunteering"> | number | null
+  }
+
+  export type AwardUpsertWithWhereUniqueWithoutResumeInput = {
+    where: AwardWhereUniqueInput
+    update: XOR<AwardUpdateWithoutResumeInput, AwardUncheckedUpdateWithoutResumeInput>
+    create: XOR<AwardCreateWithoutResumeInput, AwardUncheckedCreateWithoutResumeInput>
+  }
+
+  export type AwardUpdateWithWhereUniqueWithoutResumeInput = {
+    where: AwardWhereUniqueInput
+    data: XOR<AwardUpdateWithoutResumeInput, AwardUncheckedUpdateWithoutResumeInput>
+  }
+
+  export type AwardUpdateManyWithWhereWithoutResumeInput = {
+    where: AwardScalarWhereInput
+    data: XOR<AwardUpdateManyMutationInput, AwardUncheckedUpdateManyWithoutResumeInput>
+  }
+
+  export type AwardScalarWhereInput = {
+    AND?: AwardScalarWhereInput | AwardScalarWhereInput[]
+    OR?: AwardScalarWhereInput[]
+    NOT?: AwardScalarWhereInput | AwardScalarWhereInput[]
+    id?: StringFilter<"Award"> | string
+    resumeId?: StringFilter<"Award"> | string
+    title?: StringFilter<"Award"> | string
+    issuer?: StringNullableFilter<"Award"> | string | null
+    date?: DateTimeFilter<"Award"> | Date | string
+    description?: StringNullableFilter<"Award"> | string | null
+    order?: IntNullableFilter<"Award"> | number | null
+  }
+
   export type LinkedInProfileUpsertWithoutResumeInput = {
     update: XOR<LinkedInProfileUpdateWithoutResumeInput, LinkedInProfileUncheckedUpdateWithoutResumeInput>
     create: XOR<LinkedInProfileCreateWithoutResumeInput, LinkedInProfileUncheckedCreateWithoutResumeInput>
@@ -34643,6 +42562,11 @@ export namespace Prisma {
     projects?: ProjectCreateNestedManyWithoutResumeInput
     achievements?: AchievementCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+    hobbies?: HobbyCreateNestedManyWithoutResumeInput
+    references?: ReferenceCreateNestedManyWithoutResumeInput
+    publications?: PublicationCreateNestedManyWithoutResumeInput
+    volunteerings?: VolunteeringCreateNestedManyWithoutResumeInput
+    awards?: AwardCreateNestedManyWithoutResumeInput
     LinkedInProfile?: LinkedInProfileCreateNestedOneWithoutResumeInput
   }
 
@@ -34666,6 +42590,11 @@ export namespace Prisma {
     projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
     achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+    hobbies?: HobbyUncheckedCreateNestedManyWithoutResumeInput
+    references?: ReferenceUncheckedCreateNestedManyWithoutResumeInput
+    publications?: PublicationUncheckedCreateNestedManyWithoutResumeInput
+    volunteerings?: VolunteeringUncheckedCreateNestedManyWithoutResumeInput
+    awards?: AwardUncheckedCreateNestedManyWithoutResumeInput
     LinkedInProfile?: LinkedInProfileUncheckedCreateNestedOneWithoutResumeInput
   }
 
@@ -34705,6 +42634,11 @@ export namespace Prisma {
     projects?: ProjectUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+    hobbies?: HobbyUpdateManyWithoutResumeNestedInput
+    references?: ReferenceUpdateManyWithoutResumeNestedInput
+    publications?: PublicationUpdateManyWithoutResumeNestedInput
+    volunteerings?: VolunteeringUpdateManyWithoutResumeNestedInput
+    awards?: AwardUpdateManyWithoutResumeNestedInput
     LinkedInProfile?: LinkedInProfileUpdateOneWithoutResumeNestedInput
   }
 
@@ -34728,6 +42662,11 @@ export namespace Prisma {
     projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+    hobbies?: HobbyUncheckedUpdateManyWithoutResumeNestedInput
+    references?: ReferenceUncheckedUpdateManyWithoutResumeNestedInput
+    publications?: PublicationUncheckedUpdateManyWithoutResumeNestedInput
+    volunteerings?: VolunteeringUncheckedUpdateManyWithoutResumeNestedInput
+    awards?: AwardUncheckedUpdateManyWithoutResumeNestedInput
     LinkedInProfile?: LinkedInProfileUncheckedUpdateOneWithoutResumeNestedInput
   }
 
@@ -34751,6 +42690,11 @@ export namespace Prisma {
     projects?: ProjectCreateNestedManyWithoutResumeInput
     achievements?: AchievementCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+    hobbies?: HobbyCreateNestedManyWithoutResumeInput
+    references?: ReferenceCreateNestedManyWithoutResumeInput
+    publications?: PublicationCreateNestedManyWithoutResumeInput
+    volunteerings?: VolunteeringCreateNestedManyWithoutResumeInput
+    awards?: AwardCreateNestedManyWithoutResumeInput
     LinkedInProfile?: LinkedInProfileCreateNestedOneWithoutResumeInput
   }
 
@@ -34774,6 +42718,11 @@ export namespace Prisma {
     projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
     achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+    hobbies?: HobbyUncheckedCreateNestedManyWithoutResumeInput
+    references?: ReferenceUncheckedCreateNestedManyWithoutResumeInput
+    publications?: PublicationUncheckedCreateNestedManyWithoutResumeInput
+    volunteerings?: VolunteeringUncheckedCreateNestedManyWithoutResumeInput
+    awards?: AwardUncheckedCreateNestedManyWithoutResumeInput
     LinkedInProfile?: LinkedInProfileUncheckedCreateNestedOneWithoutResumeInput
   }
 
@@ -34813,6 +42762,11 @@ export namespace Prisma {
     projects?: ProjectUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+    hobbies?: HobbyUpdateManyWithoutResumeNestedInput
+    references?: ReferenceUpdateManyWithoutResumeNestedInput
+    publications?: PublicationUpdateManyWithoutResumeNestedInput
+    volunteerings?: VolunteeringUpdateManyWithoutResumeNestedInput
+    awards?: AwardUpdateManyWithoutResumeNestedInput
     LinkedInProfile?: LinkedInProfileUpdateOneWithoutResumeNestedInput
   }
 
@@ -34836,6 +42790,11 @@ export namespace Prisma {
     projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+    hobbies?: HobbyUncheckedUpdateManyWithoutResumeNestedInput
+    references?: ReferenceUncheckedUpdateManyWithoutResumeNestedInput
+    publications?: PublicationUncheckedUpdateManyWithoutResumeNestedInput
+    volunteerings?: VolunteeringUncheckedUpdateManyWithoutResumeNestedInput
+    awards?: AwardUncheckedUpdateManyWithoutResumeNestedInput
     LinkedInProfile?: LinkedInProfileUncheckedUpdateOneWithoutResumeNestedInput
   }
 
@@ -34859,6 +42818,11 @@ export namespace Prisma {
     projects?: ProjectCreateNestedManyWithoutResumeInput
     achievements?: AchievementCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+    hobbies?: HobbyCreateNestedManyWithoutResumeInput
+    references?: ReferenceCreateNestedManyWithoutResumeInput
+    publications?: PublicationCreateNestedManyWithoutResumeInput
+    volunteerings?: VolunteeringCreateNestedManyWithoutResumeInput
+    awards?: AwardCreateNestedManyWithoutResumeInput
     LinkedInProfile?: LinkedInProfileCreateNestedOneWithoutResumeInput
   }
 
@@ -34882,6 +42846,11 @@ export namespace Prisma {
     projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
     achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+    hobbies?: HobbyUncheckedCreateNestedManyWithoutResumeInput
+    references?: ReferenceUncheckedCreateNestedManyWithoutResumeInput
+    publications?: PublicationUncheckedCreateNestedManyWithoutResumeInput
+    volunteerings?: VolunteeringUncheckedCreateNestedManyWithoutResumeInput
+    awards?: AwardUncheckedCreateNestedManyWithoutResumeInput
     LinkedInProfile?: LinkedInProfileUncheckedCreateNestedOneWithoutResumeInput
   }
 
@@ -34921,6 +42890,11 @@ export namespace Prisma {
     projects?: ProjectUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+    hobbies?: HobbyUpdateManyWithoutResumeNestedInput
+    references?: ReferenceUpdateManyWithoutResumeNestedInput
+    publications?: PublicationUpdateManyWithoutResumeNestedInput
+    volunteerings?: VolunteeringUpdateManyWithoutResumeNestedInput
+    awards?: AwardUpdateManyWithoutResumeNestedInput
     LinkedInProfile?: LinkedInProfileUpdateOneWithoutResumeNestedInput
   }
 
@@ -34944,6 +42918,11 @@ export namespace Prisma {
     projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+    hobbies?: HobbyUncheckedUpdateManyWithoutResumeNestedInput
+    references?: ReferenceUncheckedUpdateManyWithoutResumeNestedInput
+    publications?: PublicationUncheckedUpdateManyWithoutResumeNestedInput
+    volunteerings?: VolunteeringUncheckedUpdateManyWithoutResumeNestedInput
+    awards?: AwardUncheckedUpdateManyWithoutResumeNestedInput
     LinkedInProfile?: LinkedInProfileUncheckedUpdateOneWithoutResumeNestedInput
   }
 
@@ -34967,6 +42946,11 @@ export namespace Prisma {
     projects?: ProjectCreateNestedManyWithoutResumeInput
     achievements?: AchievementCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+    hobbies?: HobbyCreateNestedManyWithoutResumeInput
+    references?: ReferenceCreateNestedManyWithoutResumeInput
+    publications?: PublicationCreateNestedManyWithoutResumeInput
+    volunteerings?: VolunteeringCreateNestedManyWithoutResumeInput
+    awards?: AwardCreateNestedManyWithoutResumeInput
     LinkedInProfile?: LinkedInProfileCreateNestedOneWithoutResumeInput
   }
 
@@ -34990,6 +42974,11 @@ export namespace Prisma {
     projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
     achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+    hobbies?: HobbyUncheckedCreateNestedManyWithoutResumeInput
+    references?: ReferenceUncheckedCreateNestedManyWithoutResumeInput
+    publications?: PublicationUncheckedCreateNestedManyWithoutResumeInput
+    volunteerings?: VolunteeringUncheckedCreateNestedManyWithoutResumeInput
+    awards?: AwardUncheckedCreateNestedManyWithoutResumeInput
     LinkedInProfile?: LinkedInProfileUncheckedCreateNestedOneWithoutResumeInput
   }
 
@@ -35029,6 +43018,11 @@ export namespace Prisma {
     projects?: ProjectUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+    hobbies?: HobbyUpdateManyWithoutResumeNestedInput
+    references?: ReferenceUpdateManyWithoutResumeNestedInput
+    publications?: PublicationUpdateManyWithoutResumeNestedInput
+    volunteerings?: VolunteeringUpdateManyWithoutResumeNestedInput
+    awards?: AwardUpdateManyWithoutResumeNestedInput
     LinkedInProfile?: LinkedInProfileUpdateOneWithoutResumeNestedInput
   }
 
@@ -35052,6 +43046,11 @@ export namespace Prisma {
     projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+    hobbies?: HobbyUncheckedUpdateManyWithoutResumeNestedInput
+    references?: ReferenceUncheckedUpdateManyWithoutResumeNestedInput
+    publications?: PublicationUncheckedUpdateManyWithoutResumeNestedInput
+    volunteerings?: VolunteeringUncheckedUpdateManyWithoutResumeNestedInput
+    awards?: AwardUncheckedUpdateManyWithoutResumeNestedInput
     LinkedInProfile?: LinkedInProfileUncheckedUpdateOneWithoutResumeNestedInput
   }
 
@@ -35075,6 +43074,11 @@ export namespace Prisma {
     projects?: ProjectCreateNestedManyWithoutResumeInput
     achievements?: AchievementCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+    hobbies?: HobbyCreateNestedManyWithoutResumeInput
+    references?: ReferenceCreateNestedManyWithoutResumeInput
+    publications?: PublicationCreateNestedManyWithoutResumeInput
+    volunteerings?: VolunteeringCreateNestedManyWithoutResumeInput
+    awards?: AwardCreateNestedManyWithoutResumeInput
     LinkedInProfile?: LinkedInProfileCreateNestedOneWithoutResumeInput
   }
 
@@ -35098,6 +43102,11 @@ export namespace Prisma {
     projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
     achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+    hobbies?: HobbyUncheckedCreateNestedManyWithoutResumeInput
+    references?: ReferenceUncheckedCreateNestedManyWithoutResumeInput
+    publications?: PublicationUncheckedCreateNestedManyWithoutResumeInput
+    volunteerings?: VolunteeringUncheckedCreateNestedManyWithoutResumeInput
+    awards?: AwardUncheckedCreateNestedManyWithoutResumeInput
     LinkedInProfile?: LinkedInProfileUncheckedCreateNestedOneWithoutResumeInput
   }
 
@@ -35137,6 +43146,11 @@ export namespace Prisma {
     projects?: ProjectUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+    hobbies?: HobbyUpdateManyWithoutResumeNestedInput
+    references?: ReferenceUpdateManyWithoutResumeNestedInput
+    publications?: PublicationUpdateManyWithoutResumeNestedInput
+    volunteerings?: VolunteeringUpdateManyWithoutResumeNestedInput
+    awards?: AwardUpdateManyWithoutResumeNestedInput
     LinkedInProfile?: LinkedInProfileUpdateOneWithoutResumeNestedInput
   }
 
@@ -35160,6 +43174,11 @@ export namespace Prisma {
     projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+    hobbies?: HobbyUncheckedUpdateManyWithoutResumeNestedInput
+    references?: ReferenceUncheckedUpdateManyWithoutResumeNestedInput
+    publications?: PublicationUncheckedUpdateManyWithoutResumeNestedInput
+    volunteerings?: VolunteeringUncheckedUpdateManyWithoutResumeNestedInput
+    awards?: AwardUncheckedUpdateManyWithoutResumeNestedInput
     LinkedInProfile?: LinkedInProfileUncheckedUpdateOneWithoutResumeNestedInput
   }
 
@@ -35183,6 +43202,11 @@ export namespace Prisma {
     projects?: ProjectCreateNestedManyWithoutResumeInput
     achievements?: AchievementCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+    hobbies?: HobbyCreateNestedManyWithoutResumeInput
+    references?: ReferenceCreateNestedManyWithoutResumeInput
+    publications?: PublicationCreateNestedManyWithoutResumeInput
+    volunteerings?: VolunteeringCreateNestedManyWithoutResumeInput
+    awards?: AwardCreateNestedManyWithoutResumeInput
     LinkedInProfile?: LinkedInProfileCreateNestedOneWithoutResumeInput
   }
 
@@ -35206,6 +43230,11 @@ export namespace Prisma {
     projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
     achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+    hobbies?: HobbyUncheckedCreateNestedManyWithoutResumeInput
+    references?: ReferenceUncheckedCreateNestedManyWithoutResumeInput
+    publications?: PublicationUncheckedCreateNestedManyWithoutResumeInput
+    volunteerings?: VolunteeringUncheckedCreateNestedManyWithoutResumeInput
+    awards?: AwardUncheckedCreateNestedManyWithoutResumeInput
     LinkedInProfile?: LinkedInProfileUncheckedCreateNestedOneWithoutResumeInput
   }
 
@@ -35245,6 +43274,11 @@ export namespace Prisma {
     projects?: ProjectUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+    hobbies?: HobbyUpdateManyWithoutResumeNestedInput
+    references?: ReferenceUpdateManyWithoutResumeNestedInput
+    publications?: PublicationUpdateManyWithoutResumeNestedInput
+    volunteerings?: VolunteeringUpdateManyWithoutResumeNestedInput
+    awards?: AwardUpdateManyWithoutResumeNestedInput
     LinkedInProfile?: LinkedInProfileUpdateOneWithoutResumeNestedInput
   }
 
@@ -35268,6 +43302,11 @@ export namespace Prisma {
     projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+    hobbies?: HobbyUncheckedUpdateManyWithoutResumeNestedInput
+    references?: ReferenceUncheckedUpdateManyWithoutResumeNestedInput
+    publications?: PublicationUncheckedUpdateManyWithoutResumeNestedInput
+    volunteerings?: VolunteeringUncheckedUpdateManyWithoutResumeNestedInput
+    awards?: AwardUncheckedUpdateManyWithoutResumeNestedInput
     LinkedInProfile?: LinkedInProfileUncheckedUpdateOneWithoutResumeNestedInput
   }
 
@@ -35291,6 +43330,11 @@ export namespace Prisma {
     projects?: ProjectCreateNestedManyWithoutResumeInput
     achievements?: AchievementCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+    hobbies?: HobbyCreateNestedManyWithoutResumeInput
+    references?: ReferenceCreateNestedManyWithoutResumeInput
+    publications?: PublicationCreateNestedManyWithoutResumeInput
+    volunteerings?: VolunteeringCreateNestedManyWithoutResumeInput
+    awards?: AwardCreateNestedManyWithoutResumeInput
     LinkedInProfile?: LinkedInProfileCreateNestedOneWithoutResumeInput
   }
 
@@ -35314,6 +43358,11 @@ export namespace Prisma {
     projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
     achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+    hobbies?: HobbyUncheckedCreateNestedManyWithoutResumeInput
+    references?: ReferenceUncheckedCreateNestedManyWithoutResumeInput
+    publications?: PublicationUncheckedCreateNestedManyWithoutResumeInput
+    volunteerings?: VolunteeringUncheckedCreateNestedManyWithoutResumeInput
+    awards?: AwardUncheckedCreateNestedManyWithoutResumeInput
     LinkedInProfile?: LinkedInProfileUncheckedCreateNestedOneWithoutResumeInput
   }
 
@@ -35353,6 +43402,11 @@ export namespace Prisma {
     projects?: ProjectUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+    hobbies?: HobbyUpdateManyWithoutResumeNestedInput
+    references?: ReferenceUpdateManyWithoutResumeNestedInput
+    publications?: PublicationUpdateManyWithoutResumeNestedInput
+    volunteerings?: VolunteeringUpdateManyWithoutResumeNestedInput
+    awards?: AwardUpdateManyWithoutResumeNestedInput
     LinkedInProfile?: LinkedInProfileUpdateOneWithoutResumeNestedInput
   }
 
@@ -35376,6 +43430,11 @@ export namespace Prisma {
     projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+    hobbies?: HobbyUncheckedUpdateManyWithoutResumeNestedInput
+    references?: ReferenceUncheckedUpdateManyWithoutResumeNestedInput
+    publications?: PublicationUncheckedUpdateManyWithoutResumeNestedInput
+    volunteerings?: VolunteeringUncheckedUpdateManyWithoutResumeNestedInput
+    awards?: AwardUncheckedUpdateManyWithoutResumeNestedInput
     LinkedInProfile?: LinkedInProfileUncheckedUpdateOneWithoutResumeNestedInput
   }
 
@@ -35399,6 +43458,11 @@ export namespace Prisma {
     certifications?: CertificationCreateNestedManyWithoutResumeInput
     achievements?: AchievementCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+    hobbies?: HobbyCreateNestedManyWithoutResumeInput
+    references?: ReferenceCreateNestedManyWithoutResumeInput
+    publications?: PublicationCreateNestedManyWithoutResumeInput
+    volunteerings?: VolunteeringCreateNestedManyWithoutResumeInput
+    awards?: AwardCreateNestedManyWithoutResumeInput
     LinkedInProfile?: LinkedInProfileCreateNestedOneWithoutResumeInput
   }
 
@@ -35422,6 +43486,11 @@ export namespace Prisma {
     certifications?: CertificationUncheckedCreateNestedManyWithoutResumeInput
     achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+    hobbies?: HobbyUncheckedCreateNestedManyWithoutResumeInput
+    references?: ReferenceUncheckedCreateNestedManyWithoutResumeInput
+    publications?: PublicationUncheckedCreateNestedManyWithoutResumeInput
+    volunteerings?: VolunteeringUncheckedCreateNestedManyWithoutResumeInput
+    awards?: AwardUncheckedCreateNestedManyWithoutResumeInput
     LinkedInProfile?: LinkedInProfileUncheckedCreateNestedOneWithoutResumeInput
   }
 
@@ -35461,6 +43530,11 @@ export namespace Prisma {
     certifications?: CertificationUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+    hobbies?: HobbyUpdateManyWithoutResumeNestedInput
+    references?: ReferenceUpdateManyWithoutResumeNestedInput
+    publications?: PublicationUpdateManyWithoutResumeNestedInput
+    volunteerings?: VolunteeringUpdateManyWithoutResumeNestedInput
+    awards?: AwardUpdateManyWithoutResumeNestedInput
     LinkedInProfile?: LinkedInProfileUpdateOneWithoutResumeNestedInput
   }
 
@@ -35484,6 +43558,11 @@ export namespace Prisma {
     certifications?: CertificationUncheckedUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+    hobbies?: HobbyUncheckedUpdateManyWithoutResumeNestedInput
+    references?: ReferenceUncheckedUpdateManyWithoutResumeNestedInput
+    publications?: PublicationUncheckedUpdateManyWithoutResumeNestedInput
+    volunteerings?: VolunteeringUncheckedUpdateManyWithoutResumeNestedInput
+    awards?: AwardUncheckedUpdateManyWithoutResumeNestedInput
     LinkedInProfile?: LinkedInProfileUncheckedUpdateOneWithoutResumeNestedInput
   }
 
@@ -35507,6 +43586,11 @@ export namespace Prisma {
     certifications?: CertificationCreateNestedManyWithoutResumeInput
     projects?: ProjectCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+    hobbies?: HobbyCreateNestedManyWithoutResumeInput
+    references?: ReferenceCreateNestedManyWithoutResumeInput
+    publications?: PublicationCreateNestedManyWithoutResumeInput
+    volunteerings?: VolunteeringCreateNestedManyWithoutResumeInput
+    awards?: AwardCreateNestedManyWithoutResumeInput
     LinkedInProfile?: LinkedInProfileCreateNestedOneWithoutResumeInput
   }
 
@@ -35530,6 +43614,11 @@ export namespace Prisma {
     certifications?: CertificationUncheckedCreateNestedManyWithoutResumeInput
     projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+    hobbies?: HobbyUncheckedCreateNestedManyWithoutResumeInput
+    references?: ReferenceUncheckedCreateNestedManyWithoutResumeInput
+    publications?: PublicationUncheckedCreateNestedManyWithoutResumeInput
+    volunteerings?: VolunteeringUncheckedCreateNestedManyWithoutResumeInput
+    awards?: AwardUncheckedCreateNestedManyWithoutResumeInput
     LinkedInProfile?: LinkedInProfileUncheckedCreateNestedOneWithoutResumeInput
   }
 
@@ -35569,6 +43658,11 @@ export namespace Prisma {
     certifications?: CertificationUpdateManyWithoutResumeNestedInput
     projects?: ProjectUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+    hobbies?: HobbyUpdateManyWithoutResumeNestedInput
+    references?: ReferenceUpdateManyWithoutResumeNestedInput
+    publications?: PublicationUpdateManyWithoutResumeNestedInput
+    volunteerings?: VolunteeringUpdateManyWithoutResumeNestedInput
+    awards?: AwardUpdateManyWithoutResumeNestedInput
     LinkedInProfile?: LinkedInProfileUpdateOneWithoutResumeNestedInput
   }
 
@@ -35592,6 +43686,11 @@ export namespace Prisma {
     certifications?: CertificationUncheckedUpdateManyWithoutResumeNestedInput
     projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+    hobbies?: HobbyUncheckedUpdateManyWithoutResumeNestedInput
+    references?: ReferenceUncheckedUpdateManyWithoutResumeNestedInput
+    publications?: PublicationUncheckedUpdateManyWithoutResumeNestedInput
+    volunteerings?: VolunteeringUncheckedUpdateManyWithoutResumeNestedInput
+    awards?: AwardUncheckedUpdateManyWithoutResumeNestedInput
     LinkedInProfile?: LinkedInProfileUncheckedUpdateOneWithoutResumeNestedInput
   }
 
@@ -35615,6 +43714,11 @@ export namespace Prisma {
     certifications?: CertificationCreateNestedManyWithoutResumeInput
     projects?: ProjectCreateNestedManyWithoutResumeInput
     achievements?: AchievementCreateNestedManyWithoutResumeInput
+    hobbies?: HobbyCreateNestedManyWithoutResumeInput
+    references?: ReferenceCreateNestedManyWithoutResumeInput
+    publications?: PublicationCreateNestedManyWithoutResumeInput
+    volunteerings?: VolunteeringCreateNestedManyWithoutResumeInput
+    awards?: AwardCreateNestedManyWithoutResumeInput
     LinkedInProfile?: LinkedInProfileCreateNestedOneWithoutResumeInput
   }
 
@@ -35638,6 +43742,11 @@ export namespace Prisma {
     certifications?: CertificationUncheckedCreateNestedManyWithoutResumeInput
     projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
     achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
+    hobbies?: HobbyUncheckedCreateNestedManyWithoutResumeInput
+    references?: ReferenceUncheckedCreateNestedManyWithoutResumeInput
+    publications?: PublicationUncheckedCreateNestedManyWithoutResumeInput
+    volunteerings?: VolunteeringUncheckedCreateNestedManyWithoutResumeInput
+    awards?: AwardUncheckedCreateNestedManyWithoutResumeInput
     LinkedInProfile?: LinkedInProfileUncheckedCreateNestedOneWithoutResumeInput
   }
 
@@ -35677,6 +43786,11 @@ export namespace Prisma {
     certifications?: CertificationUpdateManyWithoutResumeNestedInput
     projects?: ProjectUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUpdateManyWithoutResumeNestedInput
+    hobbies?: HobbyUpdateManyWithoutResumeNestedInput
+    references?: ReferenceUpdateManyWithoutResumeNestedInput
+    publications?: PublicationUpdateManyWithoutResumeNestedInput
+    volunteerings?: VolunteeringUpdateManyWithoutResumeNestedInput
+    awards?: AwardUpdateManyWithoutResumeNestedInput
     LinkedInProfile?: LinkedInProfileUpdateOneWithoutResumeNestedInput
   }
 
@@ -35700,6 +43814,651 @@ export namespace Prisma {
     certifications?: CertificationUncheckedUpdateManyWithoutResumeNestedInput
     projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
+    hobbies?: HobbyUncheckedUpdateManyWithoutResumeNestedInput
+    references?: ReferenceUncheckedUpdateManyWithoutResumeNestedInput
+    publications?: PublicationUncheckedUpdateManyWithoutResumeNestedInput
+    volunteerings?: VolunteeringUncheckedUpdateManyWithoutResumeNestedInput
+    awards?: AwardUncheckedUpdateManyWithoutResumeNestedInput
+    LinkedInProfile?: LinkedInProfileUncheckedUpdateOneWithoutResumeNestedInput
+  }
+
+  export type ResumeCreateWithoutHobbiesInput = {
+    id?: string
+    title: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isPublic?: boolean
+    publicUrl?: string | null
+    user: UserCreateNestedOneWithoutResumeInput
+    template: TemplateCreateNestedOneWithoutResumesInput
+    theme: ThemeCreateNestedOneWithoutResumesInput
+    font?: FontCreateNestedOneWithoutResumesInput
+    personalInfo?: PersonalInfoCreateNestedOneWithoutResumeInput
+    sections?: SectionCreateNestedManyWithoutResumeInput
+    educations?: EducationCreateNestedManyWithoutResumeInput
+    experiences?: ExperienceCreateNestedManyWithoutResumeInput
+    skills?: SkillCreateNestedManyWithoutResumeInput
+    languages?: LanguageCreateNestedManyWithoutResumeInput
+    certifications?: CertificationCreateNestedManyWithoutResumeInput
+    projects?: ProjectCreateNestedManyWithoutResumeInput
+    achievements?: AchievementCreateNestedManyWithoutResumeInput
+    customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+    references?: ReferenceCreateNestedManyWithoutResumeInput
+    publications?: PublicationCreateNestedManyWithoutResumeInput
+    volunteerings?: VolunteeringCreateNestedManyWithoutResumeInput
+    awards?: AwardCreateNestedManyWithoutResumeInput
+    LinkedInProfile?: LinkedInProfileCreateNestedOneWithoutResumeInput
+  }
+
+  export type ResumeUncheckedCreateWithoutHobbiesInput = {
+    id?: string
+    title: string
+    userId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isPublic?: boolean
+    publicUrl?: string | null
+    templateId: string
+    themeId: string
+    fontId?: string | null
+    personalInfo?: PersonalInfoUncheckedCreateNestedOneWithoutResumeInput
+    sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
+    educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
+    experiences?: ExperienceUncheckedCreateNestedManyWithoutResumeInput
+    skills?: SkillUncheckedCreateNestedManyWithoutResumeInput
+    languages?: LanguageUncheckedCreateNestedManyWithoutResumeInput
+    certifications?: CertificationUncheckedCreateNestedManyWithoutResumeInput
+    projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
+    achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
+    customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+    references?: ReferenceUncheckedCreateNestedManyWithoutResumeInput
+    publications?: PublicationUncheckedCreateNestedManyWithoutResumeInput
+    volunteerings?: VolunteeringUncheckedCreateNestedManyWithoutResumeInput
+    awards?: AwardUncheckedCreateNestedManyWithoutResumeInput
+    LinkedInProfile?: LinkedInProfileUncheckedCreateNestedOneWithoutResumeInput
+  }
+
+  export type ResumeCreateOrConnectWithoutHobbiesInput = {
+    where: ResumeWhereUniqueInput
+    create: XOR<ResumeCreateWithoutHobbiesInput, ResumeUncheckedCreateWithoutHobbiesInput>
+  }
+
+  export type ResumeUpsertWithoutHobbiesInput = {
+    update: XOR<ResumeUpdateWithoutHobbiesInput, ResumeUncheckedUpdateWithoutHobbiesInput>
+    create: XOR<ResumeCreateWithoutHobbiesInput, ResumeUncheckedCreateWithoutHobbiesInput>
+    where?: ResumeWhereInput
+  }
+
+  export type ResumeUpdateToOneWithWhereWithoutHobbiesInput = {
+    where?: ResumeWhereInput
+    data: XOR<ResumeUpdateWithoutHobbiesInput, ResumeUncheckedUpdateWithoutHobbiesInput>
+  }
+
+  export type ResumeUpdateWithoutHobbiesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    user?: UserUpdateOneRequiredWithoutResumeNestedInput
+    template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
+    theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
+    font?: FontUpdateOneWithoutResumesNestedInput
+    personalInfo?: PersonalInfoUpdateOneWithoutResumeNestedInput
+    sections?: SectionUpdateManyWithoutResumeNestedInput
+    educations?: EducationUpdateManyWithoutResumeNestedInput
+    experiences?: ExperienceUpdateManyWithoutResumeNestedInput
+    skills?: SkillUpdateManyWithoutResumeNestedInput
+    languages?: LanguageUpdateManyWithoutResumeNestedInput
+    certifications?: CertificationUpdateManyWithoutResumeNestedInput
+    projects?: ProjectUpdateManyWithoutResumeNestedInput
+    achievements?: AchievementUpdateManyWithoutResumeNestedInput
+    customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+    references?: ReferenceUpdateManyWithoutResumeNestedInput
+    publications?: PublicationUpdateManyWithoutResumeNestedInput
+    volunteerings?: VolunteeringUpdateManyWithoutResumeNestedInput
+    awards?: AwardUpdateManyWithoutResumeNestedInput
+    LinkedInProfile?: LinkedInProfileUpdateOneWithoutResumeNestedInput
+  }
+
+  export type ResumeUncheckedUpdateWithoutHobbiesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    templateId?: StringFieldUpdateOperationsInput | string
+    themeId?: StringFieldUpdateOperationsInput | string
+    fontId?: NullableStringFieldUpdateOperationsInput | string | null
+    personalInfo?: PersonalInfoUncheckedUpdateOneWithoutResumeNestedInput
+    sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
+    educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
+    experiences?: ExperienceUncheckedUpdateManyWithoutResumeNestedInput
+    skills?: SkillUncheckedUpdateManyWithoutResumeNestedInput
+    languages?: LanguageUncheckedUpdateManyWithoutResumeNestedInput
+    certifications?: CertificationUncheckedUpdateManyWithoutResumeNestedInput
+    projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
+    achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
+    customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+    references?: ReferenceUncheckedUpdateManyWithoutResumeNestedInput
+    publications?: PublicationUncheckedUpdateManyWithoutResumeNestedInput
+    volunteerings?: VolunteeringUncheckedUpdateManyWithoutResumeNestedInput
+    awards?: AwardUncheckedUpdateManyWithoutResumeNestedInput
+    LinkedInProfile?: LinkedInProfileUncheckedUpdateOneWithoutResumeNestedInput
+  }
+
+  export type ResumeCreateWithoutReferencesInput = {
+    id?: string
+    title: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isPublic?: boolean
+    publicUrl?: string | null
+    user: UserCreateNestedOneWithoutResumeInput
+    template: TemplateCreateNestedOneWithoutResumesInput
+    theme: ThemeCreateNestedOneWithoutResumesInput
+    font?: FontCreateNestedOneWithoutResumesInput
+    personalInfo?: PersonalInfoCreateNestedOneWithoutResumeInput
+    sections?: SectionCreateNestedManyWithoutResumeInput
+    educations?: EducationCreateNestedManyWithoutResumeInput
+    experiences?: ExperienceCreateNestedManyWithoutResumeInput
+    skills?: SkillCreateNestedManyWithoutResumeInput
+    languages?: LanguageCreateNestedManyWithoutResumeInput
+    certifications?: CertificationCreateNestedManyWithoutResumeInput
+    projects?: ProjectCreateNestedManyWithoutResumeInput
+    achievements?: AchievementCreateNestedManyWithoutResumeInput
+    customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+    hobbies?: HobbyCreateNestedManyWithoutResumeInput
+    publications?: PublicationCreateNestedManyWithoutResumeInput
+    volunteerings?: VolunteeringCreateNestedManyWithoutResumeInput
+    awards?: AwardCreateNestedManyWithoutResumeInput
+    LinkedInProfile?: LinkedInProfileCreateNestedOneWithoutResumeInput
+  }
+
+  export type ResumeUncheckedCreateWithoutReferencesInput = {
+    id?: string
+    title: string
+    userId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isPublic?: boolean
+    publicUrl?: string | null
+    templateId: string
+    themeId: string
+    fontId?: string | null
+    personalInfo?: PersonalInfoUncheckedCreateNestedOneWithoutResumeInput
+    sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
+    educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
+    experiences?: ExperienceUncheckedCreateNestedManyWithoutResumeInput
+    skills?: SkillUncheckedCreateNestedManyWithoutResumeInput
+    languages?: LanguageUncheckedCreateNestedManyWithoutResumeInput
+    certifications?: CertificationUncheckedCreateNestedManyWithoutResumeInput
+    projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
+    achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
+    customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+    hobbies?: HobbyUncheckedCreateNestedManyWithoutResumeInput
+    publications?: PublicationUncheckedCreateNestedManyWithoutResumeInput
+    volunteerings?: VolunteeringUncheckedCreateNestedManyWithoutResumeInput
+    awards?: AwardUncheckedCreateNestedManyWithoutResumeInput
+    LinkedInProfile?: LinkedInProfileUncheckedCreateNestedOneWithoutResumeInput
+  }
+
+  export type ResumeCreateOrConnectWithoutReferencesInput = {
+    where: ResumeWhereUniqueInput
+    create: XOR<ResumeCreateWithoutReferencesInput, ResumeUncheckedCreateWithoutReferencesInput>
+  }
+
+  export type ResumeUpsertWithoutReferencesInput = {
+    update: XOR<ResumeUpdateWithoutReferencesInput, ResumeUncheckedUpdateWithoutReferencesInput>
+    create: XOR<ResumeCreateWithoutReferencesInput, ResumeUncheckedCreateWithoutReferencesInput>
+    where?: ResumeWhereInput
+  }
+
+  export type ResumeUpdateToOneWithWhereWithoutReferencesInput = {
+    where?: ResumeWhereInput
+    data: XOR<ResumeUpdateWithoutReferencesInput, ResumeUncheckedUpdateWithoutReferencesInput>
+  }
+
+  export type ResumeUpdateWithoutReferencesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    user?: UserUpdateOneRequiredWithoutResumeNestedInput
+    template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
+    theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
+    font?: FontUpdateOneWithoutResumesNestedInput
+    personalInfo?: PersonalInfoUpdateOneWithoutResumeNestedInput
+    sections?: SectionUpdateManyWithoutResumeNestedInput
+    educations?: EducationUpdateManyWithoutResumeNestedInput
+    experiences?: ExperienceUpdateManyWithoutResumeNestedInput
+    skills?: SkillUpdateManyWithoutResumeNestedInput
+    languages?: LanguageUpdateManyWithoutResumeNestedInput
+    certifications?: CertificationUpdateManyWithoutResumeNestedInput
+    projects?: ProjectUpdateManyWithoutResumeNestedInput
+    achievements?: AchievementUpdateManyWithoutResumeNestedInput
+    customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+    hobbies?: HobbyUpdateManyWithoutResumeNestedInput
+    publications?: PublicationUpdateManyWithoutResumeNestedInput
+    volunteerings?: VolunteeringUpdateManyWithoutResumeNestedInput
+    awards?: AwardUpdateManyWithoutResumeNestedInput
+    LinkedInProfile?: LinkedInProfileUpdateOneWithoutResumeNestedInput
+  }
+
+  export type ResumeUncheckedUpdateWithoutReferencesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    templateId?: StringFieldUpdateOperationsInput | string
+    themeId?: StringFieldUpdateOperationsInput | string
+    fontId?: NullableStringFieldUpdateOperationsInput | string | null
+    personalInfo?: PersonalInfoUncheckedUpdateOneWithoutResumeNestedInput
+    sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
+    educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
+    experiences?: ExperienceUncheckedUpdateManyWithoutResumeNestedInput
+    skills?: SkillUncheckedUpdateManyWithoutResumeNestedInput
+    languages?: LanguageUncheckedUpdateManyWithoutResumeNestedInput
+    certifications?: CertificationUncheckedUpdateManyWithoutResumeNestedInput
+    projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
+    achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
+    customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+    hobbies?: HobbyUncheckedUpdateManyWithoutResumeNestedInput
+    publications?: PublicationUncheckedUpdateManyWithoutResumeNestedInput
+    volunteerings?: VolunteeringUncheckedUpdateManyWithoutResumeNestedInput
+    awards?: AwardUncheckedUpdateManyWithoutResumeNestedInput
+    LinkedInProfile?: LinkedInProfileUncheckedUpdateOneWithoutResumeNestedInput
+  }
+
+  export type ResumeCreateWithoutPublicationsInput = {
+    id?: string
+    title: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isPublic?: boolean
+    publicUrl?: string | null
+    user: UserCreateNestedOneWithoutResumeInput
+    template: TemplateCreateNestedOneWithoutResumesInput
+    theme: ThemeCreateNestedOneWithoutResumesInput
+    font?: FontCreateNestedOneWithoutResumesInput
+    personalInfo?: PersonalInfoCreateNestedOneWithoutResumeInput
+    sections?: SectionCreateNestedManyWithoutResumeInput
+    educations?: EducationCreateNestedManyWithoutResumeInput
+    experiences?: ExperienceCreateNestedManyWithoutResumeInput
+    skills?: SkillCreateNestedManyWithoutResumeInput
+    languages?: LanguageCreateNestedManyWithoutResumeInput
+    certifications?: CertificationCreateNestedManyWithoutResumeInput
+    projects?: ProjectCreateNestedManyWithoutResumeInput
+    achievements?: AchievementCreateNestedManyWithoutResumeInput
+    customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+    hobbies?: HobbyCreateNestedManyWithoutResumeInput
+    references?: ReferenceCreateNestedManyWithoutResumeInput
+    volunteerings?: VolunteeringCreateNestedManyWithoutResumeInput
+    awards?: AwardCreateNestedManyWithoutResumeInput
+    LinkedInProfile?: LinkedInProfileCreateNestedOneWithoutResumeInput
+  }
+
+  export type ResumeUncheckedCreateWithoutPublicationsInput = {
+    id?: string
+    title: string
+    userId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isPublic?: boolean
+    publicUrl?: string | null
+    templateId: string
+    themeId: string
+    fontId?: string | null
+    personalInfo?: PersonalInfoUncheckedCreateNestedOneWithoutResumeInput
+    sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
+    educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
+    experiences?: ExperienceUncheckedCreateNestedManyWithoutResumeInput
+    skills?: SkillUncheckedCreateNestedManyWithoutResumeInput
+    languages?: LanguageUncheckedCreateNestedManyWithoutResumeInput
+    certifications?: CertificationUncheckedCreateNestedManyWithoutResumeInput
+    projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
+    achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
+    customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+    hobbies?: HobbyUncheckedCreateNestedManyWithoutResumeInput
+    references?: ReferenceUncheckedCreateNestedManyWithoutResumeInput
+    volunteerings?: VolunteeringUncheckedCreateNestedManyWithoutResumeInput
+    awards?: AwardUncheckedCreateNestedManyWithoutResumeInput
+    LinkedInProfile?: LinkedInProfileUncheckedCreateNestedOneWithoutResumeInput
+  }
+
+  export type ResumeCreateOrConnectWithoutPublicationsInput = {
+    where: ResumeWhereUniqueInput
+    create: XOR<ResumeCreateWithoutPublicationsInput, ResumeUncheckedCreateWithoutPublicationsInput>
+  }
+
+  export type ResumeUpsertWithoutPublicationsInput = {
+    update: XOR<ResumeUpdateWithoutPublicationsInput, ResumeUncheckedUpdateWithoutPublicationsInput>
+    create: XOR<ResumeCreateWithoutPublicationsInput, ResumeUncheckedCreateWithoutPublicationsInput>
+    where?: ResumeWhereInput
+  }
+
+  export type ResumeUpdateToOneWithWhereWithoutPublicationsInput = {
+    where?: ResumeWhereInput
+    data: XOR<ResumeUpdateWithoutPublicationsInput, ResumeUncheckedUpdateWithoutPublicationsInput>
+  }
+
+  export type ResumeUpdateWithoutPublicationsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    user?: UserUpdateOneRequiredWithoutResumeNestedInput
+    template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
+    theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
+    font?: FontUpdateOneWithoutResumesNestedInput
+    personalInfo?: PersonalInfoUpdateOneWithoutResumeNestedInput
+    sections?: SectionUpdateManyWithoutResumeNestedInput
+    educations?: EducationUpdateManyWithoutResumeNestedInput
+    experiences?: ExperienceUpdateManyWithoutResumeNestedInput
+    skills?: SkillUpdateManyWithoutResumeNestedInput
+    languages?: LanguageUpdateManyWithoutResumeNestedInput
+    certifications?: CertificationUpdateManyWithoutResumeNestedInput
+    projects?: ProjectUpdateManyWithoutResumeNestedInput
+    achievements?: AchievementUpdateManyWithoutResumeNestedInput
+    customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+    hobbies?: HobbyUpdateManyWithoutResumeNestedInput
+    references?: ReferenceUpdateManyWithoutResumeNestedInput
+    volunteerings?: VolunteeringUpdateManyWithoutResumeNestedInput
+    awards?: AwardUpdateManyWithoutResumeNestedInput
+    LinkedInProfile?: LinkedInProfileUpdateOneWithoutResumeNestedInput
+  }
+
+  export type ResumeUncheckedUpdateWithoutPublicationsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    templateId?: StringFieldUpdateOperationsInput | string
+    themeId?: StringFieldUpdateOperationsInput | string
+    fontId?: NullableStringFieldUpdateOperationsInput | string | null
+    personalInfo?: PersonalInfoUncheckedUpdateOneWithoutResumeNestedInput
+    sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
+    educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
+    experiences?: ExperienceUncheckedUpdateManyWithoutResumeNestedInput
+    skills?: SkillUncheckedUpdateManyWithoutResumeNestedInput
+    languages?: LanguageUncheckedUpdateManyWithoutResumeNestedInput
+    certifications?: CertificationUncheckedUpdateManyWithoutResumeNestedInput
+    projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
+    achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
+    customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+    hobbies?: HobbyUncheckedUpdateManyWithoutResumeNestedInput
+    references?: ReferenceUncheckedUpdateManyWithoutResumeNestedInput
+    volunteerings?: VolunteeringUncheckedUpdateManyWithoutResumeNestedInput
+    awards?: AwardUncheckedUpdateManyWithoutResumeNestedInput
+    LinkedInProfile?: LinkedInProfileUncheckedUpdateOneWithoutResumeNestedInput
+  }
+
+  export type ResumeCreateWithoutVolunteeringsInput = {
+    id?: string
+    title: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isPublic?: boolean
+    publicUrl?: string | null
+    user: UserCreateNestedOneWithoutResumeInput
+    template: TemplateCreateNestedOneWithoutResumesInput
+    theme: ThemeCreateNestedOneWithoutResumesInput
+    font?: FontCreateNestedOneWithoutResumesInput
+    personalInfo?: PersonalInfoCreateNestedOneWithoutResumeInput
+    sections?: SectionCreateNestedManyWithoutResumeInput
+    educations?: EducationCreateNestedManyWithoutResumeInput
+    experiences?: ExperienceCreateNestedManyWithoutResumeInput
+    skills?: SkillCreateNestedManyWithoutResumeInput
+    languages?: LanguageCreateNestedManyWithoutResumeInput
+    certifications?: CertificationCreateNestedManyWithoutResumeInput
+    projects?: ProjectCreateNestedManyWithoutResumeInput
+    achievements?: AchievementCreateNestedManyWithoutResumeInput
+    customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+    hobbies?: HobbyCreateNestedManyWithoutResumeInput
+    references?: ReferenceCreateNestedManyWithoutResumeInput
+    publications?: PublicationCreateNestedManyWithoutResumeInput
+    awards?: AwardCreateNestedManyWithoutResumeInput
+    LinkedInProfile?: LinkedInProfileCreateNestedOneWithoutResumeInput
+  }
+
+  export type ResumeUncheckedCreateWithoutVolunteeringsInput = {
+    id?: string
+    title: string
+    userId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isPublic?: boolean
+    publicUrl?: string | null
+    templateId: string
+    themeId: string
+    fontId?: string | null
+    personalInfo?: PersonalInfoUncheckedCreateNestedOneWithoutResumeInput
+    sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
+    educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
+    experiences?: ExperienceUncheckedCreateNestedManyWithoutResumeInput
+    skills?: SkillUncheckedCreateNestedManyWithoutResumeInput
+    languages?: LanguageUncheckedCreateNestedManyWithoutResumeInput
+    certifications?: CertificationUncheckedCreateNestedManyWithoutResumeInput
+    projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
+    achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
+    customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+    hobbies?: HobbyUncheckedCreateNestedManyWithoutResumeInput
+    references?: ReferenceUncheckedCreateNestedManyWithoutResumeInput
+    publications?: PublicationUncheckedCreateNestedManyWithoutResumeInput
+    awards?: AwardUncheckedCreateNestedManyWithoutResumeInput
+    LinkedInProfile?: LinkedInProfileUncheckedCreateNestedOneWithoutResumeInput
+  }
+
+  export type ResumeCreateOrConnectWithoutVolunteeringsInput = {
+    where: ResumeWhereUniqueInput
+    create: XOR<ResumeCreateWithoutVolunteeringsInput, ResumeUncheckedCreateWithoutVolunteeringsInput>
+  }
+
+  export type ResumeUpsertWithoutVolunteeringsInput = {
+    update: XOR<ResumeUpdateWithoutVolunteeringsInput, ResumeUncheckedUpdateWithoutVolunteeringsInput>
+    create: XOR<ResumeCreateWithoutVolunteeringsInput, ResumeUncheckedCreateWithoutVolunteeringsInput>
+    where?: ResumeWhereInput
+  }
+
+  export type ResumeUpdateToOneWithWhereWithoutVolunteeringsInput = {
+    where?: ResumeWhereInput
+    data: XOR<ResumeUpdateWithoutVolunteeringsInput, ResumeUncheckedUpdateWithoutVolunteeringsInput>
+  }
+
+  export type ResumeUpdateWithoutVolunteeringsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    user?: UserUpdateOneRequiredWithoutResumeNestedInput
+    template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
+    theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
+    font?: FontUpdateOneWithoutResumesNestedInput
+    personalInfo?: PersonalInfoUpdateOneWithoutResumeNestedInput
+    sections?: SectionUpdateManyWithoutResumeNestedInput
+    educations?: EducationUpdateManyWithoutResumeNestedInput
+    experiences?: ExperienceUpdateManyWithoutResumeNestedInput
+    skills?: SkillUpdateManyWithoutResumeNestedInput
+    languages?: LanguageUpdateManyWithoutResumeNestedInput
+    certifications?: CertificationUpdateManyWithoutResumeNestedInput
+    projects?: ProjectUpdateManyWithoutResumeNestedInput
+    achievements?: AchievementUpdateManyWithoutResumeNestedInput
+    customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+    hobbies?: HobbyUpdateManyWithoutResumeNestedInput
+    references?: ReferenceUpdateManyWithoutResumeNestedInput
+    publications?: PublicationUpdateManyWithoutResumeNestedInput
+    awards?: AwardUpdateManyWithoutResumeNestedInput
+    LinkedInProfile?: LinkedInProfileUpdateOneWithoutResumeNestedInput
+  }
+
+  export type ResumeUncheckedUpdateWithoutVolunteeringsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    templateId?: StringFieldUpdateOperationsInput | string
+    themeId?: StringFieldUpdateOperationsInput | string
+    fontId?: NullableStringFieldUpdateOperationsInput | string | null
+    personalInfo?: PersonalInfoUncheckedUpdateOneWithoutResumeNestedInput
+    sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
+    educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
+    experiences?: ExperienceUncheckedUpdateManyWithoutResumeNestedInput
+    skills?: SkillUncheckedUpdateManyWithoutResumeNestedInput
+    languages?: LanguageUncheckedUpdateManyWithoutResumeNestedInput
+    certifications?: CertificationUncheckedUpdateManyWithoutResumeNestedInput
+    projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
+    achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
+    customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+    hobbies?: HobbyUncheckedUpdateManyWithoutResumeNestedInput
+    references?: ReferenceUncheckedUpdateManyWithoutResumeNestedInput
+    publications?: PublicationUncheckedUpdateManyWithoutResumeNestedInput
+    awards?: AwardUncheckedUpdateManyWithoutResumeNestedInput
+    LinkedInProfile?: LinkedInProfileUncheckedUpdateOneWithoutResumeNestedInput
+  }
+
+  export type ResumeCreateWithoutAwardsInput = {
+    id?: string
+    title: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isPublic?: boolean
+    publicUrl?: string | null
+    user: UserCreateNestedOneWithoutResumeInput
+    template: TemplateCreateNestedOneWithoutResumesInput
+    theme: ThemeCreateNestedOneWithoutResumesInput
+    font?: FontCreateNestedOneWithoutResumesInput
+    personalInfo?: PersonalInfoCreateNestedOneWithoutResumeInput
+    sections?: SectionCreateNestedManyWithoutResumeInput
+    educations?: EducationCreateNestedManyWithoutResumeInput
+    experiences?: ExperienceCreateNestedManyWithoutResumeInput
+    skills?: SkillCreateNestedManyWithoutResumeInput
+    languages?: LanguageCreateNestedManyWithoutResumeInput
+    certifications?: CertificationCreateNestedManyWithoutResumeInput
+    projects?: ProjectCreateNestedManyWithoutResumeInput
+    achievements?: AchievementCreateNestedManyWithoutResumeInput
+    customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+    hobbies?: HobbyCreateNestedManyWithoutResumeInput
+    references?: ReferenceCreateNestedManyWithoutResumeInput
+    publications?: PublicationCreateNestedManyWithoutResumeInput
+    volunteerings?: VolunteeringCreateNestedManyWithoutResumeInput
+    LinkedInProfile?: LinkedInProfileCreateNestedOneWithoutResumeInput
+  }
+
+  export type ResumeUncheckedCreateWithoutAwardsInput = {
+    id?: string
+    title: string
+    userId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isPublic?: boolean
+    publicUrl?: string | null
+    templateId: string
+    themeId: string
+    fontId?: string | null
+    personalInfo?: PersonalInfoUncheckedCreateNestedOneWithoutResumeInput
+    sections?: SectionUncheckedCreateNestedManyWithoutResumeInput
+    educations?: EducationUncheckedCreateNestedManyWithoutResumeInput
+    experiences?: ExperienceUncheckedCreateNestedManyWithoutResumeInput
+    skills?: SkillUncheckedCreateNestedManyWithoutResumeInput
+    languages?: LanguageUncheckedCreateNestedManyWithoutResumeInput
+    certifications?: CertificationUncheckedCreateNestedManyWithoutResumeInput
+    projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
+    achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
+    customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+    hobbies?: HobbyUncheckedCreateNestedManyWithoutResumeInput
+    references?: ReferenceUncheckedCreateNestedManyWithoutResumeInput
+    publications?: PublicationUncheckedCreateNestedManyWithoutResumeInput
+    volunteerings?: VolunteeringUncheckedCreateNestedManyWithoutResumeInput
+    LinkedInProfile?: LinkedInProfileUncheckedCreateNestedOneWithoutResumeInput
+  }
+
+  export type ResumeCreateOrConnectWithoutAwardsInput = {
+    where: ResumeWhereUniqueInput
+    create: XOR<ResumeCreateWithoutAwardsInput, ResumeUncheckedCreateWithoutAwardsInput>
+  }
+
+  export type ResumeUpsertWithoutAwardsInput = {
+    update: XOR<ResumeUpdateWithoutAwardsInput, ResumeUncheckedUpdateWithoutAwardsInput>
+    create: XOR<ResumeCreateWithoutAwardsInput, ResumeUncheckedCreateWithoutAwardsInput>
+    where?: ResumeWhereInput
+  }
+
+  export type ResumeUpdateToOneWithWhereWithoutAwardsInput = {
+    where?: ResumeWhereInput
+    data: XOR<ResumeUpdateWithoutAwardsInput, ResumeUncheckedUpdateWithoutAwardsInput>
+  }
+
+  export type ResumeUpdateWithoutAwardsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    user?: UserUpdateOneRequiredWithoutResumeNestedInput
+    template?: TemplateUpdateOneRequiredWithoutResumesNestedInput
+    theme?: ThemeUpdateOneRequiredWithoutResumesNestedInput
+    font?: FontUpdateOneWithoutResumesNestedInput
+    personalInfo?: PersonalInfoUpdateOneWithoutResumeNestedInput
+    sections?: SectionUpdateManyWithoutResumeNestedInput
+    educations?: EducationUpdateManyWithoutResumeNestedInput
+    experiences?: ExperienceUpdateManyWithoutResumeNestedInput
+    skills?: SkillUpdateManyWithoutResumeNestedInput
+    languages?: LanguageUpdateManyWithoutResumeNestedInput
+    certifications?: CertificationUpdateManyWithoutResumeNestedInput
+    projects?: ProjectUpdateManyWithoutResumeNestedInput
+    achievements?: AchievementUpdateManyWithoutResumeNestedInput
+    customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+    hobbies?: HobbyUpdateManyWithoutResumeNestedInput
+    references?: ReferenceUpdateManyWithoutResumeNestedInput
+    publications?: PublicationUpdateManyWithoutResumeNestedInput
+    volunteerings?: VolunteeringUpdateManyWithoutResumeNestedInput
+    LinkedInProfile?: LinkedInProfileUpdateOneWithoutResumeNestedInput
+  }
+
+  export type ResumeUncheckedUpdateWithoutAwardsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    publicUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    templateId?: StringFieldUpdateOperationsInput | string
+    themeId?: StringFieldUpdateOperationsInput | string
+    fontId?: NullableStringFieldUpdateOperationsInput | string | null
+    personalInfo?: PersonalInfoUncheckedUpdateOneWithoutResumeNestedInput
+    sections?: SectionUncheckedUpdateManyWithoutResumeNestedInput
+    educations?: EducationUncheckedUpdateManyWithoutResumeNestedInput
+    experiences?: ExperienceUncheckedUpdateManyWithoutResumeNestedInput
+    skills?: SkillUncheckedUpdateManyWithoutResumeNestedInput
+    languages?: LanguageUncheckedUpdateManyWithoutResumeNestedInput
+    certifications?: CertificationUncheckedUpdateManyWithoutResumeNestedInput
+    projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
+    achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
+    customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+    hobbies?: HobbyUncheckedUpdateManyWithoutResumeNestedInput
+    references?: ReferenceUncheckedUpdateManyWithoutResumeNestedInput
+    publications?: PublicationUncheckedUpdateManyWithoutResumeNestedInput
+    volunteerings?: VolunteeringUncheckedUpdateManyWithoutResumeNestedInput
     LinkedInProfile?: LinkedInProfileUncheckedUpdateOneWithoutResumeNestedInput
   }
 
@@ -35723,6 +44482,11 @@ export namespace Prisma {
     projects?: ProjectCreateNestedManyWithoutResumeInput
     achievements?: AchievementCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+    hobbies?: HobbyCreateNestedManyWithoutResumeInput
+    references?: ReferenceCreateNestedManyWithoutResumeInput
+    publications?: PublicationCreateNestedManyWithoutResumeInput
+    volunteerings?: VolunteeringCreateNestedManyWithoutResumeInput
+    awards?: AwardCreateNestedManyWithoutResumeInput
     LinkedInProfile?: LinkedInProfileCreateNestedOneWithoutResumeInput
   }
 
@@ -35746,6 +44510,11 @@ export namespace Prisma {
     projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
     achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+    hobbies?: HobbyUncheckedCreateNestedManyWithoutResumeInput
+    references?: ReferenceUncheckedCreateNestedManyWithoutResumeInput
+    publications?: PublicationUncheckedCreateNestedManyWithoutResumeInput
+    volunteerings?: VolunteeringUncheckedCreateNestedManyWithoutResumeInput
+    awards?: AwardUncheckedCreateNestedManyWithoutResumeInput
     LinkedInProfile?: LinkedInProfileUncheckedCreateNestedOneWithoutResumeInput
   }
 
@@ -35795,6 +44564,11 @@ export namespace Prisma {
     projects?: ProjectCreateNestedManyWithoutResumeInput
     achievements?: AchievementCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+    hobbies?: HobbyCreateNestedManyWithoutResumeInput
+    references?: ReferenceCreateNestedManyWithoutResumeInput
+    publications?: PublicationCreateNestedManyWithoutResumeInput
+    volunteerings?: VolunteeringCreateNestedManyWithoutResumeInput
+    awards?: AwardCreateNestedManyWithoutResumeInput
     LinkedInProfile?: LinkedInProfileCreateNestedOneWithoutResumeInput
   }
 
@@ -35818,6 +44592,11 @@ export namespace Prisma {
     projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
     achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+    hobbies?: HobbyUncheckedCreateNestedManyWithoutResumeInput
+    references?: ReferenceUncheckedCreateNestedManyWithoutResumeInput
+    publications?: PublicationUncheckedCreateNestedManyWithoutResumeInput
+    volunteerings?: VolunteeringUncheckedCreateNestedManyWithoutResumeInput
+    awards?: AwardUncheckedCreateNestedManyWithoutResumeInput
     LinkedInProfile?: LinkedInProfileUncheckedCreateNestedOneWithoutResumeInput
   }
 
@@ -35867,6 +44646,11 @@ export namespace Prisma {
     projects?: ProjectCreateNestedManyWithoutResumeInput
     achievements?: AchievementCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+    hobbies?: HobbyCreateNestedManyWithoutResumeInput
+    references?: ReferenceCreateNestedManyWithoutResumeInput
+    publications?: PublicationCreateNestedManyWithoutResumeInput
+    volunteerings?: VolunteeringCreateNestedManyWithoutResumeInput
+    awards?: AwardCreateNestedManyWithoutResumeInput
     LinkedInProfile?: LinkedInProfileCreateNestedOneWithoutResumeInput
   }
 
@@ -35890,6 +44674,11 @@ export namespace Prisma {
     projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
     achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+    hobbies?: HobbyUncheckedCreateNestedManyWithoutResumeInput
+    references?: ReferenceUncheckedCreateNestedManyWithoutResumeInput
+    publications?: PublicationUncheckedCreateNestedManyWithoutResumeInput
+    volunteerings?: VolunteeringUncheckedCreateNestedManyWithoutResumeInput
+    awards?: AwardUncheckedCreateNestedManyWithoutResumeInput
     LinkedInProfile?: LinkedInProfileUncheckedCreateNestedOneWithoutResumeInput
   }
 
@@ -35940,6 +44729,11 @@ export namespace Prisma {
     projects?: ProjectCreateNestedManyWithoutResumeInput
     achievements?: AchievementCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionCreateNestedManyWithoutResumeInput
+    hobbies?: HobbyCreateNestedManyWithoutResumeInput
+    references?: ReferenceCreateNestedManyWithoutResumeInput
+    publications?: PublicationCreateNestedManyWithoutResumeInput
+    volunteerings?: VolunteeringCreateNestedManyWithoutResumeInput
+    awards?: AwardCreateNestedManyWithoutResumeInput
   }
 
   export type ResumeUncheckedCreateWithoutLinkedInProfileInput = {
@@ -35963,6 +44757,11 @@ export namespace Prisma {
     projects?: ProjectUncheckedCreateNestedManyWithoutResumeInput
     achievements?: AchievementUncheckedCreateNestedManyWithoutResumeInput
     customSections?: CustomSectionUncheckedCreateNestedManyWithoutResumeInput
+    hobbies?: HobbyUncheckedCreateNestedManyWithoutResumeInput
+    references?: ReferenceUncheckedCreateNestedManyWithoutResumeInput
+    publications?: PublicationUncheckedCreateNestedManyWithoutResumeInput
+    volunteerings?: VolunteeringUncheckedCreateNestedManyWithoutResumeInput
+    awards?: AwardUncheckedCreateNestedManyWithoutResumeInput
   }
 
   export type ResumeCreateOrConnectWithoutLinkedInProfileInput = {
@@ -36108,6 +44907,11 @@ export namespace Prisma {
     projects?: ProjectUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+    hobbies?: HobbyUpdateManyWithoutResumeNestedInput
+    references?: ReferenceUpdateManyWithoutResumeNestedInput
+    publications?: PublicationUpdateManyWithoutResumeNestedInput
+    volunteerings?: VolunteeringUpdateManyWithoutResumeNestedInput
+    awards?: AwardUpdateManyWithoutResumeNestedInput
   }
 
   export type ResumeUncheckedUpdateWithoutLinkedInProfileInput = {
@@ -36131,6 +44935,11 @@ export namespace Prisma {
     projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+    hobbies?: HobbyUncheckedUpdateManyWithoutResumeNestedInput
+    references?: ReferenceUncheckedUpdateManyWithoutResumeNestedInput
+    publications?: PublicationUncheckedUpdateManyWithoutResumeNestedInput
+    volunteerings?: VolunteeringUncheckedUpdateManyWithoutResumeNestedInput
+    awards?: AwardUncheckedUpdateManyWithoutResumeNestedInput
   }
 
   export type LinkedInExperienceUpsertWithWhereUniqueWithoutProfileInput = {
@@ -36644,6 +45453,11 @@ export namespace Prisma {
     projects?: ProjectUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+    hobbies?: HobbyUpdateManyWithoutResumeNestedInput
+    references?: ReferenceUpdateManyWithoutResumeNestedInput
+    publications?: PublicationUpdateManyWithoutResumeNestedInput
+    volunteerings?: VolunteeringUpdateManyWithoutResumeNestedInput
+    awards?: AwardUpdateManyWithoutResumeNestedInput
     LinkedInProfile?: LinkedInProfileUpdateOneWithoutResumeNestedInput
   }
 
@@ -36667,6 +45481,11 @@ export namespace Prisma {
     projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+    hobbies?: HobbyUncheckedUpdateManyWithoutResumeNestedInput
+    references?: ReferenceUncheckedUpdateManyWithoutResumeNestedInput
+    publications?: PublicationUncheckedUpdateManyWithoutResumeNestedInput
+    volunteerings?: VolunteeringUncheckedUpdateManyWithoutResumeNestedInput
+    awards?: AwardUncheckedUpdateManyWithoutResumeNestedInput
     LinkedInProfile?: LinkedInProfileUncheckedUpdateOneWithoutResumeNestedInput
   }
 
@@ -36763,6 +45582,52 @@ export namespace Prisma {
     title: string
     content: string
     order?: number
+  }
+
+  export type HobbyCreateManyResumeInput = {
+    id?: string
+    name: string
+    icon?: string | null
+    order?: number | null
+  }
+
+  export type ReferenceCreateManyResumeInput = {
+    id?: string
+    name: string
+    company: string
+    email?: string | null
+    phone?: string | null
+    relation?: string | null
+    order?: number | null
+  }
+
+  export type PublicationCreateManyResumeInput = {
+    id?: string
+    title: string
+    publisher?: string | null
+    date: Date | string
+    url?: string | null
+    description?: string | null
+    order?: number | null
+  }
+
+  export type VolunteeringCreateManyResumeInput = {
+    id?: string
+    organization: string
+    role: string
+    startDate?: Date | string | null
+    endDate?: Date | string | null
+    description: string
+    order?: number | null
+  }
+
+  export type AwardCreateManyResumeInput = {
+    id?: string
+    title: string
+    issuer?: string | null
+    date: Date | string
+    description?: string | null
+    order?: number | null
   }
 
   export type SectionUpdateWithoutResumeInput = {
@@ -37014,6 +45879,144 @@ export namespace Prisma {
     order?: IntFieldUpdateOperationsInput | number
   }
 
+  export type HobbyUpdateWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type HobbyUncheckedUpdateWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type HobbyUncheckedUpdateManyWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type ReferenceUpdateWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    company?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    relation?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type ReferenceUncheckedUpdateWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    company?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    relation?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type ReferenceUncheckedUpdateManyWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    company?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    relation?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type PublicationUpdateWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    publisher?: NullableStringFieldUpdateOperationsInput | string | null
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    url?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type PublicationUncheckedUpdateWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    publisher?: NullableStringFieldUpdateOperationsInput | string | null
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    url?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type PublicationUncheckedUpdateManyWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    publisher?: NullableStringFieldUpdateOperationsInput | string | null
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    url?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type VolunteeringUpdateWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    organization?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    description?: StringFieldUpdateOperationsInput | string
+    order?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type VolunteeringUncheckedUpdateWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    organization?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    description?: StringFieldUpdateOperationsInput | string
+    order?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type VolunteeringUncheckedUpdateManyWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    organization?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    description?: StringFieldUpdateOperationsInput | string
+    order?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type AwardUpdateWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    issuer?: NullableStringFieldUpdateOperationsInput | string | null
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type AwardUncheckedUpdateWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    issuer?: NullableStringFieldUpdateOperationsInput | string | null
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type AwardUncheckedUpdateManyWithoutResumeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    issuer?: NullableStringFieldUpdateOperationsInput | string | null
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
   export type ResumeCreateManyTemplateInput = {
     id?: string
     title: string
@@ -37046,6 +46049,11 @@ export namespace Prisma {
     projects?: ProjectUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+    hobbies?: HobbyUpdateManyWithoutResumeNestedInput
+    references?: ReferenceUpdateManyWithoutResumeNestedInput
+    publications?: PublicationUpdateManyWithoutResumeNestedInput
+    volunteerings?: VolunteeringUpdateManyWithoutResumeNestedInput
+    awards?: AwardUpdateManyWithoutResumeNestedInput
     LinkedInProfile?: LinkedInProfileUpdateOneWithoutResumeNestedInput
   }
 
@@ -37069,6 +46077,11 @@ export namespace Prisma {
     projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+    hobbies?: HobbyUncheckedUpdateManyWithoutResumeNestedInput
+    references?: ReferenceUncheckedUpdateManyWithoutResumeNestedInput
+    publications?: PublicationUncheckedUpdateManyWithoutResumeNestedInput
+    volunteerings?: VolunteeringUncheckedUpdateManyWithoutResumeNestedInput
+    awards?: AwardUncheckedUpdateManyWithoutResumeNestedInput
     LinkedInProfile?: LinkedInProfileUncheckedUpdateOneWithoutResumeNestedInput
   }
 
@@ -37116,6 +46129,11 @@ export namespace Prisma {
     projects?: ProjectUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+    hobbies?: HobbyUpdateManyWithoutResumeNestedInput
+    references?: ReferenceUpdateManyWithoutResumeNestedInput
+    publications?: PublicationUpdateManyWithoutResumeNestedInput
+    volunteerings?: VolunteeringUpdateManyWithoutResumeNestedInput
+    awards?: AwardUpdateManyWithoutResumeNestedInput
     LinkedInProfile?: LinkedInProfileUpdateOneWithoutResumeNestedInput
   }
 
@@ -37139,6 +46157,11 @@ export namespace Prisma {
     projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+    hobbies?: HobbyUncheckedUpdateManyWithoutResumeNestedInput
+    references?: ReferenceUncheckedUpdateManyWithoutResumeNestedInput
+    publications?: PublicationUncheckedUpdateManyWithoutResumeNestedInput
+    volunteerings?: VolunteeringUncheckedUpdateManyWithoutResumeNestedInput
+    awards?: AwardUncheckedUpdateManyWithoutResumeNestedInput
     LinkedInProfile?: LinkedInProfileUncheckedUpdateOneWithoutResumeNestedInput
   }
 
@@ -37186,6 +46209,11 @@ export namespace Prisma {
     projects?: ProjectUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUpdateManyWithoutResumeNestedInput
+    hobbies?: HobbyUpdateManyWithoutResumeNestedInput
+    references?: ReferenceUpdateManyWithoutResumeNestedInput
+    publications?: PublicationUpdateManyWithoutResumeNestedInput
+    volunteerings?: VolunteeringUpdateManyWithoutResumeNestedInput
+    awards?: AwardUpdateManyWithoutResumeNestedInput
     LinkedInProfile?: LinkedInProfileUpdateOneWithoutResumeNestedInput
   }
 
@@ -37209,6 +46237,11 @@ export namespace Prisma {
     projects?: ProjectUncheckedUpdateManyWithoutResumeNestedInput
     achievements?: AchievementUncheckedUpdateManyWithoutResumeNestedInput
     customSections?: CustomSectionUncheckedUpdateManyWithoutResumeNestedInput
+    hobbies?: HobbyUncheckedUpdateManyWithoutResumeNestedInput
+    references?: ReferenceUncheckedUpdateManyWithoutResumeNestedInput
+    publications?: PublicationUncheckedUpdateManyWithoutResumeNestedInput
+    volunteerings?: VolunteeringUncheckedUpdateManyWithoutResumeNestedInput
+    awards?: AwardUncheckedUpdateManyWithoutResumeNestedInput
     LinkedInProfile?: LinkedInProfileUncheckedUpdateOneWithoutResumeNestedInput
   }
 

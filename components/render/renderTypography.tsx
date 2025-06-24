@@ -3,14 +3,9 @@
 import { useResume } from '@/context/resume-context';
 import { Type, Palette, Settings } from 'lucide-react';
 import { useState } from 'react';
-import {
-  getFontClass,
-  fontSizes,
-  lineHeights,
-  getTypographyStyles,
-} from '@/utils/fonts/google-fonts';
+import { fontSizes, lineHeights, getTypographyStyles } from '@/utils/fonts/google-fonts';
 
-import { availableFonts } from '@/utils/fonts/google-fonts';
+import { useFonts, type Font as FontType } from '@/utils/fonts/useFonts';
 
 // Interface pour les paramètres de police
 export interface FontSettings {
@@ -26,21 +21,24 @@ export interface FontSettings {
 export const RenderTypographyEditor = () => {
   const { resume, updateResume } = useResume();
   const [activeTab, setActiveTab] = useState<'fonts' | 'sizes' | 'spacing'>('fonts');
+  const [hideIcons, setHideIcons] = useState(false);
+  const [underlineLinks, setUnderlineLinks] = useState(false);
 
   // Valeurs par défaut avec id requis
+  const { fonts, loading, error } = useFonts();
   const currentFont = resume?.font || { id: 'default-font-id', name: 'Arial' };
+  const currentFontId = currentFont.id || 'default-font-id';
   const currentFontName = currentFont.name || 'Arial';
 
-  const handleFontNameChange = (name: string) => {
+  const handleFontChange = (font: FontType) => {
     if (!resume) return;
-
     updateResume({
       ...resume,
       font: {
-        id: currentFont.id || 'default-font-id',
-        name: name,
-        category: name.includes('Serif') ? 'SERIF' : 'SANS_SERIF',
-        url: `https://fonts.google.com/specimen/${name.replace(/\s+/g, '+')}`,
+        id: font.id,
+        name: font.name,
+        category: font.category?.toUpperCase() || 'SANS_SERIF',
+        url: font.url || `https://fonts.google.com/specimen/${font.name.replace(/\s+/g, '+')}`,
         size: resume.font?.size || 16,
         lineHeight: resume.font?.lineHeight || 1.5,
       },
@@ -84,23 +82,23 @@ export const RenderTypographyEditor = () => {
   ];
 
   return (
-    <div className=" rounded-xl shadow-lg overflow-hidden max-w-md mx-auto">
-      {/* En-tête avec gradient */}
-      <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-6 w-full">
+    <div className="rounded-lg border  overflow-hidden max-w-md mx-auto">
+      {/* En-tête simple */}
+      <div className="bg-gray-900 p-4">
         <div className="flex items-center space-x-3">
-          <div className="p-2 bg-blue-500/20 rounded-lg">
-            <Type className="w-6 h-6" />
+          <div className="w-8 h-8 bg-purple-600 rounded-lg flex items-center justify-center">
+            <Type className="w-4 h-4 text-white" />
           </div>
           <div>
-            <h2 className="text-xl font-bold">Typographie</h2>
-            <p className="text-blue-100 text-sm">Personnalisez l'apparence de votre CV</p>
+            <h2 className="text-lg font-semibold text-white">Typographie</h2>
+            <p className="text-gray-300 text-sm">Personnalisez l'apparence de votre CV</p>
           </div>
         </div>
       </div>
 
       {/* Navigation par onglets */}
-      <div className="bg-gray-50 px-6 pt-4">
-        <div className="grid grid-cols-2 gap-2">
+      <div className="border-b ">
+        <div className="flex">
           {tabs.map(tab => {
             const Icon = tab.icon;
             return (
@@ -108,11 +106,11 @@ export const RenderTypographyEditor = () => {
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id as any)}
                 className={`
-                  flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200
+                  flex items-center space-x-2 px-4 py-3 text-sm font-medium border-b-2 transition-colors flex-1 justify-center
                   ${
                     activeTab === tab.id
-                      ? ' text-blue-600 shadow-sm border border-blue-200'
-                      : 'text-gray-600 hover:text-gray-800 hover:bg-gray-100'
+                      ? 'border-purple-600 text-purple-600 bg-purple-50'
+                      : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                   }
                 `}
               >
@@ -125,72 +123,71 @@ export const RenderTypographyEditor = () => {
       </div>
 
       {/* Contenu */}
-      <div className="p-6">
+      <div className="p-4">
         {/* Onglet Polices */}
         {activeTab === 'fonts' && (
           <div className="space-y-4">
-            <div className="text-sm text-gray-600 mb-4">
+            <div className="text-sm text-gray-600 dark:text-neutral-300">
               Choisissez la famille de police pour votre CV
             </div>
-            <div className="grid grid-cols-2 gap-3 w-full">
-              {availableFonts.map(font => (
-                <button
-                  key={font}
-                  onClick={() => handleFontNameChange(font)}
-                  className={`
-                    group relative p-4 rounded-xl text-sm font-medium transition-all duration-200
-                    border-2 hover:scale-[1.02] active:scale-[0.98]
-                    ${
-                      currentFontName === font
-                        ? 'border-blue-500 bg-blue-50 text-blue-700 shadow-lg shadow-blue-100'
-                        : 'border-gray-200  text-gray-700 hover:border-gray-300 hover:shadow-md'
-                    }
-                  `}
-                  style={{ fontFamily: getFontClass(font) }}
-                >
-                  <div className="flex flex-col items-center space-y-2">
-                    <span className="font-semibold">{font}</span>
-                    <span className="text-xs opacity-70">Exemple</span>
-                  </div>
-
-                  {currentFontName === font && (
-                    <div className="absolute -top-1 -right-1 w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
-                      <div className="w-2 h-2 bg-white rounded-full"></div>
+            {loading ? (
+              <div className="text-center py-4 text-gray-500 dark:text-neutral-300">Chargement des polices...</div>
+            ) : error ? (
+              <div className="text-red-600 text-sm">{error}</div>
+            ) : (
+              <div className="space-y-2">
+                {fonts.map(font => (
+                  <button
+                    key={font.id}
+                    onClick={() => handleFontChange(font)}
+                    className={`
+                      w-full text-left p-3 rounded-lg border transition-colors
+                      ${
+                        currentFontId === font.id
+                          ? 'border-purple-600 bg-purple-50 text-purple-700'
+                          : ' hover:border-gray-300 hover:bg-gray-50 dark:hover:border-neutral-800 dark:hover:bg-neutral-800'
+                      }
+                    `}
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className="font-medium">{font.name}</span>
+                      {currentFontId === font.id && (
+                        <span className="text-xs bg-purple-600 text-white px-2 py-1 rounded">
+                          Sélectionné
+                        </span>
+                      )}
                     </div>
-                  )}
-                </button>
-              ))}
-            </div>
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
         )}
 
         {/* Onglet Tailles */}
         {activeTab === 'sizes' && (
-          <div className="space-y-6">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-3">
-                Taille de police
-              </label>
-              <div className="grid grid-cols-1 gap-2">
-                {Object.entries(fontSizes).map(([key, size]) => (
-                  <button
-                    key={key}
-                    onClick={() => handleFontSizeChange(size.value)}
-                    className={`
-                      flex items-center justify-between p-3 rounded-lg border
-                      ${
-                        resume.font?.size === size.value
-                          ? 'border-blue-500 bg-blue-50 text-blue-700'
-                          : 'border-gray-200 hover:border-blue-300 hover:bg-blue-50'
-                      } 
-                      transition-all duration-150
-                    `}
-                  >
-                    <span className="text-gray-700">{size.label}</span>
+          <div className="space-y-4">
+            <div className="text-sm text-gray-600 dark:text-neutral-300">Taille de police</div>
+            <div className="space-y-2">
+              {Object.entries(fontSizes).map(([key, size]) => (
+                <button
+                  key={key}
+                  onClick={() => handleFontSizeChange(size.value)}
+                  className={`
+                    w-full text-left p-3 rounded-lg border transition-colors
+                    ${
+                      resume.font?.size === size.value
+                        ? 'border-purple-600 bg-purple-50 text-purple-700'
+                        : ' hover:border-gray-300 hover:bg-gray-50 dark:hover:border-neutral-800 dark:hover:bg-neutral-800'
+                    }
+                  `}
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="font-medium">{size.label}</span>
                     <span className="text-sm text-gray-500">{size.value}px</span>
-                  </button>
-                ))}
-              </div>
+                  </div>
+                </button>
+              ))}
             </div>
           </div>
         )}
@@ -199,56 +196,66 @@ export const RenderTypographyEditor = () => {
         {activeTab === 'spacing' && (
           <div className="space-y-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-3">
-                Hauteur de ligne
-              </label>
-              <div className="grid grid-cols-1 gap-2">
+              <div className="text-sm text-gray-600 mb-3">Hauteur de ligne</div>
+              <div className="space-y-2">
                 {Object.entries(lineHeights).map(([key, height]) => (
                   <button
                     key={key}
                     onClick={() => handleLineHeightChange(height.value)}
                     className={`
-                      flex items-center justify-between p-3 rounded-lg border
+                      w-full text-left p-3 rounded-lg border transition-colors
                       ${
                         resume.font?.lineHeight === height.value
-                          ? 'border-blue-500 bg-blue-50 text-blue-700'
-                          : 'border-gray-200 hover:border-blue-300 hover:bg-blue-50'
-                      } 
-                      transition-all duration-150
+                          ? 'border-purple-600 bg-purple-50 text-purple-700'
+                          : ' hover:border-gray-300 hover:bg-gray-50 dark:hover:border-neutral-800 dark:hover:bg-neutral-800'
+                      }
                     `}
                   >
-                    <span className="text-gray-700">{height.label}</span>
-                    <span className="text-sm text-gray-500">{height.value}</span>
+                    <div className="flex items-center justify-between">
+                      <span className="font-medium">{height.label}</span>
+                      <span className="text-sm text-gray-500">{height.value}</span>
+                    </div>
                   </button>
                 ))}
               </div>
             </div>
 
-            <div className="pt-4 border-t border-gray-200">
+            {/* Options supplémentaires */}
+            <div className="space-y-4 pt-4 border-t ">
               <div className="flex items-center justify-between">
-                <label className="text-sm font-medium text-gray-700">Masquer les icônes</label>
-                <div className="relative">
-                  <input type="checkbox" className="sr-only" id="hide-icons" />
-                  <label
-                    htmlFor="hide-icons"
-                    className="block w-12 h-6 bg-gray-300 rounded-full cursor-pointer transition-colors duration-200 hover:bg-gray-400"
-                  >
-                    <div className="w-5 h-5 bg-white rounded-full shadow-sm transform transition-transform duration-200 translate-x-0.5 mt-0.5"></div>
-                  </label>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex items-center justify-between">
-              <label className="text-sm font-medium text-gray-700">Souligner les liens</label>
-              <div className="relative">
-                <input type="checkbox" className="sr-only" id="underline-links" />
-                <label
-                  htmlFor="underline-links"
-                  className="block w-12 h-6 bg-gray-300 rounded-full cursor-pointer transition-colors duration-200 hover:bg-gray-400"
+                <label className="text-sm font-medium text-gray-700 dark:text-neutral-300">Masquer les icônes</label>
+                <button
+                  onClick={() => setHideIcons(!hideIcons)}
+                  className={`
+                    relative inline-flex h-5 w-9 items-center rounded-full transition-colors
+                    ${hideIcons ? 'bg-purple-600' : 'bg-neutral-900'}
+                  `}
                 >
-                  <div className="w-5 h-5 bg-white rounded-full shadow-sm transform transition-transform duration-200 translate-x-0.5 mt-0.5"></div>
-                </label>
+                  <span
+                    className={`
+                      inline-block h-3 w-3 transform rounded-full transition-transform
+                      ${hideIcons ? 'translate-x-5' : 'translate-x-1'}
+                    `}
+                  />
+                </button>
+              </div>
+
+              <div className="flex items-center justify-between">
+                <label className="text-sm font-medium text-gray-700 dark:text-neutral-300">Souligner les liens</label>
+                <button
+                  onClick={() => setUnderlineLinks(!underlineLinks)}
+                  className={`
+                    relative inline-flex h-5 w-9 items-center rounded-full transition-colors
+                    ${underlineLinks ? 'bg-purple-600' : 'bg-gray-300 dark:bg-neutral-900'}
+                  `}
+                >
+                  <span
+                    className={`
+                      inline-block h-3 w-3 transform rounded-full transition-transform
+                      ${underlineLinks ? 'translate-x-5' : 'translate-x-1'}
+                    `}
+                  />
+                </button>
               </div>
             </div>
           </div>
@@ -256,15 +263,15 @@ export const RenderTypographyEditor = () => {
       </div>
 
       {/* Aperçu */}
-      <div className="bg-gray-50 p-6 border-t border-gray-200">
-        <div className="text-sm text-gray-600 mb-3">Aperçu</div>
+      <div className="bg-gray-50 dark:bg-neutral-900 p-4 border-t  dark:border-neutral-800">
+        <div className="text-sm text-gray-600 dark:text-neutral-300 mb-3">Aperçu</div>
         <div
-          className="p-4 bg-white rounded-lg border border-gray-200"
+          className="p-4 rounded border  dark:border-neutral-800"
           style={getTypographyStyles(currentFontName, resume.font?.size, resume.font?.lineHeight)}
         >
-          <h3 className="font-bold text-lg text-gray-800 mb-2">John Doe</h3>
-          <p className="text-gray-600 text-sm mb-3">Développeur Full Stack</p>
-          <p className="text-gray-700 text-sm leading-relaxed">
+          <h3 className="font-bold text-lg mb-1">Jean Dupont</h3>
+          <p className="text-sm mb-3">Chef de projet</p>
+          <p className="text-sm leading-relaxed">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua.
           </p>

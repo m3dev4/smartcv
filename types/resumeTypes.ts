@@ -77,6 +77,47 @@ export interface ResumeTemplateProps {
       date?: Date;
       order: number;
     }[];
+    hobbies?: {
+      id: string;
+      name: string
+      icon?: string
+      order?: number;
+    }[]
+    references: {
+      id: string
+      name: string
+      company: string
+      email?: string
+      phone?: string
+      relation?: string
+      order?: number
+    }[]
+    publications: {
+      id: string
+      title: string
+      publisher: string
+      url?: string
+      date?: Date
+      description?: string
+      order?: number
+    }[]
+    volunteerings: {
+      id: string
+      organization: string
+      role: string
+      startDate?: Date
+      endDate?: Date
+      description?: string
+      order?: number
+    }[]
+    awards: {
+      id: string
+      title: string
+      issuer: string
+      date?: Date
+      description?: string
+      order?: number
+    }[]
     customSections?: {
       id: string;
       title: string;

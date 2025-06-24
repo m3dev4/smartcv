@@ -22,7 +22,7 @@ export const CleanProfessionalTemplate: React.FC<ResumeTemplateProps> = ({
   isEditable = false,
   onEditSection,
 }) => {
-  const { personalInfo, educations, experiences, skills, languages, certifications, projects, achievements } = resume
+  const { personalInfo, educations, experiences, skills, languages, certifications, projects, achievements, hobbies } = resume
   
   // Fonction pour mettre à jour les informations personnelles
   const handlePersonalInfoUpdate = (field: string, value: string) => {
@@ -69,34 +69,17 @@ export const CleanProfessionalTemplate: React.FC<ResumeTemplateProps> = ({
     >
       {/* En-tête avec nom et titre - Responsive */}
       <header className="p-4 sm:p-6 lg:p-8 pb-4 sm:pb-6" onClick={() => handleEditSection("personalInfo")}>
-        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-2 tracking-wide" style={{ color: theme.text }}>
-          <EditableText
-            value={`${personalInfo?.firstName?.toUpperCase() || ''} ${personalInfo?.lastName?.toUpperCase() || ''}`}
-            onChange={(value) => {
-              const names = value.split(' ');
-              const firstName = names[0]?.toLowerCase() || '';
-              const lastName = names.slice(1).join(' ').toLowerCase() || '';
-              handlePersonalInfoUpdate('firstName', firstName);
-              handlePersonalInfoUpdate('lastName', lastName);
-            }}
-            as="span"
-          />
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-2 tracking-wide" style={{ color: theme.text }}
+        >
+        {personalInfo?.firstName?.toUpperCase() || ''} {personalInfo?.lastName?.toUpperCase() || ''}
         </h1>
         {personalInfo?.title ? (
           <h2 className="text-base sm:text-lg text-gray-600 mb-4">
-            <EditableText
-              value={personalInfo.title}
-              onChange={(value) => handlePersonalInfoUpdate('title', value)}
-              as="span"
-            />
+            {personalInfo.title}
           </h2>
         ) : isEditable ? (
           <h2 className="text-base sm:text-lg text-gray-600 mb-4">
-            <EditableText
-              value=""
-              onChange={(value) => handlePersonalInfoUpdate('title', value)}
-              as="span"
-            />
+            
           </h2>
         ) : null}
 
@@ -104,73 +87,34 @@ export const CleanProfessionalTemplate: React.FC<ResumeTemplateProps> = ({
         <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-6 text-xs sm:text-sm text-gray-600">
           {personalInfo?.email ? (
             <span className="break-all">
-              <EditableText
-                value={personalInfo.email}
-                onChange={(value) => handlePersonalInfoUpdate('email', value)}
-                as="span"
-              />
+              {personalInfo.email}
             </span>
           ) : isEditable ? (
             <span className="break-all">
-              <EditableText
-                value=""
-                onChange={(value) => handlePersonalInfoUpdate('email', value)}
-                as="span"
-              />
+              ""
             </span>
           ) : null}
           
           {personalInfo?.phone ? (
             <span>
-              <EditableText
-                value={personalInfo.phone}
-                onChange={(value) => handlePersonalInfoUpdate('phone', value)}
-                as="span"
-              />
+              {personalInfo.phone}
             </span>
           ) : isEditable ? (
             <span>
-              <EditableText
-                value=""
-                onChange={(value) => handlePersonalInfoUpdate('phone', value)}
-                as="span"
-              />
+              ""
             </span>
           ) : null}
           
           {personalInfo?.location ? (
             <span>
-              <EditableText
-                value={personalInfo.location}
-                onChange={(value) => handlePersonalInfoUpdate('location', value)}
-                as="span"
-              />
-            </span>
-          ) : isEditable ? (
-            <span>
-              <EditableText
-                value=""
-                onChange={(value) => handlePersonalInfoUpdate('location', value)}
-                as="span"
-              />
+              {personalInfo.location}
             </span>
           ) : null}
+    
           
           {personalInfo?.website ? (
             <span className="break-all">
-              <EditableText
-                value={personalInfo.website}
-                onChange={(value) => handlePersonalInfoUpdate('website', value)}
-                as="span"
-              />
-            </span>
-          ) : isEditable ? (
-            <span className="break-all">
-              <EditableText
-                value=""
-                onChange={(value) => handlePersonalInfoUpdate('website', value)}
-                as="span"
-              />
+              {personalInfo.website}
             </span>
           ) : null}
         </div>
@@ -181,7 +125,7 @@ export const CleanProfessionalTemplate: React.FC<ResumeTemplateProps> = ({
         <div className="lg:col-span-7 space-y-6 lg:space-y-8">
           {/* Summary */}
           {personalInfo?.description && (
-            <section onClick={() => handleEditSection("summary")}>
+            <section onClick={() => handleEditSection("personalInfo")}>
               <h2
                 className="text-base sm:text-lg font-bold mb-3 sm:mb-4 pb-2 border-b border-gray-300"
                 style={{ color: theme.text }}
@@ -189,18 +133,14 @@ export const CleanProfessionalTemplate: React.FC<ResumeTemplateProps> = ({
                 SUMMARY
               </h2>
               <p className="text-xs sm:text-sm leading-relaxed text-gray-700">
-                <EditableText
-                  value={personalInfo.description || ''}
-                  onChange={(value) => handlePersonalInfoUpdate('description', value)}
-                  multiline={true}
-                />
+                {personalInfo.description || ''}
               </p>
             </section>
           )}
 
           {/* Experience */}
           {experiences && experiences.length > 0 && (
-            <section onClick={() => handleEditSection("experiences")}>
+            <section onClick={() => handleEditSection("experiencs")}>
               <h2
                 className="text-base sm:text-lg font-bold mb-3 sm:mb-4 pb-2 border-b border-gray-300"
                 style={{ color: theme.text }}
@@ -248,7 +188,7 @@ export const CleanProfessionalTemplate: React.FC<ResumeTemplateProps> = ({
 
           {/* Education */}
           {educations && educations.length > 0 && (
-            <section onClick={() => handleEditSection("educations")}>
+            <section onClick={() => handleEditSection("education")}>
               <h2
                 className="text-base sm:text-lg font-bold mb-3 sm:mb-4 pb-2 border-b border-gray-300"
                 style={{ color: theme.text }}
@@ -408,7 +348,7 @@ export const CleanProfessionalTemplate: React.FC<ResumeTemplateProps> = ({
                 className="text-base sm:text-lg font-bold mb-3 sm:mb-4 pb-2 border-b border-gray-300"
                 style={{ color: theme.text }}
               >
-                COURSES
+                CERTIFICATIONS
               </h2>
               <div className="space-y-3">
                 {certifications
@@ -464,6 +404,42 @@ export const CleanProfessionalTemplate: React.FC<ResumeTemplateProps> = ({
                   ))}
               </div>
             </section>
+          )}
+
+          {/* Hobbies */}
+          {hobbies && hobbies.length > 0 && (
+            <div className="mb-6" onClick={() => handleEditSection('hobbies')}>
+              <h2
+                className="text-xl font-bold uppercase mb-4 pb-2 flex items-center gap-2"
+                style={{ borderBottom: `2px solid ${theme.primary}` }}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6 text-gray-500 mr-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9.75 17a4.25 4.25 0 104.5-7.5m-7.5 4.5a4.25 4.25 0 107.5 4.5m1.5-8a4.25 4.25 0 11-4.5-7.5"
+                  />
+                </svg>
+                Hobbies
+              </h2>
+              <ul className="list-disc list-inside space-y-1 pl-2">
+                {hobbies.map((hobby, idx) => (
+                  <li key={idx} className="flex items-center gap-2">
+                    <p className='text-sm font-semibold'>{hobby.name}</p>
+                    {hobby.icon && (
+                      <span className="text-xs" aria-label="Icône hobby">{hobby.icon}</span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
           )}
         </div>
       </div>

@@ -69,6 +69,9 @@ const sourceSans = Source_Sans_3({
 export const metadata: Metadata = {
   title: 'Smart CV',
   description: 'Un outil pour créer un CV professionnel',
+  icons: {
+    icon: '/scv.svg',
+  },
   alternates: { canonical: 'https://smart-cv-sn.netlify.app/' },
   openGraph: {
     title: 'Smart CV',

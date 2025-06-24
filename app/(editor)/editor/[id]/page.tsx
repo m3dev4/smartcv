@@ -42,7 +42,7 @@ const EditorPage = () => {
 
   return (
     <ResumeProvider resumeId={resumeId} templateType={templateType}>
-      <div className="flex h-screen w-full bg-slate-100 dark:bg-slate-900">
+      <div className="flex h-screen w-full bg-slate-900-100 dark:bg-neutral-900 overflow-hidden">
         {/* Sidebar for Desktop - controlled by sidebarCollapsed */}
         <div
           className={`hidden lg:flex ${
@@ -68,7 +68,7 @@ const EditorPage = () => {
           ></div>
         )}
         <div
-          className={`lg:hidden fixed top-0 left-0 h-full w-64 bg-white dark:bg-slate-800 shadow-xl z-50 transform transition-transform duration-300 ease-in-out ${
+          className={`lg:hidden fixed top-0 left-0 h-full w-64 bg-white dark:bg-slate-900-800 shadow-xl z-50 transform transition-transform duration-300 ease-in-out ${
             isMobileSidebarOpen ? 'translate-x-0' : '-translate-x-full'
           }`}
         >
@@ -98,7 +98,7 @@ const EditorPage = () => {
             {' '}
             {/* Added relative for potential absolute positioning of mobile properties panel */}
             <div
-              className={`flex-1 overflow-auto p-2 sm:p-4 md:p-6 bg-slate-200 dark:bg-slate-950`}
+              className={`flex-1 overflow-auto p-2 sm:p-4 md:p-6 bg-slate-900-200 dark:bg-slate-900-950`}
             >
               <EditorCanva
                 selectedSection={selectedSection}
@@ -110,7 +110,7 @@ const EditorPage = () => {
             <div
               className={
                 `transition-all duration-300 ease-in-out fixed lg:static inset-y-0 right-0 z-30 lg:z-auto 
-                          bg-white dark:bg-slate-800 shadow-lg lg:shadow-none 
+                          bg-white dark:bg-neutral-900 shadow-lg lg:shadow-none 
                           w-full max-w-xs sm:w-80 md:w-96 lg:w-[280px] xl:w-[320px] 
                           transform ${propertiesPanelOpen ? 'translate-x-0' : 'translate-x-full'} 
                           lg:transform-none ${

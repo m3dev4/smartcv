@@ -6,8 +6,8 @@ import {
   Briefcase,
   ChevronLeft,
   ChevronRight,
-  FolderOpen,
   GraduationCap,
+  Heart,
   Languages,
   Layout,
   Linkedin,
@@ -18,19 +18,20 @@ import {
 } from 'lucide-react';
 import { ScrollArea } from '../ui/scroll-area';
 import { Separator } from '../ui/separator';
+import { AddSectionDialog } from './add-section';
 
 interface EditorSidebarProps {
   collapsed: boolean;
   onToggleCollapse: () => void;
   selectedSection: string | null;
   onSelectSection: (section: string) => void;
-  isMobileView?: boolean; // Added for mobile-specific behavior
+  isMobileView?: boolean;
 }
 
 const sections = [
-  { id: 'personal', label: 'Informations personnelles', icon: User, color: 'bg-blue-500' },
-  { id: 'experience', label: 'Expériences', icon: Briefcase, color: 'bg-green-500' },
-  { id: 'education', label: 'Formation', icon: GraduationCap, color: 'bg-purple-500' },
+  { id: 'personalInfo', label: 'Informations personnelles', icon: User, color: 'bg-blue-500' },
+  { id: 'experiences', label: 'Expériences', icon: Briefcase, color: 'bg-green-500' },
+  { id: 'educations', label: 'Formation', icon: GraduationCap, color: 'bg-purple-500' },
   { id: 'skills', label: 'Compétences', icon: Award, color: 'bg-orange-500' },
   { id: 'languages', label: 'Langues', icon: Languages, color: 'bg-pink-500' },
   { id: 'certifications', label: 'Certifications', icon: Award, color: 'bg-cyan-500' },
@@ -52,24 +53,35 @@ const EditorSidebar: React.FC<EditorSidebarProps> = ({
   onSelectSection,
   selectedSection,
   onToggleCollapse,
-  isMobileView = false, // Default to false
+  isMobileView = false,
 }) => {
+  const handleSectionAdded = (sectionId: string) => {
+    onSelectSection(sectionId);
+  };
+
   return (
     <div
       className={cn(
-        'border-r border-slate-200 dark:border-slate-700 flex flex-col h-full w-full bg-white dark:bg-black/90' // Removed fixed, width, transition. Added h-full, w-full and bg
+        'border-r border-slate-200 dark:border-neutral-800 flex flex-col h-full w-full bg-white dark:bg-neutral-900'
       )}
     >
       {/* Header */}
-      <div className="p-4 border-b border-slate-200 dark:border-slate-700 flex items-center justify-between">
-        {!collapsed && <h2 className="font-semibold">{isMobileView ? 'Menu' : 'Editeur CV'}</h2>}
-        <Button variant="ghost" onClick={onToggleCollapse} aria-label={isMobileView ? 'Close menu' : (collapsed ? 'Expand sidebar' : 'Collapse sidebar') }>
-          {/* In mobile view, this button always closes. In desktop, it toggles collapse. */}
-          {isMobileView ? <ChevronLeft className="h-4 w-4" /> : (collapsed ? <ChevronRight className="h-4 w-4" /> : <ChevronLeft className="h-4 w-4" />)}
+      <div className="p-4 border-b border-slate-200 dark:border-neutral-800 flex items-center justify-between">
+        {!collapsed && <h2 className="font-semibold">{isMobileView ? 'Menu' : 'SmartCV'}</h2>}
+        <Button 
+          variant="ghost" 
+          onClick={onToggleCollapse} 
+          aria-label={isMobileView ? 'Close menu' : (collapsed ? 'Expand sidebar' : 'Collapse sidebar')}
+        >
+          {isMobileView ? (
+            <ChevronLeft className="h-4 w-4" />
+          ) : (
+            collapsed ? <ChevronRight className="h-4 w-4" /> : <ChevronLeft className="h-4 w-4" />
+          )}
         </Button>
       </div>
 
-      <ScrollArea className="flex-1">
+      <ScrollArea className="flex-1 overflow-y-auto">
         <div className={cn("space-y-2", collapsed ? "p-2" : "p-4")}>
           <div>
             {!collapsed && <h3>Sections</h3>}
@@ -97,10 +109,7 @@ const EditorSidebar: React.FC<EditorSidebarProps> = ({
               ))}
 
               {!collapsed && (
-                <Button variant="outline" className="w-full justify-start h-10 border-dashed">
-                  <FolderOpen className="h-4 w-4 mr-3" />
-                  <span className="text-sm">Ajouter une section</span>
-                </Button>
+                <AddSectionDialog onSectionAdded={handleSectionAdded} />
               )}
             </div>
           </div>
@@ -129,7 +138,7 @@ const EditorSidebar: React.FC<EditorSidebarProps> = ({
             </div>
           </div>
 
-           <div>
+          <div>
             {!collapsed && <h3 className="text-sm font-medium text-gray-500 mb-3">Créer depuis LinkedIn</h3>}
             <div className="space-y-2">
               {linkedinExtract.map(tool => (

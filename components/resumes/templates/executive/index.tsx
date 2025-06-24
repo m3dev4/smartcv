@@ -16,7 +16,7 @@ import type React from "react"
  * - Optimisé pour cadres dirigeants sur tous appareils
  */
 export const ExecutiveTemplate: React.FC<ResumeTemplateProps> = ({ resume, isEditable = false, onEditSection }) => {
-  const { personalInfo, educations, experiences, skills, languages, certifications, projects, achievements } = resume
+  const { personalInfo, educations, experiences, skills, languages, certifications, projects, achievements, hobbies } = resume
 
   const theme = resume.theme || {
     primary: "#1E293B",
@@ -66,7 +66,7 @@ export const ExecutiveTemplate: React.FC<ResumeTemplateProps> = ({ resume, isEdi
               {personalInfo?.email && (
                 <div className="flex items-center break-all">
                   <div className="w-3 h-3 sm:w-4 sm:h-4 mr-2 sm:mr-3 flex items-center justify-center flex-shrink-0">
-                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-slate-400 rounded-full"></div>
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-slate-900-400 rounded-full"></div>
                   </div>
                   {personalInfo.email}
                 </div>
@@ -74,7 +74,7 @@ export const ExecutiveTemplate: React.FC<ResumeTemplateProps> = ({ resume, isEdi
               {personalInfo?.phone && (
                 <div className="flex items-center">
                   <div className="w-3 h-3 sm:w-4 sm:h-4 mr-2 sm:mr-3 flex items-center justify-center flex-shrink-0">
-                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-slate-400 rounded-full"></div>
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-slate-900-400 rounded-full"></div>
                   </div>
                   {personalInfo.phone}
                 </div>
@@ -82,7 +82,7 @@ export const ExecutiveTemplate: React.FC<ResumeTemplateProps> = ({ resume, isEdi
               {personalInfo?.location && (
                 <div className="flex items-center">
                   <div className="w-3 h-3 sm:w-4 sm:h-4 mr-2 sm:mr-3 flex items-center justify-center flex-shrink-0">
-                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-slate-400 rounded-full"></div>
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-slate-900-400 rounded-full"></div>
                   </div>
                   {personalInfo.location}
                 </div>
@@ -90,7 +90,7 @@ export const ExecutiveTemplate: React.FC<ResumeTemplateProps> = ({ resume, isEdi
               {personalInfo?.website && (
                 <div className="flex items-center break-all">
                   <div className="w-3 h-3 sm:w-4 sm:h-4 mr-2 sm:mr-3 flex items-center justify-center flex-shrink-0">
-                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-slate-400 rounded-full"></div>
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-slate-900-400 rounded-full"></div>
                   </div>
                   {personalInfo.website}
                 </div>
@@ -109,7 +109,7 @@ export const ExecutiveTemplate: React.FC<ResumeTemplateProps> = ({ resume, isEdi
                     className="w-full h-full object-cover grayscale-[20%]"
                   />
                 </div>
-                <div className="absolute -bottom-1 -right-1 sm:-bottom-2 sm:-right-2 w-4 h-4 sm:w-6 sm:h-6 bg-slate-700 rounded-sm"></div>
+                <div className="absolute -bottom-1 -right-1 sm:-bottom-2 sm:-right-2 w-4 h-4 sm:w-6 sm:h-6 bg-slate-900-700 rounded-sm"></div>
               </div>
             </div>
           )}
@@ -121,9 +121,9 @@ export const ExecutiveTemplate: React.FC<ResumeTemplateProps> = ({ resume, isEdi
         <div className="flex-1 px-4 sm:px-8 lg:px-12 py-6 sm:py-8 lg:py-10">
           {/* Summary professionnel */}
           {personalInfo?.description && (
-            <section onClick={() => handleEditSection("summary")} className="mb-8 sm:mb-10 lg:mb-12">
+            <section onClick={() => handleEditSection("personalInfo")} className="mb-8 sm:mb-10 lg:mb-12">
               <div className="flex items-center mb-4 sm:mb-6">
-                <div className="w-8 sm:w-10 lg:w-12 h-px bg-slate-700 mr-3 sm:mr-4"></div>
+                <div className="w-8 sm:w-10 lg:w-12 h-px bg-slate-900-700 mr-3 sm:mr-4"></div>
                 <h2
                   className="text-sm sm:text-base lg:text-lg font-medium tracking-wider uppercase"
                   style={{ color: theme.primary }}
@@ -141,7 +141,7 @@ export const ExecutiveTemplate: React.FC<ResumeTemplateProps> = ({ resume, isEdi
           {experiences && experiences.length > 0 && (
             <section onClick={() => handleEditSection("experiences")} className="mb-8 sm:mb-10 lg:mb-12">
               <div className="flex items-center mb-6 sm:mb-8">
-                <div className="w-8 sm:w-10 lg:w-12 h-px bg-slate-700 mr-3 sm:mr-4"></div>
+                <div className="w-8 sm:w-10 lg:w-12 h-px bg-slate-900-700 mr-3 sm:mr-4"></div>
                 <h2
                   className="text-sm sm:text-base lg:text-lg font-medium tracking-wider uppercase"
                   style={{ color: theme.primary }}
@@ -167,7 +167,7 @@ export const ExecutiveTemplate: React.FC<ResumeTemplateProps> = ({ resume, isEdi
                           )}
                         </div>
                         <div className="sm:ml-8">
-                          <div className="bg-slate-100 px-3 py-1 sm:px-4 sm:py-2 rounded-sm inline-block">
+                          <div className="bg-slate-900-100 px-3 py-1 sm:px-4 sm:py-2 rounded-sm inline-block">
                             <span className="text-xs sm:text-sm font-medium text-slate-700">
                               {formatDate(experience.startDate)} -{" "}
                               {experience.current
@@ -201,7 +201,7 @@ export const ExecutiveTemplate: React.FC<ResumeTemplateProps> = ({ resume, isEdi
           {educations && educations.length > 0 && (
             <section onClick={() => handleEditSection("educations")} className="mb-8 sm:mb-10 lg:mb-12">
               <div className="flex items-center mb-4 sm:mb-6">
-                <div className="w-8 sm:w-10 lg:w-12 h-px bg-slate-700 mr-3 sm:mr-4"></div>
+                <div className="w-8 sm:w-10 lg:w-12 h-px bg-slate-900-700 mr-3 sm:mr-4"></div>
                 <h2
                   className="text-sm sm:text-base lg:text-lg font-medium tracking-wider uppercase"
                   style={{ color: theme.primary }}
@@ -239,7 +239,7 @@ export const ExecutiveTemplate: React.FC<ResumeTemplateProps> = ({ resume, isEdi
         </div>
 
         {/* Sidebar droite moderne - Responsive */}
-        <div className="w-full lg:w-80 bg-slate-50 px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-10">
+        <div className="w-full lg:w-80 bg-slate-900-50 px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-10">
           {/* Core Competencies - Responsive */}
           {skills && skills.length > 0 && (
             <section onClick={() => handleEditSection("skills")} className="mb-8 lg:mb-10">
@@ -382,6 +382,41 @@ export const ExecutiveTemplate: React.FC<ResumeTemplateProps> = ({ resume, isEdi
                   ))}
               </div>
             </section>
+          )}
+          {/* Hobbies */}
+          {hobbies && hobbies.length > 0 && (
+            <div className="mb-6" onClick={() => handleEditSection('hobbies')}>
+              <h2
+                className="text-xl font-bold uppercase mb-4 pb-2 flex items-center gap-2"
+                style={{ borderBottom: `2px solid ${theme.primary}` }}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6 text-gray-500 mr-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9.75 17a4.25 4.25 0 104.5-7.5m-7.5 4.5a4.25 4.25 0 107.5 4.5m1.5-8a4.25 4.25 0 11-4.5-7.5"
+                  />
+                </svg>
+                Hobbies
+              </h2>
+              <ul className="list-disc list-inside space-y-1 pl-2">
+                {hobbies.map((hobby, idx) => (
+                  <li key={idx} className="flex items-center gap-2">
+                    <p className='text-sm font-semibold'>{hobby.name}</p>
+                    {hobby.icon && (
+                      <span className="text-xs" aria-label="Icône hobby">{hobby.icon}</span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
           )}
         </div>
       </div>

@@ -77,6 +77,8 @@ export async function createResume(formData: FormData) {
       });
     }
 
+    // -- fin gestion police --
+
     // Recuperation de l'utilisateur par email
     const user = await prisma.user.findUnique({
       where: { email: session.email },
@@ -88,12 +90,14 @@ export async function createResume(formData: FormData) {
         message: 'Utilisateur introuvable',
       };
     }
+
     const resume = await prisma.resume.create({
+      // @ts-ignore
       data: {
         title: validatedData.title,
         templateId: template.id, // Utiliser l'ID du template
         themeId: theme.id, // Utiliser l'ID du thème par défaut
-        fontId: font.id, // Utiliser l'ID de la police par défaut
+        fontId: validatedData.fontId, // Utiliser l'ID de la police par défaut
         userId: user.id,
 
         personalInfo: {
@@ -104,9 +108,57 @@ export async function createResume(formData: FormData) {
             photoUrl: user.profileImage || '',
           },
         },
+        experiences: {
+          create: []
+        },
+        educations: {
+          create: []
+        },
+        skills: {
+          create: []
+        },
+        languages: {
+          create: []
+        },
+        certifications: {
+          create: []
+        },
+        achievements: {
+          create: []
+        },
+        customSections: {
+          create: []
+        },
+        projects: {
+          create: []
+        },
+        hobbies: {
+          create: []
+        },
+        publications: {
+          create: []
+        },
+        volunteerings: {
+          create: []
+        },
+        awards: {
+          create: []
+        }
       },
       include: {
         personalInfo: true,
+        experiences: true,
+        educations: true,
+        skills: true,
+        languages: true,
+        achievements: true,
+        projects: true,
+        customSections: true,
+        hobbies: true,
+        references: true,
+        publications: true,
+        volunteerings: true,
+        awards: true
       },
     });
 
@@ -282,6 +334,11 @@ export async function updateResume(formData: FormData) {
         achievements: true,
         projects: true,
         customSections: true,
+        hobbies: true,
+        references: true,
+        publications: true,
+        volunteerings: true,
+        awards: true,
       },
     });
 
@@ -302,6 +359,11 @@ export async function updateResume(formData: FormData) {
     const certifications = formData.get('certifications');
     const achievements = formData.get('achievements');
     const projects = formData.get('projects');
+    const hobbies = formData.get('hobbies')
+    const awards = formData.get('awards')
+    const references = formData.get('references')
+    const volunteerings = formData.get('volunteerings')
+    const publications = formData.get('publications')
     const customSections = formData.get('customSections');
 
     // Construire l'objet de données commun pour la création et la mise à jour
@@ -309,7 +371,7 @@ export async function updateResume(formData: FormData) {
       title: validatedData.title,
       templateId: template.id,
       themeId: theme.id,
-      fontId: font.id,
+      fontId: validatedData.fontId,
     };
 
     // Gestion des informations personnelles
@@ -327,6 +389,11 @@ export async function updateResume(formData: FormData) {
       languages,
       certifications,
       achievements,
+      hobbies,
+      awards,
+      references,
+      volunteerings,
+      publications,
       projects,
       customSections,
     };
@@ -602,6 +669,11 @@ export async function updateResume(formData: FormData) {
           projects: { orderBy: { order: 'asc' } },
           certifications: { orderBy: { order: 'asc' } },
           customSections: { orderBy: { order: 'asc' } },
+          hobbies: { orderBy: { order: 'asc' } },
+          volunteerings: { orderBy: { order: 'asc' } },
+          awards: { orderBy: { order: 'asc' } },
+          publications: { orderBy: { order: 'asc' } },
+          references: { orderBy: { order: 'asc' } },
         },
       });
     } else {
@@ -625,6 +697,11 @@ export async function updateResume(formData: FormData) {
           projects: { orderBy: { order: 'asc' } },
           certifications: { orderBy: { order: 'asc' } },
           customSections: { orderBy: { order: 'asc' } },
+          hobbies: { orderBy: { order: 'asc' } },
+          volunteerings: { orderBy: { order: 'asc' } },
+          awards: { orderBy: { order: 'asc' } },
+          publications: { orderBy: { order: 'asc' } },
+          references: { orderBy: { order: 'asc' } },
         },
       });
     }
@@ -683,6 +760,11 @@ export async function getResumeById(id: string) {
         achievements: { orderBy: { order: 'asc' } },
         projects: { orderBy: { order: 'asc' } },
         customSections: { orderBy: { order: 'asc' } },
+        hobbies: { orderBy: { order: 'asc' } },
+        volunteerings: { orderBy: { order: 'asc' } },
+        awards: { orderBy: { order: 'asc' } },
+        publications: { orderBy: { order: 'asc' } },
+        references: { orderBy: { order: 'asc' } },
         theme: true,
         font: true,
         template: true,
@@ -845,6 +927,11 @@ export async function listResume(options?: { includePartial?: boolean }) {
         languages: { take: 1 },
         certifications: { take: 1 },
         achievements: { take: 1 },
+        hobbies: { take: 1 },
+        volunteerings: { take: 1 },
+        awards: { take: 1 },
+        publications: { take: 1 },
+        references: { take: 1 },
       },
     });
 
@@ -907,6 +994,11 @@ export async function duplicateResume(id: string) {
         languages: { orderBy: { order: 'asc' } },
         certifications: { orderBy: { order: 'asc' } },
         achievements: { orderBy: { order: 'asc' } },
+        hobbies: { orderBy: { order: 'asc' } },
+        volunteerings: { orderBy: { order: 'asc' } },
+        publications: { orderBy: { order: 'asc' } },
+        awards: { orderBy: { order: 'asc' } },
+        references: { orderBy: { order: 'asc'} }
       },
     });
     if (!existingResume) {
@@ -917,6 +1009,7 @@ export async function duplicateResume(id: string) {
     }
 
     const newResume = await prisma.resume.create({
+      // @ts-ignore
       data: {
         title: `${existingResume.title} (copie)`,
         templateId: existingResume.templateId,
@@ -994,6 +1087,52 @@ export async function duplicateResume(id: string) {
           })),
         },
       },
+      hobbies: {
+        create: existingResume.hobbies.map(hobbie => ({
+          name: hobbie.name,
+          icon: hobbie.icon,
+          order: hobbie.order
+        }))
+      },
+      volunteerings: {
+        create: existingResume.volunteerings.map(volunteering => ({
+          organization: volunteering.organization,
+          role: volunteering.role,
+          startDate: volunteering.startDate,
+          endDate: volunteering.endDate,
+          description: volunteering.description,
+          order: volunteering.order
+        }))
+      },
+      awards: {
+        create: existingResume.awards.map(award => ({
+          title: award.title,
+          issuer: award.issuer,
+          date: award.date,
+          description: award.description,
+          order: award.order
+        }))
+      },
+      publications: {
+        create: existingResume.publications.map(publication => ({
+          title: publication.title,
+          publisher: publication.publisher,
+          url: publication.url,
+          date: publication.date,
+          description: publication.description,
+          order: publication.order
+        }))
+      },
+      references: {
+        create: existingResume.references.map(ref => ({
+          name: ref.name,
+          company: ref.company,
+          email: ref.email,
+          phone: ref.phone,
+          relation: ref.relation,
+          order: ref.order
+        }))
+      }
     });
     revalidatePath('/resumes');
     return {

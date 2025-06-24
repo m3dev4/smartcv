@@ -1,4 +1,27 @@
+// Polices intégrées localement pour éviter les alias
+const systemFonts = {
+  Arial: 'Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+  'Times New Roman': '"Times New Roman", Georgia, serif',
+  Georgia: 'Georgia, "Times New Roman", serif',
+  Verdana: 'Verdana, Arial, sans-serif',
+  Helvetica: 'Helvetica, Arial, sans-serif',
+  Tahoma: 'Tahoma, Geneva, sans-serif',
+  'Trebuchet MS': '"Trebuchet MS", Arial, sans-serif',
+  'Courier New': '"Courier New", monospace',
+  Garamond: 'Garamond, serif',
+  Palatino: 'Palatino, "Palatino Linotype", serif',
+  Bookman: '"Bookman Old Style", serif',
+  'Comic Sans MS': '"Comic Sans MS", cursive',
+  Impact: 'Impact, Charcoal, sans-serif',
+  Lucida: '"Lucida Sans Unicode", "Lucida Grande", sans-serif',
+};
+
+const googleFonts = {
+  'IBM Plex Sans': 'var(--font-ibm-plex-sans), sans-serif',
+  Inter: 'var(--font-inter), sans-serif',
+};
 import { PrismaClient } from '../lib/generated/prisma/index.js';
+
 
 console.log('Début du script de seed');
 
@@ -6,6 +29,8 @@ const prisma = new PrismaClient();
 
 console.log('Client Prisma initialisé');
 console.log('Modèles disponibles:', Object.keys(prisma).filter(key => !key.startsWith('$')));
+
+
 
 const templates = [
   {
@@ -110,6 +135,29 @@ async function main() {
         console.error(`Erreur lors de la création du template ${template.name}:`, error);
       }
     }
+        // ---- Seed des polices ----
+    const fontNames = [...Object.keys(systemFonts), ...Object.keys(googleFonts), 'default'];
+
+    for (const name of fontNames) {
+      try {
+        const existingFont = await prisma.font.findFirst({ where: { name } });
+        if (existingFont) {
+          console.log(`Font ${name} existe déjà`);
+          continue;
+        }
+        const fontData = {
+          name,
+          category: name.toLowerCase().includes('serif') ? 'SERIF' : 'SANS_SERIF',
+          url: `https://fonts.google.com/specimen/${name.replace(/\s+/g, '+')}`,
+          isDefault: name === 'default',
+        } as any;
+        await prisma.font.create({ data: fontData });
+        console.log(`Font créée : ${name}`);
+      } catch (error) {
+        console.error(`Erreur lors de la création de la font ${name}:`, error);
+      }
+    }
+
     console.log('Seed terminé');
   } catch (error) {
     console.error('Erreur globale :', error);

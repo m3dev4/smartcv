@@ -77,14 +77,14 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
               <div className="flex items-center gap-1">
                 <button
                   onClick={handleToggle} // Theme toggle
-                  className="p-2 rounded-lg hover:bg-slate-800 transition-colors"
+                  className="p-2 rounded-lg hover:bg-slate-900-800 transition-colors"
                   aria-label={toggleMode ? 'Switch to light mode' : 'Switch to dark mode'}
                 >
                   {toggleMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
                 </button>
                 <button
                   onClick={toggleSidebar}
-                  className="p-2 rounded-lg hover:bg-slate-800 transition-colors"
+                  className="p-2 rounded-lg hover:bg-slate-900-800 transition-colors"
                   aria-label="Collapse sidebar"
                 >
                   <ChevronLeft className="w-5 h-5" />
@@ -94,7 +94,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           ) : (
             <button
               onClick={toggleSidebar}
-              className="p-2 rounded-lg hover:bg-slate-800 transition-colors"
+              className="p-2 rounded-lg hover:bg-slate-900-800 transition-colors"
               aria-label="Expand sidebar"
             >
               <Menu className="w-6 h-6" />
@@ -117,8 +117,8 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
                     isSidebarOpen ? 'px-3' : 'justify-center px-2.5' // Adjusted padding
                   } ${
                     isActive
-                      ? `bg-slate-700/70 text-blue-400 border-l-4 border-blue-500 ${isSidebarOpen ? 'pl-2' : 'pl-[calc(0.625rem-4px)]'}` // Adjusted padding for border
-                      : 'text-slate-400 hover:bg-slate-800/60 hover:text-slate-200'
+                      ? `bg-slate-900-700/70 text-blue-400 border-l-4 border-blue-500 ${isSidebarOpen ? 'pl-2' : 'pl-[calc(0.625rem-4px)]'}` // Adjusted padding for border
+                      : 'text-slate-400 hover:bg-slate-900-800/60 hover:text-slate-200'
                   }`}
                 >
                   <item.icon className={`w-5 h-5 flex-shrink-0 ${isActive ? 'text-blue-400' : 'text-slate-400 group-hover:text-slate-200'}`} />
@@ -138,11 +138,11 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
                 <Button
                   variant="ghost"
                   title={!isSidebarOpen && user ? `${user.firstName} ${user.lastName}` : undefined}
-                  className={`h-auto text-white hover:bg-slate-800/80 transition-all duration-150 ease-in-out rounded-md flex items-center ${
+                  className={`h-auto text-white hover:bg-slate-900-800/80 transition-all duration-150 ease-in-out rounded-md flex items-center ${
                     isSidebarOpen ? 'w-full justify-start gap-x-3 p-3' : 'w-auto justify-center p-2.5 mx-auto'
                   }`}
                 >
-                  <div className="w-8 h-8 bg-slate-700 rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="w-8 h-8 bg-slate-900-700 rounded-full flex items-center justify-center flex-shrink-0">
                     <User className="w-4 h-4 text-slate-300" />
                   </div>
                   {isSidebarOpen && (
@@ -154,11 +154,11 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
                   )}
                 </Button>
               </PopoverTrigger>
-              <PopoverContent className="w-48 bg-slate-800 border-slate-700" side="top">
+              <PopoverContent className="w-48 bg-slate-900-800 border-slate-700" side="top">
                 <div className="space-y-2">
                   <Link
                     href="/settings"
-                    className="flex items-center gap-2 px-3 py-2 text-sm text-slate-300 hover:text-white hover:bg-slate-700 rounded-md transition-colors"
+                    className="flex items-center gap-2 px-3 py-2 text-sm text-slate-300 hover:text-white hover:bg-slate-900-700 rounded-md transition-colors"
                   >
                     <Settings className="w-4 h-4" />
                     Paramètres
@@ -189,7 +189,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
                     @Mouhamed Lo
                   </Link>
                 </p>
-                <p className="font-medium">SmartCV v1.0.0</p>
+                <p className="font-medium">SmartCV v0.0.1</p>
               </div>
             </div>
           )}

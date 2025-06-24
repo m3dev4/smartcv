@@ -44,7 +44,7 @@ const Footer = () => {
           <Link href="#">
             <span className="text-sm text-muted-foreground">Politique de confidentialité</span>
           </Link>
-          <span className="text-xs my-2 text-muted-foreground">SmartCV v0.1.0</span>
+          <span className="text-xs my-2 text-muted-foreground">SmartCV v0.0.1</span>
         </div>
       </div>
     </div>
