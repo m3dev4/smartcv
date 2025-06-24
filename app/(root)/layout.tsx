@@ -11,6 +11,8 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
+import { AuthProvider } from '@/providers/auth-provider';
+
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   const [toggleMode, setToggleMode] = useState(false);
   const { user, isAuthenticated, isLoading } = useAuth();
@@ -21,8 +23,8 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
 
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
 
-  const handleLogout = () => {
-    signOut();
+  const handleLogout = async () => {
+    await signOut();
     router.push('/');
   };
 
@@ -58,7 +60,8 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   ];
 
   return (
-    <div className="h-screen w-full flex bg-background">
+    <AuthProvider>
+      <div className="h-screen w-full flex bg-background">
       {/* Sidebar */}
             <div
         className={`h-full bg-black/100 text-white flex flex-col shadow-lg relative transition-all duration-300 ease-in-out ${ // Added relative for potential absolute positioned toggle
@@ -201,6 +204,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         <div className="p-6">{children}</div>
       </div>
     </div>
+    </AuthProvider>
   );
 };
 

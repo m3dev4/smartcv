@@ -330,7 +330,7 @@ export async function signOut() {
 
     (await cookies()).delete('sessionToken');
 
-    redirect('/');
+    return { success: true };
   } catch (error) {
     console.error('Erreur lors de la deconnexion:', error);
     return { success: false, message: 'Une erreur est survenue lors de la deconnexion' };
