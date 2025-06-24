@@ -362,7 +362,8 @@ export function ResumeProvider({ children, resumeId, templateType }: ResumeProvi
       const formData = new FormData();
       formData.append('id', resumeId);
       formData.append('title', resume.title || '');
-      formData.append('templateId', resume.template?.id || '');
+      // Utiliser le champ templateId défini dans le contexte (ex: "modern", "classic", etc.)
+      formData.append('templateId', (resume as any).templateId || '');
       formData.append('themeId', resume.theme?.id || '');
       // Déterminer identifiant ou nom de police à envoyer
       const fontIdentifier = (resume.font?.id && resume.font.id.startsWith('cm'))
@@ -431,10 +432,7 @@ export function ResumeProvider({ children, resumeId, templateType }: ResumeProvi
         formData.append('theme', JSON.stringify(resume.theme));
       }
 
-      // Ajout du fontId sélectionné
-      if (resume.font && resume.font.id) {
-        formData.append('fontId', resume.font.id);
-      }
+      // Le fontId a déjà été ajouté plus haut (ligne ~368). Éviter les doublons.
 
       const result = await updateResumeApi(formData);
 

@@ -10,6 +10,7 @@ import { useAuth } from '@/hooks/auth';
 import Link from 'next/link';
 import { signOut } from '@/utils/auth';
 import { LogOut } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 const ibmPlexSans = IBM_Plex_Sans({
   subsets: ['latin'],
@@ -19,8 +20,10 @@ const ibmPlexSans = IBM_Plex_Sans({
 const Hero = () => {
   const { user, isAuthenticated, isLoading } = useAuth();
 
-  const handleLogout = () => {
-    signOut();
+  const router = useRouter();
+
+  const handleLogout = async () => {
+    await signOut();
   };
 
   return (
@@ -63,14 +66,25 @@ const Hero = () => {
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-8 justify-center lg:justify-start">
               {isAuthenticated ? (
-                <Link href="/dashboard/resumes">
+                <div className='flex items-center gap-2'>
+                  <Link href="/dashboard/resumes">
+                    <Button
+                      variant="outline"
+                      className="border-slate-300 dark:border-slate-700 cursor-pointer hover:bg-gradient-to-r from-neutral-900 to-neutral-900-50 bg-black text-white dark:bg-gradient-to-r from-neutral-900 to-neutral-900-800 dark:hover:bg-gradient-to-r from-neutral-900 to-neutral-900-700 px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-semibold rounded-lg transition-all duration-200 hover:shadow-md w-full sm:w-auto"
+                    >
+                      Dashboard
+                    </Button>
+                  </Link>
                   <Button
                     variant="outline"
-                    className="border-slate-300 dark:border-slate-700 cursor-pointer hover:bg-gradient-to-r from-neutral-900 to-neutral-900-50 bg-black text-white dark:bg-gradient-to-r from-neutral-900 to-neutral-900-800 dark:hover:bg-gradient-to-r from-neutral-900 to-neutral-900-700 px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-semibold rounded-lg transition-all duration-200 hover:shadow-md w-full sm:w-auto"
+                    className="border-slate-300 dark:border-slate-700 cursor-pointer hover:bg-gradient-to-r from-neutral-900 to-neutral-900-50 dark:hover:bg-gradient-to-r from-neutral-900 to-neutral-900-700 px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-semibold rounded-lg transition-all duration-200 hover:shadow-md w-full sm:w-auto"
+                    onClick={handleLogout}
                   >
-                    Dashboard
+                    <span className="flex items-center gap-2">
+                      <LogOut className="h-5 w-5" /> Se deconnecter
+                    </span>
                   </Button>
-                </Link>
+                </div>
               ) : (
                 <Link href="/sign-in">
                   <Button
@@ -80,17 +94,6 @@ const Hero = () => {
                     Commencer
                   </Button>
                 </Link>
-              )}
-              {isAuthenticated && (
-                <Button
-                  variant="outline"
-                  className="border-slate-300 dark:border-slate-700 cursor-pointer hover:bg-gradient-to-r from-neutral-900 to-neutral-900-50 dark:hover:bg-gradient-to-r from-neutral-900 to-neutral-900-700 px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-semibold rounded-lg transition-all duration-200 hover:shadow-md w-full sm:w-auto"
-                  onClick={handleLogout}
-                >
-                  <span className="flex items-center gap-2">
-                    <LogOut className="h-5 w-5" /> Se deconnecter
-                  </span>
-                </Button>
               )}
             </div>
           </div>

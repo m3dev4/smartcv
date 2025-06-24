@@ -165,23 +165,23 @@ export async function createResumeFromLinkedIn(username: string) {
       });
     }
 
-    // Rechercher d'abord un template par défaut, puis chercher 'modern' si le défaut n'existe pas
+    // Rechercher d'abord un template par défaut, puis chercher 'clean' si le défaut n'existe pas
     let template = await prisma.template.findUnique({
-      where: { name: 'default' },
+      where: { name: 'clean' },
     });
 
-    // Si le template par défaut n'existe pas, chercher le template 'modern'
+    // Si le template par défaut n'existe pas, chercher le template 'clean'
     if (!template) {
       template = await prisma.template.findUnique({
-        where: { name: 'modern' },
+        where: { name: 'clean' },
       });
 
-      // Si aucun des deux n'existe, créer le template 'modern'
+      // Si aucun des deux n'existe, créer le template 'clean'
       if (!template) {
         template = await prisma.template.create({
           data: {
-            name: 'modern',
-            description: 'Template moderne',
+            name: 'clean',
+            description: 'Template Clean',
           },
         });
       }
