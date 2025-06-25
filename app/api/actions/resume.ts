@@ -42,7 +42,9 @@ export async function createResume(formData: FormData) {
 
     // Vérifier ou créer un thème par défaut
     let theme = await prisma.theme.findFirst({
-      where: { name: 'default' },
+      where: {
+        OR: [{ id: validatedData.themeId }, { name: validatedData.themeId }],
+      },
     });
 
     if (!theme) {
@@ -97,7 +99,7 @@ export async function createResume(formData: FormData) {
         title: validatedData.title,
         templateId: template.id, // Utiliser l'ID du template
         themeId: theme.id, // Utiliser l'ID du thème par défaut
-        fontId: validatedData.fontId, // Utiliser l'ID de la police par défaut
+        fontId: font.id, // Utiliser l'ID de la police par défaut
         userId: user.id,
 
         personalInfo: {
@@ -240,7 +242,7 @@ export async function updateResume(formData: FormData) {
 
         theme = await prisma.theme.upsert({
           where: {
-            id: themeData.id || 'non-existent-id',
+            name: themeData.name,
           },
           update: {
             primary: themeData.primary || '#3B82F6',
@@ -371,7 +373,7 @@ export async function updateResume(formData: FormData) {
       title: validatedData.title,
       templateId: template.id,
       themeId: theme.id,
-      fontId: validatedData.fontId,
+      fontId: font.id,
     };
 
     // Gestion des informations personnelles

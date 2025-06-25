@@ -94,6 +94,8 @@ export function ResumeProvider({ children, resumeId, templateType }: ResumeProvi
     return {
       ...prismaResume,
       templateId,
+      // Utiliser le thème provenant de la base s'il existe, sinon le thème par défaut
+      theme: prismaResume.theme ?? defaultTheme,
 
       // Conversion des informations personnelles
       personalInfo: prismaResume.personalInfo
@@ -364,6 +366,18 @@ export function ResumeProvider({ children, resumeId, templateType }: ResumeProvi
       formData.append('title', resume.title || '');
       // Utiliser le champ templateId défini dans le contexte (ex: "modern", "classic", etc.)
       formData.append('templateId', (resume as any).templateId || '');
+      
+      // S'assurer que le thème est correctement défini pour le template
+      if (!resume.theme || !resume.theme.name) {
+        // Si le thème n'est pas défini ou n'a pas de nom, récupérer le thème par défaut pour ce template
+        const templateName = (resume as any).templateId?.toString() || 'modern';
+        const defaultTheme = getDefaultThemeForTemplate(templateName);
+        resume.theme = {
+          ...defaultTheme,
+          id: resume.theme?.id || 'default',
+        };
+      }
+      
       formData.append('themeId', resume.theme?.id || '');
       // Déterminer identifiant ou nom de police à envoyer
       const fontIdentifier = (resume.font?.id && resume.font.id.startsWith('cm'))
@@ -428,11 +442,12 @@ export function ResumeProvider({ children, resumeId, templateType }: ResumeProvi
         formData.append('customSections', JSON.stringify(resume.customSections));
       }
 
+      // S'assurer que le thème est toujours envoyé
       if (resume.theme) {
         formData.append('theme', JSON.stringify(resume.theme));
       }
 
-      // Le fontId a déjà été ajouté plus haut (ligne ~368). Éviter les doublons.
+      // Le fontId a déjà été ajouté plus haut. Éviter les doublons.
 
       const result = await updateResumeApi(formData);
 
@@ -510,6 +525,20 @@ export function ResumeProvider({ children, resumeId, templateType }: ResumeProvi
     }
   };
 
+  // Fonction utilitaire pour récupérer un thème depuis l'API
+  const fetchThemeFromAPI = async (templateName: string) => {
+    try {
+      const res = await fetch(`/api/themes?name=${encodeURIComponent(templateName)}`);
+      if (!res.ok) throw new Error('Erreur lors de la récupération du thème');
+      const data = await res.json();
+      // Certains endpoints peuvent renvoyer { success: true, theme: { ... } }
+      return data.theme ?? data;
+    } catch (e) {
+      console.warn('Erreur fetch thème, fallback hardcoded', e);
+      return getDefaultThemeForTemplate(templateName);
+    }
+  };
+
   useEffect(() => {
     const fetchResume = async () => {
       if (!resumeId) {
@@ -521,6 +550,7 @@ export function ResumeProvider({ children, resumeId, templateType }: ResumeProvi
             ...edu,
             institution: edu.institutions || edu.institutions,
           })),
+          theme: await fetchThemeFromAPI((templateType as string) || 'modern'),
         };
         setResume(defaultResume);
         setOriginalResume(defaultResume);
@@ -657,25 +687,53 @@ export function ResumeProvider({ children, resumeId, templateType }: ResumeProvi
   }, [resumeId, templateType]);
 
   const updateResume = (updates: Partial<ResumeTemplateProps['resume']>) => {
+    // Si on change de template sans fournir un thème, on récupère d'abord le thème depuis l'API
+    if (updates.templateId && !updates.theme) {
+      fetchThemeFromAPI(updates.templateId.toString()).then(apiTheme => {
+        // Appliquer la mise à jour une fois le thème récupéré
+        setResume(prev => {
+          if (!prev) return null;
+          const newResume = {
+            ...prev,
+            ...updates,
+            theme: {
+              ...apiTheme,
+              id: prev.theme?.id || 'default',
+            },
+          };
+          const newHistory = history.slice(0, currentIndex + 1);
+          newHistory.push(newResume);
+          setHistory(newHistory);
+          setCurrentIndex(newHistory.length - 1);
+          return newResume;
+        });
+      }).catch(() => {
+        // En cas d'erreur, fallback sur l'ancien comportement
+        setResume(prev => {
+          if (!prev) return null;
+          const templateTheme = getDefaultThemeForTemplate(updates.templateId!.toString());
+          const newResume = {
+            ...prev,
+            ...updates,
+            theme: {
+              ...templateTheme,
+              id: prev.theme?.id || 'default',
+            },
+          };
+          const newHistory = history.slice(0, currentIndex + 1);
+          newHistory.push(newResume);
+          setHistory(newHistory);
+          setCurrentIndex(newHistory.length - 1);
+          return newResume;
+        });
+      });
+      return; // on sort, le setResume se fera dans la promise
+    }
+
+    // Cas normal (pas de changement de template ou thème déjà fourni)
     setResume(prev => {
       if (!prev) return null;
-
-      // Si le template change ET que ce n'est pas une modification manuelle du thème,
-      // mettre à jour le thème correspondant
-      let newUpdates = { ...updates };
-      if (updates.templateId && !updates.theme) {
-        const templateTheme = getDefaultThemeForTemplate(updates.templateId);
-        newUpdates = {
-          ...newUpdates,
-          theme: {
-            ...prev.theme,
-            ...templateTheme,
-            id: prev.theme?.id || 'default',
-          },
-        };
-      }
-
-      const newResume = { ...prev, ...newUpdates };
+      const newResume = { ...prev, ...updates };
       const newHistory = history.slice(0, currentIndex + 1);
       newHistory.push(newResume);
       setHistory(newHistory);
