@@ -1,46 +1,29 @@
-import React, { useEffect, useState } from 'react';
-import { Button } from '../ui/button';
-import {
-  Download,
-  Eye,
-  Loader2,
-  Maximize,
-  Menu as MenuIcon, // Added MenuIcon for mobile sidebar toggle
-  Redo,
-  Save,
-  Share,
-  SidebarClose,
-  Undo,
-  ZoomIn,
-  ZoomOut,
-} from 'lucide-react';
-import { Separator } from '../ui/separator';
-import { Badge } from '../ui/badge';
-import { useResume } from '@/context/resume-context';
-import { toast } from 'sonner';
-import { Toaster } from '../ui/sonner';
-import { formatDistanceToNow } from 'date-fns';
-import { fr } from 'date-fns/locale';
+"use client"
+
+import type React from "react"
+import { useEffect, useState } from "react"
+import { Button } from "../ui/button"
+import { Download, Eye, Loader2, MenuIcon, Redo, Save, SidebarClose, Undo, ZoomIn, ZoomOut } from "lucide-react"
+import { Separator } from "../ui/separator"
+import { Badge } from "../ui/badge"
+import { useResume } from "@/context/resume-context"
+import { toast } from "sonner"
+import { Toaster } from "../ui/sonner"
+import { formatDistanceToNow } from "date-fns"
+import { fr } from "date-fns/locale"
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuPortal,
-  DropdownMenuSeparator,
-  DropdownMenuShortcut,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import { downloadResume } from '@/utils/download-resume';
+} from "@/components/ui/dropdown-menu"
+import { downloadResume } from "@/utils/download-resume"
 
 interface EditorToolbarProps {
-  onTogglePropertiesPanel: () => void;
-  proprietiesPanelOpen: boolean;
-  onToggleMobileSidebar: () => void; // Added prop for mobile sidebar
+  onTogglePropertiesPanel: () => void
+  proprietiesPanelOpen: boolean
+  onToggleMobileSidebar: () => void // Added prop for mobile sidebar
 }
 const EditorToolbar: React.FC<EditorToolbarProps> = ({
   onTogglePropertiesPanel,
@@ -61,27 +44,27 @@ const EditorToolbar: React.FC<EditorToolbarProps> = ({
     saveResume,
     isSaving,
     lastSaved,
-  } = useResume();
+  } = useResume()
 
-  const [resumeIsSaving, setResumeIsSaving] = useState(false);
+  const [resumeIsSaving, setResumeIsSaving] = useState(false)
 
   const handleSave = async () => {
-    setResumeIsSaving(true);
+    setResumeIsSaving(true)
     try {
-      await saveResume();
-      toast.success('Le CV a été sauvegardé avec succès');
+      await saveResume()
+      toast.success("Le CV a été sauvegardé avec succès")
     } catch (error: any) {
-      console.error('Erreur lors de la sauvegarde du CV:', error);
+      console.error("Erreur lors de la sauvegarde du CV:", error)
       // Afficher un message d'erreur plus spécifique si disponible
-      if (error.message && error.message.includes('CV introuvable')) {
-        toast.error('Impossible de sauvegarder : CV introuvable. Veuillez rafraîchir la page.');
+      if (error.message && error.message.includes("CV introuvable")) {
+        toast.error("Impossible de sauvegarder : CV introuvable. Veuillez rafraîchir la page.")
       } else {
-        toast.error('Une erreur est survenue lors de la sauvegarde du CV');
+        toast.error("Une erreur est survenue lors de la sauvegarde du CV")
       }
     } finally {
-      setResumeIsSaving(false);
+      setResumeIsSaving(false)
     }
-  };
+  }
 
   /**
    *  Cette hook gére les evenement clavier pour les boutons undo et redo
@@ -89,51 +72,53 @@ const EditorToolbar: React.FC<EditorToolbarProps> = ({
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.ctrlKey && e.key === 'z' && canUndo) {
-        e.preventDefault();
-        undo();
+      if (e.ctrlKey && e.key === "z" && canUndo) {
+        e.preventDefault()
+        undo()
       }
 
-      if (e.ctrlKey && e.key === 'y' && canRedo) {
-        e.preventDefault();
-        redo();
+      if (e.ctrlKey && e.key === "y" && canRedo) {
+        e.preventDefault()
+        redo()
       }
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [undo, redo, canUndo, canRedo]);
+    }
+    window.addEventListener("keydown", handleKeyDown)
+    return () => window.removeEventListener("keydown", handleKeyDown)
+  }, [undo, redo, canUndo, canRedo])
 
-if (!resume) {
-  return null;
-}
+  if (!resume) {
+    return null
+  }
 
   return (
-    <div className="border-b border-slate-200 dark:border-neutral-800 px-4 py-3">
+    <div className="border-b border-slate-200 dark:border-neutral-800 px-2 sm:px-4 py-2 sm:py-3">
       <Toaster position="top-right" offset={20} />
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between gap-1 sm:gap-2">
         {/* left section */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1 sm:gap-2">
           {/* Mobile Sidebar Toggle Button - visible only on small screens */}
           <Button
             variant="ghost"
             size="icon"
-            className="lg:hidden"
+            className="lg:hidden h-8 w-8 sm:h-9 sm:w-9"
             onClick={onToggleMobileSidebar}
             aria-label="Toggle sections sidebar"
           >
-            <MenuIcon className="h-5 w-5" />
+            <MenuIcon className="h-4 w-4 sm:h-5 sm:w-5" />
           </Button>
-          <Separator className="h-6 lg:hidden" orientation="vertical" />
-          <div className="flex items-center gap-1">
+          <Separator className="h-4 sm:h-6 lg:hidden" orientation="vertical" />
+
+          <div className="flex items-center gap-0.5 sm:gap-1">
             <Button
               variant="ghost"
               size="sm"
               disabled={!canUndo}
               onClick={undo}
               title="Annuler (Ctrl+Z)"
-              className="cursor-pointer"
+              className="cursor-pointer h-8 w-8 sm:h-9 sm:w-auto sm:px-3"
             >
-              <Undo className="h-4 w-4" />
+              <Undo className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+              <span className="hidden sm:ml-2 sm:inline">Annuler</span>
             </Button>
             <Button
               variant="ghost"
@@ -141,128 +126,127 @@ if (!resume) {
               disabled={!canRedo}
               onClick={redo}
               title="Rétablir (Ctrl+Y)"
-              className="cursor-pointer"
+              className="cursor-pointer h-8 w-8 sm:h-9 sm:w-auto sm:px-3"
             >
-              <Redo className="h-4 w-4" />
+              <Redo className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+              <span className="hidden sm:ml-2 sm:inline">Rétablir</span>
             </Button>
           </div>
 
-          <Separator className="h-6" orientation="vertical" />
+          <Separator className="h-4 sm:h-6" orientation="vertical" />
 
-          <div className="flex items-center gap-1">
-            <Button variant="ghost" size="sm" disabled={zoomLevel <= 50} onClick={zoomOut}>
-              <ZoomOut className="h-4 w-4" />
+          <div className="flex items-center gap-0.5 sm:gap-1">
+            <Button
+              variant="ghost"
+              size="sm"
+              disabled={zoomLevel <= 50}
+              onClick={zoomOut}
+              className="h-8 w-8 sm:h-9 sm:w-9"
+            >
+              <ZoomOut className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
             </Button>
-            <span className="text-sm min-w[60px] text-center">{zoomLevel}%</span>
-            <Button variant="ghost" size="sm" disabled={zoomLevel >= 200} onClick={zoomIn}>
-              <ZoomIn className="h-4 w-4" />
+            <span className="text-xs sm:text-sm min-w-[40px] sm:min-w-[60px] text-center px-1">{zoomLevel}%</span>
+            <Button
+              variant="ghost"
+              size="sm"
+              disabled={zoomLevel >= 200}
+              onClick={zoomIn}
+              className="h-8 w-8 sm:h-9 sm:w-9"
+            >
+              <ZoomIn className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
             </Button>
           </div>
         </div>
 
-        {/* center section */}
-        <div className="flex items-center gap-2">
-          <Badge variant="secondary" className="text-xs">
+        {/* center section - hidden on very small screens */}
+        <div className="hidden sm:flex items-center gap-2 flex-1 justify-center">
+          <Badge variant="secondary" className="text-xs max-w-[200px] md:max-w-none">
             {lastSaved ? (
-              <>
-                <span>
-                  Dernière sauvegarde:{' '}
+              <span className="truncate">
+                Dernière sauvegarde:{" "}
+                <span className="hidden md:inline">
                   {formatDistanceToNow(lastSaved, { addSuffix: true, locale: fr })}
                 </span>
-              </>
+                <span className="md:hidden">{formatDistanceToNow(lastSaved, { locale: fr })}</span>
+              </span>
             ) : (
-              <>
-                <span>Aucune sauvegarde</span>
-              </>
+              <span>Aucune sauvegarde</span>
             )}
           </Badge>
         </div>
 
         {/* right section */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1 sm:gap-2">
           <Button
-            variant={isPreviewMode ? 'secondary' : 'ghost'}
+            variant={isPreviewMode ? "secondary" : "ghost"}
             size="sm"
             onClick={togglePreviewMode}
-            className="cursor-pointer"
+            className="cursor-pointer h-8 sm:h-9 px-2 sm:px-3"
           >
-            <Eye className={`h-4 w-4 mr-2 ${isPreviewMode ? 'text-green-500' : ''}`} />
-            {isPreviewMode ? "Quitter l'aperçu" : 'Aperçu'}
+            <Eye className={`h-3.5 w-3.5 sm:h-4 sm:w-4 ${isPreviewMode ? "text-green-500" : ""}`} />
+            <span className="hidden md:ml-2 md:inline">{isPreviewMode ? "Quitter l'aperçu" : "Aperçu"}</span>
           </Button>
 
-          <Separator className="h-6" orientation="vertical" />
-
-          {/* <Button variant="ghost" size="sm">
-            <Share className="h-4 w-4 mr-2" />
-            Partager
-          </Button> */}
-
-          <Separator className="h-6" orientation="vertical" />
+          <Separator className="h-4 sm:h-6" orientation="vertical" />
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="sm">
-                <Download className="h-4 w-4 mr-2" />
-                Télécharger
+              <Button variant="ghost" size="sm" className="h-8 sm:h-9 px-2 sm:px-3">
+                <Download className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                <span className="hidden md:ml-2 md:inline">Télécharger</span>
               </Button>
             </DropdownMenuTrigger>
 
-            <DropdownMenuContent>
+            <DropdownMenuContent align="end">
               <DropdownMenuGroup>
-                <DropdownMenuItem onClick={() => downloadResume(resume, 'pdf')}>
+                <DropdownMenuItem onClick={() => downloadResume(resume, "pdf")}>
                   <Download className="h-4 w-4 mr-2" />
                   Télécharger en PDF
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => downloadResume(resume, 'json')}>
+                <DropdownMenuItem onClick={() => downloadResume(resume, "json")}>
                   <Download className="h-4 w-4 mr-2" />
                   Télécharger en JSON
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => downloadResume(resume, 'docx')}>
-                  <Download className="h-4 w-4 mr-2" />
-                  Télécharger en DOCX
                 </DropdownMenuItem>
               </DropdownMenuGroup>
             </DropdownMenuContent>
           </DropdownMenu>
 
-          <Separator className="h-6" orientation="vertical" />
+          <Separator className="h-4 sm:h-6" orientation="vertical" />
 
           <Button
             variant="ghost"
             size="sm"
             onClick={handleSave}
             disabled={resumeIsSaving}
-            className="cursor-pointer"
+            className="cursor-pointer h-8 sm:h-9 px-2 sm:px-3"
           >
             {resumeIsSaving ? (
-              <>
-                <Loader2 className="h-4 w-4 animate-spin" />
-              </>
+              <Loader2 className="h-3.5 w-3.5 sm:h-4 sm:w-4 animate-spin" />
             ) : (
               <>
-                <Save className="h-4 w-4 mr-2" />
-                Enregistrer
+                <Save className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                <span className="hidden md:ml-2 md:inline">Enregistrer</span>
               </>
             )}
           </Button>
 
-          <Separator className="h-6" orientation="vertical" />
+          <Separator className="h-4 sm:h-6" orientation="vertical" />
 
           <Button
             onClick={onTogglePropertiesPanel}
             variant="ghost"
             size="icon"
-            className="p-2"
+            className="h-8 w-8 sm:h-9 sm:w-9"
             aria-label="Toggle properties panel"
           >
             <SidebarClose
-              className={`h-5 w-5 transition-transform ${proprietiesPanelOpen ? '' : 'rotate-180'}`}
+              className={`h-4 w-4 sm:h-5 sm:w-5 transition-transform ${proprietiesPanelOpen ? "" : "rotate-180"}`}
             />
           </Button>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default EditorToolbar;
+export default EditorToolbar

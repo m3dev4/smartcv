@@ -68,7 +68,7 @@ export const CleanProfessionalTemplate: React.FC<ResumeTemplateProps> = ({
       }}
     >
       {/* En-tête avec nom et titre - Responsive */}
-      <header className="p-4 sm:p-6 lg:p-8 pb-4 sm:pb-6" onClick={() => handleEditSection("personalInfo")}>
+      <header className="p-4 sm:p-6 lg:p-8 pb-4 sm:pb-6 resume-header" onClick={() => handleEditSection("personalInfo")}>
         <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-2 tracking-wide" style={{ color: theme.text }}
         >
         {personalInfo?.firstName?.toUpperCase() || ''} {personalInfo?.lastName?.toUpperCase() || ''}
@@ -125,7 +125,7 @@ export const CleanProfessionalTemplate: React.FC<ResumeTemplateProps> = ({
         <div className="lg:col-span-7 space-y-6 lg:space-y-8">
           {/* Summary */}
           {personalInfo?.description && (
-            <section onClick={() => handleEditSection("personalInfo")}>
+            <section onClick={() => handleEditSection("personalInfo")} className="resume-summary">
               <h2
                 className="text-base sm:text-lg font-bold mb-3 sm:mb-4 pb-2 border-b border-gray-300"
                 style={{ color: theme.text }}
@@ -140,7 +140,7 @@ export const CleanProfessionalTemplate: React.FC<ResumeTemplateProps> = ({
 
           {/* Experience */}
           {experiences && experiences.length > 0 && (
-            <section onClick={() => handleEditSection("experiencs")}>
+            <section onClick={() => handleEditSection("experiencs")} className="resume-experience">
               <h2
                 className="text-base sm:text-lg font-bold mb-3 sm:mb-4 pb-2 border-b border-gray-300"
                 style={{ color: theme.text }}
@@ -188,7 +188,7 @@ export const CleanProfessionalTemplate: React.FC<ResumeTemplateProps> = ({
 
           {/* Education */}
           {educations && educations.length > 0 && (
-            <section onClick={() => handleEditSection("education")}>
+            <section onClick={() => handleEditSection("education")} className="resume-education">
               <h2
                 className="text-base sm:text-lg font-bold mb-3 sm:mb-4 pb-2 border-b border-gray-300"
                 style={{ color: theme.text }}
