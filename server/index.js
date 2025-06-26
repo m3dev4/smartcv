@@ -6,7 +6,15 @@ const bodyParser = require('body-parser');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-app.use(cors());
+app.use(cors({
+  origin: [
+    'http://localhost:3000',
+    'https://smart-cv-sn.netlify.app'
+  ],
+  credentials: true,
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'Cache-Control']
+}));
 app.use(bodyParser.json({limit: '50mb'}));
 
 // Health check endpoint pour Render
