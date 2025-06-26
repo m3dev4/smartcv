@@ -2,6 +2,7 @@ services:
   - type: web
     name: smartcv-pdf-server
     env: node
+    rootDir: server
     plan: free
     buildCommand: npm install
     startCommand: npm start
