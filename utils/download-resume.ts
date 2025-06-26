@@ -1,6 +1,6 @@
 import type { ResumeTemplateProps } from '@/types/resumeTypes';
 import { saveAs } from 'file-saver';
-import html2canvas from 'html2canvas';
+import html2canvas from 'html2canvas-pro';
 import { jsPDF } from 'jspdf';
 import { Document, Packer, Paragraph, TextRun } from 'docx';
 
@@ -25,10 +25,10 @@ export async function downloadResume(resume: Resume, format: 'pdf' | 'json' | 'd
   }
 }
 
-// Fonction simple pour remplacer les couleurs OKLCH par des équivalents RGB
-function replaceOklchColors(cssText: string): string {
-  // Dictionnaire de couleurs OKLCH communes vers RGB
-  const oklchToRgb: Record<string, string> = {
+// Helper function to convert OKLCH to a safe RGB value.
+function oklchToRgb(cssValue: string): string {
+  // A dictionary of common OKLCH colors to their RGB equivalents.
+  const oklchToRgbMap: Record<string, string> = {
     'oklch(0.6 0.3 0)': 'rgb(224, 60, 49)',
     'oklch(0.7 0.15 142)': 'rgb(46, 160, 67)',
     'oklch(0.8 0.12 64)': 'rgb(218, 165, 32)',
@@ -37,86 +37,50 @@ function replaceOklchColors(cssText: string): string {
     'oklch(0.2 0.02 0)': 'rgb(40, 40, 40)',
     'oklch(0.98 0.008 106)': 'rgb(248, 248, 248)',
     'oklch(0.15 0.01 0)': 'rgb(30, 30, 30)',
-    // Ajoutez d'autres correspondances selon vos besoins
   };
 
-  let result = cssText;
-
-  // Remplacer les correspondances exactes
-  Object.keys(oklchToRgb).forEach(oklch => {
-    const regex = new RegExp(oklch.replace(/[()]/g, '\\$&'), 'g');
-    result = result.replace(regex, oklchToRgb[oklch]);
-  });
-
-  // Remplacer les patterns OKLCH génériques par des couleurs sûres
-  result = result.replace(/oklch\([^)]+\)/g, match => {
-    // Extraire les valeurs L, C, H
+  // Replace known OKLCH values from the map or use a fallback for unknown values.
+  return cssValue.replace(/oklch\([^)]+\)/g, match => {
+    if (oklchToRgbMap[match]) {
+      return oklchToRgbMap[match];
+    }
     const values = match.match(/oklch\(\s*([0-9.]+)\s+([0-9.]+)\s+([0-9.]+)\s*\)/);
     if (values) {
       const l = parseFloat(values[1]);
-      const c = parseFloat(values[2]);
-      const h = parseFloat(values[3]);
-
-      // Conversion approximative basée sur la luminosité
-      if (l > 0.9) return 'rgb(245, 245, 245)'; // Très clair
-      if (l > 0.8) return 'rgb(220, 220, 220)'; // Clair
-      if (l > 0.6) return 'rgb(160, 160, 160)'; // Moyen clair
-      if (l > 0.4) return 'rgb(100, 100, 100)'; // Moyen foncé
-      if (l > 0.2) return 'rgb(60, 60, 60)'; // Foncé
-      return 'rgb(30, 30, 30)'; // Très foncé
+      if (l > 0.9) return 'rgb(245, 245, 245)';
+      if (l > 0.8) return 'rgb(220, 220, 220)';
+      if (l > 0.6) return 'rgb(160, 160, 160)';
+      if (l > 0.4) return 'rgb(100, 100, 100)';
+      if (l > 0.2) return 'rgb(60, 60, 60)';
+      return 'rgb(30, 30, 30)';
     }
-
-    // Fallback pour les patterns non reconnus
-    return 'rgb(128, 128, 128)';
+    return 'rgb(128, 128, 128)'; // Final fallback
   });
-
-  return result;
 }
 
-// Fonction pour créer une feuille de style compatible
-function createCompatibleStyleSheet(): HTMLStyleElement {
-  const style = document.createElement('style');
-  style.type = 'text/css';
+// Clones a node and its computed styles, converting OKLCH colors on the fly.
+async function cloneNodeWithInlineStyles(node: HTMLElement): Promise<HTMLElement> {
+  const cloned = node.cloneNode(true) as HTMLElement;
+  const copyStyles = (original: Element, clone: Element) => {
+    const cloneElement = clone as HTMLElement;
+    const computedStyles = window.getComputedStyle(original);
+    for (let i = 0; i < computedStyles.length; i++) {
+      const propName = computedStyles[i];
+      let propValue = computedStyles.getPropertyValue(propName);
+      const propPriority = computedStyles.getPropertyPriority(propName);
 
-  // CSS pour remplacer les couleurs OKLCH par des équivalents RGB
-  const css = `
-    /* Remplacement des couleurs OKLCH courantes */
-    * {
-      color: revert !important;
-      background-color: revert !important;
-      border-color: revert !important;
-    }
-    
-    /* Styles de base sûrs pour l'export PDF */
-    .resume-container * {
-      color: rgb(33, 33, 33) !important;
-      background-color: rgb(255, 255, 255) !important;
-    }
-    
-    .resume-header {
-      background-color: rgb(248, 249, 250) !important;
-      color: rgb(33, 33, 33) !important;
-    }
-    
-    .resume-section {
-      border-color: rgb(229, 231, 235) !important;
-    }
-    
-    .resume-title {
-      color: rgb(17, 24, 39) !important;
-    }
-    
-    .resume-subtitle {
-      color: rgb(107, 114, 128) !important;
-    }
-    
-    .resume-accent {
-      color: rgb(59, 130, 246) !important;
-    }
-  `;
+      if (propValue.includes('oklch')) {
+        propValue = oklchToRgb(propValue);
+      }
 
-  style.innerHTML = css;
-  return style;
+      cloneElement.style.setProperty(propName, propValue, propPriority);
+    }
+    for (let i = 0; i < original.children.length; i++) {
+      copyStyles(original.children[i], clone.children[i]);
+    }
+  };
+  copyStyles(node, cloned);
+  return cloned;
 }
 
 async function exportPdf() {
@@ -127,84 +91,41 @@ async function exportPdf() {
   }
 
   try {
-    // Créer un conteneur temporaire
+    // 1. Create a high-fidelity clone with styles and converted colors.
+    const clone = await cloneNodeWithInlineStyles(node);
+
+    // 2. Render the clone in an off-screen container.
     const container = document.createElement('div');
     container.style.position = 'absolute';
     container.style.left = '-9999px';
     container.style.top = '0';
-    container.style.width = '794px'; // A4 width
+    container.style.width = `${node.offsetWidth}px`;
     container.style.background = 'white';
     document.body.appendChild(container);
-
-    // Cloner le noeud
-    const clone = node.cloneNode(true) as HTMLElement;
     container.appendChild(clone);
 
-    // Ajouter la feuille de style compatible
-    const compatibleStyle = createCompatibleStyleSheet();
-    container.appendChild(compatibleStyle);
+    await new Promise(resolve => setTimeout(resolve, 300));
 
-    // Fonction pour forcer les styles RGB
-    const forceRgbStyles = (element: HTMLElement) => {
-      const computedStyle = getComputedStyle(element);
-
-      // Propriétés à traiter
-      const properties = [
-        'color',
-        'backgroundColor',
-        'borderTopColor',
-        'borderRightColor',
-        'borderBottomColor',
-        'borderLeftColor',
-      ];
-
-      properties.forEach(prop => {
-        const value = computedStyle.getPropertyValue(prop);
-        if (value && value.includes('oklch')) {
-          // Utiliser une couleur par défaut sûre
-          switch (prop) {
-            case 'color':
-              element.style.setProperty(prop, 'rgb(33, 33, 33)', 'important');
-              break;
-            case 'backgroundColor':
-              element.style.setProperty(prop, 'rgb(255, 255, 255)', 'important');
-              break;
-            default:
-              element.style.setProperty(prop, 'rgb(229, 231, 235)', 'important');
-          }
-        }
-      });
-
-      // Traiter les enfants
-      Array.from(element.children).forEach(child => {
-        if (child instanceof HTMLElement) {
-          forceRgbStyles(child);
-        }
-      });
-    };
-
-    // Appliquer les styles RGB
-    forceRgbStyles(clone);
-
-    // Attendre que les styles soient appliqués
-    await new Promise(resolve => setTimeout(resolve, 200));
-
-    // Utiliser html2canvas avec des options optimisées
+    // 3. Generate a canvas using html2canvas-pro directly.
     const canvas = await html2canvas(clone, {
-      scale: 2,
+      scale: 2, // High resolution for crisp text
       useCORS: true,
       allowTaint: true,
+      width: node.offsetWidth,
+      height: node.offsetHeight,
+
       backgroundColor: '#ffffff',
       logging: false,
       removeContainer: false,
     });
 
-    // Créer le PDF
+    // 4. Create the PDF with manual pagination.
     const imgData = canvas.toDataURL('image/png', 1.0);
     const pdf = new jsPDF({
       orientation: 'portrait',
       unit: 'pt',
       format: 'a4',
+      
     });
 
     const pdfWidth = pdf.internal.pageSize.getWidth();
@@ -212,45 +133,27 @@ async function exportPdf() {
     const imgWidth = canvas.width;
     const imgHeight = canvas.height;
     const ratio = pdfWidth / imgWidth;
-    const pageHeightPx = pdfHeight / ratio;
+    const pageHeightInCanvasPixels = pdfHeight / ratio;
 
     let position = 0;
-
     while (position < imgHeight) {
-      pdf.addImage(imgData, 'PNG', 0, -position * ratio, imgWidth * ratio, imgHeight * ratio);
-      position += pageHeightPx;
-      if (position < imgHeight) {
+      if (position > 0) {
         pdf.addPage();
       }
+      pdf.addImage(imgData, 'PNG', 0, -position * ratio, imgWidth * ratio, imgHeight * ratio);
+      position += pageHeightInCanvasPixels;
     }
 
     pdf.save('resume.pdf');
 
-    // Nettoyer
+    // 5. Clean up the temporary container.
     document.body.removeChild(container);
   } catch (error) {
-    console.error("Erreur lors de l'export PDF:", error);
-
-    // Fallback ultra-simple
-    try {
-      const canvas = await html2canvas(node, {
-        scale: 1,
-        backgroundColor: '#ffffff',
-        logging: false,
-      });
-
-      const imgData = canvas.toDataURL('image/png');
-      const pdf = new jsPDF('p', 'pt', 'a4');
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
-
-      pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-      pdf.save('resume.pdf');
-    } catch (fallbackError) {
-      console.error('Erreur du fallback:', fallbackError);
-      alert(
-        'Erreur lors de la génération du PDF. Veuillez vérifier que votre CV ne contient pas de couleurs OKLCH non supportées.'
-      );
+    console.error('Erreur lors de la génération du PDF:', error);
+    alert('Une erreur est survenue lors de la génération du PDF.');
+    const container = document.querySelector('div[style*="left: -9999px"]');
+    if (container && document.body.contains(container)) {
+      document.body.removeChild(container);
     }
   }
 }
@@ -300,3 +203,5 @@ async function exportDocx(resume: Resume) {
     alert('Erreur lors de la génération du fichier DOCX.');
   }
 }
+
+

@@ -15,3 +15,27 @@ export const prisma =
 if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma;
 
 export default prisma;
+
+export async function fetchResumeById(id: string) {
+  console.log('Fetching resume with ID in Prisma:', id);
+  
+  const resume = await prisma.resume.findUnique({
+    where: { id },
+    include: {
+      personalInfo: true,
+      educations: true,
+      experiences: true,
+      skills: true,
+      languages: true,
+      certifications: true,
+      projects: true,
+      template: true,
+      theme: true,
+      font: true,
+    }
+  });
+
+  console.log('Fetched resume details:', JSON.stringify(resume, null, 2));
+
+  return resume;
+}

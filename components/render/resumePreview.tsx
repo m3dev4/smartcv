@@ -1,4 +1,6 @@
-import React from 'react';
+'use client';
+
+import React, { useState, useEffect } from 'react';
 import { ResumeProvider } from '@/context/resume-context';
 import { ResumeTemplateProps } from '@/types/resumeTypes';
 import { ModernTemplate } from '../resumes/templates/moderns';
@@ -28,10 +30,10 @@ const isValidTemplateType = (value: any): value is ResumeTemplateType => {
   return Object.values(ResumeTemplateType).includes((String(value).toLowerCase()) as ResumeTemplateType);
 };
 
-const ResumePreview: React.FC<ResumePreviewProps> = ({ 
-  resume, 
+const ResumePreview: React.FC<ResumePreviewProps> = ({
+  resume,
   className = '',
-  scale = 0.18 
+  scale = 0.18, // Default scale for web preview
 }) => {
   if (!resume) {
     return (
@@ -41,21 +43,16 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({
     );
   }
 
-  // Determine the template type. Prioritise explicit enum value, otherwise use template.name, else fallback
-  let templateType: ResumeTemplateType | null = null;
-
+  let templateType: ResumeTemplateType;
   if (isValidTemplateType(resume.templateId)) {
     templateType = (resume.templateId as string).toLowerCase() as ResumeTemplateType;
   } else if (resume.template?.name && isValidTemplateType(resume.template.name)) {
     templateType = resume.template.name.toLowerCase() as ResumeTemplateType;
-  }
-
-  if (!templateType) {
-    // Unknown template – fallback
+  } else {
     templateType = ResumeTemplateType.MODERN;
   }
 
-  const renderTemplatePreview = (templateType: ResumeTemplateType) => {
+  const renderTemplate = () => {
     const props: ResumeTemplateProps = {
       resume,
       isEditable: false,
@@ -64,51 +61,50 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({
     };
 
     switch (templateType) {
-      case ResumeTemplateType.MODERN:
-        return <ModernTemplate {...props} />;
-      case ResumeTemplateType.CLASSIC:
-        return <ClassicTemplate {...props} />;
-      case ResumeTemplateType.PERFORMANCE:
-        return <PerformanceTemplate {...props} />;
-      case ResumeTemplateType.CONTEMPORAIN:
-        return <ContemporaryTemplate {...props} />;
-      case ResumeTemplateType.MINT:
-        return <MintGreenTemplate {...props} />;
-      case ResumeTemplateType.COMPACT:
-        return <CompactModernTemplate {...props} />;
-      case ResumeTemplateType.CLEAN:
-        return <CleanProfessionalTemplate {...props} />;
-      case ResumeTemplateType.STYLISH:
-        return <StylishTemplate {...props} />;
-      case ResumeTemplateType.TIMELINE:
-        return <TimelineTemplate {...props} />;
-      case ResumeTemplateType.MINIMALIST:
-        return <MinimalistTemplate {...props} />;
-      case ResumeTemplateType.ELEGANT:
-        return <ElegantTemplate {...props} />;
-      case ResumeTemplateType.EXECUTIVE:
-        return <ExecutiveTemplate {...props} />;
-      default:
-        return <ModernTemplate {...props} />;
+      case ResumeTemplateType.MODERN: return <ModernTemplate {...props} />;
+      case ResumeTemplateType.CLASSIC: return <ClassicTemplate {...props} />;
+      case ResumeTemplateType.PERFORMANCE: return <PerformanceTemplate {...props} />;
+      case ResumeTemplateType.CONTEMPORAIN: return <ContemporaryTemplate {...props} />;
+      case ResumeTemplateType.MINT: return <MintGreenTemplate {...props} />;
+      case ResumeTemplateType.COMPACT: return <CompactModernTemplate {...props} />;
+      case ResumeTemplateType.CLEAN: return <CleanProfessionalTemplate {...props} />;
+      case ResumeTemplateType.STYLISH: return <StylishTemplate {...props} />;
+      case ResumeTemplateType.TIMELINE: return <TimelineTemplate {...props} />;
+      case ResumeTemplateType.MINIMALIST: return <MinimalistTemplate {...props} />;
+      case ResumeTemplateType.ELEGANT: return <ElegantTemplate {...props} />;
+      case ResumeTemplateType.EXECUTIVE: return <ExecutiveTemplate {...props} />;
+      default: return <ModernTemplate {...props} />;
     }
   };
 
-  const scalePercentage = scale * 100;
+  const isPdfMode = scale === 1.0;
   const containerSize = 100 / scale;
 
   return (
     <ResumeProvider resumeId={resume.id} templateType={templateType}>
-      <div className={`aspect-[3/4] overflow-hidden bg-white ${className}`}>
-      <div 
-        className={`origin-top-left`}
-        style={{
-          transform: `scale(${scale})`,
-          width: `${containerSize}%`,
-          height: `${containerSize}%`
-        }}
+      <div
+        id="resume-container"
+        className={`bg-white ${isPdfMode ? 'w-full min-h-screen p-8 print:p-8' : `aspect-[3/4] overflow-hidden ${className}`}`}
+        style={isPdfMode ? {
+          width: '210mm',
+          minHeight: '297mm',
+          padding: '20mm',
+          boxSizing: 'border-box',
+          fontSize: '12pt',
+          lineHeight: '1.4',
+          fontFamily: 'Arial, sans-serif'
+        } : {}}
       >
-        {renderTemplatePreview(templateType)}
-      </div>
+        <div
+          className={isPdfMode ? 'w-full h-full' : 'origin-top-left'}
+          style={isPdfMode ? {} : {
+            transform: `scale(${scale})`,
+            width: `${containerSize}%`,
+            height: `${containerSize}%`,
+          }}
+        >
+          {renderTemplate()}
+        </div>
       </div>
     </ResumeProvider>
   );
