@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { fetchResumeById } from '@/lib/prisma';
+import { getFullUrl, getPdfServerUrl } from '@/lib/config';
 
 export async function GET(
   request: NextRequest, 
@@ -16,11 +17,11 @@ export async function GET(
       return NextResponse.json({ error: 'CV non trouvé' }, { status: 404 });
     }
 
-    // Utiliser une URL complète avec le domaine local
-    const fullUrl = `http://localhost:3000/cv/${resume.id}?pdf=true`;
+    // Utiliser une URL complète avec le domaine configuré
+    const fullUrl = getFullUrl(`/cv/${resume.id}?pdf=true`);
 
     // Envoyer les détails du CV au serveur Puppeteer
-    const pdfResponse = await fetch('http://localhost:3001/generate-pdf', {
+    const pdfResponse = await fetch(getPdfServerUrl('/generate-pdf'), {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -82,10 +83,10 @@ export async function POST(
     }
 
     // Créer une URL de prévisualisation pour les données en direct
-    const tempUrl = `http://localhost:3000/cv/preview/${params.id}`;
+    const tempUrl = getFullUrl(`/cv/preview/${params.id}`);
 
     // Envoyer les données du CV au serveur Puppeteer avec les données en direct
-    const pdfResponse = await fetch('http://localhost:3001/generate-pdf', {
+    const pdfResponse = await fetch(getPdfServerUrl('/generate-pdf'), {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
