@@ -1,3 +1,5 @@
+'use client';
+
 import { ResumeTemplateProps } from '@/types/resumeTypes';
 import React, { useState } from 'react';
 import { ModernTemplate } from '../resumes/templates/moderns';

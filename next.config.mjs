@@ -32,6 +32,26 @@ const nextConfig = {
   siteUrl: ['https://smartcv.vercel.app', 'https://smart-cv-sn.netlify.app'],
   generateRobotsTxt: true,
   exclude: ['admin', '/dashboard/**', 'settings', '/editor/**'],
+  reactStrictMode: true,
+  
+  // Ajouter des configurations pour le serveur PDF
+  async headers() {
+    return [
+      {
+        source: '/cv/:id',
+        headers: [
+          {
+            key: 'Access-Control-Allow-Origin',
+            value: 'http://localhost:3001',
+          },
+          {
+            key: 'Access-Control-Allow-Methods',
+            value: 'GET',
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;

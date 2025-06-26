@@ -203,3 +203,5 @@ async function exportDocx(resume: Resume) {
     alert('Erreur lors de la génération du fichier DOCX.');
   }
 }
+
+

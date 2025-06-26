@@ -1,73 +1,131 @@
 @media print {
-  /* Masquer la barre de formatage lors de l'impression */
-  .format-toolbar {
-    display: none !important;
-  }
-
-  /* Préserver les styles de texte */
-  [contenteditable] {
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-
-  /* Préserver les styles de police */
-  span[style*="font-size"],
-  span[style*="font-weight"],
-  span[style*="font-style"],
-  span[style*="text-decoration"] {
-    print-color-adjust: exact;
-    -webkit-print-color-adjust: exact;
-  }
-
-  /* Assurer que les couleurs et les fonds sont imprimés */
+  /* Configuration de base pour l'impression */
   * {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }
 
-  /* Éviter les sauts de page indésirables */
-  .page-break-inside-avoid {
-    page-break-inside: avoid;
-  }
-
-  /* Forcer le fond blanc pour économiser l'encre */
-  body {
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
     background: white !important;
+    font-family: Arial, sans-serif !important;
+    font-size: 12pt !important;
+    line-height: 1.4 !important;
   }
 
-  /* Cacher les éléments d'interface utilisateur */
+  /* Configuration du conteneur principal */
+  #resume-container {
+    width: 210mm !important;
+    min-height: 297mm !important;
+    margin: 0 !important;
+    padding: 20mm !important;
+    box-sizing: border-box !important;
+    background: white !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* Masquer les éléments d'interface */
+  .format-toolbar,
   button:not([data-print="true"]),
-  [role="button"]:not([data-print="true"]) {
+  [role="button"]:not([data-print="true"]),
+  .no-print {
     display: none !important;
   }
 
-  /* Assurer que le contenu est visible */
+  /* Styles de texte optimisés pour l'impression */
+  .text-xs { font-size: 9pt !important; }
+  .text-sm { font-size: 10pt !important; }
+  .text-base { font-size: 12pt !important; }
+  .text-lg { font-size: 14pt !important; }
+  .text-xl { font-size: 16pt !important; }
+  .text-2xl { font-size: 18pt !important; }
+  .text-3xl { font-size: 20pt !important; }
+
+  /* Couleurs optimisées pour l'impression */
   .text-gray-700,
   .text-gray-600,
-  .text-sm {
-    color: #374151 !important; /* Un gris foncé qui s'imprime bien */
+  .text-gray-500 {
+    color: #374151 !important;
   }
 
-  /* Optimiser la mise en page pour l'impression */
-  .resume-container {
-    margin: 0 !important;
-    padding: 0 !important;
-    width: 100% !important;
-    max-width: none !important;
+  .text-gray-900,
+  .text-black {
+    color: #000000 !important;
   }
 
-  /* Assurer que les images s'impriment correctement */
+  /* Préserver les styles de texte */
+  [contenteditable],
+  span[style*="font-size"],
+  span[style*="font-weight"],
+  span[style*="font-style"],
+  span[style*="text-decoration"] {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Éviter les sauts de page indésirables */
+  .page-break-inside-avoid,
+  .avoid-break {
+    page-break-inside: avoid !important;
+  }
+
+  /* Images optimisées */
   img {
     max-width: 100% !important;
-    page-break-inside: avoid;
+    height: auto !important;
+    page-break-inside: avoid !important;
   }
 
-  /* Préserver les marges et espacements importants */
-  .mb-4, .mb-8 {
-    margin-bottom: 1rem !important;
+  /* Espacements cohérents */
+  .mb-1 { margin-bottom: 0.25rem !important; }
+  .mb-2 { margin-bottom: 0.5rem !important; }
+  .mb-3 { margin-bottom: 0.75rem !important; }
+  .mb-4 { margin-bottom: 1rem !important; }
+  .mb-6 { margin-bottom: 1.5rem !important; }
+  .mb-8 { margin-bottom: 2rem !important; }
+
+  .mt-1 { margin-top: 0.25rem !important; }
+  .mt-2 { margin-top: 0.5rem !important; }
+  .mt-3 { margin-top: 0.75rem !important; }
+  .mt-4 { margin-top: 1rem !important; }
+  .mt-6 { margin-top: 1.5rem !important; }
+  .mt-8 { margin-top: 2rem !important; }
+
+  .p-2 { padding: 0.5rem !important; }
+  .p-3 { padding: 0.75rem !important; }
+  .p-4 { padding: 1rem !important; }
+  .p-6 { padding: 1.5rem !important; }
+  .p-8 { padding: 2rem !important; }
+
+  /* Bordures et arrière-plans */
+  .border {
+    border: 1px solid #d1d5db !important;
   }
 
-  .p-6 {
-    padding: 1.5rem !important;
+  .border-gray-200 {
+    border-color: #e5e7eb !important;
+  }
+
+  .bg-gray-50,
+  .bg-gray-100 {
+    background-color: #f9fafb !important;
+  }
+
+  /* Flexbox et grilles pour l'impression */
+  .flex {
+    display: flex !important;
+  }
+
+  .grid {
+    display: grid !important;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  .block {
+    display: block !important;
   }
 }

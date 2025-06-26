@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: smartcv-pdf-server
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3001
+    healthCheckPath: /health
+    autoDeploy: false
+    disk:
+      name: pdf-cache
+      mountPath: /tmp
+      sizeGB: 1
+    scaling:
+      minInstances: 1
+      maxInstances: 1
