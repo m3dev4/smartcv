@@ -10,7 +10,13 @@
     "build": "echo \"No build step required\"",
     "postinstall": "echo \"Installation complete\""
   },
-  "keywords": ["pdf", "puppeteer", "cv", "resume", "generator"],
+  "keywords": [
+    "pdf",
+    "puppeteer",
+    "cv",
+    "resume",
+    "generator"
+  ],
   "author": "SmartCV Team",
   "license": "ISC",
   "type": "commonjs",
@@ -22,7 +28,8 @@
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "express": "^4.18.2",
-    "puppeteer": "^21.11.0"
+    "puppeteer": "^24.10.2",
+    "render": "^0.1.4"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
