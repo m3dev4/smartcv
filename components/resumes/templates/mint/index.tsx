@@ -42,7 +42,7 @@ export const MintGreenTemplate: React.FC<ResumeTemplateProps> = ({ resume, isEdi
       }}
     >
       {/* En-tête avec photo et nom - Responsive */}
-      <header className="p-4 sm:p-6 lg:p-8 pb-4 sm:pb-6" onClick={() => handleEditSection("personalInfo")}>
+      <div className="p-4 sm:p-6 lg:p-8 pb-4 sm:pb-6" onClick={() => handleEditSection("personalInfo")}>
         <div className="flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-6">
           {/* Photo de profil avec fond coloré */}
           <div className="relative flex-shrink-0">
@@ -85,7 +85,7 @@ export const MintGreenTemplate: React.FC<ResumeTemplateProps> = ({ resume, isEdi
             )}
           </div>
         </div>
-      </header>
+      </div>
 
       <div className="px-4 sm:px-6 lg:px-8 space-y-6 sm:space-y-8">
         {/* Section Contacts - Responsive */}

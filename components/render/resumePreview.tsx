@@ -84,24 +84,25 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({
     <ResumeProvider resumeId={resume.id} templateType={templateType}>
       <div
         id="resume-container"
-        className={`bg-white ${isPdfMode ? 'w-full min-h-screen p-8 print:p-8' : `aspect-[3/4] overflow-hidden ${className}`}`}
-        style={isPdfMode ? {
-          width: '210mm',
-          minHeight: '297mm',
-          padding: '20mm',
+        className={`bg-white ${isPdfMode ? 'pdf-mode' : `aspect-[3/4] overflow-hidden ${className}`}`}
+        style={{
+          width: isPdfMode ? '210mm' : '100%',
+          minHeight: isPdfMode ? '297mm' : 'auto',
+          padding: isPdfMode ? '15mm' : '0',
+          margin: '0 auto',
           boxSizing: 'border-box',
-          fontSize: '12pt',
-          lineHeight: '1.4',
-          fontFamily: 'Arial, sans-serif'
-        } : {}}
+          fontSize: isPdfMode ? '11pt' : 'inherit',
+          lineHeight: isPdfMode ? '1.3' : 'inherit',
+          fontFamily: isPdfMode ? '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' : 'inherit'
+        }}
       >
         <div
-          className={isPdfMode ? 'w-full h-full' : 'origin-top-left'}
-          style={isPdfMode ? {} : {
+          className={isPdfMode ? 'pdf-content' : 'origin-top-left'}
+          style={!isPdfMode ? {
             transform: `scale(${scale})`,
             width: `${containerSize}%`,
             height: `${containerSize}%`,
-          }}
+          } : {}}
         >
           {renderTemplate()}
         </div>

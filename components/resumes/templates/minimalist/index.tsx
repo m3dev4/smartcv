@@ -54,7 +54,7 @@ export const MinimalistTemplate: React.FC<ResumeTemplateProps> = ({
       }}
     >
       {/* En-tête simple */}
-      <header className="text-center py-12" onClick={() => handleEditSection('personalInfo')}>
+      <div className="text-center py-12" onClick={() => handleEditSection('personalInfo')}>
         <h1 className="text-5xl font-light mb-4" style={{ color: theme.text }}>
           {personalInfo?.firstName} {personalInfo?.lastName}
         </h1>
@@ -68,7 +68,7 @@ export const MinimalistTemplate: React.FC<ResumeTemplateProps> = ({
           {personalInfo?.phone && <span>{personalInfo.phone}</span>}
           {personalInfo?.location && <span>{personalInfo.location}</span>}
         </div>
-      </header>
+      </div>
 
       <div className="max-w-2xl mx-auto px-8 space-y-12">
         {/* Summary */}

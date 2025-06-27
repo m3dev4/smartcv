@@ -47,7 +47,7 @@ export const ModernTemplate: React.FC<ResumeTemplateProps> = ({
       }}
     >
       {/* En tete avec photot et informatio personnelle */}
-      <header
+      <div
         className="flex flex-col sm:flex-row p-6 gap-6"
         style={{
           backgroundColor: theme.secondary,
@@ -182,7 +182,7 @@ export const ModernTemplate: React.FC<ResumeTemplateProps> = ({
             )}
           </div>
         </div>
-      </header>
+      </div>
 
       <div className="flex flex-col md:flex-row  p-0">
         {/* column Gauche */}

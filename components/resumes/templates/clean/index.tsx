@@ -68,7 +68,7 @@ export const CleanProfessionalTemplate: React.FC<ResumeTemplateProps> = ({
       }}
     >
       {/* En-tête avec nom et titre - Responsive */}
-      <header
+      <div
         className="p-4 sm:p-6 md:p-8 pb-4 sm:pb-6 resume-header"
         onClick={() => handleEditSection("personalInfo")}
       >
@@ -95,7 +95,7 @@ export const CleanProfessionalTemplate: React.FC<ResumeTemplateProps> = ({
 
           {personalInfo?.website ? <span className="break-all">{personalInfo.website}</span> : null}
         </div>
-      </header>
+      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-10 gap-6 md:gap-8 px-4 sm:px-6 md:px-8">
         {/* Colonne principale (70%) */}

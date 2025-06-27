@@ -2,6 +2,7 @@
 
 import ResumePreview from './resumePreview';
 import { useState, useEffect } from 'react';
+import { useResume } from '@/context/resume-context';
 import { useDownloadResume } from '@/hooks/useDownloadResume';
 import { Button } from '@/components/ui/button';
 import { Download } from 'lucide-react';
@@ -14,13 +15,19 @@ export default function ResumePreviewClient({
   isPdfMode?: boolean
 }) {
   const { downloadResume, isDownloading, error } = useDownloadResume();
+  const { saveResume, isSaving } = useResume();
 
   useEffect(() => {
     console.log('Resume data in client:', JSON.stringify(resume, null, 2));
   }, [resume]);
 
-  const handleDownload = () => {
-    downloadResume(resume.id);
+  const handleDownload = async () => {
+    try {
+      await saveResume(); // Assure que le template est enregistré
+      downloadResume(resume.id);
+    } catch (err) {
+      console.error('Erreur lors de la sauvegarde avant téléchargement', err);
+    }
   };
 
   if (!resume) {
@@ -36,10 +43,15 @@ export default function ResumePreviewClient({
       <div className="mb-4 flex items-center space-x-4">
         <Button 
           onClick={handleDownload} 
-          disabled={isDownloading}
+          disabled={isDownloading || isSaving}
           className="flex items-center gap-2"
         >
-          {isDownloading ? (
+          {isSaving ? (
+            <>
+              <Download className="h-4 w-4 animate-spin" />
+              Sauvegarde...
+            </>
+          ) : isDownloading ? (
             <>
               <Download className="h-4 w-4 animate-spin" />
               Téléchargement...
@@ -59,13 +71,7 @@ export default function ResumePreviewClient({
         )}
       </div>
       
-      {(!resume.personalInfo || Object.keys(resume.personalInfo).length === 0) && (
-        <div className="bg-yellow-100 p-4 rounded">
-          <p>Aucune information personnelle trouvée</p>
-          <pre>{JSON.stringify(resume, null, 2)}</pre>
-        </div>
-      )}
-
+      
       <ResumePreview 
         resume={resume} 
         className="p-4 bg-white"

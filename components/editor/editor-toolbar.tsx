@@ -31,6 +31,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { downloadResume } from '@/utils/download-resume';
 import { DownloadProgressModal } from '../ui/download-progress-modal';
+import { useDownloadResume } from '@/hooks/useDownloadResume';
 
 interface EditorToolbarProps {
   onTogglePropertiesPanel: () => void;
@@ -59,9 +60,23 @@ const EditorToolbar: React.FC<EditorToolbarProps> = ({
   } = useResume();
 
   const [resumeIsSaving, setResumeIsSaving] = useState(false);
-  const [isDownloading, setIsDownloading] = useState(false);
   const [downloadProgress, setDownloadProgress] = useState(0);
   const [showProgressModal, setShowProgressModal] = useState(false);
+  
+  // Hook pour le téléchargement PDF avec Puppeteer
+  const { downloadResume: downloadPDF, isDownloading, error } = useDownloadResume();
+
+  // Téléchargement PDF après sauvegarde
+  const handleDownloadPdf = async () => {
+    if (!resume?.id) return;
+    try {
+      setResumeIsSaving(true);
+      await saveResume();
+      await downloadPDF(resume.id);
+    } finally {
+      setResumeIsSaving(false);
+    }
+  };
 
   const handleSave = async () => {
     setResumeIsSaving(true);
@@ -81,68 +96,7 @@ const EditorToolbar: React.FC<EditorToolbarProps> = ({
     }
   };
 
-  const handleDownload = async () => {
-    if (!resume) return;
-    
-    setIsDownloading(true);
-    setShowProgressModal(true);
-    setDownloadProgress(0);
-
-    try {
-      // Simuler la progression de la génération
-      const progressInterval = setInterval(() => {
-        setDownloadProgress(prev => {
-          if (prev >= 90) {
-            clearInterval(progressInterval);
-            return 90;
-          }
-          return prev + Math.random() * 15;
-        });
-      }, 500);
-
-      // Envoyer les données actuelles du CV
-      const response = await fetch(`/api/pdf/${resume.id}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(resume),
-      });
-
-      if (!response.ok) {
-        throw new Error('Erreur lors de la génération du PDF');
-      }
-
-      const blob = await response.blob();
-      
-      // Finaliser la progression
-      clearInterval(progressInterval);
-      setDownloadProgress(100);
-
-      // Déclencher le téléchargement
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `${resume.title || `${resume.personalInfo?.firstName || 'Resume'}`}.pdf`;
-      document.body.appendChild(a);
-      a.click();
-      window.URL.revokeObjectURL(url);
-      document.body.removeChild(a);
-
-      // Attendre un peu avant de fermer le modal
-      setTimeout(() => {
-        setShowProgressModal(false);
-        toast.success('PDF téléchargé avec succès');
-      }, 1000);
-
-    } catch (error) {
-      console.error('Erreur de téléchargement PDF:', error);
-      toast.error('Erreur lors du téléchargement du PDF');
-      setShowProgressModal(false);
-    } finally {
-      setIsDownloading(false);
-    }
-  };
+ 
 
   /**
    *  Cette hook gére les evenement clavier pour les boutons undo et redo
@@ -283,13 +237,16 @@ const EditorToolbar: React.FC<EditorToolbarProps> = ({
 
             <DropdownMenuContent align="end">
               <DropdownMenuGroup>
-                <DropdownMenuItem onClick={handleDownload} disabled={isDownloading}>
-                  {isDownloading ? (
+                <DropdownMenuItem 
+                  onClick={handleDownloadPdf}
+                  disabled={isDownloading || resumeIsSaving}
+                >
+                  {isDownloading || resumeIsSaving ? (
                     <Loader2 className="h-4 w-4 mr-2 animate-spin" />
                   ) : (
                     <Download className="h-4 w-4 mr-2" />
                   )}
-                  {isDownloading ? 'Génération en cours...' : 'Télécharger en PDF'}
+                  {isDownloading || resumeIsSaving ? 'Génération en cours...' : 'Télécharger en PDF'}
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => resume && downloadResume(resume, 'json')}>
                   <Download className="h-4 w-4 mr-2" />

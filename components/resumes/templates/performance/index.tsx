@@ -51,7 +51,7 @@ export const PerformanceTemplate: React.FC<ResumeTemplateProps> = ({
       }}
     >
       {/* En-tête avec nom et informations de contact */}
-      <header className="p-6 border-b" style={{ borderColor: theme.primary }}>
+      <div className="p-6 border-b" style={{ borderColor: theme.primary }}>
         <div className="flex flex-col md:flex-row justify-between">
           <div className="mb-4 md:mb-0" onClick={() => handleEditSection('personalInfo')}>
             <h1
@@ -161,7 +161,7 @@ export const PerformanceTemplate: React.FC<ResumeTemplateProps> = ({
             <p className="text-gray-700 text-sm leading-relaxed">{personalInfo.description}</p>
           </div>
         )}
-      </header>
+      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
         {/* Colonne gauche */}

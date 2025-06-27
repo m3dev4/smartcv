@@ -43,7 +43,7 @@ export const ElegantTemplate: React.FC<ResumeTemplateProps> = ({ resume, isEdita
       }}
     >
       {/* En-tête avec gradient - Responsive */}
-      <header
+      <div
         className="relative p-4 sm:p-6 lg:p-8 text-white overflow-hidden"
         style={{
           background: `linear-gradient(135deg, ${theme.primary} 0%, ${theme.accent} 100%)`,
@@ -114,7 +114,7 @@ export const ElegantTemplate: React.FC<ResumeTemplateProps> = ({ resume, isEdita
             )}
           </div>
         </div>
-      </header>
+      </div>
 
       <div className="flex flex-col lg:flex-row">
         {/* Contenu principal - Responsive */}
