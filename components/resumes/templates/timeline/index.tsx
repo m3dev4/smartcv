@@ -55,7 +55,7 @@ export const TimelineTemplate: React.FC<ResumeTemplateProps> = ({
       }}
     >
       {/* En-tête */}
-      <header className="p-8 pb-6" onClick={() => handleEditSection('personalInfo')}>
+      <div className="p-8 pb-6" onClick={() => handleEditSection('personalInfo')}>
         <h1 className="text-4xl font-bold mb-2 tracking-wide" style={{ color: theme.text }}>
           {personalInfo?.firstName?.toUpperCase()} {personalInfo?.lastName?.toUpperCase()}
         </h1>
@@ -92,7 +92,7 @@ export const TimelineTemplate: React.FC<ResumeTemplateProps> = ({
             </span>
           )}
         </div>
-      </header>
+      </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 px-8">
         {/* Colonne principale (65%) */}

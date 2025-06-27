@@ -43,7 +43,7 @@ export const StylishTemplate: React.FC<ResumeTemplateProps> = ({ resume, isEdita
       }}
     >
       {/* En-tête avec informations personnelles et photo - Responsive */}
-      <header
+      <div
         className="relative p-4 sm:p-6 lg:p-8 pb-4 sm:pb-6"
         style={{ backgroundColor: theme.secondary }}
         onClick={() => handleEditSection("personalInfo")}
@@ -102,7 +102,7 @@ export const StylishTemplate: React.FC<ResumeTemplateProps> = ({ resume, isEdita
             </div>
           )}
         </div>
-      </header>
+      </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 p-4 sm:p-6 lg:p-8">
         {/* Colonne principale (2/3) - Responsive */}

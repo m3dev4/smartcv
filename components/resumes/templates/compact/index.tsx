@@ -55,7 +55,7 @@ export const CompactModernTemplate: React.FC<ResumeTemplateProps> = ({
       }}
     >
       {/* En-tête avec nom et photo */}
-      <header
+      <div
         className="p-6 relative"
         style={{ backgroundColor: theme.secondary, color: theme.accent }}
         onClick={() => handleEditSection('personalInfo')}
@@ -150,7 +150,7 @@ export const CompactModernTemplate: React.FC<ResumeTemplateProps> = ({
             </div>
           )}
         </div>
-      </header>
+      </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-0">
         {/* Colonne principale */}

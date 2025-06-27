@@ -55,7 +55,7 @@ export const ContemporaryTemplate: React.FC<ResumeTemplateProps> = ({
       }}
     >
       {/* En-tête moderne avec gradient */}
-      <header
+      <div
         className="relative p-8 text-white overflow-hidden"
         style={{
           background: `linear-gradient(135deg, ${theme.primary} 0%, ${theme.accent} 100%)`,
@@ -153,7 +153,7 @@ export const ContemporaryTemplate: React.FC<ResumeTemplateProps> = ({
             )}
           </div>
         </div>
-      </header>
+      </div>
 
       {/* Description / À propos */}
       {personalInfo?.description && (

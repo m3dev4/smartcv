@@ -42,7 +42,7 @@ export const ExecutiveTemplate: React.FC<ResumeTemplateProps> = ({ resume, isEdi
       }}
     >
       {/* En-tête moderne et épuré - Responsive */}
-      <header
+      <div
         className="relative px-4 sm:px-8 lg:px-12 py-6 sm:py-8 lg:py-10 bg-gradient-to-r from-slate-50 to-gray-50"
         onClick={() => handleEditSection("personalInfo")}
       >
@@ -114,7 +114,7 @@ export const ExecutiveTemplate: React.FC<ResumeTemplateProps> = ({ resume, isEdi
             </div>
           )}
         </div>
-      </header>
+      </div>
 
       <div className="flex flex-col lg:flex-row">
         {/* Contenu principal - Responsive */}

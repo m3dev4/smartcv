@@ -7,10 +7,13 @@ export function useDownloadResume() {
   const [isDownloading, setIsDownloading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const downloadResume = async (resumeId: string) => {
+  const downloadResume = async (resumeId: string, fileName?: string) => {
     try {
       setIsDownloading(true);
       setError(null);
+
+      // Notification de début
+      toast.info('Génération du PDF en cours...');
 
       const response = await fetch(`/api/pdf/${resumeId}`, {
         method: 'GET',
@@ -34,11 +37,22 @@ export function useDownloadResume() {
       // Créer un blob à partir de la réponse
       const blob = await response.blob();
       
+      // Extraire le nom de fichier depuis les headers si disponible
+      const contentDisposition = response.headers.get('Content-Disposition');
+      let downloadFileName = fileName || `CV_${resumeId}.pdf`;
+      
+      if (contentDisposition) {
+        const fileNameMatch = contentDisposition.match(/filename="(.+)"/);
+        if (fileNameMatch) {
+          downloadFileName = fileNameMatch[1];
+        }
+      }
+      
       // Créer un lien de téléchargement
       const url = window.URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
-      link.download = `CV_${resumeId}.pdf`;
+      link.download = downloadFileName;
       document.body.appendChild(link);
       link.click();
       
