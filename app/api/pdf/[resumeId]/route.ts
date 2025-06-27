@@ -21,7 +21,9 @@ export async function GET(
 
     console.log('Détails de la requête PDF :', {
       resumeId,
-      hasResumeData: !!resumeData.resume
+      hasResumeData: !!resumeData.resume,
+      environment: process.env.NODE_ENV,
+      platform: process.platform
     });
 
     // 3. Configuration de l'URL de preview
@@ -29,24 +31,112 @@ export async function GET(
     const previewUrl = `${baseUrl}/cv/pdf-preview/${resumeId}`;
     console.log('PDF generation previewUrl:', previewUrl);
 
-    // 4. Configuration avancée de Puppeteer (reprenant la logique Express)
-    if (process.env.NODE_ENV === 'production') {
-      const executablePath = await chrome.executablePath();
-      browser = await puppeteerCore.launch({
-        args: [
-          ...chrome.args,
-          '--no-sandbox',
-          '--disable-setuid-sandbox',
-          '--disable-gpu',
-          '--disable-dev-shm-usage',
-          '--disable-web-security',
-          '--allow-file-access-from-files'
-        ],
-        executablePath: executablePath,
-        headless: true,
-        timeout: 60000
-      });
+    // 4. Configuration AMÉLIORÉE de Puppeteer pour la production
+    const isProduction = process.env.NODE_ENV === 'production';
+    const isVercel = process.env.VERCEL === '1';
+    const isRailway = !!process.env.RAILWAY_ENVIRONMENT;
+    const isRender = !!process.env.RENDER;
+
+    if (isProduction) {
+      try {
+        // Configuration spécifique selon la plateforme
+        let executablePath: string;
+        let args: string[] = [];
+
+        if (isVercel) {
+          // Vercel configuration
+          executablePath = await chrome.executablePath();
+          args = [
+            ...chrome.args,
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--disable-dev-shm-usage',
+            '--disable-gpu',
+            '--disable-web-security',
+            '--allow-file-access-from-files',
+            '--disable-features=VizDisplayCompositor',
+            '--disable-extensions',
+            '--disable-plugins',
+            '--disable-background-timer-throttling',
+            '--disable-backgrounding-occluded-windows',
+            '--disable-renderer-backgrounding',
+            '--single-process' // Important pour Vercel
+          ];
+        } else if (isRailway || isRender) {
+          // Railway/Render configuration
+          executablePath = await chrome.executablePath();
+          args = [
+            ...chrome.args,
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--disable-dev-shm-usage',
+            '--disable-gpu',
+            '--disable-web-security',
+            '--allow-file-access-from-files',
+            '--disable-features=VizDisplayCompositor'
+          ];
+        } else {
+          // Configuration générique pour autres plateformes
+          try {
+            executablePath = await chrome.executablePath();
+          } catch (chromeError) {
+            console.warn('Chrome non trouvé, tentative avec des chemins alternatifs:', chromeError);
+            
+            // Chemins alternatifs communs
+            const possiblePaths = [
+              '/usr/bin/google-chrome',
+              '/usr/bin/chromium-browser',
+              '/usr/bin/chromium',
+              '/snap/bin/chromium',
+              'google-chrome-stable',
+              'chromium-browser'
+            ];
+            
+            executablePath = possiblePaths[0]; // Fallback
+          }
+          
+          args = [
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--disable-dev-shm-usage',
+            '--disable-gpu',
+            '--disable-web-security',
+            '--allow-file-access-from-files'
+          ];
+        }
+
+        console.log('Tentative de lancement avec executablePath:', executablePath);
+
+        browser = await puppeteerCore.launch({
+          args,
+          executablePath,
+          headless: true,
+          timeout: 60000,
+          // Options supplémentaires pour la stabilité
+          ignoreDefaultArgs: ['--disable-extensions'],
+          defaultViewport: { width: 1280, height: 720 }
+        });
+
+      } catch (productionError) {
+        console.error('Erreur de lancement en production:', productionError);
+        
+        // Fallback: essayer avec puppeteer standard si available
+        console.log('Tentative de fallback avec puppeteer standard...');
+        browser = await puppeteer.launch({
+          headless: 'new',
+          args: [
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--disable-gpu',
+            '--disable-dev-shm-usage',
+            '--disable-web-security',
+            '--allow-file-access-from-files'
+          ],
+          timeout: 60000
+        });
+      }
     } else {
+      // Configuration locale (développement)
       browser = await puppeteer.launch({
         headless: 'new',
         args: [
@@ -66,7 +156,7 @@ export async function GET(
     // Configuration du User Agent
     await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36');
     
-    // Configuration de l'interception des requêtes (optionnel pour Next.js)
+    // Configuration de l'interception des requêtes
     await page.setRequestInterception(true);
     page.on('request', (request) => {
       const resourceType = request.resourceType();
@@ -79,25 +169,29 @@ export async function GET(
       }
     });
 
-    // Gestion des événements de la page
+    // Gestion des événements de la page avec plus de détails
     page.on('console', (msg) => console.log('Page console:', msg.text()));
     page.on('pageerror', (err) => console.error('Page error:', err));
     page.on('requestfailed', (request) => 
       console.log('Request failed:', request.url(), request.failure()?.errorText || 'Unknown error')
     );
 
-    // Navigation avec attente complète du chargement
+    // Navigation avec gestion d'erreur améliorée
     try {
+      console.log('Navigation vers:', previewUrl);
+      
       await page.goto(previewUrl, { 
         waitUntil: ['networkidle0', 'domcontentloaded', 'load'],
         timeout: 60000 
       });
 
+      console.log('Navigation réussie, attente des polices...');
+
       // Attendre que les polices soient chargées avec timeout
       await page.evaluate(() => {
         return Promise.race([
           document.fonts.ready,
-          new Promise(resolve => setTimeout(resolve, 5000)) // Timeout de 5 secondes
+          new Promise(resolve => setTimeout(resolve, 5000))
         ]);
       });
 
@@ -108,11 +202,11 @@ export async function GET(
           Array.from(links).map(link => {
             return new Promise(resolve => {
               if (link.sheet) {
-                resolve();
+                resolve(true);
               } else {
-                link.onload = resolve;
-                link.onerror = resolve;
-                setTimeout(resolve, 3000); // Timeout de sécurité
+                link.onload = () => resolve(true);
+                link.onerror = () => resolve(false);
+                setTimeout(() => resolve(false), 3000);
               }
             });
           })
@@ -126,23 +220,23 @@ export async function GET(
             .filter(img => !img.complete)
             .map(img => new Promise(resolve => {
               img.onload = img.onerror = resolve;
-              setTimeout(resolve, 2000); // Timeout de sécurité
+              setTimeout(resolve, 2000);
             }))
         );
       });
 
-      // Attendre un délai supplémentaire pour s'assurer que les polices sont appliquées
+      // Attendre un délai supplémentaire
       await new Promise(resolve => setTimeout(resolve, 2000));
 
     } catch (navigationError) {
-      console.error('Erreur de navigation :', navigationError);
-      throw new Error('Impossible de charger la page correctement');
+      console.error('Erreur de navigation détaillée:', navigationError);
+      throw new Error(`Impossible de charger la page: ${navigationError.message}`);
     }
 
     // Configurer la page pour l'impression
     await page.emulateMediaType('print');
     
-    // Précharger les polices (reprenant la logique Express)
+    // Précharger les polices
     await page.evaluate((fontName) => {
       const fontUrl = `https://fonts.googleapis.com/css2?family=${fontName.replace(/ /g, '+')}:wght@100;200;300;400;500;600;700;800;900&display=swap`;
       const fontUrls = [
@@ -164,7 +258,7 @@ export async function GET(
           return new Promise((resolve) => {
             link.onload = resolve;
             link.onerror = resolve;
-            setTimeout(resolve, 3000); // Timeout de sécurité
+            setTimeout(resolve, 3000);
           });
         })
       );
@@ -185,7 +279,6 @@ export async function GET(
           margin: 0;
         }
 
-        /* Assurer que les polices sont disponibles sans forcer leur utilisation */
         body {
           font-family: inherit;
         }
@@ -211,7 +304,6 @@ export async function GET(
             background: white !important;
           }
 
-          /* Préserver les styles de pagination */
           .page-break {
             break-after: page !important;
             page-break-after: always !important;
@@ -228,13 +320,11 @@ export async function GET(
             overflow: hidden !important;
           }
           
-          /* Optimiser les images */
           img {
             max-width: 100% !important;
             height: auto !important;
           }
           
-          /* Éviter les sauts de page non désirés dans les sections importantes */
           .break-inside-avoid {
             break-inside: avoid !important;
             page-break-inside: avoid !important;
@@ -243,17 +333,15 @@ export async function GET(
       `
     });
 
-    // Attendre que le conteneur du CV soit prêt (adapter selon votre sélecteur)
+    // Attendre que le conteneur du CV soit prêt
     const containerSelector = '#resume-pdf-preview, #resume-container';
     await page.waitForSelector(containerSelector, { timeout: 15000 });
     
     // Vérifier et forcer l'application des polices
     await page.evaluate(() => {
-      // Détecter la police principale utilisée dans le document
       const bodyStyle = window.getComputedStyle(document.body);
       const mainFont = bodyStyle.fontFamily.split(',')[0].replace(/['"]/g, '').trim();
       
-      // Forcer le rechargement de la police détectée
       if (mainFont && mainFont !== 'inherit') {
         document.fonts.load(`400 16px ${mainFont}`);
         document.fonts.load(`500 16px ${mainFont}`);
@@ -261,7 +349,6 @@ export async function GET(
         document.fonts.load(`700 16px ${mainFont}`);
       }
       
-      // Forcer le rechargement des polices communes
       const commonFonts = ['Inter', 'Roboto', 'Poppins', 'Open Sans', 'Lato', 'Montserrat', 'Verdana', 'Arial'];
       commonFonts.forEach(font => {
         document.fonts.load(`400 16px ${font}`);
@@ -270,52 +357,41 @@ export async function GET(
         document.fonts.load(`700 16px ${font}`);
       });
       
-      // Forcer le re-rendu de tous les éléments avec du texte
       const allElements = document.querySelectorAll('*');
       allElements.forEach(el => {
         if (el.textContent && el.textContent.trim()) {
-          // Forcer le re-rendu en modifiant temporairement le style
           const originalDisplay = el.style.display;
           el.style.display = 'none';
-          el.offsetHeight; // Force reflow
+          el.offsetHeight;
           el.style.display = originalDisplay;
         }
       });
     });
     
-    // Attendre un délai supplémentaire pour s'assurer que tous les styles et polices sont appliqués
     await new Promise(resolve => setTimeout(resolve, 3000));
 
     // Optimiser le conteneur pour l'impression
     await page.evaluate(() => {
       const container = document.querySelector('#resume-pdf-preview') || document.querySelector('#resume-container');
       if (container) {
-        // Sauvegarder la police utilisée avant de nettoyer le DOM
         const computedStyle = window.getComputedStyle(container);
         const originalFont = computedStyle.fontFamily;
         
-        // Nettoyer le DOM pour ne garder que le CV
         document.body.innerHTML = container.outerHTML;
         
-        // Appliquer les styles de base
         document.body.style.margin = '0';
         document.body.style.padding = '0';
         document.body.style.background = 'white';
         
-        // Optimiser le conteneur principal et réappliquer la police d'origine
         const newContainer = document.querySelector('#resume-pdf-preview') || document.querySelector('#resume-container');
         if (newContainer) {
-          // Réappliquer la police d'origine
           newContainer.style.fontFamily = originalFont;
-          
-          // Optimiser les dimensions
           newContainer.style.width = '210mm';
           newContainer.style.margin = '0';
           newContainer.style.padding = '0';
           newContainer.style.boxSizing = 'border-box';
           newContainer.style.background = 'white';
           
-          // Préserver la structure de pagination existante
           const pages = newContainer.querySelectorAll('.page, [class*="page"]');
           if (pages.length > 0) {
             pages.forEach((page, index) => {
@@ -327,14 +403,12 @@ export async function GET(
               page.style.background = 'white';
               page.style.position = 'relative';
               
-              // Ajouter un saut de page sauf pour la dernière page
               if (index < pages.length - 1) {
                 page.style.pageBreakAfter = 'always';
                 page.style.breakAfter = 'page';
               }
             });
           } else {
-            // Si pas de structure de page, créer une page unique
             newContainer.style.minHeight = '297mm';
             newContainer.style.padding = '15mm';
           }
@@ -344,7 +418,9 @@ export async function GET(
       }
     });
 
-    // Générer le PDF avec les mêmes paramètres que l'ancien serveur Express
+    console.log('Génération du PDF...');
+
+    // Générer le PDF
     const pdf = await page.pdf({
       format: 'A4',
       printBackground: true,
@@ -357,12 +433,13 @@ export async function GET(
       },
       preferCSSPageSize: true,
       scale: 1,
-      pageRanges: '-', // Imprimer toutes les pages
+      pageRanges: '-',
       width: '210mm',
       height: '297mm'
     });
 
     await browser.close();
+    console.log('PDF généré avec succès');
 
     // Générer le nom de fichier
     const first = resumeData.resume.personalInfo?.firstName?.trim();
@@ -374,25 +451,32 @@ export async function GET(
       headers: {
         'Content-Type': 'application/pdf',
         'Content-Disposition': `attachment; filename="${fileName}"`,
-        'Cache-Control': 'no-cache'
+        'Cache-Control': 'no-cache',
+        'Content-Length': pdf.length.toString()
       }
     });
 
   } catch (error) {
-    console.error('Erreur lors de la génération du PDF:', error);
+    console.error('Erreur détaillée lors de la génération du PDF:', {
+      message: error.message,
+      stack: error.stack,
+      name: error.name
+    });
     
     if (browser) {
       try {
         await browser.close();
       } catch (closeError) {
-        console.error('Erreur lors de la fermeture du navigateur :', closeError);
+        console.error('Erreur lors de la fermeture du navigateur:', closeError);
       }
     }
 
     return Response.json(
       { 
         error: 'Impossible de générer le PDF', 
-        details: error.message 
+        details: error.message,
+        environment: process.env.NODE_ENV,
+        platform: process.platform
       },
       { status: 500 }
     );
