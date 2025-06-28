@@ -32,6 +32,7 @@ import {
 import { downloadResume } from '@/utils/download-resume';
 import { DownloadProgressModal } from '../ui/download-progress-modal';
 import { useDownloadResume } from '@/hooks/useDownloadResume';
+import { ProgressBar } from '../ui/progress-bar';
 
 interface EditorToolbarProps {
   onTogglePropertiesPanel: () => void;
@@ -61,19 +62,54 @@ const EditorToolbar: React.FC<EditorToolbarProps> = ({
 
   const [resumeIsSaving, setResumeIsSaving] = useState(false);
   const [downloadProgress, setDownloadProgress] = useState(0);
+  const [showProgressBar, setShowProgressBar] = useState(false);
   const [showProgressModal, setShowProgressModal] = useState(false);
   
   // Hook pour le téléchargement PDF avec Puppeteer
   const { downloadResume: downloadPDF, isDownloading, error } = useDownloadResume();
 
-  // Téléchargement PDF après sauvegarde
+  // Téléchargement PDF avec barre de progression
   const handleDownloadPdf = async () => {
     if (!resume?.id) return;
+    setShowProgressBar(true);
+    setDownloadProgress(0);
     try {
       setResumeIsSaving(true);
       await saveResume();
-      await downloadPDF(resume.id);
+      // Téléchargement PDF avec suivi de progression
+      const response = await fetch(`/api/pdf/${resume.id}`);
+      if (!response.body) throw new Error('Pas de flux de données');
+      const contentLength = response.headers.get('Content-Length');
+      const total = contentLength ? parseInt(contentLength, 10) : 0;
+      let loaded = 0;
+      const reader = response.body.getReader();
+      const chunks = [];
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        if (value) {
+          chunks.push(value);
+          loaded += value.length;
+          if (total) {
+            setDownloadProgress(Math.round((loaded / total) * 100));
+          }
+        }
+      }
+      // Fusionner les chunks et déclencher le téléchargement
+      const blob = new Blob(chunks, { type: 'application/pdf' });
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `${resume.title || 'cv'}.pdf`;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      window.URL.revokeObjectURL(url);
+      setDownloadProgress(100);
+    } catch (e) {
+      setDownloadProgress(0);
     } finally {
+      setTimeout(() => setShowProgressBar(false), 1000);
       setResumeIsSaving(false);
     }
   };
@@ -127,6 +163,28 @@ const EditorToolbar: React.FC<EditorToolbarProps> = ({
     <>
     <div className="border-b border-slate-200 dark:border-neutral-800 px-2 sm:px-4 py-2 sm:py-3">
       <Toaster position="top-right" offset={20} />
+      <div className="flex items-center justify-between gap-1 sm:gap-2">
+      </div>
+      {showProgressBar && (
+  <div
+    className="fixed top-4 left-1/2 z-50 w-full max-w-lg -translate-x-1/2 flex flex-col items-center drop-shadow-lg"
+    style={{ pointerEvents: 'none' }}
+  >
+    <div className="flex items-center gap-3 bg-white/90 dark:bg-neutral-900/95 rounded-2xl px-6 py-4 border border-violet-300 dark:border-violet-700 shadow-xl animate-fade-in">
+      <svg className="w-7 h-7 text-violet-600 animate-spin-slow" fill="none" viewBox="0 0 24 24">
+        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
+      </svg>
+      <div className="flex flex-col">
+        <span className="font-semibold text-violet-700 dark:text-violet-300 text-base mb-1">
+          Téléchargement du CV en cours...
+        </span>
+        <ProgressBar value={downloadProgress} className="h-3 bg-violet-100" />
+        <span className="text-xs text-gray-500 mt-1">{downloadProgress}%</span>
+      </div>
+    </div>
+  </div>
+)}
       <div className="flex items-center justify-between gap-1 sm:gap-2">
         {/* left section */}
         <div className="flex items-center gap-1 sm:gap-2">
