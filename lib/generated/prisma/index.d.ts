@@ -9706,6 +9706,7 @@ export namespace Prisma {
     institution: string | null
     degree: string | null
     fieldOfStudy: string | null
+    current: boolean | null
     startDate: Date | null
     endDate: Date | null
     description: string | null
@@ -9719,6 +9720,7 @@ export namespace Prisma {
     institution: string | null
     degree: string | null
     fieldOfStudy: string | null
+    current: boolean | null
     startDate: Date | null
     endDate: Date | null
     description: string | null
@@ -9732,6 +9734,7 @@ export namespace Prisma {
     institution: number
     degree: number
     fieldOfStudy: number
+    current: number
     startDate: number
     endDate: number
     description: number
@@ -9755,6 +9758,7 @@ export namespace Prisma {
     institution?: true
     degree?: true
     fieldOfStudy?: true
+    current?: true
     startDate?: true
     endDate?: true
     description?: true
@@ -9768,6 +9772,7 @@ export namespace Prisma {
     institution?: true
     degree?: true
     fieldOfStudy?: true
+    current?: true
     startDate?: true
     endDate?: true
     description?: true
@@ -9781,6 +9786,7 @@ export namespace Prisma {
     institution?: true
     degree?: true
     fieldOfStudy?: true
+    current?: true
     startDate?: true
     endDate?: true
     description?: true
@@ -9881,6 +9887,7 @@ export namespace Prisma {
     institution: string
     degree: string
     fieldOfStudy: string | null
+    current: boolean
     startDate: Date
     endDate: Date | null
     description: string | null
@@ -9913,6 +9920,7 @@ export namespace Prisma {
     institution?: boolean
     degree?: boolean
     fieldOfStudy?: boolean
+    current?: boolean
     startDate?: boolean
     endDate?: boolean
     description?: boolean
@@ -9927,6 +9935,7 @@ export namespace Prisma {
     institution?: boolean
     degree?: boolean
     fieldOfStudy?: boolean
+    current?: boolean
     startDate?: boolean
     endDate?: boolean
     description?: boolean
@@ -9941,6 +9950,7 @@ export namespace Prisma {
     institution?: boolean
     degree?: boolean
     fieldOfStudy?: boolean
+    current?: boolean
     startDate?: boolean
     endDate?: boolean
     description?: boolean
@@ -9955,6 +9965,7 @@ export namespace Prisma {
     institution?: boolean
     degree?: boolean
     fieldOfStudy?: boolean
+    current?: boolean
     startDate?: boolean
     endDate?: boolean
     description?: boolean
@@ -9962,7 +9973,7 @@ export namespace Prisma {
     order?: boolean
   }
 
-  export type EducationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "resumeId" | "institution" | "degree" | "fieldOfStudy" | "startDate" | "endDate" | "description" | "location" | "order", ExtArgs["result"]["education"]>
+  export type EducationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "resumeId" | "institution" | "degree" | "fieldOfStudy" | "current" | "startDate" | "endDate" | "description" | "location" | "order", ExtArgs["result"]["education"]>
   export type EducationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     resume?: boolean | ResumeDefaultArgs<ExtArgs>
   }
@@ -9984,6 +9995,7 @@ export namespace Prisma {
       institution: string
       degree: string
       fieldOfStudy: string | null
+      current: boolean
       startDate: Date
       endDate: Date | null
       description: string | null
@@ -10418,6 +10430,7 @@ export namespace Prisma {
     readonly institution: FieldRef<"Education", 'String'>
     readonly degree: FieldRef<"Education", 'String'>
     readonly fieldOfStudy: FieldRef<"Education", 'String'>
+    readonly current: FieldRef<"Education", 'Boolean'>
     readonly startDate: FieldRef<"Education", 'DateTime'>
     readonly endDate: FieldRef<"Education", 'DateTime'>
     readonly description: FieldRef<"Education", 'String'>
@@ -33484,6 +33497,7 @@ export namespace Prisma {
     institution: 'institution',
     degree: 'degree',
     fieldOfStudy: 'fieldOfStudy',
+    current: 'current',
     startDate: 'startDate',
     endDate: 'endDate',
     description: 'description',
@@ -34362,6 +34376,7 @@ export namespace Prisma {
     institution?: StringFilter<"Education"> | string
     degree?: StringFilter<"Education"> | string
     fieldOfStudy?: StringNullableFilter<"Education"> | string | null
+    current?: BoolFilter<"Education"> | boolean
     startDate?: DateTimeFilter<"Education"> | Date | string
     endDate?: DateTimeNullableFilter<"Education"> | Date | string | null
     description?: StringNullableFilter<"Education"> | string | null
@@ -34376,6 +34391,7 @@ export namespace Prisma {
     institution?: SortOrder
     degree?: SortOrder
     fieldOfStudy?: SortOrderInput | SortOrder
+    current?: SortOrder
     startDate?: SortOrder
     endDate?: SortOrderInput | SortOrder
     description?: SortOrderInput | SortOrder
@@ -34393,6 +34409,7 @@ export namespace Prisma {
     institution?: StringFilter<"Education"> | string
     degree?: StringFilter<"Education"> | string
     fieldOfStudy?: StringNullableFilter<"Education"> | string | null
+    current?: BoolFilter<"Education"> | boolean
     startDate?: DateTimeFilter<"Education"> | Date | string
     endDate?: DateTimeNullableFilter<"Education"> | Date | string | null
     description?: StringNullableFilter<"Education"> | string | null
@@ -34407,6 +34424,7 @@ export namespace Prisma {
     institution?: SortOrder
     degree?: SortOrder
     fieldOfStudy?: SortOrderInput | SortOrder
+    current?: SortOrder
     startDate?: SortOrder
     endDate?: SortOrderInput | SortOrder
     description?: SortOrderInput | SortOrder
@@ -34428,6 +34446,7 @@ export namespace Prisma {
     institution?: StringWithAggregatesFilter<"Education"> | string
     degree?: StringWithAggregatesFilter<"Education"> | string
     fieldOfStudy?: StringNullableWithAggregatesFilter<"Education"> | string | null
+    current?: BoolWithAggregatesFilter<"Education"> | boolean
     startDate?: DateTimeWithAggregatesFilter<"Education"> | Date | string
     endDate?: DateTimeNullableWithAggregatesFilter<"Education"> | Date | string | null
     description?: StringNullableWithAggregatesFilter<"Education"> | string | null
@@ -36337,6 +36356,7 @@ export namespace Prisma {
     institution: string
     degree: string
     fieldOfStudy?: string | null
+    current?: boolean
     startDate: Date | string
     endDate?: Date | string | null
     description?: string | null
@@ -36351,6 +36371,7 @@ export namespace Prisma {
     institution: string
     degree: string
     fieldOfStudy?: string | null
+    current?: boolean
     startDate: Date | string
     endDate?: Date | string | null
     description?: string | null
@@ -36363,6 +36384,7 @@ export namespace Prisma {
     institution?: StringFieldUpdateOperationsInput | string
     degree?: StringFieldUpdateOperationsInput | string
     fieldOfStudy?: NullableStringFieldUpdateOperationsInput | string | null
+    current?: BoolFieldUpdateOperationsInput | boolean
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
@@ -36377,6 +36399,7 @@ export namespace Prisma {
     institution?: StringFieldUpdateOperationsInput | string
     degree?: StringFieldUpdateOperationsInput | string
     fieldOfStudy?: NullableStringFieldUpdateOperationsInput | string | null
+    current?: BoolFieldUpdateOperationsInput | boolean
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
@@ -36390,6 +36413,7 @@ export namespace Prisma {
     institution: string
     degree: string
     fieldOfStudy?: string | null
+    current?: boolean
     startDate: Date | string
     endDate?: Date | string | null
     description?: string | null
@@ -36402,6 +36426,7 @@ export namespace Prisma {
     institution?: StringFieldUpdateOperationsInput | string
     degree?: StringFieldUpdateOperationsInput | string
     fieldOfStudy?: NullableStringFieldUpdateOperationsInput | string | null
+    current?: BoolFieldUpdateOperationsInput | boolean
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
@@ -36415,6 +36440,7 @@ export namespace Prisma {
     institution?: StringFieldUpdateOperationsInput | string
     degree?: StringFieldUpdateOperationsInput | string
     fieldOfStudy?: NullableStringFieldUpdateOperationsInput | string | null
+    current?: BoolFieldUpdateOperationsInput | boolean
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
@@ -38479,6 +38505,7 @@ export namespace Prisma {
     institution?: SortOrder
     degree?: SortOrder
     fieldOfStudy?: SortOrder
+    current?: SortOrder
     startDate?: SortOrder
     endDate?: SortOrder
     description?: SortOrder
@@ -38496,6 +38523,7 @@ export namespace Prisma {
     institution?: SortOrder
     degree?: SortOrder
     fieldOfStudy?: SortOrder
+    current?: SortOrder
     startDate?: SortOrder
     endDate?: SortOrder
     description?: SortOrder
@@ -38509,6 +38537,7 @@ export namespace Prisma {
     institution?: SortOrder
     degree?: SortOrder
     fieldOfStudy?: SortOrder
+    current?: SortOrder
     startDate?: SortOrder
     endDate?: SortOrder
     description?: SortOrder
@@ -41497,6 +41526,7 @@ export namespace Prisma {
     institution: string
     degree: string
     fieldOfStudy?: string | null
+    current?: boolean
     startDate: Date | string
     endDate?: Date | string | null
     description?: string | null
@@ -41509,6 +41539,7 @@ export namespace Prisma {
     institution: string
     degree: string
     fieldOfStudy?: string | null
+    current?: boolean
     startDate: Date | string
     endDate?: Date | string | null
     description?: string | null
@@ -42142,6 +42173,7 @@ export namespace Prisma {
     institution?: StringFilter<"Education"> | string
     degree?: StringFilter<"Education"> | string
     fieldOfStudy?: StringNullableFilter<"Education"> | string | null
+    current?: BoolFilter<"Education"> | boolean
     startDate?: DateTimeFilter<"Education"> | Date | string
     endDate?: DateTimeNullableFilter<"Education"> | Date | string | null
     description?: StringNullableFilter<"Education"> | string | null
@@ -45514,6 +45546,7 @@ export namespace Prisma {
     institution: string
     degree: string
     fieldOfStudy?: string | null
+    current?: boolean
     startDate: Date | string
     endDate?: Date | string | null
     description?: string | null
@@ -45659,6 +45692,7 @@ export namespace Prisma {
     institution?: StringFieldUpdateOperationsInput | string
     degree?: StringFieldUpdateOperationsInput | string
     fieldOfStudy?: NullableStringFieldUpdateOperationsInput | string | null
+    current?: BoolFieldUpdateOperationsInput | boolean
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
@@ -45671,6 +45705,7 @@ export namespace Prisma {
     institution?: StringFieldUpdateOperationsInput | string
     degree?: StringFieldUpdateOperationsInput | string
     fieldOfStudy?: NullableStringFieldUpdateOperationsInput | string | null
+    current?: BoolFieldUpdateOperationsInput | boolean
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
@@ -45683,6 +45718,7 @@ export namespace Prisma {
     institution?: StringFieldUpdateOperationsInput | string
     degree?: StringFieldUpdateOperationsInput | string
     fieldOfStudy?: NullableStringFieldUpdateOperationsInput | string | null
+    current?: BoolFieldUpdateOperationsInput | boolean
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null

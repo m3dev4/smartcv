@@ -23,6 +23,7 @@ export interface ResumeTemplateProps {
       fieldOfStudy: string;
       startDate: string;
       endDate?: string;
+      current: boolean;
       description?: string;
       location?: string;
       order: number;
