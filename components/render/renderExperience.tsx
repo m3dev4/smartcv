@@ -173,11 +173,18 @@ export const RenderExperienceEditor = () => {
                 checked={currentExperience.current || false}
                 className="rounded border border-muted"
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                  updateExperience(selectedExperienceIndex, 'current', e.target.checked);
-                  if (e.target.checked) {
-                    updateExperience(selectedExperienceIndex, 'endDate', '');
-                  }
-                }}
+  const checked = e.target.checked;
+  // Mise à jour atomique de l'expérience sélectionnée
+  const updatedExp = {
+    ...currentExperience,
+    current: checked,
+    endDate: checked ? null : currentExperience.endDate,
+  };
+  const updatedExperiences = experiences.map((exp, i) =>
+    i === selectedExperienceIndex ? updatedExp : exp
+  );
+  updateResume({ experiences: updatedExperiences });
+}}
               />
               <Label htmlFor="current">Poste actuel</Label>
             </div>

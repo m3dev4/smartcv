@@ -135,6 +135,7 @@ model Education {
   institution  String
   degree       String
   fieldOfStudy String?
+  current      Boolean   @default(false)
   startDate    DateTime
   endDate      DateTime?
   description  String?   @db.Text

@@ -1050,6 +1050,7 @@ export async function duplicateResume(id: string) {
             endDate: education.endDate,
             description: education.description,
             order: education.order,
+            current: education.current,
             fieldOfStudy: education.fieldOfStudy,
             location: education.location,
           })),

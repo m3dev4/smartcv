@@ -23,6 +23,7 @@ export const RenderEducationEditor = () => {
       fieldOfStudy: '',
       startDate: '',
       endDate: '',
+      current: false,
       description: '',
       location: '',
       order: educations.length,
@@ -163,11 +164,37 @@ export const RenderEducationEditor = () => {
                 id="endDate"
                 type="date"
                 value={currentEducation.endDate || ''}
+                disabled={currentEducation.current}
                 className="w-full border border-muted shadow-sm rounded px-2 py-1 rounded-lg"
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                   updateEducation(selectedEducationIndex, 'endDate', e.target.value)
                 }
               />
+            </div>
+          </div>
+
+          <div className="py-2">
+            <div className="flex items-center gap-2">
+              <input
+                type="checkbox"
+                id="current-education"
+                checked={currentEducation.current || false}
+                className="rounded border border-muted"
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                  const checked = e.target.checked;
+                  // Mise à jour atomique de la formation sélectionnée
+                  const updatedEdu = {
+                    ...currentEducation,
+                    current: checked,
+                    endDate: checked ? null : currentEducation.endDate,
+                  };
+                  const updatedEducations = educations.map((edu, i) =>
+                    i === selectedEducationIndex ? updatedEdu : edu
+                  );
+                  updateResume({ educations: updatedEducations });
+                }}
+              />
+              <Label htmlFor="current-education">Formation actuelle</Label>
             </div>
           </div>
 
